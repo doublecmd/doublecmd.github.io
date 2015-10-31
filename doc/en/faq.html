@@ -85,13 +85,13 @@
   <div class="SECT1">
 	<h2>1. Common questions</h2>
 	<p class="bold"><a name="whatisit">Q: What is Double Commander?</a></p>
-	<p><span class="bold">A:</span> Double Commander is a cross-platform file manager with two panels.
+	<p><span class="bold">A:</span> Double Commander is a cross-platform, twin-panel file manager.
 	Details see <a href="about.html">here.</a></p>
 	
 	<br/>
 	
 	<p class="bold"><a name="whatsnew">Q: What's new in this version?</a></p>
-	<p><span class="bold">A:</span> History log can be found online at <a href="http://doublecmd.sourceforge.net/site/eng/news.html">this</a> page. But the project is now under development so later <a href="http://www.firebirdsql.su/dc/">nightly builds</a> contain many new features and improvements.</p>
+	<p><span class="bold">A:</span> History log can be found online at <a href="http://doublecmd.sourceforge.net/site/eng/news.html">this</a> page. But the project is now under development, so later <a href="http://www.firebirdsql.su/dc/">nightly builds</a> contain many new features and improvements.</p>
 	
 	<br/>
 	
@@ -146,7 +146,7 @@
 	<br/>
 	
 	<p class="bold"><a name="colorbuttons">Q: What are buttons R and All in the color settings?</a></p>
-	<p><span class="bold">A:</span> It's simply:</p>
+	<p><span class="bold">A:</span> They are as follows:</p>
 	<ul>
 	  <li><p><kbd>R</kbd>&nbsp;&mdash;  restore color to the default.</p></li>
 	  <li><p><kbd>All</kbd>&nbsp;&mdash; apply selected color to all columns.</p></li>
@@ -233,13 +233,16 @@ Form0=frmMain</pre><p></li>
 	<br/>
 	
 	<p class="bold"><a name="context_menu_edit">Q: How to customise the context menu, for example, add the item "Open With"?</a></p>
-	<p><span class="bold">A:</span> This can be done via file association manually, associate programs with specified file types and also set default program.</p>
-	<p>"Configuration"&nbsp;&mdash; "File associations"&nbsp;&mdash; "File types" (enter any name here, e.g. <span class="bold">media</span>)&nbsp;&mdash; "Extensions" (add, e.g.
-	<span class="bold">avi</span>)&nbsp;&mdash; "Actions"&nbsp;&mdash; click button "Add" (type
-	<span class="bold">open</span>&nbsp;&mdash; "Command" type, e.g. <span class="bold">totem-xine "%p"</span>
-	or <span class="bold">mplayer "%p"</span> or <span class="bold">smplayer "%p"</span> etc ...&nbsp;).
-	After doing this when you right-click on the file you can choose what to open.</p>
-	<p>By the way, it's easy to open any directory with root privileges, e.g. with Nautilus. You can add a new type to the "File associations" (e.g. <span class="bold">dir</span>), set <span class="bold">folder</span> as extension, set <span class="bold">Open as root</span> as action and type command: <span class="bold">gksu nautilus "%p"</span>. After this just right click on any folder, choose <span class="bold">Open as root</span> and enter password :)</p>
+	<p><span class="bold">A:</span> This can been incorporated into Double Commander; however, it's easy to add a command to the Actions item of the  context menu. Here is an example of how to open any directory with root privileges:</p>
+  <pre>
+  1. under File Types, click Add, then enter, e.g. <span class="bold">dir</span> in the popup.
+  2. under Extensions, click Add, and enter, e.g. <span class="bold">folder</span> in the popup.
+  3. under Actions,    click Add, then in the Action: edit line below, 
+     enter the action desired, e.g. <span class="bold">Open as root</span>
+  4. In the Command edit line, enter the desired command: eg. <span class="bold">gksu doublecmd %p</span>
+  5. After this just right click on any folder, choose <span class="bold">Open as root</span> and enter root's password. :)
+  </pre>
+
 	
 	<p class="NAVBACK"><a href="#navigation">on top</a></p>
   </div>

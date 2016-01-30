@@ -776,6 +776,16 @@
         <div class="cmdname"><a name="cm_FileAssoc">cm_FileAssoc</a></div>
       <td class="hintcell">Open file associations <a href="help.html#cm_FileAssoc">configuration</a></td>
       </tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigFolderTabs" alt="cm_ConfigFolderTabs" src="../../pixmaps/dctheme/32x32/actions/cm_configfoldertabs.png"/>
+        <div class="cmdname"><a name="cm_ConfigFolderTabs">cm_ConfigFolderTabs</a></div></td>
+      <td class="hintcell">Access configuration for settings related with folder tabs.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigFavoriteTabs" alt="cm_ConfigFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_configfavoritetabs.png"/>
+        <div class="cmdname"><a name="cm_ConfigFavoriteTabs">cm_ConfigFavoriteTabs</a></div></td>
+      <td class="hintcell">Access configuration of the Favorite Tabs.</td>
+      </tr>
+      <tr>
     </table>
   </div>
   <p class="NAVBACK"><a href="#topofpage">on top</a></p>
@@ -1585,42 +1595,263 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseAllTabs" alt="cm_CloseAllTabs" src="../../pixmaps/dctheme/32x32/actions/cm_closealltabs.png"/>
         <div class="cmdname"><a name="cm_CloseAllTabs">cm_CloseAllTabs</a></div></td>
-      <td class="hintcell">Close all tabs of active panels, except the current one and the locked ones.</td>
-      </tr>
-      <tr>
-      <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseDuplicateTabs" alt="cm_CloseAllTabs" src="../../pixmaps/dctheme/32x32/actions/cm_closeduplicatetabs.png"/>
-        <div class="cmdname"><a name="cm_CloseDuplicateTabs">cm_CloseDuplicateTabs</a></div></td>
-      <td class="hintcell">Close tabs pointing to same dirs so at the end of action, only one tab for each dir is kept.
-        <br /><br />
+      <td class="hintcell">Close all tabs of panel(s), excluding the active one, according to following parameters:
+        <br>
         <table class="innercmddesc">
         <tr class="rowinnerdesc">
-        <th class="innerdescheader">Parameter</th>
-        <th class="innerdescheader">Description</th>
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
         </tr>
         <tr>
-          <td class="innerdescparamcell">LeftTabs</td>
-          <td class="innerdescdesccell">affect tabs in left panel</td>
+          <td class="innerdescparamcell" rowspan="5">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">action closes tabs in <B>left panel</b></td>
         </tr>
         <tr>
-          <td class="innerdescparamcell">RightTabs</td>
-          <td class="innerdescdesccell">affect tabs in right panel</td>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">action closes tabs in <B>right panel</b></td>
         </tr>
         <tr>
-          <td class="innerdescparamcell">(nothing, default)</td>
-          <td class="innerdescdesccell">affect tabs on active panel</td>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">action closes tabs in <B>active panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">action closes tabs in <B>inactive panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">action closes tabs in <B>both panels</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">dolocked</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">action closes also the <B>locked tabs</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">ignore <B>locked tabs</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">confirmlocked</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">if "dolocked" is true, user has to confirm closing locked tabs no matter the configured option "Confirm close locked tabs"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">if "dolocked" is true, close locked tabs without asking confirmation no matter the configured option "Confirm close locked tabs"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><I>(not specified)</i></td>
+          <td class="innerdescdesccell">if "dolocked" is true, ask or not user to confirm closing locked tabs according to the configured option "Confirm close locked tabs"</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">close all the non locked tabs, excluding the active tab, on the active panel</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="3">For legacy backward compatibility, you may also provide simply a single word as single parameter like "LeftTabs" and "RightTabs" to specify the panel where to apply command.</td>
         </tr>
         </table>
       </td>
       </tr>
       <tr>
-      <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadTabs" alt="cm_LoadTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadtabs.png"/>
-        <div class="cmdname"><a name="cm_LoadTabs">cm_LoadTabs</a></div></td>
-      <td class="hintcell">Prompt the user to open a file expected to contains tab names to add and their associated directories.</td>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseDuplicateTabs" alt="cm_CloseDuplicateTabs" src="../../pixmaps/dctheme/32x32/actions/cm_closeduplicatetabs.png"/>
+        <div class="cmdname"><a name="cm_CloseDuplicateTabs">cm_CloseDuplicateTabs</a></div></td>
+      <td class="hintcell">Close tabs pointing to same dirs so at the end of action, only one tab for each dir is kept.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">action closes duplicated tabs in <B>left panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">action closes duplicated tabs in <B>right panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">action closes duplicated tabs in <B>active panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">action closes duplicated tabs in <B>inactive panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">action closes duplicated tabs in <B>both panels</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">dolocked</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">action closes also duplicated <B>locked tabs</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">ignore duplicated<B>locked tabs</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">confirmlocked</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">if "dolocked" is true, user has to confirm closing duplicated locked tabs no matter the configured option "Confirm close locked tabs"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">if "dolocked" is true, close duplicated locked tabs without asking confirmation no matter the configured option "Confirm close locked tabs"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><I>(not specified)</i></td>
+          <td class="innerdescdesccell">if "dolocked" is true, ask or not user to confirm closing duplicated locked tabs according to the configured option "Confirm close locked tabs"</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">close all the  duplicated non locked tabs on the active panel</td>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      <tr>
+        <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadTabs" alt="cm_LoadTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadtabs.png"/>
+	    <div class="cmdname"><a name="cm_LoadTabs">cm_LoadTabs</a></div></td>
+        <td class="hintcell">Open a file expected to contains tab names and their associated directories to apply to panel.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">filename</td>
+          <td class="innerdescvaluecell"><I>filename.tab</i></td>
+          <td class="innerdescdesccell">The file used to load the tabs</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><I>(not specified)</i></td>
+          <td class="innerdescdesccell">A file requested will appear to prompt the user to indicate from which .tab file to load the tabs from.</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="6">loadleftto</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">Tabs saved in left panel in .tab file will be in <B>left</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">Tabs saved in left panel in .tab file will be in <B>right</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">Tabs saved in left panel in .tab file will be in <B>active</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">Tabs saved in left panel in .tab file will be in <B>inactive</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">Tabs saved in left panel in .tab file will be in <B>both</b> panels.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">none</td>
+          <td class="innerdescdesccell">Tabs saved in left panel in .tab file will be <B>ignored</b>.</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="6">loadrightto</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">Tabs saved in right panel in .tab file will be in <B>left</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">Tabs saved in right panel in .tab file will be in <B>right</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">Tabs saved in right panel in .tab file will be in <B>active</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">Tabs saved in right panel in .tab file will be in <B>inactive</b> panel.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">Tabs saved in right panel in .tab file will be in <B>both</b> panels.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">none</td>
+          <td class="innerdescdesccell">Tabs saved in right panel in .tab file will be <B>ignored</b>.</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="6">keep</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">Tabs present in <B>left</b> panel will be preserved.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">Tabs present in <B>right</b> panel will be preserved.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">Tabs present in <B>active</b> panel will be preserved.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">Tabs present in <B>inactive</b> panel will be preserved.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">Tabs present in <B>both</b> panels will be preserved.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">none</td>
+          <td class="innerdescdesccell"><B>None</b> of the present tabs will be preserved</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="3">For legacy backward compatibility, you may also provide simply a single filename as single parameter and DC will load that .tab file "as is", so left and right tabs will be restored to left and right panel respectively.</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveTabs" alt="cm_SaveTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savetabs.png"/>
         <div class="cmdname"><a name="cm_SaveTabs">cm_SaveTabs</a></div></td>
-      <td class="hintcell">Will save into a file the current tab names and thei associated directories.</td>
+      <td class="hintcell">Will save into a file the current tab names and their associated directories, for both left and right, to a .tab file to be eventually loaded back with previous described command.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">filename</td>
+          <td class="innerdescvaluecell"><I>filename.tab</i></td>
+          <td class="innerdescdesccell">The file used to save the tabs</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><I>(not specified)</i></td>
+          <td class="innerdescdesccell">A file requested will appear to prompt the user to indicate to which .tab file to save the tabs to.</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">savedirhistory</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">Will save also the history of last directories for each tabs.</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">History of last directories won't be saved.</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="3">For legacy backward compatibility, you may also provide simply a single filename as single parameter and DC will save to that .tab file.</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_SetTabOptionNormal" alt="cm_SetTabOptionNormal" src="../../pixmaps/dctheme/32x32/actions/cm_settaboptionnormal.png"/>
@@ -1640,7 +1871,188 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_SetTabOptionDirsInNewTab" alt="cm_SetTabOptionDirsInNewTab" src="../../pixmaps/dctheme/32x32/actions/cm_settaboptiondirsinnewtab.png"/>
         <div class="longcmdname"><a name="cm_SetTabOptionDirsInNewTab">cm_SetTabOptionDirsInNewTab</a></div></td>
-      <td class="hintcell">Current tab to @locked with dir change in new tab", user may change directory inside the panel, but as user enters in new directory, that one will be opened in a new tab.</td>
+      <td class="hintcell">Current tab to "locked with dir change in new tab", user may change directory inside the panel, but as user enters in new directory, that one will be opened in a new tab.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_SetAllTabsOptionNormal" alt="cm_SetAllTabsOptionNormal" src="../../pixmaps/dctheme/32x32/actions/cm_SetAllTabsOptionNormal.png"/>
+        <div class="cmdname"><a name="cm_SetAllTabsOptionNormal">cm_SetAllTabsOptionNormal</a></div></td>
+      <td class="hintcell">Set back to "normal" all the tabs.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">affects only the tabs of the active panel</td>
+        </tr>
+        </table>
+	  </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_SetAllTabsOptionPathLocked" alt="cm_SetAllTabsOptionPathLocked" src="../../pixmaps/dctheme/32x32/actions/cm_SetAllTabsOptionPathLocked.png"/>
+        <div class="cmdname"><a name="cm_SetAllTabsOptionPathLocked">cm_SetAllTabsOptionPathLocked</a></div></td>
+      <td class="hintcell">All tabs to "locked", user can't change directory.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">affects only the tabs of the active panel</td>
+        </tr>
+        </table>
+	  </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_SetAllTabsOptionPathResets" alt="cm_SetAllTabsOptionPathResets" src="../../pixmaps/dctheme/32x32/actions/cm_SetAllTabsOptionPathResets.png"/>
+        <div class="cmdname"><a name="cm_SetAllTabsOptionPathResets">cm_SetAllTabsOptionPathResets</a></div></td>
+      <td class="hintcell">All tabs to "locked with dir change allowed", user may change directory inside the panel, but if user changes tab and then come back to that one, it will come back to original directory where it was locked.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">affects only the tabs of the active panel</td>
+        </tr>
+        </table>
+	  </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_SetAllTabsOptionDirsInNewTab" alt="cm_SetAllTabsOptionDirsInNewTab" src="../../pixmaps/dctheme/32x32/actions/cm_SetAllTabsOptionDirsInNewTab.png"/>
+        <div class="cmdname"><a name="cm_SetAllTabsOptionDirsInNewTab">cm_SetAllTabsOptionDirsInNewTab</a></div></td>
+      <td class="hintcell">All tabs to "locked with dir change in new tab", user may change directory inside the panel, but as user enters in new directory, that one will be opened in a new tab.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">right</td>
+          <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">active</td>
+          <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">inactive</td>
+          <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">both</td>
+          <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">affects only the tabs of the active panel</td>
+        </tr>
+        </table>
+	  </td>
+    </tr>
+    <tr>
+    <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadFavoriteTabs" alt="cm_LoadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadfavoritetabs.png"/>
+      <div class="cmdname"><a name="cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a></div></td>
+      <td class="hintcell">Prompt the user with a popup to request asking to select a previously saved setup of tabs.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFavoriteTabs" alt="cm_SaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savefavoritetabs.png"/>
+        <div class="cmdname"><a name="cm_SaveFavoriteTabs">cm_SaveFavoriteTabs</a></div></td>
+      <td class="hintcell">Will save in the "Favorite Tabs" the current opened tabs. Later on, on request, user may reload these saved setup using the "cm_LoadFavoriteTabs" command.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ReloadFavoriteTabs" alt="cm_ReloadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_reloadfavoritetabs.png"/>
+        <div class="cmdname"><a name="cm_ReloadFavoriteTabs">cm_ReloadFavoriteTabs</a></div></td>
+      <td class="hintcell">Reload again the last Favorite Tabs setup that was loaded. So if after browsing in every tab and additional tabs were added, etc. we want to restore "as-is" what has been set for the last Favorite Tabs that was loaded, that's the command to invoke.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_PreviousFavoriteTabs" alt="cm_PreviousFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_previousfavoritetabs.png"/>
+        <div class="cmdname"><a name="cm_PreviousFavoriteTabs">cm_PreviousFavoriteTabs</a></div></td>
+      <td class="hintcell">Will load the Favorite Tabs setup that is just before in our list the last one we loaded.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_NextFavoriteTabs" alt="cm_NextFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_nextfavoritetabs.png"/>
+        <div class="cmdname"><a name="cm_NextFavoriteTabs">cm_NextFavoriteTabs</a></div></td>
+      <td class="hintcell">Will load the Favorite Tabs setup that is just after in our list the last one we loaded.</td>
       </tr>
     </table>
   </div>

@@ -786,6 +786,16 @@
       <td class="hintcell">Access configuration of the Favorite Tabs.</td>
       </tr>
       <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigTreeViewMenus" alt="cm_ConfigTreeViewMenus" src="../../pixmaps/dctheme/32x32/actions/cm_configtreeviewmenus.png"/>
+        <div class="cmdname"><a name="cm_ConfigTreeViewMenus">cm_ConfigTreeViewMenus</a></div></td>
+      <td class="hintcell">Access configuration of the Tree View Menus. This is where we could configure for which command by default we want to use the tree view menu style of slection.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigTreeViewMenusColors" alt="cm_ConfigTreeViewMenusColors" src="../../pixmaps/dctheme/32x32/actions/cm_configtreeviewmenuscolors.png"/>
+        <div class="longcmdname"><a name="cm_ConfigTreeViewMenusColors">cm_ConfigTreeViewMenusColors</a></div></td>
+      <td class="hintcell">Access configuration of the color used with the Tree View Menu section interface.</td>
+      </tr>
+      <tr>
     </table>
   </div>
   <p class="NAVBACK"><a href="#topofpage">on top</a></p>
@@ -984,13 +994,89 @@
       <td class="cmdcell"><img class="IntCmdImage" title="cm_DirHistory" alt="cm_DirHistory" src="../../pixmaps/dctheme/32x32/actions/cm_dirhistory.png"/>
         <div class="cmdname"><a name="cm_DirHistory">cm_DirHistory</a></div>
         <div class="shrtctkey">Ctrl+H</div></td>
-      <td class="hintcell">Invoke <a href="help.html#cm_DirHistory">dir history</a> drop down menu.</td>
+      <td class="hintcell">Invoke <a href="help.html#cm_DirHistory">dir history</a> menu.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">menutype</td>
+          <td class="innerdescvaluecell">popup</td>
+          <td class="innerdescdesccell">directories in history will be displayed in a popup menu</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">treeview</td>
+          <td class="innerdescdesccell">directories in history will be displayed in a tree view menu</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">position</td>
+          <td class="innerdescvaluecell">panel</td>
+          <td class="innerdescdesccell">menu will be shown from the top left corner of active panel</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">cursor</td>
+          <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be from the top left corner of active panel</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">popup menu shown from top left corner of active panel</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_DirHotList" alt="cm_DirHotList" src="../../pixmaps/dctheme/32x32/actions/cm_dirhotlist.png"/>
         <div class="cmdname"><a name="cm_DirHotList">cm_DirHotList</a></div>
         <div class="shrtctkey">Ctrl+D</div></td>
-      <td class="hintcell">Directory <a href="help.html#cm_DirHotList">hotlist</a>.</td>
+      <td class="hintcell">Directory <a href="help.html#cm_DirHotList">hotlist</a>.<br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">menutype</td>
+          <td class="innerdescvaluecell">popup</td>
+          <td class="innerdescdesccell">hot directories will be displayed in a popup menu</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">treeview</td>
+          <td class="innerdescdesccell">hot directories will be displayed in a tree view menu</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">position</td>
+          <td class="innerdescvaluecell">panel</td>
+          <td class="innerdescdesccell">menu will be shown from the top left corner of active panel</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">cursor</td>
+          <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be from the top left corner of active panel</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">popup menu shown from top left corner of active panel</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDirToParent" alt="cm_ChangeDirToParent" src="../../pixmaps/dctheme/32x32/actions/cm_changedirtoparent.png"/>
@@ -1236,7 +1322,45 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistory" alt="cm_ViewHistory" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistory.png"/>
         <div class="cmdname"><a name="cm_ViewHistory">cm_ViewHistory</a></div></td>
-      <td class="hintcell">Will popup at the cursor position, the last directories visited.</td>
+      <td class="hintcell">Will popup at the cursor position, the last directories visited.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">menutype</td>
+          <td class="innerdescvaluecell">popup</td>
+          <td class="innerdescdesccell">directories in history will be displayed in a popup menu</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">treeview</td>
+          <td class="innerdescdesccell">directories in history will be displayed in a tree view menu</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">position</td>
+          <td class="innerdescvaluecell">panel</td>
+          <td class="innerdescdesccell">menu will be shown from the top left corner of active panel</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">cursor</td>
+          <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be from mouse cursor position</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">popup menu shown at the current mouse cursor position</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistoryNext" alt="cm_ViewHistoryNext" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistorynext.png"/>
@@ -1349,7 +1473,6 @@
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowMainMenu" alt="cm_ShowMainMenu" src="../../pixmaps/dctheme/32x32/actions/cm_showmainmenu.png"/>
         <div class="cmdname"><a name="cm_ShowMainMenu">cm_ShowMainMenu</a></div></td>
       <td class="hintcell">Determine if we see the main bar menu or not.<br>
-        <br>
         <table class="innercmddesc">
         <tr class="rowinnerdesc">
           <th class="innerdescheader">Parameter</th>
@@ -1366,6 +1489,15 @@
           <td class="innerdescdesccell">main menu is <B>not</b> displayed</td>
         </tr>
         <tr>
+          <td class="innerdescparamcell" rowspan="2">treeview</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">on request, the main menu item will be shown under the form of a tree view menu</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">dummy, will simply be ignored</td>
+        </tr>
+        <tr>
           <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
           <td class="innerdescdesccell">toggle the visibility of the main menu</td>
         </tr>
@@ -1377,7 +1509,37 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowButtonMenu" alt="cm_ShowButtonMenu" src="../../pixmaps/dctheme/32x32/actions/cm_showbuttonmenu.png"/>
         <div class="cmdname"><a name="cm_ShowButtonMenu">cm_ShowButtonMenu</a></div>
-      <td class="hintcell">Ex-command not implemented anymore.</td>
+      <td class="hintcell">Determine if we see the toolbar or not.<br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">toolbar</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">toolbar is displayed</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">toolbar is <B>not</b> displayed</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">treeview</td>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">on request, the toolbar menu item will be shown under the form of a tree view menu</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">dummy, will simply be ignored</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">toggle the visibility of the toolbar</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_OperationsViewer" alt="cm_OperationsViewer" src="../../pixmaps/dctheme/32x32/actions/cm_operationsviewer.png"/>
@@ -1421,7 +1583,28 @@
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowCmdLineHistory" alt="cm_ShowCmdLineHistory" src="../../pixmaps/dctheme/32x32/actions/cm_showcmdlinehistory.png"/>
         <div class="cmdname"><a name="cm_ShowCmdLineHistory">cm_ShowCmdLineHistory</a></div>
         <div class="shrtctkey">Ctrl+7</div></td>
-      <td class="hintcell">Show history of all commands used in the <a href="help.html#iface_path">command line</a>.</td>
+      <td class="hintcell">Show history of all commands used in the <a href="help.html#iface_path">command line</a>.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">menutype</td>
+          <td class="innerdescvaluecell">combobox</td>
+          <td class="innerdescdesccell">the combo box of the command line will be expanded so you may chose the command from the command line history</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">treeview</td>
+          <td class="innerdescdesccell">a tree view menu will be opened above the combox box of the command line</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be through the combo box</td>
+		</tr>
+        </table>
+	  </td>
       </tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png"/>
         <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
@@ -2071,7 +2254,45 @@
     <tr>
     <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadFavoriteTabs" alt="cm_LoadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadfavoritetabs.png"/>
       <div class="cmdname"><a name="cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a></div></td>
-      <td class="hintcell">Prompt the user with a popup to request asking to select a previously saved setup of tabs.</td>
+      <td class="hintcell">Prompt the user with a popup to request asking to select a previously saved setup of tabs.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">menutype</td>
+          <td class="innerdescvaluecell">popup</td>
+          <td class="innerdescdesccell">favorite tabs will be displayed in a popup menu</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">treeview</td>
+          <td class="innerdescdesccell">favorite tabs will be displayed in a tree view menu</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">position</td>
+          <td class="innerdescvaluecell">panel</td>
+          <td class="innerdescdesccell">menu will be shown from the top left corner of active panel</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">cursor</td>
+          <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
+		</tr>
+		<tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be from the top left corner of active panel</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">popup menu shown from top left corner of active panel</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFavoriteTabs" alt="cm_SaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savefavoritetabs.png"/>

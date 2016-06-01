@@ -854,12 +854,136 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkPlus" alt="cm_MarkPlus" src="../../pixmaps/dctheme/32x32/actions/cm_markplus.png"/>
         <div class="cmdname"><a name="cm_MarkPlus">cm_MarkPlus</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkPlus">Select</a> items using a mask.</td>
+      <td class="hintcell"><a href="help.html#cm_MarkPlus">Select</a> items in active panel using a mask (provided or not) according the the following parameters.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+        <th class="innerdescheader">Parameter</th>
+        <th class="innerdescheader">Value</th>
+        <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">mask</td>
+          <td class="innerdescvaluecell"><i>&lt;any string&gt;</i></td>
+          <td class="innerdescdesccell">the filter to use</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">will prompt user to type filter</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">casesensitive</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">filtering will be done ignoring case</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">filtering will be done case-sensitive</td>
+        </tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">case sensitivity will be the last one used for the current file view</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">ignoreaccents</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">filtering will be done evaluating an exact match regarding accentuated characters</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">items and mask will be compared ignoring their accent and ligatures replaced by distinct letters</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">ignoring or not accents will be like the last time it was specified for that file view</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">windowsinterpretation</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">filtering will be done like DC legacy</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">filtering will be done like Windows</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">using DC legacy filtering or Windows one will be like the last time it was specified for that file view</td>
+        </tr>
+        </table>
+          <B>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<BR>
+		  <B>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be selected with filter <i>*.*</i><BR>
+		  <B>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<I>mask=&gt;Pascal files</i>"<BR>
+		  <B>Note4:</b> When using filtering parameter "<I>ignoreaccents=TRUE</i>", the ligatured characters like "<I>&oelig;</i>" for example will be evaluated as the sequence "<I>oe</i>". So for example "<I>c&oelig;ur</i>" will match "<I>coeur</i>".<BR>
+		  <B>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the "cm_MarkPlus" with no parameters which will use the default same parameters of last time it was prompting the user.<BR>
+		  <B>Example1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" This will select all the files matching the given filter mask (which is basically common Delphi source file extensions) and ignoring the case of the letters.<BR>
+		  <B>Example2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" This will select all the files matching the given filter mask (which is basically Microsoft Word document with the word "ecole" in them) ignoring the accents. This means it will select file with "école" and "ecole" in them since accent are ignored.
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkMinus" alt="cm_MarkMinus" src="../../pixmaps/dctheme/32x32/actions/cm_markminus.png"/>
         <div class="cmdname"><a name="cm_MarkMinus">cm_MarkMinus</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkMinus">Unselect</a> marked items using a mask.</td>
+      <td class="hintcell"><a href="help.html#cm_MarkMinus">Unselect</a> items in active panel matching the mask (provided or not) according the the following parameters.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+        <th class="innerdescheader">Parameter</th>
+        <th class="innerdescheader">Value</th>
+        <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">mask</td>
+          <td class="innerdescvaluecell"><i>&lt;any string&gt;</i></td>
+          <td class="innerdescdesccell">the filter to use</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">will prompt user to type filter</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">casesensitive</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">filtering will be done ignoring case</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">filtering will be done case-sensitive</td>
+        </tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">case sensitivity will be the last one used for the current file view</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">ignoreaccents</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">filtering will be done evaluating an exact match regarding accentuated characters</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">items and mask will be compared ignoring their accent and ligatures replaced by distinct letters</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">ignoring or not accents will be like the last time it was specified for that file view</td>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="3">windowsinterpretation</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">filtering will be done like DC legacy</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">filtering will be done like Windows</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">using DC legacy filtering or Windows one will be like the last time it was specified for that file view</td>
+        </tr>
+        </table>
+          <B>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<BR>
+		  <B>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be unselected with filter <i>*.*</i><BR>
+		  <B>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined unselection type simply by preceding the name of it with symbol "&gt;" like "<I>mask=&gt;Pascal files</i>"<BR>
+		  <B>Note4:</b> When using filtering parameter "<I>ignoreaccents=TRUE</i>", the ligatured characters like "<I>&oelig;</i>" for example will be evaluated as the sequence "<I>oe</i>". So for example "<I>c&oelig;ur</i>" will match "<I>coeur</i>".<BR>
+		  <B>Example:</b> "cm_MarkMinus mask=*. windowsinterpretation=True" This will unselect all the files with no extension since it's the Windows behavior when using "*." filter.<BR>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkMarkAll" alt="cm_MarkMarkAll" src="../../pixmaps/dctheme/32x32/actions/cm_markmarkall.png"/>

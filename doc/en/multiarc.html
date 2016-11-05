@@ -397,6 +397,15 @@ p,ul,ol /* Paragraph Style */
 <p class=rvps2><span class=rvts18>;&nbsp; e - file extension</span></p>
 <p class=rvps2><span class=rvts18>;&nbsp; ? - skip one symbol</span></p>
 <p class=rvps2><span class=rvts18>;&nbsp; * - skip until first space or end of line</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; + - for name field at line end: use all chars until the end of the line</span></p>
+<p class=rvps2><span class=rvts24>Advanced syntax (slower):</span><span class=rvts18> </span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; + - for name field not at line end: use all chars up to next space</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; + - after any numeric field: use all digits up to first non-digit character</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; $ - skip all spaces/tabstops until next character or end of line</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; \ - data continues on next line (maximum 2 lines supported)</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; x - exactly 1 space, if there is a different character at this position, ignore the whole line</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; z=1024 - unpacked size multiplied with given value (here: 1024)</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; p=1024 - packed size multiplied with given value (here: 1024)</span></p>
 <p class=rvps2><span class=rvts24>Example:</span><span class=rvts18> </span></p>
 <p class=rvps2><span class=rvts18>The part of JAR output log:</span></p>
 <p class=rvps2><span class=rvts18>346) install\f_0286</span></p>

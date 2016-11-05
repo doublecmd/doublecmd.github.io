@@ -377,7 +377,7 @@ p,ul,ol /* Paragraph Style */
 <p><span class=rvts11>Описание строк Format</span></p>
 <p class=rvps3><span class=rvts12> Для разбора файла вывода MultiArc использует шаблон FormatN. Если список файлов использует одни и те же строки для вывода информации о каждом файле в архиве используйте соответствующее число шаблонов Format. Шаблон Format это строковая маска для извлечения информации из одной строки списка файлов.&nbsp; Используйте следующие символы для определения шаблона:&nbsp; </span></p>
 <p class=rvps3><span class=rvts18>;&nbsp; n - имя файла</span></p>
-<p class=rvps3><span class=rvts18>;&nbsp; z - размер не сжатого файла</span></p>
+<p class=rvps3><span class=rvts18>;&nbsp; z - размер несжатого файла</span></p>
 <p class=rvps3><span class=rvts18>;&nbsp; c - описание файла</span></p>
 <p class=rvps3><span class=rvts18>;&nbsp; p - размер сжатого файла</span></p>
 <p class=rvps3><span class=rvts18>;&nbsp; d - день</span></p>
@@ -393,6 +393,15 @@ p,ul,ol /* Paragraph Style */
 <p class=rvps3><span class=rvts18>;&nbsp; e - расширение файла</span></p>
 <p class=rvps3><span class=rvts18>;&nbsp; ? - пропустить один символ</span></p>
 <p class=rvps3><span class=rvts18>;&nbsp; * - пропускать до первого пробела или конца строки</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; + - после имени в конце строки: использовать все символы до конца строки</span></p>
+<p class=rvps2><span class=rvts24>Расширенный синтаксис (медленнее):</span><span class=rvts18> </span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; + - после имени не в конце строки: использовать все символы до следующего пробела</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; + - после любого числового поля: использовать все цифры до первого нецифрового символа</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; $ - пропустить все пробелы/табуляции до следующего символа или до конца строки</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; \ - данные продолжаются на следующей строке (поддерживается максимум 2 строки)</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; x - в точности один пробел, если на этом месте находится другой символ, то вся строка игнорируется</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; z=1024 - размер несжатого файла, умноженный на указанное значение (в данном случае: 1024)</span></p>
+<p class=rvps2><span class=rvts18>;&nbsp; p=1024 - размер сжатого файла, умноженный на указанное значение (в данном случае: 1024)</span></p>
 <p class=rvps3><span class=rvts24>Пример:</span><span class=rvts18> </span></p>
 <p class=rvps3><span class=rvts18>Часть вывода лога JAR :</span></p>
 <p class=rvps3><span class=rvts18>346) install\f_0286</span></p>

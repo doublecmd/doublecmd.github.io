@@ -625,7 +625,25 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ContextMenu" alt="cm_ContextMenu" src="../../pixmaps/dctheme/32x32/actions/cm_contextmenu.png"/>
         <div class="cmdname"><a name="cm_ContextMenu">cm_ContextMenu</a></div>
-      <td class="hintcell">Shows <a href="help.html#cm_ContextMenu">context menu</a> for files and folders</td>
+      <td class="hintcell">Shows <a href="help.html#cm_ContextMenu">context menu</a> for files and folders<br>        
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+        <th class="innerdescheader">Parameter</th>
+        <th class="innerdescheader">Value</th>
+        <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">justactionmenu</td>
+          <td class="innerdescvaluecell">0/false/off/no</td>
+          <td class="innerdescdesccell">menu will include the default system context menu AND the file extensions associated actions defined in Double Commander (default)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">1/true/on/yes</td>
+          <td class="innerdescdesccell">menu will include only the file extensions associated actions defined in Double Commander (the default system context menu won't be displayed)</td>
+        </tr>
+        </table>	  
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_Open" alt="cm_Open" src="../../pixmaps/dctheme/32x32/actions/cm_open.png"/>

@@ -863,6 +863,12 @@
         <div class="shrtctkey">F9</div></td>
       <td class="hintcell">Starts a <a href="help.html#cm_RunTerm">terminal</a>.</td>
       </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ExecuteScript" alt="cm_ExecuteScript" src="../../pixmaps/dctheme/32x32/actions/cm_executescript.png"/>
+        <div class="cmdname"><a name="cm_ExecuteScript">cm_ExecuteScript</a></div>
+      </td>
+      <td class="hintcell"></a>Launch the execution of the selected filename assuming it's a Lua script and Lua .DLL installed.</td>
+      </tr>
     </table>
   </div>
   <p class="NAVBACK"><a href="#topofpage">on top</a></p>
@@ -1026,14 +1032,58 @@
       <td class="hintcell"><a href="help.html#cm_MarkInvert">Invert</a> selection.</td>
       </tr>
       <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentPath" alt="cm_MarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentpath.png"/>
+        <div class="cmdname"><a name="cm_MarkCurrentPath">cm_MarkCurrentPath</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same path as item under cursor of active panel.<BR>
+      <B>Note:</b> It might seem useless at first look but may be used in at least two situations:<br>
+        <div style="margin: 0 0 0 15;">
+          After you've filled a panel with search results coming from various level of directories<br>
+          After you've invoke the "cm_FlatView" internal command.
+        </div>
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentPath" alt="cm_UnmarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentpath.png"/>
+        <div class="cmdname"><a name="cm_UnmarkCurrentPath">cm_UnmarkCurrentPath</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same path as item under cursor of active panel.<BR>
+      See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentName" alt="cm_MarkCurrentName" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentname.png"/>
+        <div class="cmdname"><a name="cm_MarkCurrentName">cm_MarkCurrentName</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename ignoring the extension as item under cursor of active panel.
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentName" alt="cm_UnmarkCurrentName" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentname.png"/>
+        <div class="cmdname"><a name="cm_UnmarkCurrentName">cm_UnmarkCurrentName</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename ignoring the extension as item under cursor of active panel.
+      </td>
+      </tr>
+      <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentExtension" alt="cm_MarkCurrentExtension" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentextension.png"/>
         <div class="cmdname"><a name="cm_MarkCurrentExtension">cm_MarkCurrentExtension</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkCurrentExtension">Mark</a> files with the same extension as file under cursor.</td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same extension as item under cursor of active panel.</td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentExtension" alt="cm_UnmarkCurrentExtension" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentextension.png"/>
         <div class="cmdname"><a name="cm_UnmarkCurrentExtension">cm_UnmarkCurrentExtension</a></div>
-      <td class="hintcell"><a href="help.html#cm_UnmarkCurrentExtension">Unmark</a> items using mask.</td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same extension as item under cursor of active panel.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentNameExt" alt="cm_MarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentnameext.png"/>
+        <div class="cmdname"><a name="cm_MarkCurrentNameExt">cm_MarkCurrentNameExt</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename and extension as item under cursor of active panel.<BR>
+      See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentNameExt" alt="cm_UnmarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentnameext.png"/>
+        <div class="cmdname"><a name="cm_UnmarkCurrentNameExt">cm_UnmarkCurrentNameExt</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename and extension as item under cursor of active panel.<BR>
+      See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_CompareDirectories" alt="cm_CompareDirectories" src="../../pixmaps/dctheme/32x32/actions/cm_comparedirectories.png"/>

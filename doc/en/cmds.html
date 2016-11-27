@@ -1821,18 +1821,48 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPathToCmdLine" alt="cm_AddPathToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addpathtocmdline.png"/>
         <div class="cmdname"><a name="cm_AddPathToCmdLine">cm_AddPathToCmdLine</a></div>
-        <div class="shrtctkey">Ctrl+P</div></td>
-      <td class="hintcell">Place current path in command line.</td>
+        <div class="shrtctkey">Ctrl+P</div>
+      </td>
+      <td class="hintcell">Place current path in command line.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">mode</td>
+          <td class="innerdescvaluecell">smartquote</td>
+          <td class="innerdescdesccell">will place the added text between quotes, only if necessary (like for example if there are spaces in it and will let it intact if there is no spaces</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">forcequote</td>
+          <td class="innerdescdesccell">will systematically quote that will be added</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">neverquote</td>
+          <td class="innerdescdesccell">will systematically never quote that will be added</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">prompt</td>
+          <td class="innerdescdesccell">will prompt the user if he wants to quote his added text or not, with the default choice set like if it would be a "mode=smartquote"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be "mode=smartquote"</td>
+        </tr>
+        </table>
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_AddFilenameToCmdLine" alt="cm_AddFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addfilenametocmdline.png"/>
         <div class="cmdname"><a name="cm_AddFilenameToCmdLine">cm_AddFilenameToCmdLine</a></div></td>
-      <td class="hintcell">Place filename of current selected item in command line.</td>
+      <td class="hintcell">Place filename of current selected item in command line.<BR><B>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a></td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPathAndFilenameToCmdLine" alt="cm_AddPathAndFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addpathandfilenametocmdline.png"/>
         <div class="longcmdname"><a name="cm_AddPathAndFilenameToCmdLine">cm_AddPathAndFilenameToCmdLine</a></div></td>
-      <td class="hintcell">Place current path and filename of selected item in command line.</td>
+      <td class="hintcell">Place current path and filename of selected item in command line.<BR><B>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a></td>
       </tr>
     </table>
   </div>

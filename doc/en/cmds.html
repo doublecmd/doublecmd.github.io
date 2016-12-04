@@ -948,7 +948,7 @@
           <td class="innerdescdesccell">using DC legacy filtering or Windows one will be like the last time it was specified for that file view</td>
         </tr>
         <tr>
-          <td class="innerdescparamcell" rowspan="6">attr</td>
+          <td class="innerdescparamcell" rowspan="7">attr</td>
           <td class="innerdescvaluecell">d-</td>
           <td class="innerdescdesccell">filtering will ignore directories and take only files</td>
         </tr>
@@ -962,11 +962,15 @@
         </tr>
         <tr>
           <td class="innerdescvaluecell">ux+</td>
-          <td class="innerdescdesccell">filtering will take only entries with attribute owner's execitable (Linux)</td>
+          <td class="innerdescdesccell">filtering will take only entries with attribute owner's executable (Linux)</td>
         </tr>
         <tr>
           <td class="innerdescvaluecell">uw+|gw+|ow+</td>
           <td class="innerdescdesccell">filtering will take files that are writeable either by user, group or anybody else (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"></td>
+          <td class="innerdescdesccell">note: this means "attr=" with no right value. <BR>filter everything, no matter configuration default default attribute</td>
         </tr>
         <tr>
           <td class="innerdescvaluecell"><i>(absent)</i></td>
@@ -992,18 +996,56 @@
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkMarkAll" alt="cm_MarkMarkAll" src="../../pixmaps/dctheme/32x32/actions/cm_markmarkall.png"/>
         <div class="cmdname"><a name="cm_MarkMarkAll">cm_MarkMarkAll</a></div>
         <div class="shrtctkey">Ctrl+A</div></td>
-      <td class="hintcell">Mark <a href="help.html#cm_MarkMarkAll">all</a> in the panel.</td>
+      <td class="hintcell">Will basically select <a href="help.html#cm_MarkMarkAll">all</a> the entries in the active panel according to attribute filter that follows.
+        <br>
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+        <th class="innerdescheader">Parameter</th>
+        <th class="innerdescheader">Value</th>
+        <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="7">attr</td>
+          <td class="innerdescvaluecell">d-</td>
+          <td class="innerdescdesccell">filter every entries that are not a directories</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">d+</td>
+          <td class="innerdescdesccell">filter every entries that are a directories</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">h-</td>
+          <td class="innerdescdesccell">filter every entries that don't have the hidden attributes</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">ux+</td>
+          <td class="innerdescdesccell">filter all entries with attribute owner's executable (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">uw+|gw+|ow+</td>
+          <td class="innerdescdesccell">filter all entries that are writeable either by user, group or anybody else (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"></td>
+          <td class="innerdescdesccell">note: this means "attr=" with no right value. <BR>filter everything, no matter configuration default default attribute</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">will select everything that match what's configured in "File views", section "Marking/Unmarking entries", the option "Default attribute mask value to use".</td>
+        </tr>
+        </table>
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkUnmarkAll" alt="cm_MarkUnmarkAll" src="../../pixmaps/dctheme/32x32/actions/cm_markunmarkall.png"/>
         <div class="cmdname"><a name="cm_MarkUnmarkAll">cm_MarkUnmarkAll</a></div>
         <div class="shrtctkey">F1</div></td>
-      <td class="hintcell">Unselect <a href="help.html#cm_MarkUnmarkAll">all</a> marked items.</td>
+      <td class="hintcell">Will unselect <a href="help.html#cm_MarkUnmarkAll">all</a> the entries of the active panel according to the same filter described in table of <a href="#cm_MarkMarkAll">cm_MarkMarkAll</a> command.</td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkInvert" alt="cm_MarkInvert" src="../../pixmaps/dctheme/32x32/actions/cm_markinvert.png"/>
         <div class="cmdname"><a name="cm_MarkInvert">cm_MarkInvert</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkInvert">Invert</a> selection.</td>
+      <td class="hintcell">Will <a href="help.html#cm_MarkInvert">Invert</a> the selected state of all the entries matching the same filter described in table of <a href="#cm_MarkMarkAll">cm_MarkMarkAll</a> command.</td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentPath" alt="cm_MarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentpath.png"/>

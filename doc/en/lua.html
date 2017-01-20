@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>Lua Scripting</title>
+  <link rel="STYLESHEET" type="text/css" href="doublecmd.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body>
+  <a name="topofpage"></a>
+  <div class="CHAPTER">
+  <h1>Lua Scripting - Standard Libraries</h1>
+
+  <h2>1. Double Commander Functions</h2>
+
+<p>
+This library contains Double Commander specific functions.
+It provides all its functions inside the table <code>DC</code>.
+
+<p>
+<hr><h3>DC.ExecuteCommand(command, param1, param2,...,paramX)</h3>
+
+
+<p>
+Execute internal Double Commander command command with parameters param1..paramX.
+
+  <h2>2. System Functions</h2>
+
+<p>
+This library contains various system functions.
+It provides all its functions inside the table <code>SysUtils</code>.
+
+<p>
+<hr><h3>SysUtils.FileExists(FileName)</h3>
+
+<p>
+Check whether a particular file exists in the filesystem. FileExists returns True if a file with name FileName exists on the disk, False otherwise.
+
+<p>
+<hr><h3>SysUtils.DirectoryExists(Directory)</h3>
+
+<p><var>DirectoryExists</var> checks whether <var>Directory</var> exists in the filesystem and is actually a directory.
+If this is the case, the function returns <var>True</var>, otherwise <var>False</var> is returned. </p>
+
+<p>
+<hr><h3>SysUtils.FileGetAttr(FileName)</h3>
+
+<p><var>FileGetAttr</var> returns the attribute settings of file <var>FileName</var>. The attribute is a <var>OR</var>-ed combination of the following constants: </p>
+<dl>
+<dt>faReadOnly = $00000001</dt>
+<dd>The file is read-only.</dd>
+<dt>faHidden = $00000002</dt>
+<dd>The file is hidden. (On unix, this means that the filename starts with a dot) </dd>
+<dt>faSysFile = $00000004</dt>
+<dd>The file is a system file (On unix, this means that the file is a character, block or FIFO file). </dd>
+<dt>faVolumeId = $00000008</dt>
+<dd>Volume Label. Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</dd>
+<dt>faDirectory = $00000010</dt>
+<dd>File is a directory.</dd>
+<dt>faArchive = $00000020</dt>
+<dd>file should be archived. Not possible on Unix</dd>
+</dl>
+<h3>Errors</h3>
+<p>In case of error, -1 is returned. </p>
+<p>
+<hr>
+
+	<p class="NAVBACK"><a href="#topofpage">Top</a></p>
+<p><br></p>
+	<div class="SECT1">
+	  <p class="NAVBACK"><a href="index.html">Home</a></p>
+	</div>
+<p><br></p>
+
+</body>
+
+</html>

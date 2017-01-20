@@ -876,7 +876,34 @@
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ExecuteScript" alt="cm_ExecuteScript" src="../../pixmaps/dctheme/32x32/actions/cm_executescript.png"/>
         <div class="cmdname"><a name="cm_ExecuteScript">cm_ExecuteScript</a></div>
       </td>
-      <td class="hintcell"></a>Launch the execution of the selected filename assuming it's a Lua script and Lua .DLL installed.</td>
+      <td class="hintcell"></a>Execute Lua script file (requires Lua .DLL installed).
+      <br/>
+      <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+        <th class="innerdescheader">Parameter</th>
+        <th class="innerdescheader">Value</th>
+        <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell"><i>{first}</i></td>
+          <td class="innerdescvaluecell">file name</td>
+          <td class="innerdescdesccell">path to Lua script file</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>{param1}</i></td>
+          <td class="innerdescvaluecell">command line parameter #1</td>
+          <td class="innerdescdesccell" rowspan="3">passed as command line parameters to Lua script</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>{param2}</i></td>
+          <td class="innerdescvaluecell">command line parameter #2</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>{paramX}</i></td>
+          <td class="innerdescvaluecell">command line parameter #X</td>
+        </tr>
+        </table>
+      </td>
       </tr>
     </table>
   </div>

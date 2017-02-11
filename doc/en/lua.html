@@ -77,7 +77,48 @@ If this is the case, the function returns <var>True</var>, otherwise <var>False<
     end
 </pre>
 <hr>
+<h3>Handle,FindData = SysUtils.FindFirst(Path)</h3>
+<p><var>FindFirst</var> looks for files that match the name (possibly with wildcards) in <var>Path</var>.
+If the function succeeds, the return value <var>Handle</var> is a search handle used in a subsequent call to <var>FindNext</var>
+or <var>FindClose</var>,
+it then fills up the <var>FindData</var> table with data gathered about the file, otherwise <var>nil</var> is returned.</p>
+<h3>Result,FindData = SysUtils.FindNext(Handle)</h3>
+<p><var>FindNext</var> finds a next occurrence of a search sequence initiated by <var>FindFirst</var>.
+<p><var>Handle</var> - The search handle returned by a previous call to the <var>FindFirst</var> function.</p>
+<p>If the function succeeds, the return value <var>Result</var> is non-<var>nil</var> and the <var>FindData</var> table contains information about
+the next file or directory found.
+<br/><br/>
+<b>Remark:   </b>
+The last <var>FindNext</var> call must <em>always</em> be followed by a <var>FindClose</var> call with the same <var>Handle</var>.
+Failure to do so will result in memory loss.
+<h3>SysUtils.FindClose(Handle)</h3>
+<p>
+<var>FindClose</var> ends a series of <var>FindFirst</var>/<var>FindNext</var> calls, and frees any memory used by these calls.
+It is <em>absolutely</em> necessary to do this call, or huge memory losses may occur.
 
+<h4>Example:</h4>
+<pre>
+local Result = nil
+local Handle,FindData = SysUtils.FindFirst("/tmp/*")
+
+if Handle ~= nil then
+  repeat
+
+    print(FindData.Name)
+    print(FindData.Time)
+    print(FindData.Attr)
+    print(FindData.Size)
+
+    print("---------------")
+
+    Result,FindData = SysUtils.FindNext(Handle)
+
+  until Result == nil
+
+  SysUtils.FindClose(Handle)
+end
+</pre>
+<hr/>
 	<p class="NAVBACK"><a href="#topofpage">Top</a></p>
 <p><br></p>
 	<div class="SECT1">

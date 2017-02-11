@@ -65,6 +65,17 @@ If this is the case, the function returns <var>True</var>, otherwise <var>False<
 <h3>Errors</h3>
 <p>In case of error, -1 is returned. </p>
 <p>
+<h4>Example:</h4>
+<pre>
+    local k = SysUtils.FileGetAttr(FileName)
+    if (k < 0) then
+      -- File/folder does not exists
+    elseif (math.floor(k / 16) % 2 ~= 0) then
+      -- This is a directory
+    else
+      -- This is a file
+    end
+</pre>
 <hr>
 
 	<p class="NAVBACK"><a href="#topofpage">Top</a></p>

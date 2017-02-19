@@ -53,17 +53,17 @@ If this is the case, the function returns <var>true</var>, otherwise <var>false<
 
 <p><var>FileGetAttr</var> returns the attribute settings of file <var>FileName</var>. The attribute is a <var>OR</var>-ed combination of the following constants: </p>
 <dl>
-<dt>faReadOnly = $00000001</dt>
+<dt>faReadOnly = 0x00000001</dt>
 <dd>The file is read-only.</dd>
-<dt>faHidden = $00000002</dt>
+<dt>faHidden = 0x00000002</dt>
 <dd>The file is hidden. (On unix, this means that the filename starts with a dot) </dd>
-<dt>faSysFile = $00000004</dt>
+<dt>faSysFile = 0x00000004</dt>
 <dd>The file is a system file (On unix, this means that the file is a character, block or FIFO file). </dd>
-<dt>faVolumeId = $00000008</dt>
+<dt>faVolumeId = 0x00000008</dt>
 <dd>Volume Label. Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</dd>
-<dt>faDirectory = $00000010</dt>
+<dt>faDirectory = 0x00000010</dt>
 <dd>File is a directory.</dd>
-<dt>faArchive = $00000020</dt>
+<dt>faArchive = 0x00000020</dt>
 <dd>file should be archived. Not possible on Unix</dd>
 </dl>
 <h3>Errors</h3>

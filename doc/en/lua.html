@@ -20,11 +20,11 @@ This library contains Double Commander specific functions.
 It provides all its functions inside the table <code>DC</code>.
 
 <p>
-<hr><h3>DC.ExecuteCommand(command, param1, param2,...,paramX)</h3>
+<hr><h3>DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</h3>
 
 
 <p>
-Execute internal Double Commander command command with parameters param1..paramX.
+Execute internal Double Commander command <var>Command</var> with parameters <var>Param1</var>..<var>ParamX</var>.
 
   <h2>2. System Functions</h2>
 
@@ -40,13 +40,13 @@ After the specified period has expired, script execution resumes.
 <hr><h3>SysUtils.FileExists(FileName)</h3>
 
 <p>
-Check whether a particular file exists in the filesystem. FileExists returns True if a file with name FileName exists on the disk, False otherwise.
+Check whether a particular file exists in the filesystem. <var>FileExists</var> returns <var>true</var> if a file with name <var>FileName</var> exists on the disk, <var>false</var> otherwise.
 
 <p>
 <hr><h3>SysUtils.DirectoryExists(Directory)</h3>
 
 <p><var>DirectoryExists</var> checks whether <var>Directory</var> exists in the filesystem and is actually a directory.
-If this is the case, the function returns <var>True</var>, otherwise <var>False</var> is returned. </p>
+If this is the case, the function returns <var>true</var>, otherwise <var>false</var> is returned. </p>
 
 <p>
 <hr><h3>SysUtils.FileGetAttr(FileName)</h3>

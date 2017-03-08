@@ -25,6 +25,18 @@ It provides all its functions inside the table <code>DC</code>.
 
 <p>
 Execute internal Double Commander command <var>Command</var> with parameters <var>Param1</var>..<var>ParamX</var>.
+<p>
+<h4>Example:</h4>
+<pre>
+  -- Script command line parameters
+  local params = {...}
+  print(#params)     -- parameters count
+  print(params[1])   -- first parameter
+  print(params[2])   -- second parameter
+
+  -- Execute Double Commander command
+  DC.ExecuteCommand("cm_ChangeDir", params[1])
+</pre>
 
   <h2>2. System Functions</h2>
 

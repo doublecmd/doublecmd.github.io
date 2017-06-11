@@ -578,9 +578,26 @@
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_PackFiles" alt="cm_PackFiles" src="../../pixmaps/dctheme/32x32/actions/cm_packfiles.png"/>
-          <div class="cmdname"><a name="cm_PackFiles">cm_PackFiles</a></div>
-          <div class="shrtctkey">Alt+F5</div></td>
-      <td class="hintcell"><a href="help.html#cm_PackFiles">Pack</a> items into archive.</td>
+        <div class="cmdname"><a name="cm_PackFiles">cm_PackFiles</a></div>
+        <div class="shrtctkey">Alt+F5</div></td>
+      <td class="hintcell"><a href="help.html#cm_PackFiles">Pack</a> items into archive.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell">PackHere</td>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">compressed file will be in active panel directory</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">compressed file will be in inactive panel directory</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_TestArchive" alt="cm_TestArchive" src="../../pixmaps/dctheme/32x32/actions/cm_testarchive.png"/>
@@ -596,9 +613,26 @@
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ExtractFiles" alt="cm_ExtractFiles" src="../../pixmaps/dctheme/32x32/actions/cm_extractfiles.png"/>
-          <div class="cmdname"><a name="cm_ExtractFiles">cm_ExtractFiles</a></div>
-          <div class="shrtctkey">Alt+F9</div></td>
-      <td class="hintcell"><a href="help.html#cm_ExtractFiles">Unpack</a> one or more selected archives.</td>
+        <div class="cmdname"><a name="cm_ExtractFiles">cm_ExtractFiles</a></div>
+        <div class="shrtctkey">Alt+F9</div></td>
+      <td class="hintcell"><a href="help.html#cm_ExtractFiles">Unpack</a> one or more selected archives.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell">ExtractHere</td>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">extracted items will be in active panel directory</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">extracted items will be in inactive panel directory</td>
+        </tr>
+        </table>
+	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenVirtualFileSystemList" alt="cm_OpenVirtualFileSystemList" src="../../pixmaps/dctheme/32x32/actions/cm_openvirtualfilesystemlist.png"/>
@@ -814,6 +848,15 @@
       <td class="hintcell">Access configuration of the color used with the Tree View Menu section interface.</td>
       </tr>
       <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png"/>
+        <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
+      <td class="hintcell">Access configuration of hotkeys.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSearches" alt="cm_ConfigSearches" src="../../pixmaps/dctheme/32x32/actions/cm_configsearches.png"/>
+        <div class="cmdname"><a name="cm_ConfigSearches">cm_ConfigSearches</a></div></td>
+      <td class="hintcell">Access configuration of general options regarding file search.</td>
+      </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png"/>
         <div class="cmdname"><a name="cm_FileAssoc">cm_ConfigSaveSettings</a></div>
@@ -862,6 +905,39 @@
         <div class="cmdname"><a name="cm_RunTerm">cm_RunTerm</a></div>
         <div class="shrtctkey">F9</div></td>
       <td class="hintcell">Starts a <a href="help.html#cm_RunTerm">terminal</a>.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ExecuteScript" alt="cm_ExecuteScript" src="../../pixmaps/dctheme/32x32/actions/cm_executescript.png"/>
+        <div class="cmdname"><a name="cm_ExecuteScript">cm_ExecuteScript</a></div>
+      </td>
+      <td class="hintcell"></a>Execute Lua script file (requires Lua .DLL installed), see <a href="lua.html">also</a>.
+      <br/>
+      <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+        <th class="innerdescheader">Parameter</th>
+        <th class="innerdescheader">Value</th>
+        <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell"><i>{first}</i></td>
+          <td class="innerdescvaluecell">file name</td>
+          <td class="innerdescdesccell">path to Lua script file</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>{param1}</i></td>
+          <td class="innerdescvaluecell">command line parameter #1</td>
+          <td class="innerdescdesccell" rowspan="3">passed as command line parameters to Lua script</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>{param2}</i></td>
+          <td class="innerdescvaluecell">command line parameter #2</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>{paramX}</i></td>
+          <td class="innerdescvaluecell">command line parameter #X</td>
+        </tr>
+        </table>
+      </td>
       </tr>
     </table>
   </div>
@@ -932,20 +1008,56 @@
           <td class="innerdescvaluecell"><i>(absent)</i></td>
           <td class="innerdescdesccell">using DC legacy filtering or Windows one will be like the last time it was specified for that file view</td>
         </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="7">attr</td>
+          <td class="innerdescvaluecell">d-</td>
+          <td class="innerdescdesccell">filtering will ignore directories and take only files</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">d+</td>
+          <td class="innerdescdesccell">filtering will ignore files and take only directories</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">h-</td>
+          <td class="innerdescdesccell">filtering will ignore hidden files (Windows)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">ux+</td>
+          <td class="innerdescdesccell">filtering will take only entries with attribute owner's executable (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">uw+|gw+|ow+</td>
+          <td class="innerdescdesccell">filtering will take files that are writeable either by user, group or anybody else (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"></td>
+          <td class="innerdescdesccell">note: this means "attr=" with no right value. <BR>filter everything, no matter the configured "Default attribute mask"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><i>(absent)</i></td>
+          <td class="innerdescdesccell">filtering will be done according to what's configured in "file operations", section "Marking/Unmarking files, the option "Default attribute mask".</td>
+        </tr>
         </table>
           <B>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<BR>
 		  <B>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be selected with filter <i>*.*</i><BR>
 		  <B>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<I>mask=&gt;Pascal files</i>"<BR>
 		  <B>Note4:</b> When using filtering parameter "<I>ignoreaccents=TRUE</i>", the ligatured characters like "<I>&oelig;</i>" for example will be evaluated as the sequence "<I>oe</i>". So for example "<I>c&oelig;ur</i>" will match "<I>coeur</i>".<BR>
 		  <B>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the "cm_MarkPlus" with no parameters which will use the default same parameters of last time it was prompting the user.<BR>
+		  <B>Note6:</b> Regarding the "attr" possible parameter values, see the "The  <a href="findfiles.html#attributes">Searching for files with specific attributes</a>." section in the "Find files" help file. The way to specify the filter regarding the attributes is the same<BR>
 		  <B>Example1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" This will select all the files matching the given filter mask (which is basically common Delphi source file extensions) and ignoring the case of the letters.<BR>
 		  <B>Example2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" This will select all the files matching the given filter mask (which is basically Microsoft Word document with the word "ecole" in them) ignoring the accents. This means it will select file with "école" and "ecole" in them since accent are ignored.
 	  </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkMinus" alt="cm_MarkMinus" src="../../pixmaps/dctheme/32x32/actions/cm_markminus.png"/>
-        <div class="cmdname"><a name="cm_MarkMinus">cm_MarkMinus</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkMinus">Unselect</a> items in active panel matching the mask (provided or not) according the the following parameters.
+        <div class="cmdname"><a name="cm_MarkMinus">cm_MarkMinus</a></div></td>
+      <td class="hintcell"><a href="help.html#cm_MarkMinus">Unselect</a> items in active panel matching the mask (provided or not) according the the same parameters as the <a href="#cm_MarkPlus">cm_MarkPlus</a> command.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkMarkAll" alt="cm_MarkMarkAll" src="../../pixmaps/dctheme/32x32/actions/cm_markmarkall.png"/>
+        <div class="cmdname"><a name="cm_MarkMarkAll">cm_MarkMarkAll</a></div>
+        <div class="shrtctkey">Ctrl+A</div></td>
+      <td class="hintcell">Will basically select <a href="help.html#cm_MarkMarkAll">all</a> the entries in the active panel according to attribute filter that follows.
         <br>
         <table class="innercmddesc">
         <tr class="rowinnerdesc">
@@ -954,86 +1066,101 @@
         <th class="innerdescheader">Description</th>
         </tr>
         <tr>
-          <td class="innerdescparamcell" rowspan="2">mask</td>
-          <td class="innerdescvaluecell"><i>&lt;any string&gt;</i></td>
-          <td class="innerdescdesccell">the filter to use</td>
+          <td class="innerdescparamcell" rowspan="7">attr</td>
+          <td class="innerdescvaluecell">d-</td>
+          <td class="innerdescdesccell">filter every entries that are not a directories</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">d+</td>
+          <td class="innerdescdesccell">filter every entries that are a directories</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">h-</td>
+          <td class="innerdescdesccell">filter every entries that don't have the hidden attributes</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">ux+</td>
+          <td class="innerdescdesccell">filter all entries with attribute owner's executable (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">uw+|gw+|ow+</td>
+          <td class="innerdescdesccell">filter all entries that are writeable either by user, group or anybody else (Linux)</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"></td>
+          <td class="innerdescdesccell">note: this means "attr=" with no right value. <BR>filter everything, no matter the configured "Default attribute mask"</td>
         </tr>
         <tr>
           <td class="innerdescvaluecell"><i>(absent)</i></td>
-          <td class="innerdescdesccell">will prompt user to type filter</td>
-        </tr>
-        <tr>
-          <td class="innerdescparamcell" rowspan="3">casesensitive</td>
-          <td class="innerdescvaluecell">0/false/off/no</td>
-          <td class="innerdescdesccell">filtering will be done ignoring case</td>
-        </tr>
-        <tr>
-          <td class="innerdescvaluecell">1/true/on/yes</td>
-          <td class="innerdescdesccell">filtering will be done case-sensitive</td>
-        </tr>
-          <td class="innerdescvaluecell"><i>(absent)</i></td>
-          <td class="innerdescdesccell">case sensitivity will be the last one used for the current file view</td>
-        </tr>
-        <tr>
-          <td class="innerdescparamcell" rowspan="3">ignoreaccents</td>
-          <td class="innerdescvaluecell">0/false/off/no</td>
-          <td class="innerdescdesccell">filtering will be done evaluating an exact match regarding accentuated characters</td>
-        </tr>
-        <tr>
-          <td class="innerdescvaluecell">1/true/on/yes</td>
-          <td class="innerdescdesccell">items and mask will be compared ignoring their accent and ligatures replaced by distinct letters</td>
-        </tr>
-        <tr>
-          <td class="innerdescvaluecell"><i>(absent)</i></td>
-          <td class="innerdescdesccell">ignoring or not accents will be like the last time it was specified for that file view</td>
-        </tr>
-        <tr>
-          <td class="innerdescparamcell" rowspan="3">windowsinterpretation</td>
-          <td class="innerdescvaluecell">0/false/off/no</td>
-          <td class="innerdescdesccell">filtering will be done like DC legacy</td>
-        </tr>
-        <tr>
-          <td class="innerdescvaluecell">1/true/on/yes</td>
-          <td class="innerdescdesccell">filtering will be done like Windows</td>
-        </tr>
-        <tr>
-          <td class="innerdescvaluecell"><i>(absent)</i></td>
-          <td class="innerdescdesccell">using DC legacy filtering or Windows one will be like the last time it was specified for that file view</td>
+          <td class="innerdescdesccell">will select everything that match what's configured in "File views", section "Marking/Unmarking entries", the option "Default attribute mask value to use".</td>
         </tr>
         </table>
-          <B>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<BR>
-		  <B>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be unselected with filter <i>*.*</i><BR>
-		  <B>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined unselection type simply by preceding the name of it with symbol "&gt;" like "<I>mask=&gt;Pascal files</i>"<BR>
-		  <B>Note4:</b> When using filtering parameter "<I>ignoreaccents=TRUE</i>", the ligatured characters like "<I>&oelig;</i>" for example will be evaluated as the sequence "<I>oe</i>". So for example "<I>c&oelig;ur</i>" will match "<I>coeur</i>".<BR>
-		  <B>Example:</b> "cm_MarkMinus mask=*. windowsinterpretation=True" This will unselect all the files with no extension since it's the Windows behavior when using "*." filter.<BR>
-	  </td>
-      </tr>
-      <tr>
-      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkMarkAll" alt="cm_MarkMarkAll" src="../../pixmaps/dctheme/32x32/actions/cm_markmarkall.png"/>
-        <div class="cmdname"><a name="cm_MarkMarkAll">cm_MarkMarkAll</a></div>
-        <div class="shrtctkey">Ctrl+A</div></td>
-      <td class="hintcell">Mark <a href="help.html#cm_MarkMarkAll">all</a> in the panel.</td>
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkUnmarkAll" alt="cm_MarkUnmarkAll" src="../../pixmaps/dctheme/32x32/actions/cm_markunmarkall.png"/>
         <div class="cmdname"><a name="cm_MarkUnmarkAll">cm_MarkUnmarkAll</a></div>
         <div class="shrtctkey">F1</div></td>
-      <td class="hintcell">Unselect <a href="help.html#cm_MarkUnmarkAll">all</a> marked items.</td>
+      <td class="hintcell">Will unselect <a href="help.html#cm_MarkUnmarkAll">all</a> the entries of the active panel according to the same filter described in table of <a href="#cm_MarkMarkAll">cm_MarkMarkAll</a> command.</td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkInvert" alt="cm_MarkInvert" src="../../pixmaps/dctheme/32x32/actions/cm_markinvert.png"/>
         <div class="cmdname"><a name="cm_MarkInvert">cm_MarkInvert</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkInvert">Invert</a> selection.</td>
+      <td class="hintcell">Will <a href="help.html#cm_MarkInvert">Invert</a> the selected state of all the entries matching the same filter described in table of <a href="#cm_MarkMarkAll">cm_MarkMarkAll</a> command.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentPath" alt="cm_MarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentpath.png"/>
+        <div class="cmdname"><a name="cm_MarkCurrentPath">cm_MarkCurrentPath</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same path as item under cursor of active panel.<BR>
+      <B>Note:</b> It might seem useless at first look but may be used in at least two situations:<br>
+        <div style="margin: 0 0 0 15;">
+          After you've filled a panel with search results coming from various level of directories<br>
+          After you've invoke the "cm_FlatView" internal command.
+        </div>
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentPath" alt="cm_UnmarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentpath.png"/>
+        <div class="cmdname"><a name="cm_UnmarkCurrentPath">cm_UnmarkCurrentPath</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same path as item under cursor of active panel.<BR>
+      See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentName" alt="cm_MarkCurrentName" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentname.png"/>
+        <div class="cmdname"><a name="cm_MarkCurrentName">cm_MarkCurrentName</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename ignoring the extension as item under cursor of active panel.
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentName" alt="cm_UnmarkCurrentName" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentname.png"/>
+        <div class="cmdname"><a name="cm_UnmarkCurrentName">cm_UnmarkCurrentName</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename ignoring the extension as item under cursor of active panel.
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentExtension" alt="cm_MarkCurrentExtension" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentextension.png"/>
         <div class="cmdname"><a name="cm_MarkCurrentExtension">cm_MarkCurrentExtension</a></div>
-      <td class="hintcell"><a href="help.html#cm_MarkCurrentExtension">Mark</a> files with the same extension as file under cursor.</td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same extension as item under cursor of active panel.</td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentExtension" alt="cm_UnmarkCurrentExtension" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentextension.png"/>
         <div class="cmdname"><a name="cm_UnmarkCurrentExtension">cm_UnmarkCurrentExtension</a></div>
-      <td class="hintcell"><a href="help.html#cm_UnmarkCurrentExtension">Unmark</a> items using mask.</td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same extension as item under cursor of active panel.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentNameExt" alt="cm_MarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentnameext.png"/>
+        <div class="cmdname"><a name="cm_MarkCurrentNameExt">cm_MarkCurrentNameExt</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename and extension as item under cursor of active panel.<BR>
+      See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+      </td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentNameExt" alt="cm_UnmarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentnameext.png"/>
+        <div class="cmdname"><a name="cm_UnmarkCurrentNameExt">cm_UnmarkCurrentNameExt</a></div></td>
+      <td class="hintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename and extension as item under cursor of active panel.<BR>
+      See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_CompareDirectories" alt="cm_CompareDirectories" src="../../pixmaps/dctheme/32x32/actions/cm_comparedirectories.png"/>
@@ -1519,6 +1646,32 @@
         <div class="cmdname"><a name="cm_ViewHistoryPrev">cm_ViewHistoryPrev</a></div></td>
       <td class="hintcell">According to list of last directories visited, will set the active panel to the very last one visited prior to current one.</td>
       </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_" alt="cm_FocusSwap" src="../../pixmaps/dctheme/32x32/actions/cm_focusswap.png"/>
+        <div class="cmdname"><a name="cm_FocusSwap">cm_FocusSwap</a></div></td>
+      <td class="hintcell">Switch focus between left and right panel.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="2">side</td>
+          <td class="innerdescvaluecell">left</td>
+          <td class="innerdescdesccell">will set focus on left panel</td>
+        </tr>
+		<tr>
+          <td class="innerdescvaluecell">right<I> (or nothing)</i></td>
+          <td class="innerdescdesccell">will set focus on right panel</td>
+		</tr>
+        <tr>
+          <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+          <td class="innerdescdesccell">will set focus on the opposite panel of the current selected one</td>
+        </tr>
+        </table>
+	  </td>
+      </tr>
     </table>
   </div>
   <p class="NAVBACK"><a href="#topofpage">on top</a></p>
@@ -1771,18 +1924,48 @@
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPathToCmdLine" alt="cm_AddPathToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addpathtocmdline.png"/>
         <div class="cmdname"><a name="cm_AddPathToCmdLine">cm_AddPathToCmdLine</a></div>
-        <div class="shrtctkey">Ctrl+P</div></td>
-      <td class="hintcell">Place current path in command line.</td>
+        <div class="shrtctkey">Ctrl+P</div>
+      </td>
+      <td class="hintcell">Place current path in command line.
+        <table class="innercmddesc">
+        <tr class="rowinnerdesc">
+          <th class="innerdescheader">Parameter</th>
+          <th class="innerdescheader">Value</th>
+          <th class="innerdescheader">Description</th>
+        </tr>
+        <tr>
+          <td class="innerdescparamcell" rowspan="5">mode</td>
+          <td class="innerdescvaluecell">smartquote</td>
+          <td class="innerdescdesccell">will place the added text between quotes, only if necessary (like for example if there are spaces in it and will let it intact if there is no spaces</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">forcequote</td>
+          <td class="innerdescdesccell">will systematically quote that will be added</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">neverquote</td>
+          <td class="innerdescdesccell">will systematically never quote that will be added</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell">prompt</td>
+          <td class="innerdescdesccell">will prompt the user if he wants to quote his added text or not, with the default choice set like if it would be a "mode=smartquote"</td>
+        </tr>
+        <tr>
+          <td class="innerdescvaluecell"><I>(nothing)</i></td>
+          <td class="innerdescdesccell">the default is assumed to be "mode=smartquote"</td>
+        </tr>
+        </table>
+      </td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_AddFilenameToCmdLine" alt="cm_AddFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addfilenametocmdline.png"/>
         <div class="cmdname"><a name="cm_AddFilenameToCmdLine">cm_AddFilenameToCmdLine</a></div></td>
-      <td class="hintcell">Place filename of current selected item in command line.</td>
+      <td class="hintcell">Place filename of current selected item in command line.<BR><B>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a></td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPathAndFilenameToCmdLine" alt="cm_AddPathAndFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addpathandfilenametocmdline.png"/>
         <div class="longcmdname"><a name="cm_AddPathAndFilenameToCmdLine">cm_AddPathAndFilenameToCmdLine</a></div></td>
-      <td class="hintcell">Place current path and filename of selected item in command line.</td>
+      <td class="hintcell">Place current path and filename of selected item in command line.<BR><B>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a></td>
       </tr>
     </table>
   </div>
@@ -1806,6 +1989,22 @@
         <div class="cmdname"><a name="cm_Search">cm_Search</a></div>
         <div class="shrtctkey">Alt+F7</div></td>
       <td class="hintcell">Open <a href="help.html#cm_Search">Search</a> dialog.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_AddNewSearch" alt="cm_AddNewSearch" src="../../pixmaps/dctheme/32x32/actions/cm_addnewsearch.png"/>
+        <div class="cmdname"><a name="cm_AddNewSearch">cm_AddNewSearch</a></div>
+        <div class="shrtctkey">Shift+Ctrl+F7</div></td>
+      <td class="hintcell">Create and open a new instance of <a href="help.html#cm_Search">Search</a> dialog window. Invoking this command to do a search will preserve the searches we've made earlier in the session. It will also allow to launch a new search instance to search something else while a long search is in progress.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewSearches" alt="cm_ViewSearches" src="../../pixmaps/dctheme/32x32/actions/cm_viewsearches.png"/>
+        <div class="cmdname"><a name="cm_ViewSearches">cm_ViewSearches</a></div></td>
+      <td class="hintcell">If we've launched a few instances of search with the <a href="#cm_AddNewSearch">cm_AddNewSearch</a>, this command will allow us to view a summary of them and be able to switch back to one of them.</td>
+      </tr>
+      <tr>
+      <td class="cmdcell"><img class="IntCmdImage" title="cm_DeleteSearches" alt="cm_DeleteSearches" src="../../pixmaps/dctheme/32x32/actions/cm_deletesearches.png"/>
+        <div class="cmdname"><a name="cm_DeleteSearches">cm_DeleteSearches</a></div></td>
+      <td class="hintcell">If we've launched a few instances of search with the <a href="#cm_AddNewSearch">cm_AddNewSearch</a>, this command will allow us to close and remove from memory all of them at once.</td>
       </tr>
       <tr>
       <td class="cmdcell"><img class="IntCmdImage" title="cm_SyncDirs" alt="cm_SyncDirs" src="../../pixmaps/dctheme/32x32/actions/cm_syncdirs.png"/>

@@ -157,6 +157,33 @@ It provides all its functions inside the table <code>Clipbrd</code>.
 <hr><h3>Clipbrd.SetAsHtml(Html)</h3>
 <p>Adds html-formatted text <var>Html</var> to the clipboard.
 
+  <h2>4. Dialogs Functions</h2>
+
+<p>
+This library contains various dialogs functions.
+It provides all its functions inside the table <code>Dialogs</code>.
+
+<p>
+<hr><h3>Dialogs.MessageBox(Text, Caption, Flags)</h3>
+
+<p>Display an message dialog with several response buttons.
+<p><var>Text</var> - The text in the MessageBox.</p>
+<p><var>Caption</var> - The caption of the MessageBox.</p>
+<p><var>Flags</var> - The icon and buttons appearing in the box. See WinAPI function <a href=https://msdn.microsoft.com/ru-ru/library/windows/desktop/ms645505(v=vs.85).aspx><code>MessageBox</code></a> for details.</p>
+<p>The function returns an integer value corresponding to the button that was pressed.
+
+<p>
+<hr><h3>Result,Text = Dialogs.InputQuery(Caption, Prompt, MaskInput, Value)</h3>
+
+<p>Use InputQuery to show a dialog box to get some input from the user.
+<p><var>Caption</var> - The caption of the InputQuery.</p>
+<p><var>Prompt</var> - The text asking the user for his input.</p>
+<p><var>MaskInput</var> - Determines if the dialog shows '*' or the actual input.</p>
+<p><var>Value</var> - The default input value.</p>
+<h4>Returns</h4>
+<p><var>Result</var> - True if the user pressed OK or hit RETURN in the dialog box. If the user pressed Cancel or the dialog was closed without pressing a button the result will be false.</p>
+<p><var>Text</var> - The text entered by the user or <var>nil</var> if the user cancel input.</p>
+
 <hr/>
 	<p class="NAVBACK"><a href="#topofpage">Top</a></p>
 <p><br></p>

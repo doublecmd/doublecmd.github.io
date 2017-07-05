@@ -1,132 +1,237 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<head>
-  <title>3.2 Button toolbar</title>
-  <link rel="STYLESHEET" type="text/css" href="doublecmd.css"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
+  <head>
+    <title>DC - Toolbars</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
 
-<body>
-	<div class="SECT2">
-	  <h3>3.2 Button toolbar</h3>
-	  <p class="FIGURE"><img title="Button toolbar" alt="Button toolbar" src="images/imgDC/pic3.png" width="240" height="30"/></p>
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Homepage</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">previous</a> | <a title="Next page" href="variables.html">next</a></div></div>
 
-	  <p>This provides an alternative way to call internal commands and external programs by using buttons (with popup hints).</p>
-	  
-	  <p>To edit the Button Toolbar panel just click right mouse button on it and choose item <span class="bold">Edit</span>.</p>
-	  <p class="FIGURE"><img title="Button toolbar edit" alt="Button toolbar edit"
-	  src="images/imgDC/pic3-1.png" width="222" height="62"/></p>
+    <div class="dchelpage">
+      <div>
+        <h1>2.6. Toolbar</h1>
+      </div> 
 
-	  <p>"Change button bar" window</p>
-	  <p class="FIGURE"><img title="Change button bar" alt="Change button bar"
-	  src="images/imgDC/pic10.png" width="509" height="295"/></p>
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#toolbardefinition">What is the toolbar and how it could be used</a></dt>
+          <dt>2. <a href="#toolbarshowit">How to display it</a></dt>
+          <dt>3. <a href="#toolbarelementlist">What could be inside the toolbar</a></dt>
+          <dt>4. <a href="#toolbarconfig">How to configure the toolbar</a></dt>
+          <dt>5. <a href="#toolbardescription">Description of elements</a></dt>
+          <dd>
+            <dl>
+              <dd>5.1. <a href="#catseparator">Separator</a></dd>
+              <dd>5.2. <a href="#catinternal">Internal Command</a></dd>
+              <dd>5.3. <a href="#catexternal">External Command</a></dd>
+              <dd>5.4. <a href="#catmenu">Menu</a></dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
 
-	  <p>The first line shows where Double Commander keeps its settings for the button bar (as in TC). Below this you can see the added buttons.</p>
-	  
-	  <p><span class="italic">Append</span>&nbsp;&mdash; adds a new empty button to the bar.</p>
-	  <p><span class="italic">Delete</span>&nbsp;&mdash; deletes the button.</p>
-	  <p><span class="italic">Size</span>&nbsp;&mdash; sets the size of the buttons. Better sizes are 16, 22 or 32, but you can set any size (in pixels).</p>
-	  <p><span class="italic">Flat icons</span>&nbsp;&mdash; makes the buttons look like icons.</p>
-	  <p><span class="italic">Command</span>&nbsp;&mdash; here you can set any
-	  <a href="cmds.html">internal command</a> or specify any other command.</p>
-	  <p><span class="italic">Parameters</span>&nbsp;&mdash; sets parameter(s) for the command:</p>
-	  	<blockquote>
-	  		<p>Functions (without parameters they give output for all selected files):</p>
-	  		<p>&nbsp;<span class="bold">%f</span> - only filename</p>
-	  		<p>&nbsp;<span class="bold">%d</span> - only path, without trailing delimiter</p>
-	  		<p>&nbsp;<span class="bold">%p</span> - path+filename</p>
-	  		<p>&nbsp;<span class="bold">%D</span> - current path in active or chosen panel</p>
-	  		<p>Choosing panel (if not given, active panel is used):</p>
-	  		<p>&nbsp; <span class="bold">%X</span><span class="italic">[l|r|s|t]</span> - where X is function (l - left, r - right, s - source, t - target)</p>
-	  		<p>Choosing selected files (only for %f, %d, %p):</p>
-	  		<p>&nbsp; <span class="bold">%X</span><span class="italic">[
-  			  &lt;nr&gt;] </span>- where X is function</p>
-	  		<blockquote>
-	  			<p>             &lt;nr&gt; is 1..n, where n is number of selected files.</p>
-	  			<p>             If there are no selected files, currently active file is nr 1.</p>
-	  			<p>             If 
-	  				&lt;nr&gt; is invalid or there is no selected file by that number</p>
-	  			<p>             the result for the whole function will be empty string.</p>
-  			</blockquote>
-	  		<p>Adding prefix, postfix before or after the result string:</p>
-	  		<p>&nbsp;  <span class="bold">%X</span><span class="italic">[{
-  			  <prefix>}][{<postfix>}]</span></p>
-	  		<blockquote>
-	  			<p>If applied to multiple files, each name is prefixed/postfixed.</p>
-	  			<p>Above parameters can be combined together.</p>
-  			</blockquote>
-	  		<p>Order of params:</p>
-	  		<ul>
-	  			<li> %function</li>
-	  			<li> left or right or source or target panel (optional)</li>
-	  			<li> nr of file (optional)</li>
-	  			<li> prefix, postfix (optional)</li>
-  			</ul>
-	  		<p>Examples:
-	  			
-  			</p>
-	  		<ul>
-	  			<li>  %f1       - first selected file in active panel
-  				</li>
-	  			<li>  %pr2      - full path of second selected file in right panel
-  				</li>
-	  			<li>  %fl       - only filenames from left panel
-  				</li>
-	  			<li>  %pr       - full filenames from right panel
-  				</li>
-	  			<li>  %Dl       - current path in left panel
-  				</li>
-	  			<li>  %f{-f }   - prepend each name with "-f "
-	  				<ul>
-	  					<li>(ex.: -f
-	  						<file_1> -f <file_2>)
-  						</li>
-  					</ul>
-  				</li>
-	  			<li>  %f{"}{"}  - enclose each name in quotes
-	  				<ul>
-	  					<li>(ex.: "<file_1>" "<file_2>")
-  						</li>
-  					</ul>
-  				</li>
-	  			<li>  %f1{-first }%f2{ -second }
-	  				<ul>
-	  					<li>        if only 1 file selected      : -first 
-	  						<file_1>
-  						</li>
-	  					<li> if 2 (or more) files selected: -first
-	  						<file_1> -second <file_2>
-  						</li>
-  					</ul>
-  				</li>
-  			</ul>
-  		</blockquote>
-	  	<p><span class="italic">Start path</span>&nbsp;&mdash; the full path to the command (if necessary).</p>
-	  <p><span class="italic">Icon file</span>&nbsp;&mdash; sets the path to the button icon.</p>
-	  <p><span class="italic">Icon</span>&nbsp;&mdash; previews the button icon.</p>
-	  <p><span class="italic">Tooltip</span>&nbsp;&mdash; hint description (tooltip) for the button on the bar.</p>
-	  <p class="FIGURE"><img title="Tooltip" alt="Tooltip"
-	  src="images/imgDC/pic10-3.png" width="236" height="112"/></p>
+      <div>
+        <h2><a name="toolbardefinition">1. What is the toolbar and how it could be used</a></h2>
+        <p>When working heavily with two-panels file manager like Double Commander, it comes a time that it would be more useful to launch the application we're using directly from our manager instead of having to reach a shortcut on the desktop, in a task bar or in a start menu.</p>
+        <p>This is especially true for task we do often.</p>
+        <p>The idea of the toolbar it to allow each one to customize buttons inside a bar for functions we need to do often.</p>
+        <p>Double Commander proposes also to use numerous possible parameters based on current displayed/selected files to allow us to pass them as parameters to the application to launch.</p>
+        <p>Here follows the default toolbar of DC shown above the file panels after a default installation. But don't worry: you may configure it the way you want to adapt to your need and your taste.</p>
+        <p class="figure"><img class="largeimage" title="Toolbar sample" alt="Toolbar sample" src="images/imgDC/toolbarsample.png" width="713" height="39"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
 
-	  <p>To create a splitter between the buttons, set a new button with <span class="italic">Tooltip</span> =
-	   "-" (minus). Just leave the other options blank.</p>
-	  
-	  <p>Also there is an ability to create a drop-down menu:</p>
-	  <p class="FIGURE"><img title="drop-down menu" alt="drop-down menu" src="images/imgDC/pic10-4.png" width="470" height="254"/></p>
+      <div>
+        <h2><a name="toolbarshowit">2. How to display it</a></h2>
+        <p>The toolbar will be displayed or not depending of what is set in the "Layout" configuration settings.</p>
+        <p>To activate it, we just make sure we've set the "Show toolbar" option</p>
+        <p class="figure"><img class="largeimage" title="Toolbar sample" alt="Toolbar sample" src="images/imgDC/toolbarshowit.png" width="692" height="182"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
 
-<!-- Sash0k: I expanded the explanation here and added another pic because I had trouble figuring out how to add
-             another menu myself using the original instructions. Hopefully I've clarified things a bit more.</p>
+      <div>
+        <h2><a name="toolbarelementlist">3. What could be inside the toolbar</a></h2>
+        <p>Here is a table of what may be present into a toolbar</p>
+        <table class="category">
+          <tr class="rowcategorytable"><th colspan="2">Possible element inside a toolbar</th></tr>
+          <tr class="rowcategorysubtitle"><th class="categorynamecolumn">Elements</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catseparator">Separator</a></div></td>
+            <td class="categorydesc">Vertical bar to help us to group together similar functions and/or similar context.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catinternal">Internal command</a></div></td>
+            <td class="categorydesc">To invoke internal command present in Double Commander.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catexternal">External command</a></div></td>
+            <td class="categorydesc">To launch external application, executable, script, etc.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catmenu">Menu</a></div></td>
+            <td class="categorydesc">To configure other toolbar element that will be displayed as drop menu from the main toolbar</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+      <BR>
 
--->
-	  <p>Set <span class="italic">Command</span> to <tt><a name="cm_ShowButtonMenu">
-	  cm_ShowButtonMenu</a></tt>, and specify another .bar file with a suitable menu as <span class="italic">Parameters</span>.
-          See the 'default.bar' file located in: &nbsp;&nbsp;~/.config/doublecmd/ (Linux) &nbsp;&nbsp;C:\Documents and Settings\[user name]\Application Data\doublecmd\ (Windows) &nbsp;&nbsp;for details of the menu structure.
-          Here you can see the 'my.bar' file specified as the drop-down menu file:</p>
-	  <p class="FIGURE"><img title="button bar drop-down menu entry" alt="button bar drop-down menu entry" src="images/imgDC/pic10-4a.png" width="470" height="254"/></p>
-	</div>
-	
-	<p class="NAVBACK"><a href="help.html">Content</a></p>
-	
-</body>
+      <div>
+        <h2><a name="toolbarconfig">4. How to configure the toolbar</a></h2>
+        <p>To configure what will be present in our toolbar, we will need to configure it.</p>
+        <p>We may certainly go to the main configuration of Double Commander, scroll in the left column and select "Toolbar" and we'll have access to it.</p>
+        <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images\imgDC\toolbarconfig1.png" width="680" height="160"></p>
+        <p>The other quick way to reach the configuration is to directly right click in an empty area of the toolbar and select "edit"</p>
+        <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images\imgDC\toolbarconfig2.png" width="250" height="80"></p>
+        <p>As we're getting familiar with the toolbar, we'll also probably right click directly on a button from the toolbar to not only open the toolbar editor but beeing ready to immediately edit the associated action of the toolbar button we've right clicked on.</p>
+        <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images\imgDC\toolbarconfig3.png" width="730" height="230"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+      <BR>
 
+      <div>
+        <h2><a name="catseparator">5.1. Description of elements - Separator</a></h2>
+        <p>The separator is simply a vertical bar that may be used to separate group of buttons to have similar related actions grouped together.</p>
+        <p>There have no real active functions, it's just decorative for pleasant looking.</p>
+        <p>In the following example, the person used separator to isolate together functions related with comparisons, then the ones related with clipboard, etc.</p>
+        <p class="figure"><img class="largeimage" title="Example of separator" alt="Example of separator" src="images/imgDC/toolbarseparator.png" width="430" height="220"></p>		
+      </div>
+      <BR>
+
+      <div>
+        <h2><a name="toolbarconfig">5.2. Description of elements - Internal Command</a></h2>
+        <p>The internal commands are related with actions made directly by Double Commander that doesn't need to call an external application.</p>
+        <p>The commands are extremely varied. Please see <a href="cmds.html">this page</a> which is dedicated to described all the internal commands.</p>
+        <p>For example if we want a toolbar button to allow to launch a search, we'll just select the "cm_Search" command from the drop box of command.</p>
+        <p>As we see in the following image, we may select a custom icon for it but generally just choosing the command from the drop box of command is enough and command already have an internal associated icon.</p>
+        <p>The tooltip is also there to allow us to write an easy to remember little words to remember us the task of the button as we move cursor over.</p>
+        <p>Here is an example with that "<a href="cmds.html#cm_Search">cmSearch</a>" command:</p>
+        <p class="figure"><img class="largeimage" title="Example of internal command with no parameter" alt="Example of internal command with no parameter" src="images/imgDC/toolbarinternal1.png" width="636" height="220"></p>		
+        <p>Some other commands might accept parameters to configure their actions.</p>
+        <p>When this is required, we'll simply write the parameter for in the parameter box.</p>
+        <p>In the following example, we use the internal command "<a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a>" and we're providing two parameters to indicate which directory to load and show in each panel.</p>
+        <p class="figure"><img class="largeimage" title="Example of internal command with parameters" alt="Example of internal command with parameters" src="images/imgDC/toolbarinternal2.png" width="636" height="220"></p>		
+      </div>
+      <BR>
+
+      <div>
+        <h2><a name="toolbarconfig">5.3. Description of elements - External Command</a></h2>
+        <p>The external commands are related with actions that require to call external program.</p>
+        <p>For the external commands we have the possibility to set a few more settings that will allow us to configure precisely the command we want to launch, in which directory we want to launch it and what we want to provide as parameters, if necessary, to the commands.</p>
+        <p>Regarding the parameters, you may select user variables that will be substituted by their actual value based on the current selected file of the active panel and so on. See the dedicated page of the possible variable to use as parameter under <a href="variables.html">this link</a>.</p>
+        <p>In the following example, we've set a toolbar button to launch the application "Gimp" and the <code>%p</code> as parameter means that when we click the button to launch "Gimp", the complete filename of the current selected file in the active panel will be passed as parameter, since that's what <code>%p</code> stands for.</p>
+        <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="636" height="236"></p>		
+      </div>
+      <BR>
+
+      <div>
+        <h2><a name="catmenu">5.4. Description of elements - Menu</a></h2>
+        <p>If we're configuring a lot of toolbar button, we may run out of space to have all our buttons on the same horizontal line.</p>
+        <p>So to allow us to add more buttons, we may add a special button type that will make appear a drop menu below the button to give us access to something similar to a toolbar of buttons but presented as a drop menu.</p>
+        <p>See the following example where we added a button type of "Menu".</p>
+        <p>This will make appear a new sub toolbar below that we can populate as we needed with new toolbar buttons pointing to different tasks.</p>
+        <p>This example also shows us that it could help to group together buttons related to the same projects, the same areas.</p>
+        <p>In this example the sub toolbar has functions related with different type of OS's installed in virtual machines.</p>
+        <p class="figure"><img class="largeimage" title="Example of menu" alt="Example of menu" src="images/imgDC/toolbarmenu.png" width="636" height="336"></p>
+        <p>Below is displayed how the configured sub toolbar will appear in the application:</p>
+        <p class="figure"><img class="largeimage" title="Example of drop menu" alt="Example of drop menu" src="images/imgDC/toolbarmenudrop.png" width="250" height="350"></p>
+        <p>The sub toolbar configured this way may contains the same type of button type presented before.</p>
+        <p>We may even have a sub toolbar inside a subtoolbar and so on.</p>
+        <p>This will simply be displayed in the application as a sub menu from a menu element.</p>
+        <p>See below an example:</p>
+        <p class="figure"><img class="largeimage" title="Example of toolbar in a toolbar" alt="Example of toolbar in a toolbar" src="images/imgDC/toolbarinbar.png" width="782" height="648"></p>		
+      </div>
+
+      <div>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <BR>
+      </div>
+    </div>	
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">previous</a> | <a title="Next page" href="variables.html">next</a></div></div>
+    <div class="checker"><a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a></div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
 </html>

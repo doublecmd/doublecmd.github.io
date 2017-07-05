@@ -1,204 +1,769 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<head>
-  <title>Lua Scripting</title>
-  <link rel="STYLESHEET" type="text/css" href="doublecmd.css"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
+  <head>
+    <title>DC - Lua Scripting</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
 
-<body>
-  <a name="topofpage"></a>
-  <div class="CHAPTER">
-  <h1>Lua Scripting - Standard Libraries</h1>
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Homepage</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="regexp.html">previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
 
-  <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command. Also it is possible to write content plugins (.wdx) using Lua script.
+    <div class="dchelpage">
+      <div>
+        <h1>2.10. Lua Scripting - Standard Libraries</h1>
+      </div> 
 
-  <h2>1. Double Commander Functions</h2>
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#preface">Introduction</a></dt>
+          <dt>2. <a href="#dllrequired">DLL required</a></dt>
+          <dt>3. <a href="#libraries">Double Commander functions libraries</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#libdc">DC libraries</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.1.1. <a href="#exampleex">Example with the DC.ExecuteCommand</a></dt>
+                </dl>
+              </dd>
+              <dt>3.2. <a href="#librarysystem">System library</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.2.1.<a href="#detailattr">Details on SysUtils.FileGetAttr returned value</a></dt>
+                  <dt>3.2.2.<a href="#exampleattr">Example with SysUtils.FileGetAttr</a></dt>
+                  <dt>3.2.3.<a href="#examplefind">Example using FindFirst, FindNext and FindClose</a></dt>
+                </dl>
+              </dd>
+              <dt>3.3. <a href="#libraryclip">Clipboard library</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.3.1.<a href="#exampleclip">Example of usage clipboard library</a></dt>
+                </dl>
+              </dd>
+              <dt>3.4 <a href="#librarydialogs">Dialogs library</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.4.1. <a href="#dlgbuts">Buttons displayed in Dialogs.MessageBox</a></dt>
+                  <dt>3.4.2. <a href="#dlgstyle">Style of box of Dialogs.MessageBox</a></dt>
+                  <dt>3.4.3. <a href="#dlgdefbut">Style of box of Dialogs.MessageBox</a></dt>
+                  <dt>3.4.4. <a href="#msgreturn">Returned value of Dialogs.MessageBox</a></dt>
+                  <dt>3.4.5. <a href="#mesgboxsample">Example of usage of the Dialogs.MessageBox</a></dt>
+                  <dt>3.4.6. <a href="#querysample">Example of usage of the Dialogs.InputQuery</a></dt>
+                </dl>
+              </dd>
+              <dt>3.5 <a href="#libraryos">OS library</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
 
-<p>
-This library contains Double Commander specific functions.
-It provides all its functions inside the table <code>DC</code>.
+      <div>
+        <h2>1. <a name="preface">Introduction</a></h2>
+        <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.</p>
+        <p>This was introduce with version 0.8 of Double Commander.</p>
+        <p>It is also possible to write content plugins (.wdx) using Lua script.</p>
+        <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-<p>
-<hr><h3>DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</h3>
+      <div>
+        <h2>2. <a name="dllrequired">DLL required</a></h2>
+        <p>If we're working with Windows, in order to interpret Lua script file, we need to have a version 5.1 Lua DLL file in the same folder as the executable of Double Commander.</p>
+        <p>This file will have the filename <code>lua5.1.dll</code>.</p>
+        <p>Also, if we're using a 64-bits version of DC, the dll must be the 64-bits version as well.</p>
+        <p>Generally, the dll will come with DC installation but if for whatever reason it's not there, we may find it under <a href="http://luabinaries.sourceforge.net/" target="_blank">this link</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
+      <div>
+        <h2>3. <a name="libraries">Double Commander functions libraries</a></h2>
+        <p>Double Commander offer a few libraries of functions for our Lua scripts.</p>
+        <p>Here is the list of them.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">List of libraries</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Libray name</th><th class="namecolumn">Script name</th><th class="categorydesccolumn">Quick description</th></tr>
+          <tr><td class="varcell"><div class="varname"><a href="#libdc">Double Commander library</a></div></td><td class="hintcell">DC</td><td class="hintcell">Double Commander specific functions.</td></tr>
+          <tr><td class="varcell"><div class="varname"><a href="#librarysystem">System library</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Various system functions</td></tr>
+          <tr><td class="varcell"><div class="varname"><a href="#libraryclip">Clipboard library</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Provides external clipboard functionality.</td></tr>
+          <tr><td class="varcell"><div class="varname"><a href="#librarydialogs">Dialogs library</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interacts with user.</td></tr>
+          <tr><td class="varcell"><div class="varname"><a href="#libraryos">OS libray</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
 
-<p>
-Execute internal Double Commander command <var>Command</var> with parameters <var>Param1</var>..<var>ParamX</var>.
-<p>
-<h4>Example:</h4>
-<pre>
-  -- Script command line parameters
-  local params = {...}
-  print(#params)     -- parameters count
-  print(params[1])   -- first parameter
-  print(params[2])   -- second parameter
+      <div>
+        <h2>3.1. <a name="libdc">DC library</a></h2>
+        <p>This library contains Double Commander specific functions.</p>
+        <p>It provides all its functions inside the table DC.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">DC library</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="varname">DC.ExecuteCommand</div></td>
+            <td class="hintcell">
+              <p><code class=reference>DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</code></p>
+              <p>This allows the script to invoke internal commands of DC.</p>
+              <p>The <var>Command</var> is holding the actual internal command name</p>
+			  <p>We may provide as many <var>Param...</var> as command may support.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-  -- Execute Double Commander command
-  DC.ExecuteCommand("cm_ChangeDir", params[1])
-</pre>
+      <div>
+        <h2>3.1.1. <a name="exampleex">Example with the DC.ExecuteCommand</a></h2>
+        <p>In this example, we wrote a simple script that will do the following:</p>
+        <ol>
+          <li>focus to right panel</li>
+          <li>close all openened tabs</li>
+          <li>switch to a specific folder</li>
+          <li>focus the left panel</li>
+          <li>close all openened tabs</li>
+          <li>switch to a specific folder</li>
+          <li>open a new tab</li>
+          <li>switch to a specific folder</li>
+        </ol>
 
-  <h2>2. System Functions</h2>
+        <pre>
+          -- 1. Focus on right panel.
+          <span class="mark">DC.ExecuteCommand</span>("cm_FocusSwap", "side=right")
 
-<p>
-This library contains various system functions.
-It provides all its functions inside the table <code>SysUtils</code>.
+          -- 2. Close all tabs.
+          <span class="mark">DC.ExecuteCommand</span>("cm_CloseAllTabs")
 
-<p>
-<hr><h3>SysUtils.Sleep(Milliseconds)</h3>
-<p><var>Sleep</var> suspends the execution of the script for the specified number of milliseconds (<var>Milliseconds</var>).
-After the specified period has expired, script execution resumes.
-<p>
-<hr><h3>SysUtils.FileExists(FileName)</h3>
+          -- 3. Switch to a specific directory.
+          <span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "e:\\FakeKey\\Documents\\Music")
 
-<p>
-Check whether a particular file exists in the filesystem. <var>FileExists</var> returns <var>true</var> if a file with name <var>FileName</var> exists on the disk, <var>false</var> otherwise.
+          -- 4. Focus on left panel.
+          <span class="mark">DC.ExecuteCommand</span>("cm_FocusSwap", "side=left")
 
-<p>
-<hr><h3>SysUtils.DirectoryExists(Directory)</h3>
+          -- 5. Close all tabs.
+          <span class="mark">DC.ExecuteCommand</span>("cm_CloseAllTabs")
 
-<p><var>DirectoryExists</var> checks whether <var>Directory</var> exists in the filesystem and is actually a directory.
-If this is the case, the function returns <var>true</var>, otherwise <var>false</var> is returned. </p>
+          -- 6. Switch to a specific directory.
+          <span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "C:\\Users\\Public\\Music")
 
-<p>
-<hr><h3>SysUtils.FileGetAttr(FileName)</h3>
+          -- 7. Open a new tab.
+          <span class="mark">DC.ExecuteCommand</span>("cm_NewTab")
 
-<p><var>FileGetAttr</var> returns the attribute settings of file <var>FileName</var>. The attribute is a <var>OR</var>-ed combination of the following constants: </p>
-<dl>
-<dt>faReadOnly = 0x00000001</dt>
-<dd>The file is read-only.</dd>
-<dt>faHidden = 0x00000002</dt>
-<dd>The file is hidden. (On unix, this means that the filename starts with a dot) </dd>
-<dt>faSysFile = 0x00000004</dt>
-<dd>The file is a system file (On unix, this means that the file is a character, block or FIFO file). </dd>
-<dt>faVolumeId = 0x00000008</dt>
-<dd>Volume Label. Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</dd>
-<dt>faDirectory = 0x00000010</dt>
-<dd>File is a directory.</dd>
-<dt>faArchive = 0x00000020</dt>
-<dd>file should be archived. Not possible on Unix</dd>
-</dl>
-<h3>Errors</h3>
-<p>In case of error, -1 is returned. </p>
-<p>
-<h4>Example:</h4>
-<pre>
-    local k = SysUtils.FileGetAttr(FileName)
-    if (k < 0) then
-      -- File/folder does not exists
-    elseif (math.floor(k / 16) % 2 ~= 0) then
-      -- This is a directory
-    else
-      -- This is a file
-    end
-</pre>
-<hr>
-<h3>Handle,FindData = SysUtils.FindFirst(Path)</h3>
-<p><var>FindFirst</var> looks for files that match the name (possibly with wildcards) in <var>Path</var>.
-If the function succeeds, the return value <var>Handle</var> is a search handle used in a subsequent call to <var>FindNext</var>
-or <var>FindClose</var>,
-it then fills up the <var>FindData</var> table with data gathered about the file, otherwise <var>nil</var> is returned.</p>
-<h3>Result,FindData = SysUtils.FindNext(Handle)</h3>
-<p><var>FindNext</var> finds a next occurrence of a search sequence initiated by <var>FindFirst</var>.
-<p><var>Handle</var> - The search handle returned by a previous call to the <var>FindFirst</var> function.</p>
-<p>If the function succeeds, the return value <var>Result</var> is non-<var>nil</var> and the <var>FindData</var> table contains information about
-the next file or directory found.
-<br/><br/>
-<b>Remark:   </b>
-The last <var>FindNext</var> call must <em>always</em> be followed by a <var>FindClose</var> call with the same <var>Handle</var>.
-Failure to do so will result in memory loss.
-<h3>SysUtils.FindClose(Handle)</h3>
-<p>
-<var>FindClose</var> ends a series of <var>FindFirst</var>/<var>FindNext</var> calls, and frees any memory used by these calls.
-It is <em>absolutely</em> necessary to do this call, or huge memory losses may occur.
+          -- 8. Switch to a specific directory.
+          <span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "e:\\VirtualMachines\\ShareFolder")
+        </pre>
 
-<h4>Example:</h4>
-<pre>
-local Result = nil
-local Handle,FindData = SysUtils.FindFirst("/tmp/*")
+        <p>Using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, we may configure a tool bar button that will execute our script.</p>
+        <p>Assuming this script file is <code>e:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
+        <p class="figure"><img class="largeimage" title="Invoking a lua script from toolbar" alt="Invoking a lua script from toolbar" src="images/imgDC/luaimg1.png" width="542" height="290"></p>
 
-if Handle ~= nil then
-  repeat
+        <p>Also, we may use the internal Double Commander Editor for editing our scripts.</p>
+        <p>If filename has <code>.lua</code> file extension, it will be recognized by internal editor and it will provide us syntax highlighting specific for this Lua language:</p>
+        <p class="figure"><img class="largeimage" title="Lua syntax highlighting with internal editor" alt="Lua syntax highlighting with internal editor" src="images/imgDC/luaimg2.png" width="678" height="498"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-    print(FindData.Name)
-    print(FindData.Time)
-    print(FindData.Attr)
-    print(FindData.Size)
+      <div>
+        <h2>3.2. <a name="librarysystem">System library</a></h2>
+        <p>This library contains various system functions.</p>
+        <p>It provides all its functions inside the table <code>SysUtils</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">System library</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="varname">SysUtils.Sleep</div></td>
+            <td class="hintcell">
+              <p><code class=reference>SysUtils.Sleep(Milliseconds)</code></p>			
+              <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<BR> After the specified period has expired, script execution resumes.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">SysUtils.FileExists</div></td>
+            <td class="hintcell">
+              <p><code class=reference>bFlagExists = SysUtils.FileExists(FileName)</code></p>
+              <p>Check whether a particular file exists in the filesystem.<p>
+              <p>Returns in <var>bFlagExists</var> the value <code>true</code> if file with name <var>FileName</var> exists on the disk, or <code>false</code> otherwise.
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">SysUtils.DirectoryExists</div></td>
+            <td class="hintcell">
+              <p><code class=reference>bFlagExists = SysUtils.DirectoryExists(Directory)</code></p>
+              <p>Checks whether <var>Directory</var> exists in the filesystem and is actually a directory.<p>
+              <p>If this is the case, the function returns in <var>bFlagExists</var> the value <code>true</code> otherwise <code>false</code> is returned.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">SysUtils.FileGetAttr</div></td>
+            <td class="hintcell">
+              <p><code class=reference>Attr = SysUtils.FileGetAttr(FileName)</code></p>
+              <p>Returns in <var>Attr</var> the attribute settings of file <var>FileName</var>.</p>
+              <p>See the detail explanations of the returned value <a href="#detailattr">here</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">SysUtils.FindFirst</div></td>
+            <td class="hintcell">
+              <p><code class=reference>Handle, FindData = SysUtils.FindFirst(Path)</code></p>
+              <p>Looks for files that match the <var>Path</var>, generally with wildcards.</p>
+              <p>If no file is found, <var>Handle</var> will be nil</p>
+              <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurences of the same pattern.</p>
+			  <p>The <var>FindData</var> table contains information about the file or directory found.</p>
+              <p>The field of the <var>FindData</var> table are: <code>Name</code>, <code>Attr</code>, <code>Size</code> and <code>Time</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">SysUtils.FindNext</div></td>
+            <td class="hintcell">
+              <p><code class=reference>Result, FindData = SysUtils.FindNext(Handle)</code></p>
+              <p>Finds the next occurrence of a search sequence initiated by <var>FindFirst</var> by re-using the <var>Handle</var> returned previously.</p>
+              <p>Returned <var>Result</var> will be non-nil if a file or directory is found and will be nil otherwise.<p>
+              <p>The same notes mentionned for <code>SysUtils.FindFirst</code> applied here.</p>
+              <p><B><U>Remark:</u> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory loss.</b></p>
+                    </td>
+                    </tr>
+                  <tr>
+                    <td class="varcell"><div class="varname">SysUtils.FindClose</div></td>
+                    <td class="hintcell">
+                      <p><code class=reference>SysUtils.FindClose(Handle)</code></p>
+                      <p>Ends a series of <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code> calls.</p>
+                      <p>Frees any memory used by these calls.</p>
+                      <p>It is <em>absolutely</em> necessary to do this call, or memory losses may occur.</p>
+                    </td>
+                  </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-    print("---------------")
+      <div>
+        <h2>3.2.1.<a name="detailattr">Details on SysUtils.FileGetAttr returned value</a></h2>
+        <p><var>FileGetAttr</var> returns the attribute settings of file <var>FileName</var>.</p>
+        <p>The attribute is a <var>OR</var>-ed combination of the following constants: </p>
 
-    Result,FindData = SysUtils.FindNext(Handle)
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Value</th><th class="categorydesccolumn">Signification</th></tr>
+          <tr>
+            <td class="varcell"><div class="varname">0x00000001 / <SMALL>faReadOnly</small></div></td><td class="hintcell">The file is read-only.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">0x00000002 / <SMALL>faHidden</small></div></td><td class="hintcell">The file is hidden.<BR>In Unix/Linux, this means that the filename starts with a dot.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">0x00000004 / <SMALL>faSysFile</small></div></td><td class="hintcell">The file is a system file.<BR>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">0x00000008 / <SMALL>faVolumeId</small></div></td><td class="hintcell">Volume Label.<BR>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">0x00000010 / <SMALL>faDirectory</small></div></td><td class="hintcell">File is a directory.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">0x00000020</div></td><td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><B>Note: In case of error, -1 is returned.</b>
+          </tr>
+        </table>
+        <p>See an example in the <a href="#exampleattr">next section</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-  until Result == nil
+      <div>
+        <h2>3.2.2.<a name="exampleattr">Example with SysUtils.FileGetAttr</a></h2>
+        <p>This following script is an example of usage of the SysUtils.FileGetAttr.</p>
+        <p>When the parameter is detected to be a directory, it will open a new tab in the active panel and switch to it.</p>
+        <pre>
+            local params = {...}
+            local myfileattr
 
-  SysUtils.FindClose(Handle)
+            if #params == 1 then --We got at least one parameter?
+              myfileattr = <span class="mark">SysUtils.FileGetAttr</span>(params[1])
+              if myfileattr>0 then --We got a valid attribut?                
+                if math.floor(myfileattr / 0x00000010) % 2 ~= 0  then
+                  --bit 4 is set? So it's a directory.
+                  DC.ExecuteCommand("cm_NewTab")
+                  DC.ExecuteCommand("cm_ChangeDir", params[1])
+                end
+              end
+            end           
+        </pre>
+
+        <p>In the above example, the <var>param[1]</var> is the 1st parameter passed to the script.</p>
+        <p>When using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, it will will be the first parameter passed after the script filename.</p>
+        <p>So in our example, we may program a sample toolbar button like the following:</p>
+        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="562" height="298"></p>
+        <p>In this example, the parameter <var>%"0%p</var> will be passed to the script. This will represent, unquoted, the filename of the item currently selected in the active panel at the moment we press the toolbar button.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.2.3. <a name="examplefind">Example using FindFirst, FindNext and FindClose</a></h2>
+        <p>In the following script example, we'll scan the content of the directory we received in parameter and store resulting data into a text file with the filename passed as a second parameter.</p>
+        <p>This will give us a good idea of the usage of FindFirst, FindNext and FindClose.</p>
+
+        <pre>
+          local params = {...}
+
+          if #params == 2 then --We got our 2 parameters?
+            local Result = nil
+            local OutputFile = nil
+
+            OutputFile = io.output(params[2])
+
+            local Handle,FindData = <span class="mark">SysUtils.FindFirst</span>(params[1].."\\*")
+            if Handle ~= nil then
+              repeat
+                io.write(FindData.Name.."\r")
+                io.write(FindData.Size.."\r")
+                io.write("---------------\r")
+
+                Result,FindData = <span class="mark">SysUtils.FindNext</span>(Handle)
+              until Result == nil
+
+              <span class="mark">SysUtils.FindClose</span>(Handle)
+              io.close(OutputFile)
+            end
+          end
+        </pre>
+        <p>In the above example, we need to pass two parameters to our script:</p>
+        <ol>
+          <li><var>param[1]</var> - which is the directory we want the content</li>
+          <li><var>param[2]</var> - which is the outputfilename to store the result</li>
+        </ol>
+        <p>So it's easy to configure a toolbar button using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> and pass the parameter to accomplish all this.</p>
+        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="558" height="260"></p>
+        <p>In this example, the parameter <var>%"0%Ds</var> will be passed to the script as the first parameter. This will represent, unquoted, the directory displayed by the active panel.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.3. <a name="libraryclip">Clipboard library</a></h2>
+        <p>Double Commander may provide external clipboard functionality to our Lua scripts.</p>
+        <p>Following table gives us the related functions:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Clipboard library</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="varname">Clipbrd.Clear</div></td>
+            <td class="hintcell">
+              <p><code class=reference>Clipbrd.Clear()</code></p>
+              <p>Clear the content of the clipboard.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">Clipbrd.GetAsText</div></td>
+            <td class="hintcell">
+              <p><code class=reference>StringVar = Clipbrd.GetAsText()</code></p>
+              <p>Get the current text content of the clipboard to assigned it to <var>StringVar</var>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">Clipbrd.SetAsText</div></td>
+            <td class="hintcell">
+              <p><code class=reference>Clipbrd.SetAsText(StringVar)</code></p>
+              <p>Store in the clipboard the text content of <var>StringVar</var></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">Clipbrd.SetAsHtml</div></td>
+            <td class="hintcell">
+              <p><code class=reference>Clipbrd.SetAsHtml(Html)</code></p>
+              <p>Adds html-formatted text <var>Html</var> to the clipboard (CF_HTML clipboard format).</p>
+			  <p>This contents will be inserted in applications which support this clipboard format, like MS Word, LO Writer, etc.<p>
+			  <p>It's correct to store data with both <code>Clipbrd.SetAsText</code> and <code>Clipbrd.SetAsHtml</code>. When we'll paste, the application will use the best one that it supports.</p>
+			  <p>For example we may have this:</p>
+			  <ul>
+			    <li><code>Clipbrd.SetAsText("Welcome to Double Commander!")</code></li>
+				<li><code>Clipbrd.SetAsHtml("Welcome to &lt;B&gt;Double Commander&lt;/b&gt;!")</code></li>
+			  </ul>
+			  <p>If we switch to Notepad attempting to paste something, it will paste in plain text the message we copied with <code>Clipbrd.SetAsText</code>. But if we switch to Microsoft Word and paste something, it will paste the second one, the one with <B>Double Commander</b> in bold since the Microsoft Word recognize and support that clipboarb content type.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>  
+
+      <div>
+        <h2>3.3.1. <a name="exampleclip">Example of usage clipboard library</a></h2>
+        <p>The following example is using three functions related with the clipboard: <code>Clear</code>, <code>GetAsText</code> and <code>SetAsTest</code>.</p>
+        <p>It's a relative long script but it's good to put together a few functions we've seen above.</p>
+        <p>It assumes our active panel is currently into a directory with many source text files.</p>
+        <p>It also assumes we currently have in clipboard a single word and that it will receive as a single parameter the current active folder.</p>
+        <p>The script will scan the file in that current level of directory and will read the content of them one by one to detect text line that containts the word that was in clipboard.</p>
+        <p>Then, the filenames of the files that containt at least one line with that word will be place into the clipboard.</p>
+        <p>Then, the script will use the internal command <a href="cmds.html#cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a> and the files that have the words will then be selected.</p>
+        <p>Also, at the end, we put back in our clipboard the original word that needed to be searched.</p>
+        <pre>
+          local params = {...}
+          local Result = nil
+          local myfileattr
+          local bFound = false
+          local sCompleteFilename = ""
+          local InputFile = nil
+          local line = ""
+          local iPosS
+          local iPosE
+          local sFileToSelect = ""
+          local sSearchString = ""
+
+          if #params == 1 then --We got our parameter?
+            sSearchString=<span class="mark">Clipbrd.GetAsText</span>() --Get the expression to search.
+            <span class="mark">Clipbrd.Clear</span>() --Making sure we have nothing in clipboard.
+            DC.ExecuteCommand("cm_MarkUnmarkAll") --Make sure nothing is selected.
+
+            -- Let's scan one by one all the files of our directory.
+            local Handle,FindData = SysUtils.FindFirst(params[1].."\\*")
+            if Handle ~= nil then
+              repeat
+                sCompleteFilename = params[1] .. "\\" .. FindData.Name
+                myfileattr = SysUtils.FileGetAttr(sCompleteFilename)
+                if myfileattr>0 then --We got a valid attribut?
+                  --We need file, not directory!
+                  if math.floor(myfileattr / 0x00000010) % 2 == 0  then
+
+                    --Let's now read the file line by line until the the end OR a found.
+                    InputFile = io.open(sCompleteFilename, "r")
+                    bFound = false
+
+                    while bFound == false do
+                      line = InputFile:read()
+                      if line == nil then break end
+                      iPosS, iPosE = string.find(line, sSearchString)
+                      if iPosS ~= nil then bFound = true end
+                    end
+
+                    if bFound == true then
+                      sFileToSelect=sFileToSelect .. FindData.Name .. "\n"
+                    end
+
+                    io.close(InputFile)
+                  end
+                end
+                Result,FindData = SysUtils.FindNext(Handle)
+              until Result == nil
+
+              SysUtils.FindClose(Handle)
+            end
+
+            --If we've found something, select it!
+            if sFileToSelect ~= "" then
+              <span class="mark">Clipbrd.SetAsText</span>(sFileToSelect)
+              DC.ExecuteCommand("cm_LoadSelectionFromClip")
+            end
+
+            <span class="mark">Clipbrd.SetAsText</span>(sSearchString) --Restoring what we had in clipboard.
+          end
+        </pre>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.4. <a name="librarydialogs">Dialogs library</a></h2>
+        <p>This library allows our scripts to interact with user to display message, prompt for answers, etc.</p>
+        <p>Following table gives us the related functions:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Clipboard library</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="varname">Dialogs.MessageBox</div></td>
+            <td class="hintcell">
+              <p><code class=reference>ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</code></p>
+              <p>Will diplay a message box prompting a user to click a button which will be returned by the function.</p>
+              <p>Here is the description of each field:<p>
+              <ul>
+                <li><var>Message</var> : The message inside the box</li>
+                <li><var>Title</var> : The text displayed as the title of the box</li>
+                <li><var>ButFlags</var> : OR'ed value of constants to determine the buttons that will be displayed, the style of window and default button selected for the answer. See the following table the <a href="#dlgbuts">buttons displayed</a>, <a href="#dlgstyle">style of window</a> or <a href="#dlgdefbut">default button</a>.</li>
+                <li><var>ButPressed</var> : Returned value indicating the button user pressed. (see <a href="#msgreturn">this table</a>)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">Dialogs.InputQuery</div></td>
+            <td class="hintcell">
+              <p><code class=reference>bAck, sAnswer Dialogs.InputQuery(Title, Msg, bMask, sDefault)</code></p>
+              <p>Will display a requester box where user may enter a string value.</p>
+              <p>Here is the description of each field:<p>
+              <ul>
+                <li><var>Title</var> : The text displayed as the title of the box</li>
+                <li><var>Msg</var> : The message inside the box</li>
+                <li><var>bMask</var> : A boolean, when true, will display "stars" to hide characters.</li>
+                <li><var>sDefault</var> : The default suggested text that user may type over if necessary.</li>
+                <li><var>bAck</var> : Returned boolean indicating if user effectively enter something or not.</li>
+                <li><var>sAnswer</var> : Returned string when user entered something and then clicked ok.</li>
+              </ul>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.4.1. <a name="dlgbuts">Buttons displayed in Dialogs.MessageBox</a></h2>
+        <p>The buttons displayed in the box displayed by <code>Dialogs.MessageBox</code> function are controlled by a OR'ed value with one of the following:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the buttons displayed of Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Buttons displayed, from left to right</th></tr>
+          <tr><td class="varcell"><div class="varname">0x0000 / <SMALL>MB_OK</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0001 / <SMALL>MB_OKCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0002 / <SMALL>MB_ABORTRETRYIGNORE</small></div></td><td class="hintcell"><img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button IGNORE" alt="Button IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0003 / <SMALL>MB_YESNOCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0004 / <SMALL>MB_YESNO</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0005 / <SMALL>MB_RETRYCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.4.2. <a name="dlgstyle">Style of box of Dialogs.MessageBox</a></h2>
+        <p>The style of the box displayed by <code>Dialogs.MessageBox</code> function are controlled by a OR'ed value with one of the following:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the icon and style of Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Style of window</th></tr>
+          <tr><td class="varcell"><div class="varname">0x0040 / <SMALL>MB_ICONINFORMATION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window.</td></tr>
+          <tr><td class="varcell"><div class="varname">0x0030 / <SMALL>MB_ICONWARNING</small></div></td><td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window.</td></tr>
+          <tr><td class="varcell"><div class="varname">0x0020 / <SMALL>MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window.</td></tr>
+          <tr><td class="varcell"><div class="varname">0x0010 / <SMALL>MB_ICONERROR</small></div></td><td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32">Error window.</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.4.3. <a name="dlgdefbut">Style of box of Dialogs.MessageBox</a></h2>
+        <p>The default active button of the box displayed by <code>Dialogs.MessageBox</code> function are controlled by a OR'ed value with one of the following:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the default button of Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Default button</th></tr>
+          <tr><td class="varcell"><div class="varname">0x0000 / <SMALL>MB_DEFBUTTON1</small></div></td><td class="hintcell">Default will be the first one on left</td></tr>
+          <tr><td class="varcell"><div class="varname">0x0100 / <SMALL>MB_DEFBUTTON2</small></div></td><td class="hintcell">Default will be the second one from left</td></tr>
+          <tr><td class="varcell"><div class="varname">0x0200 / <SMALL>MB_DEFBUTTON3</small></div></td><td class="hintcell">Default will be the third one from left</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.4.4. <a name="msgreturn">Returned value of Dialogs.MessageBox</a></h2>
+        <p>The number returned by the <code>Dialogs.MessageBox</code> function represent the button user has pressed according to the following:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">ButPressed value returned based on button pressed of Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Button pressed</th></tr>
+          <tr><td class="varcell"><div class="varname">0x0000 / mrNone</div></td><td class="hintcell">No button pressed<BR><small>But in Windows implementation, if we press the "x" in top right or press <kbd>escape</kbd> to close the window, still, the value of the default button is still returned</small>.</td></tr>
+          <tr><td class="varcell"><div class="varname">0x0001 / mrOK</div></td><td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0002 / mrCancel</div></td><td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0003 / mrAbort</div></td><td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0004 / mrRetry</div></td><td class="hintcell"><img class="largeimage" title="Result RETRY" alt="Result RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0005 / mrIgnore</div></td><td class="hintcell"><img class="largeimage" title="Result IGNORE" alt="Result IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0006 / mrYes</div></td><td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="varname">0x0007 / mrNo</div></td><td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3.4.5. <a name="mesgboxsample">Example of usage of the Dialogs.MessageBox</a></h2>
+        <p>Here is a little script using <code>Dialogs.MessageBox</code> and the resulting window that will be displayed:</p>
+        <pre>
+--Buttons displayed
+MB_OK = 0x0000
+MB_OKCANCEL = 0x0001
+MB_ABORTRETRYIGNORE = 0x0002
+MB_YESNOCANCEL = 0x0003
+MB_YESNO = 0x0004
+MB_RETRYCANCEL = 0x0005
+
+--Box style
+MB_ICONINFORMATION = 0x0040
+MB_ICONWARNING = 0x0030
+MB_ICONQUESTION = 0x0020
+MB_ICONERROR = 0x0010
+
+--Default button
+MB_DEFBUTTON1 = 0x0000
+MB_DEFBUTTON2 = 0x0100
+MB_DEFBUTTON3 = 0x0200
+
+--Returned button pressed
+mrNone = 0x0000
+mrOK = 0x0001
+mrCancel = 0x0002
+mrAbort = 0x0003
+mrRetry = 0x0004
+mrIgnore = 0x0005
+mrYes = 0x0006
+mrNo = 0x0007
+
+ButFlags = MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2;
+ButPressed = <span class="mark">Dialogs.MessageBox</span>("Do you want to quit?", "Question", ButFlags)
+
+if ButPressed == mrYes then
+  DC.ExecuteCommand("cm_Exit")
 end
-</pre>
+        </pre>
+        <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="400" height="158"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-  <h2>3. Clipboard Functions</h2>
+      <div>
+        <h2>3.4.6. <a name="querysample">Example of usage of the Dialogs.InputQuery</a></h2>
+        <p>Here is a little script using <code>Dialogs.InputQuery</code> and the resulting window that will be displayed:</p>
+        <pre>
+bCancelOrNot, sAnswer = <span class="mark">Dialogs.InputQuery</span>("Identification", "Enter your name:", false, "John")
 
-<p>
-This library contains various clipboard functions.
-It provides all its functions inside the table <code>Clipbrd</code>.
+if bCancelOrNot == true then
+  Dialogs.MessageBox("Hello " .. sAnswer .. "!", "Welcome!", 0x040)
+end  
+        </pre>
+        <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="504" height="122"></p>
 
-<p>
-<hr><h3>Clipbrd.Clear()</h3>
-<p>Clears the clipboard content.
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
 
-<p>
-<hr><h3>Clipbrd.GetAsText()</h3>
-<p>Gets the content of the clipboard as a string.
-
-<p>
-<hr><h3>Clipbrd.SetAsText(Text)</h3>
-<p>Sets the content of the clipboard as a string <var>Text</var>.
-
-<p>
-<hr><h3>Clipbrd.SetAsHtml(Html)</h3>
-<p>Adds html-formatted text <var>Html</var> to the clipboard (CF_HTML clipboard format).
-
-<h4>Example:</h4>
-<pre>
-  Clipbrd.SetAsHtml('&lt;table&gt;&lt;tr&gt;&lt;td&gt;Cell 1,1&lt;/td&gt;&lt;td&gt;Cell 1,2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Cell 2,1&lt;/td&gt;&lt;td&gt;Cell 2,2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;')
-</pre>
-<b>Remark:   </b>
-The contents of the clipboard will be inserted as a table (in applications which support this clipboard format, like MS Word or LO Writer).
-
-  <h2>4. Dialogs Functions</h2>
-
-<p>
-This library contains various dialogs functions.
-It provides all its functions inside the table <code>Dialogs</code>.
-
-<p>
-<hr><h3>Dialogs.MessageBox(Text, Caption, Flags)</h3>
-
-<p>Display an message dialog with several response buttons.
-<p><var>Text</var> - The text in the MessageBox.</p>
-<p><var>Caption</var> - The caption of the MessageBox.</p>
-<p><var>Flags</var> - The icon and buttons appearing in the box. See WinAPI function <a href=https://msdn.microsoft.com/ru-ru/library/windows/desktop/ms645505(v=vs.85).aspx><code>MessageBox</code></a> for details.</p>
-<p>The function returns an integer value corresponding to the button that was pressed.
-
-<p>
-<hr><h3>Result,Text = Dialogs.InputQuery(Caption, Prompt, MaskInput, Value)</h3>
-
-<p>Use InputQuery to show a dialog box to get some input from the user.
-<p><var>Caption</var> - The caption of the InputQuery.</p>
-<p><var>Prompt</var> - The text asking the user for his input.</p>
-<p><var>MaskInput</var> - Determines if the dialog shows '*' or the actual input.</p>
-<p><var>Value</var> - The default input value.</p>
-<h4>Returns</h4>
-<p><var>Result</var> - True if the user pressed OK or hit RETURN in the dialog box. If the user pressed Cancel or the dialog was closed without pressing a button the result will be false.</p>
-<p><var>Text</var> - The text entered by the user or <var>nil</var> if the user cancel input.</p>
-
-<hr/>
-	<p class="NAVBACK"><a href="#topofpage">Top</a></p>
-<p><br></p>
-	<div class="SECT1">
-	  <p class="NAVBACK"><a href="index.html">Home</a></p>
-	</div>
-<p><br></p>
-
-</body>
-
+      <div>
+        <h2>3.5 <a name="libraryos">OS library</a></h2>
+        <p>This library contains functions related with the operating system where Double Commander is running.</p>
+        <p>Here is the list of available functions in this library:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">OS library</th></tr>
+          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="varname">os.execute</div></td>
+            <td class="hintcell">
+              <p><code class=reference>resultcode = os.execute(command)</code></p>
+              <p>Will execute <var>command</var> as it would be typed on the command-line and return the result code of the operation.</p>
+              <p>The <var>command</var> could either be:</p>
+              <ul>
+                <li>A terminal commmand like <code>os.execute("dir &gt;all.txt")</code></li>
+                <li>An executable like <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
+                <li>An executable with parameters:<BR><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin >md5.txt")</code></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">os.tmpname</div></td>
+            <td class="hintcell">
+              <p><code class=reference>tempfilename = os.tempname()</code></p>
+              <p>Will return a filename to use as a temporary filename.</p>			  
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">os.remove</div></td>
+            <td class="hintcell">		      
+              <p><code class=reference>bresult, errorstr, errorno = os.remove(filename)</code></p>
+              <p>Will delete the file or the directory with the name <var>filename</var>.</p>
+              <p>If it works, function returns <var>true</var>.</p>
+              <p>If it fails, function returns three things:<p>
+              <ol>
+                <li><var>nil</var> to indicate it failed</li>
+                <li><var>errorstr</var> for the error message description</li>
+                <li><var>errorno</var> for the error code number</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">os.rename</div></td>
+            <td class="hintcell">
+              <p><code class=reference>bresult, errorstr, errorno = os.rename(nameS, nameD)</code></p>
+              <p>Will rename the file <var>nameS</var> with the new name <var>nameD</var>.</p>
+              <p>If it works, function returns <var>true</var>.</p>
+              <p>If it fails, function returns three things:<p>
+              <ol>
+                <li><var>nil</var> to indicate it failed</li>
+                <li><var>errorstr</var> for the error message description</li>
+                <li><var>errorno</var> for the error code number</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="varname">os.getenv</div></td>
+            <td class="hintcell">
+              <p><code class=reference>value = os.getenv(variablename)</code></p>
+              <p>Will return the <var>value</var> of the variable <var>variablename</var> passed in parameter.<BR>If no variable of that name exists, it will return <var>nil</var>.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <BR>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="regexp.html">previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="checker"><a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a></div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
 </html>

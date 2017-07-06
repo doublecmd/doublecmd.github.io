@@ -67,7 +67,7 @@
       <div>
         <h2>1. <a name="preface">Introduction</a></h2>
         <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.</p>
-        <p>This was introduce with version 0.8 of Double Commander.</p>
+        <p>This was introduced with version 0.8 of Double Commander.</p>
         <p>It is also possible to write content plugins (.wdx) using Lua script.</p>
         <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
@@ -89,11 +89,11 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="3">List of libraries</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Libray name</th><th class="namecolumn">Script name</th><th class="categorydesccolumn">Quick description</th></tr>
-          <tr><td class="varcell"><div class="varname"><a href="#libdc">Double Commander library</a></div></td><td class="hintcell">DC</td><td class="hintcell">Double Commander specific functions.</td></tr>
-          <tr><td class="varcell"><div class="varname"><a href="#librarysystem">System library</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Various system functions</td></tr>
-          <tr><td class="varcell"><div class="varname"><a href="#libraryclip">Clipboard library</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Provides external clipboard functionality.</td></tr>
-          <tr><td class="varcell"><div class="varname"><a href="#librarydialogs">Dialogs library</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interacts with user.</td></tr>
-          <tr><td class="varcell"><div class="varname"><a href="#libraryos">OS libray</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn"><a href="#libdc">Double Commander library</a></div></td><td class="hintcell">DC</td><td class="hintcell">Double Commander specific functions.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn"><a href="#librarysystem">System library</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Various system functions</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn"><a href="#libraryclip">Clipboard library</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Provides external clipboard functionality.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn"><a href="#librarydialogs">Dialogs library</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interacts with user.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn"><a href="#libraryos">OS libray</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -101,17 +101,17 @@
       <div>
         <h2>3.1. <a name="libdc">DC library</a></h2>
         <p>This library contains Double Commander specific functions.</p>
-        <p>It provides all its functions inside the table DC.</p>
+        <p>It provides all its functions inside the table <code>DC</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">DC library</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">DC.ExecuteCommand</div></td>
+            <td class="varcell"><div class="firstcolumn">DC.ExecuteCommand</div></td>
             <td class="hintcell">
-              <p><code class=reference>DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</code></p>
+              <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
               <p>This allows the script to invoke internal commands of DC.</p>
               <p>The <var>Command</var> is holding the actual internal command name</p>
-			  <p>We may provide as many <var>Param...</var> as command may support.</p>
+              <p>We may provide as many <var>Param...</var> as command may support.</p>
             </td>
           </tr>
         </table>
@@ -176,64 +176,64 @@
           <tr class="rowcategorytitle"><th colspan="2">System library</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">SysUtils.Sleep</div></td>
+            <td class="varcell"><div class="firstcolumn">SysUtils.Sleep</div></td>
             <td class="hintcell">
-              <p><code class=reference>SysUtils.Sleep(Milliseconds)</code></p>			
+              <p class="definition">SysUtils.Sleep(Milliseconds)</p>			
               <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<BR> After the specified period has expired, script execution resumes.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">SysUtils.FileExists</div></td>
+            <td class="varcell"><div class="firstcolumn">SysUtils.FileExists</div></td>
             <td class="hintcell">
-              <p><code class=reference>bFlagExists = SysUtils.FileExists(FileName)</code></p>
+              <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
               <p>Check whether a particular file exists in the filesystem.<p>
               <p>Returns in <var>bFlagExists</var> the value <code>true</code> if file with name <var>FileName</var> exists on the disk, or <code>false</code> otherwise.
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">SysUtils.DirectoryExists</div></td>
+            <td class="varcell"><div class="firstcolumn">SysUtils.DirectoryExists</div></td>
             <td class="hintcell">
-              <p><code class=reference>bFlagExists = SysUtils.DirectoryExists(Directory)</code></p>
+              <p class="definition">bFlagExists = SysUtils.DirectoryExists(Directory)</p>
               <p>Checks whether <var>Directory</var> exists in the filesystem and is actually a directory.<p>
               <p>If this is the case, the function returns in <var>bFlagExists</var> the value <code>true</code> otherwise <code>false</code> is returned.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">SysUtils.FileGetAttr</div></td>
+            <td class="varcell"><div class="firstcolumn">SysUtils.FileGetAttr</div></td>
             <td class="hintcell">
-              <p><code class=reference>Attr = SysUtils.FileGetAttr(FileName)</code></p>
+              <p class="definition">Attr = SysUtils.FileGetAttr(FileName)</p>
               <p>Returns in <var>Attr</var> the attribute settings of file <var>FileName</var>.</p>
               <p>See the detail explanations of the returned value <a href="#detailattr">here</a>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">SysUtils.FindFirst</div></td>
+            <td class="varcell"><div class="firstcolumn">SysUtils.FindFirst</div></td>
             <td class="hintcell">
-              <p><code class=reference>Handle, FindData = SysUtils.FindFirst(Path)</code></p>
+              <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
               <p>Looks for files that match the <var>Path</var>, generally with wildcards.</p>
               <p>If no file is found, <var>Handle</var> will be nil</p>
               <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurences of the same pattern.</p>
-			  <p>The <var>FindData</var> table contains information about the file or directory found.</p>
+              <p>The <var>FindData</var> table contains information about the file or directory found.</p>
               <p>The field of the <var>FindData</var> table are: <code>Name</code>, <code>Attr</code>, <code>Size</code> and <code>Time</code>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">SysUtils.FindNext</div></td>
+            <td class="varcell"><div class="firstcolumn">SysUtils.FindNext</div></td>
             <td class="hintcell">
-              <p><code class=reference>Result, FindData = SysUtils.FindNext(Handle)</code></p>
+              <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
               <p>Finds the next occurrence of a search sequence initiated by <var>FindFirst</var> by re-using the <var>Handle</var> returned previously.</p>
               <p>Returned <var>Result</var> will be non-nil if a file or directory is found and will be nil otherwise.<p>
               <p>The same notes mentionned for <code>SysUtils.FindFirst</code> applied here.</p>
               <p><B><U>Remark:</u> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory loss.</b></p>
-                    </td>
-                    </tr>
-                  <tr>
-                    <td class="varcell"><div class="varname">SysUtils.FindClose</div></td>
-                    <td class="hintcell">
-                      <p><code class=reference>SysUtils.FindClose(Handle)</code></p>
-                      <p>Ends a series of <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code> calls.</p>
-                      <p>Frees any memory used by these calls.</p>
-                      <p>It is <em>absolutely</em> necessary to do this call, or memory losses may occur.</p>
-                    </td>
-                  </tr>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumn">SysUtils.FindClose</div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.FindClose(Handle)</p>
+              <p>Ends a series of <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code> calls.</p>
+              <p>Frees any memory used by these calls.</p>
+              <p>It is <em>absolutely</em> necessary to do this call, or memory losses may occur.</p>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -247,22 +247,22 @@
           <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Value</th><th class="categorydesccolumn">Signification</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">0x00000001 / <SMALL>faReadOnly</small></div></td><td class="hintcell">The file is read-only.</td>
+            <td class="varcell"><div class="firstcolumn">0x00000001</div><SMALL>faReadOnly</small></td><td class="hintcell">The file is read-only.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">0x00000002 / <SMALL>faHidden</small></div></td><td class="hintcell">The file is hidden.<BR>In Unix/Linux, this means that the filename starts with a dot.</td>
+            <td class="varcell"><div class="firstcolumn">0x00000002</div><SMALL>faHidden</small></td><td class="hintcell">The file is hidden.<BR>In Unix/Linux, this means that the filename starts with a dot.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">0x00000004 / <SMALL>faSysFile</small></div></td><td class="hintcell">The file is a system file.<BR>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
+            <td class="varcell"><div class="firstcolumn">0x00000004</div><SMALL>faSysFile</small></td><td class="hintcell">The file is a system file.<BR>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">0x00000008 / <SMALL>faVolumeId</small></div></td><td class="hintcell">Volume Label.<BR>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
+            <td class="varcell"><div class="firstcolumn">0x00000008</div><SMALL>faVolumeId</small></td><td class="hintcell">Volume Label.<BR>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">0x00000010 / <SMALL>faDirectory</small></div></td><td class="hintcell">File is a directory.</td>
+            <td class="varcell"><div class="firstcolumn">0x00000010</div><SMALL>faDirectory</small></td><td class="hintcell">File is a directory.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">0x00000020</div></td><td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
+            <td class="varcell"><div class="firstcolumn">0x00000020</div></td><td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
           </tr>
           <tr>
             <td colspan="2"><B>Note: In case of error, -1 is returned.</b>
@@ -348,39 +348,39 @@
           <tr class="rowcategorytitle"><th colspan="2">Clipboard library</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">Clipbrd.Clear</div></td>
+            <td class="varcell"><div class="firstcolumn">Clipbrd.Clear</div></td>
             <td class="hintcell">
-              <p><code class=reference>Clipbrd.Clear()</code></p>
+              <p class="definition">Clipbrd.Clear()</p>
               <p>Clear the content of the clipboard.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">Clipbrd.GetAsText</div></td>
+            <td class="varcell"><div class="firstcolumn">Clipbrd.GetAsText</div></td>
             <td class="hintcell">
-              <p><code class=reference>StringVar = Clipbrd.GetAsText()</code></p>
+              <p class="definition">StringVar = Clipbrd.GetAsText()</p>
               <p>Get the current text content of the clipboard to assigned it to <var>StringVar</var>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">Clipbrd.SetAsText</div></td>
+            <td class="varcell"><div class="firstcolumn">Clipbrd.SetAsText</div></td>
             <td class="hintcell">
-              <p><code class=reference>Clipbrd.SetAsText(StringVar)</code></p>
+              <p class="definition">Clipbrd.SetAsText(StringVar)</p>
               <p>Store in the clipboard the text content of <var>StringVar</var></p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">Clipbrd.SetAsHtml</div></td>
+            <td class="varcell"><div class="firstcolumn">Clipbrd.SetAsHtml</div></td>
             <td class="hintcell">
-              <p><code class=reference>Clipbrd.SetAsHtml(Html)</code></p>
+              <p class="definition">Clipbrd.SetAsHtml(Html)</p>
               <p>Adds html-formatted text <var>Html</var> to the clipboard (CF_HTML clipboard format).</p>
-			  <p>This contents will be inserted in applications which support this clipboard format, like MS Word, LO Writer, etc.<p>
-			  <p>It's correct to store data with both <code>Clipbrd.SetAsText</code> and <code>Clipbrd.SetAsHtml</code>. When we'll paste, the application will use the best one that it supports.</p>
-			  <p>For example we may have this:</p>
-			  <ul>
-			    <li><code>Clipbrd.SetAsText("Welcome to Double Commander!")</code></li>
-				<li><code>Clipbrd.SetAsHtml("Welcome to &lt;B&gt;Double Commander&lt;/b&gt;!")</code></li>
-			  </ul>
-			  <p>If we switch to Notepad attempting to paste something, it will paste in plain text the message we copied with <code>Clipbrd.SetAsText</code>. But if we switch to Microsoft Word and paste something, it will paste the second one, the one with <B>Double Commander</b> in bold since the Microsoft Word recognize and support that clipboarb content type.</p>
+              <p>This contents will be inserted in applications which support this clipboard format, like MS Word, LO Writer, etc.<p>
+              <p>It's correct to store data with both <code>Clipbrd.SetAsText</code> and <code>Clipbrd.SetAsHtml</code>. When we'll paste, the application will use the best one that it supports.</p>
+              <p>For example we may have this:</p>
+              <ul>
+                <li><code>Clipbrd.SetAsText("Welcome to Double Commander!")</code></li>
+                <li><code>Clipbrd.SetAsHtml("Welcome to &lt;B&gt;Double Commander&lt;/b&gt;!")</code></li>
+              </ul>
+              <p>If we switch to Notepad attempting to paste something, it will paste in plain text the message we copied with <code>Clipbrd.SetAsText</code>. But if we switch to Microsoft Word and paste something, it will paste the second one, the one with <B>Double Commander</b> in bold since the Microsoft Word recognize and support that clipboarb content type.</p>
             </td>
           </tr>
         </table>
@@ -469,9 +469,9 @@
           <tr class="rowcategorytitle"><th colspan="2">Clipboard library</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">Dialogs.MessageBox</div></td>
+            <td class="varcell"><div class="firstcolumn">Dialogs.MessageBox</div></td>
             <td class="hintcell">
-              <p><code class=reference>ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</code></p>
+              <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
               <p>Will diplay a message box prompting a user to click a button which will be returned by the function.</p>
               <p>Here is the description of each field:<p>
               <ul>
@@ -483,9 +483,9 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">Dialogs.InputQuery</div></td>
+            <td class="varcell"><div class="firstcolumn">Dialogs.InputQuery</div></td>
             <td class="hintcell">
-              <p><code class=reference>bAck, sAnswer Dialogs.InputQuery(Title, Msg, bMask, sDefault)</code></p>
+              <p class="definition">bAck, sAnswer Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
               <p>Will display a requester box where user may enter a string value.</p>
               <p>Here is the description of each field:<p>
               <ul>
@@ -507,12 +507,12 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the buttons displayed of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Buttons displayed, from left to right</th></tr>
-          <tr><td class="varcell"><div class="varname">0x0000 / <SMALL>MB_OK</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0001 / <SMALL>MB_OKCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0002 / <SMALL>MB_ABORTRETRYIGNORE</small></div></td><td class="hintcell"><img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button IGNORE" alt="Button IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0003 / <SMALL>MB_YESNOCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0004 / <SMALL>MB_YESNO</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0005 / <SMALL>MB_RETRYCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0000</div><SMALL>MB_OK</small></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0001</div><SMALL>MB_OKCANCEL</small></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0002</div><SMALL>MB_ABORTRETRYIGNORE</small></td><td class="hintcell"><img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button IGNORE" alt="Button IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0003</div><SMALL>MB_YESNOCANCEL</small></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0004</div><SMALL>MB_YESNO</small></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0005</div><SMALL>MB_RETRYCANCEL</small></td><td class="hintcell"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -523,10 +523,10 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the icon and style of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Style of window</th></tr>
-          <tr><td class="varcell"><div class="varname">0x0040 / <SMALL>MB_ICONINFORMATION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window.</td></tr>
-          <tr><td class="varcell"><div class="varname">0x0030 / <SMALL>MB_ICONWARNING</small></div></td><td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window.</td></tr>
-          <tr><td class="varcell"><div class="varname">0x0020 / <SMALL>MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window.</td></tr>
-          <tr><td class="varcell"><div class="varname">0x0010 / <SMALL>MB_ICONERROR</small></div></td><td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32">Error window.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0040</div><SMALL>MB_ICONINFORMATION</small></td><td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0030</div><SMALL>MB_ICONWARNING</small></td><td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0020</div><SMALL>MB_ICONQUESTION</small></td><td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0010</div><SMALL>MB_ICONERROR</small></td><td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32">Error window.</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -537,9 +537,9 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the default button of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Default button</th></tr>
-          <tr><td class="varcell"><div class="varname">0x0000 / <SMALL>MB_DEFBUTTON1</small></div></td><td class="hintcell">Default will be the first one on left</td></tr>
-          <tr><td class="varcell"><div class="varname">0x0100 / <SMALL>MB_DEFBUTTON2</small></div></td><td class="hintcell">Default will be the second one from left</td></tr>
-          <tr><td class="varcell"><div class="varname">0x0200 / <SMALL>MB_DEFBUTTON3</small></div></td><td class="hintcell">Default will be the third one from left</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0000</div><SMALL>MB_DEFBUTTON1</small></td><td class="hintcell">Default will be the first one on left</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0100</div><SMALL>MB_DEFBUTTON2</small></td><td class="hintcell">Default will be the second one from left</td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0200</div><SMALL>MB_DEFBUTTON3</small></td><td class="hintcell">Default will be the third one from left</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -550,14 +550,14 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">ButPressed value returned based on button pressed of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Button pressed</th></tr>
-          <tr><td class="varcell"><div class="varname">0x0000 / mrNone</div></td><td class="hintcell">No button pressed<BR><small>But in Windows implementation, if we press the "x" in top right or press <kbd>escape</kbd> to close the window, still, the value of the default button is still returned</small>.</td></tr>
-          <tr><td class="varcell"><div class="varname">0x0001 / mrOK</div></td><td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0002 / mrCancel</div></td><td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0003 / mrAbort</div></td><td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0004 / mrRetry</div></td><td class="hintcell"><img class="largeimage" title="Result RETRY" alt="Result RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0005 / mrIgnore</div></td><td class="hintcell"><img class="largeimage" title="Result IGNORE" alt="Result IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0006 / mrYes</div></td><td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="varname">0x0007 / mrNo</div></td><td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0000</div><SMALL>mrNone</small></td><td class="hintcell">No button pressed<BR><I>But in Windows implementation, if we press the "x" in top right or press <kbd>escape</kbd> to close the window, still, the value of the default button is still returned.</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0001</div><SMALL>mrOK</small></td><td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0002</div><SMALL>mrCancel</small></td><td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0003</div><SMALL>mrAbort</small></td><td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0004</div><SMALL>mrRetry</small></td><td class="hintcell"><img class="largeimage" title="Result RETRY" alt="Result RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0005</div><SMALL>mrIgnore</small></td><td class="hintcell"><img class="largeimage" title="Result IGNORE" alt="Result IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0006</div><SMALL>mrYes</small></td><td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumn">0x0007</div><SMALL>mrNo</small></td><td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -629,9 +629,9 @@ end
           <tr class="rowcategorytitle"><th colspan="2">OS library</th></tr>
           <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">os.execute</div></td>
+            <td class="varcell"><div class="firstcolumn">os.execute</div></td>
             <td class="hintcell">
-              <p><code class=reference>resultcode = os.execute(command)</code></p>
+              <p class="definition">resultcode = os.execute(command)</p>
               <p>Will execute <var>command</var> as it would be typed on the command-line and return the result code of the operation.</p>
               <p>The <var>command</var> could either be:</p>
               <ul>
@@ -642,16 +642,16 @@ end
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">os.tmpname</div></td>
+            <td class="varcell"><div class="firstcolumn">os.tmpname</div></td>
             <td class="hintcell">
-              <p><code class=reference>tempfilename = os.tempname()</code></p>
+              <p class="definition">tempfilename = os.tempname()</p>
               <p>Will return a filename to use as a temporary filename.</p>			  
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">os.remove</div></td>
+            <td class="varcell"><div class="firstcolumn">os.remove</div></td>
             <td class="hintcell">		      
-              <p><code class=reference>bresult, errorstr, errorno = os.remove(filename)</code></p>
+              <p class="definition">bresult, errorstr, errorno = os.remove(filename)</p>
               <p>Will delete the file or the directory with the name <var>filename</var>.</p>
               <p>If it works, function returns <var>true</var>.</p>
               <p>If it fails, function returns three things:<p>
@@ -663,9 +663,9 @@ end
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">os.rename</div></td>
+            <td class="varcell"><div class="firstcolumn">os.rename</div></td>
             <td class="hintcell">
-              <p><code class=reference>bresult, errorstr, errorno = os.rename(nameS, nameD)</code></p>
+              <p class="definition">bresult, errorstr, errorno = os.rename(nameS, nameD)</p>
               <p>Will rename the file <var>nameS</var> with the new name <var>nameD</var>.</p>
               <p>If it works, function returns <var>true</var>.</p>
               <p>If it fails, function returns three things:<p>
@@ -677,9 +677,9 @@ end
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">os.getenv</div></td>
+            <td class="varcell"><div class="firstcolumn">os.getenv</div></td>
             <td class="hintcell">
-              <p><code class=reference>value = os.getenv(variablename)</code></p>
+              <p class="definition">value = os.getenv(variablename)</p>
               <p>Will return the <var>value</var> of the variable <var>variablename</var> passed in parameter.<BR>If no variable of that name exists, it will return <var>nil</var>.</td>
           </tr>
         </table>

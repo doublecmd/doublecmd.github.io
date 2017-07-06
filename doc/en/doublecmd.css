@@ -37,6 +37,7 @@ color: #000000;
 code { background: #e8e8f9;  font-weight: bold;}
 var { background: #e8e8f9;  font-weight: bold;}
 code.reference { background: #f0f0e0; font-weight: bold;}
+p.definition { font-family: "Courier", "Courier New";  color:black ; background: #E0E0E0; font-weight: bold; }
 
 
 span.mark { background: #ffff40; }
@@ -88,6 +89,7 @@ div.cmdname {
 }
 
 div.varname { text-align: center;  font-weight: bold; }
+div.firstcolumn { text-align: left;  font-weight: bold; }
 div.shortcutname { text-align: center;  font-weight: bold; color: #FF0000}
 
 div.longcmdname {

@@ -85,11 +85,11 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Packer plugin from a fresh install (.WCX)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Plugin filename</th><th class="categorydesccolumn">Archive type supported</th></tr>
-          <tr><td class="varcell"><div class="varname">deb.wcx</div></td><td class="hintcell">.deb</td></tr>
-          <tr><td class="varcell"><div class="varname">rpm.wcx</div></td><td class="hintcell">.rpm</td></tr>
-          <tr><td class="varcell"><div class="varname">sevenzip.wcx</div></td><td class="hintcell">.7z, .cpio, .arj, .cab, .cramfs, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar &amp; .z</td></tr>
-          <tr><td class="varcell"><div class="varname">unrar.wcx</div></td><td class="hintcell">.rar</td></tr>
-          <tr><td class="varcell"><div class="varname">zip.wcx</div></td><td class="hintcell">.zip, .tar, .bz2, .tbz, .gz, .tbz, .tlz, .xz &amp; .txz</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">deb.wcx</div></td><td class="hintcell">.deb</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">rpm.wcx</div></td><td class="hintcell">.rpm</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">sevenzip.wcx</div></td><td class="hintcell">.7z, .cpio, .arj, .cab, .cramfs, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar &amp; .z</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">unrar.wcx</div></td><td class="hintcell">.rar</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zip.wcx</div></td><td class="hintcell">.zip, .tar, .bz2, .tbz, .gz, .tbz, .tlz, .xz &amp; .txz</td></tr>
         </table>
         <p><i>Please note that many of these will be to extract content only. They will not allow to create an archive of this type.</i></p>
         <BR>
@@ -153,20 +153,20 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Command definition</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variable expression</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="varname">%P</div></td><td class="hintcell">long name of archiving utility (as it is in "Archiver" key)</td></tr>
-          <tr><td class="varcell"><div class="varname">%p</div></td><td class="hintcell">short name of archiving utility (as it is in "Archiver" key)</td></tr>
-          <tr><td class="varcell"><div class="varname">%A</div></td><td class="hintcell">long name of archive file</td></tr>
-          <tr><td class="varcell"><div class="varname">%a</div></td><td class="hintcell">short name of archive file</td></tr>
-          <tr><td class="varcell"><div class="varname">%L</div></td><td class="hintcell">Filelist name.<BR>Filelist is the file containing names of files to be processed by the external archiver.<BR>File names is long</td></tr>
-          <tr><td class="varcell"><div class="varname">%l</div></td><td class="hintcell">Filelist with short file names.</td></tr>
-          <tr><td class="varcell"><div class="varname">%F</div></td><td class="hintcell">The name of a single file to process.<BR>The archiver will be executed several times until all file names are exhausted.<BR>This variable should be used only if the destination archiver does not support filelists on the command line.</td></tr>
-          <tr><td class="varcell"><div class="varname">%V</div></td><td class="hintcell">The volume size (for multivolume archive).</td></tr>
-          <tr><td class="varcell"><div class="varname">%W</div></td><td class="hintcell">The password.</td></tr>
-          <tr><td class="varcell"><div class="varname">%E&lt;errorlevel&gt;</div></td><td class="hintcell">maximum acceptable command errorlevel.<BR>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<BR>This variable may be specified in any place of command.<BR>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
-          <tr><td class="varcell"><div class="varname">%O</div></td><td class="hintcell">by default, multiarc convert archiver output from OEM encoding to ANSI.<BR>Applying it skip encoding.</td></tr>
-          <tr><td class="varcell"><div class="varname">%R</div></td><td class="hintcell">Target subdirectory IN archive</td></tr>
-          <tr><td class="varcell"><div class="varname">{}</div></td><td class="hintcell">If some variable is enclosed in braces - it'll be added only if this variable will contain something non-empty.</td></tr>
-          <tr><td class="varcell"><div class="varname">%S</div></td><td class="hintcell">Depends on modes, set in configuration dialog, MultiArc will ask user about additional command-line parameters should be passed in-place of %S.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%P</div></td><td class="hintcell">long name of archiving utility (as it is in "Archiver" key)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">short name of archiving utility (as it is in "Archiver" key)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%A</div></td><td class="hintcell">long name of archive file</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%a</div></td><td class="hintcell">short name of archive file</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Filelist name.<BR>Filelist is the file containing names of files to be processed by the external archiver.<BR>File names is long</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%l</div></td><td class="hintcell">Filelist with short file names.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">The name of a single file to process.<BR>The archiver will be executed several times until all file names are exhausted.<BR>This variable should be used only if the destination archiver does not support filelists on the command line.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">The volume size (for multivolume archive).</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">The password.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">maximum acceptable command errorlevel.<BR>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<BR>This variable may be specified in any place of command.<BR>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O</div></td><td class="hintcell">by default, multiarc convert archiver output from OEM encoding to ANSI.<BR>Applying it skip encoding.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Target subdirectory IN archive</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">If some variable is enclosed in braces - it'll be added only if this variable will contain something non-empty.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Depends on modes, set in configuration dialog, MultiArc will ask user about additional command-line parameters should be passed in-place of %S.</td></tr>
         </table>
         <p>Don't worry, we'll give example later to better understand.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -178,13 +178,13 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Variable modifiers</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Modifier letter</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="varname">F</div></td><td class="hintcell">include in FileList only files (can be used with %L and %l variables)</td></tr>
-          <tr><td class="varcell"><div class="varname">Q</div></td><td class="hintcell">quote names with spaces;</td></tr>
-          <tr><td class="varcell"><div class="varname">q</div></td><td class="hintcell">quote all names;</td></tr>
-          <tr><td class="varcell"><div class="varname">W</div></td><td class="hintcell">use name only, without path</td></tr>
-          <tr><td class="varcell"><div class="varname">P</div></td><td class="hintcell">use path only, without name</td></tr>
-          <tr><td class="varcell"><div class="varname">A</div></td><td class="hintcell">use ANSI encoding</td></tr>
-          <tr><td class="varcell"><div class="varname">U</div></td><td class="hintcell">use UTF-8 encoding</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">include in FileList only files (can be used with %L and %l variables)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">quote names with spaces;</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">quote all names;</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">use name only, without path</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">use path only, without name</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">use ANSI encoding</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">use UTF-8 encoding</td></tr>
         </table>
         <p>Again don't worry, we'll have example later on.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -260,23 +260,23 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Standard syntax parsing</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="varname">n</div></td><td class="hintcell">filename</td></tr>
-          <tr><td class="varcell"><div class="varname">z</div></td><td class="hintcell">unpacked size</td></tr>
-          <tr><td class="varcell"><div class="varname">c</div></td><td class="hintcell">file description</td></tr>
-          <tr><td class="varcell"><div class="varname">p</div></td><td class="hintcell">packed size</td></tr>
-          <tr><td class="varcell"><div class="varname">d</div></td><td class="hintcell">day</td></tr>
-          <tr><td class="varcell"><div class="varname">t</div></td><td class="hintcell">month</td></tr>
-          <tr><td class="varcell"><div class="varname">TTT</div></td><td class="hintcell">three letters month name (Jan, Feb, Mar, ...)</td></tr>
-          <tr><td class="varcell"><div class="varname">y</div></td><td class="hintcell">year</td></tr>
-          <tr><td class="varcell"><div class="varname">h</div></td><td class="hintcell">hours</td></tr>
-          <tr><td class="varcell"><div class="varname">H</div></td><td class="hintcell">hours modifier letter (a - a.m. time, p - p.m. time)</td></tr>
-          <tr><td class="varcell"><div class="varname">m</div></td><td class="hintcell">minutes</td></tr>
-          <tr><td class="varcell"><div class="varname">s</div></td><td class="hintcell">seconds</td></tr>
-          <tr><td class="varcell"><div class="varname">a</div></td><td class="hintcell">attributes</td></tr>
-          <tr><td class="varcell"><div class="varname">e</div></td><td class="hintcell">file extension</td></tr>
-          <tr><td class="varcell"><div class="varname">?</div></td><td class="hintcell">skip one symbol</td></tr>
-          <tr><td class="varcell"><div class="varname">*</div></td><td class="hintcell">skip until first space or end of line</td></tr>
-          <tr><td class="varcell"><div class="varname">+</div></td><td class="hintcell">for name field at line end: use all chars until the end of the line</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n</div></td><td class="hintcell">filename</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">unpacked size</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">file description</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">packed size</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">day</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">month</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">TTT</div></td><td class="hintcell">three letters month name (Jan, Feb, Mar, ...)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">y</div></td><td class="hintcell">year</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">hours</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">H</div></td><td class="hintcell">hours modifier letter (a - a.m. time, p - p.m. time)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">m</div></td><td class="hintcell">minutes</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">seconds</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">attributes</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">file extension</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">?</div></td><td class="hintcell">skip one symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">*</div></td><td class="hintcell">skip until first space or end of line</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">for name field at line end: use all chars until the end of the line</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -308,16 +308,16 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Advance syntax parsing</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="varname">+</div></td><td class="hintcell">for name field not at line end: use all chars up to next space</td></tr>
-          <tr><td class="varcell"><div class="varname">+</div></td><td class="hintcell">after any numeric field: use all digits up to first non-digit character</td></tr>
-          <tr><td class="varcell"><div class="varname">n+</div></td><td class="hintcell">use all chars until the end of the line for filename</td></tr>
-          <tr><td class="varcell"><div class="varname">z+</div></td><td class="hintcell">use all digits up to first non-digit character for the upacked size</td></tr>
-          <tr><td class="varcell"><div class="varname">p+</div></td><td class="hintcell">use all digits up to first non-digit character for the packed size</td></tr>
-          <tr><td class="varcell"><div class="varname">$</div></td><td class="hintcell">skip all spaces/tabstops until next character or end of line</td></tr>
-          <tr><td class="varcell"><div class="varname">\</div></td><td class="hintcell">data continues on next line (maximum 2 lines supported)</td></tr>
-          <tr><td class="varcell"><div class="varname">x</div></td><td class="hintcell">exactly 1 space, if there is a different character at this position, ignore the whole line</td></tr>
-          <tr><td class="varcell"><div class="varname">z=1024</div></td><td class="hintcell">unpacked size multiplied with given value (here: 1024)</td></tr>
-          <tr><td class="varcell"><div class="varname">p=1024</div></td><td class="hintcell">packed size multiplied with given value (here: 1024)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">for name field not at line end: use all chars up to next space</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">after any numeric field: use all digits up to first non-digit character</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n+</div></td><td class="hintcell">use all chars until the end of the line for filename</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z+</div></td><td class="hintcell">use all digits up to first non-digit character for the upacked size</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p+</div></td><td class="hintcell">use all digits up to first non-digit character for the packed size</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">$</div></td><td class="hintcell">skip all spaces/tabstops until next character or end of line</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">\</div></td><td class="hintcell">data continues on next line (maximum 2 lines supported)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">exactly 1 space, if there is a different character at this position, ignore the whole line</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z=1024</div></td><td class="hintcell">unpacked size multiplied with given value (here: 1024)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p=1024</div></td><td class="hintcell">packed size multiplied with given value (here: 1024)</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

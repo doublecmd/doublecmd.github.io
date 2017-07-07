@@ -70,11 +70,11 @@
           <tr class="rowcategorytitle"><th colspan="2">Example of simple match</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">foobar</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foobar</div></td>
             <td class="hintcell">matches string 'foobar'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\^FooBarPtr</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\^FooBarPtr</div></td>
             <td class="hintcell">matches '^FooBarPtr'</td>
           </tr>
         </table>
@@ -90,35 +90,35 @@
           <tr class="rowcategorytitle"><th colspan="2">Escape sequences</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">\xnn</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\xnn</div></td>
             <td class="hintcell">char with hex code nn</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\x{nnnn}</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\x{nnnn}</div></td>
             <td class="hintcell">char with hex code nnnn (one byte for plain text and two bytes for Unicode)</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\t</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\t</div></td>
             <td class="hintcell">tab (HT/TAB), same as \x09</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\n</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\n</div></td>
             <td class="hintcell">newline (NL), same as \x0a</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\r</div></td>
             <td class="hintcell">car.return (CR), same as \x0d</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\f</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\f</div></td>
             <td class="hintcell">form feed (FF), same as \x0c</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\a</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\a</div></td>
             <td class="hintcell">alarm (bell) (BEL), same as \x07</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\e</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\e</div></td>
             <td class="hintcell">escape (ESC), same as \x1b</td>
           </tr>
         </table>
@@ -127,11 +127,11 @@
           <tr class="rowcategorytitle"><th colspan="2">Example of escape sequences</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">foo\x20bar</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foo\x20bar</div></td>
             <td class="hintcell">matches 'foo bar' (note space in the middle)</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\tfoobar</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\tfoobar</div></td>
             <td class="hintcell">matches 'foobar' predefined by tab</td>
           </tr>
         </table>
@@ -149,31 +149,31 @@
           <tr class="rowcategorytitle"><th colspan="2">Character classes</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">[-az]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[-az]</div></td>
             <td class="hintcell">matches 'a', 'z' and '-'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">[az-]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[az-]</div></td>
             <td class="hintcell">matches 'a', 'z' and '-'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">[a\-z]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[a\-z]</div></td>
             <td class="hintcell">matches 'a', 'z' and '-'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">[a-z]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[a-z]</div></td>
             <td class="hintcell">matches all twenty six small characters from 'a' to 'z'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">[\n-\x0D]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[\n-\x0D]</div></td>
             <td class="hintcell">matches any of #10,#11,#12,#13.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">[\d-t]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[\d-t]</div></td>
             <td class="hintcell">matches any digit, '-' or 't'.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">[]-a]</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">[]-a]</div></td>
             <td class="hintcell">matches any char from ']'..'a'.</td>
           </tr>
         </table>
@@ -182,11 +182,11 @@
           <tr class="rowcategorytitle"><th colspan="2">Example of character classes</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">foob[aeiou]r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob[aeiou]r</div></td>
             <td class="hintcell">finds strings 'foobar', 'foober' etc. but not 'foobbr', 'foobcr' etc.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foob[^aeiou]r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob[^aeiou]r</div></td>
             <td class="hintcell">find strings 'foobbr', 'foobcr' etc. but not 'foobar', 'foober' etc.</td>
           </tr>
         </table>
@@ -207,23 +207,23 @@
           <tr class="rowcategorytitle"><th colspan="2">Line separators</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">^</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">^</div></td>
             <td class="hintcell">start of line</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">$</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">$</div></td>
             <td class="hintcell">end of line</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\A</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\A</div></td>
             <td class="hintcell">start of text</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\Z</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\Z</div></td>
             <td class="hintcell">end of text</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">.</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">.</div></td>
             <td class="hintcell">any character in line</td>
           </tr>
         </table>
@@ -232,19 +232,19 @@
           <tr class="rowcategorytitle"><th colspan="2">Example with line separators</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">^foobar</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
             <td class="hintcell">matches string 'foobar' only if it's at the beginning of line</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foobar$</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
             <td class="hintcell">matches string 'foobar' only if it's at the end of line</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">^foobar$</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
             <td class="hintcell">matches string 'foobar' only if it's the only string in line</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foob.r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob.r</div></td>
             <td class="hintcell">matches strings like 'foobar', 'foobbr', 'foob1r' and so on</td>
           </tr>
         </table>
@@ -269,27 +269,27 @@
           <tr class="rowcategorytitle"><th colspan="2">Predefined classes</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">\w</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\w</div></td>
             <td class="hintcell">an alphanumeric character (including "_")</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\W</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\W</div></td>
             <td class="hintcell">a nonalphanumeric</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\d</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\d</div></td>
             <td class="hintcell">a numeric character</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\D</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\D</div></td>
             <td class="hintcell">a non-numeric</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\s</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\s</div></td>
             <td class="hintcell">any space (same as [ \t\n\r\f])</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\S</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\S</div></td>
             <td class="hintcell">a non space</td>
           </tr>
         </table>
@@ -299,11 +299,11 @@
           <tr class="rowcategorytitle"><th colspan="2">Example of predefined classes</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">foob\dr</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob\dr</div></td>
             <td class="hintcell">matches strings like 'foob1r', ''foob6r' and so on but not 'foobar', 'foobbr' and so on</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foob[\w\s]r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob[\w\s]r</div></td>
             <td class="hintcell">matches strings like 'foobar', 'foob r', 'foobbr' and so on but not 'foob1r', 'foob=r' and so on</td>
           </tr>
         </table>
@@ -318,11 +318,11 @@
           <tr class="rowcategorytitle"><th colspan="2">Word boundaries</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">\b</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\b</div></td>
             <td class="hintcell">Match a word boundary</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">\B</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">\B</div></td>
             <td class="hintcell">Match a non-(word boundary)</td>
           </tr>
         </table>
@@ -337,51 +337,51 @@
           <tr class="rowcategorytitle"><th colspan="2">Iterators</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">*</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">*</div></td>
             <td class="hintcell">zero or more ("greedy"), similar to {0,}</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">+</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">+</div></td>
             <td class="hintcell">one or more ("greedy"), similar to {1,}</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">?</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">?</div></td>
             <td class="hintcell">zero or one ("greedy"), similar to {0,1}</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">{n}</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">{n}</div></td>
             <td class="hintcell">exactly n times ("greedy")</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">{n,}</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">{n,}</div></td>
             <td class="hintcell">at least n times ("greedy")</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">{n,m}</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">{n,m}</div></td>
             <td class="hintcell">at least n but not more than m times ("greedy")</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">*?</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">*?</div></td>
             <td class="hintcell">zero or more ("non-greedy"), similar to {0,}?</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">+?</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">+?</div></td>
             <td class="hintcell">one or more ("non-greedy"), similar to {1,}?</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">??</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">??</div></td>
             <td class="hintcell">zero or one ("non-greedy"), similar to {0,1}?</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">{n}?</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">{n}?</div></td>
             <td class="hintcell">exactly n times ("non-greedy")</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">{n,}?</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">{n,}?</div></td>
             <td class="hintcell">at least n times ("non-greedy")</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">{n,m}?</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">{n,m}?</div></td>
             <td class="hintcell">at least n but not more than m times ("non-greedy") </td>
           </tr>
         </table>
@@ -395,27 +395,27 @@
           <tr class="rowcategorytitle"><th colspan="2">Example of iterators</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">foob.*r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob.*r</div></td>
             <td class="hintcell">matches strings like 'foobar', 'foobalkjdflkj9r' and 'foobr'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foob.+r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob.+r</div></td>
             <td class="hintcell">matches strings like 'foobar', 'foobalkjdflkj9r' but not 'foobr'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foob.?r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob.?r</div></td>
             <td class="hintcell">matches strings like 'foobar', 'foobbr' and 'foobr' but not 'foobalkj9r'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">fooba{2}r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">fooba{2}r</div></td>
             <td class="hintcell">matches the string 'foobaar'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">fooba{2,}r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">fooba{2,}r</div></td>
             <td class="hintcell">matches strings like 'foobaar', 'foobaaar', 'foobaaaar' etc.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">fooba{2,3}r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">fooba{2,3}r</div></td>
             <td class="hintcell">matches strings like 'foobaar', or 'foobaaar' but not 'foobaaaar'</td>
           </tr>
         </table>
@@ -440,7 +440,7 @@
           <tr class="rowcategorytitle"><th colspan="2">Example of alternatives</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">foo(bar|foo)</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foo(bar|foo)</div></td>
             <td class="hintcell">matches strings 'foobar' or 'foofoo'.</td>
           </tr>
         </table>
@@ -458,11 +458,11 @@
           <tr class="rowcategorytitle"><th colspan="2">Subexpressions</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">(foobar){8,10}</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(foobar){8,10}</div></td>
             <td class="hintcell">matches strings which contain 8, 9 or 10 instances of the 'foobar'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">foob([0-9]|a+)r</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">foob([0-9]|a+)r</div></td>
             <td class="hintcell">matches 'foob0r', 'foob1r' , 'foobar', 'foobaar', 'foobaar' etc.</td>
           </tr>
         </table>
@@ -477,15 +477,15 @@
           <tr class="rowcategorytitle"><th colspan="2">Examples of backreferences</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">(.)\1+</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(.)\1+</div></td>
             <td class="hintcell">matches 'aaaa' and 'cc'.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">(.+)\1+</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(.+)\1+</div></td>
             <td class="hintcell">also match 'abab' and '123123'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">(['"]?)(\d+)\1</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(['"]?)(\d+)\1</div></td>
             <td class="hintcell">matches '"13" (in double quotes), or '4' (in single quotes) or 77 (without quotes) etc</td>
           </tr>
         </table>
@@ -536,19 +536,19 @@
           <tr class="rowcategorytitle"><th colspan="2">Examples of Perl extensions</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
-            <td class="varcell"><div class="varname">(?i)Saint-Petersburg</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(?i)Saint-Petersburg</div></td>
             <td class="hintcell">matches 'Saint-petersburg' and 'Saint-Petersburg'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">(?i)Saint-(?-i)Petersburg</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(?i)Saint-(?-i)Petersburg</div></td>
             <td class="hintcell">matches 'Saint-Petersburg' but not 'Saint-petersburg'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">(?i)(Saint-)?Petersburg</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">(?i)(Saint-)?Petersburg</div></td>
             <td class="hintcell">matches 'Saint-petersburg' and 'saint-petersburg'</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="varname">((?i)Saint-)?Petersburg</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">((?i)Saint-)?Petersburg</div></td>
             <td class="hintcell">matches 'saint-Petersburg', but not 'saint-petersburg'</td>
           </tr>
         </table>

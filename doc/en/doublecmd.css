@@ -70,7 +70,8 @@ th.categorydesccolumn { border: 1px #b0b0b0 solid; width: 70%; }
 th.categorynamecolumn { border: 1px #b0b0b0 solid; width: 20%; }
 th.cmdcolumndesc{ width: 70%; border: 1px #b0b0b0 solid; }
 td.varcell { border: 1px #b0b0b0 solid; }
-td.hintcell { border: 1px #b0b0b0 solid; }
+td.hintcell { padding-left: 14px; border: 1px #b0b0b0 solid; }
+td.cmdhintcell { border: 1px #b0b0b0 solid; }
 
 th.innerdescheader { border: 1px #b0b0b0 solid; }
 td.innerdescparamcell { border: 1px #b0b0b0 solid; }
@@ -89,8 +90,8 @@ div.cmdname {
 }
 
 div.varname { text-align: center;  font-weight: bold; }
-div.firstcolumn { text-align: left;  font-weight: bold; }
-div.shortcutname { text-align: center;  font-weight: bold; color: #FF0000}
+div.firstcolumnaleft { padding-left: 14px; text-align: left;  font-weight: bold; }
+div.shortcutname { text-align: left;  font-weight: bold; color: #FF0000}
 
 div.longcmdname {
   text-align: left;

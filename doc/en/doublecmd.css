@@ -70,7 +70,7 @@ th.categorydesccolumn { border: 1px #b0b0b0 solid; width: 70%; }
 th.categorynamecolumn { border: 1px #b0b0b0 solid; width: 20%; }
 th.cmdcolumndesc{ width: 70%; border: 1px #b0b0b0 solid; }
 td.varcell { border: 1px #b0b0b0 solid; }
-td.hintcell { padding-left: 14px; border: 1px #b0b0b0 solid; }
+td.hintcell { border: 1px #b0b0b0 solid; }
 td.cmdhintcell { border: 1px #b0b0b0 solid; }
 
 th.innerdescheader { border: 1px #b0b0b0 solid; }
@@ -82,7 +82,7 @@ td.categorydesc { border: 1px #b0b0b0 solid; }
 td.cmdcell { border: 1px #b0b0b0 solid; vertical-align: top; }
 
 
-
+small.firstcolumnaleft { font-weight:normal }
 
 div.cmdname {
   text-align: left;

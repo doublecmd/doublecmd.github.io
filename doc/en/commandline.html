@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Command Line</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Homepage</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="lua.html">previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.11. Command line</h1>
+      </div> 
+
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#presenta">Presentation</a></dt>
+          <dt>2. <a href="#tablepos">Possible parameters</a></dt>
+          <dt>3. <a href="#examples">Examples</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2>1. <a name="presenta">Presentation</a></h2>
+        <p>When launching Double Commander executable we may specify some command line parameters to customize our start up.</p>
+        <p>For example, we may specify the directories that will be displayed in the file panels.</p>
+        <p>There are some switches that may be used as well.</p>
+        <p>These switches are NOT case sensitive.</p>
+        <BR>
+        <p>Here is a summary description of the syntax of what's possible in the command line:<p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [path1\subpath1] [path2\subpath2]</code></p>
+        <BR>
+        <p>An alternative form is also possible like this one:<p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [-L path1\subpath1] [-R path2\subpath2]</code></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>2. <a name="tablepos">Possible parameters</a></h2>
+        <p>Here is the list of what may be present as parameters when launching Double Commander.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Command Line Parameters</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Parameter</th><th class="categorydesccolumn">Description</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><var>path1\sub1 [path2\sub2]</var><BR><I><small class="firstcolumnaleft">(no switches, directly a path)</small></I></div></td><td class="hintcell">Loads the first directory passed into the left panel.<BR>If a second one is provided, it will also be opened but in the right panel.<BR>Directory names containing spaces must be put in double quotes.<BR>Always specify the full path name.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-C <I>or</I> --client</div></td><td class="hintcell">If Double Commander is already running, activate it and pass the path(s) in the command line to that instance.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-L <I>directory</I></div></td><td class="hintcell">Set directory to show in the left panel.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-R <I>directory</I></div></td><td class="hintcell">Set directory to show in the right panel.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Sets the active panel when program starts:<ul><li>-P L for left</li><li>-P R right</li></ul></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Opens the passed directory(ies) in new tab(s)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--no-console</div></td><td class="hintcell">Run Double Commander without console debug window.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--config-dir=path</div></td><td class="hintcell">Set custom directory path with DC configurations files.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--servername=x</div></td>
+            <td class="hintcell">
+              <p>Sets the name of the instance (server) DC, which can then be used to pass parameters.</p>
+              <p>If there is no already existing instance, then create it.</p>
+              <a href="lua.html"></a>
+              <p>If there is already existing instance, and the current one is a client, then send params to the server (i.e. to the existing instance).</p>
+              <p>If there is already existing instance, and the current one is not a client, (i.e. Allow only one copy of DC at a time is false and no <code>--client/-c</code> options were given), then user-provided servername is altered: firstly, just add a trailing number "2".</p>
+              <p>If there is already some trailing number, then increase it by 1, until we found a servername that isn't busy yet, and then create instance with this servername.</p>
+            </td>
+          </tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Disables the splash screen at startup DC.</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2>3.1. <a name="examples">Examples</a></h2>
+        <p>Here is a few examples of wanted behaviors that could be done via command line parameters when launching Double Commander.</p>
+        <BR>
+        <p>Open the directory <code>e:\Xilinx\ISE DS</code> in the left panel and the directory <code>c:\temp</code> in the right one:</p>
+        <pre>doublecmd.exe "e:\Xilinx\ISE DS" c:\temp</pre>
+        <BR>
+        <p>Open directory <code>c:\Logs</code> in a new tab in the active panel of and already running instance of Double Commander:</p>
+        <pre>doublecmd.exe -c -t c:\Logs</pre>
+        <BR>
+        <p>Start application with configuration files from directory <code>f:\Documents\DC\Job Settings</code> with the mention <code>JOB</code> in the title bar of application:</p>
+        <pre>doublecmd.exe --config-dir="f:\Documents\DC\Job Settings" --servername="JOB"</pre>        
+        <p class="figure"><img class="largeimage" title="Example of command line" alt="Example of command line" src="images/imgDC/cmdline.png" width="234" height="102"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="regexp.html">previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="checker"><a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a></div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
+</html>

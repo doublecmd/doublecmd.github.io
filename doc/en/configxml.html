@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - doublecmd.xml</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Homepage</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.12. Settings in doublecmd.xml</h1>
+      </div> 
+
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#presenta">Presentation</a></dt>
+          <dt>2. <a href="#location">Location</a></dt>
+          <dt>3. <a href="#manualed">Possible manual edit</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2>1. <a name="presenta">Presentation</a></h2>
+        <p>Main settings of Double Commander are saved/restored to/from an <a href="https://en.wikipedia.org/wiki/XML" target="_blank">XML</a> file named <code>doublecmd.xml</code>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>2. <a name="location">Location</a></h2>
+        <p>The location of this <code>doublecmd.xml</code> file may be in different places:<p>
+        <ul>
+          <li>It may be configured to be in the user home directory.</li>
+          <li>It may be configured to be in the program directory itself, which is commonly the case when used in a portable context.</li>
+          <li>We may define its location via a command line parameter when launching the application.</li>
+        </ul>
+        <p>See <a href="commandline.html">this link</a> if you want to specify it by with the command line paramter <code>--config-dir</code>.</p>
+        <p>Other than that, you do <code>Configuration</code> &gt; <code>Options</code> &gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px"> &gt; set the option <code>Location of configuration files</code>.</p>
+        <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="719" height="174"></p>
+        <p>Another way to quickly find out where is located the <code>doublecmd.xml</code> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then you select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". You will find there the <code>doublecmd.xml</code> that application is currently using.</p>
+        <p class="figure"><img class="largeimage" title="Go to config location" alt="Go to config location" src="images/imgDC/gotoconfiglocation.png" width="882" height="260"></p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+      </div>
+
+      <div>
+        <h2>3. <a name="manualed">Possible manual edit</a></h2>
+        <p>The large majority of possible settings in Double Commander may be set via the application itselft through the various option categories.</p>
+        <p>We simply click from the main menu bar <code>Configuration</code> &gt; <code>Options</code> and the various settings we'll configured there will be saved to the <code>doublecmd.xml</code> file when we close the application. Then, they will be restored on the next usage of the application.</p>
+        <p><u>So generally, we don't have to manually edit the content of the configuration file</u>.</p>
+        <p>But there are some very rare specific settings that required to be edited manually from the configuration file if we want to tweak the application.</p>
+        <BR>
+        <p><B>WARNING: </B>We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <code>doublecmd.xml</code> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
+        <BR>
+        <p>The following table gives us these rare specific settings that we need to manually edit the file if we need to change them:</p>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Setting required to be changed manually if necessary</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when you press <kbd>ENTER</kbd> or double-click on them instead of showing the properties window.<BR><I>Example: </i><code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
+            <td class="hintcell">
+              Use custom drive icons from <code>%commander_path%\pixmaps\theme\XxX\devices\</code> instead of system icons <I>(Windows only)</i>.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Use custom icons</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell">Use system icons (default)</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
+            <td class="hintcell">Path to Lua library.<BR>This is to indicate where is located the required dll file <tt>lua5.1.dll</tt> when invoking the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.<BR>This path may be relative to the Double Commander executable file.<BR><I>Example: </I><code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              Ignore time difference of exactly one hour when comparing files of directories when executing the internal command <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a>.<BR>This is useful when comparing between an NTFS and FAT volume when daylight saving time is enabled on the machine.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Enable, a difference of exactly one hour will be considered the same time</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Disable (default)</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>from many tags &lt;Font&gt;</small></div></td>
+            <td class="hintcell">
+              Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used.<BR>In other words, it determine the font quality.<BR>There are many tags where it's applicable individually.
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell"><B>Default</b> The quality is determined by the system settings (default).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell"><B>Draft</b> For raster fonts, scaling is enabled; the font size can be increased but the quality may be lower.<BR>Also the font supports Bold, Italic, Underline or Strikeout if necessary.<BR>The quality is less important than when Proof is used.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell"><B>Proof</b> The quality of the characters is important, so for the raster fonts, scaling is disabled and the font closest in size is chosen.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">3</td>
+                  <td class="innerdescdesccell"><B>NonAntialiased</b> The font is never antialiased.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">4</td>
+                  <td class="innerdescdesccell"><B>Antialiased</b> The font is always antialiased if it supports it.<BR>The size of the font cannot be too small or too large.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">5</td>
+                  <td class="innerdescdesccell"><B>ClearType</b> The font is rendered using the <a href="https://en.wikipedia.org/wiki/ClearType" target="_blank">ClearType</a> anti-aliasing method.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">6</td>
+                  <td class="innerdescdesccell"><B>ClearTypeNatural</b> The font is rendered using the Natural ClearType antialiasing method.</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Enable (default)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Disable</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<BR><small>from &lt;AutoRefresh&gt;</small></div></td>
+            <td class="hintcell">
+              The ability to delete watched directories.<BR>A "watched directory" is a directory that Double Commander has a kind of hook on it so it can monitor any modification in it.<BR>This way, it can refresh the displayable content of it if it's content changed.<BR>This setting allows to control how Double Commander will react if we attempt to delete one of these "watched directory" currently displayed in a panel, even in a non-activated tab.
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell">Prevents deleting watched directories.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Does not prevent deleting watched directories (default).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">Watch whole drives instead of single directories to omit problems with deleting watched directories.</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
+            </td>
+          </tr>
+
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="checker"><a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a></div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
+</html>

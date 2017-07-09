@@ -42,10 +42,10 @@
           <li>It may be configured to be in the program directory itself, which is commonly the case when used in a portable context.</li>
           <li>We may define its location via a command line parameter when launching the application.</li>
         </ul>
-        <p>See <a href="commandline.html">this link</a> if you want to specify it by with the command line paramter <code>--config-dir</code>.</p>
-        <p>Other than that, you do <code>Configuration</code> &gt; <code>Options</code> &gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px"> &gt; set the option <code>Location of configuration files</code>.</p>
+        <p>We follow follow <a href="commandline.html">this link</a> if we want to specify it by with the command line paramter <code>--config-dir</code>.</p>
+        <p>Other than that, we do <code>Configuration</code> &gt; <code>Options</code> &gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px"> &gt; set the option <code>Location of configuration files</code>.</p>
         <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="719" height="174"></p>
-        <p>Another way to quickly find out where is located the <code>doublecmd.xml</code> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then you select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". You will find there the <code>doublecmd.xml</code> that application is currently using.</p>
+        <p>Another way to quickly find out where is located the <code>doublecmd.xml</code> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then we select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". We will find there the <code>doublecmd.xml</code> that application is currently using.</p>
         <p class="figure"><img class="largeimage" title="Go to config location" alt="Go to config location" src="images/imgDC/gotoconfiglocation.png" width="882" height="260"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -66,7 +66,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when you press <kbd>ENTER</kbd> or double-click on them instead of showing the properties window.<BR><I>Example: </i><code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
+            <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>ENTER</kbd> or double-click on them instead of showing the properties window.<BR><I>Example: </i><code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
           </tr>
 
           <tr>
@@ -203,6 +203,60 @@
                 </tr>
               </table>
               <I>Example: </i><code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<BR><small>from &lt;FilesViews&gt;</small></div></td>
+            <td class="hintcell">
+              This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<BR>The value is interpreted directly in pixels.<BR>Default value is 2.<BR>              
+              <I>Example: </i><code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              Double Commander is able to recognize the metadata from <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">Exif</a> structure that might be encoded into a JPG image file.<BR>
+              Inside that structure, there is an <a href="http://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">orientation flag</a> that may be used to display the picture into the same orientation as it was taken like if was in portait, landscape, upside-down, mirror, etc.<BR>
+              The <code>ImageExifRotate</code> tag configures Double Commander to indicate if we want the viewer to display the image using that information or not.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Use the orientation flag embedded into the image file (default).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Ignore the orientation flag.</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;SingleClickStart&gt;<BR><small>from &lt;Behaviours&gt;&lt;Mouse&gt;</small></div></td>
+            <td class="hintcell">
+              This will determine what will launch the action when we're using the mouse button on an element from the displayed file list in a panel.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell">A double click is necessary to launch the action (default).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">A single click is necessary.</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;SingleClickStart&gt;0&lt;/SingleClickStart&gt;</code>
             </td>
           </tr>
 

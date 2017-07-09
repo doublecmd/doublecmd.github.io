@@ -61,7 +61,6 @@
             <td class="hintcell">
               <p>Sets the name of the instance (server) DC, which can then be used to pass parameters.</p>
               <p>If there is no already existing instance, then create it.</p>
-              <a href="lua.html"></a>
               <p>If there is already existing instance, and the current one is a client, then send params to the server (i.e. to the existing instance).</p>
               <p>If there is already existing instance, and the current one is not a client, (i.e. Allow only one copy of DC at a time is false and no <code>--client/-c</code> options were given), then user-provided servername is altered: firstly, just add a trailing number "2".</p>
               <p>If there is already some trailing number, then increase it by 1, until we found a servername that isn't busy yet, and then create instance with this servername.</p>

@@ -64,57 +64,27 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Setting required to be changed manually if necessary</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Description</th></tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>ENTER</kbd> or double-click on them instead of showing the properties window.<BR><I>Example: </i><code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
-          </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;SingleClickStart&gt;<BR><small>from &lt;Behaviours&gt;&lt;Mouse&gt;</small></div></td>
             <td class="hintcell">
-              Use custom drive icons from <code>%commander_path%\pixmaps\theme\XxX\devices\</code> instead of system icons <I>(Windows only)</i>.<br>
+              This will determine what will launch the action when we're using the mouse button on an element from the displayed file list in a panel.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Parameter</th>
                   <th class="innerdescheader">Value</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">Use custom icons</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell">Use system icons (default)</td>
+                  <td class="innerdescdesccell">A double click is necessary to launch the action (default).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">A single click is necessary.</td>
                 </tr>
               </table>
-              <I>Example: </i><code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code>
+              <I>Example: </i><code>&lt;SingleClickStart&gt;0&lt;/SingleClickStart&gt;</code>
             </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
-            <td class="hintcell">Path to Lua library.<BR>This is to indicate where is located the required dll file <tt>lua5.1.dll</tt> when invoking the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.<BR>This path may be relative to the Double Commander executable file.<BR><I>Example: </I><code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">
-              Ignore time difference of exactly one hour when comparing files of directories when executing the internal command <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a>.<BR>This is useful when comparing between an NTFS and FAT volume when daylight saving time is enabled on the machine.<BR>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Parameter</th>
-                  <th class="innerdescheader">Value</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Enable, a difference of exactly one hour will be considered the same time</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Disable (default)</td>
-                </tr>
-              </table>
-              <I>Example: </i><code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
           </tr>
 
           <tr>
@@ -159,9 +129,17 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<BR><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
-              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.
+              This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<BR>The value is interpreted directly in pixels.<BR>Default value is 2.<BR>              
+              <I>Example: </i><code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              Ignore time difference of exactly one hour when comparing files of directories when executing the internal command <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a>.<BR>This is useful when comparing between an NTFS and FAT volume when daylight saving time is enabled on the machine.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Parameter</th>
@@ -169,15 +147,20 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Enable (default)</td>
+                  <td class="innerdescdesccell">Enable, a difference of exactly one hour will be considered the same time</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Disable</td>
+                  <td class="innerdescdesccell">Disable (default)</td>
                 </tr>
               </table>
-              <I>Example: </i><code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
-            </td>
+              <I>Example: </i><code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>ENTER</kbd> or double-click on them instead of showing the properties window.<BR>
+              <I>Example: </i><code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
           </tr>
 
           <tr>
@@ -207,10 +190,24 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<BR><small>from &lt;FilesViews&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
-              This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<BR>The value is interpreted directly in pixels.<BR>Default value is 2.<BR>              
-              <I>Example: </i><code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+              Use custom drive icons from <code>%commander_path%\pixmaps\theme\XxX\devices\</code> instead of system icons <I>(Windows only)</i>.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Use custom icons</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell">Use system icons (default)</td>
+                </tr>
+              </table>
+              <I>Example: </i><code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code>
             </td>
           </tr>
 
@@ -239,27 +236,31 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;SingleClickStart&gt;<BR><small>from &lt;Behaviours&gt;&lt;Mouse&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
+            <td class="hintcell">Path to Lua library.<BR>This is to indicate where is located the required dll file <tt>lua5.1.dll</tt> when invoking the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.<BR>This path may be relative to the Double Commander executable file.<BR><I>Example: </I><code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;</div></td>
             <td class="hintcell">
-              This will determine what will launch the action when we're using the mouse button on an element from the displayed file list in a panel.<BR>
+              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Parameter</th>
                   <th class="innerdescheader">Value</th>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell">A double click is necessary to launch the action (default).</td>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Enable (default)</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">A single click is necessary.</td>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Disable</td>
                 </tr>
               </table>
-              <I>Example: </i><code>&lt;SingleClickStart&gt;0&lt;/SingleClickStart&gt;</code>
+              <I>Example: </i><code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
             </td>
           </tr>
-
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

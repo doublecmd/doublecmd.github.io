@@ -192,22 +192,57 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
-              Use custom drive icons from <code>%commander_path%\pixmaps\theme\XxX\devices\</code> instead of system icons <I>(Windows only)</i>.<br>
+              <p>This option will help to determine if the icons used for drives, folders or archives will be the default ones from the system <I>(Windows only)</i> OR if it will be custom ones that we may set ourselves.</p>
+              <p>The <code>CustomIcons</code> option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences</p>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Parameter</th>
-                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Element</th>
+                  <th class="innerdescheader">From system</th>
+                  <th class="innerdescheader">Custom</th>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">Use custom icons</td>
+                  <td class="innerdescvaluecell">Drives</td>
+                  <td class="innerdescdesccell">0</td>
+                  <td class="innerdescdesccell">1</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell">Use system icons (default)</td>
+                  <td class="innerdescvaluecell">Folders</td>
+                  <td class="innerdescdesccell">0</td>
+                  <td class="innerdescdesccell">2</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Archive</td>
+                  <td class="innerdescdesccell">0</td>
+                  <td class="innerdescdesccell">4</td>
                 </tr>
               </table>
-              <I>Example: </i><code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code>
+              <BR>
+              <I>
+                If we want...<BR>
+                ...everything from the system: 0 + 0 + 0= 0 so <code>&lt;CustomIcons&gt;0&lt;/CustomIcons&gt;</code><BR>
+                ...everything custom: 1 + 2 + 4 = 7 so <code>&lt;CustomIcons&gt;7&lt;/CustomIcons&gt;</code><BR>
+                ...drive custom, other system: 1 + 0 + 0 = 1 so <code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code><BR>
+                etc...
+              </i><BR><BR>
+              <p>If we wish to use custom icons, here is the location for each items:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Element</th>
+                  <th class="innerdescheader">Location</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Drives</td>
+                  <td class="innerdescdesccell">%commander_path%\pixmaps\theme\XxX\devices\</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Folders</td>
+                  <td class="innerdescdesccell">%commander_path%\pixmaps\theme\XxX\places\folder.png</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Archives</td>
+                  <td class="innerdescdesccell"><small>%commander_path%\pixmaps\theme\XxX\mimetypes\package-x-generic.png</small></td>
+                </tr>
+              </table>
             </td>
           </tr>
 
@@ -263,14 +298,14 @@
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-	  <BR>
+        <BR>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
+    </div>
     <BR>
     <BR>
     <BR>

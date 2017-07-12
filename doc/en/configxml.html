@@ -139,7 +139,10 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
-              Ignore time difference of exactly one hour when comparing files of directories when executing the internal command <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a>.<BR>This is useful when comparing between an NTFS and FAT volume when daylight saving time is enabled on the machine.<BR>
+              Ignore time difference of exactly one hour between entries when comparing their date and time.<BR>
+              This takes place when using internal commands <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> or <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>.<BR>
+              It is useful when comparing items located on a NTFS partition to another one not on such partition.<BR>
+              Since the <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">time stamp of a file changes on a NTFS partition</a> when daylight savings period occurs and not when the same exact file is from a FAT32, we want the two files to be consider identical even if we visibly see a one hour difference between the two.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Parameter</th>

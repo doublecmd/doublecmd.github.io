@@ -642,16 +642,20 @@
         <p><span class="italic">Remove</span>&nbsp;&mdash; deletes a group.</p>
         <p><span class="italic">Rename</span>&nbsp;&mdash; allows you to set a new name for the group.</p>
         <p class="figure"><img class="largeimage" alt="File associations" title="File associations"
-                               src="images/imgDC/pic33.png" width="393" height="428"></p>
-
-        <p><span class="italic">Extensions</span>&nbsp;&mdash; here you can set the extensions for the selected group, e.g. <tt>mp3, wma, ogg</tt> etc.</p>
+                               src="images/imgDC/pic33.png"></p>
+        <p><span class="italic">Icon</span>&nbsp;&mdash; you can set the path to an icon for this group.</p>
+        <p><span class="italic">Extensions</span>&nbsp;&mdash; here you can set the extensions for the selected group, e.g. mp3, wma, ogg etc. Special values:</p>
+        <ul>
+          <li><p><tt>file</tt>&nbsp;&mdash; any file</p></li>
+          <li><p><tt>folder</tt>&nbsp;&mdash; any directory</p></li>
+        </ul>
         <p><span class="italic">Add</span>&nbsp;&mdash; adds an extension to the group.</p>
         <p><span class="italic">Remove</span>&nbsp;&mdash; deletes an extension from the group.</p>
         <p><span class="italic">Actions</span>&nbsp;&mdash; here you can set commands for the group.</p>
         <p><span class="italic">Add</span>&nbsp;&mdash; adds an action to the list.</p>
         <p><span class="italic">Remove</span>&nbsp;&mdash;  deletes an action from the list.</p>
         <p><span class="italic">Up, Down</span>&nbsp;&mdash; moves the action. The actions (if more than one) can be reordered.</p>
-        <p><span class="italic">Action:</span>&nbsp;&mdash; sets type of action. Variants:</p>
+        <p><span class="italic">Action name:</span>&nbsp;&mdash; sets type of action. Variants:</p>
         <ul>
           <li><p>From popup menu<p>
             <ul>
@@ -660,19 +664,22 @@
               <li><p>Edit&nbsp;&mdash; action will be run after pressing (<kbd>F4</kbd>).</p></li>
             </ul>
           </li>
-          <li><p>Other actions displayed at subsection "Commands".<p></li>
+          <li><p>Other actions displayed in the file context menu (submenu "Actions").<p></li>
         </ul>
         <p><span class="italic">Command</span>&nbsp;&mdash; any command from Desktop Environment, where you can set macro commands (right button). Macros are case sensitive!:</p>
         <ul>
-          <li><p><tt>{!VFS}</tt>&nbsp;&mdash; use virtual file system for archives</p></li>
+          <li><p><tt>{!DC-EDITOR}</tt>&nbsp;&mdash; call internal editor</p></li>
+          <li><p><tt>{!DC-VIEWER}</tt>&nbsp;&mdash; call internal viewer</p></li>
           <li><p><tt>{!EDITOR}</tt>&nbsp;&mdash; call editor (internal or external, depends on the configuration)</p></li>
           <li><p><tt>{!VIEWER}</tt>&nbsp;&mdash; call viewer (internal or external, depends on the configuration)</p></li>
           <li><p><tt>{!SHELL}</tt>&nbsp;&mdash; use a terminal to run the program</p></li>
-          <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&mdash; runs 'command' in the system shell and feeds the output to the next command</p></li>
-          <li><p><tt>%f</tt>&nbsp;&mdash; file name</p></li>
-          <li><p><tt>%d</tt>&nbsp;&mdash; directory</p></li>
-          <li><p><tt>%p</tt>&nbsp;&mdash; full path (directory + file name)</p></li>
         </ul>
+        <p><span class="italic">Parameters</span>&nbsp;&mdash; command parameters including variables:</p>
+        <ul>
+          <li><p>any variable from <a href="variables.html">"percent" variables</a></p></li>
+          <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&mdash; runs 'command' in the system shell and feeds the output to the command above</p></li>
+        </ul>
+        <p><span class="italic">Start path</span>&nbsp;&mdash; command start path</p>
         <p>Examples:</p>
         <p>Top&nbsp;&mdash; <tt>totem '%p'</tt>&nbsp;&mdash; opens the file with totem media player.</p>
         <p>Bottom&nbsp;&mdash; <tt>genisoimage -o %p.iso -r -J %p</tt>&nbsp;&mdash; creates an ISO image from directory (only for directories).</p>
@@ -680,9 +687,7 @@
           <br>
           <img class="largeimage" alt="For directories" title="For directories" src="images/imgDC/pic35.png" width="510" height="261"></p>
 
-        <p>To allow Double Commander to take some actions with directories, you must create a group (e.g. <tt>Dir</tt>) and set extension <tt>folder</tt>.
-          All available actions will be displayed in the menu 'Commands' in the context menu. E.g. how to open a directory with root privileges in Ubuntu: set action <tt>Open as root</tt>, command <tt>gksu nautilus '%p'</tt>.</p>
-        <p><span class="italic">Icon</span>&nbsp;&mdash; you can set the path to an icon for this group.</p>
+        <p>All available actions will be displayed in the menu 'Actions' in the context menu. E.g. how to open a directory with root privileges in Ubuntu: set action <tt>Open as root</tt>, command <tt>gksu nautilus '%p'</tt>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

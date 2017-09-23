@@ -87,11 +87,18 @@
                   <td class="innerdescdesccell">A single click only opens folders. For files, a double click is needed.</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell">4 added to above values</td>
+                  <td class="innerdescvaluecell">4 added to above</td>
                   <td class="innerdescdesccell">The text cursor no longer follows the mouse cursor.</td>
                 </tr>
               </table>
-              <I>Example: </i><code>&lt;SingleClickStart&gt;0&lt;/SingleClickStart&gt;</code>
+              <BR>
+              <I>
+                If we want...<BR>
+                ...a single click opens files and folders: 1 + 0 = 1 so <code>&lt;SingleClickStart&gt;1&lt;/SingleClickStart&gt;</code><BR>
+                ...a single click only opens folders, for files, a double click is needed: 2 + 0 = 2 so <code>&lt;SingleClickStart&gt;2&lt;/SingleClickStart&gt;</code><BR>
+                ...a single click opens files and folders, the text cursor not follows the mouse cursor: 1 + 4 = 5 so <code>&lt;SingleClickStart&gt;5&lt;/SingleClickStart&gt;</code><BR>
+                ...a single click only opens folders, the text cursor not follows the mouse cursor: 2 + 4 = 6 so <code>&lt;SingleClickStart&gt;6&lt;/SingleClickStart&gt;</code><BR>
+              </I><BR>
             </td>
           </tr>
 

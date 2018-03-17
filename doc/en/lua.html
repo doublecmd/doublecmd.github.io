@@ -485,7 +485,7 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
             <td class="hintcell">
-              <p class="definition">bAck, sAnswer Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
+              <p class="definition">bAck, sAnswer = Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
               <p>Will display a requester box where user may enter a string value.</p>
               <p>Here is the description of each field:<p>
               <ul>
@@ -495,6 +495,20 @@
                 <li><var>sDefault</var> : The default suggested text that user may type over if necessary.</li>
                 <li><var>bAck</var> : Returned boolean indicating if user effectively enter something or not.</li>
                 <li><var>sAnswer</var> : Returned string when user entered something and then clicked ok.</li>
+              </ul>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="hintcell">
+              <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
+              <p>Displays a dialog box to allow the user to choose from a list of items.</p>
+              <p>Here is the description of each field:<p>
+              <ul>
+                <li><var>Title</var> : The text displayed as the title of the dialog</li>
+                <li><var>Msg</var> : The message inside the dialog</li>
+                <li><var>Items</var> : A Lua table, each element of the table must be a string.</li>
+                <li><var>sDefault</var> : The default selected item in the list.</li>
+                <li><var>sAnswer</var> : Returned the selected item as a string or nil if the dialog is dismissed.</li>
               </ul>
           </tr>
         </table>

@@ -78,7 +78,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%e</div></td>
-            <td class="hintcell">Just the extension, without the period<BR><code>%e = "png"</code></td>
+            <td class="hintcell">Just the extension, without the period<BR><code>Example: %e = "png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%v</div></td>
@@ -155,8 +155,8 @@
         <h2>5. <a name="prefixpostfix">Specifying prefix and postfix for each file</a></h2>
         <p>Sometimes when we pass parameters to an executable we need to include something before the filenames.</p>
         <p>Some other times we want to include something just before and just after the filenames.</p>
-        <p>Please note that the following will apply to each and individual selected item</p>
-        <p><I>For each element of table, we're assuming we're currently in "C:\Windows\Fonts" with three file selected named "courrier.ttf", "fixedsys.ttf" and "terminal.ttf"</i></p>
+        <p>Please note that the following will apply to each and individual selected item.</p>
+        <p><I>For each element of table, we're assuming we're currently in "C:\Windows\Fonts" with three file selected named "courrier.ttf", "fixedsys.ttf" and "terminal.ttf".</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Prefix and postfix</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Prefix and postfix</th><th class="categorydesccolumn">What it stands for</th></tr>
@@ -222,14 +222,14 @@
         <p>The following table gives us an example in situation we're we've selected a file named "Client List.mdb" and the result of the various combinaison of quoted/unquoted string</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of quotation or not</th></tr>
-          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">result</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%o.zip</div></td>
-            <td class="hintcell">"Client List".zip </td>
+            <td class="hintcell">"Client List".zip</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%"0%o.zip</div></td>
-            <td class="hintcell">Client List.zip </td>
+            <td class="hintcell">Client List.zip</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%"0"%o.zip"</div></td>
@@ -246,7 +246,7 @@
       <div>
         <h2>8. <a name="trailingdelim">Trailing path delimited or not</a></h2>
         <p>As you've seen previously, for historic and legacy reason, when DC returns a path, it will be without trialing path delimiter.</p>
-        <p>This could be change by using a variable that will determine if the path variable that follows on the line will be with trailing path delimiter or not:</p>
+        <p>This could be change by using a variable that will determine if the path variable that follows on the line will be with trailing path delimiter or not.</p>
         <p>Basially we have:</p>
         <dl>
           <dt><code>%/0</code> : the returned path will be without trailing delimiter</dt>
@@ -267,7 +267,7 @@
             <td class="hintcell">"C:\Users\UserName\Desktop"</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%/1%D"</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">%/1%D</div></td>
             <td class="hintcell">"C:\Users\UserName\Desktop\"</td>
           </tr>
           <tr>
@@ -310,7 +310,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">Q</div></td>
-            <td class="hintcell">File names in the list will be quoted.</td>
+            <td class="hintcell">File names in the list will be quoted</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">U</div></td>
@@ -333,7 +333,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%LQt</div></td>
-            <td class="hintcell">Complete filenames, quoted with selected files from target panel </td>
+            <td class="hintcell">Complete filenames, quoted with selected files from target panel</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%FUs</div></td>
@@ -374,11 +374,11 @@
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td>
-            <td class="hintcell">Will show a message box with the text specified between brackets.</td>
+            <td class="hintcell">Will show a message box with the text specified between brackets</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%[message;default_val]</div></td>
-            <td class="hintcell">Will prompt user to enter a value with the default value for it.</td>
+            <td class="hintcell">Will prompt user to enter a value with the default value for it</td>
           </tr>
         </table>
         <p>Example of interaction:</p>
@@ -405,15 +405,15 @@
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%%</div></td>
-            <td class="hintcell">Will be replaced simply by a single % sign.</td>
+            <td class="hintcell">Will be replaced simply by a single % sign</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%#</div></td>
-            <td class="hintcell">From this position, the # sign will be treated as the %.</td>
+            <td class="hintcell">From this position, the # sign will be treated as the %</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">#%</div></td>
-            <td class="hintcell">From previous mentioned state, will make % to be treated as the variable prefix.</td>
+            <td class="hintcell">From previous mentioned state, will make % to be treated as the variable prefix</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%?</div></td>
@@ -458,8 +458,8 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">2</div></td><td class="hintcell">second selected file if any (example: %ps2)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">3</div></td><td class="hintcell">third selected file if any (example: %ps3)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">21</div></td><td class="hintcell">twenty-first selected file if any (example: %ps21)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}</div></td><td class="hintcell">{} mentioned once, will set the prefix to add prior file name. (ex: %f{+})</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}{suffix}</div></td><td class="hintcell">{} mentioned twice, will set prefix and suffix, prior and after file name. (ex: %f{[}{]})</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}</div></td><td class="hintcell">{} mentioned once, will set the prefix to add prior file name (ex: %f{+})</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}{suffix}</div></td><td class="hintcell">{} mentioned twice, will set prefix and suffix, prior and after file name (ex: %f{[}{]})</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%D</div></td><td class="hintcell">default, the path of the active (source) panel</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%Ds</div></td><td class="hintcell">specifically, the path of the active (source) panel</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dt</div></td><td class="hintcell">the path of the inactive (target) panel</td></tr>

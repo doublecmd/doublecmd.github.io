@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
@@ -24,7 +23,7 @@
         <h2>Content</h2>
         <dl>
           <dt>1. <a href="#workingcomp">Working with compressed files</a></dt>
-          <dt>2. <a href="#ressources">Ressources to work with compressed files</a></dt>
+          <dt>2. <a href="#resources">Resources to work with compressed files</a></dt>
           <dt>3. <a href="#withplugin">Working with plugin</a></dt>
           <dt>4. <a href="#archivers">Working with external archivers</a></dt>
           <dt>5. <a href="#config">Configuring external archivers integration</a></dt>
@@ -62,12 +61,12 @@
         <p>For example if we have a zip file into a panel, we may simply select it, press <kbd>ENTER</kbd> and panel will show the content of the zip just like if we would change to a directory.</p>
         <p>Once "inside" the compressed file, we may do some minimal basic functions like viewing the file, copy it to the other panel and some limited function like that.</p>
         <p>The next following image shows us an example where we selected the compressed file "Help.rar" and we simply press <kbd>ENTER</kbd> in it just like it would be a directory:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg1.png" width="884" height="476"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg1.png" width="890" height="476"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="ressources">Ressources to work with compressed files</a></h2>
+        <h2>2. <a name="resources">Resources to work with compressed files</a></h2>
         <p>Double Commander is versatile enough to use external programs to deal with compressed files through it own interface.</p>
         <p>It uses two different principles to deal with the compressed files:</p>
         <ul>
@@ -80,7 +79,7 @@
       <div>
         <h2>3. <a name="withplugin">Working with plugin</a></h2>
         <p>We may configure Double Commander to use an external "packer plugin" files that will help to deal with a compressed archive.</p>
-        <p>Right from the installation, Double Commander already incorporates some of these .WCX plugin files:</p>
+        <p>Right from the installation, Double Commander already incorporates some of these .WCX plugin files.</p>
         <p>At the moment these lines are written, here are the onea that come with the installation:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Packer plugin from a fresh install (.WCX)</th></tr>
@@ -110,11 +109,11 @@
         <p>Double Commander uses principle of the work with external arhivers similar to plugin <a href="http://wcx.sourceforge.net/">MultiArc</a> for Total Commander.</p>
         <p>Just to make things clear, <b>using an external archiver may be summarized as this: it's a way to launch the archiver we may be familiar with but to have it driven by Double Commander, by providing to the archiver executable the various parameters we would need to make it like integrated into the application</b>.</p>
         <p>The remaining of this page will be on this matter: how to configure Double Commander to launch the external archiver to do whatever we need with it.</p>
-        <p>Let's suppose we want to use "rar.exe" to deal with .rar archive. </p>
+        <p>Let's suppose we want to use "rar.exe" to deal with .rar archive.</p>
         <p>As we may guess it, the basic things <b>we'll need to configure are how call the external archiver to be able to...</b></p>
         <ul>
           <li>get the list of content of a given archive file</li>
-          <li>extract </li>
+          <li>extract</li>
           <li>add one file or a list of file to a given or to-be-created archive file</li>
           <li>extract one file or a list of file from an archive file</li>
         </ul>
@@ -153,20 +152,20 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Command definition</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variable expression</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%P</div></td><td class="hintcell">long name of archiving utility (as it is in "Archiver" key)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">short name of archiving utility (as it is in "Archiver" key)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%A</div></td><td class="hintcell">long name of archive file</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%a</div></td><td class="hintcell">short name of archive file</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Filelist name.<BR>Filelist is the file containing names of files to be processed by the external archiver.<BR>File names is long</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%l</div></td><td class="hintcell">Filelist with short file names.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%P</div></td><td class="hintcell">Long name of archiving utility (as it is in "Archiver" key)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">Short name of archiving utility (as it is in "Archiver" key)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%A</div></td><td class="hintcell">Long name of archive file</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%a</div></td><td class="hintcell">Short name of archive file</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Filelist name.<BR>Filelist is the file containing names of files to be processed by the external archiver.<BR>File names is long.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%l</div></td><td class="hintcell">Filelist with short file names</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">The name of a single file to process.<BR>The archiver will be executed several times until all file names are exhausted.<BR>This variable should be used only if the destination archiver does not support filelists on the command line.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">The volume size (for multivolume archive).</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">The password.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">maximum acceptable command errorlevel.<BR>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<BR>This variable may be specified in any place of command.<BR>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt; <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td><td class="hintcell">by default, multiarc convert archiver output from OEM encoding to UTF-8.<BR>Use this to override encoding. See below the possible encoding modifiers.<BR>Сan be used with "List" action only.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">The volume size (for multivolume archive)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">The password</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Maximum acceptable command errorlevel.<BR>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<BR>This variable may be specified in any place of command.<BR>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt; <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td><td class="hintcell">By default, multiarc convert archiver output from OEM encoding to UTF-8.<BR>Use this to override encoding. See below the possible encoding modifiers.<BR>Can be used with "List" action only.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Target subdirectory IN archive</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">If some variable is enclosed in braces - it'll be added only if this variable will contain something non-empty.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Depends on modes, set in configuration dialog, MultiArc will ask user about additional command-line parameters should be passed in-place of %S.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">If some variable is enclosed in braces - it'll be added only if this variable will contain something non-empty</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Depends on modes, set in configuration dialog, MultiArc will ask user about additional command-line parameters should be passed in-place of %S</td></tr>
         </table>
         <p>Don't worry, we'll give example later to better understand.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -179,8 +178,8 @@
           <tr class="rowcategorytitle"><th colspan="2">Variable modifiers</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Modifier letter</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">include in FileList only files (can be used with %L and %l variables)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">quote names with spaces;</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">quote all names;</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">quote names with spaces</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">quote all names</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">use name only, without path</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">use path only, without name</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">use ANSI encoding (can be used with %L and %O variables)</td></tr>
@@ -228,11 +227,11 @@
         <h2>5.5.1. <a name="delimit">Delimiting the area to analyse</a></h2>
         <p>As we see in previous capture, the output of the "rar.exe" regarding the content is not just bare data.</p>
         <p>There are some annoying information around we need to eliminate to keep only the actual file list.</p>
-        <p>Luckily, we may configure in Double Commande a magic string so DC will wait to see that string prior to begin to parse the next following lines.</p>
+        <p>Luckily, we may configure in Double Commander a magic string so DC will wait to see that string prior to begin to parse the next following lines.</p>
         <p>Also, we may configure the magic string to stop parsing as well.</p>
         <p>Because we have dashed line before and after, it's pretty easy to set these two parameters with the dashed lines:</p>
-        <p>In the eventuality that an external archive would immediately output bar data with no extra lines, simply let the two fields empty.</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg9.png" width="370" height="78"></p>
+        <p>In the eventuality that an external archive would immediately output bar data with no extra lines, simply let the two fields empty.</p>
         <p>The caret is a there to indicate that the magic string needs absolutely to start the line, with nothing else.</p>
         <p>If it would not be possible to be sure it starts the line, like for example if the external archiver would start the line with the date and time, and then a constant string, we would set the magic string to be the constant string but we would not add the caret which instruct to DC that the string to search might be anywhere.</p>
         <p>If the "Listing finish" string might be confused with a filename, it could stop processing the content of the archive too early.</p>
@@ -255,7 +254,7 @@
       <div>
         <h2>5.5.3. <a name="standardparsing">Standard syntax for parsing</a></h2>
         <p>The following table gives us the "Standard syntax" for parsing the list of content the external archive generated us.</p>
-        <p>As we will see with the next example, the "standard syntax" is based basically on more direct substitution than the "advanced syntax".<p>.
+        <p>As we will see with the next example, the "standard syntax" is based basically on more direct substitution than the "advanced syntax".</p>
         <p>When possible, we will try to use that syntax since it's parsing results faster than the "advanced syntax" which follows.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Standard syntax parsing</th></tr>
@@ -326,7 +325,7 @@
         <h2>5.5.6. <a name="advancedexample">Example with advanced syntax</a></h2>
         <p>The example with the "standard syntax" was a good guess, but it is perfect.</p>
         <p>There are some cases where it won't work correctly.</p>
-        <p>With huge files, the filesize is wider than expected so our first attempt of listing will fail</p>
+        <p>With huge files, the filesize is wider than expected so our first attempt of listing will fail.</p>
         <p>See our file <code>007 Skyfall.TS</code>.</p>
         <p>We can see it is not displayed with the appropriate information. Let's compare:</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg12.png" width="782" height="135"></p>
@@ -337,7 +336,7 @@
         <p>It's a little more complex, but is very easy to described and at the end we'll see it's not so complicated to generate.</p>
         <p>Here's a colored description that will help us to visualize the parsing of each little block:</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg14.png" width="756" height="510"></p>
-        <p>So using that "listing format" string, we may now do again our test and we have the correct result, even for the huge file:<p>
+        <p>So using that "listing format" string, we may now do again our test and we have the correct result, even for the huge file:</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg15.png" width="742" height="576"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -356,7 +355,7 @@
           <li><B>x</b> - The command for "rar.exe" for an extraction</li>
           <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" so it will accept to overwrite on existing file</li>
           <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to unpack.</li>
+          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to unpack</li>
           <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>So this command will be invoke when we'll select an archive to extract the whole content, just one file, etc.</p>
@@ -379,7 +378,7 @@
           <li><B>a</b> - The command for "rar.exe" for an archive creation or to add to an existing one</li>
           <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
           <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack.</li>
+          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack</li>
           <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>So this command will be invoken when we'll select a file or a group of files and request to pack them using the "rar" external archiver.</p>
@@ -465,7 +464,7 @@
           <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack.</li>
           <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
-        <p>To create a self-extracted, please note that the procedure is the same as usual as when creating the compressed file, like using internal command <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>, but in the requester that appear, we'll check the option "Create self extracting archive"</p>
+        <p>To create a self-extracted, please note that the procedure is the same as usual as when creating the compressed file, like using internal command <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>, but in the requester that appear, we'll check the option "Create self extracting archive".</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg22.png" width="548" height="300"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>

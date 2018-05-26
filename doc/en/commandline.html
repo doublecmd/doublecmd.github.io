@@ -35,10 +35,10 @@
         <p>There are some switches that may be used as well.</p>
         <p>These switches are NOT case sensitive.</p>
         <BR>
-        <p>Here is a summary description of the syntax of what's possible in the command line:<p>
+        <p>Here is a summary description of the syntax of what's possible in the command line:</p>
         <p><code>doublecmd.exe [-C] [-T] [-P L|R] [path1\subpath1] [path2\subpath2]</code></p>
         <BR>
-        <p>An alternative form is also possible like this one:<p>
+        <p>An alternative form is also possible like this one:</p>
         <p><code>doublecmd.exe [-C] [-T] [-P L|R] [-L path1\subpath1] [-R path2\subpath2]</code></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -53,16 +53,16 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">-C <I>or</I> --client</div></td><td class="hintcell">If Double Commander is already running, activate it and pass the path(s) in the command line to that instance.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">-L <I>directory</I></div></td><td class="hintcell">Set directory to show in the left panel.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">-R <I>directory</I></div></td><td class="hintcell">Set directory to show in the right panel.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Sets the active panel when program starts:<ul><li>-P L for left</li><li>-P R right</li></ul></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Sets the active panel when program starts:<ul><li><code>-P L</code> for left</li><li><code>-P R</code> right</li></ul></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Opens the passed directory(ies) in new tab(s)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">--no-console</div></td><td class="hintcell">Run Double Commander without console debug window.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--config-dir=path</div></td><td class="hintcell">Set custom directory path with DC configurations files.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--config-dir=<i>path</i></div></td><td class="hintcell">Set custom directory path with DC configurations files.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">--servername=x</div></td>
             <td class="hintcell">
               <p>Sets the name of the instance (server) DC, which can then be used to pass parameters.</p>
               <p>If there is no already existing instance, then create it.</p>
               <p>If there is already existing instance, and the current one is a client, then send params to the server (i.e. to the existing instance).</p>
-              <p>If there is already existing instance, and the current one is not a client, (i.e. Allow only one copy of DC at a time is false and no <code>--client/-c</code> options were given), then user-provided servername is altered: firstly, just add a trailing number "2".</p>
+              <p>If there is already existing instance, and the current one is not a client, (i.e. <i>Allow only one copy of DC at a time</i> is false and no <code>--client</code>/<code>-c</code> options were given), then user-provided servername is altered: firstly, just add a trailing number "2".</p>
               <p>If there is already some trailing number, then increase it by 1, until we found a servername that isn't busy yet, and then create instance with this servername.</p>
             </td>
           </tr>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
@@ -50,6 +51,7 @@
               <dt>5.9. <a href="#actiontest">Configuring the "Test" action</a></dt>
               <dt>5.10. <a href="#actionextractnpath">Configuring the "Extract without path" action</a></dt>
               <dt>5.11. <a href="#actionselfextract">Configuring the "Create self extracting archive" action</a></dt>
+              <dt>5.12. <a href="#configids">Configuring the "ID's"</a></dt>
             </dl>
           </dd>
         </dl>
@@ -469,6 +471,28 @@
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>
       </div>
+	  
+      <div>
+        <h2>5.12. <a name="configids">Configuring the "ID's</a></h2>
+        <p>We may configure Double Commander in such way that it will ignore file extension of a file and attempt to detect a compressed file archive by it's internal content and then invoke the appropriate list and unpack commands described above.</p>
+		<p>This is where we will use the internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
+        <p>Example of the usage of this is when we want to see the actual content of a self-extracted .exe file without having to launch it.</p>
+		<p>Another example would be to see the content of archive that is saved with a different file extension than the regular archive like the .docx file of Microsoft Word 2010 which in fact actually a compressed zip file.</p>
+        <p>Basically we may configure DC to detect the presence of strategic pattern of data at specific location into selected file so it will recognize the configured archived.</p>
+		<p>We will call "ID's" these patterns and this section is about configuration of them.<p>
+		<p>We have three settings for that: ID, ID Position and ID Seek Range.</p>
+		<p>We will instruct Double Commander where to search for specific ID's pattern to recognize an a type of archive and then use the configured commands specific to the recognized type of archive.<p>
+        <p>Let's begin by a simple example. Here follows a snapshot of the beginning of a 7-Zip archived:</p>
+        <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="780" height="146"></p>
+        <p>By looking at other 7-Zip files, we see that the first four bytes are always the sequence 0x37 0x7A 0xBC 0xAF.</p>
+		<p>So we will take profit of that by configuring Double Commander that when it sees a file starting with that sequence to assume that the file is an 7-Zip archive.</p>
+		<p>That's what we do with the following configuration:</p>:
+		<p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="404" height="260"></p>
+		<p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <BR>
+      </div>
+	  
     </div>    
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="directoryhotlist.html">Previous</a> | <a title="Next page" href="shortcuts.html">Next</a></div></div>
     <div class="checker">

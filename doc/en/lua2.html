@@ -47,7 +47,7 @@
                   <dt>3.3.1. <a href="#exampleclip">Example of usage clipboard library</a></dt>
                 </dl>
               </dd>
-              <dt>3.4. <a href="#librarydialogs">Dialogs library</a></dt>
+              <dt>3.4 <a href="#librarydialogs">Dialogs library</a></dt>
               <dd>
                 <dl>
                   <dt>3.4.1. <a href="#dlgbuts">Buttons displayed in Dialogs.MessageBox</a></dt>
@@ -58,7 +58,7 @@
                   <dt>3.4.6. <a href="#querysample">Example of usage of the Dialogs.InputQuery</a></dt>
                 </dl>
               </dd>
-              <dt>3.5. <a href="#libraryos">OS library</a></dt>
+              <dt>3.5 <a href="#libraryos">OS library</a></dt>
             </dl>
           </dd>
         </dl>
@@ -75,13 +75,12 @@
 
       <div>
         <h2>2. <a name="dllrequired">DLL required</a></h2>
-        <p>In order to interpret Lua script file, we need to have a version 5.1 Lua DLL file in the same folder as the executable of Double Commander or in system folder.</p>
-        <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS).</p>
-        <p>We can use DLL file from <a href="http://luajit.org/" target="_blank">LuaJIT project</a>. It may require to manually edit the filename in <a href="configxml.html">&lt;PathToLibrary&gt;</a> parameter). LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
-        <p>If we're using a 64-bits version of DC, the dll must be the 64-bits version as well.</p>
-        <p>Generally, the dll will come with DC installation but if for whatever reason it's not there, we may find it under <a href="http://luabinaries.sourceforge.net/" target="_blank">this link</a> or through our packages manager.</p>
+        <p>If we're working with Windows, in order to interpret Lua script file, we need to have a version 5.1 Lua DLL file in the same folder as the executable of Double Commander.</p>
+        <p>This file will have the filename <code>lua5.1.dll</code>.</p>
+        <p>Also, if we're using a 64-bits version of DC, the dll must be the 64-bits version as well.</p>
+        <p>Generally, the dll will come with DC installation but if for whatever reason it's not there, we may find it under <a href="http://luabinaries.sourceforge.net/" target="_blank">this link</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
-      </div>	  
+      </div>
 
       <div>
         <h2>3. <a name="libraries">Double Commander functions libraries</a></h2>
@@ -134,30 +133,29 @@
         </ol>
 
         <pre>
--- 1. Focus on right panel.
-<span class="mark">DC.ExecuteCommand</span>("cm_FocusSwap", "side=right")
+<font color="#008000">-- 1. Focus on right panel.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_FocusSwap&quot;</font><font color="#000080">,</font> <font color="#800000">&quot;side=right&quot;</font><font color="#000080">)</font>
 
--- 2. Close all tabs.
-<span class="mark">DC.ExecuteCommand</span>("cm_CloseAllTabs")
+<font color="#008000">-- 2. Close all tabs.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_CloseAllTabs&quot;</font><font color="#000080">)</font>
 
--- 3. Switch to a specific directory.
-<span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "e:\\FakeKey\\Documents\\Music")
+<font color="#008000">-- 3. Switch to a specific directory.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_ChangeDir&quot;</font><font color="#000080">,</font> <font color="#800000">&quot;e:\\FakeKey\\Documents\\Music&quot;</font><font color="#000080">)</font>
 
--- 4. Focus on left panel.
-<span class="mark">DC.ExecuteCommand</span>("cm_FocusSwap", "side=left")
+<font color="#008000">-- 4. Focus on left panel.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_FocusSwap&quot;</font><font color="#000080">,</font> <font color="#800000">&quot;side=left&quot;</font><font color="#000080">)</font>
 
--- 5. Close all tabs.
-<span class="mark">DC.ExecuteCommand</span>("cm_CloseAllTabs")
+<font color="#008000">-- 5. Close all tabs.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_CloseAllTabs&quot;</font><font color="#000080">)</font>
 
--- 6. Switch to a specific directory.
-<span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "C:\\Users\\Public\\Music")
+<font color="#008000">-- 6. Switch to a specific directory.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_ChangeDir&quot;</font><font color="#000080">,</font> <font color="#800000">&quot;C:\\Users\\Public\\Music&quot;</font><font color="#000080">)</font>
 
--- 7. Open a new tab.
-<span class="mark">DC.ExecuteCommand</span>("cm_NewTab")
+<font color="#008000">-- 7. Open a new tab.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_NewTab&quot;</font><font color="#000080">)</font>
 
--- 8. Switch to a specific directory.
-<span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "e:\\VirtualMachines\\ShareFolder")
-        </pre>
+<font color="#008000">-- 8. Switch to a specific directory.</font>
+<span class="mark">DC<font color="#000080">.</font>ExecuteCommand</span><font color="#000080">(</font><font color="#800000">&quot;cm_ChangeDir&quot;</font><font color="#000080">,</font> <font color="#800000">&quot;e:\\VirtualMachines\\ShareFolder&quot;</font><font color="#000080">)</font></pre>
 
         <p>Using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, we may configure a tool bar button that will execute our script.</p>
         <p>Assuming this script file is <code>e:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
@@ -288,20 +286,19 @@
         <p>This following script is an example of usage of the SysUtils.FileGetAttr.</p>
         <p>When the parameter is detected to be a directory, it will open a new tab in the active panel and switch to it.</p>
         <pre>
-local params = {...}
-local myfileattr
+<font color="#0000ff">local</font> params <font color="#0000ff">=</font> <font color="#000080">{...}</font>
+<font color="#0000ff">local</font> myfileattr
 
-if #params == 1 then --We got at least one parameter?
-  myfileattr = <span class="mark">SysUtils.FileGetAttr</span>(params[1])
-  if myfileattr>0 then --We got a valid attribut?
-    if math.floor(myfileattr / 0x00000010) % 2 ~= 0 then
-      --bit 4 is set? So it's a directory.
-      DC.ExecuteCommand("cm_NewTab")
-      DC.ExecuteCommand("cm_ChangeDir", params[1])
-    end
-  end
-end
-        </pre>
+<font color="#0000ff">if</font> #params <font color="#0000ff">==</font> <font color="#800080">1</font> <font color="#0000ff">then</font> <font color="#008000">--We got at least one parameter?</font>
+  myfileattr <font color="#0000ff">=</font> <span class="mark">SysUtils<font color="#000080">.</font>FileGetAttr</span><font color="#000080">(</font>params<font color="#000080">[</font><font color="#800080">1</font><font color="#000080">]</font><font color="#000080">)</font>
+  <font color="#0000ff">if</font> myfileattr <font color="#000080">&gt;</font> <font color="#800080">0</font> <font color="#0000ff">then</font> <font color="#008000">--We got a valid attribut?</font>
+    <font color="#0000ff">if</font> <font color="#0050c0">math.floor</font><font color="#000080">(</font>myfileattr <font color="#000080">/</font> <font color="#800080">0x00000010</font><font color="#000080">)</font> <font color="#000080">%</font> <font color="#800080">2</font> <font color="#000080">~=</font> <font color="#800080">0</font> <font color="#0000ff">then</font>
+      <font color="#008000">--bit 4 is set? So it's a directory.</font>
+      DC<font color="#000080">.</font>ExecuteCommand<font color="#000080">(</font><font color="#800000">&quot;cm_NewTab&quot;</font><font color="#000080">)</font>
+      DC<font color="#000080">.</font>ExecuteCommand<font color="#000080">(</font><font color="#800000">&quot;cm_ChangeDir&quot;</font><font color="#000080">,</font> params<font color="#000080">[</font><font color="#800080">1</font><font color="#000080">]</font><font color="#000080">)</font>
+    <font color="#0000ff">end</font>
+  <font color="#0000ff">end</font>
+<font color="#0000ff">end</font></pre>
 
         <p>In the above example, the <var>param[1]</var> is the 1st parameter passed to the script.</p>
         <p>When using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, it will will be the first parameter passed after the script filename.</p>
@@ -317,29 +314,28 @@ end
         <p>This will give us a good idea of the usage of FindFirst, FindNext and FindClose.</p>
 
         <pre>
-local params = {...}
+<font color="#0000ff">local</font> params <font color="#0000ff">=</font> <font color="#000080">{...}</font>
 
-if #params == 2 then --We got our 2 parameters?
-  local Result = nil
-  local OutputFile = nil
+<font color="#0000ff">if</font> #params <font color="#0000ff">==</font> <font color="#800080">2</font> <font color="#0000ff">then</font> <font color="#008000">--We got our 2 parameters?</font>
+  <font color="#0000ff">local</font> Result <font color="#0000ff">=</font> <font color="#0000ff">nil</font>
+  <font color="#0000ff">local</font> OutputFile <font color="#0000ff">=</font> <font color="#0000ff">nil</font>
 
-  OutputFile = io.output(params[2])
+  OutputFile <font color="#0000ff">=</font> <font color="#0050c0">io.output</font><font color="#000080">(</font>params<font color="#0000ff">[</font><font color="#800080">2</font><font color="#0000ff">]</font><font color="#000080">)</font>
 
-  local Handle,FindData = <span class="mark">SysUtils.FindFirst</span>(params[1].."\\*")
-  if Handle ~= nil then
-    repeat
-      io.write(FindData.Name.."\r")
-      io.write(FindData.Size.."\r")
-      io.write("---------------\r")
+  <font color="#0000ff">local</font> Handle<font color="#0000ff">,</font>FindData <font color="#0000ff">=</font> <span class="mark">SysUtils<font color="#0000ff">.</font>FindFirst</span><font color="#000080">(</font>params<font color="#0000ff">[</font><font color="#800080">1</font><font color="#0000ff">] .. </font><font color="#800000">"\\*"</font><font color="#000080">)</font>
+  <font color="#0000ff">if</font> Handle <font color="#0000ff">~=</font> <font color="#0000ff">nil</font> <font color="#0000ff">then</font>
+    <font color="#0000ff">repeat</font>
+      <font color="#0050c0">io.write</font><font color="#000080">(</font>FindData<font color="#0000ff">.</font>Name <font color="#0000ff">..</font> <font color="#800000">"\r"</font><font color="#000080">)</font>
+      <font color="#0050c0">io.write</font><font color="#000080">(</font>FindData<font color="#0000ff">.</font>Size <font color="#0000ff">..</font> <font color="#800000">"\r"</font><font color="#000080">)</font>
+      <font color="#0050c0">io.write</font><font color="#000080">(</font><font color="#800000">"---------------\r"</font><font color="#000080">)</font>
 
-      Result,FindData = <span class="mark">SysUtils.FindNext</span>(Handle)
-    until Result == nil
+      Result<font color="#0000ff">,</font>FindData <font color="#0000ff">=</font> <span class="mark">SysUtils<font color="#0000ff">.</font>FindNext</span><font color="#000080">(</font>Handle<font color="#000080">)</font>
+    <font color="#0000ff">until</font> Result <font color="#0000ff">==</font> <font color="#0000ff">nil</font>
 
-    <span class="mark">SysUtils.FindClose</span>(Handle)
-    io.close(OutputFile)
-  end
-end
-        </pre>
+    <span class="mark">SysUtils<font color="#0000ff">.</font>FindClose</span><font color="#000080">(</font>Handle<font color="#000080">)</font>
+    <font color="#0050c0">io.close</font><font color="#000080">(</font>OutputFile<font color="#000080">)</font>
+  <font color="#0000ff">end</font>
+<font color="#0000ff">end</font></pre>
         <p>In the above example, we need to pass two parameters to our script:</p>
         <ol>
           <li><var>param[1]</var> - which is the directory we want the content</li>
@@ -409,66 +405,65 @@ end
         <p>Then, the script will use the internal command <a href="cmds.html#cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a> and the files that have the words will then be selected.</p>
         <p>Also, at the end, we put back in our clipboard the original word that needed to be searched.</p>
         <pre>
-local params = {...}
-local Result = nil
-local myfileattr
-local bFound = false
-local sCompleteFilename = ""
-local InputFile = nil
-local line = ""
-local iPosS
-local iPosE
-local sFileToSelect = ""
-local sSearchString = ""
+<font color="#0000ff">local</font> params <font color="#0000ff">=</font> <font color="#000080">{...}</font>
+<font color="#0000ff">local</font> Result <font color="#0000ff">=</font> <font color="#0000ff">nil</font>
+<font color="#0000ff">local</font> myfileattr
+<font color="#0000ff">local</font> bFound <font color="#0000ff">=</font> false
+<font color="#0000ff">local</font> sCompleteFilename <font color="#0000ff">=</font> <font color="#800000">&quot;&quot;</font>
+<font color="#0000ff">local</font> InputFile <font color="#0000ff">=</font> <font color="#0000ff">nil</font>
+<font color="#0000ff">local</font> line <font color="#0000ff">=</font> <font color="#800000">&quot;&quot;</font>
+<font color="#0000ff">local</font> iPosS
+<font color="#0000ff">local</font> iPosE
+<font color="#0000ff">local</font> sFileToSelect <font color="#0000ff">=</font> <font color="#800000">&quot;&quot;</font>
+<font color="#0000ff">local</font> sSearchString <font color="#0000ff">=</font> <font color="#800000">&quot;&quot;</font>
 
-if #params == 1 then --We got our parameter?
-  sSearchString=<span class="mark">Clipbrd.GetAsText</span>() --Get the expression to search.
-  <span class="mark">Clipbrd.Clear</span>() --Making sure we have nothing in clipboard.
-  DC.ExecuteCommand("cm_MarkUnmarkAll") --Make sure nothing is selected.
+<font color="#0000ff">if</font> #params <font color="#0000ff">==</font> <font color="#800080">1</font> <font color="#0000ff">then</font> <font color="#008000">--We got our parameter?</font>
+  sSearchString <font color="#0000ff">=</font> <span class="mark">Clipbrd<font color="#0000ff">.</font>GetAsText</span><font color="#000080">()</font> <font color="#008000">--Get the expression to search.</font>
+  <span class="mark">Clipbrd<font color="#0000ff">.</font>Clear</span><font color="#000080">()</font> <font color="#008000">--Making sure we have nothing in clipboard.</font>
+  DC<font color="#0000ff">.</font>ExecuteCommand<font color="#000080">(</font><font color="#800000">&quot;cm_MarkUnmarkAll&quot;</font><font color="#000080">)</font> <font color="#008000">--Make sure nothing is selected.</font>
 
-  -- Let's scan one by one all the files of our directory.
-  local Handle,FindData = SysUtils.FindFirst(params[1].."\\*")
-  if Handle ~= nil then
-    repeat
-      sCompleteFilename = params[1] .. "\\" .. FindData.Name
-      myfileattr = SysUtils.FileGetAttr(sCompleteFilename)
-      if myfileattr>0 then --We got a valid attribut?
-        --We need file, not directory!
-        if math.floor(myfileattr / 0x00000010) % 2 == 0  then
+  <font color="#008000">-- Let's scan one by one all the files of our directory.</font>
+  <font color="#0000ff">local</font> Handle<font color="#0000ff">,</font>FindData <font color="#0000ff">=</font> SysUtils<font color="#0000ff">.</font>FindFirst<font color="#000080">(</font>params<font color="#0000ff">[</font><font color="#800080">1</font><font color="#0000ff">] .. </font><font color="#800000">&quot;\\*&quot;</font><font color="#000080">)</font>
+  <font color="#0000ff">if</font> Handle <font color="#0000ff">~=</font> <font color="#0000ff">nil</font> <font color="#0000ff">then</font>
+    <font color="#0000ff">repeat</font>
+      sCompleteFilename <font color="#0000ff">=</font> params<font color="#0000ff">[</font><font color="#800080">1</font><font color="#0000ff">]</font> <font color="#0000ff">..</font> <font color="#800000">&quot;\\&quot;</font> <font color="#0000ff">..</font> FindData<font color="#0000ff">.</font>Name
+      myfileattr <font color="#0000ff">=</font> SysUtils<font color="#0000ff">.</font>FileGetAttr<font color="#000080">(</font>sCompleteFilename<font color="#000080">)</font>
+      <font color="#0000ff">if</font> myfileattr <font color="#0000ff">&gt;</font> <font color="#800080">0</font> <font color="#0000ff">then</font> <font color="#008000">--We got a valid attribut?</font>
+        <font color="#008000">--We need file, not directory!</font>
+        <font color="#0000ff">if</font> <font color="#000090">math.floor</font><font color="#000080">(</font>myfileattr <font color="#0000ff">/</font> <font color="#800080">0x00000010</font><font color="#000080">)</font> <font color="#0000ff">%</font> <font color="#800080">2</font> <font color="#0000ff">==</font> <font color="#800080">0</font> <font color="#0000ff">then</font>
 
-          --Let's now read the file line by line until the the end OR a found.
-          InputFile = io.open(sCompleteFilename, "r")
-          bFound = false
+          <font color="#008000">--Let's now read the file line by line until the the end OR a found.</font>
+          InputFile <font color="#0000ff">=</font> <font color="#000090">io.open</font><font color="#000080">(</font>sCompleteFilename<font color="#0000ff">,</font> <font color="#800000">&quot;r&quot;</font><font color="#000080">)</font>
+          bFound <font color="#0000ff">=</font> false
 
-          while bFound == false do
-            line = InputFile:read()
-            if line == nil then break end
-            iPosS, iPosE = string.find(line, sSearchString)
-            if iPosS ~= nil then bFound = true end
-          end
+          <font color="#0000ff">while</font> bFound <font color="#0000ff">==</font> false <font color="#0000ff">do</font>
+            line <font color="#0000ff">=</font> InputFile<font color="#0000ff">:</font>read<font color="#000080">()</font>
+            <font color="#0000ff">if</font> line <font color="#0000ff">==</font> <font color="#0000ff">nil</font> <font color="#0000ff">then</font> <font color="#0000ff">break</font> <font color="#0000ff">end</font>
+            iPosS<font color="#0000ff">,</font> iPosE <font color="#0000ff">=</font> <font color="#000090">string.find</font><font color="#000080">(</font>line<font color="#0000ff">,</font> sSearchString<font color="#000080">)</font>
+            <font color="#0000ff">if</font> iPosS <font color="#0000ff">~=</font> <font color="#0000ff">nil</font> <font color="#0000ff">then</font> bFound <font color="#0000ff">=</font> true <font color="#0000ff">end</font>
+          <font color="#0000ff">end</font>
 
-          if bFound == true then
-            sFileToSelect=sFileToSelect .. FindData.Name .. "\n"
-          end
+          <font color="#0000ff">if</font> bFound <font color="#0000ff">==</font> true <font color="#0000ff">then</font>
+            sFileToSelect <font color="#0000ff">=</font> sFileToSelect <font color="#0000ff">..</font> FindData<font color="#0000ff">.</font>Name <font color="#0000ff">..</font> <font color="#800000">&quot;\n&quot;</font>
+          <font color="#0000ff">end</font>
 
-          io.close(InputFile)
-        end
-      end
-      Result,FindData = SysUtils.FindNext(Handle)
-    until Result == nil
+          <font color="#000090">io.close</font><font color="#000080">(</font>InputFile<font color="#000080">)</font>
+        <font color="#0000ff">end</font>
+      <font color="#0000ff">end</font>
+      Result<font color="#0000ff">,</font>FindData <font color="#0000ff">=</font> SysUtils<font color="#0000ff">.</font>FindNext<font color="#000080">(</font>Handle<font color="#000080">)</font>
+    <font color="#0000ff">until</font> Result <font color="#0000ff">==</font> <font color="#0000ff">nil</font>
 
-    SysUtils.FindClose(Handle)
-  end
+    SysUtils<font color="#0000ff">.</font>FindClose<font color="#000080">(</font>Handle<font color="#000080">)</font>
+  <font color="#0000ff">end</font>
 
-  --If we've found something, select it!
-  if sFileToSelect ~= "" then
-    <span class="mark">Clipbrd.SetAsText</span>(sFileToSelect)
-    DC.ExecuteCommand("cm_LoadSelectionFromClip")
-  end
+  <font color="#008000">--If we've found something, select it!</font>
+  <font color="#0000ff">if</font> sFileToSelect <font color="#0000ff">~=</font> <font color="#800000">&quot;&quot;</font> <font color="#0000ff">then</font>
+    <span class="mark">Clipbrd<font color="#0000ff">.</font>SetAsText</span><font color="#000080">(</font>sFileToSelect<font color="#000080">)</font>
+    DC<font color="#0000ff">.</font>ExecuteCommand<font color="#000080">(</font><font color="#800000">&quot;cm_LoadSelectionFromClip&quot;</font><font color="#000080">)</font>
+  <font color="#0000ff">end</font>
 
-  <span class="mark">Clipbrd.SetAsText</span>(sSearchString) --Restoring what we had in clipboard.
-end
-        </pre>
+  <span class="mark">Clipbrd<font color="#0000ff">.</font>SetAsText</span><font color="#000080">(</font>sSearchString<font color="#000080">)</font> <font color="#008000">--Restoring what we had in clipboard.</font>
+<font color="#0000ff">end</font></pre>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -593,42 +588,41 @@ end
         <h2>3.4.5. <a name="mesgboxsample">Example of usage of the Dialogs.MessageBox</a></h2>
         <p>Here is a little script using <code>Dialogs.MessageBox</code> and the resulting window that will be displayed:</p>
         <pre>
---Buttons displayed
-MB_OK = 0x0000
-MB_OKCANCEL = 0x0001
-MB_ABORTRETRYIGNORE = 0x0002
-MB_YESNOCANCEL = 0x0003
-MB_YESNO = 0x0004
-MB_RETRYCANCEL = 0x0005
+<font color="#008000">--Buttons displayed</font>
+MB_OK <font color="#0000ff">=</font> <font color="#800080">0x0000</font>
+MB_OKCANCEL <font color="#0000ff">=</font> <font color="#800080">0x0001</font>
+MB_ABORTRETRYIGNORE <font color="#0000ff">=</font> <font color="#800080">0x0002</font>
+MB_YESNOCANCEL <font color="#0000ff">=</font> <font color="#800080">0x0003</font>
+MB_YESNO <font color="#0000ff">=</font> <font color="#800080">0x0004</font>
+MB_RETRYCANCEL <font color="#0000ff">=</font> <font color="#800080">0x0005</font>
 
---Box style
-MB_ICONINFORMATION = 0x0040
-MB_ICONWARNING = 0x0030
-MB_ICONQUESTION = 0x0020
-MB_ICONERROR = 0x0010
+<font color="#008000">--Box style</font>
+MB_ICONINFORMATION <font color="#0000ff">=</font> <font color="#800080">0x0040</font>
+MB_ICONWARNING <font color="#0000ff">=</font> <font color="#800080">0x0030</font>
+MB_ICONQUESTION <font color="#0000ff">=</font> <font color="#800080">0x0020</font>
+MB_ICONERROR <font color="#0000ff">=</font> <font color="#800080">0x0010</font>
 
---Default button
-MB_DEFBUTTON1 = 0x0000
-MB_DEFBUTTON2 = 0x0100
-MB_DEFBUTTON3 = 0x0200
+<font color="#008000">--Default button</font>
+MB_DEFBUTTON1 <font color="#0000ff">=</font> <font color="#800080">0x0000</font>
+MB_DEFBUTTON2 <font color="#0000ff">=</font> <font color="#800080">0x0100</font>
+MB_DEFBUTTON3 <font color="#0000ff">=</font> <font color="#800080">0x0200</font>
 
---Returned button pressed
-mrNone = 0x0000
-mrOK = 0x0001
-mrCancel = 0x0002
-mrAbort = 0x0003
-mrRetry = 0x0004
-mrIgnore = 0x0005
-mrYes = 0x0006
-mrNo = 0x0007
+<font color="#008000">--Returned button pressed</font>
+mrNone <font color="#0000ff">=</font> <font color="#800080">0x0000</font>
+mrOK <font color="#0000ff">=</font> <font color="#800080">0x0001</font>
+mrCancel <font color="#0000ff">=</font> <font color="#800080">0x0002</font>
+mrAbort <font color="#0000ff">=</font> <font color="#800080">0x0003</font>
+mrRetry <font color="#0000ff">=</font> <font color="#800080">0x0004</font>
+mrIgnore <font color="#0000ff">=</font> <font color="#800080">0x0005</font>
+mrYes <font color="#0000ff">=</font> <font color="#800080">0x0006</font>
+mrNo <font color="#0000ff">=</font> <font color="#800080">0x0007</font>
 
-ButFlags = MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2;
-ButPressed = <span class="mark">Dialogs.MessageBox</span>("Do you want to quit?", "Question", ButFlags)
+ButFlags <font color="#0000ff">=</font> MB_YESNO <font color="#0000ff">+</font> MB_ICONQUESTION <font color="#0000ff">+</font> MB_DEFBUTTON2<font color="#0000ff">;</font>
+ButPressed <font color="#0000ff">=</font> <span class="mark">Dialogs<font color="#0000ff">.</font>MessageBox</span><font color="#000080">(</font><font color="#800000">&quot;Do you want to quit?&quot;</font><font color="#0000ff">,</font> <font color="#800000">&quot;Question&quot;</font><font color="#0000ff">,</font> ButFlags<font color="#000080">)</font>
 
-if ButPressed == mrYes then
-  DC.ExecuteCommand("cm_Exit")
-end
-        </pre>
+<font color="#0000ff">if</font> ButPressed <font color="#0000ff">==</font> mrYes <font color="#0000ff">then</font>
+  DC<font color="#0000ff">.</font>ExecuteCommand<font color="#000080">(</font><font color="#800000">&quot;cm_Exit&quot;</font><font color="#000080">)</font>
+<font color="#0000ff">end</font></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="400" height="158"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -637,19 +631,18 @@ end
         <h2>3.4.6. <a name="querysample">Example of usage of the Dialogs.InputQuery</a></h2>
         <p>Here is a little script using <code>Dialogs.InputQuery</code> and the resulting window that will be displayed:</p>
         <pre>
-bCancelOrNot, sAnswer = <span class="mark">Dialogs.InputQuery</span>("Identification", "Enter your name:", false, "John")
+bCancelOrNot<font color="#0000ff">,</font> sAnswer <font color="#0000ff">=</font> <span class="mark">Dialogs<font color="#0000ff">.</font>InputQuery</span><font color="#0000ff">(</font><font color="#800000">&quot;Identification&quot;</font><font color="#0000ff">,</font> <font color="#800000">&quot;Enter your name:&quot;</font><font color="#0000ff">,</font> false<font color="#0000ff">,</font> <font color="#800000">&quot;John&quot;</font><font color="#0000ff">)</font>
 
-if bCancelOrNot == true then
-  Dialogs.MessageBox("Hello " .. sAnswer .. "!", "Welcome!", 0x040)
-end
-        </pre>
+<font color="#0000ff">if</font> bCancelOrNot <font color="#0000ff">==</font> true <font color="#0000ff">then</font>
+  Dialogs<font color="#0000ff">.</font>MessageBox<font color="#0000ff">(</font><font color="#800000">&quot;Hello &quot;</font> <font color="#0000ff">..</font> sAnswer <font color="#0000ff">..</font> <font color="#800000">&quot;!&quot;</font><font color="#0000ff">,</font> <font color="#800000">&quot;Welcome!&quot;</font><font color="#0000ff">,</font> <font color="#800080">0x040</font><font color="#0000ff">)</font>
+<font color="#0000ff">end</font></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="504" height="122"></p>
 
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
 
       <div>
-        <h2>3.5. <a name="libraryos">OS library</a></h2>
+        <h2>3.5 <a name="libraryos">OS library</a></h2>
         <p>This library contains functions related with the operating system where Double Commander is running.</p>
         <p>Here is the list of available functions in this library:</p>
         <table>

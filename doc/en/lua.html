@@ -105,7 +105,7 @@
         <p>It provides all its functions inside the table <code>DC</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">DC library</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
@@ -156,8 +156,7 @@
 <span class="mark">DC.ExecuteCommand</span>("cm_NewTab")
 
 -- 8. Switch to a specific directory.
-<span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "e:\\VirtualMachines\\ShareFolder")
-        </pre>
+<span class="mark">DC.ExecuteCommand</span>("cm_ChangeDir", "e:\\VirtualMachines\\ShareFolder")</pre>
 
         <p>Using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, we may configure a tool bar button that will execute our script.</p>
         <p>Assuming this script file is <code>e:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
@@ -175,7 +174,7 @@
         <p>It provides all its functions inside the table <code>SysUtils</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">System library</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
@@ -212,7 +211,7 @@
             <td class="hintcell">
               <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
               <p>Looks for files that match the <var>Path</var>, generally with wildcards.</p>
-              <p>If no file is found, <var>Handle</var> will be <var>nil</var></p>
+              <p>If no file is found, <var>Handle</var> will be <var>nil</var>.</p>
               <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurences of the same pattern.</p>
               <p>The <var>FindData</var> table contains information about the file or directory found.</p>
               <p>The field of the <var>FindData</var> table are: <code>Name</code>, <code>Attr</code>, <code>Size</code> and <code>Time</code>.</p>
@@ -256,7 +255,7 @@
 
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Value</th><th class="categorydesccolumn">Signification</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Value</th><th class="categorydesccolumn">Signification</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td><td class="hintcell">The file is read-only.</td>
           </tr>
@@ -291,17 +290,16 @@
 local params = {...}
 local myfileattr
 
-if #params == 1 then --We got at least one parameter?
+if #params == 1 then -- We got at least one parameter?
   myfileattr = <span class="mark">SysUtils.FileGetAttr</span>(params[1])
-  if myfileattr>0 then --We got a valid attribut?
+  if myfileattr > 0 then -- We got a valid attribut?
     if math.floor(myfileattr / 0x00000010) % 2 ~= 0 then
-      --bit 4 is set? So it's a directory.
+      -- bit 4 is set? So it's a directory.
       DC.ExecuteCommand("cm_NewTab")
       DC.ExecuteCommand("cm_ChangeDir", params[1])
     end
   end
-end
-        </pre>
+end</pre>
 
         <p>In the above example, the <var>param[1]</var> is the 1st parameter passed to the script.</p>
         <p>When using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, it will will be the first parameter passed after the script filename.</p>
@@ -319,17 +317,17 @@ end
         <pre>
 local params = {...}
 
-if #params == 2 then --We got our 2 parameters?
+if #params == 2 then -- We got our 2 parameters?
   local Result = nil
   local OutputFile = nil
 
   OutputFile = io.output(params[2])
 
-  local Handle,FindData = <span class="mark">SysUtils.FindFirst</span>(params[1].."\\*")
+  local Handle,FindData = <span class="mark">SysUtils.FindFirst</span>(params[1] .. "\\*")
   if Handle ~= nil then
     repeat
-      io.write(FindData.Name.."\r")
-      io.write(FindData.Size.."\r")
+      io.write(FindData.Name .. "\r")
+      io.write(FindData.Size .. "\r")
       io.write("---------------\r")
 
       Result,FindData = <span class="mark">SysUtils.FindNext</span>(Handle)
@@ -338,8 +336,7 @@ if #params == 2 then --We got our 2 parameters?
     <span class="mark">SysUtils.FindClose</span>(Handle)
     io.close(OutputFile)
   end
-end
-        </pre>
+end</pre>
         <p>In the above example, we need to pass two parameters to our script:</p>
         <ol>
           <li><var>param[1]</var> - which is the directory we want the content</li>
@@ -357,7 +354,7 @@ end
         <p>Following table gives us the related functions:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Clipboard library</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">Clipbrd.Clear</div></td>
             <td class="hintcell">
@@ -376,7 +373,7 @@ end
             <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.SetAsText(StringVar)</p>
-              <p>Store in the clipboard the text content of <var>StringVar</var></p>
+              <p>Store in the clipboard the text content of <var>StringVar</var>.</p>
             </td>
           </tr>
           <tr>
@@ -421,22 +418,22 @@ local iPosE
 local sFileToSelect = ""
 local sSearchString = ""
 
-if #params == 1 then --We got our parameter?
-  sSearchString=<span class="mark">Clipbrd.GetAsText</span>() --Get the expression to search.
-  <span class="mark">Clipbrd.Clear</span>() --Making sure we have nothing in clipboard.
-  DC.ExecuteCommand("cm_MarkUnmarkAll") --Make sure nothing is selected.
+if #params == 1 then -- We got our parameter?
+  sSearchString = <span class="mark">Clipbrd.GetAsText</span>() -- Get the expression to search.
+  <span class="mark">Clipbrd.Clear</span>() -- Making sure we have nothing in clipboard.
+  DC.ExecuteCommand("cm_MarkUnmarkAll") -- Make sure nothing is selected.
 
   -- Let's scan one by one all the files of our directory.
-  local Handle,FindData = SysUtils.FindFirst(params[1].."\\*")
+  local Handle,FindData = SysUtils.FindFirst(params[1] .. "\\*")
   if Handle ~= nil then
     repeat
       sCompleteFilename = params[1] .. "\\" .. FindData.Name
       myfileattr = SysUtils.FileGetAttr(sCompleteFilename)
-      if myfileattr>0 then --We got a valid attribut?
-        --We need file, not directory!
-        if math.floor(myfileattr / 0x00000010) % 2 == 0  then
+      if myfileattr > 0 then -- We got a valid attribut?
+        -- We need file, not directory!
+        if math.floor(myfileattr / 0x00000010) % 2 == 0 then
 
-          --Let's now read the file line by line until the the end OR a found.
+          -- Let's now read the file line by line until the the end OR a found.
           InputFile = io.open(sCompleteFilename, "r")
           bFound = false
 
@@ -448,7 +445,7 @@ if #params == 1 then --We got our parameter?
           end
 
           if bFound == true then
-            sFileToSelect=sFileToSelect .. FindData.Name .. "\n"
+            sFileToSelect = sFileToSelect .. FindData.Name .. "\n"
           end
 
           io.close(InputFile)
@@ -460,15 +457,14 @@ if #params == 1 then --We got our parameter?
     SysUtils.FindClose(Handle)
   end
 
-  --If we've found something, select it!
+  -- If we've found something, select it!
   if sFileToSelect ~= "" then
     <span class="mark">Clipbrd.SetAsText</span>(sFileToSelect)
     DC.ExecuteCommand("cm_LoadSelectionFromClip")
   end
 
-  <span class="mark">Clipbrd.SetAsText</span>(sSearchString) --Restoring what we had in clipboard.
-end
-        </pre>
+  <span class="mark">Clipbrd.SetAsText</span>(sSearchString) -- Restoring what we had in clipboard.
+end</pre>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -478,7 +474,7 @@ end
         <p>Following table gives us the related functions:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Dialogs library</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
             <td class="hintcell">
@@ -533,7 +529,7 @@ end
         <p>The buttons displayed in the box displayed by <code>Dialogs.MessageBox</code> function are controlled by a OR'ed value with one of the following:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the buttons displayed of Dialogs.MessageBox</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Buttons displayed, from left to right</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Buttons displayed, from left to right</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td><td class="hintcell"><img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button IGNORE" alt="Button IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
@@ -549,7 +545,7 @@ end
         <p>The style of the box displayed by <code>Dialogs.MessageBox</code> function are controlled by a OR'ed value with one of the following:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the icon and style of Dialogs.MessageBox</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Style of window</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Style of window</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td><td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window</td></tr>
@@ -563,7 +559,7 @@ end
         <p>The default active button of the box displayed by <code>Dialogs.MessageBox</code> function are controlled by a OR'ed value with one of the following:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the default button of Dialogs.MessageBox</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Default button</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Default button</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td><td class="hintcell">Default will be the first one on left</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td><td class="hintcell">Default will be the second one from left</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td><td class="hintcell">Default will be the third one from left</td></tr>
@@ -576,8 +572,8 @@ end
         <p>The number returned by the <code>Dialogs.MessageBox</code> function represent the button user has pressed according to the following:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">ButPressed value returned based on button pressed of Dialogs.MessageBox</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Constant value</th><th class="categorydesccolumn">Button pressed</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td><td class="hintcell">No button pressed<BR><I>But in Windows implementation, if we press the "x" in top right or press <kbd>escape</kbd> to close the window, still, the value of the default button is still returned.</i></td></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Button pressed</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td><td class="hintcell">No button pressed</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td><td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td><td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td><td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
@@ -586,14 +582,15 @@ end
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td><td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td><td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p>Note: If we press the "x" in top right or press <kbd>Esc</kbd> to close the window, then the value of the button "Cancel" is will returned.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>3.4.5. <a name="mesgboxsample">Example of usage of the Dialogs.MessageBox</a></h2>
         <p>Here is a little script using <code>Dialogs.MessageBox</code> and the resulting window that will be displayed:</p>
         <pre>
---Buttons displayed
+-- Buttons displayed
 MB_OK = 0x0000
 MB_OKCANCEL = 0x0001
 MB_ABORTRETRYIGNORE = 0x0002
@@ -601,18 +598,18 @@ MB_YESNOCANCEL = 0x0003
 MB_YESNO = 0x0004
 MB_RETRYCANCEL = 0x0005
 
---Box style
+-- Box style
 MB_ICONINFORMATION = 0x0040
 MB_ICONWARNING = 0x0030
 MB_ICONQUESTION = 0x0020
 MB_ICONERROR = 0x0010
 
---Default button
+-- Default button
 MB_DEFBUTTON1 = 0x0000
 MB_DEFBUTTON2 = 0x0100
 MB_DEFBUTTON3 = 0x0200
 
---Returned button pressed
+-- Returned button pressed
 mrNone = 0x0000
 mrOK = 0x0001
 mrCancel = 0x0002
@@ -622,13 +619,12 @@ mrIgnore = 0x0005
 mrYes = 0x0006
 mrNo = 0x0007
 
-ButFlags = MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2;
+ButFlags = MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2
 ButPressed = <span class="mark">Dialogs.MessageBox</span>("Do you want to quit?", "Question", ButFlags)
 
 if ButPressed == mrYes then
   DC.ExecuteCommand("cm_Exit")
-end
-        </pre>
+end</pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="400" height="158"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
       </div>
@@ -640,9 +636,8 @@ end
 bCancelOrNot, sAnswer = <span class="mark">Dialogs.InputQuery</span>("Identification", "Enter your name:", false, "John")
 
 if bCancelOrNot == true then
-  Dialogs.MessageBox("Hello " .. sAnswer .. "!", "Welcome!", 0x040)
-end
-        </pre>
+  Dialogs.MessageBox("Hello " .. sAnswer .. "!", "Welcome!", 0x0040)
+end</pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="504" height="122"></p>
 
         <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
@@ -654,7 +649,7 @@ end
         <p>Here is the list of available functions in this library:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">OS library</th></tr>
-          <tr class="rowsubtitle"><th class="Plugin name">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">

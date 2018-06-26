@@ -1,140 +1,237 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<head>
-  <title>3.2 Панель инструментов</title>
-  <link rel="STYLESHEET" type="text/css" href="doublecmd.css"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
+  <head>
+    <title>DC - Панель инструментов</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
 
-<body>
-	<div class="SECT2">
-	  <h3>3.2 Панель инструментов</h3>
-	  <p class="FIGURE"><img title="Панель инструментов" alt="Панель инструментов" src="images/imgDC/ris3.png" width="240" height="30"/></p>
-	  <p>С ее помощью вы можете вызывать внутренние команды Double Commander, внешние программы и
-	  выполнять некоторые станартные операции. Если задержать курсор мыши над кнопкой&nbsp;&mdash;
-	  появится всплывающая подзказка.</p>
-	  
-	  <p>Получить доступ к настройкам панели можно, щелкнув правой клавишей мыши по панели и выбирав
-	  в меню пункт <span class="bold">Редактировать</span>.</p>
-	  <p class="FIGURE"><img title="Редактировать панель инструментов" alt="Редактировать панель инструментов"
-	  src="images/imgDC/ris3-1.png" width="222" height="62"/></p>
-	  
-	  <p>Откроется диалоговое окно "Настройка панели инструментов"</p>
-	  <p class="FIGURE"><img title="Настройка панели инструментов" alt="Настройка панели инструментов"
-	  src="images/imgDC/ris10.png" width="509" height="265"/></p>
-	  
-	  <p>Первая строчка указывает из какого файла Double Commander будет брать настройки для панели
-	  инструментов (структура файла аналогична таковому у TC), под ней находятся значки добавленных
-	  на панель кнопок.</p>
-	  
-	  <p><span class="italic">Добавить</span>&nbsp;&mdash; добавляет новую кнопку на панель, с пустыми
-	  параметрами.</p>
-	  <p><span class="italic">Удалить</span>&nbsp;&mdash; удаляет выбранную кнопку.</p>
-	  <p><span class="italic">Размер</span>&nbsp;&mdash; поле, в котором указывают, какого размера
-	  будут значки на панели. Лучше указывать 16 или 22 или 32, так как это размеры остальных иконок
-	  в Double Commander. Но допускаются любые цифры, размер задается в пикселях.</p>
-	  <p><span class="italic">Плоские</span>&nbsp;&mdash; делает кнопочки на панели визуально в виде
-	  кнопок или только в виде значков.</p>
-	  <p><span class="italic">Команда</span>&nbsp;&mdash; строка, в которой можно выбрать любую
-	  <a href="cmds.html">внутреннюю команду</a>, или указать свою, например для запуска приложения
-	  (команды для приложений можно брать из главного меню системы).</p>
-	  <p><span class="italic">Параметры</span>&nbsp;&mdash; в строке указывается параметр, который
-	  будет использован при выполнении команды (для каждой команды свои).</p>
-	  	  	<blockquote>
-	  		<p>Функции (без параметров подставляет все выделенные файлы):</p>
-	  		<p>&nbsp;<span class="bold">%f</span> - только имя файла</p>
-	  		<p>&nbsp;<span class="bold">%d</span> - только путь, без разделителя в конце</p>
-	  		<p>&nbsp;<span class="bold">%p</span> - полный путь к файлу</p>
-	  		<p>&nbsp;<span class="bold">%D</span> - текущий каталог в активной или выбранной панели</p>
-	  		<p>Выбор панели (если не задано, используется активная панель):</p>
-	  		<p>&nbsp; <span class="bold">%X</span><span class="italic">[l|r|s|t]</span> - где X функция (l - левая, r - правая, s - источник, t - получатель)</p>
-	  		<p>Choosing selected files (only for %f, %d, %p):</p>
-	  		<p>&nbsp; <span class="bold">%X</span><span class="italic">[
-		    &lt;nr&gt;
-  			  ] </span>- где X функция</p>
-	  		<blockquote>
-	  			<p>             &lt;nr&gt; 
-	  			is 1..n, где n количество выделенных файлов.</p>
-	  			<p>             If there are no selected files, currently active file is nr 1.</p>
-	  			<p>             If 
-	  				&lt;nr&gt; is invalid or there is no selected file by that number</p>
-	  			<p>             the result for the whole function will be empty string.</p>
-  			</blockquote>
-	  		<p>Adding prefix, postfix before or after the result string:</p>
-	  		<p>&nbsp;  <span class="bold">%X</span><span class="italic">[{
-  			  <prefix>}][{<postfix>}]</span></p>
-	  		<blockquote>
-	  			<p>If applied to multiple files, each name is prefixed/postfixed.</p>
-	  			<p>Above parameters can be combined together.</p>
-  			</blockquote>
-	  		<p>Порядок передачи параметров::</p>
-	  		<ul>
-	  			<li> %функция</li>
-	  			<li> левая или правая или источник или получатель панель (необязательный)</li>
-	  			<li> число файлов (необязательный)</li>
-	  			<li> prefix, postfix (необязательный)</li>
-  			</ul>
-	  		<p>Примеры:
-	  			
-  			</p>
-	  		<ul>
-	  			<li>  %f1       - первый выделенный файл в активной панели
-  				</li>
-	  			<li>  %pr2      - полный путь второго выделенного файла в правой панели
-  				</li>
-	  			<li>  %fl       - только имена файлов с левой панели</li>
-	  			<li>  %pr       - полный пути для файлов с правой панели</li>
-	  			<li>  %Dl       - текущий каталог в левой панели</li>
-	  			<li>  %f{-f }   - prepend each name with "-f "
-	  				<ul>
-	  					<li>(ex.: -f
-	  						<file_1> -f <file_2>)
-  						</li>
-  					</ul>
-  				</li>
-	  			<li>  %f{"}{"}  - заключить каждое имя в кавычки
-	  				<ul>
-	  					<li>(ex.: "<file_1>" "<file_2>")
-  						</li>
-  					</ul>
-  				</li>
-	  			<li>  %f1{-first }%f2{ -second }
-	  				<ul>
-	  					<li>        if only 1 file selected      : -first 
-	  						<file_1>
-  						</li>
-	  					<li> if 2 (or more) files selected: -first
-	  						<file_1> -second <file_2>
-  						</li>
-  					</ul>
-  				</li>
-  			</ul>
-  		</blockquote>
-	  <p><span class="italic">Путь запуска</span>&nbsp;&mdash; используется для указания полного пути
-	  к файлу программы (при необходимости).</p>
-	  <p><span class="italic">Файл значка</span>&nbsp;&mdash; в этой строке указывается путь к файлу
-	  значка, который будет использован для отображения кнопки.</p>
-	  <p><span class="italic">Значок</span>&nbsp;&mdash; показывает как будет выглядеть кнопка на
-	  панели.</p>
-	  <p><span class="italic">Подсказка</span>&nbsp;&mdash; текст, введенный в эту строку, будет
-	  отображаться при задержке указателя над значком запуска на панели.</p>
-	  <p class="FIGURE"><img title="Всплывающая подсказка" alt="Всплывающая подсказка"
-	  src="images/imgDC/ris10-3.png" width="226" height="132"/></p>
-	  
-	  <p>Чтобы вставить разделитель между значками, нужно создать новую кнопку, а в строке <span class="italic">Подсказка</span> вписать
-	   "-" (минус).</p>
-	  
-	  <p>Так же существует возможность создать выпадающее меню:</p>
-	  <p class="FIGURE"><img title="Выпадающее меню" alt="Выпадающее меню" src="images/imgDC/ris10-4.png" width="470" height="254"/></p>
-	  <p>Для этого в строке <span class="italic">Команда</span> надо выбрать <tt><a name="cm_ShowButtonMenu">
-	  cm_ShowButtonMenu</a></tt>,
-	  а в строке <span class="italic">Параметры</span> указать расположение файла, с настройками для
-	  выпадающего меню (или просто его название, если он расположен в той же папке). Структура файла
-	  выпадающего меню аналогична главному.</p>
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Домашняя страница</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="variables.html">След.</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.6. Панель инструментов</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#toolbardefinition">Что такое панель инструментов и как её можно использовать</a></dt>
+          <dt>2. <a href="#toolbarshowit">Как её включить</a></dt>
+          <dt>3. <a href="#toolbarelementlist">Что можно добавить на панель инструментов</a></dt>
+          <dt>4. <a href="#toolbarconfig">Как настроить панель инструментов</a></dt>
+          <dt>5. <a href="#toolbardescription">Описание элементов</a></dt>
+          <dd>
+            <dl>
+              <dd>5.1. <a href="#catseparator">Разделитель</a></dd>
+              <dd>5.2. <a href="#catinternal">Внутренняя команда</a></dd>
+              <dd>5.3. <a href="#catexternal">Внешняя команда</a></dd>
+              <dd>5.4. <a href="#catmenu">Меню</a></dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="toolbardefinition">1. Что такое панель инструментов и как её можно использовать</a></h2>
+        <p>При активной работе с двухпанельным файловым менеджером, как Double Commander, бывает необходимо запустить приложение и мы можем использовать наш файловый менеджер непосредственно, вместо того, чтобы добираться до ярлыка на рабочем столе, в панели задач или меню Пуск.</p>
+        <p>Это особенно актуально для частых задач.</p>
+        <p>Панель инструментов позволит каждому настроить кнопки для часто используемых функций.</p>
+        <p>Double Commander предлагает также множество возможных параметров на основе текущего или выделенных файлов, что позволить нам передать их в качестве параметров запускаемому приложению.</p>
+        <p>Ниже панель инструментов Double Commander с настройками по умолчанию, вы можете настроить её под свои потребности и предпочтения.</p>
+        <p class="figure"><img class="largeimage" title="Пример панели инструментов" alt="Пример панели инструментов" src="images/imgDC/toolbarsample.png" width="713" height="39"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarshowit">2. Как её включить</a></h2>
+        <p>Панель инструментов будет отображаться или скрыта в зависимости от того, что задано в параметрах "Вид окна".</p>
+        <p>Чтобы активировать её, мы просто должны убедится, что отметили параметр "Панель инструментов".</p>
+        <p class="figure"><img class="largeimage" title="Показать панель инструментов" alt="Показать панель инструментов" src="images/imgDC/toolbarshowit.png" width="692" height="182"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarelementlist">3. Что можно добавить на панель инструментов</a></h2>
+        <p>Всё, что может быть добавлено на панель инструментов, представлено в таблице</p>
+        <table class="category">
+          <tr class="rowcategorytable"><th colspan="2">Возможные элементы панели инструментов</th></tr>
+          <tr class="rowcategorysubtitle"><th class="categorynamecolumn">Элементы</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catseparator">Разделитель</a></div></td>
+            <td class="categorydesc">Вертикальная полоса, чтобы помочь нам группировать схожие функции и/или схожий контекст.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catinternal">Внутренняя команда</a></div></td>
+            <td class="categorydesc">Вызов внутренней команды Double Commander.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catexternal">Внешняя команда</a></div></td>
+            <td class="categorydesc">Запуск внешнего приложения, исполняемого файла, скрипта и т.д.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catmenu">Меню</a></div></td>
+            <td class="categorydesc">Кнопка на главной панели инструментов с выпадающим меню из остальных элементов.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarconfig">4. Как настроить панель инструментов</a></h2>
+        <p>Чтобы изменить содержимое панели инструментов, нам нужно её настроить.</p>
+        <p>Конечно, мы можем вызвать окно настроек Double Commander, прокрутить список слева до пункта "Панель инструментов".</p>
+        <p class="figure"><img class="largeimage" title="Настройка панели инструментов" alt="Настройка панели инструментов" src="images/imgDC/toolbarconfig1.png" width="680" height="160"></p>
+        <p>Другой, быстрый, способ добраться непосредственно до настроек: щёлкнуть правой кнопкой мыши по свободному месту на панели и выбрать в меню пункт "Редактировать".</p>
+        <p class="figure"><img class="largeimage" title="Настройка панели инструментов" alt="Настройка панели инструментов" src="images/imgDC/toolbarconfig2.png" width="250" height="80"></p>
+        <p>Также возможно не только открыть настройки панели инструментов, но и сразу перейти к редактированию выбранной кнопки, для этого нужно щёлкнуть по ней правой кнопкой мыши и выбрать пункт "Редактировать".</p>
+        <p class="figure"><img class="largeimage" title="Настройка панели инструментов" alt="Настройка панели инструментов" src="images/imgDC/toolbarconfig3.png" width="730" height="230"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="catseparator">5.1. Описание элементов - Разделитель</a></h2>
+        <p>Разделитель&nbsp;&mdash; это просто вертикальная полоска, которая может быть использована для того, чтобы отделить и сгруппировать кнопки со схожими действиями.</p>
+        <p>У разделителя нет никаких активных функций, это просто декоративный элемент для удобства восприятия.</p>
+        <p>В примере ниже разделителями отделены функции, связанные со сравнением, буфером обмена и т.д.</p>
+        <p class="figure"><img class="largeimage" title="Пример разделителя" alt="Пример разделителя" src="images/imgDC/toolbarseparator.png" width="420" height="192"></p>
+      </div>
+      <BR>
+
+      <div>
+        <h2><a name="catinternal">5.2. Описание элементов - Внутренняя команда</a></h2>
+        <p>Внутренние команды&nbsp;&mdash; это различные действия самого Double Commander, не требующие вызова внешнего приложения.</p>
+        <p>Команды чрезвычайно разнообразны, описание всех внутренних команд можно посмотреть на <a href="cmds.html">этой странице</a>.</p>
+        <p>Например, если мы хотим добавить на панель инструментов кнопку поиска, то просто выбираем "cm_Search" из выпадающего списка команд.</p>
+        <p>Как видим на рисунке ниже, мы можем выбрать свой значок для кнопки, но, как правило, достаточно просто выбрать команду из списка и использовать связанный с ней значок.</p>
+        <p>Также есть всплывающая подсказка: можно добавить описание кнопки, которое появится при наведении курсора.</p>
+        <p>Пример с командой "<a href="cmds.html#cm_Search">cmSearch</a>":</p>
+        <p class="figure"><img class="largeimage" title="Пример внутренней команды без параметра" alt="Пример внутренней команды без параметра" src="images/imgDC/toolbarinternal1.png" width="636" height="220"></p>
+        <p>Некоторые команды могут принимать параметры, мы можем добавить их в поле параметров.</p>
+        <p>В следующем примере мы используем внутреннюю команду "<a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a>" и добавим два параметра с каталогами для обеих файловых панелей.</p>
+        <p class="figure"><img class="largeimage" title="Пример внутренней команды с параметрами" alt="Пример внутренней команды с параметрами" src="images/imgDC/toolbarinternal2.png" width="636" height="220"></p>
+      </div>
+      <BR>
+
+      <div>
+        <h2><a name="catexternal">5.3. Описание элементов - Внешняя команда</a></h2>
+        <p>Внешние команды связаны с действиями, требующие вызов внешней программы.</p>
+        <p>Для внешних команд у нас есть возможность установить ещё несколько параметров, которые позволят точно настроить вызов приложения (каталог запуска и то, что мы хотим при необходимости передать в качестве параметров).</p>
+        <p>Что касается параметров, вы можете выбрать пользовательские переменные, которые будут заменены на их реальные значения (файл под курсором в активной или неактивной панели и т.д.). Список доступных переменных можно посмотреть на <a href="variables.html">этой странице</a>.</p>
+        <p>В следующем примере мы добавили на панель инструментов кнопку для запуска GIMP с параметром <code>%p</code>: когда мы нажимаем на кнопку, в качестве параметра для GIMP будет передано полное имя файла под курсором в активной панели.</p>
+        <p class="figure"><img class="largeimage" title="Пример внешней команды" alt="Пример внешней команды" src="images/imgDC/toolbarexternal.png" width="636" height="236"></p>
+      </div>
+      <BR>
+
+      <div>
+        <h2><a name="catmenu">5.4. Описание элементов - Меню</a></h2>
+        <p>Если мы добавим на панель инструментов много кнопок, то может не хватить места, чтобы все наши кнопки были на одной горизонтальной линии.</p>
+        <p>Чтобы получить больше кнопок, мы можем добавить специальный тип кнопки, что-то вроде панели инструментов, но в виде меню.</p>
+        <p>Рассмотрим следующий пример, где мы добавим тип кнопки "Меню".</p>
+        <p>При добавлении кнопки ниже появится новое подменю панели инструментов, которое заполняется аналогично.</p>
+        <p>Этот пример также демонстрирует, как мы можем сгруппировать кнопки, связанные с той или иной задачей.</p>
+        <p>В примере ниже дополнительная панель инструментов содержит кнопки запуска виртуальных машин с различными типами ОС.</p>
+        <p class="figure"><img class="largeimage" title="Пример меню" alt="Пример меню" src="images/imgDC/toolbarmenu.png" width="636" height="336"></p>
+        <p>Вот что получится в итоге:</p>
+        <p class="figure"><img class="largeimage" title="Готовое меню" alt="Готовое меню" src="images/imgDC/toolbarmenudrop.png" width="250" height="350"></p>
+        <p>Таким образом дополнительная панель инструментов может содержать все те элементы, что были описаны ранее.</p>
+        <p>Мы даже можем добавить дополнительную панель инструментов внутри дополнительной панели инструментов и так далее.</p>
+        <p>Такая дополнительная панель будет отображаться как вложенное меню.</p>
+        <p>Смотрите пример ниже:</p>
+        <p class="figure"><img class="largeimage" title="Пример панели инструментов в панели инструментов" alt="Пример панели инструментов в панели инструментов" src="images/imgDC/toolbarinbar.png" width="782" height="648"></p>
+      </div>
+
+      <div>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <BR>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="variables.html">След.</a></div></div>
+    <div class="checker">
+	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
 	</div>
-	
-	<p class="NAVBACK"><a href="help.html">Содержание</a></p>
-	
-</body>
-
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
 </html>

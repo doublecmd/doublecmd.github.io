@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Параметры командной строки</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Домашняя страница</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="lua.html">Пред.</a> | <a title="Следующая страница" href="configxml.html">След.</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.11. Параметры командной строки</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#presenta">Описание</a></dt>
+          <dt>2. <a href="#tablepos">Параметры</a></dt>
+          <dt>3. <a href="#examples">Примеры</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2>1. <a name="presenta">Описание</a></h2>
+        <p>При запуске Double Commander мы можем указать некоторые параметры командной строки.</p>
+        <p>Например, мы можем указать каталоги, которые будут открыты в файловых панелях.</p>
+        <p>Также можно использовать некоторые переключатели.</p>
+        <p>Параметры НЕ чувствительны к регистру.</p>
+        <BR>
+        <p>Синтаксис командной строки:</p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [каталог1] [каталог2]</code></p>
+        <BR>
+        <p>Возможна альтернативная форма:</p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [-L каталог1] [-R каталог2]</code></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>2. <a name="tablepos">Параметры</a></h2>
+        <p>Список возможных параметров запуска Double Commander.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Параметры командной строки</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Параметр</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><var>каталог1 [каталог2]</var><BR><I><small class="firstcolumnaleft">(без переключателей, просто путь)</small></I></div></td><td class="hintcell">Если передан один путь, то он будет открыт в активной панели.<BR>Если передано два пути, то первый будет открыт в левой панели, а второй&nbsp;&mdash; в правой.<BR>Имена каталогов, содержащие пробелы, должны быть заключены в двойные кавычки.<BR>Всегда указывайте полный путь.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-C <I>or</I> --client</div></td><td class="hintcell">Если Double Commander уже запущен, этот параметр активизирует его и передаёт путь(и) из командной строки в эту копию программы.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-L <I>каталог</I></div></td><td class="hintcell">Устанавливает путь в левой панели.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-R <I>каталог</I></div></td><td class="hintcell">Устанавливает путь в правой панели.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Устанавливает активную панель при запуске программы:<ul><li><code>-P L</code> левую</li><li><code>-P R</code> правую</li></ul></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Открывает переданный каталог(и) в новой вкладке(ах).</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--no-console</div></td><td class="hintcell">Запускает Double Commander без отладочного окна консоли.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--config-dir=<i>каталог</i></div></td><td class="hintcell">Задаёт произвольный каталог с файлам конфигурации DC.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--servername=x</div></td>
+            <td class="hintcell">
+              <p>Задаёт имя экземпляра (сервера) DC, которое потом может быть использовано для передачи параметров.</p>
+              <p>Если нет уже существующего экземпляра, то он будет создан.</p>
+              <p>Если уже существует экземпляр, а текущий экземпляр является клиентом, то параметры будут отправлены серверу (т.е. уже существующему экземпляру).</p>
+              <p>Если уже существует экземпляр и текущий экземпляр не является клиентом (т.е. опция <i>Не запускать более одной копии DC</i> не отмечена и нет параметра <code>--client</code>/<code>-c</code>), тогда имя сервера будет изменено: в первую очередь просто добавится число "2".</p>
+              <p>Если какое-то число уже используется, то оно будет увеличено на 1, пока не будет найдено незанятое имя сервера.</p>
+            </td>
+          </tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Запрещает заставку при запуске DC.</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.1. <a name="examples">Примеры</a></h2>
+        <p>Несколько примеров использования параметров командной строки при запуске Double Commander.</p>
+        <BR>
+        <p>Открыть каталог <code>E:\Xilinx\ISE DS</code> в левой панели и одновременно каталог <code>C:\temp</code> в правой:</p>
+        <pre>doublecmd.exe "E:\Xilinx\ISE DS" C:\temp</pre>
+        <BR>
+        <p>Открыть каталог <code>C:\Logs</code> в новой вкладке активной панели уже запущенного экземпляра Double Commander:</p>
+        <pre>doublecmd.exe -c -t C:\Logs</pre>
+        <BR>
+        <p>Запуск приложения с файлами конфигурации в каталоге <code>F:\Documents\DC\Job Settings</code> с упоминанием <code>JOB</code> в заголовке окна:</p>
+        <pre>doublecmd.exe --config-dir="F:\Documents\DC\Job Settings" --servername="JOB"</pre>
+        <p class="figure"><img class="largeimage" title="Пример" alt="Пример" src="images/imgDC/cmdline.png" width="234" height="102"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="lua.html">Пред.</a> | <a title="Следующая страница" href="configxml.html">След.</a></div></div>
+    <div class="checker">
+	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+	</div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
+</html>

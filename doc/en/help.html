@@ -77,8 +77,8 @@
       <div>
         <h2><a name="intro">1.2. Presentation</a></h2>
         <p>Double Commander is a cross-platform (Windows, GNU/Linux, MacOS &amp; FreeBSD) twin-panel file manager, supporting WCX, WFX, WDX, WLX and DSX plugin types. The last type (DSX) is DC's own search plugin type.</p>
-        <p>The Windows version of Double Commander is compatible with more than half of the many plugins from Total Commander (TC).</p>
-        <p>The Linux version has no such compatibilty. DC does comes pre-installed with some WCX-type (archiver) plugins to work with cpio, deb, rpm, bz2, rar, zip, tar, gz, tgz archives as directories (VFS), WFX plugin for FTP access, also a search plugin (DSX) and a lister videoplayer plugin for Linux (WLX). Other plugins can be installed manually.</p>
+        <p>The Windows version of Double Commander is compatible with more than half of the many plugins from Total Commander (TC). The Linux version has no such compatibilty.</p>
+        <p>DC does comes pre-installed with some WCX-type (archiver) plugins to work with cpio, deb, rpm, bz2, rar, zip, tar, gz, tgz archives as directories (VFS), WFX plugin for FTP access, also a search plugin (DSX) and a lister videoplayer plugin for Linux (WLX). Other plugins can be installed manually.</p>
         <p><img class="largeimage" title="Double Commander" alt="Double Commander" src="images/imgDC/pic05.png" width="884" height="548"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -86,14 +86,14 @@
       <div>
         <h2><a name="usage">1.3. Usage</a></h2>
         <p>On the <a href="http://sourceforge.net/projects/doublecmd/files/">Sourceforge download page</a> you can see several versions of DC available for download.</p>
-        <p>First, you must choose which operating system (Win, Lin, Mac, FreeBSD), whether 32 or 64 bit and then you may select the version to download.</p>
-        <p>For Windows there is an executable file <tt>.ехе</tt> or an archive <tt>.zip</tt> (which is the so-called portable version).</p>
+        <p>First, you must choose which operating system (Win, Linux, Mac, FreeBSD), whether 32 or 64 bit and then you may select the version to download.</p>
+        <p>For Windows there is an executable file <tt>.exe</tt> or an archive <tt>.zip</tt> (which is the so-called portable version).</p>
         <p>For Linux there are versions for most popular Linux distributions and desktop environments.</p>
         <p>You can download compiled <tt>deb</tt> packages for Debian-based distributions (e.g, Ubuntu) and/or <tt>rpm</tt> for Linux Mandriva.</p>
-        <p>Also available is a portable version of the archive <tt>tar.bz2</tt>, it is the same  source from which you can build the program yourself.</p>
+        <p>Also available is a portable version of the archive <tt>tar.xz</tt>, it is the same source from which you can build the program yourself.</p>
         <p>For various DE there are versions, based on GTK2 toolkit, and versions for KDE, based on Qt. I must note that the program is not yet available from the repositories.</p>
         <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages.</p>
-        <p>The language can be changed in the menu via "<a href="#5_1_1_yazik">Configuration > Options > Language</a>".
+        <p>The language can be changed in the menu via "<a href="#5_1_1_yazik">Configuration > Options > Language</a>".</p>
         <p>Also Double Commander determines and uses the current system theme. It looks like this (in Ubuntu Linux, default theme):</p>
         <p><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="884" height="548"></p>
         <p>As can be seen from the figure, there are two file panels, a black terminal window, a command line (as in TC) and a lower window that is a log viewer (it shows all the actions from the file manager).</p>
@@ -117,7 +117,7 @@
 
       <div>
         <h2><a name="iface">3. Interface</a></h2>
-        <p>Double Commander's interface</p>
+        <p>Double Commander's interface.</p>
       </div>
 
       <div>
@@ -141,7 +141,7 @@
         <p class="figure"><img class="largeimage" alt="Show file properties" title="Show file properties" src="images/imgDC/pic11.png" width="383" height="378">&nbsp;<img class="largeimage" alt="Show file properties" title="Show file properties" src="images/imgDC/pic12.png" width="383" height="378"></p>
 
         <p>which indicates the file or folder name, size, write and last access time, and also owner and group. On the "Properties" tab you can change the access to the file (if you have the rights to do so). But only for a file or folder under the cursor.</p>
-        <p>Using item <a name="04_redakt_comment"><span class="bold"> Edit comment...</span></a> (internal command <tt><a name="cm_EditComment">cm_cm_EditComment</a></tt>) you can create or change comments in UTF, ISO, KOI or ANSI encodings.</p>
+        <p>Using item <a name="04_redakt_comment"><span class="bold">Edit comment...</span></a> (internal command <tt><a name="cm_EditComment">cm_cm_EditComment</a></tt>) you can create or change comments in UTF, ISO, KOI or ANSI encodings.</p>
 
         <p><a name="05_rasschet_mesta"><span class="bold">Calculate Occupied Space</span></a> (internal command <tt><a name="cm_CalculateSpace">cm_CalculateSpace</a></tt>) item calculates the size of selected objects in rounded units and in bytes.</p>
         <p class="figure"><img class="largeimage" alt="Calculate size" title="Calculate size" src="images/imgDC/pic13.png" width="345" height="101"></p>
@@ -164,8 +164,8 @@
         <ul>
           <li><p><tt>[N]</tt>&nbsp;&mdash; is the same name as the source file</p></li>
           <li><p><tt>[Nx]</tt>&nbsp;&mdash; get x-characters from original name. E.g. if the source file is named "Picture" value [N5] would mean that the character "u" (fifth character in the original name) would be used</p></li>
-          <li><p><tt>[Nx:x]</tt>&nbsp;&mdash; get characters from x to x. Therefore, if the source file is named "Picture" value [N1:4] would mean "Pict" is used</p></li>
-          <li><p><tt>[C]</tt>&nbsp;&mdash; is a counter, its parameters are listed on the <span class="italic">Counter</span> panel.</p></li>
+          <li><p><tt>[Nx:y]</tt>&nbsp;&mdash; get characters from x to y. Therefore, if the source file is named "Picture" value [N1:4] would mean "Pict" is used</p></li>
+          <li><p><tt>[C]</tt>&nbsp;&mdash; is a counter, its parameters are listed on the <span class="italic">Counter</span> panel</p></li>
         </ul>
         <p>You can combine the use of macros, and your own text (see figure).</p>
 
@@ -215,10 +215,9 @@
 
         <p>This function is very useful, if you have small drives and large files. It is possible to move the file parts (as in TC).</p>
 
-        <p>Item <a name="012_controlnaya_summa"><span class="bold">Calculate check sum...</span></a> (internal command <tt><a name="cm_CheckSumCalc">cm_CheckSumCalc</a></tt>) is used to calculate the <a href="http://en.wikipedia.org/wiki/Checksum">checksum</a> to check files integrity. The following checksums are available:</p>
-        <pre>BLAKE2S, BLAKE2SP, CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV,
-SHA, SHA2 (SHA2-224, SHA2-256, SHA2-384, SHA2-512),
-SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
+        <p>Item <a name="012_controlnaya_summa"><span class="bold">Calculate check sum...</span></a> (internal command <tt><a name="cm_CheckSumCalc">cm_CheckSumCalc</a></tt>) is used to calculate the <a href="http://en.wikipedia.org/wiki/Checksum">checksum</a> to check files integrity. The following checksums are available:
+          BLAKE2 (BLAKE2s, BLAKE2sp, BLAKE2b<sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup>, BLAKE2bp<sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup>),
+          CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV, SHA, SHA2 (SHA2-224, SHA2-256, SHA2-384, SHA2-512), SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), Tiger.</p>
         <p class="figure"><img class="largeimage" alt="Calculate checksum" title="Calculate checksum" src="images/imgDC/pic14-8-1.png" width="370" height="135"></p>
 
         <p><span class="italic">Save check sum file(s) to:</span>&nbsp;&mdash; line specifies name and path to the calculated checksum.</p>
@@ -297,7 +296,7 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
         <p>Fifth item <span class="bold"><a name="25_pomenyat_mestami">Swap Panels</a></span> (internal command <tt><a name="cm_Exchange">cm_Exchange</a></tt>), swaps left and right panels.</p>
 
         <p>Sixth item is <span class="bold"><a name="26_dve_paneli">Target = Source</a></span> (internal command <tt><a name="cm_TargetEqualSource">cm_TargetEqualSource</a></tt>) &nbsp;&mdash; opens the same directory in the inactive panel. This command is the same as pressing <a href="#btn_dirlist">"="</a>.</p>
-        <p>Seventh item is <span class="bold"><a name="27_dve_paneli">Show occupied space</a></span> &nbsp;&mdash;&nbsp; calculates and shows the total size of all files in the sub-folders of the current folder. The &lt;DIR&gt; text in the Size column of the active panel is replaced with the total.</p>
+        <p>Seventh item is <span class="bold"><a name="27_dve_paneli">Show occupied space</a></span>&nbsp;&mdash;&nbsp; calculates and shows the total size of all files in the sub-folders of the current folder. The &lt;DIR&gt; text in the Size column of the active panel is replaced with the total.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -309,13 +308,13 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
 
         <p>Second item is <span class="bold"><a name="32_otkr_vkladka">Open folder in new tab</a></span> (internal command <tt><a name="cm_OpenDirInNewTab">cm_OpenDirInNewTab</a></tt>)&nbsp;&mdash; opens a new tab for the directory under the cursor, but does not select it.</p>
 
-        <p>Third item is <span class="bold"><a name="33_del_vkladka">Close tab </a></span> (internal command <tt><a name="cm_CloseTab">cm_CloseTab</a></tt>)&nbsp;&mdash; closes the active tab and switches the panel to the next tab (or the previous tab, if you close the last tab).</p>
+        <p>Third item is <span class="bold"><a name="33_del_vkladka">Close tab</a></span> (internal command <tt><a name="cm_CloseTab">cm_CloseTab</a></tt>)&nbsp;&mdash; closes the active tab and switches the panel to the next tab (or the previous tab, if you close the last tab).</p>
 
-        <p>Fourth item is <span class="bold"><a name="34_delalltabs">Close all tabs </a></span> (internal command <tt><a name="cm_CloseAllTabs">cm_CloseAllTabs</a></tt>)&nbsp;&mdash; closes all inactive tabs. If they consist of locked tabs, it will prompt for <a href="#5_1_11_0_vopros">confirmation</a>.</p>
+        <p>Fourth item is <span class="bold"><a name="34_delalltabs">Close all tabs</a></span> (internal command <tt><a name="cm_CloseAllTabs">cm_CloseAllTabs</a></tt>)&nbsp;&mdash; closes all inactive tabs. If they consist of locked tabs, it will prompt for <a href="#5_1_11_0_vopros">confirmation</a>.</p>
 
-        <p>Fifth item <span class="bold"><a name="35_blok_smena">Locked, but directory changes allowed</a></span> (internal command <tt><a name="cm_ToggleLockDcaTab">cm_ToggleLockDcaTab</a></tt>)&nbsp;&mdash; if you lock a tab with this method, you can change to another directory within this tab, but after switching to another tab (or DC is restarted) the tab will revert to the locked tabs original directory.</p>
+        <p>Fifth item <span class="bold"><a name="35_blok_smena">Locked, but directory changes allowed</a></span> (internal command <tt><a name="cm_SetTabOptionPathResets">cm_SetTabOptionPathResets</a></tt>)&nbsp;&mdash; if you lock a tab with this method, you can change to another directory within this tab, but after switching to another tab (or DC is restarted) the tab will revert to the locked tabs original directory.</p>
 
-        <p>Sixth item is <span class="bold"><a name="36_block_bezsmena">Lock this tab</a></span> (internal command <tt><a name="cm_ToggleLockTab">cm_ToggleLockTab</a></tt>) &nbsp;&mdash; makes the tab locked, trying to change to another directory within this tab will simply open a new tab.</p>
+        <p>Sixth item is <span class="bold"><a name="36_block_bezsmena">Lock this tab</a></span> (internal command <tt><a name="cm_SetTabOptionPathLocked">cm_SetTabOptionPathLocked</a></tt>) &nbsp;&mdash; makes the tab locked, trying to change to another directory within this tab will prompt to open in a new tab.</p>
 
         <p>Seventh and eighth items are <span class="bold"><a name="37_perekluch_tab">Switch to next tab</a></span> (internal command <tt><a name="cm_NextTab">cm_NextTab</a></tt>) and <span class="bold">Switch to previous tab</span> (internal command <tt><a name="cm_PrevTab">cm_PrevTab</a></tt>) &nbsp;&mdash; respectively switches to the tab on the right (next) and to the tab on the left (previous).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -358,21 +357,21 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
         </ul>
 
         <!--
-            <p>Line <span class="italic">Run in terminal</span>: The default setting is  <tt>xterm -e sh -c</tt>. But you can change it to <tt>gnome-terminal
+            <p>Line <span class="italic">Run in terminal</span>: The default setting is <tt>xterm -e sh -c</tt>. But you can change it to <tt>gnome-terminal
             -e sh -c</tt>, if you are using Gnome. Also, you can set any other program here. Note, that keys <tt>-e sh -c</tt> are needed for launching console programs from Double Commander (<kbd>Shift+Enter</kbd> by default).</p>
             <p><span class="italic"><a name="5_1_2_2_pusk_terminala">Run terminal</a></span>&nbsp;&mdash; program that will run on pressing
              <kbd>F9</kbd> or command <a href="#23_pusk_term">Run terminal</a> (other programs, not just terminal programs can be run from here).</p>
             <p><span class="italic">Select directory with keypad</span>&nbsp;&nbsp; Obsolete. Not working.</p>
             <p><span class="italic">Lynx like movement</span>&nbsp;&mdash; <tt>right arrow</tt> opens directory or runs a program under cursor, <tt>left arrow</tt> opens parent directory.</p>
-            <p><span class="italic">Case sensitive sorting</span>&nbsp;&mdash;if this option is enabled, files/folders will be sorted thus: Filenames starting with [A-Z] will appear before filenames starting with [a-z], 
+            <p><span class="italic">Case sensitive sorting</span>&nbsp;&mdash; if this option is enabled, files/folders will be sorted thus: Filenames starting with [A-Z] will appear before filenames starting with [a-z],
                    e.g.: "Zilog.txt" will appear before "anacron.txt".</p>
             <p><span class="italic">Short Filesize format</span>&nbsp;&mdash; file sizes will be rounded before display in column "Size" variously: Kb, Mb, Gb, Tb, etc. If this option is unselected the sizes will appear in bytes.</p>
-            <p><span class="italic">Move icon to system tray when minimized</span>&nbsp;&mdash;  When minimized Double Commander will display its icon in the system tray rather than the panel (or Windows taskbar).</p>
+            <p><span class="italic">Move icon to system tray when minimized</span>&nbsp;&mdash; When minimized Double Commander will display its icon in the system tray rather than the panel (or Windows taskbar).</p>
             <p><span class="italic">Date and time format</span>&nbsp;&mdash; can vary from "day.month.year" to "day.month.year hour:minute:second". Date will be displayed at column <a href="#5_1_15_2_data">Date</a> on panels.</p>
             <p><span class="italic">Cut text to column width</span>&nbsp;&mdash; sometimes column text can overlap into other columns. This option truncates any extra text at the column boundary.</p>
             <p><span class="italic"><a name="5_1_2_10_skritie_faily">Show hidden/system files</a></span>&nbsp;&mdash; to display "dotted" files (in Linux). This can also can be changed from the main menu.</p>
-            <p><span class="italic">Show icons, Icons Size</span>&nbsp;&mdash; to display the icons of files and folders on the file panels. Three sizes are available: 16x16, 24x24, 32x32 and 48x48 pixels.</p>
-            <p><span class="italic">Selection by mouse, Mode</span>&nbsp;&mdash; ability to select and unselect files and folders with the mouse. Mode is set for <tt>left button</tt> or <tt>right button</tt>.</p>
+            <p><span class="italic">Show icons</span>, <span class="italic">Icons Size</span>&nbsp;&mdash; to display the icons of files and folders on the file panels. Three sizes are available: 16x16, 24x24, 32x32 and 48x48 pixels.</p>
+            <p><span class="italic">Selection by mouse</span>, <span class="italic">Mode</span>&nbsp;&mdash; ability to select and unselect files and folders with the mouse. Mode is set for <tt>left button</tt> or <tt>right button</tt>.</p>
             <p><span class="italic">Scrolling</span>&nbsp;&mdash; ability to use mouse wheel to list files at panels.</p>
             <ul>
             <li><p>Line by line with cursor movement&nbsp;&mdash; cursor will move up or down the panel before scrolling takes place.</p></li>
@@ -473,7 +472,7 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
         -->
         <p><span class="italic">Limit tab title length to</span>&nbsp;&mdash; Tabs with long names will be limited to this length and the displayed name will be truncated if longer than this value.</p>
         <p><span class="italic"><a name="5_1_11_0_vopros">Confirm close all tabs</a></span>&nbsp;&mdash; If selected and a <a href="#34_delalltabs">Remove all tabs</a> command is executed this option will prompt for confirmation that you wish to remove all inactive tabs.</p>
-        <p><span class="italic"><a name="5_1_11_2_vopros">Ctrl+Up opens new tab in foreground</a></span>&nbsp;&mdash; Doesn't seem to be working yet.</p>
+        <p><span class="italic"><a name="5_1_11_2_vopros">Ctrl+Up opens new tab in foreground</a></span>&nbsp;&mdash; this option changes the behavior of the command <a href="#cm_OpenDirInNewTab">Open folder in new tab</a> (<tt>cm_OpenDirInNewTab</tt>): if enabled then Double Commander will open a new tab for the directory under the cursor and will switches to this tab.</p>
         <p><span class="italic"><a name="5_1_11_3_vopros">Show tab close button</a></span>&nbsp;&mdash; If selected, a small "x" button will appear on tabs allowing you to click on it to close them.</p>
         <p><span class="italic"><a name="5_1_12_1_zvezda">Show locked tabs with an asterisk *</a></span>&nbsp;&mdash; to distinguish between locked and unlocked tabs. Locked tabs will be marked by *.</p>
         <p class="figure"><img class="largeimage" alt="Tabs" title="Tabs" src="images/imgDC/pic6.png" width="484" height="32"></p>
@@ -512,7 +511,7 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
         <P>Main windows displays a list of existing column styles. There are two default styles: Default and Brief (in this screenshot you can also see my column style called "my_style").</p>
         <p><span class="italic">New</span>&nbsp;&mdash; creates a new column set. It opens the columns editor window, where you can enter a name and also customise your new style.</p>
         <p><span class="italic">Delete</span>&nbsp;&mdash; deletes selected columns set.</p>
-        <p><span class="italic">Copy</span>&nbsp;&mdash; copies columns set. The new set is named the same as the target set +  <tt>_Copy</tt> added. It is a good idea to create some different sets from one parent.</p>
+        <p><span class="italic">Copy</span>&nbsp;&mdash; copies columns set. The new set is named the same as the target set + <tt>_Copy</tt> added. It is a good idea to create some different sets from one parent.</p>
         <p><span class="italic">Edit</span>&nbsp;&mdash; opens columns editor window.</p>
         <p class="figure"><img class="largeimage" alt="Column set custom window" title="Column set custom window" src="images/imgDC/pic28.png" width="719" height="407"></p>
 
@@ -628,8 +627,8 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
         <p><span class="italic">Remove</span>&nbsp;&mdash; deletes an extension from the group.</p>
         <p><span class="italic">Actions</span>&nbsp;&mdash; here you can set commands for the group.</p>
         <p><span class="italic">Add</span>&nbsp;&mdash; adds an action to the list.</p>
-        <p><span class="italic">Remove</span>&nbsp;&mdash;  deletes an action from the list.</p>
-        <p><span class="italic">Up, Down</span>&nbsp;&mdash; moves the action. The actions (if more than one) can be reordered.</p>
+        <p><span class="italic">Remove</span>&nbsp;&mdash; deletes an action from the list.</p>
+        <p><span class="italic">Up</span>, <span class="italic">Down</span>&nbsp;&mdash; moves the action. The actions (if more than one) can be reordered.</p>
         <p><span class="italic">Action name:</span>&nbsp;&mdash; sets type of action. Variants:</p>
         <ul>
           <li><p>From popup menu</p>
@@ -654,7 +653,7 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
           <li><p>any variable from <a href="variables.html">"percent" variables</a></p></li>
           <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&mdash; runs "command" in the system shell and feeds the output to the command above</p></li>
         </ul>
-        <p><span class="italic">Start path</span>&nbsp;&mdash; command start path</p>
+        <p><span class="italic">Start path</span>&nbsp;&mdash; command start path.</p>
         <p>Examples:</p>
         <p>Top&nbsp;&mdash; <tt>totem %p</tt>&nbsp;&mdash; opens the file with totem media player.</p>
         <p>Bottom&nbsp;&mdash; <tt>genisoimage -o %p.iso -r -J %p</tt>&nbsp;&mdash; creates an ISO image from directory (only for directories).</p>
@@ -731,7 +730,7 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
 
         <p>Displays the name of the current directory. A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows you to quickly navigate back to previous directories.</p>
         <p class="figure"><img class="largeimage" alt="Directories history" title="Directories history" src="images/imgDC/pic7-4.png" width="540" height="190"></p>
-        <p>A right mouse click  on the directory bar will allow you to copy the pathname to the clipboard or enter a new path manually.</p>
+        <p>A right mouse click on the directory bar will allow you to copy the pathname to the clipboard or enter a new path manually.</p>
 
         <p>It is now also possible to click on parts of the directory bar to quickly navigate back in the directory structure. Very handy if you want to go to a parent directory back many levels. This is known as a "breadcrumb" navigation feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -744,7 +743,7 @@ SHA3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512), TIGER</pre>
         <p>Shows the column names. On left click <a href="#41_imya_attr">sorts</a> files by column. On right click shows a menu to change and edit custom column style set.</p>
         <p class="figure"><img class="largeimage" alt="Column set style dialog" title="Column set style dialog" src="images/imgDC/pic7-6.png" width="328" height="162"></p>
 
-        <p><span class="italic">Default, Brief, my_style</span>&nbsp;&mdash; existing styles</p>
+        <p><span class="italic">Default, Brief, my_style</span>&nbsp;&mdash; existing styles.</p>
         <p><span class="italic">Configure this custom columns view</span>&nbsp;&mdash; opens column set customization window. See <a href="#5_1_15_1_nastroika_nabora">here</a>.</p>
         <p><span class="italic">Configure custom columns</span>&nbsp;&mdash; opens <a href="#5_1_15_colonki">Columns</a> section.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

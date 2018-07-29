@@ -55,8 +55,8 @@
       <div>
         <h2>2. <a name="basicvar">Basic parameter variables</a></h2>
         <p>These are the basic variables that may be used and that are related with the current selection.</p>
-        <p>By default, all the resulting values are quoted. If you need them unquoted, see the section <a href="#quotation">Quotation in result or not</a></p>
-        <p><I>For each one, the example is given assuming we're pointing the file C:\Users\UserName\Desktop\comment.png</i></p>
+        <p>By default, all the resulting values are quoted. If you need them unquoted, see the section <a href="#quotation">Quotation in result or not</a>.</p>
+        <p><I>For each one, the example is given assuming we're pointing the file C:\Users\UserName\Desktop\comment.png.</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Basic variables</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variables</th><th class="categorydesccolumn">What it stands for</th></tr>
@@ -118,7 +118,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">b</div></td>
-            <td class="hintcell">both panel, left one first, then a space, then the right one<BR><code>Example: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">Both panel, left one first, then a space, then the right one<BR><code>Example: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -211,15 +211,15 @@
         <p>As you've seen previously, for historic and legacy reason, DC will return the result quoted.</p>
         <p>This was useful initially when there were spaces in filename and we wanted to pass filename as parameters and we wanted the whole thing to work.</p>
         <p>But as new variables were added, it was obvious that we needed a way to have unquoted result. Basic example is commonly when we want to concatenate a source filename, but just the filename with no extension, with a new specific extension we'll spcify ourself on the line.</p>
-        <p>So instead of adding new variables that would return the same thing but unquoted, we may still use the same variables for the same meaning  but just have to set prior on the line of parameter something like %"0 to indicate to DC that from now on, to the end of the line we're evaulating, do not quote the result.</p>
+        <p>So instead of adding new variables that would return the same thing but unquoted, we may still use the same variables for the same meaning but just have to set prior on the line of parameter something like %"0 to indicate to DC that from now on, to the end of the line we're evaulating, do not quote the result.</p>
         <p>Basically we'll have:</p>
         <dl>
           <dt><code>%"0</code> : from this position, resulting filename will be unquoted</dt>
           <dt><code>%"1</code> : from this position, resulting filename will be quoted</dt>
-          <dt><code>%" </code>&nbsp;: also accepted to restore the default which is to have result quoted.</dt>
+          <dt><code>%" </code>&nbsp;: also accepted to restore the default which is to have result quoted</dt>
         </dl>
 
-        <p>The following table gives us an example in situation we're we've selected a file named "Client List.mdb" and the result of the various combinaison of quoted/unquoted string</p>
+        <p>The following table gives us an example in situation we're we've selected a file named "Client List.mdb" and the result of the various combinaison of quoted/unquoted string.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of quotation or not</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>

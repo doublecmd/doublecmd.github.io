@@ -17,7 +17,7 @@
     <div class="dchelpage">
       <div>
         <h1>2.9. Syntax of Regular Expressions</h1>
-      </div> 
+      </div>
 
       <div>
         <h2>Content</h2>
@@ -57,7 +57,7 @@
           <li>In the internal Editor</li>
           <li>In the Multi-Rename tool</li>
         </ul>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -78,7 +78,7 @@
             <td class="hintcell">matches "^FooBarPtr"</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -135,7 +135,7 @@
             <td class="hintcell">matches "foobar" predefined by tab</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -190,14 +190,14 @@
             <td class="hintcell">find strings "foobbr", "foobcr" etc. but not "foobar", "foober" etc.</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>5. <a name="meta">Metacharacters</a></h2>
         <p>Metacharacters are special characters which are the essence of Regular Expressions.</p>
         <p>There are different types of metacharacters, described below.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -259,7 +259,7 @@
         <p>"." matches any character, but if you switch Off <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_m" target="_blank">modifier /s</a> then "." doesn't match \x0D\x0A and \x0A and \x0D (if you are using <a href="http://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 and \x2029 and \x0B and \x0C and \x85).</p>
         <p>Note that "^.*$" (an empty line pattern) does not match the empty string within the sequence \x0D\x0A, but matches the empty string within the sequence \x0A\x0D.</p>
         <p>Multi-line processing can be easily tuned for your own purpose with help of TRegExpr properties <a href="http://regexpstudio.com/en/tregexpr_interface.html#line_separators" target="_blank">LineSeparators</a> and <a href="http://regexpstudio.com/en/tregexpr_interface.html#line_separators" target="_blank">LinePairedSeparator</a>, you can use only Unix style separators \n or only DOS/Windows style \r\n or mix them together (as described above and used by default) or define your own line separators!</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -308,7 +308,7 @@
           </tr>
         </table>
         <p>TRegExpr uses options <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.spacechars" target="_blank">SpaceChars</a> and <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.wordchars" target="_blank">WordChars</a> to redefine standard \w, \W, \s, \S, classes.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -326,7 +326,7 @@
             <td class="hintcell">match a non-(word boundary)</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -423,7 +423,7 @@
         <p>"Greedy" takes as many as possible, "non-greedy" takes as few as possible.</p>
         <p>For example, "b+" and "b*" applied to string "abbbbc" return "bbbb", "b+?" returns "b", "b*?" returns empty string, "b{2,3}?" returns "bb", "b{2,3}" returns "bbb".</p>
         <p>You can switch all iterators into "non-greedy" mode (see the <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_g" target="_blank">modifier /g</a>).</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -444,7 +444,7 @@
             <td class="hintcell">matches strings "foobar" or "foofoo"</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -466,7 +466,7 @@
             <td class="hintcell">matches "foob0r", "foob1r" , "foobar", "foobaar", "foobaar" etc.</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -489,7 +489,7 @@
             <td class="hintcell">matches "13" (in double quotes), or '4' (in single quotes) or 77 (without quotes) etc</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -522,7 +522,7 @@
 )</pre>
         <p>This also means that if you want real whitespace or # characters in the pattern (outside a character class, where they are unaffected by /x), that you'll either have to escape them or encode them using octal or hex escapes.</p>
         <p>Taken together, these features go a long way towards making regular expressions text more readable.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -555,7 +555,7 @@
         <p class="bold">(?#text)</p>
         <p>A comment, the text is ignored.</p>
         <p>Note that TRegExpr closes the comment as soon as it sees a ")", so there is no way to put a literal ")" in the comment.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>
       </div>
     </div>

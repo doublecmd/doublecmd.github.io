@@ -41,6 +41,12 @@ p.definition { font-family: "Courier", "Courier New";  color:black ; background:
 
 
 span.mark { background: #ffff40; }
+span.luacmt { color: #008000; }
+span.luafct { color: #0050c0; }
+span.luanum { color: #800080; }
+span.luakyw { color: #0000ff; }
+span.luastr { color: #800000; }
+span.luasbl { color: #000080; }
 
 .bold {
   font-weight: bold;

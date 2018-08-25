@@ -183,6 +183,13 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.GetTickCount()</p>
+              <p>Returns an increasing clock tick count. It is useful for time measurements, but no assumtions should be made as to the interval between the ticks.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
             <td class="hintcell">
               <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
@@ -272,7 +279,10 @@
             <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td><td class="hintcell">File is a directory.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000020</div></td><td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td><td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td><td class="hintcell">File is a symbolic link.</td>
           </tr>
           <tr>
             <td colspan="2"><B>Note: In case of error, -1 is returned.</b>

@@ -221,7 +221,13 @@
               <p>If no file is found, <var>Handle</var> will be <var>nil</var>.</p>
               <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurences of the same pattern.</p>
               <p>The <var>FindData</var> table contains information about the file or directory found.</p>
-              <p>The field of the <var>FindData</var> table are: <code>Name</code>, <code>Attr</code>, <code>Size</code> and <code>Time</code>.</p>
+              <p>The field of the <var>FindData</var> table are:</p>
+              <ul>
+                <li><var>Name</var> : The file name (without path).</li>
+                <li><var>Attr</var> : The file attributes of the file (see details <a href="#detailattr">here</a>).</li>
+                <li><var>Size</var> : The size of the file in bytes.</li>
+                <li><var>Time</var> : The time stamp of the file (seconds since Jan 01 1970<sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup>)</li>
+              </ul>
             </td>
           </tr>
           <tr>

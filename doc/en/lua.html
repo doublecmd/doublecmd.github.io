@@ -17,7 +17,7 @@
     <div class="dchelpage">
       <div>
         <h1>2.10. Lua Scripting</h1>
-      </div> 
+      </div>
 
       <div>
         <h2>Content</h2>
@@ -71,7 +71,7 @@
         <p>This was introduced with version 0.8 of Double Commander.</p>
         <p>It is also possible to write content plugins (.wdx) using Lua script.</p>
         <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -81,8 +81,8 @@
         <p>We can use DLL file from <a href="http://luajit.org/" target="_blank">LuaJIT project</a>. It may require to manually edit the filename in <a href="configxml.html">&lt;PathToLibrary&gt;</a> parameter). LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>If we're using a 64-bits version of DC, the dll must be the 64-bits version as well.</p>
         <p>Generally, the dll will come with DC installation but if for whatever reason it's not there, we may find it under <a href="http://luabinaries.sourceforge.net/" target="_blank">this link</a> or through our packages manager.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
-      </div>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
 
       <div>
         <h2>3. <a name="libraries">Double Commander functions libraries</a></h2>
@@ -118,7 +118,7 @@
             </td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -167,7 +167,7 @@
         <p>Also, we may use the internal Double Commander Editor for editing our scripts.</p>
         <p>If filename has <code>.lua</code> file extension, it will be recognized by internal editor and it will provide us syntax highlighting specific for this Lua language:</p>
         <p class="figure"><img class="largeimage" title="Lua syntax highlighting with internal editor" alt="Lua syntax highlighting with internal editor" src="images/imgDC/luaimg2.png" width="676" height="498"></p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -180,7 +180,7 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
-              <p class="definition">SysUtils.Sleep(Milliseconds)</p>			
+              <p class="definition">SysUtils.Sleep(Milliseconds)</p>
               <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<BR> After the specified period has expired, script execution resumes.</p>
             </td>
           </tr>
@@ -260,7 +260,7 @@
             </td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -297,7 +297,7 @@
           </tr>
         </table>
         <p>See an example in the <a href="#exampleattr">next section</a>.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -324,7 +324,7 @@
         <p>So in our example, we may program a sample toolbar button like the following:</p>
         <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="562" height="298"></p>
         <p>In this example, the parameter <var>%"0%p</var> will be passed to the script. This will represent, unquoted, the filename of the item currently selected in the active panel at the moment we press the toolbar button.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -363,7 +363,7 @@
         <p>So it's easy to configure a toolbar button using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> and pass the parameter to accomplish all this.</p>
         <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="558" height="260"></p>
         <p>In this example, the parameter <var>%"0%Ds</var> will be passed to the script as the first parameter. This will represent, unquoted, the directory displayed by the active panel.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -410,8 +410,8 @@
             </td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
-      </div>  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
 
       <div>
         <h2>3.3.1. <a name="exampleclip">Example of usage clipboard library</a></h2>
@@ -539,7 +539,7 @@
             </td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -555,7 +555,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -569,7 +569,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td><td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32"> Error window</td></tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -582,7 +582,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td><td class="hintcell">Default will be the second one from left</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td><td class="hintcell">Default will be the third one from left</td></tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -644,7 +644,7 @@ ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</
   DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="400" height="158"></p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -657,8 +657,7 @@ bCancelOrNot<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> 
   Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="504" height="122"></p>
-
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
@@ -735,12 +734,12 @@ bCancelOrNot<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> 
             <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
               <p class="definition">tempfilename = os.tempname()</p>
-              <p>Will return a filename to use as a temporary filename.</p>			  
+              <p>Will return a filename to use as a temporary filename.</p>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.remove</div></td>
-            <td class="hintcell">		      
+            <td class="hintcell">
               <p class="definition">bresult, errorstr, errorno = os.remove(filename)</p>
               <p>Will delete the file or the directory with the name <var>filename</var>.</p>
               <p>If it works, function returns <var>true</var>.</p>
@@ -773,7 +772,7 @@ bCancelOrNot<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> 
               <p>Will return the <var>value</var> of the variable <var>variablename</var> passed in parameter.<BR>If no variable of that name exists, it will return <var>nil</var>.</td>
           </tr>
         </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>	  
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>
       </div>
     </div>

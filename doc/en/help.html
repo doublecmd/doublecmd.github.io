@@ -337,6 +337,7 @@
       <div>
         <h2><a name="mnu_config">3.1.6. "Configuration"</a></h2>
         <p>First item is <span class="bold"><a name="5_1_parametry">Options</a></span> (internal command <tt><a name="cm_Options">cm_Options</a></tt>), it opens the "Options" window. Here you can set almost all of the options in Double Commander!!! Please inspect all sections of this window.</p>
+        <br>
 
         <p>First section is <span class="bold"><a name="5_1_1_yazik">Language</a></span>. These are the various translations available for Double Commander. You can choose your preferred language.</p>
         <p class="figure"><img class="largeimage" alt="Language" title="Language" src="images/imgDC/pic16.png" width="312" height="284"></p>
@@ -381,9 +382,10 @@
             <p><span class="italic">Drive black list</span>&nbsp;&mdash; use this to hide certain drives in the drives panel menu bar. Each item must contain the full path to the drive/mount point. Separate multiple drives with semicolons ";". Examples: /media/cdrom;/mnt/win_c (Linux) &nbsp;&nbsp a:\;b:\;d:\ (Windows).</p>
         -->
         <br>
-        <p>Section <span class="bold"><a name="5_1_3_instruments">Tools</a></span>. You can specify external programs for edit (<kbd>F4</kbd>), view (<kbd>F3</kbd>) and find differences. These external programs will be used instead of the internal tools.</p>
 
+        <p>Section <span class="bold"><a name="5_1_3_instruments">Tools</a></span>. You can specify external programs for edit (<kbd>F4</kbd>), view (<kbd>F3</kbd>) and find differences. These external programs will be used instead of the internal tools.</p>
         <br>
+
         <p>Section <span class="bold"><a name="5_1_4_shrifty">Fonts</a></span></p>
         <p class="figure"><img class="largeimage" alt="Fonts" title="Fonts" src="images/imgDC/pic18.png" width="449" height="339"></p>
 
@@ -391,8 +393,8 @@
         <p class="figure"><img class="largeimage" alt="Font Differences" title="Font Differences" src="images/imgDC/pic19.png" width="570" height="368"></p>
 
         <p>Normal (proportional) font above, monospaced below.</p>
-
         <br>
+
         <p>Section <span class="bold"><a name="5_1_5_cveta_panelei">Colors &gt; File panels</a></span></p>
         <p class="figure"><img class="largeimage" alt="Color settings" title="Color settings" src="images/imgDC/pic20.png" width="449" height="339"></p>
 
@@ -400,6 +402,7 @@
         <p>Here you can choose colors that will be used to process the file panels: <span class="italic">Text Color</span>, <span class="italic">Background</span>, <span class="italic">Background2</span>, <span class="italic">Mark color</span>, <span class="italic">Cursor Color</span>, and also <span class="italic">Cursor Text</span>. With the two background options you can make an alternating stripe in the panels. I've done this myself as can be seen in the panel screenshots.</p>
 
         <p><span class="italic">Use Inverted Selection</span>&nbsp;&mdash; inverts colors of marked text and marked text under cursor. More details about color settings are in section <a href="#5_1_15_colonki">Columns</a>.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_6_cveta_failov">Colors &gt; File types</a></span></p>
         <p class="figure"><img class="largeimage" alt="File types by color" title="File types by color" src="images/imgDC/pic21.png" width="527" height="387"></p>
@@ -409,8 +412,8 @@
         <p>In line <span class="italic">Category mask</span> put a wildcard mask to match file types. You may put multiple file types here using a semicolon ";" without spaces between them. Symbol "*" means match any number of characters.</p>
         <p>In line <span class="italic">Category attributes</span> you can put file attributes, and DC will match any files which have matching attributes. Set attributes this way: <tt>drwxrwxrwx</tt> (Linux) <tt>drahs</tt> (Windows). You can also use wildcards in the attributes: <tt>?r-*</tt> (Linux) or <tt>?r*</tt> (Windows) will find all read-only files and folders.</p>
         <p>Do not forget to click "Apply" button after customization.</p>
-
         <br>
+
         <p>Section <span class="bold"><a name="5_1_7_hotKeys">Hot Keys</a></span></p>
         <p class="figure"><img class="largeimage" alt="Hot Keys" title="Hot Keys" src="images/imgDC/pic22.png" width="527" height="387"></p>
 
@@ -429,14 +432,17 @@
         <p><span class="italic">Set HotKey</span>&nbsp;&mdash; sets the new shortcut. It will be moved from "Hot Key" to "Hot Keys" box. Also it will be added to the third column of "Commands" table.</p>
         <p><span class="italic">Clear HotKey</span>&nbsp;&mdash; clears existing shortcut from "Hot Keys" box.</p>
         <p>E.g. to reassign drive popup menu from <kbd>Alt+F1</kbd> and <kbd>Alt+F2</kbd> to <kbd>Ctrl+F1</kbd> and <kbd>Ctrl+F2</kbd> (in Linux) you must select command <tt>cm_RightOpenDrives</tt>, click in the "Hot Key" box and press <kbd>Ctrl+F2</kbd>. Then press "Set HotKey" button. Perform the same steps for command <tt>cm_LeftOpenDrives</tt> and shortcut <kbd>Ctrl+F1</kbd>.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_8_plaginy">Plugins</a></span> Information will be added later...</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_9_vidOkna">Layout</a></span></p>
         <p class="figure"><img class="largeimage" alt="Layout" title="Layout" src="images/imgDC/pic23.png" width="527" height="387"></p>
 
         <p>You can change the layout of the main window here. I suppose, all the available options are explained on the screenshot above (Layout). The screenshot below illustrates what DC looks like with all the layout options unselected.</p>
         <p class="figure"><img class="largeimage" alt="Layout DC" title="Layout DC" src="images/imgDC/pic24.png" width="730" height="458"></p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_10_fileOper">File operations</a></span></p>
         <p class="figure"><img class="largeimage" alt="File operations" title="File operations" src="images/imgDC/pic25.png" width="527" height="387"></p>
@@ -459,6 +465,7 @@
         -->
         <p><span class="italic">Skip file operations errors and write them to log window</span>&nbsp;&mdash; If a file operation error should occur the error message will appear in the log window below the panels rather than appearing in a popup dialog.</p>
         <p><span class="italic">Show confirmation dialog on drag&amp;drop operations</span>&nbsp;&mdash; If selected, when you drag files/folders across to the other panel a popup dialog will ask to confirm your action.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_11_vkladki">Folder tabs</a></span></p>
         <p class="figure"><img class="largeimage" alt="Folder tabs" title="Folder tabs" src="images/imgDC/pic26.png" width="527" height="387"></p>
@@ -479,11 +486,13 @@
 
         <p>Tab <tt>My Documents</tt> is locked here, and tabs <tt>imgDC</tt> and <tt>temp</tt> are not locked.</p>
         <p><span class="italic">Activate target panel when clicking on one of its Tabs</span>&nbsp;&mdash; If enabled, when you click the mouse on a tab on the other panel, the focus will automatically be transferred to it (it will become the active panel). Also the cursor position will be retained when switching between panels this way.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_12_protokol">Log</a></span></p>
         <p class="figure"><img class="largeimage" alt="Log" title="Log" src="images/imgDC/pic26-3.png" width="475" height="289"></p>
 
         <p>Here you can choose the filename to log Double Commander's operations. Also you can choose which operations will be logged.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_13_Configur">Configuration</a></span></p>
         <p class="figure"><img class="largeimage" alt="Configuration" title="Configuration" src="images/imgDC/pic26-4.png" width="475" height="289"></p>
@@ -494,6 +503,7 @@
         <p><span class="italic">Directory history</span>&nbsp;&mdash; saves the history of all visited directories.</p>
         <p><span class="italic">Command line history</span>&nbsp;&mdash; saves the history of commands that were entered at the command line.</p>
         <p><span class="italic">File mask history</span>&nbsp;&mdash; helps you remember which files you have already searched for and generally what the mask files you used were.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_14_bystrPoisk">Quick search</a></span></p>
         <p class="figure"><img class="largeimage" alt="Quick search" title="Quick search" src="images/imgDC/pic26-5.png" width="475" height="289"></p>
@@ -502,6 +512,7 @@
         <p><span class="italic">Exact name match: Beginning </span>&nbsp;&mdash; means that the file to be searched for must begin with the first letter typed.</p>
         <p><span class="italic">Exact name match: Ending</span>&nbsp;&mdash; it helps, if you know only end of filename, e.g. <tt>...us.ext</tt>, so you can find this file using the mask <tt>*us.ext</tt>.</p>
         <p>I like to have the <span class="italic">Exact name match: Beginning </span> selected and then I can just type the first character of the filename I'm looking for and then the second character, etc. The file is quickly located in this manner.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_15_colonki">Columns</a></span></p>
         <p class="figure"><img class="largeimage" alt="Columns" title="Columns" src="images/imgDC/pic27.png" width="498" height="285"></p>
@@ -575,6 +586,7 @@
 
         <p>Example using textures.</p>
         <p class="figure"><img class="largeimage" alt="Color Sample 3" title="Color Sample 3" src="images/imgDC/column3.png" width="884" height="258"></p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_16_raznoe">Miscellaneous</a></span></p>
         <p class="figure"><img class="largeimage" alt="Miscellaneous" title="Miscellaneous" src="images/imgDC/pic30.png" width="498" height="285"></p>
@@ -590,6 +602,7 @@
         <p><span class="italic">Show warning messages ("Ok" button only)</span>&nbsp;&mdash; shows warning messages if enabled.</p>
         <p><span class="italic">When selecting files with SPACEBAR, move down to next file</span>&nbsp;&mdash; moves the cursor down on selection with SPACEBAR. Default keys are <kbd>Shift+Down</kbd> or <kbd>Shift+Up</kbd>.</p>
         <p><span class="italic">Show square brackets around directories</span>&nbsp;&mdash; helps to visually distinguish directories from files when icons are disabled.</p>
+        <br>
 
         <p>Section <span class="bold"><a name="5_1_17_avtoobnov">Auto refresh</a></span></p>
         <p>Allows Double Commander to refresh panels automatically, same as the <kbd>Ctrl+R</kbd> manual refresh command does.</p>
@@ -607,6 +620,7 @@
         <p><span class="italic">Update footer (total number of files)</span>&nbsp;&mdash; updates the status line also, not just the panels.</p>
         <p><span class="italic">Update header (free disk space)</span>.</p>
         <p><span class="italic">No refresh for these drives</span>&nbsp;&mdash; you can set disk(s) that will be disabled for auto refresh. Specify full path, values separated by semicolons ";" without spaces (e.g. <tt>/home;/media/cdrom</tt>).</p>
+        <br>
 
         <p>Item <span class="bold"><a name="5_2_fileAssoc">File associations</a></span> (internal command <tt><a name="cm_FileAssoc">cm_FileAssoc</a></tt>)</p>
         <p>This item opens the configuration file associations. All association sets are contained in the file <tt>extassoc.xml</tt>. An association sets example, called <tt>doublecmd.ext.example</tt>, is in the program directory.</p>

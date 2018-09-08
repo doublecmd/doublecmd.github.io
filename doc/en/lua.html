@@ -58,7 +58,8 @@
                   <dt>3.4.6. <a href="#querysample">Example of usage of the Dialogs.InputQuery</a></dt>
                 </dl>
               </dd>
-              <dt>3.5. <a href="#libraryos">OS library</a></dt>
+              <dt>3.5. <a href="#libraryutf8">UTF-8 library</a></dt>
+              <dt>3.6. <a href="#libraryos">OS library</a></dt>
             </dl>
           </dd>
         </dl>
@@ -94,7 +95,8 @@
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarysystem">System library</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Various system functions</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Clipboard library</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Provides external clipboard functionality</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Dialogs library</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interacts with user</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS libray</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">UTF-8 library</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">UTF-8 string functions</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS library</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -660,7 +662,57 @@ bCancelOrNot<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> 
       </div>
 
       <div>
-        <h2>3.5. <a name="libraryos">OS library</a></h2>
+        <h2>3.5. <a name="libraryutf8">UTF-8 library</a></h2>
+        <p>This library provides basic support for UTF-8 encoding.</p>
+        <p>It provides all its functions inside the table <code>LazUtf8</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">UTF-8 library</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
+              <p>Search for substring in a string, starting at a certain position. The search is case-sensitive.</p>
+              <p>Returns the position of the first occurrence of the substring <var>SearchText</var> in the string <var>SourceText</var>, starting the search at position <var>Offset</var> (default 1).</p>
+              <p>If <var>SearchText</var> does not occur in <var>SourceText</var> after the given <var>Offset</var>, zero is returned.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
+              <p>Copy part of a string.</p>
+              <p>Copy returns a string which is a copy if the <var>Count</var> characters in <var>Source</var>, starting at position <var>Index</var>.</p>
+              <p>If <var>Count</var> is larger than the length of the string <var>Source</var>, the result is truncated. If <var>Index</var> is larger than the length of the string <var>Source</var>, then an empty string is returned.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.Length(String)</p>
+              <p>Returns the number of UTF-8 characters in the string.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.UpperCase(String)</p>
+              <p>Receives a string and returns a copy of this string with all lowercase letters changed to uppercase.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.LowerCase(String)</p>
+              <p>Receives a string and returns a copy of this string with all uppercase letters changed to lowercase.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2>3.6. <a name="libraryos">OS library</a></h2>
         <p>This library contains functions related with the operating system where Double Commander is running.</p>
         <p>Here is the list of available functions in this library:</p>
         <table>

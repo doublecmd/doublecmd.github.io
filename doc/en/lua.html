@@ -651,9 +651,9 @@ ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</
         <h2>3.4.6. <a name="querysample">Example of usage of the Dialogs.InputQuery</a></h2>
         <p>Here is a little script using <code>Dialogs.InputQuery</code> and the resulting window that will be displayed:</p>
         <pre>
-bCancelOrNot<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
+bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
 
-<span class="luakyw">if</span> bCancelOrNot <span class="luasbl">==</span> true then
+<span class="luakyw">if</span> bAck <span class="luasbl">==</span> true then
   Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="504" height="122"></p>
@@ -733,7 +733,7 @@ bCancelOrNot<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
-              <p class="definition">tempfilename = os.tempname()</p>
+              <p class="definition">tempfilename = os.tmpname()</p>
               <p>Will return a filename to use as a temporary filename.</p>
             </td>
           </tr>

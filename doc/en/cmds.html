@@ -1757,6 +1757,60 @@
             <td class="cmdhintcell">According to list of last directories visited, will set the active panel to the very last one visited prior to current one.</td>
           </tr>
           <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenDriveByIndex" alt="cm_OpenDriveByIndex" src="../../pixmaps/dctheme/32x32/actions/cm_opendrivebyindex.png">
+              <div class="cmdname"><a name="cm_OpenDriveByIndex">cm_OpenDriveByIndex</a></div></td>
+            <td class="cmdhintcell">In the current tab of the specified panel, will show content of the specified drive.<br>If no panel is specified, it will be in the current active panel.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">index</td>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">will use <B>1</b>st drive of list</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">will use <B>2</b>nd drive of list</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">3</td>
+                  <td class="innerdescdesccell">will use <B>3</b>rd drive of list</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><I>n</i></td>
+                  <td class="innerdescdesccell">will use <I><B>n</b></i>th drive of list</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">side</td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">selected drive will be in <B>left panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">selected drive will be in <B>right panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">selected drive will be in <B>inactive panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(absent)</i></td>
+                  <td class="innerdescdesccell">selected drive will be in <B>current active panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><I>(nothing)</i></td>
+                  <td class="innerdescdesccell">Specifying at least the <B>index</b> is mandatory.</td>
+                </tr>
+              </table>
+              <br>
+              Example: "cm_OpenDriveByIndex side=left index=2" will focus panel on left and show drive E: content assuming in our current drive list we have C:, E:, S: and X:.
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FocusSwap" alt="cm_FocusSwap" src="../../pixmaps/dctheme/32x32/actions/cm_focusswap.png">
               <div class="cmdname"><a name="cm_FocusSwap">cm_FocusSwap</a></div></td>
             <td class="cmdhintcell">Switch focus between left and right panel.<br>
@@ -2788,6 +2842,64 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_NextFavoriteTabs" alt="cm_NextFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_nextfavoritetabs.png">
               <div class="cmdname"><a name="cm_NextFavoriteTabs">cm_NextFavoriteTabs</a></div></td>
             <td class="cmdhintcell">Will load the Favorite Tabs setup that is just after in our list the last one we loaded.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ActivateTabByIndex" alt="cm_ActivateTabByIndex" src="../../pixmaps/dctheme/32x32/actions/cm_activatetabbyindex.png">
+              <div class="cmdname"><a name="cm_ActivateTabByIndex">cm_ActivateTabByIndex</a></div></td>
+            <td class="cmdhintcell">Will activate the specified tab in the specified panel where it will also switch to.<br>If no panel is specified, tabs used will be from the active panel.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="5">index</td>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">will activate <B>1</b>st tab</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">will activate <B>2</b>nd tab</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">3</td>
+                  <td class="innerdescdesccell">will activate <B>3</b>rd tab</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><I>n</i></td>
+                  <td class="innerdescdesccell">will active <I><B>n</b></i>th tab</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">-1</td>
+                  <td class="innerdescdesccell">will activate <B>last</b> tab</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">side</td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">will switch to and use tabs of <B>left panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">will switch to and use tabs of <B>right panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">will switch to and use tabs of <B>inactive panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(absent)</i></td>
+                  <td class="innerdescdesccell">activated tab will be on <B>current active panel</b></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><I>(nothing)</i></td>
+                  <td class="innerdescdesccell">Specifying at least the <B>index</b> is mandatory.</td>
+                </tr>
+              </table>
+              <br>
+              Example: "cm_ActivateTabByIndex side=right index=1" will activate the 1st tab in the rigth panel and will switch focus on it.
+            </td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

@@ -78,7 +78,7 @@
         <h2>2. <a name="dllrequired">DLL required</a></h2>
         <p>In order to interpret Lua script file, we need to have a version 5.1 Lua DLL file in the same folder as the executable of Double Commander or in system folder.</p>
         <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS).</p>
-        <p>We can use DLL file from <a href="http://luajit.org/" target="_blank">LuaJIT project</a>. It may require to manually edit the filename in <a href="configxml.html">&lt;PathToLibrary&gt;</a> parameter). LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
+        <p>We can use DLL file from <a href="http://luajit.org/" target="_blank">LuaJIT project</a>. It may require to manually edit the filename in <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a> parameter. LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>If we're using a 64-bits version of DC, the dll must be the 64-bits version as well.</p>
         <p>Generally, the dll will come with DC installation but if for whatever reason it's not there, we may find it under <a href="http://luabinaries.sourceforge.net/" target="_blank">this link</a> or through our packages manager.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

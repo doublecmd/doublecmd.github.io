@@ -105,7 +105,7 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>from many tags &lt;Font&gt;</small></div></td>
             <td class="hintcell">
-              Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used.<BR>In other words, it determine the font quality.<BR>There are many tags where it's applicable individually.
+              Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used.<BR>In other words, it determine the font quality.<BR>There are many tags where it's applicable individually.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -113,31 +113,31 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell"><B>Default</b> The quality is determined by the system settings (default).</td>
+                  <td class="innerdescdesccell"><B>Default</b>: The quality is determined by the system settings (default).</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell"><B>Draft</b> For raster fonts, scaling is enabled; the font size can be increased but the quality may be lower.<BR>Also the font supports Bold, Italic, Underline or Strikeout if necessary.<BR>The quality is less important than when Proof is used.</td>
+                  <td class="innerdescdesccell"><B>Draft</b>: For raster fonts, scaling is enabled; the font size can be increased but the quality may be lower.<BR>Also the font supports Bold, Italic, Underline or Strikeout if necessary.<BR>The quality is less important than when Proof is used.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell"><B>Proof</b> The quality of the characters is important, so for the raster fonts, scaling is disabled and the font closest in size is chosen.</td>
+                  <td class="innerdescdesccell"><B>Proof</b>: The quality of the characters is important, so for the raster fonts, scaling is disabled and the font closest in size is chosen.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">3</td>
-                  <td class="innerdescdesccell"><B>NonAntialiased</b> The font is never antialiased.</td>
+                  <td class="innerdescdesccell"><B>NonAntialiased</b>: The font is never antialiased.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">4</td>
-                  <td class="innerdescdesccell"><B>Antialiased</b> The font is always antialiased if it supports it.<BR>The size of the font cannot be too small or too large.</td>
+                  <td class="innerdescdesccell"><B>Antialiased</b>: The font is always antialiased if it supports it.<BR>The size of the font cannot be too small or too large.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">5</td>
-                  <td class="innerdescdesccell"><B>ClearType</b> The font is rendered using the <a href="https://en.wikipedia.org/wiki/ClearType" target="_blank">ClearType</a> anti-aliasing method.</td>
+                  <td class="innerdescdesccell"><B>ClearType</b>: The font is rendered using the <a href="https://en.wikipedia.org/wiki/ClearType" target="_blank">ClearType</a> anti-aliasing method.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">6</td>
-                  <td class="innerdescdesccell"><B>ClearTypeNatural</b> The font is rendered using the Natural ClearType antialiasing method.</td>
+                  <td class="innerdescdesccell"><B>ClearTypeNatural</b>: The font is rendered using the Natural ClearType antialiasing method.</td>
                 </tr>
               </table>
               <I>Example:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
@@ -150,6 +150,32 @@
               This &lt;gBorderFrameWidth&gt; setting allows us to configure the width of the lines used to draw a rectangle around the current active entry.<BR>
               To view that rectangle, we must go in <code>Configuration</code> &gt; <code>Options</code> &gt; <code>Colors</code> &gt; <code>File panels</code> and check the option <code>Use frame cursor</code>.<BR>
               <I>Example:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<BR><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="hintcell">
+              Changes the look of tabstop headers bar.<BR>Default value depends on your OS.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell"><B>tsLazarus</b>: The default Lazarus's look.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell"><B>tsStandard</b>: A more contrasted look, like Delphi grids.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell"><B>tsNative</b>: Tries to set a look that is in concordance with current widgetset theme.</td>
+                </tr>
+              </table>
+              <I>Example:</i> <code>&lt;TitleStyle&gt;2&lt;/TitleStyle&gt;</code>
             </td>
           </tr>
 
@@ -194,7 +220,7 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<BR><small>from &lt;AutoRefresh&gt;</small></div></td>
             <td class="hintcell">
-              The ability to delete watched directories.<BR>A "watched directory" is a directory that Double Commander has a kind of hook on it so it can monitor any modification in it.<BR>This way, it can refresh the displayable content of it if it's content changed.<BR>This setting allows to control how Double Commander will react if we attempt to delete one of these "watched directory" currently displayed in a panel, even in a non-activated tab.<br>
+              The ability to delete watched directories.<BR>A "watched directory" is a directory that Double Commander has a kind of hook on it so it can monitor any modification in it.<BR>This way, it can refresh the displayable content of it if it's content changed.<BR>This setting allows to control how Double Commander will react if we attempt to delete one of these "watched directory" currently displayed in a panel, even in a non-activated tab.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -220,8 +246,8 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
-              This option will help to determine if the icons used for drives, folders or archives will be the default ones from the system <I>(Windows only)</i> OR if it will be custom ones that we may set ourselves.<br>
-              The <code>CustomIcons</code> option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences<br>
+              This option will help to determine if the icons used for drives, folders or archives will be the default ones from the system <I>(Windows only)</i> OR if it will be custom ones that we may set ourselves.<BR>
+              The <code>CustomIcons</code> option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences:<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Element</th>
@@ -253,7 +279,7 @@
                 etc...
               </i>
               <BR><BR>
-              If we wish to use custom icons, here is the location for each items:<br>
+              If we wish to use custom icons, here is the location for each items:<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Element</th>
@@ -278,7 +304,7 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;DiskAlpha&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
-              Option to set the transparency level of unmounted drive icons.
+              Option to set the transparency level of unmounted drive icons.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -346,7 +372,7 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;</div></td>
             <td class="hintcell">
-              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.
+              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.<BR>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>

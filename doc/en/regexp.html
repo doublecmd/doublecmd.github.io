@@ -38,8 +38,7 @@
               <dt>5.7. <a href="#meta-back">Metacharacters - backreferences</a></dt>
             </dl>
           </dd>
-          <dt>6. <a href="#modifiers">Modifiers</a></dt>
-          <dt>7. <a href="#perl">Perl extensions</a></dt>
+          <dt>6. <a href="#modifiers">Modifiers (Perl extensions)</a></dt>
         </dl>
       </div>
 
@@ -250,15 +249,14 @@
         </table>
 
         <p>The "^" metacharacter by default is only guaranteed to match at the beginning of the input string/text, the "$" metacharacter only at the end. Embedded line separators will not be matched by "^" or "$".</p>
-        <p>You may, however, wish to treat a string as a multi-line buffer, such that the "^" will match after any line separator within the string, and "$" will match before any line separator. You can do this by switching On the <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_m" target="_blank">modifier /m</a>.</p>
-        <p>The \A and \Z are just like "^" and "$", except that they won't match multiple times when the <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_m" target="_blank">modifier /m</a> is used, while "^" and "$" will match at every internal line separator.</p>
-        <p>The "." metacharacter by default matches any character, but if you switch Off the <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_s" target="_blank">modifier /s</a>, then "." won't match embedded line separators.</p>
+        <p>You may, however, wish to treat a string as a multi-line buffer, such that the "^" will match after any line separator within the string, and "$" will match before any line separator. You can do this by switching On the <a href="#modifiers">modifier m</a>.</p>
+        <p>The \A and \Z are just like "^" and "$", except that they won't match multiple times when the <a href="#modifiers">modifier m</a> is used, while "^" and "$" will match at every internal line separator.</p>
+        <p>The "." metacharacter by default matches any character, but if you switch Off the <a href="#modifiers">modifier s</a>, then "." won't match embedded line separators.</p>
         <p>TRegExpr works with line separators as recommended at <a href="http://www.unicode.org/" target="_blank">www.unicode.org</a> with <a href="http://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>:</p>
-        <p>"^" is at the beginning of a input string, and, if <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_m" target="_blank">modifier /m</a> is On, also immediately following any occurrence of \x0D\x0A or \x0A or \x0D (if you are using <a href="http://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p>
-        <p>"$" is at the end of a input string, and, if <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_m" target="_blank">modifier /m</a> is On, also immediately preceding any occurrence of \x0D\x0A or \x0A or \x0D (if you are using <a href="http://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p>
-        <p>"." matches any character, but if you switch Off <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_m" target="_blank">modifier /s</a> then "." doesn't match \x0D\x0A and \x0A and \x0D (if you are using <a href="http://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 and \x2029 and \x0B and \x0C and \x85).</p>
+        <p>"^" is at the beginning of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately following any occurrence of \x0D\x0A or \x0A or \x0D (if you are using <a href="https://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p>
+        <p>"$" is at the end of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately preceding any occurrence of \x0D\x0A or \x0A or \x0D (if you are using <a href="https://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p>
+        <p>"." matches any character, but if you switch Off <a href="#modifiers">modifier s</a> then "." doesn't match \x0D\x0A and \x0A and \x0D (if you are using <a href="https://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 and \x2029 and \x0B and \x0C and \x85).</p>
         <p>Note that "^.*$" (an empty line pattern) does not match the empty string within the sequence \x0D\x0A, but matches the empty string within the sequence \x0A\x0D.</p>
-        <p>Multi-line processing can be easily tuned for your own purpose with help of TRegExpr properties <a href="http://regexpstudio.com/en/tregexpr_interface.html#line_separators" target="_blank">LineSeparators</a> and <a href="http://regexpstudio.com/en/tregexpr_interface.html#line_separators" target="_blank">LinePairedSeparator</a>, you can use only Unix style separators \n or only DOS/Windows style \r\n or mix them together (as described above and used by default) or define your own line separators!</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -270,7 +268,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\w</div></td>
-            <td class="hintcell">an alphanumeric character (including "_")</td>
+            <td class="hintcell">an alphanumeric character (including "_"), i.e. [0-9A-Za-z_]</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\W</div></td>
@@ -307,7 +305,6 @@
             <td class="hintcell">matches strings like "foobar", "foob r", "foobbr" and so on but not "foob1r", "foob=r" and so on</td>
           </tr>
         </table>
-        <p>TRegExpr uses options <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.spacechars" target="_blank">SpaceChars</a> and <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.wordchars" target="_blank">WordChars</a> to redefine standard \w, \W, \s, \S, classes.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -422,7 +419,7 @@
         <p>A little explanation about "greediness".</p>
         <p>"Greedy" takes as many as possible, "non-greedy" takes as few as possible.</p>
         <p>For example, "b+" and "b*" applied to string "abbbbc" return "bbbb", "b+?" returns "b", "b*?" returns empty string, "b{2,3}?" returns "bb", "b{2,3}" returns "bbb".</p>
-        <p>You can switch all iterators into "non-greedy" mode (see the <a href="http://regexpstudio.com/en/regexp_syntax.html#modifier_g" target="_blank">modifier /g</a>).</p>
+        <p>You can switch all iterators into "non-greedy" mode (see the <a href="#modifiers">modifier g</a>).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -450,9 +447,9 @@
       <div>
         <h2>5.6. <a name="meta-sub">Metacharacters - subexpressions</a></h2>
         <p>The bracketing construct ( ... ) may also be used for define regular expression subexpressions.</p>
-        <p>After search you can call any subexpression using properties MatchPos, MatchLen and <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.match" target="_blank">Match</a>, also you can use subexpressions as masks using <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.substitute" target="_blank">Substitute</a>).</p>
+        <p>After search you can call any subexpression, also you can use subexpressions as masks.</p>
         <p>Subexpressions are numbered based on the left to right order of their opening parenthesis.</p>
-        <p>First subexpression has number "1" (whole regular expression match has number "0" - you can substitute it in <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.substitute" target="_blank">Substitute</a> as "$0" or "$&amp;").</p>
+        <p>First subexpression has number "1", up to 90 subexpressions are supported (whole regular expression match has number "0" - you can substitute it as "$0" or "$&amp;").</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Subexpressions</th></tr>
@@ -466,12 +463,24 @@
             <td class="hintcell">matches "foob0r", "foob1r" , "foobar", "foobaar", "foobaar" etc.</td>
           </tr>
         </table>
+        <br>
+        <p><span class="bold">Notes about "Replace with" templates:</span></p>
+        <ul>
+          <li>If you want to place raw "$" or "\" into template, then use prefix "\".<br>
+              Example: "1\$ is $2\\rub\\" will return "1$ is &lt;subexp2&gt;\rub\".</li>
+          <li>If you want to place raw digit after "$n", then you must delimit n with curly braces "{}".<br>
+              For example, "a$12bc" will return "a&lt;subexp12&gt;bc", but "a${1}2bc" will return "a&lt;subexp1&gt;2bc".</li>
+        </ul>
+        <p>Example:</p>
+        <p>Let's invert date "21.01.2018" &gt; "2018.01.21":<br>
+            search for: (\d{2})\.(\d{2})\.(\d{4})<br>
+            replace with: $3.$2.$1</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>5.7. <a name="meta-back">Metacharacters - backreferences</a></h2>
-        <p>Metacharacters \1 through \9 are interpreted as backreferences. \&lt;n&gt; matches previously matched subexpression #&lt;n&gt;.</p>
+        <p>Metacharacters \1 through \9 are interpreted as backreferences. \n matches previously matched subexpression #n.</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of backreferences</th></tr>
@@ -493,43 +502,27 @@
       </div>
 
       <div>
-        <h2>6. <a name="modifiers">Modifiers</a></h2>
+        <h2>6. <a name="modifiers">Modifiers (Perl extensions)</a></h2>
+        <p class="bold">(?imsxr-imsxr)</p>
         <p>Modifiers are for changing behaviour of regular expressions.</p>
-        <p>Any of these modifiers may be embedded within the regular expression itself using the <a href="http://regexpstudio.com/en/regexp_syntax.html#inline_modifiers" target="_blank">(?...)</a> construct.</p>
+        <p>Any of these modifiers may be embedded within the regular expression itself using the <tt>(?...)</tt> construct.</p>
+        <p>If this construction is inlined into subexpression, then it effects only into this subexpression.</p>
         <dl>
           <dt><tt>i</tt></dt>
-          <dd>Do case-insensitive pattern matching (using installed in your system locale settings), see also <a href="http://regexpstudio.com/en/tregexpr_interface.html#invertcase" target="_blank">InvertCase</a>.</dd>
+          <dd>Do case-insensitive pattern matching (using installed in your system locale settings).</dd>
           <dt><tt>m</tt></dt>
-          <dd>Treat string as multiple lines. That is, change "^" and "$" from matching at only the very start or end of the string to the start or end of any line anywhere within the string, see also <a href="http://regexpstudio.com/en/tregexpr_interface.html#line_separators" target="_blank">Line separators</a>.</dd>
+          <dd>Treat string as multiple lines. That is, change "^" and "$" from matching at only the very start or end of the string to the start or end of any line anywhere within the string, see also <a href="#meta-line">Line separators</a>.</dd>
           <dt><tt>s</tt></dt>
-          <dd>Treat string as single line. That is, change "." to match any character whatsoever, even a line separator (see also <a href="http://regexpstudio.com/en/tregexpr_interface.html#line_separators" target="_blank">Line separators</a>), which it normally would not match.</dd>
+          <dd>Treat string as single line. That is, change "." to match any character whatsoever, even a line separator (see also <a href="#meta-line">Line separators</a>), which it normally would not match. Enabled by default.</dd>
           <dt><tt>g</tt></dt>
-          <dd>Non standard modifier. Switching it Off you'll switch all following operators into non-greedy mode (by default this modifier is On). So, if modifier /g is Off then "+" works as "+?", "*" as "*?" and so on.</dd>
+          <dd>Non standard modifier. Switching it Off you'll switch all following operators into non-greedy mode (by default this modifier is On). So, if modifier g is Off then "+" works as "+?", "*" as "*?" and so on.</dd>
           <dt><tt>x</tt></dt>
           <dd>Extend your pattern's legibility by permitting whitespace and comments (see explanation below).</dd>
           <dt><tt>r</tt></dt>
-          <dd>Non-standard modifier. If is set then range "а-я" additional include Russian letter "ё", "А-Я" additional include "Ё", and "а-Я" include all Russian symbols. Sorry for foreign users, but it's set by default. If you want switch if off by default - set false to global variable <a href="http://www.regexpstudio.com/TRegExpr/Help/tregexpr_interface.html#modifier_defs">RegExprModifierR</a>.</dd>
+          <dd>Non-standard modifier. If is set then range "а-я" additional include Russian letter "ё", "А-Я" additional include "Ё", and "а-Я" include all Russian symbols. Sorry for foreign users, but it's set by default.</dd>
+          <dt><tt>#</tt></dt>
+          <dd><tt>(?#text)</tt>: A comment, the text is ignored. Note that TRegExpr closes the comment as soon as it sees a ")", so there is no way to put a literal ")" in the comment.</dd>
         </dl>
-        <p>The <a href="http://regexpstudio.com/en/tregexpr_interface.html#tregexpr.modifier_x" target="_blank">modifier /x</a> itself needs a little more explanation.</p>
-        <p>It tells to ignore whitespace that is neither backslashed nor within a character class.</p>
-        <p>You can use this to break up your regular expression into (slightly) more readable parts.</p>
-        <p>The # character is also treated as a metacharacter introducing a comment, for example:</p>
-        <pre class="CODE">
-(
-  (abc) # comment 1
-    |   # You can use spaces to format r.e. - TRegExpr ignores it
-  (efg) # comment 2
-)</pre>
-        <p>This also means that if you want real whitespace or # characters in the pattern (outside a character class, where they are unaffected by /x), that you'll either have to escape them or encode them using octal or hex escapes.</p>
-        <p>Taken together, these features go a long way towards making regular expressions text more readable.</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>
-      </div>
-
-      <div>
-        <h2>7. <a name="perl">Perl extensions</a></h2>
-        <p class="bold">(?imsxr-imsxr)</p>
-        <p>You may use it into regular expression for modifying modifiers by the fly.</p>
-        <p>If this construction is inlined into subexpression, then it effects only into this subexpression.</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of Perl extensions</th></tr>
@@ -552,11 +545,20 @@
           </tr>
         </table>
         <br>
-        <p class="bold">(?#text)</p>
-        <p>A comment, the text is ignored.</p>
-        <p>Note that TRegExpr closes the comment as soon as it sees a ")", so there is no way to put a literal ")" in the comment.</p>
+        <p>The modifier x itself needs a little more explanation.</p>
+        <p>It tells to ignore whitespace that is neither backslashed nor within a character class.</p>
+        <p>You can use this to break up your regular expression into (slightly) more readable parts.</p>
+        <p>The # character is also treated as a metacharacter introducing a comment, for example:</p>
+        <pre class="CODE">
+(
+  (abc) # comment 1
+    |   # You can use spaces to format r.e. - TRegExpr ignores it
+  (efg) # comment 2
+)</pre>
+        <p>This also means that if you want real whitespace or # characters in the pattern (outside a character class, where they are unaffected by x), that you'll either have to escape them or encode them using octal or hex escapes.</p>
+        <p>Taken together, these features go a long way towards making regular expressions text more readable.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+        <br>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="cmds.html">Previous</a> | <a title="Next page" href="lua.html">Next</a></div></div>

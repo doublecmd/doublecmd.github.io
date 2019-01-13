@@ -109,6 +109,20 @@
           <tr class="rowcategorytitle"><th colspan="2">DC library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
+              <p>Write a message to the log window.</p>
+              <p>Here is the description of each field:</p>
+              <ul>
+                <li><var>Message</var> : The message text.</li>
+                <li><var>MsgType</var> : The message type: 0 - information, 1 - success, 2 - error.</li>
+                <li><var>bForce</var> : A boolean, when true, will show the log window if invisible.</li>
+                <li><var>bLogFile</var> : A boolean, when true, will write the message also in the log file.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
               <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>

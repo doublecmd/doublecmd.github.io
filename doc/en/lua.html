@@ -706,6 +706,38 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Receives a string and returns a copy of this string with all uppercase letters changed to lowercase.</p>
             </td>
           </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
+              <p>Convert <var>String</var> encoding from <var>FromEnc</var> to <var>ToEnc</var>.</p>
+              <p>List of supported encoding values:</p>
+              <ul>
+                <li>Default system encoding (depends on user locale): "default".</li>
+                <li>Default ANSI (Windows) encoding (depends on user locale): "ansi".</li>
+                <li>Default OEM (DOS) encoding (depends on user locale): "oem".</li>
+                <li>Unicode: "utf8", "utf8bom", "ucs2le", "ucs2be".</li>
+                <li>ANSI (Windows): "cp1250", "cp1251", "cp1252", "cp1253", "cp1254", "cp1255", "cp1256", "cp1257", "cp1258".</li>
+                <li>OEM (DOS): "cp437", "cp850", "cp852", "cp866", "cp874", "cp932", "cp936", "cp949", "cp950".</li>
+                <li>ISO 8859: "iso88591", "iso88592", "iso885915".</li>
+                <li>Other: "macintosh", "koi8".</li>
+              </ul>
+              The meaning of special encodings (examples).
+              <br/><br/>
+              In the Windows with Russian locale:
+              <ul>
+              <li>"default" - cp1251</li>
+              <li>"ansi" - cp1251</li>
+              <li>"oem" - cp866</li>
+              </ul>
+              In the Linux with Russian locale:
+              <ul>
+              <li>"default" - utf8</li>
+              <li>"ansi" - cp1251</li>
+              <li>"oem" - cp866</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

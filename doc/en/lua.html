@@ -429,7 +429,7 @@
 
       <div>
         <h2>3.3.1. <a name="exampleclip">Example of usage clipboard library</a></h2>
-        <p>The following example is using three functions related with the clipboard: <code>Clear</code>, <code>GetAsText</code> and <code>SetAsTest</code>.</p>
+        <p>The following example is using three functions related with the clipboard: <code>Clear</code>, <code>GetAsText</code> and <code>SetAsText</code>.</p>
         <p>It's a relative long script but it's good to put together a few functions we've seen above.</p>
         <p>It assumes our active panel is currently into a directory with many source text files.</p>
         <p>It also assumes we currently have in clipboard a single word and that it will receive as a single parameter the current active folder.</p>
@@ -737,7 +737,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
                 <li>Other: "macintosh", "koi8".</li>
               </ul>
               The meaning of special encodings (examples).
-              <br/><br/>
+              <br><br>
               In the Windows with Russian locale:
               <ul>
               <li>"default" - cp1251</li>
@@ -770,9 +770,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Will execute <var>command</var> as it would be typed on the command-line and return the result code of the operation.</p>
               <p>The <var>command</var> could either be:</p>
               <ul>
-                <li>A terminal commmand like <code>os.execute("dir &gt;all.txt")</code></li>
+                <li>A terminal commmand like <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>An executable like <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
-                <li>An executable with parameters:<BR><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin >md5.txt")</code></li>
+                <li>An executable with parameters:<BR><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin &gt; md5.txt")</code></li>
               </ul>
             </td>
           </tr>

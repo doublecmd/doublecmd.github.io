@@ -1,161 +1,223 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<head>
-  <title>Find files</title>
-  <link rel="STYLESHEET" type="text/css" href="doublecmd.css"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
+  <head>
+    <title>DC - Поиск файлов</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
 
-<body>
-  <div class="CHAPTER">
-	<h1>Find files</h1>
-	<hr/>
-	  <h2><a name="attributes">Searching for files with specific attributes.</a></h2>
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Домашняя страница</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
 
-	<p>
-	To search for specific attributes you must enter a string pattern, which specifies which attributes are searched for, and if they should be enabled or disabled. Single attribute is represented with the following format:</p>
-	
-	<code>&lt;attribute&gt;+</code> or <code>&lt;attribute&gt;-</code>
-	
-	<p>
-	The plus sign means that the file must have that attribute set, minus sign means that the file must not have that attribute set.</p>
-	
-	<p>The various <tt>&lt;attribute&gt;</tt> identifiers are as follows:</p>
-	
-	<p>Windows:<p>
-	  <table border="0" frame="void" width="50%" class="CALSTABLE">
-		<tbody>
-		  <thead style="font-size: 80%; border-width=2"><td>File attributes:</td></thead>
-		  <tr valign="top" title="wer">
-			<td>
-			<code>
-			r - read only<br>
-			a - archive<br>
-			h - hidden<br>
-			s - system<br>
-			d - directory<br>
-			l - symlink<br>
-			t - temporary<br>
-			p - sparse<br>
-			c - compressed<br>
-			e - encrypted<br>
-			</code>
-			</td>
-		  </tr>
-		</tbody>
-	  </table></p>
-	</p>
-	<p>Unix:<p>
-	  <table border="0" frame="void" width="50%" class="CALSTABLE">
-		<tbody>
-		  <thead style="font-size: 80%; border-width=2"><td>Permissions:</td><td>File types:</td></thead>
-		  <tr valign="top" title="wer">
-			<td>
-			<code>
-			ur - user read<br>
-			uw - user write<br>
-			ux - user execute<br>
-			gr - group read<br>
-			gw - group write<br>
-			gx - group execute<br>
-			or - others read<br>
-			ow - others write<br>
-			ox - others execute<br>
-			us - set user ID<br>
-			gs - set group ID<br>
-			sb - sticky bit<br>
-			</code>
-			</td>
-			<td><code>
-			b - block<br>
-			c - character<br>
-			d - directory<br>
-			f - fifo<br>
-			l - symlink<br>
-			r - regular<br>
-			s - socket<br>
-			</code>
-			</td>
-		  </tr>
-		</tbody>
-	  </table></p>
-	  On Unix you may also use octal representation of permissions. For example 0750 is the same as ur, uw, ux, gr and gx combined.
-	</p>
-	
-	<h4>Advanced patterns.</h4>
-	  
-	<p>
-	Several attributes may be combined together with an AND relationship. Just specify one pattern after another. For example: <tt>r+s+h+</tt> matches files that have all three: read-only, hidden and system attributes set.
-	</p>
+    <div class="dchelpage">
+      <div>
+        <h1>2.2. Поиск файлов</h1>
+      </div>
 
-	<p>
-	Furthermore, such groups of AND attributes may be combined together with an OR relationship. This is done by using the "|" character (vertical bar). For example: <tt>r+|s+h+</tt> matches files that have either:
-	<list>
-	<li>read-only attribute set</li>
-	or
-	<li>both hidden and system attributes set.</li>
-	</list>
-	</p>
-	
-	<p>
-	It is possible to negate AND sequences using "!" character specified at the start of the sequence. For example: <tt>!r+s+h+</tt> matches files that don't have all three: read-only, hidden and system attributes set. The matched file may have none, one or more of those attributes set, but not all of them. Negation only applies to AND sequences, thus pattern <tt>!r+|!s+h+</tt> matches files that either:
-	<list>
-	<li>don't have read-only attribute set (the same as r-)</li>
-	or
-	<li>don't have both hidden and system attributes set.</li>
-	</list>
-	</p>
-	
-	<p>You cannot use parenthesis to separate sequences.</p>
-	
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#attributes">Поиск файлов с определёнными атрибутами</a></dt>
+          <dt>2. <a href="#advpattrn">Расширенные паттерны</a></dt>
+          <dt>3. <a href="#examples">Примеры</a></dt>
+        </dl>
+      </div>
 
-	<h4>Examples.</h4>
+      <div>
+        <h2>1. <a name="attributes">Поиск файлов с определёнными атрибутами</a></h2>
+        <p>Для поиска по атрибутам необходимо использовать шаблон, который определяет, какие атрибуты искать и их состояние (установлены ли они или сняты).</p>
+        <p>Одиночный атрибут представляется в следующем формате:</p>
+        <p><code>&lt;атрибут&gt;+</code> или <code>&lt;атрибут&gt;-</code></p>
 
-	<br>Windows:<br>
-	  <table border="0" frame="void" width="100%" class="CALSTABLE" cellspacing="20">
-		<tbody>
-		  <tr>
-			<td><tt>a+s-h-</tt></td>
-			<td>matches files that have archive attribute set and don't have neither system nor hidden attributes set</td>
-		  </tr>
-		  <tr>
-			<td><tt>e+|c+</tt></td>
-			<td>matches files that are either compressed or encrypted (these are NTFS attributes)</td>
-		  </tr>
-		  <tr>
-			<td><tt>d-</tt></td>
-			<td>matches files but not directories</td>
-		  </tr>
-		</tbody>
-	  </table>
+        <p>Знак плюс означает, что у файл должен быть установлен этот атрибут, знак минус&nbsp;&mdash; наоборот, что у файла этот атрибут не должен быть установлен.</p>
 
-	<br>Unix:<br>
-	  <table border="0" frame="void" width="100%" class="CALSTABLE" cellspacing="20">
-		<tbody>
-		  <tr>
-			<td><tt>uw+|gw+|ow+</tt></td>
-			<td>matches files that are writeable either by user, group or anybody else</td>
-		  </tr>
-		  <tr>
-			<td><tt>222+</tt></td>
-			<td>matches files that are writeable by user, and by group, and by anybody else</td>
-		  </tr>
-		  <tr>
-			<td><tt>d+ox+</tt></td>
-			<td>matches directories that are accessible by anybody</td>
-		  </tr>
-		  <tr>
-			<td><tt>!700+</tt></td>
-			<td>matches files that are not fully accessible to the user</td>
-		  </tr>
-		</tbody>
-	  </table>
+        <p>Возможные атрибуты представлены в таблице:</p>
 
-	<div class="SECT1">
-	  <p class="NAVBACK"><a href="index.html">Home</a></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Windows</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Атрибут</th><th class="categorydesccolumn">Что обозначает</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">только для чтения</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">архивный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">скрытый</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">системный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">каталог</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">символьная ссылка</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">временный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">разряженный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">сжатый (имеется в виду сжатие NTFS)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">зашифрованный</td></tr>
+        </table>
+        <BR>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Unix/Linux (права доступа)</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Права доступа</th><th class="categorydesccolumn">Что обозначает</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ur</div></td><td class="hintcell">пользователь (владелец): чтение</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">uw</div></td><td class="hintcell">пользователь (владелец): запись</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ux</div></td><td class="hintcell">пользователь (владелец): выполнение</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gr</div></td><td class="hintcell">группа: чтение</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gw</div></td><td class="hintcell">группа: запись</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gx</div></td><td class="hintcell">группа: выполнение</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">or</div></td><td class="hintcell">остальные: чтение</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ow</div></td><td class="hintcell">остальные: запись</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ox</div></td><td class="hintcell">остальные: выполнение</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">us</div></td><td class="hintcell">установка ID пользователя во время выполнения (SUID)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gs</div></td><td class="hintcell">установка ID группы во время выполнения (SGID)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">sb</div></td><td class="hintcell">бит сохранения задачи/закрепления в памяти (sticky bit)</td></tr>
+        </table>
+        <BR>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Unix/Linux (типы файлов)</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Типы файлов</th><th class="categorydesccolumn">Что обозначает</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">блочное физическое устройство</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">символьное физическое устройство</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">каталог</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">именованный канал (или буфер FIFO)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">символьная ссылка</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">обычный файл</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">сокет (socket)/доменное гнездо</td></tr>
+        </table>
+        <BR>
+
+        <p>В Unix/Linux также можно использовать восьмеричное представление разрешений. Например, 0750&nbsp;&mdash; то же самое, что и комбинация <tt>ur</tt>, <tt>uw</tt>, <tt>ux</tt>, <tt>gr</tt> и <tt>gx</tt>.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>2. <a name="advpattrn">Расширенные паттерны</a></h2>
+        <p>Некоторые атрибуты могут быть объединены в группу с отношением И, просто укажите один шаблон за другим.</p>
+        <p>Например: <tt>r+s+h+</tt> соответствует файлам, у которых установлены все три атрибута: только для чтения, системный и скрытый.</p>
+
+        <p>Кроме того, такие группы атрибутов могут быть объединены вместе с отношения ИЛИ. Это делается с помощью символа "|" (вертикальная черта).</p>
+        <p>Например: <tt>r+|s+h+</tt> соответствует файлам, у которых:</p>
+        <ul>
+          <li>или установлен атрибут только для чтения</li>
+          <li>или установлены атрибутами системный и скрытый.</li>
+        </ul>
+
+        <p>В шаблонах, объединённых в группу с отношением И, можно использовать оператор "не равно", добавив символ "!" в начале.</p>
+        <p>Например: <tt>!r+s+h+</tt> соответствует файлам, которые не имеют всех трёх атрибутов: только для чтения, системный и скрытый. Соответствующий файл может не иметь ни одного, иметь один или два из этого набора атрибутов, но не все сразу.</p>
+        <p>Оператор "не равно" можно применять только к группе атрибутов с отношением И, например, шаблон <tt>!r+|!s+h+</tt> соответствует файлам, у которых:</p>
+        <ul>
+          <li>или не установлен атрибут только для чтения (аналогично <tt>r-</tt>)</li>
+          <li>или не установлены атрибуты системный и скрытый.</li>
+        </ul>
+
+        <p>Вы не можете использовать скобки для разделения групп.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3. <a name="examples">Примеры</a></h2>
+        <BR>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Примеры в Windows</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Пример</th><th class="categorydesccolumn">Как интерпретировать</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a+s-h-</div></td><td class="hintcell">соответствует файлам, имеющим установленный атрибут архивный и снятые системный и скрытый</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e+|c+</div></td><td class="hintcell">соответствует файлам, имеющим установленный атрибут сжатый или зашифрованный (это атрибуты файловой системы NTFS)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d-</div></td><td class="hintcell">соответствует файлам, но не каталогам</td></tr>
+        </table>
+        <BR>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Примеры в Unix/Linux</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Пример</th><th class="categorydesccolumn">Как интерпретировать</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">uw+|gw+|ow+</div></td><td class="hintcell">соответствует файлам, которые доступны для записи либо пользователю, либо группе, либо остальным</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">222+</div></td><td class="hintcell">соответствует файлам, которые доступны для записи и пользователю, и группе, и остальным</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d+ox+</div></td><td class="hintcell">соответствует каталогам, которые доступны всем</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">!700+</div></td><td class="hintcell">соответствует файлам, которые не являются полностью доступными для пользователя</td></tr>
+        </table>
+        <BR>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <BR>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
+    <div class="checker">
+	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
 	</div>
-  </div>
-  
-</body>
-
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
 </html>

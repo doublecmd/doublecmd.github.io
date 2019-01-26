@@ -1,503 +1,498 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<head>
-  <title>Directory Hotlist</title>
-  <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
+  <head>
+    <title>DC - Избранные каталоги</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
 
-<body>
-  <a name="topofpage"></a>
-  <div class="CHAPTER">
-  <h1>Directory Hotlist</h1>
-    <div class="TOC">
-      <dl>
-        <dt class="bold"><a name="TOC">Content</a></dt>
-        <dt>1. <a href="#intro">Introduction</a></dt>
-        <dd>
-          <dl>
-          <dt>1.1. <a href="#definition">Definition</a></dt>
-          <dt>1.2. <a href="#overview">Overview</a></dt>
-          </dl>
-        </dd>
-        
-        <dt>2. <a href="#usage">Directory Hotlist Usage</a></dt>
-        <dd>
-          <dl>
-          <dt>2.1. <a href="#access">How to access Directory Hotlist</a></dt>
-          <dt>2.2. <a href="#otheraccess">Other way to access Directory Hotlist</a></dt>
-          <dt>2.3. <a href="#configure">How to configure the Directory Hotlist</a></dt>
-          <dt>2.4. <a href="#otherconfigure">Other ways to access the configuration of the Directory Hotlist</a></dt>
-          <dt>2.5. <a href="#addentry">How to add a directory to the Directory Hotlist</a></dt>
-          <dt>2.6. <a href="#personalize">Personalize the new added entry in the Directory Hotlist</a></dt>
-          <dt>2.7. <a href="#settarget">Setting the target as well</a></dt>
-          <dt>2.8. <a href="#definesort">Define the sort order after directory change</a></dt>
-          <dt>2.9. <a href="#helperpath">Helper with path and target definition</a></dt>
-          <dt>2.10. <a href="#changeorder">Changing the order of the entries</a></dt>
-          <dt>2.11. <a href="#cutandpaste">Using "cut" and "paste" to also re-arrange order</a></dt>
-          <dt>2.12. <a href="#organizetree">Organizing entries in tree</a></dt>
-          <dt>2.13. <a href="#addseperator">Adding separators to help in clarity</a></dt>
-          <dt>2.14. <a href="#sorting">Sorting the entries</a></dt>
-          </dl>
-        </dd>
-        
-        <dt>3. <a href="#expert">"Expert" functions</a></dt>
-        <dd>
-          <dl>
-          <dt>3.1. <a href="#backup">Backup the Directory Hotlist</a></dt>
-          <dt>3.2. <a href="#restore">Restoring backup of a Directory Hotlist</a></dt>
-          <dt>3.3. <a href="#exportimportsimple">Exporting/Importing a Directory Hotlist (or part of it)</a></dt>
-          <dt>3.4. <a href="#exportimporttc">Exporting/Importing to/from Total Commander</a></dt>
-          <dt>3.5. <a href="#scanpresence">Scan the Directory Hotlist to find missing directories</a></dt>
-          <dt>3.6. <a href="#addingmanyatthetime">Adding more than one directory at the time to Directory Hotlist</a></dt>
-          <dt>3.7. <a href="#notthetarget">No switch on inactive frame even if target is configured</a></dt>
-          <dt>3.8. <a href="#directconfig">Directly configure an entry from popup menu</a></dt>
-          <dt>3.9. <a href="#showpopup">Show complete path in popup menu</a></dt>
-          <dt>3.10. <a href="#smartenv">Keep only environment variables that look like a directory</a></dt>
-          </dl>
-        </dd>
-      
-        <dt>4. <a href="#otherfunctions">Other functions</a></dt>
-      
-      </dl>
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Домашняя страница</a></div>
     </div>
-    
-    <hr>
-    
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="multiarc.html">След.</a></div></div>
 
-    <div class="SECT1">
-      <h2><a name="intro">1. Introduction</a></h2>
-      <p>Introduction to Directory Hotlist</p>
-    </div>
+    <div class="dchelpage">
+      <div>
+        <h1>2.3. Избранные каталоги</h1>
+      </div>
 
-    <div class="SECT2">
-      <h3><a name="definition">1.1. Definition</a></h3>
-      <p>A Directory Hotlist is a usable list of directories you are using the most often.<BR>
-      It creates nothing on the disk, it's simply like a list of shortcuts to quickly access the "hot" directories.<BR>
-      By using them to jump to a directory, you won't play the monkey jumping continuously to a branch to another in your directory tree.<BR>
-      Also, for the important directories you don't want to forget, it's good to have an area to have shortcuts pointing on them.<BR>
-      Even if you don't go in them often, you'll save time when will be the time to jump in them because you won't search them if you added them in the Directory Hotlist.
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#intro">Введение</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#definition">Описание</a></dt>
+              <dt>1.2. <a href="#overview">Краткий обзор</a></dt>
+            </dl>
+          </dd>
 
-    <div class="SECT2">
-      <h3><a name="overview">1.2. Overview</a></h3>
-      <p>From the main panel, you may see the Directory Hotlist as a popup menu.<BR>
-      You click on one of the entry and it will immediately bring you in one shot to the associated defined directly.<BR>
-      You won't have to browse to a folder to another to reach that target.<BR>
-      <img class="LARGEIMAGE" title="Overview" alt="Overview" src="images/imgDC/dirhot_overview.png" width="798" height="213" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
+          <dt>2. <a href="#usage">Использование избранных каталогов</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#access">Как получить доступ к избранным каталогам</a></dt>
+              <dt>2.2. <a href="#otheraccess">Другие способы доступа к избранным каталогам</a></dt>
+              <dt>2.3. <a href="#configure">Как настроить избранные каталоги</a></dt>
+              <dt>2.4. <a href="#otherconfigure">Другие способы доступа к настройке избранных каталогов</a></dt>
+              <dt>2.5. <a href="#addentry">Как добавить каталог в избранные каталоги</a></dt>
+              <dt>2.6. <a href="#personalize">Персонализация новой записи в избранных каталогах</a></dt>
+              <dt>2.7. <a href="#settarget">Установка целевого пути</a></dt>
+              <dt>2.8. <a href="#definesort">Определение порядка сортировки после смены каталога</a></dt>
+              <dt>2.9. <a href="#helperpath">Помощник для пути и целевого пути</a></dt>
+              <dt>2.10. <a href="#changeorder">Изменение порядка записей</a></dt>
+              <dt>2.11. <a href="#cutandpaste">Использование команд "Вырезать" и "Вставить"</a></dt>
+              <dt>2.12. <a href="#organizetree">Организация записей в виде дерева</a></dt>
+              <dt>2.13. <a href="#addseperator">Добавление разделителей</a></dt>
+              <dt>2.14. <a href="#sorting">Сортировка записей</a></dt>
+            </dl>
+          </dd>
 
-    <div class="SECT1">
-      <h2><a name="usage">2. Directory Hotlist Usage</a></h2>
-      <p>Here follows common actions related with Directory Hotlist</p>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="access">2.1. How to access Directory Hotlist</a></h3>
-      <p>
-      From the menu bar you select "<B>Commands</b>" and then "<B>Directory Hotlist</b>".<BR>
-      It appears like a popup menu where you click the item and it brings you to the directory defined by the entry you've set.
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="otheraccess">2.2. Other way to access Directory Hotlist</a></h3>
-      <ul>
-        <li><p>You may click the button with a star on it on top right of the active file panel.</p></li>
-        <li><p>You may also set a toolbar button associated with the internal command "<B>cm_dirhotlist</b>".</p></li>
-        <li><p>You may double click on the title bar of the active frame to make it popup, which is the one the author of these lines prefers.</p></li>
-      </ul>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="configure">2.3. How to configure the Directory Hotlist</a></h3>
-      <p>
-      From the menu bar you may select "<B>Configuration</b>" and then "<B>Directory Hotlist</b>"<BR>
-      The tree you see there will show the same thing as what you will see in your popup Directory Hotlist from the main panel.<BR>
-      But instead of seeing it on the form of a popup menu, you see it as a tree with many functions to edit, move, etc. as you can see in this help document.<BR>
-      <img class="LARGEIMAGE" title="Configuration" alt="Configuration" src="images/imgDC/dirhot_configure.png" width="903" height="566" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="otherconfigure">2.4. Other ways to access the configuration of the Directory Hotlist</a></h3>
-      <ul>
-        <li><p>At the bottom end of the Directory Hotlist popup menu, there is always a menu shortcut to bring you to the Directory Hotlist configuration screen.</p></li>
-        <li><p>You may add a tool button with command "cm_configdirhotlist".</p></li>
-      </ul>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="addentry">2.5. How to add a directory to the Directory Hotlist</a></h3>
-      <p>
-      The simplest way is this:<BR>
-      </p>
-      <ul>    
-        <li><p>1. In the active panel, go inside the directory you want to add.</p></li>
-        <li><p>2. Then make appear the Directory Hotlist (by accessing menu "<B>Commands</b>" - <B>Directory Hotlist</b> for example)</p></li>
-        <li><p>3. The click "<B>Add dir: your_dir_name</b>".</p></li>
-        <li><p>4. Once you've done that, it shows you the Directory Hotlist configuration screen confirming you the directory has been added.</p></li>
-        <li><p>5. Focus will be on it to help you see which one it is.</p></li>      
-      </ul>
-      
-      <p>
-      <img class="LARGEIMAGE" title="Add an entry" alt="Add an entry" src="images/imgDC/dirhot_addentry.png" width="826" height="396" style="border:1px solid lightgray">
-      </p>
-      
-      <p>
-      Later we'll see there is also much more ways to add entry to Directory Hotlist.
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="personalize">2.6. Personalize the new added entry in the Directory Hotlist</a></h3>
-      <p>
-      By default, when adding a directory to the Directory Hotlist, the entry name will be the name of the last directory name.<BR>
-      But if you want, you can rename it. Simply select the field "<B>Name</b>" and then type an easy remembered reference name.<BR>
-      In this example, the folder name is "doc" but the name given to the entry is "Documentation"<BR>
-      This is also how you will see it in the Directory Hotlist popup menu.<BR>
-      <img class="LARGEIMAGE" title="Customization" alt="Customization" src="images/imgDC/dirhot_personalize.png" width="754" height="437" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="settarget">2.7. Setting the target as well</a></h3>
-      <p>
-      Not only you can add the directory to switch to, but you may also select the "<B>Target Directory</b>", the one that will be in the inactive panel when in the main window.<BR>
-      So for common repetitive actions over time when you need to copy stuff from directory "A" to directory "B", from which ever folder you might be before, you will simply select it from the Directory Hotlist menu item and it will set both side to the defined directories, ready for the action.<BR>
-      To define the target directory to be when selecting the Directory Hotlist entry, simply set the field "<B>Target</b>".<BR>
-      The following example shows the "Directory A" with "Directory B" as target as suggested here.<BR>
-      <img class="LARGEIMAGE" title="Set the target" alt="Set the target" src="images/imgDC/dirhot_settarget.png" width="860" height="312" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="definesort">2.8. Define the sort order after directory change</a></h3>
-      <p>
-      At the end of the "<B>Path</b>" and "<B>Target</b>" fields for an entry, you have drop box.<BR>
-      Use this drop box when you want to predetermine what needs to be the sort order of the panel when selecting the Directory Hotlist entry.<BR>
-      So if you set it to "<B>Date 9-0</b>", when you will use the Directory Hotlist, it will not only move the active path to the one defined, but no matter how the panel was sorted before, it will sort it in reverse chronological order.<BR>
-      Let this field to "none" if you don't want selecting a new path from the Directory Hotlist change anything.<BR>
-      <img class="LARGEIMAGE" title="Define directory sort" alt="Define directory sort" src="images/imgDC/dirhot_definesort.png" width="440" height="211" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="helperpath">2.9. Helper with path and target definition</a></h3>
-      <p>
-      Certainly you may work with absolute path and it will work fine on THIS machine.<BR>
-      But let's suppose you have Double Commander with numerous other tools on you Swiss-knife USB memory stick.<BR>
-      You may want to have relative path for portable installation.<BR>
-      I mean here relative to Double Commander path for example.<BR>
-      So you may have this path "<B>E:\PortableApps\Notepad++Portable\Data\Config\</b>" and it works fine.<BR>
-      But you may also make it relative to current "Double Commander" current path and have this "<B>%commander_path%\..\..\Notepad++Portable\Data\Config\</b>"<BR>
-      To help you to figure what to type (in other words how many "..\" to use!), on right side of the "<B>path</b>" and "<B>target</b>" field, you have a little button that brings up a popup menu with various related little tools to edit and arrange the path the way you wish.<BR>
-      But this is just one of the possible use of that button.<BR>
-      Here is a complete summary of what you'll find there:<BR>
-      </p>
-      <ul>
-        <li><p><B>Use Double Commander special path</b> - To point directly executable path, the configuration path, etc.</p></li>
-        <li><p><B>Use Windows special folder (TC)</b> - For Microsoft Windows flavor, will allow to point windows-related path, compatible with TC variable name</p></li>
-        <li><p><B>Use other Windows special folder</b> - Same as above but new one, not present in TC</p></li>
-        <li><p><B>Use environment variable</b> - Certainly some value are not really valid and useful there but for the ones that might be, let's use them!</p></li>
-        <li><p><B>Use hotdir path</b> -  This is pure versatility: you may add a Directory Hotlist... from the Directory Hotlist!</p></li>
-        <li><p><B>Make relative to...</b> - Same thing for each of the above BUT instead of straight ADDING the path, it will make the current written one relative to the one you select.</p></li>
-        <li><p><B>Make path absolute</b> - To do the opposite: when you have a path relative, it will bring it to its absolute form.</p></li>
-        <li><p><B>Add path from active frame</b> - The path that will be added will be directly the one from the main panel, from the active frame.</p></li>
-        <li><p><B>Add path from inactive frame</b> - Same as above but as stated, from the inactive frame.</p></li>
-        <li><p><B>Browse and use selected path</b> - Will open you a directory browser where you can select the directory you want, simply.</p></li>
-      </ul>
-      <img class="LARGEIMAGE" title="Helper for path" alt="Helper for path" src="images/imgDC/dirhot_helperpath.png" width="560" height="370" style="border:1px solid lightgray">
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="changeorder">2.10. Changing the order of the entries</a></h3>
-      <p>
-      With time, the Directory Hotlist may grow and comes large and not ordered the way you want.<BR>
-      You may re-arrange the order simply by dragging-and-dropping the selected entry to a new position that makes more sense to you.<BR>
-      By using the "<B>CTRL</b>" key on the keyboard, you may select and move more than one at the time as well.
-      </p>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="cutandpaste">2.11. Using "cut" and "paste" to also re-arrange order</a></h3>
-      <p>
-      If you have a very long list of directories, the drag-and-drop method might not be suitable because source and destination are too far apart.<BR>
-      If so, you may select the one you want to move, then right click on it and select "<B>cut</b>".<BR>
-      Then you scroll the list to see the target position you want to place the entry and you select the position.<BR>
-      Then you right click and click "<B>Paste</b>" to paste there the entry you selected first.
-      By using the "<B>CTRL</b>" key, you may select more than ones at the time to do the cut-and-paste.<BR>
-      <img class="LARGEIMAGE" title="Cut-and-paste" alt="Cut-and-paste" src="images/imgDC/dirhot_cutandpaste.png" width="930" height="277" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="organizetree">2.12. Organizing entries in tree</a></h3>
-      <p>
-      If you're a fanatic of Directory Hotlist like the author of these lines, having a one-dimensional list of Directory Hotlist will not be enough!<BR>
-      So to the rescue, Double Commander offers you to organize sub menus in your Directory Hotlist.<BR>
-      More than that, you may have submenus inside a submenu.<BR>
-      This means you may really configure yourself a well organize Directory Hotlist.<BR>
-      To add a submenu, simply place the selection where you wish to have the submenu, right-click and select "<B>Add a submenu</b>".<BR>
-      It will create a submenu named "Submenu name" with inside one entry name "Hotdir name".<BR>
-      Obviously, with the fields below you may give a significant name to the submenu.<BR>
-      From there, you may add new entry, move other entries inside that new submenu, etc.<BR>
-      Please note you may move submenu and you may cut-and-paste a submenu which make your life simpler in rearranging your Directory Hotlist.<BR>
-      <img class="LARGEIMAGE" title="Organize tree" alt="Organize tree" src="images/imgDC/dirhot_organizetree.png" width="245" height="250" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="addseperator">2.13. Adding separators to help in clarity</a></h3>
-      <p>
-      Having many entries one after the other is nice but by adding some separator to isolate category of directories from another might be a good thing.<BR>
-      So to add a separator, simply place the cursor where you want the separator, right click and do "<B>Add a separator</b>".<BR>
-      In the configuration Directory Hotlist tree, it will show you a line with dots but once in the main panel with the Directory Hotlist popup, you'll see a nice menu separator.<BR>
-      <img class="LARGEIMAGE" title="Add separator" alt="Add separator" src="images/imgDC/dirhot_addseperator.png" width="759" height="437" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="sorting">2.14. Sorting the entries</a></h3>
-      <p>
-      As described above, with the drag-and-drop and the cut-and-paste, you can certainly re-arrange the Directory Hotlist entries the way you wish.<BR>
-      But if you agree to work with alphabetical name, you may use the included sort functions.<BR>
-      The idea of the sort is simple: place the current selection where you want to sort and then select the sort function you want by pressing the "<B>Sort...</b>" button that will bring up a popup menu.<BR>
-      The five available choices gives you all the latitude you may wish on this matter:
-      </p>
-      <ul>
-        <li><p><B>Single group of item(s) only</b> - will sort the area next to the current selected item. By "area" it means the entries comprises between two separators, start of a menu or end of a menu.</p></li>
-        <li><p><B>Current level of item(s) selected only</b> - not only the area where the current selection is but also the siblings on the same branch. It will do the sort but respect the entries area so an item from a group will bot cross a separator you may have.</p></li>
-        <li><p><B>Content of submenu(s) selected, no sublevel</b> - Will sort the immediate "childs" of a submenu you may have selected but will not go into possible other submenus in it to sort them.</p></li>
-        <li><p><B>Content of submenu(s) selected and all sublevels</b> - Idem to previous mentioned one but this time will also sort all the submenus inside that branch.</p></li>
-        <li><p><B>Everything, from A to Z!</b> - Ahhh! The favorite of the author of these lines: like the name suggest it, will simply sort everything but still respecting the area of each so will not move item from a branch to another.</p></li>
-      </ul>
-      <p>
-      Like written earlier, any sort will not move an item to go over a separator.<BR>
-      Just to make sure you see the meaning of not crossing a separator when doing a sort, see the following example.<BR>
-      The "Root" folder will always remain above the other after the sort *because* there is a separator there.<BR>
-      The separators are really useful for this matter.<BR>
-      Not only it makes things more clear, it is useful as delimiter when doing sort!<BR>
-      <img class="LARGEIMAGE" title="Sorting entries" alt="Sorting entries" src="images/imgDC/dirhot_sorting.png" width="501" height="301" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT1">
-      <h2><a name="expert">3. "Expert" functions</a></h2>
-      <p>Here follows less frequent actions related with Directory Hotlist but still useful to know</p>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="backup">3.1. Backup the Directory Hotlist</a></h3>
-      <p>
-      As your Directory Hotlist grows in quantity of directory shortcuts, you may want to backup it "just in case" an accident happens to don't lose these valuable links.<BR>
-      To do that, on right of configuration screen you have a button named "<B>Backup</b>".<BR>
-      Press on it and in the menu select "<B>Save a backup of the current Directory Hotlist</b>".<BR>
-      It will then save the current list into a file into a "Backup" folder present into the Double Commander defined config directory.<BR>
-      The number of entry saved will be written as with the resulting file name, which will include the date and time of the Directory Hotlist.<BR>
-      Please also note the extension of the file which is ".hotlist".<BR>
-      <img class="LARGEIMAGE" title="Backup (save)" alt="Backup (save)" src="images/imgDC/dirhot_backup.png" width="924" height="297" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="restore">3.2. Restoring backup of a Directory Hotlist</a></h3>
-      <p>
-      Similar as above, you click on the same button named "<B>Backup</b>".<BR>
-      In the submenu select "<B>Restore a backup of Directory Hotlist</b>".<BR>
-      From the file requester that will appear, select the backup you want to restore.<BR>
-      When you restore a backup, it will first erase the current Directory Hotlist and then add the ones from the backup file.<BR>
-      If you just want to restore just certain entries from the backup file, you may do "<B>Import</b>" and point the backup file.<BR>
-      The system will then prompt you to indicate which entries from the backup file you want to restore.<BR>
-      <img class="LARGEIMAGE" title="Backup (import)" alt="Backup (import)" src="images/imgDC/dirhot_importbackup.png" width="810" height="314" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="exportimportsimple">3.3. Exporting/Importing a Directory Hotlist (or part of it)</a></h3>
-      <p>
-      If you have more than a computer, or if you have a fellow accessing the same servers as you, you may want to be able to export your Directory Hotlist, or part of it, so on the other computer you'll have the same directory shortcuts without having to enter them one by one.<BR>
-      To do that, first click the button "<B>Export</b>" and then select "<B>...to a Directory Hotlist file (.hotlist)</b>".<BR>
-      It will then prompt you to enter the filename and file location of the export file you want to create.<BR>
-      Then you will be asked to select what you want to export.<BR>
-      You may export the whole tree or you may select the entries one by one.<BR>
-      You may select a whole submenu also by selecting the submenu name without having to select the entries inside.<BR>
-      Please use "<B>CTRL</b>" key on the keyboard while clicking to select the different entries you want to export.<BR>
-      <BR>    
-      Then, on the other computer, you will click the "<B>Import</b>" button and then select the menu item "<B>from a Directory Hotlist file (.hotlist)</b>".<BR>
-      From the file requester, point the file to import.<BR>
-      Similar as with the export, you may import the whole thing but you're also offered to select specific entries you want to import.<BR>
-      The entries you import will be added at the end of yours.  
-      </p>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="exportimporttc">3.4. Exporting/Importing to/from Total Commander</a></h3>
-      <p>
-      Double Commander may also export/import Directory Hotlist to/from the one of Total Commander.<BR>
-      Let's suppose you want to import some entries from Total Commander, here is what to do.<BR>
-      From the Directory Hotlist configuration screen, click the "<B>Import...</b>" button and select "<B>...from "wincmd.ini</b>" of TC"<BR>
-      Then select in the file requester the location of the "wincmd.ini" file of your Total Commander.<BR>
-      If you don't know where is that file, in Total Commander, click the "<B>Help</b>" menu and then click "<B>About Total Commander...</b>".<BR>
-      The location of the .INI file will be written there.<BR>
-      Then will appear a tree with the directory entries that has been read from the Total Commander .ini file.<BR>
-      From that tree you may import ALL the entries or you may select them one by one, as you wish.<BR>
-      Please use "<B>CTRL</b>" key on the keyboard while clicking to select the different entries you want to import.<BR>
-      The entries you import will be added at the end of yours.<BR>
-      <img class="LARGEIMAGE" title="Import from TC" alt="Import from TC" src="images/imgDC/dirhot_importfromtc.png" width="759" height="591" style="border:1px solid lightgray"><BR>
-      
-      Then, as a reverse operation, you may export all or part of your Double Commander Directory Hotlist to the Total Commander's one.<BR>
-      To do that, click the "<B>Export...</b>" button and select one of the two possible exportations to Total Commander.<BR>
-      If you know what you're doing and accept to replace the whole entries of Total Commander's Directory Hotlist, you may select "<B>to a "wincmd.ini" of TC (erase existing)</b>".<BR>
-      And again here, you may select if you want to export the whole thing or just select the ones you want to export.<BR>
-      Please use "<B>CTRL</b>" key on the keyboard while clicking to select the different entries you want to export.<BR>
-      Maybe you should have Total Commander closed when you do that and then re-open Total Commander after and see what've got.<BR><BR>
-      
-      Total Commander does not offer you easy ways to structure and sort easily your entries of the Directory Hotlist as Double Commander does.<BR>
-      So you may import your Total Commander's Directory Hotlist to Double Commander, then re-arrange it, sort it, structure it, etc. and then export it back to Total Commander!<BR>
-      </p>
-     
-      <p>
-      <B>*Note: Effort and tests has been made to make sure application will not corrupt the Total Commander configuration .INI file.</b><BR>
-      <B>But certainly backuping it prior to export to it some entries would be a good practice and is encouraged.</b><BR>
-      <B>Obviously you're doing this at your own risk!</b><BR>
-      <B>...a risk to discover a nice program like Double Commander!'</b><BR>
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="scanpresence">3.5. Scan the Directory Hotlist to find missing directories</a></h3>
-      <p>
-      With time, it might happen you Directory Hotlist would have entries pointing to directory that would not exist anymore.<BR>
-      To find these entries, in the Directory Hotlist configuration screen, click the button labeled "<B>Miscellaneous</b>"<BR>
-      Then select "<B>Scan all hotdir's path to validate the ones that actually exist</b>".<BR>
-      This will allow make the application to scan the all the directories your shortcuts are pointing.<BR>
-      If one is missing, a missing icon will be shown on left of the entry.<BR>
-      Submenu branch with at least one missing entry will also shows a special icon showing an entry is missing.<BR>
-      <img class="LARGEIMAGE" title="Scan for actual presence or not" alt="Scan for actual presence or not" src="images/imgDC/dirhot_scanexist.png" width="543" height="502" style="border:1px solid lightgray">
-      </p>
-      <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-      
-      <p>
-      So from there you may either erase the entries since their pointing directory that don't exist anymore or keep them.<BR>
-      Why keeping them? Simple. In a context where Double Commander would be used on a USB memory stick to a computer to another,<BR>
-      it might be totally normal to have directories that won't exist on a computer that were existing on the previous one.<BR>
-      But if so, how does the "<B>Scan all hotdir's path to validate the ones that actually exist</b>" function will help you?<BR>
-      It's because by doing this, it will also remove these entries from the Directory Hotlist popup menu from the main panel.<BR>
-      These entries referring to non-existing folder won't be shown!<BR>
-      They won't be erased permanently from the Directory Hotlist internal list.<BR>
-      They will simply not be shown from the popup menu for the session.<BR>
-      See the result of the previous example.<BR>
-      <img class="LARGEIMAGE" title="A clean popup menu" alt="A clean popup menu" src="images/imgDC/dirhot_cleanedmenu.png" width="578" height="515" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="addingmanyatthetime">3.6. Adding more than one directory at the time to Directory Hotlist</a></h3>
-      <p>
-      When setuping your Directory Hotlist for a new situation, it might happen you would like to add many directories at once to the Directory Hotlist.<BR>
-      There are two ways you can do that.<BR><BR>
-      </p>
-      
-      <p>
-      <B>First method: directly from the main frame with the selection</b><BR>
-      This is easy: you simply select the directories you want to add, you invoke the Directory Hotlist popup menu and you select at the end of it "<B>Add x selected directories</b>".<BR>
-      The directories will be added to the configured addition position.<BR>
-      If you're configured to add via the "<B>smart</b>" method, it's nice to see how well they are placed!<BR>
-      <img class="LARGEIMAGE" title="Add more than one at once" alt="Add more than one at once" src="images/imgDC/dirhot_addmanyatonce.png" width="969" height="487" style="border:1px solid lightgray">
-      </p>
-      <p class="NAVBACK"><a href="#topofpage">on top</a></p>
+          <dt>3. <a href="#expert">"Экспертные" функции</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#backup">Резервная копия избранных каталогов</a></dt>
+              <dt>3.2. <a href="#restore">Восстановление избранных каталогов из резервной копии</a></dt>
+              <dt>3.3. <a href="#exportimportsimple">Экспорт/импорт избранных каталогов (или части)</a></dt>
+              <dt>3.4. <a href="#exportimporttc">Экспорт/импорт в/из Total Commander</a></dt>
+              <dt>3.5. <a href="#scanpresence">Сканирование избранных каталогов для поиска отсутствующих путей</a></dt>
+              <dt>3.6. <a href="#addingmanyatthetime">Добавление более одного каталога за раз</a></dt>
+              <dt>3.7. <a href="#notthetarget">Не менять путь в неактивной панели даже если указан целевой путь</a></dt>
+              <dt>3.8. <a href="#directconfig">Перейти из меню непосредственно к настройке выбранной записи</a></dt>
+              <dt>3.9. <a href="#showpopup">Показывать в меню полный путь</a></dt>
+              <dt>3.10. <a href="#smartenv">Показывать только те переменные окружения, которые выглядят как каталог</a></dt>
+            </dl>
+          </dd>
 
-      <p>
-      <B>Second method: similar to first one but with the Directory Hotlist configuration window and main panel shown simultaneously</b><BR>
-      This is also easy: you first invoke the Directory Hotlist configuration window.<BR>
-      Then you place your selection where you want the new directories where you want them to be added.<BR>
-      You then press the "<B>Add</b>" or "<B>Insert</b>" button and click "<B>Current selected or active directories of active frame</b>"<BR>
-      You will see them added or inserted and ready to be sorted, renamed and arranged to your wishes.<BR>
-      </p>
-    </div>
+          <dt>4. <a href="#otherfunctions">Другие функции</a></dt>
+        </dl>
+      </div>
 
-    <div class="SECT2">
-      <h3><a name="directconfig">3.8. No switch on inactive frame even if target is configured</a></h3>
-      <p>
-      That one is almost an hidden feature.<BR>
-      As presented in <a href="#settarget">point 2.7 of this page</a>, you might have configured the Directory Hotlist entry to also switch the directory of the inactive frame to switch to a specified target directory.<BR>
-      But sometimes, it might be desirable to don't have the target folder to switch but only the main active frame.<BR>
-      You may avoid this by this little trick: having the "<B>CTRL</b>" key on the keyboard pressed when you click the shortcut in the Directory Hotlist popup menu.<BR>
-      If the "<B>CTRL</b>" key is hold press at the moment you click the shortcut, only the active frame will switch, the target won't.<BR>
-      </p>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="directconfig">3.8. Directly configure an entry from popup menu</a></h3>
-      <p>
-      That one also is almost an hidden feature.<BR>
-      As you are in browsing in the Directory Hotlist popup menu, it happen you see a typo you wish to correct or something that is not organize the way you want.<BR>
-      Certainly you can then click lower to go in the configuration, search in the tree where it was, and then proceed to your correction.<BR>
-      But there is a little trick to do better, quicker and simpler.<BR>
-      While in the Directory Hotlist popup menu, have the "<B>SHIFT</b>" key on the keyboard pressed when you click the menu item where you wish to directly go in the configuration window to configure to your taste.<BR>
-      If the "<B>SHIFT</b>" key is hold press at the moment you click the shortcut, DC will bring you to the configuration screen with the selection ready to be edited to your wish.<BR>
-      You won't have to search for it in the list!<BR>
-      </p>
-    </div>
-    
-    <div class="SECT2">
-      <h3><a name="showpopup">3.9. Show complete path in popup menu</a></h3>
-      <p>
-      In the Directory Hotlist configuration screen there is a checkbox called "<B>In popup, show[path also]</b>".<BR>
-      This option, when checked, will instruct Double Commander to show directly in the popup entry the complete path where the shortcut is pointing.<BR>
-      So you'll see not only the hotdir name you gave, but it will show also the full path where it will jump if you click.<BR>
-      That one might be annoying since it adds a lot of text on screen and we might be tired to see this.<BR>
-      But in some circumstances, especially with the special dirs regarding the windows defined directories and also the environment variables pointing directories.<BR>
-      It's nice to have a direct overview to where each one is pointing.<BR>
-      <img class="LARGEIMAGE" title="Show full path" alt="Show full path" src="images/imgDC/dirhot_showfullpath.png" width="650" height="596" style="border:1px solid lightgray">
-      </p>
-    </div>
-    <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-    
-    <div class="SECT2">
-      <h3><a name="smartenv">3.10. Keep only environment variables that look like a directory</a></h3>
-      <p>
-      In the "Special Dirs" section of the Directory Hotlist popup menu, you'll see you can have environment variables.<BR>
-      It's not necessary ALL the variables that are in fact a directory.<BR>
-      In the Directory Hotlist Configuration, you may check the option "<B>Show only valid %env_var%</b>".<BR>
-      When this option is checked, DC will try to eliminate from the menu the environment variable that looks like a valid path, at least for the beginning of it.<BR>
-      It will not necessary search and validate if path is actually present to don't slow down for no real need, but will quickly eliminate the obvious non-pertinent ones<BR>.
-      </p>
-    </div>
-    
-    <div class="SECT1">
-      <h2><a name="otherfunctions">4. Other functions</a></h2>
-      <p>There are maybe some other little possibilities and function with the Double Commander Directory Hotlist feature that are present in the application and not describe here.<BR>
-      It's hard (and sometimes annoying even if still necessary) to keep up to date a help file like this.<BR>
-      But certainly you'll figure most of it and this help section at least cover the most important points of the matter.</p>
-    </div>
-  <p class="NAVBACK"><a href="#topofpage">on top</a></p>
-  </div> 
+      <div>
+        <h2><a name="intro">1. Введение</a></h2>
+        <p>Введение в избранные каталоги</p>
+      </div>
 
-  <p class="NAVBACK"><a href="help.html#22_lichnue_catalogi">Back to main help Directory Hotlist overview</a></p>
-  <p class="NAVBACK"><a href="help.html">Content</a></p>
-  
-</body>
+      <div>
+        <h2><a name="definition">1.1. Описание</a></h2>
+        <p>Избранные каталоги&nbsp;&mdash; это удобный список каталогов, которые вы используете наиболее часто.</p>
+        <p>На диске ничего не создается, это просто список ярлыков для быстрого доступа к "горячим" каталогам.</p>
+        <p>Используя их для перехода в каталог, вы не будете как обезьяна прыгать с ветки на ветку в вашем дереве каталогов.</p>
+        <p>Кроме того, чтобы не забыть, хорошо иметь список ссылок на важные для вас каталоги.</p>
+        <p>Даже если вы не заходите в них очень часто, всё равно сэкономите время, когда это понадобится, потому что вам не придётся их искать.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
 
+      <div>
+        <h2><a name="overview">1.2. Краткий обзор</a></h2>
+        <p>Из главной панели вы можете увидеть избранные каталоги в виде всплывающего меню.</p>
+        <p>При щелчке по одной из записей вы сразу перейдёте в заданный каталог.</p>
+        <p>Вам не придётся переходить по папкам, из одной в другую, чтобы достичь цели.</p>
+        <p class="figure"><img class="largeimage" title="Краткий обзор" alt="Краткий обзор" src="images/imgDC/dirhot_overview.png" width="798" height="213"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="usage">2. Использование избранных каталогов</a></h2>
+        <p>Ниже перечислены общие действия, связанные с избранными каталогами</p>
+      </div>
+
+      <div>
+        <h2><a name="access">2.1. Как получить доступ к избранным каталогам</a></h2>
+        <p>
+          В главном меню выберите "<b>Команды</b>" и далее "<b>Избранные каталоги</b>".<BR>
+          Появится всплывающее меню, далее вы можете щёлкнуть по пункту и будет открыт соответствующий ему каталог.
+        </p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="otheraccess">2.2. Другие способы доступа к избранным каталогам</a></h2>
+        <ul>
+          <li><p>Вы можете нажать кнопку со звездочкой "*" в правом верхнем углу активной файловой панели.</p></li>
+          <li><p>Вы можете создать на панели инструментов кнопку с внутренней командой "<a href="cmds.html#cm_DirHotList">cm_DirHotList</a>".</p></li>
+          <li><p>Для появления всплывающего меню вы также можете использовать двойной щелчок по заголовку активной вкладки.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configure">2.3. Как настроить избранные каталоги</a></h2>
+        <p>В главном меню выберите "<B>Настройки</b>" и далее "<B>Настройка избранных каталогов</b>".</p>
+        <p>Вы увидите то же самое дерево, как и в меню избранных каталогов в главной панели, но с большим количеством функций для редактирования, перемещения и т.д.</p>
+        <p class="figure"><img class="largeimage" title="Настройка" alt="Настройка" src="images/imgDC/dirhot_configure.png" width="903" height="566"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="otherconfigure">2.4. Другие способы доступа к настройке избранных каталогов</a></h2>
+        <ul>
+          <li><p>Во всплывающем меню избранных каталогов всегда есть пункт быстрого доступа к соответствующей странице окна настроек.</p></li>
+          <li><p>Вы можете добавить кнопку с внутренней командой "<a href="cmds.html#cm_ConfigDirHotList">cm_ConfigDirHotList</a>".</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addentry">2.5. Как добавить каталог в избранные каталоги</a></h2>
+        <p>Самый простой способ:</p>
+        <ul>
+          <li>1. В активной панели перейдите в каталог, который хотите добавить.</li>
+          <li>2. Вызовите меню избранных каталогов (например, через меню "<B>Команды</b>" и далее "<B>Избранные каталоги</b>").</li>
+          <li>3. Щёлкните "<B>Добавить текущий: ваш_каталог</b>".</li>
+          <li>4. После этого будет открыто окно настроек избранных каталогов, подтверждающее, что каталог был добавлен.</li>
+          <li>5. Фокус будет помещён на добавленную запись.</li>
+        </ul>
+        <p class="figure"><img class="largeimage" title="Добавление записи" alt="Добавление записи" src="images/imgDC/dirhot_addentry.png" width="826" height="396"></p>
+        <p>Далее мы увидим, что есть гораздо больше способов добавить запись в избранные каталоги.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="personalize">2.6. Персонализация новой записи в избранных каталогах</a></h2>
+        <p>По умолчанию при добавлении каталога в избранные именем записи станет имя последней папки в пути.</p>
+        <p>Но если вы хотите, то можете переименовать её: просто перейдите в поле "<b>Имя</b>" и введите легко запоминающееся.</p>
+        <p>В этом примере имя папки "doc", но именем записи будет "Documentation" и именно его вы увидите во всплывающем меню.</p>
+        <p class="figure"><img class="largeimage" title="Персонализация" alt="Персонализация" src="images/imgDC/dirhot_personalize.png" width="754" height="437"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="settarget">2.7. Установка целевого пути</a></h2>
+        <p>Кроме добавления каталога, который будет открыт в активной панели, вы также можете указать "<B>Каталог назначения</b>" для неактивной панели.</p>
+        <p>Таким образом, для часто повторяющихся действий, когда вам нужно скопировать данные из каталога "А" в каталог "В", вы будете просто выбирать соответствующий пункт меню избранных каталогов и DC установит необходимые каталоги в активной и неактивной панелях.</p>
+        <p>Для того, чтобы определить каталог назначения, просто укажите его в поле "<B>Целевой путь</b>".</p>
+        <p>В примере ниже показана папка "Directory A" с "Directory B" в качестве каталога назначения:</p>
+        <p class="figure"><img class="largeimage" title="Установка целевого пути" alt="Установка целевого пути" src="images/imgDC/dirhot_settarget.png" width="860" height="312"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="definesort">2.8. Определение порядка сортировки после смены каталога</a></h2>
+        <p>Справа от полей "<B>Путь</b>" и "<B>Целевой путь</b>" есть выпадающие меню, позволяющие задать порядок сортировки в панели после открытия.</p>
+        <p>Так, если установить "<B>Дата 9-0</b>", то при использовании избранных каталогов в файловой панели не только будет открыт определённый путь, но и будет переключена на обратный хронологический порядок сортировка по дате.</p>
+        <p>Установите значение "нет", если не хотите менять сортировку в открываемом каталоге.</p>
+        <p class="figure"><img class="largeimage" title="Порядок сортировки" alt="Порядок сортировки" src="images/imgDC/dirhot_definesort.png" width="440" height="211"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="helperpath">2.9. Помощник для пути и целевого пути</a></h2>
+        <p>Конечно, вы можете работать с абсолютным путем, и это будет нормально работать на ЭТОЙ машине.</p>
+        <p>Но давайте предположим, что у вас на USB-флешке есть Double Commander с большим количеством других инструментов, подобно швейцарскому ножу.</p>
+        <p>Тогда вы можете пожелать использовать пути, относительные к каталогу Double Commander.</p>
+        <p>Допустим, у вас есть путь "<B>E:\PortableApps\Notepad++Portable\Data\Config\</b>" и это отлично работает.</p>
+        <p>Но вы можете сделать его относительным к каталогу "Double Commander" и перестать зависеть от буквы диска: "<B>%commander_path%\..\..\Notepad++Portable\Data\Config\</b>".</p>
+        <p>Чтобы помочь вам понять, что вводить (другими словами, сколько "..\" использовать!), справа от полей "<B>Путь</b>" и "<B>Целевой путь</b>" есть небольшая кнопка, показывающая всплывающее меню с различными маленькими инструментами для изменения и получения желаемого пути.</p>
+        <p>Но это лишь одна из возможностей использования этой кнопки.</p>
+        <p>Краткий обзор того, что вы там найдете:</p>
+
+        <ul>
+          <li><B>Использовать специальные пути Double Commander</b> - Путь к исполняемому файлу, путь к файлам конфигурации и т.д.</li>
+          <li><B>Использовать специальную папку Windows (TC)</b> - Для Microsoft Windows, различные относительные пути Windows, аналог псевдопеременных ТС.</li>
+          <li><B>Использовать другую специальную папку Windows</b> - То же, что и выше, но новое, нет в TC.</li>
+          <li><B>Использовать переменную окружения</b> - Конечно, некоторые значения на самом деле не будут действительно полезными, но другие могут ими быть, давайте их использовать!</li>
+          <li><B>Использовать путь из избранных каталогов</b> - Вы можете добавить избранные каталоги... из избранных каталогов!</li>
+          <li><B>Сделать путь относительным к...</b> - То же самое для каждого из перечисленных выше, НО вместо прямого ДОБАВЛЕНИЯ пути, он будет сделан относительным к выбранному.</li>
+          <li><B>Сделать путь абсолютным</b> - Делает противоположное, разворачивая ваш относительный путь в абсолютный.</li>
+          <li><B>Добавить путь из активной панели</b> - Будет добавлен путь непосредственно из активной панели главного окна.</li>
+          <li><B>Добавить путь из неактивной панели</b> - То же, что и выше, но из неактивной панели.</li>
+          <li><B>Диалог выбора папки</b> - Откроет диалог выбора папки, где вы сможете просто выбрать нужную.</li>
+        </ul>
+        <p class="figure"><img class="largeimage" title="Помощник" alt="Помощник" src="images/imgDC/dirhot_helperpath.png" width="593" height="370"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="changeorder">2.10. Изменение порядка записей</a></h2>
+        <p>Со временем список избранных каталогов растёт и вы можете пожелать изменить порядок записей: просто перетаскивайте мышью выделенную на новое место.</p>
+        <p>С зажатой клавишей "<B>Ctrl</b>" можно выделить более одной записи.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="cutandpaste">2.11. Использование команд "Вырезать" и "Вставить"</a></h2>
+        <p>Если список избранных каталогов очень длинный и новое место находится слишком далеко, то использовать перетаскивание будет не очень удобно.</p>
+        <p>Вы можете выбрать нужную запись, щёлкнуть по кнопке "Разное", выбрать в меню пункт "<B>Вырезать выделенные</b>", затем переместить курсор к новой позиции, снова щёлкнуть по кнопке "Разное" и выбрать пункт "<B>Вставить вырезанное</b>".</p>
+        <p>С зажатой клавишей "<B>Ctrl</b>" можно выделить более одной записи.</p>
+        <p class="figure"><img class="largeimage" title="Вырезать-и-вставить" alt="Вырезать-и-вставить" src="images/imgDC/dirhot_cutandpaste.png" width="875" height="584"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="organizetree">2.12. Организация записей в виде дерева</a></h2>
+        <p>Если вы ярый поклонник избранных каталогов, подобно автору этих строк, одномерного списка вам будет недостаточно!</p>
+        <p>Double Commander позволяет создавать в избранных каталогах подменю, более того, вы можете использовать подменю внутри подменю.</p>
+        <p>Это означает, что вы можете организовать избранные каталоги так, как вам удобно.</p>
+        <p>Чтобы добавить подменю, щёлкните по нужному месту правой кнопкой мыши и выберите пункт "<B>Добавить подменю</b>".</p>
+        <p>Будет создано подменю с именем "Подменю" и с записью с именем "Имя записи".</p>
+        <p>Как видите, в поле ниже вы можете дать подменю осмысленное имя.</p>
+        <p>Теперь вы можете добавить в подменю новые записи, переместить в него имеющиеся и т.д.</p>
+        <p>Обратите внимание, вы можете перемещать или вырезать и вставлять и подменю, что упростит создание и перестраивание списка избранных каталогов.</p>
+        <p class="figure"><img class="largeimage" title="Организация дерева" alt="Организация дерева" src="images/imgDC/dirhot_organizetree.png" width="245" height="250"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addseperator">2.13. Добавление разделителей</a></h2>
+        <p>Имея большое количество записей, можно удобно упорядочить список, добавив разделители для создания категорий.</p>
+        <p>Чтобы добавить разделитель, просто переместите курсор к нужной позиции, щёлкните правой кнопкой мыши и выберите "<B>Добавить разделитель</b>".</p>
+        <p>В окне настроек в дереве записей DC покажет линию с точками, но во всплывающем меню избранных каталогов вы увидите нормальный разделитель меню.</p>
+        <p class="figure"><img class="largeimage" title="Добавить разделитель" alt="Добавить разделитель" src="images/imgDC/dirhot_addseperator.png" width="759" height="437"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="sorting">2.14. Сортировка записей</a></h2>
+        <p>Как было описано выше, перетаскиванием записей вы можете добиться желаемого вида избранных каталогов.</p>
+        <p>Но если вас устраивает работать с именами, расположенными по алфавиту, то вы можете использовать встроенные функции сортировки.</p>
+        <p>Всё просто: выделите записи, которые хотите отсортировать, нажмите кнопку "<B>Сортировать...</b>" и выберите в выпадающем меню подходящую для вас функцию сортировки.</p>
+        <p>Доступно пять вариантов сортировки:</p>
+        <ul>
+          <li><B>Только одна группа записи(ей)</b> - Сортирует область текущей выбранной записи. Под словом "область" подразумевается, что записи находятся или между двумя разделителями, или между началом меню и разделителем, или же между разделителем и концом меню.</li>
+          <li><B>Только текущий уровень выделенной записи(ей)</b> - Не только область текущего выбора, но и все записи на этой ветке. DC будет сортировать соблюдая группировку: записи внутри групп не будут перемещаться через разделитель.</li>
+          <li><B>Содержимое выделенного(ых) подменю, но не подуровни</b> - Сортирует только дочерние записи выбранного подменю, не затрагивая содержимое дочерних подменю.</li>
+          <li><B>Содержимое выделенного(ых) подменю и все подуровни</b> - То же, что и пункт выше, но будет сортировать также и все подменю внутри этой ветви.</li>
+          <li><B>Все, от А до Я!</b> - Фаворит автора этих строк: как следует из названия, будет просто сортировать все записи, но по-прежнему соблюдая группировку: записи не будут перемещаться за разделители или из одной ветки в другую.</li>
+        </ul>
+        <p>Как уже было сказано ранее, ни один из способов сортировки не будет перемещать запись через разделитель.</p>
+        <p>Просто чтобы убедиться, что вы верно поняли, смотрите пример ниже: папка "Root" всегда будет оставаться на своём месте, так как под ней есть разделитель.</p>
+        <p>Разделители полезны не только для визуального разделения, но и как ограничители сортировки!</p>
+        <p class="figure"><img class="largeimage" title="Сортировка записей" alt="Сортировка записей" src="images/imgDC/dirhot_sorting.png" width="501" height="301"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="expert">3. "Экспертные" функции</a></h2>
+        <p>Ниже будут описаны реже используемые возможности, но тем не менее о них всё равно полезно знать.</p>
+      </div>
+
+      <div>
+        <h2><a name="backup">3.1. Резервная копия избранных каталогов</a></h2>
+        <p>По мере того, как ваш список избранных каталогов растёт, вы можете пожелать на всякий случай сделать резервную копию, чтобы не потерять ценные ссылки.</p>
+        <p>Для этого в правой части окна настроек есть кнопка "<B>Резервирование</b>", нажмите на неё и в появившемся меню выберите пункт "<B>Сохранить резервную копию избранных каталогов</b>".</p>
+        <p>Резервная копия будет сохранена в папку "Backup" в каталоге с файлами конфигурации Double Commander.</p>
+        <p>Резервная копия сохраняется в файл с расширением ".hotlist", имя файла включает в себя текущие дату и время.</p>
+        <p class="figure"><img class="largeimage" title="Резервная копия (сохранение)" alt="Резервная копия (сохранение)" src="images/imgDC/dirhot_backup.png" width="895" height="297"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="restore">3.2. Восстановление избранных каталогов из резервной копии</a></h2>
+        <p>Аналогично, как и выше, нажимаете на ту же кнопку с именем "<B>Резервирование</b>", а в меню выбираете пункт "<B>Восстановить избранные каталоги из резервной копии</b>". В появившемся окне выберите копию, которую требуется восстановить.</p>
+        <p>При восстановлении из резервной копии текущий список избранных каталогов будет очищен, после чего будут добавлены записи из файла.</p>
+        <p>Если вы хотите восстановить только некоторые записи из файла резервной копии, то вы можете воспользоваться функцией "<B>Импорт</b>": будет предложено указать файл резервной копии, а потом выбрать из него те записи, которые вы хотите добавить.</p>
+        <p class="figure"><img class="largeimage" title="Резервная копия (восстановление)" alt="Резервная копия (восстановление)" src="images/imgDC/dirhot_importbackup.png" width="805" height="314"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exportimportsimple">3.3. Экспорт/импорт избранных каталогов (или части)</a></h2>
+        <p>Вы можете пожелать экспортировать свои избранные каталоги (или часть списка), чтобы не добавлять их по одному на другом компьютере или другой копии DC.</p>
+        <p>Чтобы это сделать, нажмите кнопку "<B>Экспорт...</b>" и выберите "<B>...в файл избранных каталогов (.hotlist)</b>", вам будет предложено ввести имя файла и указать место для сохранения.</p>
+        <p>Теперь вам будет предложено выбрать, что вы хотите экспортировать.</p>
+        <p>Вы можете экспортировать всё дерево или выбрать записи по одной.</p>
+        <p>Вы можете выбрать всё подменю без выделения записей в нём, просто выделите имя подменю.</p>
+        <p>С зажатой клавишей "<B>Ctrl</b>" можно выделить более одной записи.</p>
+        <BR>
+        <p>Затем, на другом компьютере, щёлкаете "<B>Импорт...</b>", выбираете в меню "<B>из файла избранных каталогов (.hotlist)</b>" и далее вам нужно будет указать файл для импорта.</p>
+        <p>Аналогично, как и с экспортом, вы можете импортировать все записи или же выбрать только нужные.</p>
+        <p>Импортируемые записи будут добавлены в конец вашего списка.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exportimporttc">3.4. Экспорт/импорт в/из Total Commander</a></h2>
+        <p>Double Commander также может экспортировать/импортировать избранные каталоги в/из Total Commander.</p>
+        <p>Давайте предположим, что вы хотите импортировать некоторые записи из Total Commander.</p>
+        <p>В окне настроек избранных каталогов нажмите кнопку "<B>Импорт...</b>", выберите "<B>из файла "wincmd.ini" от TC</b>" и укажите файл "wincmd.ini".</p>
+        <p>Если вы не знаете, где расположен этот файл, в окне Total Commander щёлкните по пункту "<B>Справка</b>" в главном меню, выберите пункт "<B>О Total Commander...</b>" и в открывшемся окне будет показано расположение INI-файла.</p>
+        <p>Появится дерево записей, считанных из INI-файла Total Commander, теперь вы можете импортировать все записи или же выбрать только нужные.</p>
+        <p>Для выбора нескольких записей используйте зажатую клавишу "<B>Ctrl</b>".</p>
+        <p>Импортируемые записи будут добавлены в конец вашего списка.</p>
+        <p class="figure"><img class="largeimage" title="Импорт из ТС" alt="Импорт из ТС" src="images/imgDC/dirhot_importfromtc.png" width="759" height="591"></p>
+        <p>Также возможна обратная операция: экспорт всех или части избранных каталогов в Избранное Total Commander.</p>
+        <p>Чтобы это сделать, нажмите кнопку "<B>Экспорт...</b>" и выберите один из двух вариантов экспорта.</p>
+        <p>Если вы хотите заменить все записи Total Commander, то выберите "<B>в файл wincmd.ini TC (удалить существующие)</b>".</p>
+        <p>И здесь тоже вы можете выбрать, экспортировать все или только выбранные.</p>
+        <p>Для выбора нескольких записей используйте зажатую клавишу "<B>Ctrl</b>".</p>
+        <p>Если Total Commander был запущен, то вам необходимо будет перезапустить его (закрыть и снова открыть).</p>
+        <p>Total Commander, в отличие от Double Commander, не предлагает простые способы создания структурированного списка и сортировки, таким образом, вы можете импортировать Избранное из Total Commander, организовать нужным образом список и экспортировать обратно!</p>
+        <BR>
+        <p><B>*Примечание: Функция была протестирована и INI-файл Total Commander вряд ли будет повреждён, но, конечно, создание резервной копии файла перед экспортом было бы хорошим решением и всячески приветствуется.</b></p>
+        <p><B>Вы делаете это на свой страх и риск!</b></p>
+        <p><B>...риск открыть для себя такую хорошую программу, как Double Commander!</b></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="scanpresence">3.5. Сканирование избранных каталогов для поиска отсутствующих путей</a></h2>
+        <p>Со временем может случиться, что в ваших избранных каталогах окажутся записи, указывающие на каталоги, которые больше не существуют.</p>
+        <p>Чтобы найти эти записи, в окне настройки избранных каталогов нажмите кнопку "<B>Разное</b>" и выберите "<B>Проверить существование всех путей</b>".</p>
+        <p>Это заставит приложение просканировать все каталоги, на которые указывают ваши записи.</p>
+        <p>Если подобные записи будут найдены, то слева от них появится значок ошибки.</p>
+        <p>Слева от имени подменю с хотя бы одной записью с ошибкой также будет показан специальный значок с ошибкой.</p>
+        <p class="figure"><img class="largeimage" title="Проверка на наличие или отсутствие каталогов" alt="Проверка на наличие или отсутствие каталогов" src="images/imgDC/dirhot_scanexist.png" width="543" height="502"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <BR>
+
+        <p>Таким образом, вы можете либо стереть эти записи, так как их каталоги больше не существуют, или же оставить.</p>
+        <p>Почему оставить? Потому что если использовать Double Commander на USB-флешке, то совершенно нормально, если на компьютере не будет каталогов, которые есть на другом.</p>
+        <p>Но если так, то как функция "<B>Проверить существование всех путей</b>" может вам помочь?</p>
+        <p>Очень просто: функция уберёт эти записи из всплывающего меню избранных каталогов в главном окне.</p>
+        <p>Записи несуществующих папок, не будут отображаться!</p>
+        <p>Тем не менее, они не будут навсегда удалены из внутреннего списка избранных каталогов, они просто не будут показаны в меню в текущей сессии.</p>
+        <p>Смотрите результат предыдущего примера.</p>
+        <p class="figure"><img class="largeimage" title="Очистка меню" alt="Очистка меню" src="images/imgDC/dirhot_cleanedmenu.png" width="578" height="515"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addingmanyatthetime">3.6. Добавление более одного каталога за раз</a></h2>
+        <p>При пополнении списка избранных каталогов может возникнуть ситуация, когда вам понадобиться добавить сразу несколько каталогов.</p>
+        <p>Есть два способа сделать это.</p>
+        <p><B>Первый способ: непосредственно из главного окна, выделив нужные</b></p>
+        <p>Это очень просто: выделите каталоги, которые хотите добавить, вызовите меню избранных каталогов и выберите пункт "<B>Добавить Х выделенных каталогов</b>".</p>
+        <p>Каталоги буду добавлены в соответствии с настройками добавления из главной панели.</p>
+        <p>Если у вас выбрана опция "<B>Умное добавление</b>", то увидите, как хорошо они будут размещены!</p>
+        <p class="figure"><img class="largeimage" title="Добавить более одной записи за раз" alt="Добавить более одной записи за раз" src="images/imgDC/dirhot_addmanyatonce.png" width="888" height="487"></p>
+
+        <p><B>Второй способ: похож на первый, но одновременно открыты и главное окно, и окно настройки избранных каталогов</b></p>
+        <p>Это так же легко: вызовите окно настройки избранных каталогов, поставьте курсор в место, куда хотите добавить, после чего нажмите кнопку "<B>Добавить</b>" или "<B>Вставить</b>" и выберите "<B>текущий или выделенные каталоги активной панели</b>".</p>
+        <p>Теперь вы можете сортировать, переименовывать и организовать добавленные как пожелаете.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="notthetarget">3.7. Не менять путь в неактивной панели даже если указан целевой путь</a></h2>
+        <p>Одна из скрытых возможностей.</p>
+        <p>Как было показано в <a href="#settarget">пункте 2.7</a>, в настройках записи можно указать и переход в неактивной панели, но при этом иногда было бы желательно изменить каталог только в активной панели.</p>
+        <p>Вы можете сделать это с помощью маленькой хитрости: зажав клавишу "<B>Ctrl</b>" при щелчке по нужной записи в меню избранных каталогов.</p>
+        <p>И DC перейдёт в каталог, указанный для активной панели, игнорируя второй, для неактивной.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="directconfig">3.8. Перейти из меню непосредственно к настройке выбранной записи</a></h2>
+        <p>Также одна из скрытых возможностей.</p>
+        <p>Если во всплывающем меню избранных каталогов вы увидели опечатку или же хотите что-то изменить, то, конечно, вы можете выбрать пункт, который откроет окно настроек, найти в дереве нужную запись и внести необходимые изменения.</p>
+        <p>Но есть маленькая хитрость, как сделать это лучше, быстрее и проще.</p>
+        <p>Вы может щёлкнуть по пункту меню избранных каталогов с зажатой клавишей "<B>Shift</b>" и DC откроет окно настроек, перейдя непосредственно к нужной записи.</p>
+        <p>Вам не придётся искать её в списке!</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="showpopup">3.9. Показывать в меню полный путь</a></h2>
+        <p>В окне настроек избранных каталогов есть опция "<B>Показывать в меню также и [путь]</b>".</p>
+        <p>Если эта опция включена, во всплывающем меню Double Commander покажет полный путь для каждой записи.</p>
+        <p>Таким образом, вы будете видеть не только имя записи, но и каталог, в который перейдёте после выбора.</p>
+        <p>Это может раздражать, так как занимает много места на экране.</p>
+        <p>Но в некоторых случаях (например, специальные каталоги Windows или переменные окружения, указывающие на каталоги) такая подсказка может быть удобна.</p>
+        <p class="figure"><img class="largeimage" title="Показывать полный путь" alt="Показывать полный путь" src="images/imgDC/dirhot_showfullpath.png" width="650" height="596"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="smartenv">3.10. Показывать только те переменные окружения, которые выглядят как каталог</a></h2>
+        <p>В пункте "Специальные каталоги" всплывающего меню избранных каталогов можно увидеть переменные окружения.</p>
+        <p>Не обязательно ВСЕ переменные на самом деле являются каталогом.</p>
+        <p>В настройках избранных каталогов вы можете отметить опцию "<B>Показывать только приемлемые переменные окружения</b>".</p>
+        <p>Когда эта опция включена, DC попытается исключить из меню переменную окружения, которая не выглядит как правильный путь, по крайней мере, её начало.</p>
+        <p>DC не проводит проверку, что путь на самом деле существует, но это позволит быстро убрать из списка очевидно неподходящие.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="otherfunctions">4. Другие функции</a></h2>
+        <p>Возможно, в избранных каталогах Double Commander существуют и некоторые другие маленькие возможности и функции, которые здесь не описаны: трудно (а иногда раздражает, даже если по-прежнему необходимо) постоянно обновлять файл справки.</p>
+        <p>Но, конечно, большинство из них описаны здесь и эта страница охватывает, по крайней мере, наиболее важные моменты.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <BR>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="multiarc.html">След.</a></div></div>
+    <div class="checker">
+	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+	</div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
 </html>

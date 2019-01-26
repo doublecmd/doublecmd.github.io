@@ -1,0 +1,898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Скрипты Lua</title>
+    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Домашняя страница</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="regexp.html">Пред.</a> | <a title="Следующая страница" href="commandline.html">След.</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.10. Скрипты Lua</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#preface">Введение</a></dt>
+          <dt>2. <a href="#dllrequired">Необходимая DLL</a></dt>
+          <dt>3. <a href="#libraries">Библиотеки функций Double Commander</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#libdc">Библиотека DC</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.1.1. <a href="#exampleex">Пример с DC.ExecuteCommand</a></dt>
+                </dl>
+              </dd>
+              <dt>3.2. <a href="#librarysystem">Библиотека System</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.2.1. <a href="#detailattr">Описание возвращаемого значения SysUtils.FileGetAttr</a></dt>
+                  <dt>3.2.2. <a href="#exampleattr">Пример с SysUtils.FileGetAttr</a></dt>
+                  <dt>3.2.3. <a href="#examplefind">Пример использования FindFirst, FindNext и FindClose</a></dt>
+                </dl>
+              </dd>
+              <dt>3.3. <a href="#libraryclip">Библиотека Clipboard</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.3.1. <a href="#exampleclip">Пример работы с буфером обмена</a></dt>
+                </dl>
+              </dd>
+              <dt>3.4. <a href="#librarydialogs">Библиотека Dialogs</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.4.1. <a href="#dlgbuts">Кнопки Dialogs.MessageBox</a></dt>
+                  <dt>3.4.2. <a href="#dlgstyle">Стиль окна Dialogs.MessageBox</a></dt>
+                  <dt>3.4.3. <a href="#dlgdefbut">Кнопка по умолчанию в Dialogs.MessageBox</a></dt>
+                  <dt>3.4.4. <a href="#msgreturn">Возвращаемое значение Dialogs.MessageBox</a></dt>
+                  <dt>3.4.5. <a href="#mesgboxsample">Пример использования Dialogs.MessageBox</a></dt>
+                  <dt>3.4.6. <a href="#querysample">Пример использования Dialogs.InputQuery</a></dt>
+                </dl>
+              </dd>
+              <dt>3.5. <a href="#libraryutf8">Библиотека UTF-8</a></dt>
+              <dt>3.6. <a href="#libraryos">Библиотека OS</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2>1. <a name="preface">Введение</a></h2>
+        <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
+        <p>Эта возможность добавлена в версии 0.8.</p>
+        <p>Также на языке Lua возможно писать контентные (информационные) плагины (WDX).</p>
+        <p>Более подробную информацию о языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">официальном веб-сайте Lua</a>.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>2. <a name="dllrequired">Необходимая DLL</a></h2>
+        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua версии 5.1, DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
+        <p>По умолчанию DC ищет файл с именем <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix или GNU/Linux) или <code>liblua5.1.dylib</code> (Mac OS).</p>
+        <p>Мы можем использовать DLL-файл <a href="http://luajit.org/" target="_blank">проекта LuaJIT</a> (может потребовать ручного изменения имени файла в параметре <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a>). LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
+        <p>Если мы используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
+        <p>Как правило, DLL-файл поставляется в дистрибутиве DC, но если по какой-либо причине его нет, можно найти его по <a href="http://luabinaries.sourceforge.net/" target="_blank">этой ссылке</a> или установить с помощью менеджера пакетов.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3. <a name="libraries">Библиотеки функций Double Commander</a></h2>
+        <p>Double Commander предлагает несколько библиотек функций для скриптов Lua, список представлен ниже.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">Список библиотек</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Библиотека</th><th class="namecolumn">Имя функции</th><th class="categorydesccolumn">Краткое описание</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libdc">Библиотека Double Commander</a></div></td><td class="hintcell">DC</td><td class="hintcell">Особые функции Double Commander</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarysystem">Библиотека System</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Различные системные функции</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Библиотека Clipboard</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Различные функции для работы с буфером обмена</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Библиотека Dialogs</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Взаимодействие с пользователем</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">Библиотека UTF-8</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">Строковые функции для работы с UTF-8</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">Библиотека OS</a></div></td><td class="hintcell">OS</td><td class="hintcell">Функции, связанные с операционной системой</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.1. <a name="libdc">Библиотека DC</a></h2>
+        <p>Эта библиотека содержит особые функции Double Commander, все функции представлены в таблице <code>DC</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека DC</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
+              <p>Пишет сообщение в окно протокола.</p>
+              <p>Описание:</p>
+              <ul>
+                <li><var>Message</var> : Текст сообщения.</li>
+                <li><var>MsgType</var> : Тип сообщения: 0 - информационное, 1 - успешная операция, 2 - ощибка.</li>
+                <li><var>bForce</var> : Логическое (булево) значение, если <code>true</code>, то показать окно протокола (если оно скрыто).</li>
+                <li><var>bLogFile</var> : Логическое (булево) значение, если <code>true</code>, то сообщение будет записано и в файл протокола.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
+            <td class="hintcell">
+              <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
+              <p>Вызывает внутреннюю команду Double Commander <var>Command</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
+              <p>Мы можем подставить столько <var>Param...</var>, сколько поддерживает команда <var>Command</var>.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.1.1. <a name="exampleex">Пример с DC.ExecuteCommand</a></h2>
+        <p>В этом примере мы написали простой скрипт, который сделает следующее:</p>
+        <ol>
+          <li>перенесёт фокус на правую панель</li>
+          <li>закроет все открытые вкладки</li>
+          <li>перейдёт в указанную папку</li>
+          <li>перенесёт фокус на левую панель</li>
+          <li>закроет все открытые вкладки</li>
+          <li>перейдёт в указанный каталог</li>
+          <li>откроет новую вкладку</li>
+          <li>перейдёт в указанный каталог</li>
+        </ol>
+
+        <pre>
+<span class="luacmt">-- 1. Перенести фокус на правую панель.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span>, <span class="luastr">"side=right"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 2. Закрыть все вкладки.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 3. Перейти в указанный каталог.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"e:\\FakeKey\\Documents\\Music"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 4. Перенести фокус на левую панель.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span>, <span class="luastr">"side=left"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 5. Закрыть все вкладки.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 6. Перейти в указанный каталог.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"C:\\Users\\Public\\Music"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 7. Открыть новую вкладку.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 8. Перейти в указанный каталог.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"e:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
+
+        <p>Для выполнения нашего скрипта мы можем создать кнопку на панели инструментов с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
+        <p>Предположим, наш скрипт <code>e:\scripts\lua\music.lua</code>, мы могли бы настроить эту кнопку следующим образом:</p>
+        <p class="figure"><img class="largeimage" title="Вызов скрипта Lua кнопкой панели инструментов" alt="Вызов скрипта Lua кнопкой панели инструментов" src="images/imgDC/luaimg1.png" width="542" height="290"></p>
+
+        <p>Кроме того, для редактирования наших скриптов мы можем использовать внутренний редактор Double Commander.</p>
+        <p>Если файл имеет расширение <code>.lua</code>, то он будет распознан внутренним редактором и открыт с подсветкой синтаксиса, специфичного для языка Lua:</p>
+        <p class="figure"><img class="largeimage" title="Подсветка синтаксиса Lua во внутреннем редакторе" alt="Подсветка синтаксиса Lua во внутреннем редакторе" src="images/imgDC/luaimg2.png" width="676" height="498"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.2. <a name="librarysystem">Библиотека System</a></h2>
+        <p>Эта библиотека содержит различные системные функции, все они представлены в таблице <code>SysUtils</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека System</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.Sleep(Milliseconds)</p>
+              <p>Приостанавливает выполнение скрипта на указанное количество миллисекунд (<var>Milliseconds</var>), выполнение сценария будет продолжено после истечения указанного времени.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.GetTickCount()</p>
+              <p>Возвращает количество интервалов времени (тиков) с момента старта системы. Это полезно для измерения времени, но не следует делать каких-либо предположений относительно количества времени в интервале между тиками.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
+            <td class="hintcell">
+              <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
+              <p>Проверяет, существует ли в файловой системе определённый файл.</p>
+              <p><var>FileExists</var> возвращает <code>true</code>, если файл с именем <var>FileName</var> существует на диске, и <code>false</code> в противном случае.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
+            <td class="hintcell">
+              <p class="definition">bFlagExists = SysUtils.DirectoryExists(Directory)</p>
+              <p>Проверяет существование <var>Directory</var> в файловой системе и что это действительно каталог.</p>
+              <p>Если это так, то функция возвращает <code>true</code>, иначе возвращает <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
+            <td class="hintcell">
+              <p class="definition">Attr = SysUtils.FileGetAttr(FileName)</p>
+              <p>Возвращает в <var>Attr</var> атрибуты файла <var>FileName</var>.</p>
+              <p>Подробное описание возвращаемого значения смотрите <a href="#detailattr">здесь</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
+            <td class="hintcell">
+              <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
+              <p>Ищет файлы, совпадающие с <var>Path</var> (можно использовать маски).</p>
+              <p>Если файл не найден, <var>Handle</var> будет равно <var>nil</var>.</p>
+              <p>В случае успеха функция вернёт дескриптор поиска <var>Handle</var> для последующих вызовов <code>SysUtils.FindNext</code> и поиска других совпадений с паттерном.</p>
+              <p>Таблица <var>FindData</var> содержит информацию о найденном файле или каталоге.</p>
+              <p>Поля таблицы <var>FindData</var>:</p>
+              <ul>
+                <li><var>Name</var> : Имя файла (без пути).</li>
+                <li><var>Attr</var> : Атрибуты файла (подробнее смотрите <a href="#detailattr">здесь</a>).</li>
+                <li><var>Size</var> : Размер файла в байтах.</li>
+                <li><var>Time</var> : Отметка времени файла (в формате POSIX, так называемое Unix-время: количество секунд, прошедших с 1 января 1970 г.<sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup>)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
+            <td class="hintcell">
+              <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
+              <p>Находит следующее вхождение поиска, инициированного <var>FindFirst</var>, <var>Handle</var>&nbsp;&mdash; дескриптор поиска, возвращённый функцией <var>FindFirst</var>.</p>
+              <p>В случае успеха функция вернёт <var>Result</var> не равный <var>nil</var> и таблицу <var>FindData</var>, содержащую информацию о найденном файле или каталоге.</p>
+              <p><B><U>Замечание:</u> За последним вызовом <code>SysUtils.FindNext</code> всегда должен следовать вызов <code>SysUtils.FindClose</code> с тем же <var>Handle</var>. Несоблюдение этого приведёт к утечке памяти.</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindClose</div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.FindClose(Handle)</p>
+              <p>Завершает серию вызовов <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code> и освобождает использованную память.</p>
+              <p>Вызов этой функции <em>абсолютно</em> необходим, иначе могут возникнуть большие утечки памяти.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.PathDelim</p>
+              <p>Позволяет получить от DC разделитель пути в системе.</p>
+              <p>В системах Unix/Linux это будет " / " и " \ " в Windows.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.2.1. <a name="detailattr">Описание возвращаемого значения SysUtils.FileGetAttr</a></h2>
+        <p><var>FileGetAttr</var> возвращает атрибуты <var>FileName</var> в виде ИЛИ-совокупности следующих констант:</p>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Константы, используемые в возвращаемом значении SysUtils.FileGetAttr</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Значение</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td><td class="hintcell">Файл только для чтения.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000002<BR><SMALL class="firstcolumnaleft">faHidden</small></div></td><td class="hintcell">Скрытый файл.<BR>В Unix/Linux это значит, что имя файла начинается с точки.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000004<BR><SMALL class="firstcolumnaleft">faSysFile</small></div></td><td class="hintcell">Системный файл.<BR>В Unix/Linux это может быть символьное или блочное физическое устройство, именованный канал (FIFO).</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000008<BR><SMALL class="firstcolumnaleft">faVolumeId</small></div></td><td class="hintcell">Метка тома (означает, что файл содержит идентификатор (ID) тома).<BR>Только для DOS/Windows 9x на обычной файловой системе FAT (не VFAT или FAT32).</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td><td class="hintcell">Каталог.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td><td class="hintcell">Архивный.<BR>Не используется в Unix/Linux.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td><td class="hintcell">Символьная ссылка.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><B>Примечание: В случае ошибки функция возвращает -1.</b>
+          </tr>
+        </table>
+        <p>Смотрите пример в <a href="#exampleattr">следующей секции</a>.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.2.2. <a name="exampleattr">Пример с SysUtils.FileGetAttr</a></h2>
+        <p>Пример скрипта ниже использует SysUtils.FileGetAttr.</p>
+        <p>Если параметр окажется каталогом, то скрипт откроет его в новой вкладке активной панели и переключится на неё.</p>
+        <pre>
+<span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
+<span class="luakyw">local</span> myfileattr
+
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- Мы получили один параметр?</span>
+  myfileattr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
+  <span class="luakyw">if</span> myfileattr <span class="luasbl">></span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Получили значение атрибута?</span>
+    <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+      <span class="luacmt">-- 0x00000010 присутствует? Тогда это каталог.</span>
+      DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
+      DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
+    <span class="luakyw">end</span>
+  <span class="luakyw">end</span>
+<span class="luakyw">end</span></pre>
+
+        <p>В приведённом выше примере <var>param[1]</var> является первым параметром, переданным скрипту.</p>
+        <p>При использовании внутренней команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> это будет первый параметр, переданный после имени файла скрипта.</p>
+        <p>Итак, в нашем примере мы можем создать на панели инструментов кнопку, как показано ниже:</p>
+        <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="562" height="298"></p>
+        <p>В этом примере скрипту будет передан параметр <var>%"0%p</var>: имя выделенного в активной панели файла или папки, без кавычек.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.2.3. <a name="examplefind">Пример использования FindFirst, FindNext и FindClose</a></h2>
+        <p>В следующем примере мы просканируем содержимое каталога, переданного первым параметром, и сохраним полученные данные в текстовый файл с именем, переданным вторым параметром.</p>
+        <p>Это даст нам хорошее представление об использовании FindFirst, FindNext и FindClose.</p>
+
+        <pre>
+<span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
+
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">2</span> then <span class="luacmt">-- У нас есть два параметра?</span>
+  <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
+  <span class="luakyw">local</span> OutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+
+  OutputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>output<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
+
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span>FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
+    <span class="luakyw">repeat</span>
+      io.<span class="luafct">write</span><span class="luasbl">(</span>FindData.Name <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
+      io.<span class="luafct">write</span><span class="luasbl">(</span>FindData.Size <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
+      io.<span class="luafct">write</span><span class="luasbl">(</span><span class="luastr">"---------------\r"</span><span class="luasbl">)</span>
+
+      Result<span class="luasbl">,</span>FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindNext</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
+
+    <span class="mark">SysUtils.FindClose</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    io<span class="luasbl">.</span>close<span class="luasbl">(</span>OutputFile<span class="luasbl">)</span>
+  <span class="luakyw">end</span>
+<span class="luakyw">end</span></pre>
+        <p>В приведенном выше примере нам нужно передать скрипту два параметра:</p>
+        <ol>
+          <li><var>param[1]</var> - каталог, содержимое которого мы хотим получить</li>
+          <li><var>param[2]</var> - имя файла для сохранения результата работы скрипта</li>
+        </ol>
+        <p>Настраиваем кнопку на панели инструментов с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> и передаём параметрами всё необходимое:</p>
+        <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="558" height="260"></p>
+        <p>В этом примере скрипту в качестве первого параметра будет передано <var>%"0%Ds</var>: имя каталога активной панели, без кавычек.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.3. <a name="libraryclip">Библиотека Clipboard</a></h2>
+        <p>Double Commander предоставляет скриптам Lua библиотеку функций для работы с буфером обмена.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека Clipboard</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.Clear</div></td>
+            <td class="hintcell">
+              <p class="definition">Clipbrd.Clear()</p>
+              <p>Очищает содержимое буфера обмена.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
+            <td class="hintcell">
+              <p class="definition">StringVar = Clipbrd.GetAsText()</p>
+              <p>Получает содержимое буфера обмена как строку <var>StringVar</var>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
+            <td class="hintcell">
+              <p class="definition">Clipbrd.SetAsText(StringVar)</p>
+              <p>Помещает в буфер обмена строку текста <var>StringVar</var>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
+            <td class="hintcell">
+              <p class="definition">Clipbrd.SetAsHtml(Html)</p>
+              <p>Добавляет в буфер обмена текст <var>Html</var> в формате HTML (формат буфера обмена <code>CF_HTML</code>).</p>
+              <p>Содержимое может быть вставлено в приложения, поддерживающие этот формат буфера обмена, такие как MS Word, LO Writer и другие.</p>
+              <p>Правильным будет сохранять данные с помощью и <code>Clipbrd.SetAsText</code>, и <code>Clipbrd.SetAsHtml</code>: приложение будет использовать тот формат, который поддерживает.</p>
+              <p>Например, у нас может быть следующее:</p>
+              <ul>
+                <li><code>Clipbrd.SetAsText("Добро пожаловать в Double Commander!")</code></li>
+                <li><code>Clipbrd.SetAsHtml("Добро пожаловать в &lt;b&gt;Double Commander&lt;/b&gt;!")</code></li>
+              </ul>
+              <p>Если мы запустим Блокнот и попытаемся вставить текст из буфера обмена, то будет вставлен текст, скопированный с помощью <code>Clipbrd.SetAsText</code>. Но если мы перейдём к Microsoft Word, то будет вставлена строка с выделенным жирным шрифтом <B>Double Commander</b>, потому что Microsoft Word распознаёт и поддерживает этот формат буфера обмена.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.3.1. <a name="exampleclip">Пример работы с буфером обмена</a></h2>
+        <p>В следующем примере используются три функции, связанные с буфером обмена: <code>Clear</code>, <code>GetAsText</code> и <code>SetAsText</code>.</p>
+        <p>Это относительно большой скрипт, но было бы неплохо собрать вместе несколько функций, с которыми мы познакомились ранее.</p>
+        <p>Предполагается, что в нашей активной панели открыт каталог с большим количеством текстовых файлов.</p>
+        <p>Также предполагается, что в настоящее время в буфере обмена одно слово и что скрипт в качестве единственного параметра получит текущий каталог активной панели.</p>
+        <p>Скрипт будет сканировать папку, читать содержимое файлов, один за другим, и искать слово из буфера обмена.</p>
+        <p>Затем имена файлов, которые содержат это словом, будут скопированы в буфер обмена.</p>
+        <p>Далее скрипт вызовет внутреннюю команду <a href="cmds.html#cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a> и все эти файлы будут выделены.</p>
+        <p>Кроме того, в конце вернём обратно в буфер обмена слово, которое мы искали.</p>
+        <pre>
+<span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
+<span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
+<span class="luakyw">local</span> myfileattr
+<span class="luakyw">local</span> bFound <span class="luasbl">=</span> false
+<span class="luakyw">local</span> sCompleteFilename <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> InputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+<span class="luakyw">local</span> line <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> iPosS
+<span class="luakyw">local</span> iPosE
+<span class="luakyw">local</span> sFileToSelect <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> sSearchString <span class="luasbl">=</span> <span class="luastr">""</span>
+
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- Мы получили наш параметр?</span>
+  sSearchString <span class="luasbl">=</span> <span class="mark">Clipbrd.GetAsText</span><span class="luasbl">()</span> <span class="luacmt">-- Получаем выражение для поиска.</span>
+  <span class="mark">Clipbrd.Clear</span><span class="luasbl">()</span> <span class="luacmt">-- Очищаем буфер обмена.</span>
+  DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_MarkUnmarkAll"</span><span class="luasbl">)</span> <span class="luacmt">-- Убедимся, что ничего не выделено.</span>
+
+  <span class="luacmt">-- Начинаем сканировать все файлы нашего каталога один за другим.</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils.FindFirst(params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
+    <span class="luakyw">repeat</span>
+      sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name
+      myfileattr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
+      <span class="luakyw">if</span> myfileattr <span class="luasbl">></span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Получили значение атрибута?</span>
+        <span class="luacmt">-- Нам нужен файл, не каталог!</span>
+        <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+
+          <span class="luacmt">-- Начинаем читать файл построчно, до конца файла ИЛИ до совпадения.</span>
+          InputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
+          bFound <span class="luasbl">=</span> false
+
+          <span class="luakyw">while</span> bFound <span class="luasbl">==</span> false <span class="luakyw">do</span>
+            line <span class="luasbl">=</span> InputFile<span class="luasbl">:</span><span class="luafct">read</span><span class="luasbl">()</span>
+            <span class="luakyw">if</span> line <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
+            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string<span class="luasbl">.</span>find<span class="luasbl">(</span>line, sSearchString<span class="luasbl">)</span>
+            <span class="luakyw">if</span> iPosS <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> bFound <span class="luasbl">=</span> true <span class="luakyw">end</span>
+          <span class="luakyw">end</span>
+
+          <span class="luakyw">if</span> bFound <span class="luasbl">==</span> true <span class="luakyw">then</span>
+            sFileToSelect <span class="luasbl">=</span> sFileToSelect <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name <span class="luasbl">..</span> <span class="luastr">"\n"</span>
+          <span class="luakyw">end</span>
+
+          io<span class="luasbl">.</span>close<span class="luasbl">(</span>InputFile<span class="luasbl">)</span>
+        <span class="luakyw">end</span>
+      <span class="luakyw">end</span>
+      Result<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils<span class="luasbl">.</span>FindNext<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
+
+    SysUtils<span class="luasbl">.</span>FindClose<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+  <span class="luakyw">end</span>
+
+  <span class="luacmt">-- Если что-то нашли, то выделяем!</span>
+  <span class="luakyw">if</span> sFileToSelect <span class="luasbl">~=</span> <span class="luastr">""</span> <span class="luakyw">then</span>
+    <span class="mark">Clipbrd.SetAsText</span><span class="luasbl">(</span>sFileToSelect<span class="luasbl">)</span>
+    DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_LoadSelectionFromClip"</span><span class="luasbl">)</span>
+  <span class="luakyw">end</span>
+
+  <span class="mark">Clipbrd.SetAsText</span><span class="luasbl">(</span>sSearchString<span class="luasbl">)</span> <span class="luacmt">-- Восстанавливаем содержимое буфера обмена.</span>
+<span class="luakyw">end</span></pre>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4. <a name="librarydialogs">Библиотека Dialogs</a></h2>
+        <p>Эта библиотека позволяет нашим скриптам взаимодействовать с пользователем, показывая сообщения, выдавая запросы и т.д.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека Dialogs</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
+            <td class="hintcell">
+              <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
+              <p>Показывает окно сообщения, функция вернёт нажатую пользователем кнопку.</p>
+              <p>Описание:</p>
+              <ul>
+                <li><var>Message</var> : Сообщение окна.</li>
+                <li><var>Title</var> : Текст в заголовке окна.</li>
+                <li><var>ButFlags</var> : Сумма констант, задающих отображаемые кнопки, стиль окна и кнопку по умолчанию. Смотрите ниже таблицы с <a  href="#dlgbuts">кнопками</a>, <a href="#dlgstyle">стилями</a> и <a href="#dlgdefbut">кнопкой по умолчанию</a>.</li>
+                <li><var>ButPressed</var> : Возвращаемое значение, указывающее нажатую кнопку (смотрите <a href="#msgreturn">эту таблицу</a>).</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
+            <td class="hintcell">
+              <p class="definition">bAck, sAnswer = Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
+              <p>Показывает диалоговое окно с полем ввода текста.</p>
+              <p>Описание:</p>
+              <ul>
+                <li><var>Title</var> : Текст в заголовке окна.</li>
+                <li><var>Msg</var> : Сообщение окна.</li>
+                <li><var>bMask</var> : Логическое (булево) значение, если <code>true</code>, то вводимый текст будет скрываться "звёздочками".</li>
+                <li><var>sDefault</var> : Текст, который будет отображаться в строке ввода при появлении окна.</li>
+                <li><var>bAck</var> : Возвращаемое логическое (булево) значение, указывающее, ввёл ли что-то пользователь или нет.</li>
+                <li><var>sAnswer</var> : Возвращаемая строка, если пользователь что-то ввёл, а затем нажал ОК.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="hintcell">
+              <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
+              <p>Показывает диалоговое окно с возможностью выбора из списка элементов.</p>
+              <p>Описание:</p>
+              <ul>
+                <li><var>Title</var> : Текст в заголовке окна.</li>
+                <li><var>Msg</var> : Сообщение окна.</li>
+                <li><var>Items</var> : Таблица Lua, каждый элемент таблицы должен быть строкой.</li>
+                <li><var>sDefault</var> : Пункт списка, выделенный по умолчанию.</li>
+                <li><var>sAnswer</var> : Возвращаемая строка с выбранным пунктом или <var>nil</var> в случае отмены.</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4.1. <a name="dlgbuts">Кнопки Dialogs.MessageBox</a></h2>
+        <p>Кнопки, отображаемые в окне <code>Dialogs.MessageBox</code>, задаются одним из следующих значений:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Константы для кнопок в Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Отображаемые кнопки, слева направо</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка OK" alt="Кнопка OK" src="images/imgDC/luaimg11.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка OK" alt="Кнопка OK" src="images/imgDC/luaimg11.png" width="72" height="21"><img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ПРЕРВАТЬ" alt="Кнопка ПРЕРВАТЬ" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Кнопка ПОВТОР" alt="Кнопка ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Кнопка ПРОПУСТИТЬ" alt="Кнопка ПРОПУСТИТЬ" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ДА" alt="Кнопка ДА" src="images/imgDC/luaimg16.png" width="72" height="21"><img class="largeimage" title="Кнопка НЕТ" alt="Кнопка НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"><img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ДА" alt="Кнопка ДА" src="images/imgDC/luaimg16.png" width="72" height="21"><img class="largeimage" title="Кнопка НЕТ" alt="Кнопка НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ПОВТОР" alt="Кнопка ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4.2. <a name="dlgstyle">Стиль окна Dialogs.MessageBox</a></h2>
+        <p>Стиль окна <code>Dialogs.MessageBox</code> задаётся одним из следующих значений:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Константы, задающие значок и стиль окна Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Стиль окна</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ИНФОРМАЦИЯ" alt="Значок ИНФОРМАЦИЯ" src="images/imgDC/luaimg8.png" width="32" height="32"> Информационное окно</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ПРЕДУПРЕЖДЕНИЕ" alt="Значок ПРЕДУПРЕЖДЕНИЕ" src="images/imgDC/luaimg9.png" width="32" height="32"> Окно предупреждения</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ВОПРОС" alt="Значок ВОПРОС" src="images/imgDC/luaimg7.png" width="32" height="32"> Окно подтверждения</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ОШИБКА" alt="Значок ОШИБКА" src="images/imgDC/luaimg10.png" width="32" height="32"> Окно ошибки</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4.3. <a name="dlgdefbut">Кнопка по умолчанию в Dialogs.MessageBox</a></h2>
+        <p>Кнопка по умолчанию (активная) в <code>Dialogs.MessageBox</code> задаётся одним из следующих значений:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Константы, задающие кнопку по умолчанию в Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Кнопка по умолчанию</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td><td class="hintcell">Первая кнопка слева</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td><td class="hintcell">Вторая кнопка слева</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td><td class="hintcell">Третья кнопка слева</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4.4. <a name="msgreturn">Возвращаемое значение Dialogs.MessageBox</a></h2>
+        <p>Число, возвращаемое функцией <code>Dialogs.MessageBox</code>, указывает на кнопку, которую нажал пользователь, и может быть одним из следующих:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Возвращаемое значение Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Нажатая кнопка</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td><td class="hintcell">Кнопка не нажата</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: OK" alt="Результат: OK" src="images/imgDC/luaimg11.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ОТМЕНА" alt="Результат: ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ПРЕРВАТЬ" alt="Результат: ПРЕРВАТЬ" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">mrRetry</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ПОВТОР" alt="Результат: ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">mrIgnore</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ПРОПУСТИТЬ" alt="Результат: ПРОПУСТИТЬ" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ДА" alt="Результат: ДА" src="images/imgDC/luaimg16.png" width="72" height="21"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: НЕТ" alt="Результат: НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"></td></tr>
+        </table>
+        <p>Примечание: Если закрыть окно, нажав крестик "x" в углу окна или клавишу <kbd>Esc</kbd>, то функция вернёт <code>0x0002</code>, как нажатие кнопки Отмена.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4.5. <a name="mesgboxsample">Пример использования Dialogs.MessageBox</a></h2>
+        <p>Маленький скрипт, использующий <code>Dialogs.MessageBox</code>:</p>
+        <pre>
+<span class="luacmt">-- Отображаемые кнопки</span>
+MB_OK <span class="luasbl">=</span> <span class="luanum">0x0000</span>
+MB_OKCANCEL <span class="luasbl">=</span> <span class="luanum">0x0001</span>
+MB_ABORTRETRYIGNORE <span class="luasbl">=</span> <span class="luanum">0x0002</span>
+MB_YESNOCANCEL <span class="luasbl">=</span> <span class="luanum">0x0003</span>
+MB_YESNO <span class="luasbl">=</span> <span class="luanum">0x0004</span>
+MB_RETRYCANCEL <span class="luasbl">=</span> <span class="luanum">0x0005</span>
+
+<span class="luacmt">-- Стиль окна</span>
+MB_ICONINFORMATION <span class="luasbl">=</span> <span class="luanum">0x0040</span>
+MB_ICONWARNING <span class="luasbl">=</span> <span class="luanum">0x0030</span>
+MB_ICONQUESTION <span class="luasbl">=</span> <span class="luanum">0x0020</span>
+MB_ICONERROR <span class="luasbl">=</span> <span class="luanum">0x0010</span>
+
+<span class="luacmt">-- Кнопка по умолчанию</span>
+MB_DEFBUTTON1 <span class="luasbl">=</span> <span class="luanum">0x0000</span>
+MB_DEFBUTTON2 <span class="luasbl">=</span> <span class="luanum">0x0100</span>
+MB_DEFBUTTON3 <span class="luasbl">=</span> <span class="luanum">0x0200</span>
+
+<span class="luacmt">-- Возвращаемое значение</span>
+mrNone <span class="luasbl">=</span> <span class="luanum">0x0000</span>
+mrOK <span class="luasbl">=</span> <span class="luanum">0x0001</span>
+mrCancel <span class="luasbl">=</span> <span class="luanum">0x0002</span>
+mrAbort <span class="luasbl">=</span> <span class="luanum">0x0003</span>
+mrRetry <span class="luasbl">=</span> <span class="luanum">0x0004</span>
+mrIgnore <span class="luasbl">=</span> <span class="luanum">0x0005</span>
+mrYes <span class="luasbl">=</span> <span class="luanum">0x0006</span>
+mrNo <span class="luasbl">=</span> <span class="luanum">0x0007</span>
+
+ButFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_ICONQUESTION <span class="luasbl">+</span> MB_DEFBUTTON2
+ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Хотите завершить?"</span><span class="luasbl">,</span> <span class="luastr">"Вопрос"</span><span class="luasbl">,</span> ButFlags<span class="luasbl">)</span>
+
+<span class="luakyw">if</span> ButPressed <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
+  DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
+<span class="luakyw">end</span></pre>
+        <p class="figure"><img class="largeimage" title="Пример использования Dialogs.MessageBox" alt="Пример использования Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="400" height="158"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.4.6. <a name="querysample">Пример использования Dialogs.InputQuery</a></h2>
+        <p>Маленький скрипт, использующий <code>Dialogs.InputQuery</code>:</p>
+        <pre>
+bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Идентификация"</span><span class="luasbl">,</span> <span class="luastr">"Введите ваше имя:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"Иван"</span><span class="luasbl">)</span>
+
+<span class="luakyw">if</span> bAck <span class="luasbl">==</span> true then
+  Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Привет, "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Добро пожаловать!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
+<span class="luakyw">end</span></pre>
+        <p class="figure"><img class="largeimage" title="Пример использования Dialogs.InputQuery" alt="Пример использования Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="374" height="122"></p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.5. <a name="libraryutf8">Библиотека UTF-8 <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></a></h2>
+        <p>Эта библиотека обеспечивает базовую поддержку кодировки UTF-8.</p>
+        <p>Все функции представлены в таблице <code>LazUtf8</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека UTF-8</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
+              <p>Поиск подстроки в строке, начиная с определённой позиции. Поиск чувствителен к регистру.</p>
+              <p>Возвращает позицию первого вхождения подстроки <var>SearchText</var> в строке <var>SourceText</var>, поиск начинается с позиции <var>Offset</var> (по умолчанию 1).</p>
+              <p>Если в <var>SourceText</var> не найдено совпадение с <var>SearchText</var> после заданного <var>Offset</var>, то функция возвращает ноль.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
+              <p>Копирует (извлекает) часть строки.</p>
+              <p>Функция возвращает <var>Count</var> символов из строки <var>Source</var>, начиная с позиции <var>Index</var>.</p>
+              <p>Если <var>Count</var> больше длины строки <var>Source</var>, то результат усекается. Если <var>Index</var> больше длины строки <var>Source</var>, то возвращается пустая строка.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.Length(String)</p>
+              <p>Возвращает количество символов в строке с учётом кодировки UTF-8.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.UpperCase(String)</p>
+              <p>Возвращает строку, в которой все буквы в нижнем регистре (строчные) заменены на буквы в верхнем регистре (прописные или заглавные).</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.LowerCase(String)</p>
+              <p>Возвращает строку, в которой все буквы в верхнем регистре (прописные или заглавные) заменены на буквы в нижнем регистре (строчные).</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
+            <td class="hintcell">
+              <p class="definition">Result = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
+              <p>Конвертирует кодировку <var>String</var> из <var>FromEnc</var> в <var>ToEnc</var>.</p>
+              <p>Список поддерживаемых значений кодировок:</p>
+              <ul>
+                <li>Системная кодировка по умолчанию (зависит от локали): "default".</li>
+                <li>Кодировка ANSI (Windows) по умолчанию (зависит от локали): "ansi".</li>
+                <li>Кодировка OEM (DOS) по умолчанию (зависит от локали): "oem".</li>
+                <li>Юникод: "utf8", "utf8bom", "ucs2le", "ucs2be".</li>
+                <li>ANSI (Windows): "cp1250", "cp1251", "cp1252", "cp1253", "cp1254", "cp1255", "cp1256", "cp1257", "cp1258".</li>
+                <li>OEM (DOS): "cp437", "cp850", "cp852", "cp866", "cp874", "cp932", "cp936", "cp949", "cp950".</li>
+                <li>ISO 8859: "iso88591", "iso88592", "iso885915".</li>
+                <li>Другие: "macintosh", "koi8".</li>
+              </ul>
+              Специальные значения кодировок (примеры).
+              <br><br>
+              В Windows с русской локалью:
+              <ul>
+              <li>"default" - cp1251</li>
+              <li>"ansi" - cp1251</li>
+              <li>"oem" - cp866</li>
+              </ul>
+               В Linux с русской локалью:
+              <ul>
+              <li>"default" - utf8</li>
+              <li>"ansi" - cp1251</li>
+              <li>"oem" - cp866</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2>3.6. <a name="libraryos">Библиотека OS</a></h2>
+        <p>Эта библиотека содержит функции, связанные с операционной системой, в которой запущен Double Commander.</p>
+        <p>Список доступных функций:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека OS</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">os.execute</div></td>
+            <td class="hintcell">
+              <p class="definition">resultcode = os.execute(command)</p>
+              <p>Выполнить <var>command</var>, аналогично введённой в командной строке, будет возвращён код завершения.</p>
+              <p><var>command</var> может быть:</p>
+              <ul>
+                <li>Команда терминала, например, <code>os.execute("dir &gt; all.txt")</code></li>
+                <li>Исполняемый файл, например, <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
+                <li>Исполняемый файл с параметрами:<BR><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin &gt; md5.txt")</code></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
+            <td class="hintcell">
+              <p class="definition">tempfilename = os.tmpname()</p>
+              <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">os.remove</div></td>
+            <td class="hintcell">
+              <p class="definition">bresult, errorstr, errorno = os.remove(filename)</p>
+              <p>Удалить файл с именем <var>filename</var>.</p>
+              <p>Если удалось, функция вернёт <var>true</var>.</p>
+              <p>Если не удалось, функция вернёт:</p>
+              <ol>
+                <li><var>nil</var> как индикатор неудачи</li>
+                <li><var>errorstr</var> с описанием ошибки</li>
+                <li><var>errorno</var> в виде кода ошибки (число)</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">os.rename</div></td>
+            <td class="hintcell">
+              <p class="definition">bresult, errorstr, errorno = os.rename(nameS, nameD)</p>
+              <p>Переименовать файл <var>nameS</var> в <var>nameD</var>.</p>
+              <p>Если удалось, функция вернёт <var>true</var>.</p>
+              <p>Если не удалось, функция вернёт:</p>
+              <ol>
+                <li><var>nil</var> как индикатор неудачи</li>
+                <li><var>errorstr</var> с описанием ошибки</li>
+                <li><var>errorno</var> в виде кода ошибки (число)</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">os.getenv</div></td>
+            <td class="hintcell">
+              <p class="definition">value = os.getenv(variablename)</p>
+              <p>Получить в <var>value</var> значение переменной окружения <var>variablename</var>.<BR>Если переменная не существует, то функция вернёт <var>nil</var>.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <BR>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="regexp.html">Пред.</a> | <a title="Следующая страница" href="commandline.html">След.</a></div></div>
+    <div class="checker">
+	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+	</div>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+    <BR>
+  </body>
+</html>

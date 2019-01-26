@@ -73,6 +73,10 @@
             <td class="hintcell">Only path, excluding trailing path delimiter<BR><code>Example: %d = "C:\Users\UserName\Desktop"</code></td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%z<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">Name of last directory in path<BR><code>Example: %z = "Desktop"</code></td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">%o</div></td>
             <td class="hintcell">Just filename without extension<BR><code>Example: %o = "comment"</code></td>
           </tr>
@@ -192,11 +196,11 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Ds</div></td>
-            <td class="hintcell">Directory of the current active or source panel (no matter if its on left or right)<BR><code>Example: "E:\Work"</code></td>
+            <td class="hintcell">Directory of the current active or source panel (no matter if it's on left or right)<BR><code>Example: "E:\Work"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dt</div></td>
-            <td class="hintcell">Directory of inactive or target panel (no matter if its on left or right)<BR><code>Example: "C:\Reference"</code></td>
+            <td class="hintcell">Directory of inactive or target panel (no matter if it's on left or right)<BR><code>Example: "C:\Reference"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dl</div></td>
@@ -205,6 +209,26 @@
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dr</div></td>
             <td class="hintcell">Directory of right panel<BR><code>Example: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Z<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">Alone, with no suffix, will return the last directory name of path of the current active panel<BR><code>Example: "Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zs<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">Last directory name of path of the current active panel (no matter if it's on left or right)<BR><code>Example: "Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zt<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">Last directory name of path of inactive panel (no matter if it's on left or right)<BR><code>Example: "Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zl<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">Last directory name of path of left panel<BR><code>Example: "Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zr<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">Last directory name of path of right panel<BR><code>Example: "Work"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

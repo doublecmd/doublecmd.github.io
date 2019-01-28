@@ -21,6 +21,7 @@ img.IntCmdImage {
 }
 
 p.navback { text-align: left; font-style: italic; }
+p.versionref { text-align: left; font-size: 60%; font-style: italic; color: #4B0082; }
 
 kbd {
   font-weight: bold;

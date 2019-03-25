@@ -66,6 +66,27 @@
           <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Description</th></tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<BR><small>from &lt;Behaviours&gt;</small></div></td>
+            <td class="hintcell">
+              The right panel will be active when Double Commander starts.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Right panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Left panel (default)</td>
+                </tr>
+              </table>
+              <I>Example:</i> <code>&lt;ActiveRight&gt;True&lt;/ActiveRight&gt;</code>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;SingleClickStart&gt;<BR><small>from &lt;Behaviours&gt;&lt;Mouse&gt;</small></div></td>
             <td class="hintcell">
               This will determine what will launch the action when we're using the mouse button on an element from the displayed file list in a panel.<BR>
@@ -347,19 +368,19 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup><BR><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, set the width of tab stops to use.<BR>
-			  The valid range goes from 1 to 32 and default value is 8.<BR>
+              The valid range goes from 1 to 32 and default value is 8.<BR>
               <I>Example:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup><BR><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, configure the maximum number of characters to be displayed on one text line prior to wrap it up to the next one.<BR>
-			  The valid range goes from 80 to 16384 and default value is 1024.<BR>
+              The valid range goes from 80 to 16384 and default value is 1024.<BR>
               <I>Example:</i> <code>&lt;MaxTextWidth&gt;1024&lt;/MaxTextWidth&gt;</code>
             </td>
           </tr>

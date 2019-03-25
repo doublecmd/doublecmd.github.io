@@ -109,7 +109,7 @@
           <tr class="rowcategorytitle"><th colspan="2">DC library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
             <td class="hintcell">
               <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
               <p>Write a message to the log window.</p>
@@ -199,7 +199,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.GetTickCount()</p>
               <p>Returns an increasing clock tick count. It is useful for time measurements, but no assumtions should be made as to the interval between the ticks.</p>
@@ -242,7 +242,7 @@
                 <li><var>Name</var> : The file name (without path).</li>
                 <li><var>Attr</var> : The file attributes of the file (see details <a href="#detailattr">here</a>).</li>
                 <li><var>Size</var> : The size of the file in bytes.</li>
-                <li><var>Time</var> : The time stamp of the file (seconds since Jan 01 1970<sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup>)</li>
+                <li><var>Time</var> : The time stamp of the file (seconds since Jan 01 1970)</li>
               </ul>
             </td>
           </tr>
@@ -271,6 +271,45 @@
               <p class="definition">SysUtils.PathDelim</p>
               <p>Allows a script to get from DC the system path delimiter.</p>
               <p>In Unix/Linux system will be a " / " and in Windows will be " \ "</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.ExtractFileName(FileName)</p>
+              <p>Extract the filename part from a full path filename.</p>
+              <p>The filename consists of all characters after the last directory separator character ("/" or "\") or drive letter.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
+            <td class="hintcell">
+              <p class="definition">sPath = SysUtils.ExtractFilePath(FileName)</p>
+              <p>Extract the path from a filename (including drive letter).</p>
+              <p>The path consists of all characters before the last directory separator character ("/" or "\"), including the directory separator itself.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
+            <td class="hintcell">
+              <p class="definition">sDir = SysUtils.ExtractFileDir(FileName)</p>
+              <p>Extract only the directory part of <var>FileName</var>, including a drive letter.</p>
+              <p>The directory name has NO ending directory separator, in difference with <code>SysUtils.ExtractFilePath</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
+            <td class="hintcell">
+              <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
+              <p>Extract the drive part from a filename.</p>
+              <p>Note that some operating systems do not support drive letters.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
+            <td class="hintcell">
+              <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
+              <p>Return the extension from a filename (all characters after the last "." (dot), including the "." character).</p>
             </td>
           </tr>
         </table>
@@ -538,7 +577,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
               <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
               <p>Displays a dialog box to allow the user to choose from a list of items.</p>
@@ -675,7 +714,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
       </div>
 
       <div>
-        <h2>3.5. <a name="libraryutf8">UTF-8 library <sup><acronym title="Requires Double Commander 0.9">[*]</acronym></sup></a></h2>
+        <h2>3.5. <a name="libraryutf8">UTF-8 library</a></h2>
         <p>This library provides basic support for UTF-8 encoding.</p>
         <p>It provides all its functions inside the table <code>LazUtf8</code>.</p>
         <table>

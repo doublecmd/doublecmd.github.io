@@ -107,7 +107,7 @@
           <tr class="rowcategorytitle"><th colspan="2">Библиотека DC</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
             <td class="hintcell">
               <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
               <p>Пишет сообщение в окно протокола.</p>
@@ -195,7 +195,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.GetTickCount()</p>
               <p>Возвращает количество интервалов времени (тиков) с момента старта системы. Это полезно для измерения времени, но не следует делать каких-либо предположений относительно количества времени в интервале между тиками.</p>
@@ -238,7 +238,7 @@
                 <li><var>Name</var> : Имя файла (без пути).</li>
                 <li><var>Attr</var> : Атрибуты файла (подробнее смотрите <a href="#detailattr">здесь</a>).</li>
                 <li><var>Size</var> : Размер файла в байтах.</li>
-                <li><var>Time</var> : Отметка времени файла (в формате POSIX, так называемое Unix-время: количество секунд, прошедших с 1 января 1970 г.<sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup>)</li>
+                <li><var>Time</var> : Отметка времени файла (в формате POSIX, так называемое Unix-время: количество секунд, прошедших с 1 января 1970 г.)</li>
               </ul>
             </td>
           </tr>
@@ -265,6 +265,45 @@
               <p class="definition">SysUtils.PathDelim</p>
               <p>Позволяет получить от DC разделитель пути в системе.</p>
               <p>В системах Unix/Linux это будет " / " и " \ " в Windows.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.ExtractFileName(FileName)</p>
+              <p>Возвращает имя файла из полного (имя+путь) имени файла.</p>
+              <p>Имя файла содержит все символы после последнего символа разделителя каталогов ("/" или "\") или буквы диска.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
+            <td class="hintcell">
+              <p class="definition">sPath = SysUtils.ExtractFilePath(FileName)</p>
+              <p>Возвращает путь из полного имени файла (включая букву диска).</p>
+              <p>Путь содержит все символы до последнего символа разделителя каталогов ("/" или "\"), включая сам разделитель каталогов.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
+            <td class="hintcell">
+              <p class="definition">sDir = SysUtils.ExtractFileDir(FileName)</p>
+              <p>Возвращает только каталог из <var>FileName</var>, включая букву диска.</p>
+              <p>Результат НЕ содержит разделитель каталогов в конце, в отличие от <code>SysUtils.ExtractFilePath</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
+            <td class="hintcell">
+              <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
+              <p>Возвращают диск из полного имени файла.</p>
+              <p>Обратите внимание, некоторые операционные системы не поддерживают буквы дисков.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
+            <td class="hintcell">
+              <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
+              <p>Возращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
             </td>
           </tr>
         </table>
@@ -529,7 +568,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
               <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
               <p>Показывает диалоговое окно с возможностью выбора из списка элементов.</p>
@@ -666,7 +705,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
       </div>
 
       <div>
-        <h2>3.5. <a name="libraryutf8">Библиотека UTF-8 <sup><acronym title="Требуется Double Commander 0.9">[*]</acronym></sup></a></h2>
+        <h2>3.5. <a name="libraryutf8">Библиотека UTF-8</a></h2>
         <p>Эта библиотека обеспечивает базовую поддержку кодировки UTF-8.</p>
         <p>Все функции представлены в таблице <code>LazUtf8</code>.</p>
         <table>

@@ -195,7 +195,7 @@
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.Sleep(Milliseconds)</p>
-              <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<BR> After the specified period has expired, script execution resumes.</p>
+              <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<BR>After the specified period has expired, script execution resumes.</p>
             </td>
           </tr>
           <tr>
@@ -310,6 +310,14 @@
             <td class="hintcell">
               <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
               <p>Return the extension from a filename (all characters after the last "." (dot), including the "." character).</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
+              <p>Create a chain of directories, <var>Directory</var> is the full path to directory.</p>
+              <p>Returns <code>true</code> if <var>Directory</var> already exist or was created successfully. If it failed to create any of the parts, <code>false</code> is returned.</p>
             </td>
           </tr>
         </table>

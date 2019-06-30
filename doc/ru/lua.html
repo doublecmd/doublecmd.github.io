@@ -295,7 +295,7 @@
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
             <td class="hintcell">
               <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
-              <p>Возвращают диск из полного имени файла.</p>
+              <p>Возвращает диск из полного имени файла.</p>
               <p>Обратите внимание, некоторые операционные системы не поддерживают буквы дисков.</p>
             </td>
           </tr>
@@ -304,6 +304,14 @@
             <td class="hintcell">
               <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
               <p>Возращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory<p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
+              <p>Создать цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
+              <p>Возвращает <code>true</code>, если <var>Directory</var> уже существует или был успешно создан, или <code>false</code>, если не удалось создать какую-либо часть пути.</p>
             </td>
           </tr>
         </table>

@@ -61,14 +61,22 @@
               <dt>4.5. <a href="#context_menu_edit">How to customise the context menu, for example, add the item "Open With"?</a></dt>
             </dl>
           </dd>
-          <dt><a name="viewer">5. Issues related to the built-in viewer (F3)</a></dt>
+          <dt><a name="viewer">5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
           <dd>
             <dl>
               <dt>5.1. <a href="#f3_compiz">Editor and browser windows appear in random positions, when Compiz is enabled</a></dt>
               <dt>5.2. <a href="#f3_font">Internal editor has a strange font &nbsp;&mdash; horizontal characters overwrite each other</a></dt>
               <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most</a></dt>
-              <dt>5.4. <a href="#f3_gif">Viewer doesn't work with gif files?..</a></dt>
-              <dt>5.5. <a href="#f3_hscroll">On some text files lines go beyond the window's edge</a></dt>
+              <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge</a></dt>
+              <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
+              <dt>5.6. <a href="#f3_svg">Is it possible to add support SVG in viewer?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="fv">6. Issues related to the file panels</a></dt>
+          <dd>
+            <dl>
+              <dt>6.1. <a href="#fv_datetime">I didn't find a suitable date format for file panels in the list! How to add my own?</a></dt>
+              <dt>6.2. <a href="#fv_svg">Is it possible to add support SVG thumbnails in thumbnails view?</a></dt>
             </dl>
           </dd>
         </dl>
@@ -134,8 +142,8 @@
         <p class="bold"><a name="color">Q: How can I change color settings for the panels?</a></p>
         <p><span class="bold">A:</span> To change the color, you must do the following:</p>
         <ul>
-          <li><p>Configurations&nbsp;&rarr; Options&nbsp;&rarr; Colors (but first you must create your own columns style)</p></li>
-          <li><p>Configurations&nbsp;&rarr; Options&nbsp;&rarr; Columns, set default style, click "Edit" and configure :)</p></li>
+          <li><p>Configurations&nbsp;&gt; Options&nbsp;&gt; Colors (but first you must create your own columns style)</p></li>
+          <li><p>Configurations&nbsp;&gt; Options&nbsp;&gt; Columns, set default style, click "Edit" and configure :)</p></li>
         </ul>
         <BR>
 
@@ -148,11 +156,11 @@
         <BR>
 
         <p class="bold"><a name="columns">Q: Some text in a column overwrites another column's text!</a></p>
-        <p><span class="bold">A:</span> Configurations&nbsp;&rarr; Options&nbsp;&rarr; Columns, set checkbox "Cut text to column width".</p>
+        <p><span class="bold">A:</span> Configurations&nbsp;&gt; Options&nbsp;&gt; Columns, set checkbox "Cut text to column width".</p>
         <BR>
 
         <p class="bold"><a name="icons">Q: How to associate my own icons with some file types?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&rarr; Options&nbsp;&rarr; <a href="help.html#5_2_fileAssoc">File associations</a>.</p>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options&nbsp;&gt; <a href="help.html#5_2_fileAssoc">File associations</a>.</p>
         <BR>
 
         <p class="bold"><a name="splitter">Q: How to create a splitter on the buttons panel?</a></p>
@@ -163,7 +171,7 @@
       <div>
         <h2>4. Issues related to control and navigation</h2>
         <p class="bold"><a name="cursor_down">Q: Is it possible to automatically move the cursor down one line after selecting using the <kbd>Space</kbd> key?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&rarr; Options&nbsp;&rarr; File views&nbsp;&rarr; When selecting file with spacebar, move down to next file (as with insert).</p>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options&nbsp;&gt; File views&nbsp;&gt; When selecting file with spacebar, move down to next file (as with insert).</p>
         <BR>
 
         <p class="bold"><a name="queue">Q: Is there an ability to create a file operations queue?</a></p>
@@ -171,7 +179,7 @@
         <BR>
 
         <p class="bold"><a name="hotkeys_default">Q: <kbd>Ctrl+A</kbd> doesn't work, how to enable it?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&rarr; Options&nbsp;&rarr; Keys&nbsp;&rarr; Hot keys&nbsp;&rarr; In the category "Main", scroll to see command "cm_MarkMarkAll" and set <kbd>Ctrl+A</kbd> shortcut key for it.</p>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options&nbsp;&gt; Keys&nbsp;&gt; Hot keys&nbsp;&gt; In the category "Main", scroll to see command "cm_MarkMarkAll" and set <kbd>Ctrl+A</kbd> shortcut key for it.</p>
         <BR>
 
         <p class="bold"><a name="context_menu_create">Q: How to create my own context menu in this program?</a></p>
@@ -191,9 +199,9 @@
       </div>
 
       <div>
-        <h2>5. Issues related to the built-in viewer (F3)</h2>
+        <h2>5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</h2>
         <p class="bold"><a name="f3_compiz">Q: Editor and browser windows appear in random positions, when Compiz is enabled.</a></p>
-        <p><span class="bold">A:</span> Edit Compiz settings: place windows&nbsp;&rarr; windows with fixed positions and window rules&nbsp;&rarr; fixed size windows.</p>
+        <p><span class="bold">A:</span> Edit Compiz settings: place windows&nbsp;&gt; windows with fixed positions and window rules&nbsp;&gt; fixed size windows.</p>
         <pre class="CODE">Code: (class=Doublecmd) &amp; (title=/)</pre>
         <BR>
 
@@ -205,12 +213,32 @@
         <p><span class="bold">A:</span> A component used to view the images did not support some JPG files.</p>
         <BR>
 
-        <p class="bold"><a name="f3_gif">Q: Viewer doesn't work with gif files?</a></p>
-        <p><span class="bold">A:</span> Yes this is true, but it will be implemented soon.</p>
-        <BR>
-
         <p class="bold"><a name="f3_hscroll">Q: On some text files lines go beyond the window's edge.</a></p>
         <p><span class="bold">A:</span> Use "Show as Wrap text" option in Viewer.</p>
+        <BR>
+
+        <p class="bold"><a name="f4_colmode">Q: Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></p>
+        <p><span class="bold">A:</span> Internal editor supports column and line selection modes and multi-carets, see keyboard shortcuts <a href="shortcuts.html#editor">here</a>.</p>
+        <BR>
+
+        <p class="bold"><a name="f3_svg">Q: Is it possible to add support SVG in viewer?</a></p>
+        <p><span class="bold">A:</span> Supported via librsvg:</p>
+        <ul>
+          <li><p>Linux: install package <code>librsvg</code>.</p></li>
+          <li><p>Windows: needs <code>libcairo-2.dll</code>, <code>librsvg-2-2.dll</code> and <code>libgobject-2.0-0.dll</code> (+ all dependencies), you can take DLLs from GIMP. You should copy this DLLs to Double Commander folder or in PATH.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2>6. Issues related to the file panels</h2>
+
+        <p class="bold"><a name="fv_datetime">Q: I didn't find a suitable date format for file panels in the list! How to add my own?</a></p>
+        <p><span class="bold">A:</span> Date and time format is easy configurable: go to Configurations&nbsp;&gt; Options &nbsp;&gt; Files views&nbsp;&gt; Formatting&nbsp;&gt; Date and time format and use <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">this table</a>.</p>
+        <BR>
+
+        <p class="bold"><a name="fv_svg">Q: Is it possible to add support SVG thumbnails in thumbnails view?</a></p>
+        <p><span class="bold">A:</span> It's already supported, see <a href="faq.html#f3_svg">Is it possible to add support SVG in viewer?</a></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>
       </div>

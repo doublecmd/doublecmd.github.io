@@ -93,7 +93,7 @@
         <p>Also available is a portable version of the archive <tt>tar.xz</tt>, it is the same source from which you can build the program yourself.</p>
         <p>For various DE there are versions, based on GTK2 toolkit, and versions for KDE, based on Qt. I must note that the program is not yet available from the repositories.</p>
         <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages.</p>
-        <p>The language can be changed in the menu via "<a href="#5_1_1_yazik">Configuration &gt; Options &gt; Language</a>".</p>
+        <p>The language can be changed in the menu via "<a href="#5_1_1_yazik">Configuration&nbsp;&gt; Options&nbsp;&gt; Language</a>".</p>
         <p>Also Double Commander determines and uses the current system theme. It looks like this (in Ubuntu Linux, default theme):</p>
         <p><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="884" height="548"></p>
         <p>As can be seen from the figure, there are two file panels, a black terminal window, a command line (as in TC) and a lower window that is a log viewer (it shows all the actions from the file manager).</p>
@@ -276,7 +276,7 @@
         <p><span class="italic">New search</span>&nbsp;&mdash; clear old results and allow to re-search (perhaps with new conditions).</p>
         <p><span class="italic">Go to file</span>&nbsp;&mdash; closes search window and sets cursor on selected file in the panel.</p>
         <p><span class="italic">Feed to listbox</span>&nbsp;&mdash; gives a list of files with full paths in the file panel.</p>
-        <p>You can switch between the tabs with Alt+1...Alt+4 keys combinations.</p>
+        <p>You can switch between the tabs with <kbd>Alt+1</kbd>...<kbd>Alt+4</kbd> keys combinations.</p>
         <br>
         <p>Second item is <span class="bold"><a name="22_lichnue_catalogi">Directory hotlist</a></span> (internal command <tt><a name="cm_DirHotList">cm_DirHotList</a></tt>). This command is the same as pressing the <a href="#btn_dirlist">"*"</a> button.</p>
         <p>Selecting this item we get a popup menu with <a href="directoryhotlist.html">the Directory Hotlist</a>, in which we can choose:</p>
@@ -349,12 +349,13 @@
 
         <p>There are 4 checkboxes and 1 list that affect certain behaviors of DC:</p>
         <ul>
-          <li><p>[ ] Allow <span class="italic">only 1 copy of DC</span> at a time</p></li>
-          <li><p>[ ] Move <span class="italic">icon to system tray</span> when minimized</p></li>
+          <li><p>[ ] <span class="italic">Allow only 1 copy of DC at a time</span></p></li>
+          <li><p>[ ] <span class="italic">Move icon to system tray when minimized</span></p></li>
           <li><p>[ ] <span class="italic">Always show tray icon</span></p></li>
           <li><p><span class="italic">Drives blacklist</span>: accompanied by an edit line as needed</p></li>
           <li><p>[ ] <span class="italic">Automatically hide unmounted devices</span></p></li>
         </ul>
+        <p><span class="italic">Drives blacklist</span>&nbsp;&mdash; use this to hide certain drives in the drives panel menu bar. Each item must contain the full path to the drive/mount point. Separate multiple drives with semicolons ";". Examples: <tt>/media/cdrom;/mnt/win_c</tt> (Linux) or <tt>a:\;b:\;d:\</tt> (Windows). Also in Unix/Linux you may use wildcard mask, example for AppImage files: <tt>/tmp/.mount_*</tt>.</p>
 
         <!--
             <p>Line <span class="italic">Run in terminal</span>: The default setting is <tt>xterm -e sh -c</tt>. But you can change it to <tt>gnome-terminal
@@ -394,16 +395,16 @@
         <p>Normal (proportional) font above, monospaced below.</p>
         <br>
 
-        <p>Section <span class="bold"><a name="5_1_5_cveta_panelei">Colors &gt; File panels</a></span></p>
+        <p>Section <span class="bold"><a name="5_1_5_cveta_panelei">Colors&nbsp;&gt; File panels</a></span></p>
         <p class="figure"><img class="largeimage" alt="Color settings" title="Color settings" src="images/imgDC/pic20.png" width="449" height="339"></p>
 
-        <p>The color settings here are global settings for both panels. These settings can be overridden by creating a customised column style which can have its own color settings, and more, for each tab in the panel! See <a href="#5_1_15_colonki">Columns</a> for details on how to do this. You must adjust the current style of the columns (there are two default column sytles: Default and Brief) or create your own style and apply it for any tab.</p>
+        <p>The color settings here are global settings for both panels. These settings can be overridden by creating a customised column style which can have its own color settings, and more, for each tab in the panel! See <a href="#5_1_15_colonki">Columns</a> for details on how to do this. You must adjust the current style of the columns (there are two default column styles: Default and Brief) or create your own style and apply it for any tab.</p>
         <p>Here you can choose colors that will be used to process the file panels: <span class="italic">Text Color</span>, <span class="italic">Background</span>, <span class="italic">Background2</span>, <span class="italic">Mark color</span>, <span class="italic">Cursor Color</span>, and also <span class="italic">Cursor Text</span>. With the two background options you can make an alternating stripe in the panels. I've done this myself as can be seen in the panel screenshots.</p>
 
         <p><span class="italic">Use Inverted Selection</span>&nbsp;&mdash; inverts colors of marked text and marked text under cursor. More details about color settings are in section <a href="#5_1_15_colonki">Columns</a>.</p>
         <br>
 
-        <p>Section <span class="bold"><a name="5_1_6_cveta_failov">Colors &gt; File types</a></span></p>
+        <p>Section <span class="bold"><a name="5_1_6_cveta_failov">Colors&nbsp;&gt; File types</a></span></p>
         <p class="figure"><img class="largeimage" alt="File types by color" title="File types by color" src="images/imgDC/pic21.png" width="527" height="387"></p>
 
         <p>Here you can specify file types that should be given a different color.</p>
@@ -550,12 +551,18 @@
           <li><p><tt>GETFILENAMENOEXT</tt>&nbsp;&mdash; file name and no extension (<tt>text</tt>).</p></li>
           <li><p><tt>GETFILEEXT</tt>&nbsp;&mdash; file extension (from the dot to the end, e.g. <tt>.txt</tt> or <tt>.example</tt>).</p></li>
           <li><p><tt>GETFILESIZE</tt>&nbsp;&mdash; file or directory size. The appearance will depend on the option chosen at section <a href="#5_1_2_povedenie">Behaviors</a>.</p></li>
-          <li><p><tt><a name="5_1_15_2_data">GETFILETIME</a></tt>&nbsp;&mdash; file or directory date. The appearance will depend on the option chosen at section <a href="#5_1_2_povedenie">Behaviors</a>.</p></li>
+          <li><p><tt><a name="5_1_15_2_data">GETFILETIME</a></tt>&nbsp;&mdash; file or directory modification date. The appearance will depend on the option chosen at section <a href="#5_1_2_povedenie">Behaviors</a>.</p></li>
+          <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&mdash; file or directory creation date (does not work in Linux/BSD, POSIX limitation).</p></li>
+          <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&mdash; file or directory last access date.</p></li>
+          <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&mdash; file or directory status change date.</p></li>
           <li><p><tt>GETFILEATTR</tt>&nbsp;&mdash; file or directory attributes.</p></li>
           <li><p><tt>GETFILEPATH</tt>&nbsp;&mdash; path to the current item. Uses: usually, for search results.</p></li>
           <li><p><tt>GETFILEGROUP</tt>&nbsp;&mdash; displays the group of the file.</p></li>
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&mdash; displays the owner of the file.</p></li>
           <li><p><tt>GETFILELINKTO</tt>&nbsp;&mdash; displays the path and file (if they exist), that is, what is linked with this symlink.</p></li>
+          <li><p><tt>GETFILETYPE</tt>&nbsp;&mdash; file type.</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&mdash; file or directory description (comment) from <tt>descript.ion</tt>.</p></li>
+          <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&mdash; compressed file size.</p></li>
         </ul>
         <p><span class="italic">Move</span>&nbsp;&mdash; allows you to move lines (which equates to reordering the columns). Click twice in the Move box and you will see a type of spinner appear, clicking on the upper part moves the line up (column moves left).</p>
         <p><span class="italic">Colors</span>&nbsp;&mdash; lets you customize the column's color and font. Individual columns can have different colors. The window to edit the colors you can see below.</p>
@@ -566,12 +573,12 @@
         <p><span class="italic">Size</span>&nbsp;&mdash; you can set the font size here.</p>
         <p><span class="italic">R</span>&nbsp;&mdash; Restores the default font settings.</p>
         <p><span class="italic">All</span>&nbsp;&mdash; Applies the settings to all the other columns.</p>
-        <p><span class="italic">Allow Overcolor</span>&nbsp;&mdash; this option enables the ability to display the names of files in a different color (selected in the section <a href="#5_1_6_cveta_failov">Colors &gt; File types</a>).</p>
+        <p><span class="italic">Allow Overcolor</span>&nbsp;&mdash; this option enables the ability to display the names of files in a different color (selected in the section <a href="#5_1_6_cveta_failov">Colors&nbsp;&gt; File types</a>).</p>
         <p>It is possible to choose a color for the following elements: Text Color, Background, Background 2, Mark Color, Cursor Color, Cursor Text.</p>
         <p class="bold"><span class="italic">Something about color</span></p>
         <p>There are 22 preset colors. There is a <span class="bold">nice ability</span> to set system theme color settings. So, <span class="red">the program appearance will change depending on the system themes.</span> Also, textures from system themes <span class="bold">can be used for column sets</span>.</p>
         <p><span class="italic">&gt;&gt;</span>&nbsp;&mdash; button for choosing some color from the palette.</p>
-        <p><span class="italic">R</span>&nbsp;&mdash; Restores default settings from the section <a href="#5_1_5_cveta_panelei">Colors &gt; File types</a>.</p>
+        <p><span class="italic">R</span>&nbsp;&mdash; Restores default settings from the section <a href="#5_1_5_cveta_panelei">Colors&nbsp;&gt; File types</a>.</p>
         <p><span class="italic">All</span>&nbsp;&mdash; Applies the settings to all the other columns.</p>
 
         <!-- Shash0k: I just used Rustem's original screenshots here because I had some difficulty reproducing what he had done, especially in column3.png.

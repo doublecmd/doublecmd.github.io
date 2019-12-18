@@ -1639,10 +1639,10 @@
               <div style="margin: 0 0 0 15;">
                 text=txt<br>
                 filter=toggle<br>
-                files=yes<br>
-                directories=yes<br>
-                matchbeginning=no<br>
-                matchending=yes
+                files=on<br>
+                directories=on<br>
+                matchbeginning=off<br>
+                matchending=on
               </div>
               <br>
               When no parameter at all is specified, it will be assumed to activate the filter AND the other options will be the same as previous filter <b>except</b> for the text with the focus ready in the text box to allow you to type the desired text to set filter.
@@ -1701,12 +1701,12 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
-              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a></div></td>
+              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
             <td class="cmdhintcell">Current selection of the active panel to its first folder or file.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastEntry" alt="cm_GoToLastEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastentry.png">
-              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a></div></td>
+              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
             <td class="cmdhintcell">Current selection of the active panel to its last folder or file.</td>
           </tr>
           <tr>
@@ -2188,7 +2188,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Search" alt="cm_Search" src="../../pixmaps/dctheme/32x32/actions/cm_search.png">
               <div class="cmdname"><a name="cm_Search">cm_Search</a></div>
               <div class="shrtctkey">Alt+F7</div></td>
-            <td class="cmdhintcell">Open <a href="help.html#cm_Search">Search</a> dialog.</td>
+            <td class="cmdhintcell">Open <a href="help.html#cm_Search">Search</a> dialog with default parameters or with saved template from option "Default search template" (see File Operations&nbsp;&gt; File search).<br>Also command supports a single parameter to open Search dialog with saved template, use template name as is without quotes.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddNewSearch" alt="cm_AddNewSearch" src="../../pixmaps/dctheme/32x32/actions/cm_addnewsearch.png">

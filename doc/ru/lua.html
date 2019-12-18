@@ -69,7 +69,7 @@
         <h2>1. <a name="preface">Введение</a></h2>
         <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
         <p>Эта возможность добавлена в версии 0.8.</p>
-        <p>Также на языке Lua возможно писать контентные (информационные) плагины (WDX).</p>
+        <p>Также на языке Lua возможно писать контентные (или информационные) плагины (WDX-плагины).</p>
         <p>Более подробную информацию о языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">официальном веб-сайте Lua</a>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -114,10 +114,19 @@
               <p>Описание:</p>
               <ul>
                 <li><var>Message</var> : Текст сообщения.</li>
-                <li><var>MsgType</var> : Тип сообщения: 0 - информационное, 1 - успешная операция, 2 - ощибка.</li>
+                <li><var>MsgType</var> : Тип сообщения: 0 - информационное, 1 - успешная операция, 2 - ошибка.</li>
                 <li><var>bForce</var> : Логическое (булево) значение, если <code>true</code>, то показать окно протокола (если оно скрыто).</li>
                 <li><var>bLogFile</var> : Логическое (булево) значение, если <code>true</code>, то сообщение будет записано и в файл протокола.</li>
               </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">DC.CurrentPanel</div></td>
+            <td class="hintcell">
+              <p class="definition">iPanel = DC.CurrentPanel()</p>
+              <p>Получить активную панель: возвращает 0, если активна левая панель, или 1, если правая.</p>
+              <p class="definition">DC.CurrentPanel(iPanel)</p>
+              <p>Сделать активной: левую панель, если <var>iPanel</var> равно 0, или правую, если равно 1.</p>
             </td>
           </tr>
           <tr>
@@ -303,14 +312,14 @@
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
             <td class="hintcell">
               <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
-              <p>Возращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
+              <p>Возвращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory<p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
-              <p>Создать цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
+              <p>Создаёт цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
               <p>Возвращает <code>true</code>, если <var>Directory</var> уже существует или был успешно создан, или <code>false</code>, если не удалось создать какую-либо часть пути.</p>
             </td>
           </tr>
@@ -554,7 +563,7 @@
               <ul>
                 <li><var>Message</var> : Сообщение окна.</li>
                 <li><var>Title</var> : Текст в заголовке окна.</li>
-                <li><var>ButFlags</var> : Сумма констант, задающих отображаемые кнопки, стиль окна и кнопку по умолчанию. Смотрите ниже таблицы с <a  href="#dlgbuts">кнопками</a>, <a href="#dlgstyle">стилями</a> и <a href="#dlgdefbut">кнопкой по умолчанию</a>.</li>
+                <li><var>ButFlags</var> : Сумма констант, задающих отображаемые кнопки, стиль окна и кнопку по умолчанию. Смотрите ниже таблицы с <a href="#dlgbuts">кнопками</a>, <a href="#dlgstyle">стилями</a> и <a href="#dlgdefbut">кнопкой по умолчанию</a>.</li>
                 <li><var>ButPressed</var> : Возвращаемое значение, указывающее нажатую кнопку (смотрите <a href="#msgreturn">эту таблицу</a>).</li>
               </ul>
             </td>

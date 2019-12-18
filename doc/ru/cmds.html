@@ -307,7 +307,7 @@
                   <td colspan="3">Примечание: Если какой-либо из этих трёх параметров не задан или задан неправильно, то значениями по умолчанию для этих параметров будут: panel=active, column=name и order=ascending.</td>
                 </tr>
               </table>
-              Пример:<br>"cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>Эта команда отсортирует содержимое активной панели по колонке с размером&nbsp;&mdash; б<i>о</i>льшие файлы первыми.
+              Пример:<br>"cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>Эта команда отсортирует содержимое активной панели по колонке с размером&nbsp;&mdash; чем больше размер файла, тем выше он в списке.
             </td>
           </tr>
           <tr>
@@ -1638,10 +1638,10 @@
               <div style="margin: 0 0 0 15;">
                 text=txt<br>
                 filter=toggle<br>
-                files=yes<br>
-                directories=yes<br>
-                matchbeginning=no<br>
-                matchending=yes
+                files=on<br>
+                directories=on<br>
+                matchbeginning=off<br>
+                matchending=on
               </div>
               <br>
               Если ни один параметр не указан, то будет активирован фильтр с предыдущим состоянием опций, <b>не включая</b> строку для фильтра. При этом фокус ввода будет установлен на окно ввода текста на панели фильтра.
@@ -1700,12 +1700,12 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
-              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a></div></td>
+              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
             <td class="cmdhintcell">Поместить курсор в активной панели на первую папку или файл.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastEntry" alt="cm_GoToLastEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastentry.png">
-              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a></div></td>
+              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
             <td class="cmdhintcell">Поместить курсор в активной панели на последнюю папку или файл.</td>
           </tr>
           <tr>
@@ -2188,7 +2188,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Search" alt="cm_Search" src="../../pixmaps/dctheme/32x32/actions/cm_search.png">
               <div class="cmdname"><a name="cm_Search">cm_Search</a></div>
               <div class="shrtctkey">Alt+F7</div></td>
-            <td class="cmdhintcell">Открыть окно <a href="help.html#cm_Search">поиска</a>.</td>
+            <td class="cmdhintcell">Открыть окно <a href="help.html#cm_Search">поиска</a> с параметрами по умолчанию или с шаблоном поиска по умолчанию (см. Файловые операции&nbsp;&gt; Поиск файлов, опция "Шаблон поиска по умолчанию").<br>Также команда поддерживает один параметр для открытия диалога поиска с сохранённым шаблоном, используйте имя шаблона как есть, без кавычек.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddNewSearch" alt="cm_AddNewSearch" src="../../pixmaps/dctheme/32x32/actions/cm_addnewsearch.png">
@@ -2922,7 +2922,7 @@
                 </tr>
               </table>
               <br>
-              Пример: "cm_ActivateTabByIndex side=right index=1" переключит фокус на правую панель и активирует 1-ю кладку.
+              Пример: "cm_ActivateTabByIndex side=right index=1" переключит фокус на правую панель и активирует первую вкладку.
             </td>
           </tr>
         </table>

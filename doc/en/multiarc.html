@@ -98,7 +98,7 @@
         <p>Also remember that the ones made to work with Total Commander should also basically work with Double Commander.</p>
         <BR>
 
-        <p>To install, enable the usage of them or to configure them, we'll need to access <code>Configuration</code> &gt; <code>Options</code> &gt; <code>Plugins</code> and then select the tab for the WCX like the illustration here:</p>
+        <p>To install, enable the usage of them or to configure them, we'll need to access Configuration&nbsp;&gt; Options&nbsp;&gt; Plugins and then select the tab for the WCX like the illustration here:</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg2.png" width="842" height="384"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -360,7 +360,7 @@
           <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>So this command will be invoke when we'll select an archive to extract the whole content, just one file, etc.</p>
-        <p>We may not realize at first but when we'll "enter in" the archive like it would be a directory and we would press "F3" to view the content of a file inside the archive, this "Extract" action will took place in background. The selected file will be extracted using that pattern into a temporary location and then that's this temporary file that we will look at with the F3 invoken viewer.</p>
+        <p>We may not realize at first but when we'll "enter in" the archive like it would be a directory and we would press <kbd>F3</kbd> to view the content of a file inside the archive, this "Extract" action will took place in background. The selected file will be extracted using that pattern into a temporary location and then that's this temporary file that we will look at with the <kbd>F3</kbd> invoken viewer.</p>
         <p>This will be use when we use the internal command <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -475,25 +475,25 @@
       <div>
         <h2>5.12. <a name="configids">Configuring the "ID's"</a></h2>
         <p>We may configure Double Commander in such way that it will ignore file extension of a file and attempt to detect a compressed file archive by it's internal content and then invoke the appropriate list and unpack commands described above.</p>
-		<p>This is where we will use the internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
+        <p>This is where we will use the internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
         <p>Example of the usage of this is when we want to see the actual content of a self-extracted .exe file without having to launch it.</p>
-		<p>Another example would be to see the content of archive that is saved with a different file extension than the regular archive like the .docx file of Microsoft Word 2010 which in fact actually a compressed zip file.</p>
+        <p>Another example would be to see the content of archive that is saved with a different file extension than the regular archive like the .docx file of Microsoft Word 2010 which in fact actually a compressed zip file.</p>
         <p>Basically we may configure DC to detect the presence of strategic pattern of data at specific location into selected file so it will recognize the configured archived.</p>
-		<p>We will call "ID's" these patterns and this section is about configuration of them.</p>
-		<p>We have three settings for that: ID, ID Position and ID Seek Range.</p>
-		<p>We will instruct Double Commander where to search for specific ID's pattern to recognize an a type of archive and then use the configured commands specific to the recognized type of archive.</p>
+        <p>We will call "ID's" these patterns and this section is about configuration of them.</p>
+        <p>We have three settings for that: ID, ID Position and ID Seek Range.</p>
+        <p>We will instruct Double Commander where to search for specific ID's pattern to recognize an a type of archive and then use the configured commands specific to the recognized type of archive.</p>
         <p>Let's begin by a simple example. Here follows a snapshot of the beginning of a 7-Zip archived:</p>
         <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="780" height="146"></p>
         <p>By looking at other 7-Zip files, we see that the first four bytes are always the sequence 0x37 0x7A 0xBC 0xAF.</p>
-		<p>So we will take profit of that by configuring Double Commander that when it sees a file starting with that sequence to assume that the file is an 7-Zip archive.</p>
-		<p>That's what we do with the following configuration:</p>
-		<p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="404" height="260"></p>
+        <p>So we will take profit of that by configuring Double Commander that when it sees a file starting with that sequence to assume that the file is an 7-Zip archive.</p>
+        <p>That's what we do with the following configuration:</p>
+        <p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="404" height="260"></p>
         <p>We must write ID as a 2-digit hex numbers delimited with spaces.</p>
         <p>ID Position (optional) is a position of ID in archive. If not present, ID will be searched in the beginning of archive. We can define the positions with "-" sign: in this case the positions will be calculated from the end of file. Special value &lt;SeekID&gt; determinated search ID if not found by numeric values of ID Position. Seek in range "0 .. size of file" or "0 .. ID Seek Range". Values can be writed as decimal (12345) or heximal (0x3039). For negative values use notation 0xFFFFFFFF (-1).</p>
         <p>ID Seek Range (optional) is a count of bytes where ID seek if defined &lt;SeekID&gt;. By default it's 1 MB.</p>
         <p><B>Note:</b> All above parameters can be defined with multiple values. We can use comma to separate those multiple values.</p>
         <p>In our example with 7-Zip archive, ID and ID Position (0, because in the beginning of file) will be enough.</p>
-		<p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
+        <p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>
       </div>

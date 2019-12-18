@@ -123,6 +123,15 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">DC.CurrentPanel</div></td>
+            <td class="hintcell">
+              <p class="definition">iPanel = DC.CurrentPanel()</p>
+              <p>Get active panel: returns 0 if left panel is active or 1 if right.</p>
+              <p class="definition">DC.CurrentPanel(iPanel)</p>
+              <p>Set active panel: left panel if <var>iPanel</var> equal 0 or right if 1.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
               <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
@@ -313,7 +322,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory<p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
               <p>Create a chain of directories, <var>Directory</var> is the full path to directory.</p>
@@ -459,7 +468,7 @@
             <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.SetAsHtml(Html)</p>
-              <p>Adds html-formatted text <var>Html</var> to the clipboard (CF_HTML clipboard format).</p>
+              <p>Adds html-formatted text <var>Html</var> to the clipboard (<code>CF_HTML</code> clipboard format).</p>
               <p>This contents will be inserted in applications which support this clipboard format, like MS Word, LO Writer, etc.</p>
               <p>It's correct to store data with both <code>Clipbrd.SetAsText</code> and <code>Clipbrd.SetAsHtml</code>. When we'll paste, the application will use the best one that it supports.</p>
               <p>For example we may have this:</p>

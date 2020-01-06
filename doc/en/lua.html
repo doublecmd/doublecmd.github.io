@@ -76,11 +76,13 @@
 
       <div>
         <h2>2. <a name="dllrequired">DLL required</a></h2>
-        <p>In order to interpret Lua script file, we need to have a version 5.1 Lua DLL file in the same folder as the executable of Double Commander or in system folder.</p>
-        <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS).</p>
-        <p>We can use DLL file from <a href="http://luajit.org/" target="_blank">LuaJIT project</a>. It may require to manually edit the filename in <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a> parameter. LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
-        <p>If we're using a 64-bits version of DC, the dll must be the 64-bits version as well.</p>
-        <p>Generally, the dll will come with DC installation but if for whatever reason it's not there, we may find it under <a href="http://luabinaries.sourceforge.net/" target="_blank">this link</a> or through our packages manager.</p>
+        <p>In order to interpret Lua script file, we need to have a Lua DLL file (version 5.1 or higher) in the same folder as the executable of Double Commander or in system folder.</p>
+        <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS). We can change the file name in the <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a> parameter manually.</p>
+        <p>We can use DLL file from <a href="http://luajit.org/" target="_blank">LuaJIT project</a>.
+           LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.
+           DLL for Windows: <a href="http://doublecmd.sourceforge.net/test/luajit_win32.zip">32-bit</a> or <a href="http://doublecmd.sourceforge.net/test/luajit_win64.zip">64-bit</a>.</p>
+        <p>If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
+        <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -90,7 +92,7 @@
         <p>Here is the list of them.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="3">List of libraries</th></tr>
-          <tr class="rowsubtitle"><th class="namecolumn">Libray name</th><th class="namecolumn">Script name</th><th class="categorydesccolumn">Quick description</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Library name</th><th class="namecolumn">Script name</th><th class="categorydesccolumn">Quick description</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libdc">Double Commander library</a></div></td><td class="hintcell">DC</td><td class="hintcell">Double Commander specific functions</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarysystem">System library</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Various system functions</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Clipboard library</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Provides external clipboard functionality</td></tr>
@@ -342,25 +344,32 @@
           <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Value</th><th class="categorydesccolumn">Signification</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td><td class="hintcell">The file is read-only.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td>
+            <td class="hintcell">The file is read-only.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000002<BR><SMALL class="firstcolumnaleft">faHidden</small></div></td><td class="hintcell">The file is hidden.<BR>In Unix/Linux, this means that the filename starts with a dot.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000002<BR><SMALL class="firstcolumnaleft">faHidden</small></div></td>
+            <td class="hintcell">The file is hidden.<BR>In Unix/Linux, this means that the filename starts with a dot.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000004<BR><SMALL class="firstcolumnaleft">faSysFile</small></div></td><td class="hintcell">The file is a system file.<BR>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000004<BR><SMALL class="firstcolumnaleft">faSysFile</small></div></td>
+            <td class="hintcell">The file is a system file.<BR>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000008<BR><SMALL class="firstcolumnaleft">faVolumeId</small></div></td><td class="hintcell">Volume Label.<BR>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000008<BR><SMALL class="firstcolumnaleft">faVolumeId</small></div></td>
+            <td class="hintcell">Volume Label.<BR>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td><td class="hintcell">File is a directory.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td>
+            <td class="hintcell">File is a directory.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td><td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td>
+            <td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td><td class="hintcell">File is a symbolic link.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td>
+            <td class="hintcell">File is a symbolic link.</td>
           </tr>
           <tr>
             <td colspan="2"><B>Note: In case of error, -1 is returned.</b>
@@ -618,12 +627,49 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the buttons displayed of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Buttons displayed, from left to right</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td><td class="hintcell"><img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button IGNORE" alt="Button IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td><td class="hintcell"><img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21"><img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21">
+              <img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21">
+              <img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21">
+              <img class="largeimage" title="Button IGNORE" alt="Button IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21">
+              <img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21">
+              <img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21">
+              <img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21">
+              <img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21">
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -634,10 +680,22 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the icon and style of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Style of window</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td><td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td><td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32"> Error window</td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32"> Error window</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -648,9 +706,18 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the default button of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Default button</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td><td class="hintcell">Default will be the first one on left</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td><td class="hintcell">Default will be the second one from left</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td><td class="hintcell">Default will be the third one from left</td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td>
+            <td class="hintcell">Default will be the first one on left</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td>
+            <td class="hintcell">Default will be the second one from left</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td>
+            <td class="hintcell">Default will be the third one from left</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -661,14 +728,38 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">ButPressed value returned based on button pressed of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Button pressed</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td><td class="hintcell">No button pressed</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td><td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td><td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td><td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">mrRetry</small></div></td><td class="hintcell"><img class="largeimage" title="Result RETRY" alt="Result RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">mrIgnore</small></div></td><td class="hintcell"><img class="largeimage" title="Result IGNORE" alt="Result IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td><td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td><td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td>
+            <td class="hintcell">No button pressed</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">mrRetry</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result RETRY" alt="Result RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">mrIgnore</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result IGNORE" alt="Result IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td>
+          </tr>
         </table>
         <p>Note: If we press the "x" in top right or press <kbd>Esc</kbd> to close the window, then the value of the button "Cancel" is will returned.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

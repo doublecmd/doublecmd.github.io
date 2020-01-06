@@ -76,11 +76,13 @@
 
       <div>
         <h2>2. <a name="dllrequired">Необходимая DLL</a></h2>
-        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua версии 5.1, DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
-        <p>По умолчанию DC ищет файл с именем <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix или GNU/Linux) или <code>liblua5.1.dylib</code> (Mac OS).</p>
-        <p>Мы можем использовать DLL-файл <a href="http://luajit.org/" target="_blank">проекта LuaJIT</a> (может потребовать ручного изменения имени файла в параметре <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a>). LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
+        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua версии 5.1 или выше, DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
+        <p>По умолчанию DC ищет файл с именем <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix или GNU/Linux) или <code>liblua5.1.dylib</code> (Mac OS). Мы можем вручную изменить имя файла в параметре <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a>.</p>
+        <p>Мы можем использовать DLL-файл <a href="http://luajit.org/" target="_blank">проекта LuaJIT</a>.
+           LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.
+           DLL для Windows: <a href="http://doublecmd.sourceforge.net/test/luajit_win32.zip">32-битная</a> или <a href="http://doublecmd.sourceforge.net/test/luajit_win64.zip">64-битная</a>.</p>
         <p>Если мы используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
-        <p>Как правило, DLL-файл поставляется в дистрибутиве DC, но если по какой-либо причине его нет, можно найти его по <a href="http://luabinaries.sourceforge.net/" target="_blank">этой ссылке</a> или установить с помощью менеджера пакетов.</p>
+        <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -335,25 +337,32 @@
           <tr class="rowcategorytitle"><th colspan="2">Константы, используемые в возвращаемом значении SysUtils.FileGetAttr</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td><td class="hintcell">Файл только для чтения.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td>
+            <td class="hintcell">Файл только для чтения.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000002<BR><SMALL class="firstcolumnaleft">faHidden</small></div></td><td class="hintcell">Скрытый файл.<BR>В Unix/Linux это значит, что имя файла начинается с точки.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000002<BR><SMALL class="firstcolumnaleft">faHidden</small></div></td>
+            <td class="hintcell">Скрытый файл.<BR>В Unix/Linux это значит, что имя файла начинается с точки.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000004<BR><SMALL class="firstcolumnaleft">faSysFile</small></div></td><td class="hintcell">Системный файл.<BR>В Unix/Linux это может быть символьное или блочное физическое устройство, именованный канал (FIFO).</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000004<BR><SMALL class="firstcolumnaleft">faSysFile</small></div></td>
+            <td class="hintcell">Системный файл.<BR>В Unix/Linux это может быть символьное или блочное физическое устройство, именованный канал (FIFO).</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000008<BR><SMALL class="firstcolumnaleft">faVolumeId</small></div></td><td class="hintcell">Метка тома (означает, что файл содержит идентификатор (ID) тома).<BR>Только для DOS/Windows 9x на обычной файловой системе FAT (не VFAT или FAT32).</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000008<BR><SMALL class="firstcolumnaleft">faVolumeId</small></div></td>
+            <td class="hintcell">Метка тома (означает, что файл содержит идентификатор (ID) тома).<BR>Только для DOS/Windows 9x на обычной файловой системе FAT (не VFAT или FAT32).</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td><td class="hintcell">Каталог.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td>
+            <td class="hintcell">Каталог.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td><td class="hintcell">Архивный.<BR>Не используется в Unix/Linux.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td>
+            <td class="hintcell">Архивный.<BR>Не используется в Unix/Linux.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td><td class="hintcell">Символьная ссылка.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td>
+            <td class="hintcell">Символьная ссылка.</td>
           </tr>
           <tr>
             <td colspan="2"><B>Примечание: В случае ошибки функция возвращает -1.</b>
@@ -609,12 +618,49 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы для кнопок в Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Отображаемые кнопки, слева направо</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка OK" alt="Кнопка OK" src="images/imgDC/luaimg11.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка OK" alt="Кнопка OK" src="images/imgDC/luaimg11.png" width="72" height="21"><img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ПРЕРВАТЬ" alt="Кнопка ПРЕРВАТЬ" src="images/imgDC/luaimg15.png" width="66" height="21"><img class="largeimage" title="Кнопка ПОВТОР" alt="Кнопка ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Кнопка ПРОПУСТИТЬ" alt="Кнопка ПРОПУСТИТЬ" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ДА" alt="Кнопка ДА" src="images/imgDC/luaimg16.png" width="72" height="21"><img class="largeimage" title="Кнопка НЕТ" alt="Кнопка НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"><img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ДА" alt="Кнопка ДА" src="images/imgDC/luaimg16.png" width="72" height="21"><img class="largeimage" title="Кнопка НЕТ" alt="Кнопка НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td><td class="hintcell"><img class="largeimage" title="Кнопка ПОВТОР" alt="Кнопка ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"><img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Кнопка OK" alt="Кнопка OK" src="images/imgDC/luaimg11.png" width="72" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Кнопка OK" alt="Кнопка OK" src="images/imgDC/luaimg11.png" width="72" height="21">
+              <img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Кнопка ПРЕРВАТЬ" alt="Кнопка ПРЕРВАТЬ" src="images/imgDC/luaimg15.png" width="66" height="21">
+              <img class="largeimage" title="Кнопка ПОВТОР" alt="Кнопка ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21">
+              <img class="largeimage" title="Кнопка ПРОПУСТИТЬ" alt="Кнопка ПРОПУСТИТЬ" src="images/imgDC/luaimg13.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Кнопка ДА" alt="Кнопка ДА" src="images/imgDC/luaimg16.png" width="72" height="21">
+              <img class="largeimage" title="Кнопка НЕТ" alt="Кнопка НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21">
+              <img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Кнопка ДА" alt="Кнопка ДА" src="images/imgDC/luaimg16.png" width="72" height="21">
+              <img class="largeimage" title="Кнопка НЕТ" alt="Кнопка НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Кнопка ПОВТОР" alt="Кнопка ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21">
+              <img class="largeimage" title="Кнопка ОТМЕНА" alt="Кнопка ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21">
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -625,10 +671,22 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, задающие значок и стиль окна Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Стиль окна</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ИНФОРМАЦИЯ" alt="Значок ИНФОРМАЦИЯ" src="images/imgDC/luaimg8.png" width="32" height="32"> Информационное окно</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ПРЕДУПРЕЖДЕНИЕ" alt="Значок ПРЕДУПРЕЖДЕНИЕ" src="images/imgDC/luaimg9.png" width="32" height="32"> Окно предупреждения</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ВОПРОС" alt="Значок ВОПРОС" src="images/imgDC/luaimg7.png" width="32" height="32"> Окно подтверждения</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td><td class="hintcell"><img class="largeimage" title="Значок ОШИБКА" alt="Значок ОШИБКА" src="images/imgDC/luaimg10.png" width="32" height="32"> Окно ошибки</td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Значок ИНФОРМАЦИЯ" alt="Значок ИНФОРМАЦИЯ" src="images/imgDC/luaimg8.png" width="32" height="32"> Информационное окно</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Значок ПРЕДУПРЕЖДЕНИЕ" alt="Значок ПРЕДУПРЕЖДЕНИЕ" src="images/imgDC/luaimg9.png" width="32" height="32"> Окно предупреждения</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Значок ВОПРОС" alt="Значок ВОПРОС" src="images/imgDC/luaimg7.png" width="32" height="32"> Окно подтверждения</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Значок ОШИБКА" alt="Значок ОШИБКА" src="images/imgDC/luaimg10.png" width="32" height="32"> Окно ошибки</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -639,9 +697,18 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, задающие кнопку по умолчанию в Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Кнопка по умолчанию</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td><td class="hintcell">Первая кнопка слева</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td><td class="hintcell">Вторая кнопка слева</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td><td class="hintcell">Третья кнопка слева</td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td>
+            <td class="hintcell">Первая кнопка слева</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td>
+            <td class="hintcell">Вторая кнопка слева</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td>
+            <td class="hintcell">Третья кнопка слева</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -652,14 +719,38 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Возвращаемое значение Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение константы</th><th class="categorydesccolumn">Нажатая кнопка</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td><td class="hintcell">Кнопка не нажата</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: OK" alt="Результат: OK" src="images/imgDC/luaimg11.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ОТМЕНА" alt="Результат: ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ПРЕРВАТЬ" alt="Результат: ПРЕРВАТЬ" src="images/imgDC/luaimg15.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">mrRetry</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ПОВТОР" alt="Результат: ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">mrIgnore</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ПРОПУСТИТЬ" alt="Результат: ПРОПУСТИТЬ" src="images/imgDC/luaimg13.png" width="66" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: ДА" alt="Результат: ДА" src="images/imgDC/luaimg16.png" width="72" height="21"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td><td class="hintcell"><img class="largeimage" title="Результат: НЕТ" alt="Результат: НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"></td></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td>
+            <td class="hintcell">Кнопка не нажата</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: OK" alt="Результат: OK" src="images/imgDC/luaimg11.png" width="72" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: ОТМЕНА" alt="Результат: ОТМЕНА" src="images/imgDC/luaimg12.png" width="72" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: ПРЕРВАТЬ" alt="Результат: ПРЕРВАТЬ" src="images/imgDC/luaimg15.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">mrRetry</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: ПОВТОР" alt="Результат: ПОВТОР" src="images/imgDC/luaimg14.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">mrIgnore</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: ПРОПУСТИТЬ" alt="Результат: ПРОПУСТИТЬ" src="images/imgDC/luaimg13.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: ДА" alt="Результат: ДА" src="images/imgDC/luaimg16.png" width="72" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Результат: НЕТ" alt="Результат: НЕТ" src="images/imgDC/luaimg17.png" width="72" height="21"></td>
+          </tr>
         </table>
         <p>Примечание: Если закрыть окно, нажав крестик "x" в углу окна или клавишу <kbd>Esc</kbd>, то функция вернёт <code>0x0002</code>, как нажатие кнопки Отмена.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>

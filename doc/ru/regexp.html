@@ -83,7 +83,7 @@
         <h2>3. <a name="esc">Escape-последовательности</a></h2>
         <p>Любой символ может быть определён с помощью escape-последовательности так же, как это делается в языках C или Perl: "\n" означает начало строки, "\t"&nbsp;&mdash; табуляцию и т.д.</p>
         <p>\xnn, где nn&nbsp;&mdash; это последовательность шестнадцатеричных цифр, означает символ с ASCII-кодом nn.</p>
-        <p>Если необходимо определить двухбайтный (Unicode) символ, используем формат "\x{nnnn}", где "nnnn"&nbsp;&mdash; одна или более шестнадцатеричных цифр.</p>
+        <p>Если необходимо определить двухбайтный (Юникод) символ, используем формат "\x{nnnn}", где "nnnn"&nbsp;&mdash; одна или более шестнадцатеричных цифр.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Escape-последовательности</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
@@ -93,7 +93,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\x{nnnn}</div></td>
-            <td class="hintcell">символ с шестнадцатеричным кодом nnnn (один байт для обычного текста и два для Unicode)</td>
+            <td class="hintcell">символ с шестнадцатеричным кодом nnnn (один байт для обычного текста и два для Юникода)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\t</div></td>
@@ -252,9 +252,9 @@
         <p>Метасимволы \A и \Z аналогичны "^" и "$", но на них не действует <a href="#modifiers">модификатор m</a>, т.е. они всегда совпадают только с началом и концом всего входного текста.</p>
         <p>Метасимвол "." по умолчанию совпадает с любым символом, однако, если вы выключите <a href="#modifiers">модификатор s</a>, то "." не будет совпадать с разделителями строк.</p>
         <p>TRegExpr интерпретирует разделители строк так, как это рекомендовано на <a href="http://www.unicode.org/" target="_blank">www.unicode.org</a> в <a href="http://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>:</p>
-        <p>"^" совпадает с началом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно следующей после \x0D\x0A, \x0A или \x0D (если вы используете <a href="https://regexpstudio.com/ru/tregexpr_interface.html#unicode" target="_blank">Unicode-версию</a> TRegExpr, то также \x2028, \x2029, \x0B, \x0C или \x85). Обратите внимание, что он не совпадает в промежутке внутри последовательности \x0D\x0A.</p>
-        <p>"$" совпадает с концом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно предшествующей \x0D\x0A, \x0A или \x0D (если вы используете <a href="https://regexpstudio.com/ru/tregexpr_interface.html#unicode" target="_blank">Unicode-версию</a> TRegExpr, то также \x2028, \x2029, \x0B, \x0C или \x85). Обратите внимание, что он не совпадает в промежутке внутри последовательности \x0D\x0A.</p>
-        <p>"." совпадает с любым символом, но если выключен <a href="#modifiers">модификатор s</a>, то "." не совпадает с \x0D\x0A, \x0A и \x0D (если вы используете <a href="https://regexpstudio.com/ru/tregexpr_interface.html#unicode" target="_blank">Unicode-версию</a> TRegExpr, то не совпадает также с \x2028, \x2029, \x0B, \x0C и \x85).</p>
+        <p>"^" совпадает с началом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно следующей после \x0D\x0A, \x0A или \x0D (если вы используете <a href="https://regexpstudio.com/ru/tregexpr_interface.html#unicode" target="_blank">Юникод-версию</a> TRegExpr, то также \x2028, \x2029, \x0B, \x0C или \x85). Обратите внимание, что он не совпадает в промежутке внутри последовательности \x0D\x0A.</p>
+        <p>"$" совпадает с концом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно предшествующей \x0D\x0A, \x0A или \x0D (если вы используете <a href="https://regexpstudio.com/ru/tregexpr_interface.html#unicode" target="_blank">Юникод-версию</a> TRegExpr, то также \x2028, \x2029, \x0B, \x0C или \x85). Обратите внимание, что он не совпадает в промежутке внутри последовательности \x0D\x0A.</p>
+        <p>"." совпадает с любым символом, но если выключен <a href="#modifiers">модификатор s</a>, то "." не совпадает с \x0D\x0A, \x0A и \x0D (если вы используете <a href="https://regexpstudio.com/ru/tregexpr_interface.html#unicode" target="_blank">Юникод-версию</a> TRegExpr, то не совпадает также с \x2028, \x2029, \x0B, \x0C и \x85).</p>
         <p>Обратите внимание, что "^.*$" (шаблон для пустой строки) не совпадает с пустой строкой вида \x0D\x0A, но совпадает с \x0A\x0D.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>

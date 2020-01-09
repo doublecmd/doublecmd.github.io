@@ -70,6 +70,7 @@
               <dt>5.4. <a href="#f3_hscroll">Есть такие текстовые файлы, в которых при быстром просмотре строчки уходят за край окошка! А внизу нет ползунка чтобы прочесть до конца!</a></dt>
               <dt>5.5. <a href="#f4_colmode">Можете добавить функцию редактирования колонок (как в Notepad++, UltraEdit и т.д.)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></dt>
+              <dt>5.7. <a href="#f34_regutf8">Как я могу использовать регулярные выражения для поиска в UTF-8?</a></dt>
             </dl>
           </dd>
           <dt><a name="fv">6. Вопросы, связанные с файловыми панелями</a></dt>
@@ -217,15 +218,23 @@
         <p><span class="bold">О:</span> Хм... действительно горизонтальный ползунок не предусмотрен, в данном случае можно воспользоваться режимом "Показать как текст с разрывами строк".</p>
         <BR>
 
-        <p class="bold"><a name="f4_colmode">Q: Можете добавить функцию редактирования колонок (как в Notepad++, UltraEdit и т.д.)?</a></p>
-        <p><span class="bold">A:</span> Встроенный редактор поддерживает режимы выделения колонкой и построчно и мульти-каретки, клавиатурные сочетания см. <a href="shortcuts.html#editor">здесь</a>.</p>
+        <p class="bold"><a name="f4_colmode">В: Можете добавить функцию редактирования колонок (как в Notepad++, UltraEdit и т.д.)?</a></p>
+        <p><span class="bold">О:</span> Встроенный редактор поддерживает режимы выделения колонкой и построчно и мульти-каретки, клавиатурные сочетания см. <a href="shortcuts.html#editor">здесь</a>.</p>
         <BR>
 
-        <p class="bold"><a name="f3_svg">Q: Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></p>
-        <p><span class="bold">A:</span> Поддерживается с помощью librsvg:</p>
+        <p class="bold"><a name="f3_svg">В: Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></p>
+        <p><span class="bold">О:</span> Поддерживается с помощью librsvg:</p>
         <ul>
           <li><p>Linux: установите пакет <code>librsvg</code>.</p></li>
           <li><p>Windows: необходимы <code>libcairo-2.dll</code>, <code>librsvg-2-2.dll</code> и <code>libgobject-2.0-0.dll</code> (+ все зависимости), можно взять файлы из GIMP. Вы должны скопировать эти DLL в папку Double Commander или в PATH.</p></li>
+        </ul>
+        <BR>
+
+        <p class="bold"><a name="f34_regutf8">В: Как я могу использовать регулярные выражения для поиска в UTF-8?</a></p>
+        <p><span class="bold">О:</span> Возможность была добавлена в версии 1.0.0. Необходима библиотека PCRE2 с поддержкой 8-битной кодировки и включенной поддержкой Юникода (обычно включено по умолчанию):</p>
+        <ul>
+          <li><p>Linux: необходим файл <code>libpcre2-8.so.0</code>. Например, пакет <code>libpcre2-8-0</code> в Debian и построенных на нём дистрибутивах или <code>pcre2</code> в Arch Linux.</p></li>
+          <li><p>Windows: необходим файл <code>libpcre2-8.dll</code>. Если у вас нет <code>libpcre2-8.dll</code> в папке Double Commander, то можете взять эту DLL здесь: <a href="https://doublecmd.sourceforge.io/test/libpcre2_win32.zip">32-битная</a> или <a href="https://doublecmd.sourceforge.io/test/libpcre2_win64.zip">64-битная</a>.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -233,12 +242,12 @@
       <div>
         <h2>6. 6. Вопросы, связанные с файловыми панелями</h2>
 
-        <p class="bold"><a name="fv_datetime">Q: Я не нашёл в списке подходящий формат даты для файловых панелей! Как добавить свой?</a></p>
-        <p><span class="bold">A:</span> Формат даты и времени легко настраивается: перейдите в Настройки&nbsp;&gt; Параметры&nbsp;&gt; Список файлов&nbsp;&gt; Форматирование&nbsp;&gt; Формат даты и времени и используйте <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">эту таблицу</a>.</p>
+        <p class="bold"><a name="fv_datetime">В: Я не нашёл в списке подходящий формат даты для файловых панелей! Как добавить свой?</a></p>
+        <p><span class="bold">О:</span> Формат даты и времени легко настраивается: перейдите в Настройки&nbsp;&gt; Параметры&nbsp;&gt; Список файлов&nbsp;&gt; Форматирование&nbsp;&gt; Формат даты и времени и используйте <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">эту таблицу</a>.</p>
         <BR>
 
-        <p class="bold"><a name="fv_svg">Q: Возможно ли добавить поддержку миниатюр SVG в просмотр эскизов?</a></p>
-        <p><span class="bold">A:</span> Уже поддерживается, см. <a href="faq.html#f3_svg">Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></p>
+        <p class="bold"><a name="fv_svg">В: Возможно ли добавить поддержку миниатюр SVG в просмотр эскизов?</a></p>
+        <p><span class="bold">О:</span> Уже поддерживается, см. <a href="faq.html#f3_svg">Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
         <BR>
       </div>

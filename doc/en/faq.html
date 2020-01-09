@@ -70,6 +70,7 @@
               <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge</a></dt>
               <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Is it possible to add support SVG in viewer?</a></dt>
+              <dt>5.7. <a href="#f34_regutf8">How can I use regular expressions to search in UTF-8?</a></dt>
             </dl>
           </dd>
           <dt><a name="fv">6. Issues related to the file panels</a></dt>
@@ -226,6 +227,14 @@
         <ul>
           <li><p>Linux: install package <code>librsvg</code>.</p></li>
           <li><p>Windows: needs <code>libcairo-2.dll</code>, <code>librsvg-2-2.dll</code> and <code>libgobject-2.0-0.dll</code> (+ all dependencies), you can take DLLs from GIMP. You should copy this DLLs to Double Commander folder or in PATH.</p></li>
+        </ul>
+        <BR>
+
+        <p class="bold"><a name="f34_regutf8">Q: How can I use regular expressions to search in UTF-8?</a></p>
+        <p><span class="bold">A:</span> This feature has been added to version 1.0.0. Needs PCRE2 library with support 8-bit code units and Unicode support enabled (usually enabled by default):</p>
+        <ul>
+          <li><p>Linux: needs <code>libpcre2-8.so.0</code>. For example, package <code>libpcre2-8-0</code> in Debian/Debian-based distributions or <code>pcre2</code> in Arch Linux.</p></li>
+          <li><p>Windows: needs <code>libpcre2-8.dll</code>. If you have not <code>libpcre2-8.dll</code> in Double Commander folder than you can take this DLL here: <a href="https://doublecmd.sourceforge.io/test/libpcre2_win32.zip">32-bit</a> or <a href="https://doublecmd.sourceforge.io/test/libpcre2_win64.zip">64-bit</a>.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

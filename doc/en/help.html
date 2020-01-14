@@ -12,7 +12,7 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Double Commander" href="http://doublecmd.sourceforge.net/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="faq.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="faq.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
@@ -156,36 +156,14 @@
         <p><span class="italic">Keep scrolling</span>&nbsp;&mdash; allows synchronized scrolling.</p>
         <p><span class="italic">Close</span>&nbsp;&mdash; closes comparison window.</p>
 
-        <p><a name="07_mnog_imen"><span class="bold">Multi Rename Tool</span></a> (internal command <tt><a name="cm_MultiRename">cm_MultiRename</a></tt>)</p>
-        <p class="figure"><img class="largeimage" alt="Multi Rename Tool" title="Multi Rename Tool" src="images/imgDC/pic14.png" width="524" height="300"></p>
-
+        <BR>
+        <p><a name="07_mnog_imen"><span class="bold">Multi-Rename Tool</span></a> (internal command <tt><a href="cmds.html#cm_MultiRename">cm_MultiRename</a></tt>)</p>
+        <p class="figure"><img class="largeimage" alt="Multi-Rename Tool" title="Multi-Rename Tool" src="images/imgDC/pic14.png" width="672" height="399"></p>
         <p>Allows renaming any files by defined mask. For example, some files with different names could be renamed into Picture1, Picture2, Picture3, etc.. First, select files to be renamed and then start this tool (see figure above). There you can see the old and new names for your files.</p>
-        <p>On the panel <span class="italic">Mask</span> you can set mask to rename. The following macros are available:</p>
-        <ul>
-          <li><p><tt>[N]</tt>&nbsp;&mdash; is the same name as the source file</p></li>
-          <li><p><tt>[Nx]</tt>&nbsp;&mdash; get x-characters from original name. E.g. if the source file is named "Picture" value [N5] would mean that the character "u" (fifth character in the original name) would be used</p></li>
-          <li><p><tt>[Nx:y]</tt>&nbsp;&mdash; get characters from x to y. Therefore, if the source file is named "Picture" value [N1:4] would mean "Pict" is used</p></li>
-          <li><p><tt>[C]</tt>&nbsp;&mdash; is a counter, its parameters are listed on the <span class="italic">Counter</span> panel</p></li>
-        </ul>
-        <p>You can combine the use of macros, and your own text (see figure).</p>
+        <p>See <a href="multirename.html">this page</a> for detailed descriptions.</p>
 
-        <p>Using the spinner box to the right of the <span class="italic">File Name</span> you can choose from the following:</p>
-        <ul>
-          <li><p>No change&nbsp;&mdash; the new names will be same case as the old ones.</p></li>
-          <li><p>UPPERCASE&nbsp;&mdash; the new names will be all uppercase.</p></li>
-          <li><p>lowercase&nbsp;&mdash; the new names will be all lowercase.</p></li>
-          <li><p>First char uppercase&nbsp;&mdash; the new file names will begin with a capital character.</p></li>
-          <li><p>First Char Of Every Word Uppercase&nbsp;&mdash; each word of the new file names will begin with a capital character.</p></li>
-        </ul>
-        <p>Likewise for the <span class="italic">Extension</span> name as well.</p>
 
-        <p>Panel <span class="italic">Find &amp; Replace</span> will help when you need to replace parts of the file name (e.g. change "a" to "i", so the word changes from "race" to "rice"). <a href="regexp.html">Regular expressions</a> are also available.</p>
-        <p>In the panel <span class="italic">Counter</span> set the parameters of the counter: first number, number width (1, 01, 001, 0001, etc..), interval.</p>
-        <p>In the panel <span class="italic">Log Result</span> you can enable a log file and specify the path to it.</p>
-        <p>In the panel <span class="italic">Presets</span> you can save all your MultiRename settings for future use. Just type a name into the box and click the <span class="italic">Save</span> button.</p>
-        <p>If you click on the <span class="italic">Reset all</span> button the configuration of the MultiRename tool will be set back to the initial settings. Handy if you want to start all over again ;-).</p>
-        <p>Finally, when you are satisfied you have the new filenames as you want, click on the <span class="italic">Rename</span> button to actually perform the file renaming.</p>
-
+        <BR>
         <p>By selecting item <a name="08_upakovat"><span class="bold">Pack files</span></a> (internal command <tt><a name="cm_PackFiles">cm_PackFiles</a></tt>) we call a standard dialog to pack files to the zip, tar.gz, tgz and, possibly, rar archive formats.</p>
         <p class="figure"><img class="largeimage" alt="Pack" title="Pack" src="images/imgDC/pic14-5.png"></p>
 
@@ -814,7 +792,7 @@
         <BR>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="faq.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="faq.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
     <div class="checker">
 	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

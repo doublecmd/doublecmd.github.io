@@ -16,13 +16,12 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.8. Internal Commands</h1>
+        <h1>2.9. Internal Commands</h1>
       </div>
 
       <div>
         <h2>Content</h2>
         <dl>
-          <dt class="bold"><a name="TOC">Content</a></dt>
           <dt>1. <a href="#commandcategory">Table of Command Categories</a></dt>
           <dt>2. <a href="#commanddescription">Description of all commands by category</a></dt>
           <dd>
@@ -2205,7 +2204,25 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MultiRename" alt="cm_MultiRename" src="../../pixmaps/dctheme/32x32/actions/cm_multirename.png">
               <div class="cmdname"><a name="cm_MultiRename">cm_MultiRename</a></div>
               <div class="shrtctkey">Ctrl+M</div></td>
-            <td class="cmdhintcell">Open <a href="help.html#cm_MultiRename">multi rename</a> tool dialog.</td>
+            <td class="cmdhintcell">Open <a href="multirename.html">Multi-Rename Tool</a>.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="1">preset</td>
+                  <td class="innerdescvaluecell">a preset name</td>
+                  <td class="innerdescdesccell">The provided preset name will be loaded</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescdesccell">Load the last settings used or what has been configured for <a href="multirename.html#presetatlaunch">Preset at launch</a></td>
+                </tr>
+              </table>
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Search" alt="cm_Search" src="../../pixmaps/dctheme/32x32/actions/cm_search.png">

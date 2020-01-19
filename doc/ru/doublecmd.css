@@ -22,6 +22,7 @@ img.IntCmdImage {
 
 p.navback { text-align: left; font-style: italic; }
 p.versionref { text-align: left; font-size: 60%; font-style: italic; color: #4B0082; }
+span.versionref { margin-left: 10px; font-size: 60%; font-style: italic; color: #4B0082; }
 
 kbd {
   font-weight: bold;
@@ -65,14 +66,16 @@ span.luasbl { color: #000080; }
   color: #990000;
 }
 
-table { border: 1px #b0b0b0 solid; border-collapse: collapse; width: 885px;  margin-left: 5px; }
+table { font-size: inherit; border: 1px #b0b0b0 solid; border-collapse: collapse; width: 885px;  margin-left: 5px; }
 table.innercmddesc { border: 1px #c0c0c0 solid; border-collapse: collapse; width: 99%}
 
 tr.rowsubtitle { background-color: #FFFFC0; color: #000000; }
 tr.rowcategorytitle { background-color: #FFD0D0; color: #000000; }
 tr.rowinnerdesc { background-color: #FFFFC0; color: #000000; }
 
+th.smallname { border: 1px #b0b0b0 solid; width: 10%; }
 th.namecolumn { border: 1px #b0b0b0 solid; width: 30%; }
+th.mediumcolumn { border: 1px #b0b0b0 solid; width: 60%; }
 th.categorydesccolumn { border: 1px #b0b0b0 solid; width: 70%; }
 th.categorynamecolumn { border: 1px #b0b0b0 solid; width: 20%; }
 th.cmdcolumndesc{ width: 70%; border: 1px #b0b0b0 solid; }

@@ -39,6 +39,7 @@
               <dt>2.1. <a href="#version">Какую версию мне скачивать?</a></dt>
               <dt>2.2. <a href="#repo">Есть ли у проекта репозиторий?</a></dt>
               <dt>2.3. <a href="#plugins">Плагины от Total Commander&reg; не работают?!</a></dt>
+              <dt>2.4. <a href="#gvfs">Могу ли я получить доступ к сетевым ресурсам как в Nautilus или Thunar?</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">3. Настройка интерфейса</a></dt>
@@ -135,6 +136,19 @@
 
         <p class="bold"><a name="plugins">В: Плагины от Total Commander&reg; не работают?!</a></p>
         <p><span class="bold">О:</span> Работают, но не все. Плагины от TC скомпилированы под Windows&reg;, поэтому их можно подключать только к Windows&reg;-версии Double Commander. Но любой плагин, имеющий открытый исходный код, можно попробовать собрать для Linux (или уговорить разработчика плагина сделать это :)).</p>
+        <BR>
+
+        <p class="bold"><a name="gvfs">В: Могу ли я получить доступ к сетевым ресурсам как в Nautilus или Thunar?</a></p>
+        <p><span class="bold">О:</span> Да, DC может использовать Gvfs. Gvfs поддерживает множество протоколов: NFS, SMB, FTP, SFTP, WebDAV, MTP, мобильные телефоны (Windows, Android, Apple), плееры и другое.</p>
+        <p>Во-первых, должны быть установлены пакеты <code>gvfs</code> и <code>gvfs-backends</code> (также добавьте <code>gvfs-fuse</code>, это может быть полезно). Имейте в виду, что в некоторых дистрибутивах нет пакетов <code>gvfs-backends</code> и <code>gvfs-fuse</code>, потому что они часть пакета <code>gvfs</code>, или же может быть несколько пакетов с именами <code>gvfs-backends-*</code> или <code>gvfs-*</code>.</p>
+        <p>Теперь вставьте путь Gvfs в строку адреса: для редактирования щёлкните правой кнопкой мыши по панели текущего адреса (или вызовите внутреннюю команду "cm_EditPath").</p>
+        <p>Например, доступ к</p>
+        <ul>
+          <li>Yandex.Disk (используя WebDAV): <code>davs://webdav.yandex.ru</code></li>
+          <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
+          <li>SMB: <code>smb://servername/sharename/</code></li>
+        </ul>
+        <p>Для доступа к FTP (и SSH+SCP тоже) и SMB вы можете использовать WFX-плагины <code>ftp</code> и <code>samba</code>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 

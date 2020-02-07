@@ -39,6 +39,7 @@
               <dt>2.1. <a href="#version">Which version do I download?</a></dt>
               <dt>2.2. <a href="#repo">Where is the project repository?</a></dt>
               <dt>2.3. <a href="#plugins">Plugins from Total Commander&reg; do not work?!</a></dt>
+              <dt>2.4. <a href="#gvfs">Can I get access to network resources like in Nautilus or Thunar?</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">3. Interface configuration</a></dt>
@@ -135,6 +136,19 @@
 
         <p class="bold"><a name="plugins">Q: Plugins from Total Commander&reg; do not work!?</a></p>
         <p><span class="bold">A:</span> They work, but not all of them. Plugins from TC compiled for Windows&reg; can only be used with Windows&reg; version of Double Commander. But if the plugins have open source code, you can try to build them for GNU/Linux (or maybe ask the plugin developer to do it :)).</p>
+        <BR>
+
+        <p class="bold"><a name="gvfs">Q: Can I get access to network resources like in Nautilus or Thunar?</a></p>
+        <p><span class="bold">A:</span> Yes, DC can use Gvfs. Gvfs supports many protocols: NFS, SMB, FTP, SFTP, WebDAV, MTP, mobile phones (Windows, Android, Apple), media players and other.</p>
+        <p>First, packages <code>gvfs</code> and <code>gvfs-backends</code> should be installed (also add <code>gvfs-fuse</code>, it can be useful). Keep in mind that some distributions have not packages <code>gvfs-backends</code> and <code>gvfs-fuse</code>, because they are part of package <code>gvfs</code>, or it can be several packages with names <code>gvfs-backends-*</code> or <code>gvfs-*</code>.</p>
+        <p>Now insert Gvfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command "cm_EditPath").</p>
+        <p>For example, access to</p>
+        <ul>
+          <li>Yandex.Disk (using WebDAV): <code>davs://webdav.yandex.ru</code></li>
+          <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
+          <li>SMB: <code>smb://servername/sharename/</code></li>
+        </ul>
+        <p>Well, for access to FTP (for SSH+SCP too) and SMB you can use default WFX plugins <code>ftp</code> and <code>samba</code>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

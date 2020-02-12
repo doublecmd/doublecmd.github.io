@@ -125,7 +125,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>во всех тегах &lt;Font&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>во всех тегах &lt;Fonts&gt;</small></div></td>
             <td class="hintcell">
               Задаёт тип <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">растеризации шрифта</a>.<BR>Другими словами, определяет качество шрифта.<BR>Есть много тегов &lt;Font&gt;, можно менять не для всей программы, а индивидуально.<BR>
               <table class="innercmddesc">
@@ -176,6 +176,13 @@
           </tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>и</small> &lt;Success&gt;<BR><small>в &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
+            <td class="hintcell">Задают цвет текста в окне протокола для информационных сообщений, сообщений об ошибке и об успешной операции.<BR>
+              Мы можем использовать код цвета в шестнадцатеричном виде в формате $BBGGRR.<BR>
+              <I>Например, выводить информационные сообщения синим цветом:</i> <code>&lt;Info&gt;$FF0000&lt;/Info&gt;</code></td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<BR><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
               Изменение вида панели заголовков колонок.<BR>Значение по умолчанию зависит от ОС.<BR>
@@ -210,6 +217,14 @@
           </tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>и</small> &lt;FolderPostfix&gt;<br><small>в &lt;FilesViews&gt;</small><span class="versionref">(Версия 1.0.0 +)</span></div></td>
+            <td class="hintcell">
+              По умолчанию DC показывает квадратные скобки вокруг имён папок (это опциональный параметр в Список файлов&nbsp;&gt; Список файлов (дополнительно)), но мы можем использовать вместо них любые символы.<BR>
+              Примечание: В XML некоторые специальные символы зарезервированы как часть разметки и мы не можем использовать их как есть. Существует пять предопределённых сущностей: <code>&lt;</code> должен быть записан как <code>&amp;lt;</code>, <code>&gt;</code> как <code>&amp;gt;</code>, <code>&amp;</code> как <code>&amp;amp;</code>, <code>'</code> как <code>&amp;apos;</code> и <code>"</code> как <code>&amp;quot;</code>.
+            </td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>в &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
               При сравнении даты и времени игнорировать разницу во времени ровно один час (при использовании внутренних команд <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> или <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>).<BR>
@@ -235,6 +250,28 @@
             <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>в &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">Предположим, мы "вошли" в сжатый файл в активной панели и просматриваем его содержимое. Файлы с расширением, заданным в этом параметре, при нажатии <kbd>Enter</kbd> или двойном щелчке мыши будут автоматически распакованы из архива и выполнены в соответствии с файловыми ассоциациями (вместо показа окна свойств).<BR>
               <I>Пример:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;<br><span class="versionref">(Версия &lt;= 0.9.x)</span></div></td>
+            <td class="hintcell">
+              Использовать функцию переименования как в Explorer.<BR>Корректно работает с <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C_%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B5%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9" target="_blank">UAC</a>.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Разрешить (по умолчанию)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Запретить</td>
+                </tr>
+              </table>
+              <I>Пример:</i> <code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
+            </td>
           </tr>
 
           <tr>
@@ -367,15 +404,6 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<BR><small>в &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              Установить ширину табуляции во внутреннем просмотрщике.<BR>
-                          Диапазон значений от 1 до 32, по умолчанию 8.<BR>
-              <I>Пример:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<BR><small>в &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               Установить максимальное количество символов в одной строке до принудительного переноса на новую.<BR>
@@ -385,37 +413,18 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>в &lt;Lua&gt;</small></div></td>
-            <td class="hintcell"><a name="luapathtolibrary"></a>Путь к библиотеке Lua (необходима для <a href="lua.html">использования скриптов Lua</a>).<BR>Путь может быть относительным к исполняемому файлу Double Commander.<BR><I>Пример:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<BR><small>в &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              Использовать функцию переименования как в Explorer.<BR>Корректно работает с <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C_%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B5%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9" target="_blank">UAC</a>.<BR>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Разрешить (по умолчанию)</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Запретить</td>
-                </tr>
-              </table>
-              <I>Пример:</i> <code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
+              Установить ширину табуляции во внутреннем просмотрщике.<BR>
+                          Диапазон значений от 1 до 32, по умолчанию 8.<BR>
+              <I>Пример:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>и</small> &lt;Success&gt;<BR><small>в &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Задают цвет текста в окне протокола для информационных сообщений, сообщений об ошибке и об успешной операции.<BR>
-              Мы можем использовать код цвета в шестнадцатеричном виде в формате $BBGGRR.<BR>
-              <I>Например, выводить информационные сообщения синим цветом:</i> <code>&lt;Info&gt;$FF0000&lt;/Info&gt;</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>и</small> &lt;Modified&gt;<BR><small>в &lt;Differ&gt;&lt;Colors&gt;</small><span class="versionref">(Версия 1.0.0 +)</span></div></td>
+            <td class="hintcell">Задают цвет для добавленных, удалённых и модифицированных строк во внутреннем инструменте сравнения файлов.<BR>
+              Мы можем использовать код цвета в шестнадцатеричном виде в формате $BBGGRR, смотрите пример выше.</td>
           </tr>
 
           <tr>
@@ -423,6 +432,11 @@
             <td class="hintcell">Синхронизировать каталоги: сохранять или нет асимметричный режим по умолчанию.<BR>
             <I>Если мы хотим сохранять состояние режима, тогда <code>&lt;Asymmetric Save="True"&gt;</code>,
             в противном случае <code>&lt;Asymmetric Save="False"&gt;</code> (по умолчанию).</I></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>в &lt;Lua&gt;</small></div></td>
+            <td class="hintcell"><a name="luapathtolibrary"></a>Путь к библиотеке Lua (необходима для <a href="lua.html">использования скриптов Lua</a>).<BR>Путь может быть относительным к исполняемому файлу Double Commander.<BR><I>Пример:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
           </tr>
 
         </table>

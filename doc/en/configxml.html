@@ -86,6 +86,7 @@
               <I>Example:</i> <code>&lt;ActiveRight&gt;True&lt;/ActiveRight&gt;</code>
             </td>
           </tr>
+
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;SingleClickStart&gt;<BR><small>from &lt;Behaviours&gt;&lt;Mouse&gt;</small></div></td>
             <td class="hintcell">
@@ -124,7 +125,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>from many tags &lt;Font&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>from many tags &lt;Fonts&gt;</small></div></td>
             <td class="hintcell">
               Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used.<BR>In other words, it determine the font quality.<BR>There are many tags where it's applicable individually.<BR>
               <table class="innercmddesc">
@@ -175,6 +176,13 @@
           </tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<BR><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
+            <td class="hintcell">Change text color of log window (info, error, success messages).<BR>
+              We can set color as hex number using format $BBGGRR.<BR>
+              <I>For example, if we want to use blue color for text of info messages:</i> <code>&lt;Info&gt;$FF0000&lt;/Info&gt;</code></td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<BR><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
               Changes the look of tabstop headers bar.<BR>Default value depends on your OS.<BR>
@@ -209,6 +217,14 @@
           </tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>and</small> &lt;FolderPostfix&gt;<br><small>from &lt;FilesViews&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="hintcell">
+              By default DC shows square brackets around directory names (it's optional parameter in Files views&nbsp;&gt; Files views extra), but we can use any symbols instead them.<BR>
+              Note: In XML some special symbols are reserved as part of markup and we can not use them as is. There are five predefined entities: <code>&lt;</code> should write as <code>&amp;lt;</code>, <code>&gt;</code> as <code>&amp;gt;</code>, <code>&amp;</code> as <code>&amp;amp;</code>, <code>'</code> as <code>&amp;apos;</code> and <code>"</code> as <code>&amp;quot;</code>.
+            </td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
               Ignore time difference of exactly one hour between entries when comparing their date and time.<BR>
@@ -236,6 +252,28 @@
             <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<BR>
               <I>Example:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;<br><span class="versionref">(Version &lt;= 0.9.x)</span></div></td>
+            <td class="hintcell">
+              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Enable (default)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Disable</td>
+                </tr>
+              </table>
+              <I>Example:</i> <code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
+            </td>
           </tr>
 
           <tr>
@@ -368,15 +406,6 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              For the internal viewer, set the width of tab stops to use.<BR>
-              The valid range goes from 1 to 32 and default value is 8.<BR>
-              <I>Example:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, configure the maximum number of characters to be displayed on one text line prior to wrap it up to the next one.<BR>
@@ -386,37 +415,18 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
-            <td class="hintcell"><a name="luapathtolibrary"></a>This is the path to indicate where is the Lua library.<BR>It will indicate the location of the required dll file <tt>lua5.1.dll</tt> when doing <a href="lua.html">Lua Scripting</a>.<BR>This path may be relative to the Double Commander executable file.<BR><I>Example:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.<BR>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Enable (default)</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Disable</td>
-                </tr>
-              </table>
-              <I>Example:</i> <code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
+              For the internal viewer, set the width of tab stops to use.<BR>
+              The valid range goes from 1 to 32 and default value is 8.<BR>
+              <I>Example:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<BR><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Change text color of log window (info, error, success messages).<BR>
-              We can set color as hex number using format $BBGGRR.<BR>
-              <I>For example, if we want to use blue color for text of info messages:</i> <code>&lt;Info&gt;$FF0000&lt;/Info&gt;</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="hintcell">Change colors in the internal Differ tool (file comparison) for added, deleted and modified lines.<BR>
+              We can set color as hex number using format $BBGGRR, see example above.</td>
           </tr>
 
           <tr>
@@ -424,6 +434,11 @@
             <td class="hintcell">Synchronize directories: save or not asymmetric mode by default.<BR>
             <I>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
             or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).</I></td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
+            <td class="hintcell"><a name="luapathtolibrary"></a>This is the path to indicate where is the Lua library.<BR>It will indicate the location of the required dll file <tt>lua5.1.dll</tt> when doing <a href="lua.html">Lua Scripting</a>.<BR>This path may be relative to the Double Commander executable file.<BR><I>Example:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
           </tr>
 
         </table>

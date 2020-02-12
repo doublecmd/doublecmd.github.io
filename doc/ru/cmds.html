@@ -189,7 +189,42 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatView" alt="cm_FlatView" src="../../pixmaps/dctheme/32x32/actions/cm_flatview.png">
               <div class="cmdname"><a name="cm_FlatView">cm_FlatView</a></div>
               <div class="shrtctkey">Ctrl+B</div></td>
-            <td class="cmdhintcell">Показать все файлы без подкаталогов: будут просканированы все каталоги активной панели и в панели будет показано всё содержимое.</td>
+            <td class="cmdhintcell">Показать все файлы без подкаталогов: будут просканированы все каталоги панели и показано всё содержимое.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">side<p class="versionref">Версия 1.0.0 +</p></td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">в левой панели, как команда <a href="#cm_LeftFlatView">cm_LeftFlatView</a></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">в правой панели, как команда <a href="#cm_RightFlatView">cm_RightFlatView</a></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">в неактивной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
+                  <td class="innerdescdesccell">в текущей активной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescdesccell">в текущей активной панели</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatViewSel" alt="cm_FlatViewSel" src="../../pixmaps/dctheme/32x32/actions/cm_flatviewsel.png">
+              <div class="cmdname"><a name="cm_FlatViewSel">cm_FlatViewSel</a><p class="versionref">Версия 1.0.0 +</p></div>
+            <td class="cmdhintcell">Как команда cm_FlatView без параметра, но только для выделенных файлов и папок.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
@@ -825,7 +860,7 @@
               <div class="cmdname"><a name="cm_ConfigDirHotList">cm_ConfigDirHotList</a></div>
               <div class="shrtctkey">Ctrl+Shift+D</div></td>
             <td class="cmdhintcell">Перейти к странице настроек избранных каталогов.<BR><BR>
-              Эквивалент команде "cm_WorkWithDirectoryHotlist" со следующими параметрами:<BR>action=config source=%Ds</td>
+              Эквивалент команде cm_WorkWithDirectoryHotlist со следующими параметрами:<BR>action=config source=%Ds</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_WorkWithDirectoryHotlist" alt="cm_WorkWithDirectoryHotlist" src="../../pixmaps/dctheme/32x32/actions/cm_workwithdirectoryhotlist.png">
@@ -899,7 +934,7 @@
                   <td class="innerdescdesccell">будет использоваться index=0</td>
                 </tr>
               </table>
-              Пример:<br>"cm_WorkWithDirectoryHotlist action=addboth"<br>Добавит в список избранных каталогов текущие каталоги активной и неактивной панели в качестве пути и целевого пути соответственно.
+              Пример:<br>"cm_WorkWithDirectoryHotlist action=addboth"<br>Добавит в список избранных каталогов текущие каталоги активной и неактивной панелей в качестве пути и целевого пути соответственно.
             </td>
           </tr>
           <tr>
@@ -1146,7 +1181,7 @@
               <B>Примечание2:</b> При использовании фильтра в стиле Windows, фильтром <i>*.*</i> будут выбраны файла без расширения, в отличие от стиля DC.<BR>
               <B>Примечание3:</b> При указании параметра "mask", можно также использовать предопределённый тип (шаблон), просто поставьте перед его именем символ "&gt;", например, "<I>mask=&gt;Pascal files</i>".<BR>
               <B>Примечание4:</b> При использовании "<I>ignoreaccents=TRUE</i>", лигатуры, такие как "<i>&oelig;</i>", например, будут восприняты как последовательность "<i>oe</i>". Например, "<I>c&oelig;ur</i>" будет соответствовать "<I>coeur</i>".<BR>
-              <B>Примечание5:</b> Использование параметров, например, "casesensitive", не повлияет на последующее использование "cm_MarkPlus" без каких-либо параметров, по умолчанию будут использоваться те же параметры, что были получены при последнем вызове.<BR>
+              <B>Примечание5:</b> Использование параметров, например, "casesensitive", не повлияет на последующее использование cm_MarkPlus без каких-либо параметров, по умолчанию будут использоваться те же параметры, что были получены при последнем вызове.<BR>
               <B>Примечание6:</b> Возможные значения "attr" смотрите в секции "<a href="findfiles.html#attributes">Поиск файлов с определёнными атрибутами</a>" в разделе справки "Поиск файлов", атрибуты указываются аналогично.<BR>
               <B>Пример1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" выделит все файлы, соответствующие заданной маске фильтра (обычные расширения исходных файлов Delphi), игнорируя регистр букв.<BR>
               <B>Пример2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" выделит все файлы, соответствующие заданной маске фильтра (документы Microsoft Word со словом "ecole" в их именах), игнорируя акценты. Т.к. акценты игнорируются, то так же, как и файлы с "ecole" в имени, будут выделены и файлы, содержащие в имени "école".
@@ -1221,7 +1256,7 @@
               <B>Примечание:</b> На первый взгляд может показаться бесполезной, но можно использовать по меньшей мере в двух ситуациях:<br>
               <div style="margin: 0 0 0 15;">
                 В панели результата поиска по разным уровням директорий<br>
-                После вызова внутренней команды "<a href="#cm_FlatView">cm_FlatView</a>".
+                После вызова внутренней команды <a href="#cm_FlatView">cm_FlatView</a>.
               </div>
             </td>
           </tr>
@@ -1229,7 +1264,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentPath" alt="cm_UnmarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentpath.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentPath">cm_UnmarkCurrentPath</a></div></td>
             <td class="cmdhintcell"><a href="help.html#mnu_select">Снять выделение</a> с файлов с тем же путём, что и у файла под курсором в активной панели.<BR>
-              См. примечание в описании команды "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>".
+              См. примечание в описании команды <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>.
             </td>
           </tr>
           <tr>
@@ -1260,14 +1295,14 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentNameExt" alt="cm_MarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentnameext.png">
               <div class="cmdname"><a name="cm_MarkCurrentNameExt">cm_MarkCurrentNameExt</a></div></td>
             <td class="cmdhintcell"><a href="help.html#mnu_select">Выделить</a> файлы с именем и расширением как у файла под курсором в активной панели.<BR>
-              См. примечание в описании команды "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>".
+              См. примечание в описании команды <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>.
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentNameExt" alt="cm_UnmarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentnameext.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentNameExt">cm_UnmarkCurrentNameExt</a></div></td>
             <td class="cmdhintcell"><a href="help.html#mnu_select">Снять выделение</a> с файлов с именем и расширением как у файла под курсором в активной панели.<BR>
-              См. примечание в описании команды "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>".
+              См. примечание в описании команды <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>.
             </td>
           </tr>
           <tr>
@@ -1301,12 +1336,12 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelection" alt="cm_SaveSelection" src="../../pixmaps/dctheme/32x32/actions/cm_saveselection.png">
               <div class="cmdname"><a name="cm_SaveSelection">cm_SaveSelection</a></div></td>
-            <td class="cmdhintcell">Используется в сочетании с "<a href="#cm_RestoreSelection">cm_RestoreSelection</a>": команда "cm_SaveSelection" сохранит список выделенных файлов/папок во внутреннем буфере, позже с помощью команды "<a href="#cm_RestoreSelection">cm_RestoreSelection</a>" можно восстановить выделение.</td>
+            <td class="cmdhintcell">Используется в сочетании с <a href="#cm_RestoreSelection">cm_RestoreSelection</a>: команда cm_SaveSelection сохранит список выделенных файлов/папок во внутреннем буфере, позже с помощью команды <a href="#cm_RestoreSelection">cm_RestoreSelection</a> можно восстановить выделение.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RestoreSelection" alt="cm_RestoreSelection" src="../../pixmaps/dctheme/32x32/actions/cm_restoreselection.png">
               <div class="cmdname"><a name="cm_RestoreSelection">cm_RestoreSelection</a></div></td>
-            <td class="cmdhintcell">Смотрите предыдущую команду "<a href="#cm_SaveSelection">cm_SaveSelection</a>".</td>
+            <td class="cmdhintcell">Смотрите предыдущую команду <a href="#cm_SaveSelection">cm_SaveSelection</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelectionToFile" alt="cm_SaveSelectionToFile" src="../../pixmaps/dctheme/32x32/actions/cm_saveselectiontofile.png">
@@ -1723,22 +1758,32 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
               <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Поместить курсор в активной панели на первую папку или файл.</td>
+            <td class="cmdhintcell">Поместить курсор на первую папку или файл в списке.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastEntry" alt="cm_GoToLastEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastentry.png">
               <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Поместить курсор в активной панели на последнюю папку или файл.</td>
+            <td class="cmdhintcell">Поместить курсор на последнюю папку или файл в списке.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstFile" alt="cm_GoToFirstFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstfile.png">
               <div class="cmdname"><a name="cm_GoToFirstFile">cm_GoToFirstFile</a></div></td>
-            <td class="cmdhintcell">Поместить курсор в активной панели на первый файл.</td>
+            <td class="cmdhintcell">Поместить курсор на первый файл в списке.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastFile" alt="cm_GoToLastFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastfile.png">
               <div class="cmdname"><a name="cm_GoToLastFile">cm_GoToLastFile</a></div></td>
-            <td class="cmdhintcell">Поместить курсор в активной панели на последний файл.</td>
+            <td class="cmdhintcell">Поместить курсор на последний файл в списке.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
+              <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="cmdhintcell">Поместить курсор на следующую папку или файл.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
+              <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="cmdhintcell">Поместить курсор на предыдущую папку или файл.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistory" alt="cm_ViewHistory" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistory.png">
@@ -2885,7 +2930,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFavoriteTabs" alt="cm_SaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savefavoritetabs.png">
               <div class="cmdname"><a name="cm_SaveFavoriteTabs">cm_SaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Сохранить открытые вкладки в набор избранных вкладок. В дальнейшем их можно будет загрузить с помощью команды "cm_LoadFavoriteTabs".</td>
+            <td class="cmdhintcell">Сохранить открытые вкладки в набор избранных вкладок. В дальнейшем их можно будет загрузить с помощью команды cm_LoadFavoriteTabs.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ReloadFavoriteTabs" alt="cm_ReloadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_reloadfavoritetabs.png">
@@ -2895,7 +2940,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ResaveFavoriteTabs" alt="cm_ResaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_resavefavoritetabs.png">
               <div class="cmdname"><a name="cm_ResaveFavoriteTabs">cm_ResaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Пересохранить текущий набор вкладок под именем последних загруженных избранных вкладок. Это удобно, если, например, хотите добавить новую вкладку в один из сохранённых наборов: загружаете избранные вкладки, добавляете недостающую вкладку, а затем вызываете команду "cm_ResaveFavoriteTabs".</td>
+            <td class="cmdhintcell">Пересохранить текущий набор вкладок под именем последних загруженных избранных вкладок. Это удобно, если, например, хотите добавить новую вкладку в один из сохранённых наборов: загружаете избранные вкладки, добавляете недостающую вкладку, а затем вызываете команду cm_ResaveFavoriteTabs.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_PreviousFavoriteTabs" alt="cm_PreviousFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_previousfavoritetabs.png">

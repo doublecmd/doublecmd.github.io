@@ -189,7 +189,42 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatView" alt="cm_FlatView" src="../../pixmaps/dctheme/32x32/actions/cm_flatview.png">
               <div class="cmdname"><a name="cm_FlatView">cm_FlatView</a></div>
               <div class="shrtctkey">Ctrl+B</div></td>
-            <td class="cmdhintcell">Will scan all the directories of active panel to show all content in one single panel.</td>
+            <td class="cmdhintcell">Will scan all the directories of panel to show all content in one single panel.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">side<p class="versionref">Version 1.0.0 +</p></td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">in left panel, as the <a href="#cm_LeftFlatView">cm_LeftFlatView</a> command</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">in right panel, as the <a href="#cm_RightFlatView">cm_RightFlatView</a> command</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">in inactive panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(absent)</i></td>
+                  <td class="innerdescdesccell">in current active panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescdesccell">in current active panel</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatViewSel" alt="cm_FlatViewSel" src="../../pixmaps/dctheme/32x32/actions/cm_flatviewsel.png">
+              <div class="cmdname"><a name="cm_FlatViewSel">cm_FlatViewSel</a><p class="versionref">Version 1.0.0 +</p></div>
+            <td class="cmdhintcell">Like the cm_FlatView command without parameter, but for selected files and folders only.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
@@ -825,7 +860,7 @@
               <div class="cmdname"><a name="cm_ConfigDirHotList">cm_ConfigDirHotList</a></div>
               <div class="shrtctkey">Ctrl+Shift+D</div></td>
             <td class="cmdhintcell">Access configuration of the directory hotlist.<BR><BR>
-              It is equivalent to "cm_WorkWithDirectoryHotlist" command with following parameters:<BR>
+              It is equivalent to cm_WorkWithDirectoryHotlist command with following parameters:<BR>
               action=config source=%Ds</td>
           </tr>
           <tr>
@@ -1147,7 +1182,7 @@
               <B>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be selected with filter <i>*.*</i><BR>
               <B>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<I>mask=&gt;Pascal files</i>".<BR>
               <B>Note4:</b> When using filtering parameter "<I>ignoreaccents=TRUE</i>", the ligatured characters like "<I>&oelig;</i>" for example will be evaluated as the sequence "<I>oe</i>". So for example "<I>c&oelig;ur</i>" will match "<I>coeur</i>".<BR>
-              <B>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the "cm_MarkPlus" with no parameters which will use the default same parameters of last time it was prompting the user.<BR>
+              <B>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the cm_MarkPlus with no parameters which will use the default same parameters of last time it was prompting the user.<BR>
               <B>Note6:</b> Regarding the "attr" possible parameter values, see the "The <a href="findfiles.html#attributes">Searching for files with specific attributes</a>." section in the "Find files" help file. The way to specify the filter regarding the attributes is the same.<BR>
               <B>Example1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" This will select all the files matching the given filter mask (which is basically common Delphi source file extensions) and ignoring the case of the letters.<BR>
               <B>Example2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" This will select all the files matching the given filter mask (which is basically Microsoft Word document with the word "ecole" in them) ignoring the accents. This means it will select file with "école" and "ecole" in them since accent are ignored.
@@ -1222,7 +1257,7 @@
               <B>Note:</b> It might seem useless at first look but may be used in at least two situations:<br>
               <div style="margin: 0 0 0 15;">
                 After you've filled a panel with search results coming from various level of directories<br>
-                After you've invoke the "<a href="#cm_FlatView">cm_FlatView</a>" internal command.
+                After you've invoke the <a href="#cm_FlatView">cm_FlatView</a> internal command.
               </div>
             </td>
           </tr>
@@ -1230,7 +1265,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentPath" alt="cm_UnmarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentpath.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentPath">cm_UnmarkCurrentPath</a></div></td>
             <td class="cmdhintcell"><a href="help.html#mnu_select">Unmark</a> files with the same path as item under cursor of active panel.<BR>
-              See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+              See note of <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a> for the possible usefulness of this command.
             </td>
           </tr>
           <tr>
@@ -1261,14 +1296,14 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentNameExt" alt="cm_MarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentnameext.png">
               <div class="cmdname"><a name="cm_MarkCurrentNameExt">cm_MarkCurrentNameExt</a></div></td>
             <td class="cmdhintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename and extension as item under cursor of active panel.<BR>
-              See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+              See note of <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a> for the possible usefulness of this command.
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentNameExt" alt="cm_UnmarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentnameext.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentNameExt">cm_UnmarkCurrentNameExt</a></div></td>
             <td class="cmdhintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename and extension as item under cursor of active panel.<BR>
-              See note of "<a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>" for the possible usefulness of this command.
+              See note of <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a> for the possible usefulness of this command.
             </td>
           </tr>
           <tr>
@@ -1302,12 +1337,12 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelection" alt="cm_SaveSelection" src="../../pixmaps/dctheme/32x32/actions/cm_saveselection.png">
               <div class="cmdname"><a name="cm_SaveSelection">cm_SaveSelection</a></div></td>
-            <td class="cmdhintcell">Used in conjunction with "<a href="#cm_RestoreSelection">cm_RestoreSelection</a>".<br>The "cm_SaveSelection" command will save in internal buffer current selected items.<br>Then later, the command "<a href="#cm_RestoreSelection">cm_RestoreSelection</a>" could be use to re-select again the same items that were selected before.</td>
+            <td class="cmdhintcell">Used in conjunction with "<a href="#cm_RestoreSelection">cm_RestoreSelection</a>".<br>The cm_SaveSelection command will save in internal buffer current selected items.<br>Then later, the command <a href="#cm_RestoreSelection">cm_RestoreSelection</a> could be use to re-select again the same items that were selected before.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RestoreSelection" alt="cm_RestoreSelection" src="../../pixmaps/dctheme/32x32/actions/cm_restoreselection.png">
               <div class="cmdname"><a name="cm_RestoreSelection">cm_RestoreSelection</a></div></td>
-            <td class="cmdhintcell">See previous "<a href="#cm_SaveSelection">cm_SaveSelection</a>" command.</td>
+            <td class="cmdhintcell">See previous <a href="#cm_SaveSelection">cm_SaveSelection</a> command.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelectionToFile" alt="cm_SaveSelectionToFile" src="../../pixmaps/dctheme/32x32/actions/cm_saveselectiontofile.png">
@@ -1724,22 +1759,32 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
               <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Current selection of the active panel to its first folder or file.</td>
+            <td class="cmdhintcell">Place cursor on first folder or file in list.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastEntry" alt="cm_GoToLastEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastentry.png">
               <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Current selection of the active panel to its last folder or file.</td>
+            <td class="cmdhintcell">Place cursor on last folder or file in list.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstFile" alt="cm_GoToFirstFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstfile.png">
               <div class="cmdname"><a name="cm_GoToFirstFile">cm_GoToFirstFile</a></div></td>
-            <td class="cmdhintcell">Current selection of the active panel to its first file.</td>
+            <td class="cmdhintcell">Place cursor on first file in list.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastFile" alt="cm_GoToLastFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastfile.png">
               <div class="cmdname"><a name="cm_GoToLastFile">cm_GoToLastFile</a></div></td>
-            <td class="cmdhintcell">Current selection of the active panel to its last file.</td>
+            <td class="cmdhintcell">Place cursor on last file in list.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
+              <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="cmdhintcell">Place cursor on next folder or file.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
+              <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
+            <td class="cmdhintcell">Place cursor on previous folder or file.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistory" alt="cm_ViewHistory" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistory.png">
@@ -2885,7 +2930,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFavoriteTabs" alt="cm_SaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savefavoritetabs.png">
               <div class="cmdname"><a name="cm_SaveFavoriteTabs">cm_SaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Will save in the "Favorite Tabs" the current opened tabs. Later on, on request, user may reload these saved setup using the "cm_LoadFavoriteTabs" command.</td>
+            <td class="cmdhintcell">Will save in the "Favorite Tabs" the current opened tabs. Later on, on request, user may reload these saved setup using the cm_LoadFavoriteTabs command.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ReloadFavoriteTabs" alt="cm_ReloadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_reloadfavoritetabs.png">
@@ -2895,7 +2940,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ResaveFavoriteTabs" alt="cm_ResaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_resavefavoritetabs.png">
               <div class="cmdname"><a name="cm_ResaveFavoriteTabs">cm_ResaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Will resave the current tabs configuration over the last loaded Favorites Tabs entry. This is useful if you realized you're missing a tab in one of your configuration. After loading your Favorite Tabs you add the missing tab you wanted and then you invoke "cm_ResaveFavoriteTabs" internal command.</td>
+            <td class="cmdhintcell">Will resave the current tabs configuration over the last loaded Favorites Tabs entry. This is useful if you realized you're missing a tab in one of your configuration. After loading your Favorite Tabs you add the missing tab you wanted and then you invoke cm_ResaveFavoriteTabs internal command.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_PreviousFavoriteTabs" alt="cm_PreviousFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_previousfavoritetabs.png">

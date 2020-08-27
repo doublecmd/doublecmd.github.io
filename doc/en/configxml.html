@@ -43,7 +43,7 @@
           <li>We may define its location via a command line parameter when launching the application.</li>
         </ul>
         <p>We follow <a href="commandline.html">this link</a> if we want to specify it by with the command line paramter <code>--config-dir</code>.</p>
-        <p>Other than that, we do Configuration&nbsp;&gt; Options&nbsp;&gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px">&nbsp;&gt; set the option <i>Location of configuration files</i>.</p>
+        <p>Other than that, we do Configuration&nbsp;&gt; Options...&nbsp;&gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px">&nbsp;&gt; set the option <i>Location of configuration files</i>.</p>
         <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="719" height="174"></p>
         <p>Another way to quickly find out where is located the <code>doublecmd.xml</code> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then we select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". We will find there the <code>doublecmd.xml</code> that application is currently using.</p>
         <p class="figure"><img class="largeimage" title="Go to config location" alt="Go to config location" src="images/imgDC/gotoconfiglocation.png" width="882" height="260"></p>
@@ -54,7 +54,7 @@
         <h2>3. <a name="manualed">Options to change manually</a></h2>
         <p>The large majority of possible settings in Double Commander may be set via the application itself through the various option categories.</p>
         <p>We simply click from the main menu bar Configuration&nbsp;&gt; Options and the various settings we'll configured there will be saved to the <code>doublecmd.xml</code> file when we close the application. Then, they will be restored on the next usage of the application.</p>
-        <p><u>So generally, we don't have to manually edit the content of the configuration file</u>.</p>
+        <p><span class="uline">So generally, we don't have to manually edit the content of the configuration file</span>.</p>
         <p>But there are some very rare specific settings that required to be edited manually from the configuration file if we want to tweak the application.</p>
         <BR>
         <p><B>WARNING:</B> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <code>doublecmd.xml</code> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
@@ -170,7 +170,7 @@
             <td class="hintcell">
               We may configure DC so it will draw a rectangle around the active entry as we we cycle through them in a panel.<BR>
               This &lt;gBorderFrameWidth&gt; setting allows us to configure the width of the lines used to draw a rectangle around the current active entry.<BR>
-              To view that rectangle, we must go in Configuration&nbsp;&gt; Options&nbsp;&gt; Colors&nbsp;&gt; File panels and check the option <i>Use frame cursor</i>.<BR>
+              To view that rectangle, we must go in Configuration&nbsp;&gt; Options...&nbsp;&gt; Colors&nbsp;&gt; File panels and check the option <i>Use frame cursor</i>.<BR>
               <I>Example:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
             </td>
           </tr>

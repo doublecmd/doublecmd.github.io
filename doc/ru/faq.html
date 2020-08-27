@@ -10,7 +10,7 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="about.html">Пред.</a> | <a title="Следующая страница" href="help.html">След.</a></div></div>
 
@@ -50,6 +50,7 @@
               <dt>3.3. <a href="#columns">При изменении размеров панелей колонка "Размер" налазит на колонку "Дата". Заголовок колонки изменяется нормально, а содержимое ползёт!</a></dt>
               <dt>3.4. <a href="#icons">Как повесить свои значки на определённые типы файлов?</a></dt>
               <dt>3.5. <a href="#splitter">Как создать разделитель на панели кнопок?</a></dt>
+              <dt>3.6. <a href="#theme">Существуют ли темы значков для DC?</a></dt>
             </dl>
           </dd>
           <dt><a name="navigation">4. Вопросы, связанные с навигацией и управлением</a></dt>
@@ -79,6 +80,7 @@
             <dl>
               <dt>6.1. <a href="#fv_datetime">Я не нашёл в списке подходящий формат даты для файловых панелей! Как добавить свой?</a></dt>
               <dt>6.2. <a href="#fv_svg">Возможно ли добавить поддержку миниатюр SVG в просмотр эскизов?</a></dt>
+              <dt>6.3. <a href="#fn_ext">Хочу видеть в колонке "Имя" имена файлов с расширением, я могу это сделать?</a></dt>
             </dl>
           </dd>
         </dl>
@@ -161,8 +163,8 @@
         <p class="bold"><a name="color">В: Как поменять настройки цвета для файловых панелей?</a></p>
         <p><span class="bold">О:</span> Чтобы изменить цвет, нужно сделать следующее:</p>
         <ul>
-          <li><p>Настройки&nbsp;&gt; Параметры&nbsp;&gt; Цвета (не получите никаких изменений, пока не создадите свой стиль колонок).</p></li>
-          <li><p>Настройки&nbsp;&gt; Параметры&nbsp;&gt; Колонки выбираете стиль по умолчанию (Default) нажимаете "Редактировать" и там всё сами поймёте :)</p></li>
+          <li><p>Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Цвета (не получите никаких изменений, пока не создадите свой стиль колонок).</p></li>
+          <li><p>Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Колонки выбираете стиль по умолчанию (Default) нажимаете "Редактировать" и там всё сами поймёте :)</p></li>
         </ul>
         <BR>
 
@@ -175,22 +177,50 @@
         <BR>
 
         <p class="bold"><a name="columns">В: При изменении размеров панелей колонка "Размер" налазит на колонку "Дата". Заголовок колонки изменяется нормально, а содержимое ползёт!</a></p>
-        <p><span class="bold">О:</span> Настройки&nbsp;&gt; Параметры&nbsp;&gt; Колонки, установите галочку "Обрезать текст по ширине колонки".</p>
+        <p><span class="bold">О:</span> Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Колонки, установите галочку "Обрезать текст по ширине колонки".</p>
         <BR>
 
         <p class="bold"><a name="icons">В: Как повесить свои значки на определённые типы файлов?</a></p>
-        <p><span class="bold">О:</span> Вы должны сделать следующее: Настройки&nbsp;&gt; Параметры&nbsp;&gt; <a href="help.html#5_2_fileAssoc">Файловые ассоциации</a>.</p>
+        <p><span class="bold">О:</span> Вы должны сделать следующее: Настройки&nbsp;&gt; Параметры...&nbsp;&gt; <a href="help.html#5_2_fileAssoc">Файловые ассоциации</a>.</p>
         <BR>
 
         <p class="bold"><a name="splitter">В: Как создать разделитель на панели кнопок?</a></p>
         <p><span class="bold">О:</span> Просто добавьте элемент <a href="toolbar.html#catseparator">разделитель</a>.</p>
+        <BR>
+
+        <p class="bold"><a name="theme">В: Существуют ли темы значков для DC?</a></p>
+        <p><span class="bold">О:</span> На данный момент нам известна одна маленькая тема <a href="https://doublecmd.sourceforge.io/forum/viewtopic.php?f=5&amp;t=3658" target="_blank">doubleMac</a>, но инструкция по установке устарела (см. ниже).<br>
+        Вы можете создать тему значков самостоятельно, это просто (в качестве примера будем использовать имя "MyDCTheme").</p>
+        <p><span class="uline"><i>Как создать:</i></span><br>
+          -&nbsp;откройте папку DC и посмотрите структуру каталога "pixmaps/dctheme";<br>
+          -&nbsp;скопируйте "dctheme" с именем "mydctheme";<br>
+          -&nbsp;откройте "mydctheme/index.theme" и измените имя темы: замените "Name=DCTheme" на "Name=MyDCTheme";<br>
+          -&nbsp;теперь замените значки.</p>
+        <p><span class="uline"><i>Примечания:</i></span><br>
+          1. Не используйте замену значков по умолчанию! Ваши значки будут заменены после обновления DC.<br>
+          2. Если вы хотите оставить некоторые существующие значки, то просто уалите их в "mydctheme" и DC будет использовать их из темы по умолчанию.<br>
+          3. Некоторые нестандартные размеры значков (такие как 40x40, 60x60 и так далее) используются для HiDPI мониторов.<br>
+          4. Также смотрите <a href="configxml.html">&lt;CustomIcons&gt;</a>.</p>
+        <p><span class="uline"><i>Как установить:</i></span></p>
+        <p>1. Портативная версия<br>
+          Скопируйте (или переместите) вашу папку "mydctheme" в папку "pixmaps" рядом с <tt>doublecmd.exe</tt>, перезапустите DC, откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Значки&nbsp;&gt; Тема значков, выберите вашу тему и снова перезапустите DC.</p>
+        <p>2. Установленная версия<br>
+          Откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Конфигурация&nbsp;&gt; Каталоги&nbsp;&gt; Темы значков:, здесь вы увидите список возможных каталогов.<br>
+          Не используйте <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> или другие системные каталоги: это потребует права root/администратора, также это будет вмешательством в работу менеджера пакетов в Linux или инсталлятора DC в Windows. DC обычно предлагает следующий дополнительный путь (помимо папки "pixmaps" рядом с <tt>doublecmd.exe</tt>):</p>
+          <ul>
+            <li>Windows XP: C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</li>
+            <li>Windows Vista/7-10: C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</li>
+            <li>Unix-подобные ОС: /home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</li>
+          </ul>
+          <p>Если каталог не существует, создайте его.<br>
+          Теперь перезапустите DC, откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Значки&nbsp;&gt; Тема значков, выберите вашу тему и снова перезапустите DC.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2>4. Вопросы, связанные с навигацией и управлением</h2>
         <p class="bold"><a name="cursor_down">В: Что нужно сделать, чтобы при выделении пробелом курсор сдвигался вниз на одну строку?</a></p>
-        <p><span class="bold">О:</span> Настройки&nbsp;&gt; Параметры&nbsp;&gt; Список файлов, установите галочку "При выделении файлов пробелом перемещать курсор на следующий файл".</p>
+        <p><span class="bold">О:</span> Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Список файлов, установите галочку "При выделении файлов пробелом перемещать курсор на следующий файл".</p>
         <BR>
 
         <p class="bold"><a name="queue">В: Есть ли здесь возможность создавать очередь копирования файлов?</a></p>
@@ -198,7 +228,7 @@
         <BR>
 
         <p class="bold"><a name="hotkeys_default">В: <kbd>Ctrl+A</kbd> не работает, где включить?</a></p>
-        <p><span class="bold">О:</span> Вы должны сделать следующее: Настройки&nbsp;&gt; Параметры&nbsp;&gt; Клавиши&nbsp;&gt; Горячие клавиши&nbsp;&gt; В категории "Основные" найдите команду cm_MarkMarkAll и установите для неё горячую клавишу <kbd>Ctrl+A</kbd>.</p>
+        <p><span class="bold">О:</span> Вы должны сделать следующее: Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Клавиши&nbsp;&gt; Горячие клавиши&nbsp;&gt; В категории "Основные" найдите команду cm_MarkMarkAll и установите для неё горячую клавишу <kbd>Ctrl+A</kbd>.</p>
         <BR>
 
         <p class="bold"><a name="context_menu_create">В: Тут можно создавать выпадающее меню? Как это сделать?</a></p>
@@ -260,13 +290,16 @@
 
       <div>
         <h2>6. 6. Вопросы, связанные с файловыми панелями</h2>
-
         <p class="bold"><a name="fv_datetime">В: Я не нашёл в списке подходящий формат даты для файловых панелей! Как добавить свой?</a></p>
-        <p><span class="bold">О:</span> Формат даты и времени легко настраивается: перейдите в Настройки&nbsp;&gt; Параметры&nbsp;&gt; Список файлов&nbsp;&gt; Форматирование&nbsp;&gt; Формат даты и времени и используйте <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">эту таблицу</a>.</p>
+        <p><span class="bold">О:</span> Формат даты и времени легко настраивается: перейдите в Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Список файлов&nbsp;&gt; Форматирование&nbsp;&gt; Формат даты и времени и используйте <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">эту таблицу</a>.</p>
         <BR>
 
         <p class="bold"><a name="fv_svg">В: Возможно ли добавить поддержку миниатюр SVG в просмотр эскизов?</a></p>
         <p><span class="bold">О:</span> Уже поддерживается, см. <a href="faq.html#f3_svg">Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></p>
+        <BR>
+
+        <p class="bold"><a name="fn_ext">В: Хочу видеть в колонке "Имя" имена файлов с расширением, я могу это сделать?</a></p>
+        <p><span class="bold">О:</span> Да, это возможно. Откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Список файлов&nbsp;&gt; Колонки&nbsp;&gt; Наборы колонок, теперь создайте новый набор колонок или измените существующий: по умолчанию для имени DC использует поле <tt>GETFILENAMENOEXT</tt>, используйте вместо него <tt>GETFILENAME</tt>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
         <BR>
       </div>

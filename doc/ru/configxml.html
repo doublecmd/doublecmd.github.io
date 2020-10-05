@@ -10,7 +10,7 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="commandline.html">Пред.</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
 
@@ -43,7 +43,7 @@
           <li>Мы можем задать каталог с помощью параметра командной строки при запуске приложения.</li>
         </ul>
         <p>Подробнее узнать про параметр командной строки <code>--config-dir</code> можно по <a href="commandline.html">этой ссылке</a>.</p>
-        <p>Расположение задаётся в настройках: Настройки&nbsp;&gt; Параметры&nbsp;&gt; выбираем в дереве <img src="images/imgDC/optionconfiguration.png" title="Конфигурация" alt="Конфигурация" width="107" height="20" border="1px">&nbsp;&gt; устанавливаем параметр <i>Месторасположение файлов конфигурации</i>.</p>
+        <p>Расположение задаётся в настройках: Настройки&nbsp;&gt; Параметры...&nbsp;&gt; выбираем в дереве <img src="images/imgDC/optionconfiguration.png" title="Конфигурация" alt="Конфигурация" width="107" height="20" border="1px">&nbsp;&gt; устанавливаем параметр <i>Месторасположение файлов конфигурации</i>.</p>
         <p class="figure"><img class="largeimage" title="Месторасположение файлов конфигурации" alt="Месторасположение файлов конфигурации" src="images/imgDC/configlocation.png" width="719" height="174"></p>
         <p>Ещё один способ быстро выяснить, где находится <code>doublecmd.xml</code> текущего экземпляра Double Commander, это использовать меню <a href="directoryhotlist.html">избранных каталогов</a>. В конце его имеется дополнительный раздел под названием "Специальные каталоги", далее выбираем "Каталог Double Commander..." и "%DC_CONFIG_PATH%". Здесь мы найдём <code>doublecmd.xml</code>, который приложение использует в данный момент.</p>
         <p class="figure"><img class="largeimage" title="Перейти в каталог с файлами конфигурации" alt="Перейти в каталог с файлами конфигурации" src="images/imgDC/gotoconfiglocation.png" width="882" height="260"></p>
@@ -54,7 +54,7 @@
         <h2>3. <a name="manualed">Параметры, изменяемые вручную</a></h2>
         <p>Подавляющее большинство параметров Double Commander может быть изменено через интерфейс приложения.</p>
         <p>Мы просто нажимаем в главном меню Настройки&nbsp;&gt; Параметры и получаем окно с настройками, разложенными по категориям.</p>
-        <p><u>Так что, как правило, нам не придётся вручную редактировать содержимое файла конфигурации.</u></p>
+        <p><span class="uline">Так что, как правило, нам не придётся вручную редактировать содержимое файла конфигурации.</span></p>
         <p>Но есть несколько параметров, которые могут быть изменены только ручным редактированием <code>doublecmd.xml</code>.</p>
         <BR>
         <p><B>ПРЕДУПРЕЖДЕНИЕ:</B> Мы не будем редактировать файл пока Double Commander запущен! Не только потому, что в любом случае значения из него будут прочитаны только при запуске приложения, но и потому, что после закрытия DC наши изменения будут перезаписаны значениями текущей сессии. Если нужно изменить файл <code>doublecmd.xml</code> вручную, мы должны убедиться, что закрыли Double Commander, затем отредактировать файл и запустить приложение.</p>
@@ -170,7 +170,7 @@
             <td class="hintcell">
               Мы можем настроить DC так, чтобы он рисовал рамку вокруг курсора.<BR>
               Параметр &lt;gBorderFrameWidth&gt; позволяет нам задать ширину линий.<BR>
-              Чтобы включить курсор-рамку, мы должны перейти в Настройки&nbsp;&gt; Параметры&nbsp;&gt; Цвета&nbsp;&gt; Файловые панели и отметить параметр <i>Курсор-рамка</i>.<BR>
+              Чтобы включить курсор-рамку, мы должны перейти в Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Цвета&nbsp;&gt; Файловые панели и отметить параметр <i>Курсор-рамка</i>.<BR>
               <I>Пример:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
             </td>
           </tr>

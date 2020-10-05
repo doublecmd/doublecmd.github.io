@@ -50,6 +50,7 @@
               <dt>3.3. <a href="#columns">Some text in a column overwrites another column's text!</a></dt>
               <dt>3.4. <a href="#icons">How to associate my own icons with some file types?</a></dt>
               <dt>3.5. <a href="#splitter">How to create a splitter on the buttons panel?</a></dt>
+              <dt>3.6. <a href="#theme">Does DC has other icon themes?</a></dt>
             </dl>
           </dd>
           <dt><a name="navigation">4. Issues related to control and navigation</a></dt>
@@ -79,6 +80,7 @@
             <dl>
               <dt>6.1. <a href="#fv_datetime">I didn't find a suitable date format for file panels in the list! How to add my own?</a></dt>
               <dt>6.2. <a href="#fv_svg">Is it possible to add support SVG thumbnails in thumbnails view?</a></dt>
+              <dt>6.3. <a href="#fn_ext">I want to see the filenames in the "Name" column with extensions, can I do it?</a></dt>
             </dl>
           </dd>
         </dl>
@@ -161,8 +163,8 @@
         <p class="bold"><a name="color">Q: How can I change color settings for the panels?</a></p>
         <p><span class="bold">A:</span> To change the color, you must do the following:</p>
         <ul>
-          <li><p>Configurations&nbsp;&gt; Options&nbsp;&gt; Colors (but first you must create your own columns style)</p></li>
-          <li><p>Configurations&nbsp;&gt; Options&nbsp;&gt; Columns, set default style, click "Edit" and configure :)</p></li>
+          <li><p>Configurations&nbsp;&gt; Options...&nbsp;&gt; Colors (but first you must create your own columns style)</p></li>
+          <li><p>Configurations&nbsp;&gt; Options...&nbsp;&gt; Columns, set default style, click "Edit" and configure :)</p></li>
         </ul>
         <BR>
 
@@ -175,22 +177,50 @@
         <BR>
 
         <p class="bold"><a name="columns">Q: Some text in a column overwrites another column's text!</a></p>
-        <p><span class="bold">A:</span> Configurations&nbsp;&gt; Options&nbsp;&gt; Columns, set checkbox "Cut text to column width".</p>
+        <p><span class="bold">A:</span> Configurations&nbsp;&gt; Options...&nbsp;&gt; Columns, set checkbox "Cut text to column width".</p>
         <BR>
 
         <p class="bold"><a name="icons">Q: How to associate my own icons with some file types?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options&nbsp;&gt; <a href="help.html#5_2_fileAssoc">File associations</a>.</p>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; <a href="help.html#5_2_fileAssoc">File associations</a>.</p>
         <BR>
 
         <p class="bold"><a name="splitter">Q: How to create a splitter on the buttons panel?</a></p>
         <p><span class="bold">A:</span> Add a button from the category <a href="toolbar.html#catseparator">separator</a>.</p>
+        <BR>
+
+        <p class="bold"><a name="theme">Q: Does DC has other icon themes?</a></p>
+        <p><span class="bold">A:</span> Now we know only one small theme <a href="https://doublecmd.sourceforge.io/forum/viewtopic.php?f=5&amp;t=3658" target="_blank">doubleMac</a>, but the installation instruction is outdated (see below).<br>
+        You can make icon theme yourself, it's easy (we will use the name "MyDCTheme" as an example).</p>
+        <p><span class="uline"><i>How to make:</i></span><br>
+          -&nbsp;open DC folder and see directory structure of "pixmaps/dctheme";<br>
+          -&nbsp;make copy of "dctheme" with name "mydctheme";<br>
+          -&nbsp;open "mydctheme/index.theme" and change the theme name: replace "Name=DCTheme" on "Name=MyDCTheme";<br>
+          -&nbsp;now replace icons.</p>
+        <p><span class="uline"><i>Notes:</i></span><br>
+          1. Don't use the default icon replacement! Your icons will be replaced after DC update.<br>
+          2. If you want to keep some existing default icons then just delete them in "mydctheme" and DC will use them from default theme.<br>
+          3. Some nonstandard icon sizes (such as 40x40, 60x60 and so one) uses for HiDPI monitors.<br>
+          4. Also see <a href="configxml.html">&lt;CustomIcons&gt;</a>.</p>
+        <p><span class="uline"><i>How to install:</i></span></p>
+        <p>1. Portable version<br>
+          Copy (or move) your "mydctheme" folder to the "pixmaps" folder near <tt>doublecmd.exe</tt>, restart DC, go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
+        <p>2. Installed version<br>
+          Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Configuration&nbsp;&gt; Directories&nbsp;&gt; Icon themes:, here you will see list of possible directories.<br>
+          Don't use <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> or other system directory: this requires root/admin rights, also this would be a intervention to the packages manager's work on Linux or DC installer for Windows. DC usually suggests the following additional path (besides the "pixmaps" folder near <tt>doublecmd.exe</tt>):</p>
+          <ul>
+            <li>Windows XP: C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</li>
+            <li>Windows Vista/7-10: C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</li>
+            <li>Unix-like OS: /home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</li>
+          </ul>
+          <p>If the directory doesn't exist, create it.<br>
+          Now restart DC, go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>4. Issues related to control and navigation</h2>
         <p class="bold"><a name="cursor_down">Q: Is it possible to automatically move the cursor down one line after selecting using the <kbd>Space</kbd> key?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options&nbsp;&gt; File views&nbsp;&gt; When selecting file with spacebar, move down to next file (as with insert).</p>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; File views&nbsp;&gt; When selecting file with spacebar, move down to next file (as with insert).</p>
         <BR>
 
         <p class="bold"><a name="queue">Q: Is there an ability to create a file operations queue?</a></p>
@@ -198,7 +228,7 @@
         <BR>
 
         <p class="bold"><a name="hotkeys_default">Q: <kbd>Ctrl+A</kbd> doesn't work, how to enable it?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options&nbsp;&gt; Keys&nbsp;&gt; Hot keys&nbsp;&gt; In the category "Main", scroll to see command cm_MarkMarkAll and set <kbd>Ctrl+A</kbd> shortcut key for it.</p>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; Keys&nbsp;&gt; Hot keys&nbsp;&gt; In the category "Main", scroll to see command cm_MarkMarkAll and set <kbd>Ctrl+A</kbd> shortcut key for it.</p>
         <BR>
 
         <p class="bold"><a name="context_menu_create">Q: How to create my own context menu in this program?</a></p>
@@ -260,13 +290,16 @@
 
       <div>
         <h2>6. Issues related to the file panels</h2>
-
         <p class="bold"><a name="fv_datetime">Q: I didn't find a suitable date format for file panels in the list! How to add my own?</a></p>
         <p><span class="bold">A:</span> Date and time format is easy configurable: go to Configurations&nbsp;&gt; Options &nbsp;&gt; Files views&nbsp;&gt; Formatting&nbsp;&gt; Date and time format and use <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">this table</a>.</p>
         <BR>
 
         <p class="bold"><a name="fv_svg">Q: Is it possible to add support SVG thumbnails in thumbnails view?</a></p>
         <p><span class="bold">A:</span> It's already supported, see <a href="faq.html#f3_svg">Is it possible to add support SVG in viewer?</a></p>
+        <BR>
+
+        <p class="bold"><a name="fn_ext">Q: I want to see the filenames in the "Name" column with extensions, can I do it?</a></p>
+        <p><span class="bold">A:</span> Yes, it's possible. Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns, now create a new column set or change existing default set: by default, DC uses <tt>GETFILENAMENOEXT</tt> field for name, use <tt>GETFILENAME</tt> instead.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <BR>
       </div>

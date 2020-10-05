@@ -49,6 +49,7 @@ span.luanum { color: #800080; }
 span.luakyw { color: #0000ff; }
 span.luastr { color: #800000; }
 span.luasbl { color: #000080; }
+span.uline { text-decoration: underline; }
 
 .bold {
   font-weight: bold;

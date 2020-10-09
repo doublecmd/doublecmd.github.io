@@ -51,6 +51,7 @@
               <dt>3.4. <a href="#icons">How to associate my own icons with some file types?</a></dt>
               <dt>3.5. <a href="#splitter">How to create a splitter on the buttons panel?</a></dt>
               <dt>3.6. <a href="#theme">Does DC has other icon themes?</a></dt>
+              <dt>3.7. <a href="#cs_size">How to make function keys and address bar bigger?</a></dt>
             </dl>
           </dd>
           <dt><a name="navigation">4. Issues related to control and navigation</a></dt>
@@ -214,6 +215,21 @@
           </ul>
           <p>If the directory doesn't exist, create it.<br>
           Now restart DC, go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
+        <BR>
+
+        <p class="bold"><a name="cs_size">Q: How to make function keys and address bar bigger?</a></p>
+        <p><span class="bold">A:</span> The size depends on the font size, three ways exists:</p>
+        <p>1. Simple and fast: you can use Ctrl+mouse wheel, it works for the following interface elements or part of DC:<br>
+          -&nbsp;file list in left and right panels;<br>
+          -&nbsp;current directory (address) bar;<br>
+          -&nbsp;function key buttons bar;<br>
+          -&nbsp;TreeView menu;<br>
+          -&nbsp;search results in find files dialog;<br>
+          -&nbsp;internal editor;<br>
+          -&nbsp;internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p>
+        <p>2. Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Fonts.<br>
+          Note: all possible are available in version 1.0.0+ only, for 0.9.x and below additionally see the third item.</p>
+        <p>3. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <tt>&lt;Fonts&gt;&lt;/Fonts&gt;</tt> and change <tt>&lt;Size&gt;</tt> of the interface element manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

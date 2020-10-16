@@ -271,6 +271,31 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink<p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
+              <p>Создаёт жёсткую ссылку <var>LinkName</var> на файл <var>Path</var>.</p>
+              <p>Возвращет <code>true</code> в случае успеха, иначе возвращает <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink<p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateSymbolicLink(Path, LinkName)</p>
+              <p>Создаёт символьную ссылку <var>LinkName</var> на файл <var>Path</var>.</p>
+              <p>Возвращет <code>true</code> в случае успеха, иначе возвращает <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink<p class="versionref">Версия 1.0.0 +</p></div></td>
+            <td class="hintcell">
+              <p class="definition">sTarget = SysUtils.ReadSymbolicLink(LinkName, Recursive)</p>
+              <p>Читает имя файла, на который указывает символьная ссылка <var>LinkName</var>.</p>
+              <p>Если <var>Recursive</var> равно <code>true</code> и ссылка указывает на ссылку, то она разрешается рекурсивно до тех пор, пока не будет найдено допустимое имя файла, не являющееся ссылкой.</p>
+              <p>Возвращает путь, на который указывает символьная ссылка <var>LinkName</var> или пустую строку, если ссылка недействительна или файл, на который она указывает, не существует и значение <var>Recursive</var> равно <code>true</code>.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>

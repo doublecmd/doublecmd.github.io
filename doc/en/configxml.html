@@ -59,7 +59,8 @@
         <BR>
         <p><B>WARNING:</B> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <code>doublecmd.xml</code> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
         <BR>
-        <p>The following table gives us these rare specific settings that we need to manually edit the file if we need to change them:</p>
+        <p>The following table gives us these rare specific settings that we need to manually edit the file if we need to change them.</p>
+        <p><b>About color format</b>: We can set color as hex number using format $BBGGRR (for example, if we want to use blue color, we would write <code>$FF0000</code>).</p>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Setting required to be changed manually if necessary</th></tr>
@@ -163,6 +164,7 @@
                 </tr>
               </table>
               <I>Example:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
+            </td>
           </tr>
 
           <tr>
@@ -177,15 +179,49 @@
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<BR><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Change text color of log window (info, error, success messages).<BR>
-              We can set color as hex number using format $BBGGRR.<BR>
-              <I>For example, if we want to use blue color for text of info messages:</i> <code>&lt;Info&gt;$FF0000&lt;/Info&gt;</code></td>
+            <td class="hintcell">
+              Change text color of log window (info, error, success messages).
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<BR><small>from &lt;Colors&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="hintcell">
+              Change colors of <a href="help.html#iface_dir">current directory bar</a>:<BR>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Tag</th>
+                  <th class="innerdescheader">File panel</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;ActiveColor&gt;</td>
+                  <td class="innerdescvaluecell" rowspan="2">active</td>
+                  <td class="innerdescdesccell">background color</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;ActiveFontColor&gt;</td>
+                  <td class="innerdescdesccell">font color</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;InactiveColor&gt;</td>
+                  <td class="innerdescvaluecell" rowspan="2">inactive</td>
+                  <td class="innerdescdesccell">background color</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;InactiveFontColor&gt;</td>
+                  <td class="innerdescdesccell">font color</td>
+                </tr>
+              </table>
+            </td>
           </tr>
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<BR><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
-            <td class="hintcell">When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<BR>
-              If we want to disable this behavior and use new value only in the current session, we must replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.</td>
+            <td class="hintcell">
+              When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<BR>
+              If we want to disable this behavior and use new value only in the current session, we must replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
+            </td>
           </tr>
 
           <tr>
@@ -252,16 +288,19 @@
                 </tr>
               </table>
               <I>Example:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+            </td>
           </tr>
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<BR>
-              <I>Example:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code></td>
+            <td class="hintcell">
+               Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<BR>
+              <I>Example:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
+            </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;<br><span class="versionref">(Version &lt;= 0.9.x)</span></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;</div></td>
             <td class="hintcell">
               To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.<BR>
               <table class="innercmddesc">
@@ -388,6 +427,13 @@
           </tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<BR><small>в &lt;Icons&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="hintcell">
+              Size of toolbar icons in the internal editor, viewer and differ tool, supported values: 16, 24 or 32.
+            </td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               Double Commander is able to recognize the metadata from <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">Exif</a> structure that might be encoded into a JPG image file.<BR>
@@ -431,20 +477,28 @@
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
-            <td class="hintcell">Change colors in the internal Differ tool (file comparison) for added, deleted and modified lines.<BR>
-              We can set color as hex number using format $BBGGRR, see example above.</td>
+            <td class="hintcell">
+              Change colors in the internal Differ tool (file comparison) for added, deleted and modified lines.
+            </td>
           </tr>
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">Attribute <I>Save</I><BR><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
-            <td class="hintcell">Synchronize directories: save or not asymmetric mode by default.<BR>
-            <I>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
-            or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).</I></td>
+            <td class="hintcell">
+              Synchronize directories: save or not asymmetric mode by default.<BR>
+              <I>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
+              or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).</I>
+            </td>
           </tr>
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
-            <td class="hintcell"><a name="luapathtolibrary"></a>This is the path to indicate where is the Lua library.<BR>It will indicate the location of the required dll file <tt>lua5.1.dll</tt> when doing <a href="lua.html">Lua Scripting</a>.<BR>This path may be relative to the Double Commander executable file.<BR><I>Example:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code></td>
+            <td class="hintcell">
+              <a name="luapathtolibrary"></a>This is the path to indicate where is the Lua library.<BR>
+              It will indicate the location of the required dll file <tt>lua5.1.dll</tt> when doing <a href="lua.html">Lua Scripting</a>.<BR>
+              This path may be relative to the Double Commander executable file.<BR>
+              <I>Example:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code>
+            </td>
           </tr>
 
         </table>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Syntax of Regular Expressions</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="cmds.html">Previous</a> | <a title="Next page" href="lua.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.10. Syntax of Regular Expressions</h1>
+        <h1>2.11. Syntax of Regular Expressions</h1>
       </div>
 
       <div>
@@ -38,7 +38,7 @@
               <dt>5.7. <a href="#meta-back">Metacharacters - backreferences</a></dt>
             </dl>
           </dd>
-          <dt>6. <a href="#modifiers">Modifiers (Perl extensions)</a></dt>
+          <dt>6. <a href="#modifiers">Modifiers</a></dt>
         </dl>
       </div>
 
@@ -46,7 +46,7 @@
       <p>Most of the explanations are from the help file for this library.</p>
 
       <div>
-        <h2>1. <a name="preface">Introduction</a></h2>
+        <h2><a name="preface">1. Introduction</a></h2>
         <p>Regular Expressions are a widely-used method of specifying patterns of text to search for.</p>
         <p>Special <span class="bold">metacharacters</span> allow us to specify, for instance, that a particular string we are looking for occurs at the beginning or end of a line, or contains <span class="bold">n</span> recurrences of a certain character.</p>
         <p>Regular expressions are mainly meant for professionals, but can also be useful in the office for finding certain documents (see examples below).</p>
@@ -60,7 +60,7 @@
       </div>
 
       <div>
-        <h2>2. <a name="compare">Simple matches</a></h2>
+        <h2><a name="compare">2. Simple matches</a></h2>
         <p>Any single character matches itself, unless it is a metacharacter with a special meaning described below.</p>
         <p>A series of characters matches that series of characters in the target string, so the pattern "bluh" would match "bluh" in the target string.</p>
         <p>We can cause characters that normally function as metacharacters or <span class="bold">escape sequences</span> to be interpreted literally by "escaping" them by preceding them with a backslash "\", for instance: metacharacter "^" match beginning of string, but "\^" match character "^", "\\" match "\" and so on.</p>
@@ -81,7 +81,7 @@
       </div>
 
       <div>
-        <h2>3. <a name="esc">Escape sequences</a></h2>
+        <h2><a name="esc">3. Escape sequences</a></h2>
         <p>Characters may be specified using a escape sequences syntax much like that used in C and Perl: "\n" matches a newline, "\t" a tab, etc.</p>
         <p>More generally, \xnn, where nn is a string of hexadecimal digits, matches the character whose ASCII value is nn.</p>
         <p>If you need wide (Unicode) character code, you can use "\x{nnnn}", where "nnnn" - one or more hexadecimal digits.</p>
@@ -138,7 +138,7 @@
       </div>
 
       <div>
-        <h2>4. <a name="symbols">Character classes</a></h2>
+        <h2><a name="symbols">4. Character classes</a></h2>
         <p>You can specify a character class, by enclosing a list of characters in [], which will match any <span class="bold">one</span> character from the list.</p>
         <p>If the first character after the "[" is "^", the class matches any character <span class="bold">not</span> in the list.</p>
         <p>Within a list, the "-" character is used to specify a <span class="bold">range</span>, so that a-z represents all characters between "a" and "z", inclusive.</p>
@@ -193,14 +193,14 @@
       </div>
 
       <div>
-        <h2>5. <a name="meta">Metacharacters</a></h2>
+        <h2><a name="meta">5. Metacharacters</a></h2>
         <p>Metacharacters are special characters which are the essence of Regular Expressions.</p>
         <p>There are different types of metacharacters, described below.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a id="meta-line" name="meta-line">5.1. Metacharacters - line separators</a></h2>
+        <h2><a name="meta-line">5.1. Metacharacters - line separators</a></h2>
         <p>Some expressions help to detect line separation.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Line separators</th></tr>
@@ -261,7 +261,7 @@
       </div>
 
       <div>
-        <h2>5.2. <a name="meta-std">Metacharacters - predefined classes</a></h2>
+        <h2><a name="meta-std">5.2. Metacharacters - predefined classes</a></h2>
         <p>Some expressions help to detect group of characters.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Predefined classes</th></tr>
@@ -309,7 +309,7 @@
       </div>
 
       <div>
-        <h2>5.3. <a name="meta-words">Metacharacters - word boundaries</a></h2>
+        <h2><a name="meta-words">5.3. Metacharacters - word boundaries</a></h2>
         <p>A word boundary (\b) is a spot between two characters that has a \w on one side of it and a \W on the other side of it (in either order), counting the imaginary characters off the beginning and end of the string as matching a \W.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Word boundaries</th></tr>
@@ -327,7 +327,7 @@
       </div>
 
       <div>
-        <h2>5.4. <a name="meta-dup">Metacharacters - iterators</a></h2>
+        <h2><a name="meta-dup">5.4. Metacharacters - iterators</a></h2>
         <p>Any item of a regular expression may be followed by another type of metacharacters - iterators.</p>
         <p>Using these metacharacters you can specify the number of occurrences of the previous character, metacharacter or subexpression.</p>
         <table>
@@ -424,7 +424,7 @@
       </div>
 
       <div>
-        <h2>5.5. <a name="meta-vars">Metacharacters - alternatives</a></h2>
+        <h2><a name="meta-vars">5.5. Metacharacters - alternatives</a></h2>
         <p>You can specify a series of <span class="bold">alternatives</span> for a pattern using "|" to separate them, so that fee|fie|foe will match any of "fee", "fie", or "foe" in the target string (as would f(e|i|o)e).</p>
         <p>The first alternative includes everything from the last pattern delimiter ("(", "[", or the beginning of the pattern) up to the first "|", and the last alternative contains everything from the last "|" to the next pattern delimiter.</p>
         <p>For this reason, it's common practice to include alternatives in parentheses, to minimize confusion about where they start and end.</p>
@@ -445,7 +445,7 @@
       </div>
 
       <div>
-        <h2>5.6. <a name="meta-sub">Metacharacters - subexpressions</a></h2>
+        <h2><a name="meta-sub">5.6. Metacharacters - subexpressions</a></h2>
         <p>The bracketing construct ( ... ) may also be used for define regular expression subexpressions.</p>
         <p>After search you can call any subexpression, also you can use subexpressions as masks.</p>
         <p>Subexpressions are numbered based on the left to right order of their opening parenthesis.</p>
@@ -479,7 +479,7 @@
       </div>
 
       <div>
-        <h2>5.7. <a name="meta-back">Metacharacters - backreferences</a></h2>
+        <h2><a name="meta-back">5.7. Metacharacters - backreferences</a></h2>
         <p>Metacharacters \1 through \9 are interpreted as backreferences. \n matches previously matched subexpression #n.</p>
         <p>Here are some examples:</p>
         <table>
@@ -502,7 +502,7 @@
       </div>
 
       <div>
-        <h2>6. <a name="modifiers">Modifiers (Perl extensions)</a></h2>
+        <h2><a name="modifiers">6. Modifiers</a></h2>
         <p class="bold">(?imsxr-imsxr)</p>
         <p>Modifiers are for changing behaviour of regular expressions.</p>
         <p>Any of these modifiers may be embedded within the regular expression itself using the <tt>(?...)</tt> construct.</p>
@@ -563,84 +563,84 @@
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="cmds.html">Previous</a> | <a title="Next page" href="lua.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

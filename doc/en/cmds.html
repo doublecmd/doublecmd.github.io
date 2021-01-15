@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Internal Commands</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="variables.html">Previous</a> | <a title="Next page" href="regexp.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.9. Internal Commands</h1>
+        <h1>2.10. Internal Commands</h1>
       </div>
 
       <div>
@@ -59,19 +59,19 @@
           <tr class="rowcategorysubtitle"><th class="categorynamecolumn">Category</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catactivepanel">Active Panel</a></div></td>
-            <td class="categorydesc">These commands apply to the <B>current selected panel</b>, left or right.</td>
+            <td class="categorydesc">These commands apply to the <b>current selected panel</b>, left or right.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catleftpanel">Left Panel</a></div></td>
-            <td class="categorydesc">These commands apply to the <B>left panel</b>, no matter which one is currently selected.</td>
+            <td class="categorydesc">These commands apply to the <b>left panel</b>, no matter which one is currently selected.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catrightpanel">Right Panel</a></div></td>
-            <td class="categorydesc">These commands apply to the <B>right panel</b>, no matter which one is currently selected.</td>
+            <td class="categorydesc">These commands apply to the <b>right panel</b>, no matter which one is currently selected.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catfileoperations">File Operations</a></div></td>
-            <td class="categorydesc">These commands apply to current selected item in current selected panel.<br>It includes operations like view/copy/move/rename/delete/pack/unpack/split, etc.<br>These are the commands that can have a <B>direct impact on your files</b>.</td>
+            <td class="categorydesc">These commands apply to current selected item in current selected panel.<br>It includes operations like view/copy/move/rename/delete/pack/unpack/split, etc.<br>These are the commands that can have a <b>direct impact on your files</b>.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catconfiguration">Configuration</a></div></td>
@@ -145,7 +145,7 @@
 
       <div>
         <h2><a name="catactivepanel">2.1. Active Panel</a></h2>
-        <p>These commands apply to the <B>current selected panel</b>, left or right.</p>
+        <p>These commands apply to the <b>current selected panel</b>, left or right.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Category "Active Panel"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -153,7 +153,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_BriefView" alt="cm_BriefView" src="../../pixmaps/dctheme/32x32/actions/cm_briefview.png">
               <div class="cmdname"><a name="cm_BriefView">cm_BriefView</a></div>
               <div class="shrtctkey">Ctrl+F1</div></td>
-            <td class="cmdhintcell">Just the name of the items.<BR>If possible, more than one column.</td>
+            <td class="cmdhintcell">Just the name of the items.<br>If possible, more than one column.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ColumnsView" alt="cm_ColumnsView" src="../../pixmaps/dctheme/32x32/actions/cm_columnsview.png">
@@ -169,21 +169,23 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">columnset</td>
-                  <td class="innerdescvaluecell"><I>column set name</i></td>
+                  <td class="innerdescvaluecell"><i>column set name</i></td>
                   <td class="innerdescdesccell">show user defined column set</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">show default column set</td>
                 </tr>
               </table>
-            See <a href="help.html#5_1_15_colonki">column section</a> in main help file.</td>
+              <br>
+              See <a href="configuration.html#ConfigColumns">column section</a>.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ThumbnailsView" alt="cm_ThumbnailsView" src="../../pixmaps/dctheme/32x32/actions/cm_thumbnailsview.png">
               <div class="cmdname"><a name="cm_ThumbnailsView">cm_ThumbnailsView</a></div>
               <div class="shrtctkey">Ctrl+Shift+F1</div></td>
-            <td class="cmdhintcell">Items shown as small images.<BR>If possible, in more than one column.</td>
+            <td class="cmdhintcell">Items shown as small images.<br>If possible, in more than one column.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatView" alt="cm_FlatView" src="../../pixmaps/dctheme/32x32/actions/cm_flatview.png">
@@ -198,7 +200,7 @@
                   <th class="innerdescheader">Description</th>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" rowspan="4">side<p class="versionref">Version 1.0.0 +</p></td>
+                  <td class="innerdescparamcell" rowspan="4">side</td>
                   <td class="innerdescvaluecell">left</td>
                   <td class="innerdescdesccell">in left panel, as the <a href="#cm_LeftFlatView">cm_LeftFlatView</a> command</td>
                 </tr>
@@ -215,7 +217,7 @@
                   <td class="innerdescdesccell">in current active panel</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">in current active panel</td>
                 </tr>
               </table>
@@ -223,14 +225,14 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatViewSel" alt="cm_FlatViewSel" src="../../pixmaps/dctheme/32x32/actions/cm_flatviewsel.png">
-              <div class="cmdname"><a name="cm_FlatViewSel">cm_FlatViewSel</a><p class="versionref">Version 1.0.0 +</p></div>
+              <div class="cmdname"><a name="cm_FlatViewSel">cm_FlatViewSel</a></div>
             <td class="cmdhintcell">Like the cm_FlatView command without parameter, but for selected files and folders only.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
               <div class="cmdname"><a name="cm_QuickView">cm_QuickView</a></div>
               <div class="shrtctkey">Ctrl+Q</div></td>
-            <td class="cmdhintcell">Content of selected item shown in opposite panel.<BR>As we navigate to next items, displayed content is updated.</td>
+            <td class="cmdhintcell">Content of selected item shown in opposite panel.<br>As we navigate to next items, displayed content is updated.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SortByName" alt="cm_SortByName" src="../../pixmaps/dctheme/32x32/actions/cm_sortbyname.png">
@@ -341,7 +343,8 @@
                   <td colspan="3">Note: If any of these three parameters are not defined or are defined incorrectly; the default values for these parameters will be: panel=active, column=name and order=ascending.</td>
                 </tr>
               </table>
-              Example:<br>"cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>This will sort the item in active by column according to size&nbsp;&mdash; larger files first.
+              <br>
+              Example: "cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>This will sort the item in active by column according to size&nbsp;&mdash; larger files first.
             </td>
           </tr>
           <tr>
@@ -356,14 +359,14 @@
 
       <div>
         <h2><a name="catleftpanel">2.2. Left Panel</a></h2>
-        <P>These commands apply to the <B>left panel</b>, no matter which one is currently selected.</p>
+        <p>These commands apply to the <b>left panel</b>, no matter which one is currently selected.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Left Panel"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftBriefView" alt="cm_LeftBriefView" src="../../pixmaps/dctheme/32x32/actions/cm_leftbriefview.png">
               <div class="cmdname"><a name="cm_LeftBriefView">cm_LeftBriefView</a></div>
-            <td class="cmdhintcell">In left panel, just the name of the items.<BR>If possible, more than one column.</td>
+            <td class="cmdhintcell">In left panel, just the name of the items.<br>If possible, more than one column.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftColumnsView" alt="cm_LeftColumnsView" src="../../pixmaps/dctheme/32x32/actions/cm_leftcolumnsview.png">
@@ -378,20 +381,22 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">columnset</td>
-                  <td class="innerdescvaluecell"><I>column set name</i></td>
+                  <td class="innerdescvaluecell"><i>column set name</i></td>
                   <td class="innerdescdesccell">show user defined column set</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">show default column set</td>
                 </tr>
               </table>
-              See <a href="help.html#5_1_15_colonki">column section</a> in main help file.</td>
+              <br>
+              See <a href="configuration.html#ConfigColumns">column section</a>.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftThumbView" alt="cm_LeftThumbView" src="../../pixmaps/dctheme/32x32/actions/cm_leftthumbview.png">
               <div class="cmdname"><a name="cm_LeftThumbView">cm_LeftThumbView</a></div>
-            <td class="cmdhintcell">In left panel, items shown as thumbnails.<BR>If possible, more than one column.</td>
+            <td class="cmdhintcell">In left panel, items shown as thumbnails.<br>If possible, more than one column.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftFlatView" alt="cm_LeftFlatView" src="../../pixmaps/dctheme/32x32/actions/cm_leftflatview.png">
@@ -440,14 +445,14 @@
 
       <div>
         <h2><a name="catrightpanel">2.3. Right Panel</a></h2>
-        <P>These commands apply to the <B>right panel</b>, no matter which one is currently selected.</p>
+        <p>These commands apply to the <b>right panel</b>, no matter which one is currently selected.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Right Panel"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightBriefView" alt="cm_RightBriefView" src="../../pixmaps/dctheme/32x32/actions/cm_rightbriefview.png">
               <div class="cmdname"><a name="cm_RightBriefView">cm_RightBriefView</a></div>
-            <td class="cmdhintcell">In right panel, just the name of the items.<BR>If possible, more than one column.</td>
+            <td class="cmdhintcell">In right panel, just the name of the items.<br>If possible, more than one column.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightColumnsView" alt="cm_RightColumnsView" src="../../pixmaps/dctheme/32x32/actions/cm_rightcolumnsview.png">
@@ -462,20 +467,22 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">columnset</td>
-                  <td class="innerdescvaluecell"><I>column set name</i></td>
+                  <td class="innerdescvaluecell"><i>column set name</i></td>
                   <td class="innerdescdesccell">show user defined column set</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">show default column set</td>
                 </tr>
               </table>
-              See <a href="help.html#5_1_15_colonki">column section</a> in main help file.</td>
+              <br>
+              See <a href="configuration.html#ConfigColumns">column section</a>.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightThumbView" alt="cm_RightThumbView" src="../../pixmaps/dctheme/32x32/actions/cm_rightthumbview.png">
               <div class="cmdname"><a name="cm_RightThumbView">cm_RightThumbView</a></div>
-            <td class="cmdhintcell">In right panel, items shown as thumbnails.<BR>If possible, more than one column.</td>
+            <td class="cmdhintcell">In right panel, items shown as thumbnails.<br>If possible, more than one column.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightFlatView" alt="cm_RightFlatView" src="../../pixmaps/dctheme/32x32/actions/cm_rightflatview.png">
@@ -524,7 +531,7 @@
 
       <div>
         <h2><a name="catfileoperations">2.4. File Operations</a></h2>
-        <P>These commands apply to current selected item in current selected panel.<br>It includes operations like view/copy/move/rename/delete/pack/unpack/split etc.<br>These are probably the commands that have a <B>direct impact with your files</b>.</p>
+        <p>These commands apply to current selected item in current selected panel.<br>It includes operations like view/copy/move/rename/delete/pack/unpack/split etc.<br>These are probably the commands that have a <b>direct impact with your files</b>.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "File Operations"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -532,7 +539,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_View" alt="cm_View" src="../../pixmaps/dctheme/32x32/actions/cm_view.png">
               <div class="cmdname"><a name="cm_View">cm_View</a></div>
               <div class="shrtctkey">F3</div></td>
-            <td class="cmdhintcell">Open file in <a href="help.html#5_1_3_instruments">viewer</a> program.</td>
+            <td class="cmdhintcell">Open file in <a href="configuration.html#ConfigTools">viewer</a> program.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Edit" alt="cm_Edit" src="../../pixmaps/dctheme/32x32/actions/cm_edit.png">
@@ -544,7 +551,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_EditNew" alt="cm_EditNew" src="../../pixmaps/dctheme/32x32/actions/cm_editnew.png">
               <div class="cmdname"><a name="cm_EditNew">cm_EditNew</a></div>
               <div class="shrtctkey">Shift+F4</div></td>
-            <td class="cmdhintcell">Create a new file, and open it in the editor (<a href="help.html#5_1_3_instruments">see configuration</a>).</td>
+            <td class="cmdhintcell">Create a new file, and open it in the editor (see <a href="configuration.html#ConfigTools">configuration</a>).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Copy" alt="cm_Copy" src="../../pixmaps/dctheme/32x32/actions/cm_copy.png">
@@ -639,9 +646,9 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Delete" alt="cm_Delete" src="../../pixmaps/dctheme/32x32/actions/cm_delete.png">
               <div class="cmdname"><a name="cm_Delete">cm_Delete</a></div>
               <div class="shrtctkey">F8, Del</div></td>
-            <td class="cmdhintcell">Delete selected item to trash can (recycle bin) or permanently.<br>
+            <td class="cmdhintcell">Delete selected item to trash (recycle bin) or permanently.<br>
               Deleting to trash can might not be available for all platforms.<br>
-              A different confirmation message is given when deleting to Trash Can or permanently.<br>
+              A different confirmation message is given when deleting to trash or permanently.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -661,7 +668,7 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">trashcan</td>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">delete to trash can</td>
+                  <td class="innerdescdesccell">delete to trash</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
@@ -669,7 +676,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">setting</td>
-                  <td class="innerdescdesccell">(default) acts accordingly to the global setting in <a href="help.html#5_1_10_fileOper">File Operations</a>, if that setting is enabled it will delete to trash can otherwise permanently</td>
+                  <td class="innerdescdesccell">(default) acts accordingly to the global setting in <a href="configuration.html#ConfigOperations">File Operations</a>, if that setting is enabled it will delete to trash, otherwise permanently</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">reversesetting</td>
@@ -698,11 +705,11 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">PackHere</td>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">compressed file will be in active panel directory</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">compressed file will be in inactive panel directory</td>
                 </tr>
               </table>
@@ -719,7 +726,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenArchive" alt="cm_OpenArchive" src="../../pixmaps/dctheme/32x32/actions/cm_openarchive.png">
               <div class="cmdname"><a name="cm_OpenArchive">cm_OpenArchive</a></div>
               <div class="shrtctkey">Ctrl+PgDown</div></td>
-            <td class="cmdhintcell">If a directory is selected, will open this directory to show its content.<BR>If a file is selected, ignoring its extension, will try to open it as an archive based on its detected content (see <a href="multiarc.html#configids">ID configuration</a> in other help page).</td>
+            <td class="cmdhintcell">If a directory is selected, will open this directory to show its content.<br>If a file is selected, ignoring its extension, will try to open it as an archive based on its detected content (see <a href="multiarc.html#configids">ID configuration</a> in other help page).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ExtractFiles" alt="cm_ExtractFiles" src="../../pixmaps/dctheme/32x32/actions/cm_extractfiles.png">
@@ -735,11 +742,11 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">ExtractHere</td>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">extracted items will be in active panel directory</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">extracted items will be in inactive panel directory</td>
                 </tr>
               </table>
@@ -771,7 +778,8 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ContextMenu" alt="cm_ContextMenu" src="../../pixmaps/dctheme/32x32/actions/cm_contextmenu.png">
               <div class="cmdname"><a name="cm_ContextMenu">cm_ContextMenu</a></div>
               <div class="shrtctkey">Shift+F10</div></td>
-            <td class="cmdhintcell">Shows <a href="help.html#cm_ContextMenu">context menu</a> for files and folders.<br>
+            <td class="cmdhintcell">Shows context menu for files and folders.<br>
+              On Windows Double Commander will show the system context menu (as in Windows Explorer), in other operating systems Double Commander creates its own context menu with typical actions.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -795,13 +803,13 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Open" alt="cm_Open" src="../../pixmaps/dctheme/32x32/actions/cm_open.png">
               <div class="cmdname"><a name="cm_Open">cm_Open</a></div>
               <div class="shrtctkey">Enter</div></td>
-            <td class="cmdhintcell">Open a file or program under cursor.<BR>Associated application based on file association configuration might be used, etc.</td>
+            <td class="cmdhintcell">Open a file or program under cursor.<br>Associated application based on file association configuration might be used, etc.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ShellExecute" alt="cm_ShellExecute" src="../../pixmaps/dctheme/32x32/actions/cm_shellexecute.png">
               <div class="cmdname"><a name="cm_ShellExecute">cm_ShellExecute</a></div>
               <div class="shrtctkey">Ctrl+Alt+Enter</div></td>
-            <td class="cmdhintcell">Will invoke computer's associated program to current selected item.<BR>A single parameter may also be provided for the call.</td>
+            <td class="cmdhintcell">Will invoke a program for the selected file from the system file associations.<br>A single parameter may also be provided for the call.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SymLink" alt="cm_SymLink" src="../../pixmaps/dctheme/32x32/actions/cm_symlink.png">
@@ -826,12 +834,12 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CheckSumCalc" alt="cm_CheckSumCalc" src="../../pixmaps/dctheme/32x32/actions/cm_checksumcalc.png">
               <div class="cmdname"><a name="cm_CheckSumCalc">cm_CheckSumCalc</a></div>
-            <td class="cmdhintcell">Calculate file <a href="help.html#012_controlnaya_summa">checksum</a> (MD5, SHA1, etc).</td>
+            <td class="cmdhintcell"><a href="help.html#cm_CheckSumCalc">Calculate</a> file checksum (MD5, SHA1, etc).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CheckSumVerify" alt="cm_CheckSumVerify" src="../../pixmaps/dctheme/32x32/actions/cm_checksumverify.png">
               <div class="cmdname"><a name="cm_CheckSumVerify">cm_CheckSumVerify</a></div>
-            <td class="cmdhintcell">Verify MD5, SHA1, etc. checksum.</td>
+            <td class="cmdhintcell"><a href="help.html#cm_CheckSumVerify">Verify</a> MD5, SHA1, etc. checksum.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -839,15 +847,15 @@
 
       <div>
         <h2><a name="catconfiguration">2.5. Configuration</a></h2>
-        <P>Access options and configurations of Double Commander.</p>
+        <p>Access options and configurations of Double Commander.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Configuration"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Options" alt="cm_Options" src="../../pixmaps/dctheme/32x32/actions/cm_options.png">
               <div class="cmdname"><a name="cm_Options">cm_Options</a></div>
-            <td class="cmdhintcell">Open <a href="help.html#cm_Options">configuration</a> dialog.<BR>
-              Command supports a single parameter to jump to a specific configuration section.<BR>
+            <td class="cmdhintcell">Open <a href="help.html#cm_Options">configuration</a> dialog.<br>
+              Command supports a single parameter to jump to a specific configuration section.<br>
               Here is <a href="cm_options.html">a link</a> for possible parameters to use.</td>
           </tr>
           <tr>
@@ -859,8 +867,8 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigDirHotList" alt="cm_ConfigDirHotList" src="../../pixmaps/dctheme/32x32/actions/cm_configdirhotlist.png">
               <div class="cmdname"><a name="cm_ConfigDirHotList">cm_ConfigDirHotList</a></div>
               <div class="shrtctkey">Ctrl+Shift+D</div></td>
-            <td class="cmdhintcell">Access configuration of the directory hotlist.<BR><BR>
-              It is equivalent to cm_WorkWithDirectoryHotlist command with following parameters:<BR>
+            <td class="cmdhintcell">Access configuration of the directory hotlist.<br>
+              It is equivalent to cm_WorkWithDirectoryHotlist command with following parameters:<br>
               action=config source=%Ds</td>
           </tr>
           <tr>
@@ -904,7 +912,7 @@
                   <td class="innerdescdesccell">config the specified "nth" entry</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">same as "add"</td>
                 </tr>
                 <tr>
@@ -913,7 +921,7 @@
                   <td class="innerdescdesccell">the directory to add/config as "source"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">directory the active panel is in</td>
                 </tr>
                 <tr>
@@ -922,7 +930,7 @@
                   <td class="innerdescdesccell">the directory to add/config as "target"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">directory the inactive panel is in</td>
                 </tr>
                 <tr>
@@ -931,17 +939,18 @@
                   <td class="innerdescdesccell">if action=directconfig, the "nth" entry from the hotlist</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">index 0 will be used</td>
                 </tr>
               </table>
-              Example:<br>"cm_WorkWithDirectoryHotlist action=addboth"<br>This will add to directory hotlist both current directories of active and inactive frame as source and target respectively.
+              <br>
+              Example: "cm_WorkWithDirectoryHotlist action=addboth"<br>This will add to directory hotlist both current directories of active and inactive frame as source and target respectively.
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FileAssoc" alt="cm_FileAssoc" src="../../pixmaps/dctheme/32x32/actions/cm_fileassoc.png">
               <div class="cmdname"><a name="cm_FileAssoc">cm_FileAssoc</a></div>
-            <td class="cmdhintcell">Open file associations <a href="help.html#cm_FileAssoc">configuration</a>.</td>
+            <td class="cmdhintcell">Open file associations <a href="configuration.html#ConfigAssociations">configuration</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigFolderTabs" alt="cm_ConfigFolderTabs" src="../../pixmaps/dctheme/32x32/actions/cm_configfoldertabs.png">
@@ -964,24 +973,24 @@
             <td class="cmdhintcell">Access configuration of the color used with the Tree View Menu section interface.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png">
-              <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
-            <td class="cmdhintcell">Access configuration of hotkeys.</td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSearches" alt="cm_ConfigSearches" src="../../pixmaps/dctheme/32x32/actions/cm_configsearches.png">
               <div class="cmdname"><a name="cm_ConfigSearches">cm_ConfigSearches</a></div></td>
             <td class="cmdhintcell">Access configuration of general options regarding file search.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png">
-              <div class="cmdname"><a name="cm_ConfigSaveSettings">cm_ConfigSaveSettings</a></div>
-            <td class="cmdhintcell">Will save all the current settings and history, just like if you would close application and restore.<br><I>This might be useful if you've used DC during a long session and you want to save current context in case system would crash and you do not want to lose current history when you would restart DC.</i></td>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png">
+              <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
+            <td class="cmdhintcell">Access configuration of hotkeys.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSavePos" alt="cm_ConfigSavePos" src="../../pixmaps/dctheme/32x32/actions/cm_configsavepos.png">
               <div class="cmdname"><a name="cm_ConfigSavePos">cm_ConfigSavePos</a></div>
             <td class="cmdhintcell">Will save current state and position of the main window of DC.<br></td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png">
+              <div class="cmdname"><a name="cm_ConfigSaveSettings">cm_ConfigSaveSettings</a></div>
+            <td class="cmdhintcell">Will save all the current settings and history, just like if you would close application and restore.<br><i>This might be useful if you've used DC during a long session and you want to save current context in case system would crash and you do not want to lose current history when you would restart DC.</i></td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigArchivers" alt="cm_ConfigArchivers" src="../../pixmaps/dctheme/32x32/actions/cm_configarchivers.png">
@@ -998,13 +1007,20 @@
               <div class="cmdname"><a name="cm_ConfigPlugins">cm_ConfigPlugins</a></div>
             <td class="cmdhintcell">Access configuration of plugins.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPlugin" alt="cm_AddPlugin" src="../../pixmaps/dctheme/32x32/actions/cm_addplugin.png">
+              <div class="cmdname"><a name="cm_AddPlugin">cm_AddPlugin</a></div>
+            <td class="cmdhintcell">Add plugin: Double Commander will prompt you to select a plugin file, automatically detect its type (WCX, WDX, WFX, WLX or DSX), open the required settings section and add it to the list.<br>
+              The file name can be specified as a parameter.
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2><a name="catnetwork">2.6. Network</a></h2>
-        <P>Related directly with computer network.</p>
+        <p>Related directly with computer network.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Network"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1024,7 +1040,7 @@
 
       <div>
         <h2><a name="catmiscellaneous">2.7. Miscellaneous</a></h2>
-        <P>Inevitable category with commands we did not in which category to place them!<br>Effort has been made to try to don't place too much commands in this category.</p>
+        <p>Inevitable category with commands we did not in which category to place them!<br>Effort has been made to try to don't place too much commands in this category.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Miscellaneous"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1084,7 +1100,7 @@
 
       <div>
         <h2><a name="catmark">2.8. Mark</a></h2>
-        <P>Select the items on which the file operations will took place.</p>
+        <p>Select the items on which the file operations will took place.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Mark"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1116,7 +1132,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">filtering will be done case-sensitive</td>
+                  <td class="innerdescdesccell">filtering will be done case sensitive</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(absent)</i></td>
@@ -1175,17 +1191,17 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"></td>
-                  <td class="innerdescdesccell">note: this means "attr=" with no right value.<BR>filter everything, no matter the configured "Default attribute mask"</td>
+                  <td class="innerdescdesccell">note: this means "attr=" with no right value.<br>filter everything, no matter the configured "Default attribute mask"</td>
                 </tr>
               </table>
-              <B>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<BR>
-              <B>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be selected with filter <i>*.*</i><BR>
-              <B>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<I>mask=&gt;Pascal files</i>".<BR>
-              <B>Note4:</b> When using filtering parameter "<I>ignoreaccents=TRUE</i>", the ligatured characters like "<I>&oelig;</i>" for example will be evaluated as the sequence "<I>oe</i>". So for example "<I>c&oelig;ur</i>" will match "<I>coeur</i>".<BR>
-              <B>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the cm_MarkPlus with no parameters which will use the default same parameters of last time it was prompting the user.<BR>
-              <B>Note6:</b> Regarding the "attr" possible parameter values, see the "The <a href="findfiles.html#attributes">Searching for files with specific attributes</a>." section in the "Find files" help file. The way to specify the filter regarding the attributes is the same.<BR>
-              <B>Example1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" This will select all the files matching the given filter mask (which is basically common Delphi source file extensions) and ignoring the case of the letters.<BR>
-              <B>Example2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" This will select all the files matching the given filter mask (which is basically Microsoft Word document with the word "ecole" in them) ignoring the accents. This means it will select file with "école" and "ecole" in them since accent are ignored.
+              <b>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<br>
+              <b>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be selected with filter <i>*.*</i><br>
+              <b>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<i>mask=&gt;Pascal files</i>".<br>
+              <b>Note4:</b> When using filtering parameter "<i>ignoreaccents=TRUE</i>", the ligatured characters like "<i>&oelig;</i>" for example will be evaluated as the sequence "<i>oe</i>". So for example "<i>c&oelig;ur</i>" will match "<i>coeur</i>".<br>
+              <b>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the cm_MarkPlus with no parameters which will use the default same parameters of last time it was prompting the user.<br>
+              <b>Note6:</b> Regarding the "attr" possible parameter values, see the "The <a href="findfiles.html#attributes">Searching for files with specific attributes</a>." section in the "Find files" help file. The way to specify the filter regarding the attributes is the same.<br>
+              <b>Example1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" This will select all the files matching the given filter mask (which is basically common Delphi source file extensions) and ignoring the case of the letters.<br>
+              <b>Example2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" This will select all the files matching the given filter mask (which is basically Microsoft Word document with the word "ecole" in them) ignoring the accents. This means it will select file with "école" and "ecole" in them since accent are ignored.
             </td>
           </tr>
           <tr>
@@ -1233,7 +1249,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"></td>
-                  <td class="innerdescdesccell">note: this means "attr=" with no right value.<BR>filter everything, no matter the configured "Default attribute mask"</td>
+                  <td class="innerdescdesccell">note: this means "attr=" with no right value.<br>filter everything, no matter the configured "Default attribute mask"</td>
                 </tr>
               </table>
             </td>
@@ -1253,8 +1269,8 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentPath" alt="cm_MarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentpath.png">
               <div class="cmdname"><a name="cm_MarkCurrentPath">cm_MarkCurrentPath</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Mark</a> files with the same path as item under cursor of active panel.<BR>
-              <B>Note:</b> It might seem useless at first look but may be used in at least two situations:<br>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Mark</a> files with the same path as item under cursor of active panel.<br>
+              <b>Note:</b> It might seem useless at first look but may be used in at least two situations:<br>
               <div style="margin: 0 0 0 15;">
                 After you've filled a panel with search results coming from various level of directories<br>
                 After you've invoke the <a href="#cm_FlatView">cm_FlatView</a> internal command.
@@ -1264,7 +1280,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentPath" alt="cm_UnmarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentpath.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentPath">cm_UnmarkCurrentPath</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Unmark</a> files with the same path as item under cursor of active panel.<BR>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Unmark</a> files with the same path as item under cursor of active panel.<br>
               See note of <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a> for the possible usefulness of this command.
             </td>
           </tr>
@@ -1295,14 +1311,14 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentNameExt" alt="cm_MarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentnameext.png">
               <div class="cmdname"><a name="cm_MarkCurrentNameExt">cm_MarkCurrentNameExt</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename and extension as item under cursor of active panel.<BR>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Mark</a> files with the same filename and extension as item under cursor of active panel.<br>
               See note of <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a> for the possible usefulness of this command.
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentNameExt" alt="cm_UnmarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentnameext.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentNameExt">cm_UnmarkCurrentNameExt</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename and extension as item under cursor of active panel.<BR>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Unmark</a> files with the same filename and extension as item under cursor of active panel.<br>
               See note of <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a> for the possible usefulness of this command.
             </td>
           </tr>
@@ -1318,17 +1334,17 @@
                   <th class="innerdescheader">Description</th>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell">files<p class="versionref">Version 1.0.0 +</p></td>
+                  <td class="innerdescparamcell">files</td>
                   <td class="innerdescvaluecell">on/off</td>
                   <td class="innerdescdesccell">select files</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell">directories<p class="versionref">Version 1.0.0 +</p></td>
+                  <td class="innerdescparamcell">directories</td>
                   <td class="innerdescvaluecell">on/off</td>
                   <td class="innerdescdesccell">select directories</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">select files only</td>
                 </tr>
               </table>
@@ -1347,8 +1363,8 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelectionToFile" alt="cm_SaveSelectionToFile" src="../../pixmaps/dctheme/32x32/actions/cm_saveselectiontofile.png">
               <div class="cmdname"><a name="cm_SaveSelectionToFile">cm_SaveSelectionToFile</a></div></td>
-            <td class="cmdhintcell">Save the current selection to a file.<BR>
-              You may specify the output filename into the first parameter.<BR>
+            <td class="cmdhintcell">Save the current selection to a file.<br>
+              You may specify the output filename into the first parameter.<br>
               If no parameter is supplied, Double Commander will prompt user to enter one.</td>
           </tr>
           <tr>
@@ -1369,7 +1385,7 @@
 
       <div>
         <h2><a name="catclipboard">2.9. Clipboard</a></h2>
-        <P>Actions related to interact between system's clipboard and selected items.</p>
+        <p>Actions related to interact between system's clipboard and selected items.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Clipboard"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1424,7 +1440,7 @@
 
       <div>
         <h2><a name="catnavigation">2.10. Navigation</a></h2>
-        <P>To go from one folder to another to access various items according to their location.</p>
+        <p>To go from one folder to another to access various items according to their location.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Navigation"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1450,7 +1466,7 @@
                   <td class="innerdescdesccell">directories in history will be displayed in a tree view menu</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
                 </tr>
                 <tr>
@@ -1463,11 +1479,11 @@
                   <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be from the top left corner of active panel</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">popup menu shown from top left corner of active panel</td>
                 </tr>
               </table>
@@ -1495,7 +1511,7 @@
                   <td class="innerdescdesccell">hot directories will be displayed in a tree view menu</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
                 </tr>
                 <tr>
@@ -1508,15 +1524,21 @@
                   <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be from the top left corner of active panel</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">popup menu shown from top left corner of active panel</td>
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_SyncChangeDir" alt="cm_SyncChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_syncchangedir.png">
+              <div class="cmdname"><a name="cm_SyncChangeDir">cm_SyncChangeDir</a></div></td>
+            <td class="cmdhintcell">Synchronous directory changing in both panels.<br>
+              Synchronous navigation is disabled when this command is called again or automatically if there are no matching folder names.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDirToParent" alt="cm_ChangeDirToParent" src="../../pixmaps/dctheme/32x32/actions/cm_changedirtoparent.png">
@@ -1534,24 +1556,24 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDirToRoot" alt="cm_ChangeDirToRoot" src="../../pixmaps/dctheme/32x32/actions/cm_changedirtoroot.png">
               <div class="cmdname"><a name="cm_ChangeDirToRoot">cm_ChangeDirToRoot</a></div>
               <div class="shrtctkey">Ctrl+\</div></td>
-            <td class="cmdhintcell">Go to root directory ("/" in GNU/Linux).</td>
+            <td class="cmdhintcell">Go to root directory ("/" in Unix and GNU/Linux) or root of the current disk (Windows).<br>In archive: go to root of this archive.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TargetEqualSource" alt="cm_TargetEqualSource" src="../../pixmaps/dctheme/32x32/actions/cm_targetequalsource.png">
               <div class="cmdname"><a name="cm_TargetEqualSource">cm_TargetEqualSource</a></div>
               <div class="shrtctkey">Alt+Z</div></td>
-            <td class="cmdhintcell">Show <a href="help.html#cm_TargetEqualSource">same</a> directory in opposite panel.</td>
+            <td class="cmdhintcell">Show same directory in opposite panel.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TransferLeft" alt="cm_TransferLeft" src="../../pixmaps/dctheme/32x32/actions/cm_transferleft.png">
               <div class="cmdname"><a name="cm_TransferLeft">cm_TransferLeft</a></div>
-              <div class="shrtctkey">Ctrl+Left</div></td>
+              <div class="shrtctkey">Ctrl+ &#8592;</div></td>
             <td class="cmdhintcell">Open directory under cursor in the left panel.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TransferRight" alt="cm_TransferRight" src="../../pixmaps/dctheme/32x32/actions/cm_transferright.png">
               <div class="cmdname"><a name="cm_TransferRight">cm_TransferRight</a></div>
-              <div class="shrtctkey">Ctrl+Right</div></td>
+              <div class="shrtctkey">Ctrl+ &#8594;</div></td>
             <td class="cmdhintcell">Open directory under cursor in the right panel.</td>
           </tr>
           <tr>
@@ -1571,10 +1593,61 @@
             <td class="cmdhintcell"><a href="help.html#cm_Exchange">Swap</a> file panels.</td>
           </tr>
           <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
+              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
+            <td class="cmdhintcell">User may type directly the directory he wants see in the selected panel.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
+              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
+            <td class="cmdhintcell">Will switch the active/inactive/left/right panel to the specified directory(ies).<br>
+              Please note that you may specify more than one parameter, so with only one command, you may set both source and target path.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">activepath</td>
+                  <td class="innerdescvaluecell"><i>specified_path</i></td>
+                  <td class="innerdescdesccell">will switch the active panel to the <i>specified_path</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">inactivepath</td>
+                  <td class="innerdescvaluecell"><i>specified_path</i></td>
+                  <td class="innerdescdesccell">will switch the inactive panel to the <i>specified_path</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">leftpath</td>
+                  <td class="innerdescvaluecell"><i>specified_path</i></td>
+                  <td class="innerdescdesccell">will switch the left panel to the <i>specified_path</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">rightpath</td>
+                  <td class="innerdescvaluecell"><i>specified_path</i></td>
+                  <td class="innerdescdesccell">will switch the right panel to the <i>specified_path</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="3">For legacy backward compatibility, you may also provide simply a single path as single parameter and DC will switch active panel to that path.</td>
+                </tr>
+              </table>
+              <br>
+              Examples:<br>
+              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
+              This will make the active panel to show content of the current user's desktop folder and in the inactive panel you'll see the content of "Paul Houde" one.<br><br>
+              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
+              No matter where is the current active panel, the left one will show content of "Working" folder and the right panel will show the one of "Euler".<br><br>
+              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
+              This is the DC legacy way of working, the active panel will switch to show content of the network mentioned path.
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickSearch" alt="cm_QuickSearch" src="../../pixmaps/dctheme/32x32/actions/cm_quicksearch.png">
               <div class="cmdname"><a name="cm_QuickSearch">cm_QuickSearch</a></div>
               <div class="shrtctkey">Ctrl+S</div></td>
-            <td class="cmdhintcell"><a href="help.html#5_1_14_bystrPoisk">Quick search</a> in directory.<br>
+            <td class="cmdhintcell"><a href="configuration.html#ConfigQuick">Quick search</a> in directory.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -1585,18 +1658,18 @@
                 <tr>
                   <td class="innerdescparamcell">search</td>
                   <td class="innerdescvaluecell">on/off/cycle</td>
-                  <td class="innerdescdesccell">Determine the state of the quick search frame at the bottom:<BR>
-                    - when it's "on", the specified search parameters are applied and quick search frame is shown at the bottom<BR>
-                    - when it's "off", quick search is removed and search frame is hidden<BR>
+                  <td class="innerdescdesccell">Determine the state of the quick search frame at the bottom:<br>
+                    - when it's "on", the specified search parameters are applied and quick search frame is shown at the bottom<br>
+                    - when it's "off", quick search is removed and search frame is hidden<br>
                     - when it's "cycle", it is to use for when you invoke many time in a row the command to go to the next matching item</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">direction</td>
                   <td class="innerdescvaluecell">first/last/next</td>
-                  <td class="innerdescdesccell">Determine the direction of the quick search for the item that match the search criteras:<BR>
-                    - when it's "first", to the first item found from the top<BR>
-                    - when it's "last", to the last item<BR>
-                    - when it's "next", to the next one after the current one at the moment of the search. Please note that it may do a wrap around to come back to prior item if none was found after the current selected one.<BR>
+                  <td class="innerdescdesccell">Determine the direction of the quick search for the item that match the search criterias:<br>
+                    - when it's "first", to the first item found from the top<br>
+                    - when it's "last", to the last item<br>
+                    - when it's "next", to the next one after the current one at the moment of the search. Please note that it may do a wrap around to come back to prior item if none was found after the current selected one.<br>
                     *Note: This option is unrevelant when the "search=cycle".</td>
                 </tr>
                 <tr>
@@ -1706,65 +1779,24 @@
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
-              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">User may type directly the directory he wants see in the selected panel.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
-              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
-            <td class="cmdhintcell">Will switch the active/inactive/left/right panel to the specified directory(ies).<br>
-              Please note that you may specify more than one parameter, so with only one command, you may set both source and target path.<br>
-              <br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Parameter</th>
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">activepath</td>
-                  <td class="innerdescvaluecell"><I>specified_path</i></td>
-                  <td class="innerdescdesccell">will switch the active panel to the <I>specified_path</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">inactivepath</td>
-                  <td class="innerdescvaluecell"><I>specified_path</i></td>
-                  <td class="innerdescdesccell">will switch the inactive panel to the <I>specified_path</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">leftpath</td>
-                  <td class="innerdescvaluecell"><I>specified_path</i></td>
-                  <td class="innerdescdesccell">will switch the left panel to the <I>specified_path</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">rightpath</td>
-                  <td class="innerdescvaluecell"><I>specified_path</i></td>
-                  <td class="innerdescdesccell">will switch the right panel to the <I>specified_path</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell" colspan="3">For legacy backward compatibility, you may also provide simply a single path as single parameter and DC will switch active panel to that path.</td>
-                </tr>
-              </table>
-              <br>
-              Examples:<br>
-              <I>cm_ChangeDir activepath=%DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
-              This will make the active panel to show content of %DESKTOP% directory and in the inactive panel you'll see the content of "Paul Houde" one.<br><br>
-              <I>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
-              No matter where is the current active panel, the left one will show content of "Working" folder and the right panel will show the one of "Euler".<br><br>
-              <I>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              This is the DC legacy way of working, the active panel will switch to show content of the network mentioned path.
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
-              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
+              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a></div></td>
             <td class="cmdhintcell">Place cursor on first folder or file in list.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastEntry" alt="cm_GoToLastEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastentry.png">
-              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
+              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a></div></td>
             <td class="cmdhintcell">Place cursor on last folder or file in list.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
+              <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a></div></td>
+            <td class="cmdhintcell">Place cursor on next folder or file.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
+              <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a></div></td>
+            <td class="cmdhintcell">Place cursor on previous folder or file.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstFile" alt="cm_GoToFirstFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstfile.png">
@@ -1775,16 +1807,6 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastFile" alt="cm_GoToLastFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastfile.png">
               <div class="cmdname"><a name="cm_GoToLastFile">cm_GoToLastFile</a></div></td>
             <td class="cmdhintcell">Place cursor on last file in list.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
-              <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Place cursor on next folder or file.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
-              <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a><p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Place cursor on previous folder or file.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistory" alt="cm_ViewHistory" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistory.png">
@@ -1807,7 +1829,7 @@
                   <td class="innerdescdesccell">directories in history will be displayed in a tree view menu</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
                 </tr>
                 <tr>
@@ -1820,11 +1842,11 @@
                   <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be from mouse cursor position</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">popup menu shown at the current mouse cursor position</td>
                 </tr>
               </table>
@@ -1833,12 +1855,13 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistoryNext" alt="cm_ViewHistoryNext" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistorynext.png">
               <div class="cmdname"><a name="cm_ViewHistoryNext">cm_ViewHistoryNext</a></div>
-              <div class="shrtctkey">Alt+Right</div></td>
+              <div class="shrtctkey">Alt+ &#8594;</div></td>
             <td class="cmdhintcell">According to list of last directories visited, will set the active panel to the very next one, if any, visited prior to current one.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistoryPrev" alt="cm_ViewHistoryPrev" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistoryprev.png">
               <div class="cmdname"><a name="cm_ViewHistoryPrev">cm_ViewHistoryPrev</a></div></td>
+              <div class="shrtctkey">Alt+ &#8592;</div></td>
             <td class="cmdhintcell">According to list of last directories visited, will set the active panel to the very last one visited prior to current one.</td>
           </tr>
           <tr>
@@ -1855,40 +1878,40 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">index</td>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">will use <B>1</b>st drive of list</td>
+                  <td class="innerdescdesccell">will use <b>1</b>st drive of list</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell">will use <B>2</b>nd drive of list</td>
+                  <td class="innerdescdesccell">will use <b>2</b>nd drive of list</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">3</td>
-                  <td class="innerdescdesccell">will use <B>3</b>rd drive of list</td>
+                  <td class="innerdescdesccell">will use <b>3</b>rd drive of list</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>n</i></td>
-                  <td class="innerdescdesccell">will use <I><B>n</b></i>th drive of list</td>
+                  <td class="innerdescvaluecell"><i>n</i></td>
+                  <td class="innerdescdesccell">will use <i><b>n</b></i>th drive of list</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">selected drive will be in <B>left panel</b></td>
+                  <td class="innerdescdesccell">selected drive will be in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">selected drive will be in <B>right panel</b></td>
+                  <td class="innerdescdesccell">selected drive will be in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">selected drive will be in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">selected drive will be in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(absent)</i></td>
-                  <td class="innerdescdesccell">selected drive will be in <B>current active panel</b></td>
+                  <td class="innerdescdesccell">selected drive will be in <b>current active panel</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing)</i></td>
-                  <td class="innerdescdesccell">Specifying at least the <B>index</b> is mandatory.</td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing)</i></td>
+                  <td class="innerdescdesccell">Specifying at least the <b>index</b> is mandatory.</td>
                 </tr>
               </table>
               <br>
@@ -1916,7 +1939,7 @@
                   <td class="innerdescdesccell">will set focus on right panel</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">will set focus on the opposite panel of the current selected one</td>
                 </tr>
               </table>
@@ -1928,7 +1951,7 @@
 
       <div>
         <h2><a name="cathelp">2.11. Help</a></h2>
-        <P>Access the integrated help files of Double Commander.</p>
+        <p>Access the integrated help files of Double Commander.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Help"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1940,7 +1963,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Keyboard" alt="cm_Keyboard" src="../../pixmaps/dctheme/32x32/actions/cm_keyboard.png">
               <div class="cmdname"><a name="cm_Keyboard">cm_Keyboard</a></div>
-            <td class="cmdhintcell">Open keyboard <a href="shortcuts.html">shortcuts</a> help page.<br><B>Note</b>: This will be a passive HTML file. So you if you change the keyboard shortcut from the default one, be aware that the passive html help file won't show the actual shortcut the application is currently using.</td>
+            <td class="cmdhintcell">Open keyboard <a href="shortcuts.html">shortcuts</a> help page.<br><b>Note</b>: This will be a passive HTML file. So you if you change the keyboard shortcut from the default one, be aware that the passive html help file won't show the actual shortcut the application is currently using.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_VisitHomePage" alt="cm_VisitHomePage" src="../../pixmaps/dctheme/32x32/actions/cm_visithomepage.png">
@@ -1959,7 +1982,7 @@
 
       <div>
         <h2><a name="catwindow">2.12. Window</a></h2>
-        <P>Commands related with the Double Commander window, its look and behavior, like any other computer application.</p>
+        <p>Commands related with the Double Commander window, its look and behavior, like any other computer application.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Window"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -1977,7 +2000,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">mode</td>
-                  <td class="innerdescvaluecell"><I>(nothing)</i>/<br>legacy</td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i>/<br>legacy</td>
                   <td class="innerdescdesccell">toggle between vertical/horizontal</td>
                 </tr>
                 <tr>
@@ -2010,7 +2033,7 @@
                   <td class="innerdescdesccell">percentage of whole width to assign to left panel<br>(or top panel if horizontal mode is enabled)</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">percentage set to 50-50</td>
                 </tr>
               </table>
@@ -2036,7 +2059,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">main menu is <B>not</b> displayed</td>
+                  <td class="innerdescdesccell">main menu is <b>not</b> displayed</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">treeview</td>
@@ -2048,7 +2071,7 @@
                   <td class="innerdescdesccell">dummy, will simply be ignored</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">toggle the visibility of the main menu</td>
                 </tr>
               </table>
@@ -2074,7 +2097,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">toolbar is <B>not</b> displayed</td>
+                  <td class="innerdescdesccell">toolbar is <b>not</b> displayed</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">treeview</td>
@@ -2086,7 +2109,7 @@
                   <td class="innerdescdesccell">dummy, will simply be ignored</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">toggle the visibility of the toolbar</td>
                 </tr>
               </table>
@@ -2132,7 +2155,7 @@
 
       <div>
         <h2><a name="catcommandline">2.13. Command Line</a></h2>
-        <P>Interact with command line to view past commands and help to invoke new ones.</p>
+        <p>Interact with command line to view past commands and help to invoke new ones.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Command Line"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -2145,7 +2168,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowCmdLineHistory" alt="cm_ShowCmdLineHistory" src="../../pixmaps/dctheme/32x32/actions/cm_showcmdlinehistory.png">
               <div class="cmdname"><a name="cm_ShowCmdLineHistory">cm_ShowCmdLineHistory</a></div>
-              <div class="shrtctkey">Ctrl+7</div></td>
+              <div class="shrtctkey">Alt+F8, Ctrl+ &darr;</div></td>
             <td class="cmdhintcell">Show history of all commands used in the <a href="help.html#iface_path">command line</a>.<br>
               <br>
               <table class="innercmddesc">
@@ -2164,17 +2187,11 @@
                   <td class="innerdescdesccell">a tree view menu will be opened above the combox box of the command line</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be through the combo box</td>
                 </tr>
               </table>
             </td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png">
-              <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
-              <div class="shrtctkey">Ctrl+O</div></td>
-            <td class="cmdhintcell">Toggle fullscreen mode console window.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CmdLineNext" alt="cm_CmdLineNext" src="../../pixmaps/dctheme/32x32/actions/cm_cmdlinenext.png">
@@ -2217,7 +2234,7 @@
                   <td class="innerdescdesccell">will prompt the user if he wants to quote his added text or not, with the default choice set like if it would be a "mode=smartquote"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be "mode=smartquote"</td>
                 </tr>
               </table>
@@ -2227,13 +2244,19 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddFilenameToCmdLine" alt="cm_AddFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addfilenametocmdline.png">
               <div class="cmdname"><a name="cm_AddFilenameToCmdLine">cm_AddFilenameToCmdLine</a></div>
               <div class="shrtctkey">Ctrl+Enter</div></td>
-            <td class="cmdhintcell">Place filename of current selected item in command line.<BR><B>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+            <td class="cmdhintcell">Place filename of current selected item in command line.<br><b>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPathAndFilenameToCmdLine" alt="cm_AddPathAndFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addpathandfilenametocmdline.png">
               <div class="longcmdname"><a name="cm_AddPathAndFilenameToCmdLine">cm_AddPathAndFilenameToCmdLine</a></div>
               <div class="shrtctkey">Ctrl+Shift+Enter</div></td>
-            <td class="cmdhintcell">Place current path and filename of selected item in command line.<BR><B>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+            <td class="cmdhintcell">Place current path and filename of selected item in command line.<br><b>Note:</b> Command also accepts the same parameters as the <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png">
+              <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
+              <div class="shrtctkey">Ctrl+O</div></td>
+            <td class="cmdhintcell">Toggle fullscreen mode console window.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -2241,7 +2264,7 @@
 
       <div>
         <h2><a name="cattools">2.14. Tools</a></h2>
-        <P>For action requiring more than a click.<BR>These action will generally show another window to have Double Commander do some more complex jobs.</p>
+        <p>For action requiring more than a click.<br>These action will generally show another window to have Double Commander do some more complex jobs.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Tools"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -2263,7 +2286,7 @@
                   <td class="innerdescdesccell">The provided preset name will be loaded</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">Load the last settings used or what has been configured for <a href="multirename.html#presetatlaunch">Preset at launch</a></td>
                 </tr>
               </table>
@@ -2318,7 +2341,7 @@
 
       <div>
         <h2><a name="catview">2.15. View</a></h2>
-        <P>Commands related with the visibility or not of files like the system files, etc.</p>
+        <p>Commands related with the visibility or not of files like the system files, etc.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "View"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -2336,7 +2359,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SwitchIgnoreList" alt="cm_SwitchIgnoreList" src="../../pixmaps/dctheme/32x32/actions/cm_switchignorelist.png">
               <div class="cmdname"><a name="cm_SwitchIgnoreList">cm_SwitchIgnoreList</a></div></td>
-            <td class="cmdhintcell">Enable or not the "<a href="help.html#ignore_list">Ignore list</a>" depending of the parameter.<br>
+            <td class="cmdhintcell">Enable or not the "<a href="configuration.html#ConfigIgnore">Ignore list</a>" depending of the parameter.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2351,10 +2374,10 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">ignore list is <B>not</b> enabled</td>
+                  <td class="innerdescdesccell">ignore list is <b>not</b> enabled</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">toggle the state of the ignore list</td>
                 </tr>
               </table>
@@ -2368,7 +2391,7 @@
 
       <div>
         <h2><a name="cattabs">2.16. Tabs</a></h2>
-        <P>Interact with tabs by creating new ones, navigate through them, etc.</p>
+        <p>Interact with tabs by creating new ones, navigate through them, etc.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Tabs"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -2421,32 +2444,32 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">action closes tabs in <B>left panel</b></td>
+                  <td class="innerdescdesccell">action closes tabs in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">action closes tabs in <B>right panel</b></td>
+                  <td class="innerdescdesccell">action closes tabs in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">action closes tabs in <B>active panel</b></td>
+                  <td class="innerdescdesccell">action closes tabs in <b>active panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">action closes tabs in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">action closes tabs in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">action closes tabs in <B>both panels</b></td>
+                  <td class="innerdescdesccell">action closes tabs in <b>both panels</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">dolocked</td>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">action closes also the <B>locked tabs</b></td>
+                  <td class="innerdescdesccell">action closes also the <b>locked tabs</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">ignore <B>locked tabs</b></td>
+                  <td class="innerdescdesccell">ignore <b>locked tabs</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">confirmlocked</td>
@@ -2458,11 +2481,11 @@
                   <td class="innerdescdesccell">if "dolocked" is true, close locked tabs without asking confirmation no matter the configured option "Confirm close locked tabs"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(not specified)</i></td>
+                  <td class="innerdescvaluecell"><i>(not specified)</i></td>
                   <td class="innerdescdesccell">if "dolocked" is true, ask or not user to confirm closing locked tabs according to the configured option "Confirm close locked tabs"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">close all the non locked tabs, excluding the active tab, on the active panel</td>
                 </tr>
                 <tr>
@@ -2485,32 +2508,32 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">action closes duplicated tabs in <B>left panel</b></td>
+                  <td class="innerdescdesccell">action closes duplicated tabs in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">action closes duplicated tabs in <B>right panel</b></td>
+                  <td class="innerdescdesccell">action closes duplicated tabs in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">action closes duplicated tabs in <B>active panel</b></td>
+                  <td class="innerdescdesccell">action closes duplicated tabs in <b>active panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">action closes duplicated tabs in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">action closes duplicated tabs in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">action closes duplicated tabs in <B>both panels</b></td>
+                  <td class="innerdescdesccell">action closes duplicated tabs in <b>both panels</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">dolocked</td>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">action closes also duplicated <B>locked tabs</b></td>
+                  <td class="innerdescdesccell">action closes also duplicated <b>locked tabs</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">ignore duplicated <B>locked tabs</b></td>
+                  <td class="innerdescdesccell">ignore duplicated <b>locked tabs</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">confirmlocked</td>
@@ -2522,11 +2545,11 @@
                   <td class="innerdescdesccell">if "dolocked" is true, close duplicated locked tabs without asking confirmation no matter the configured option "Confirm close locked tabs"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(not specified)</i></td>
+                  <td class="innerdescvaluecell"><i>(not specified)</i></td>
                   <td class="innerdescdesccell">if "dolocked" is true, ask or not user to confirm closing duplicated locked tabs according to the configured option "Confirm close locked tabs"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">close all the duplicated non locked tabs on the active panel</td>
                 </tr>
               </table>
@@ -2546,27 +2569,27 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">will copy tabs from <B>left panel</b> to the right one</td>
+                  <td class="innerdescdesccell">will copy tabs from <b>left panel</b> to the right one</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">will copy tabs from <B>right panel</b> to the left one</td>
+                  <td class="innerdescdesccell">will copy tabs from <b>right panel</b> to the left one</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">will copy tabs from <B>active panel</b> to the inactive one</td>
+                  <td class="innerdescdesccell">will copy tabs from <b>active panel</b> to the inactive one</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">will copy tabs from <B>inactive panel</b> to the active one</td>
+                  <td class="innerdescdesccell">will copy tabs from <b>inactive panel</b> to the active one</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">will copy tabs from <B>both panel</b> to the opposite ones</td>
+                  <td class="innerdescdesccell">will copy tabs from <b>both panel</b> to the opposite ones</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
-                  <td class="innerdescdesccell">will copy tabs from <B>active panel</b> to the inactive one</td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
+                  <td class="innerdescdesccell">will copy tabs from <b>active panel</b> to the inactive one</td>
                 </tr>
               </table>
             </td>
@@ -2594,77 +2617,77 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="6">loadleftto</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <B>left</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <b>left</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <B>right</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <b>right</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <B>active</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <b>active</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <B>inactive</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <b>inactive</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <B>both</b> panels</td>
+                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be in <b>both</b> panels</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">none</td>
-                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be <B>ignored</b></td>
+                  <td class="innerdescdesccell">tabs saved in left panel in .tab file will be <b>ignored</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="6">loadrightto</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <B>left</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <b>left</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <B>right</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <b>right</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <B>active</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <b>active</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <B>inactive</b> panel</td>
+                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <b>inactive</b> panel</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <B>both</b> panels</td>
+                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be in <b>both</b> panels</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">none</td>
-                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be <B>ignored</b></td>
+                  <td class="innerdescdesccell">tabs saved in right panel in .tab file will be <b>ignored</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="6">keep</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">tabs present in <B>left</b> panel will be preserved</td>
+                  <td class="innerdescdesccell">tabs present in <b>left</b> panel will be preserved</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">tabs present in <B>right</b> panel will be preserved</td>
+                  <td class="innerdescdesccell">tabs present in <b>right</b> panel will be preserved</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">tabs present in <B>active</b> panel will be preserved</td>
+                  <td class="innerdescdesccell">tabs present in <b>active</b> panel will be preserved</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">tabs present in <B>inactive</b> panel will be preserved</td>
+                  <td class="innerdescdesccell">tabs present in <b>inactive</b> panel will be preserved</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">tabs present in <B>both</b> panels will be preserved</td>
+                  <td class="innerdescdesccell">tabs present in <b>both</b> panels will be preserved</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">none</td>
-                  <td class="innerdescdesccell"><B>none</b> of the present tabs will be preserved</td>
+                  <td class="innerdescdesccell"><b>none</b> of the present tabs will be preserved</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" colspan="3">For legacy backward compatibility, you may also provide simply a single filename as single parameter and DC will load that .tab file "as is", so left and right tabs will be restored to left and right panel respectively.</td>
@@ -2685,11 +2708,11 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">filename</td>
-                  <td class="innerdescvaluecell"><I>filename.tab</i></td>
+                  <td class="innerdescvaluecell"><i>filename.tab</i></td>
                   <td class="innerdescdesccell">the file used to save the tabs</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(not specified)</i></td>
+                  <td class="innerdescvaluecell"><i>(not specified)</i></td>
                   <td class="innerdescdesccell">a file requested will appear to prompt the user to indicate to which .tab file to save the tabs to</td>
                 </tr>
                 <tr>
@@ -2715,7 +2738,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SetTabOptionPathLocked" alt="cm_SetTabOptionPathLocked" src="../../pixmaps/dctheme/32x32/actions/cm_settaboptionpathlocked.png">
               <div class="cmdname"><a name="cm_SetTabOptionPathLocked">cm_SetTabOptionPathLocked</a></div></td>
-            <td class="cmdhintcell">Current tab to "locked", user can't change directory.</td>
+            <td class="cmdhintcell">Current tab to "locked", user cannot change directory.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SetTabOptionPathResets" alt="cm_SetTabOptionPathResets" src="../../pixmaps/dctheme/32x32/actions/cm_settaboptionpathresets.png">
@@ -2741,26 +2764,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>active panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>both panels</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">affects only the tabs of the active panel</td>
                 </tr>
               </table>
@@ -2769,7 +2792,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SetAllTabsOptionPathLocked" alt="cm_SetAllTabsOptionPathLocked" src="../../pixmaps/dctheme/32x32/actions/cm_setalltabsoptionpathlocked.png">
               <div class="cmdname"><a name="cm_SetAllTabsOptionPathLocked">cm_SetAllTabsOptionPathLocked</a></div></td>
-            <td class="cmdhintcell">All tabs to "locked", user can't change directory.<br>
+            <td class="cmdhintcell">All tabs to "locked", user cannot change directory.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2780,26 +2803,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>active panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>both panels</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">affects only the tabs of the active panel</td>
                 </tr>
               </table>
@@ -2819,26 +2842,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>active panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>both panels</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">affects only the tabs of the active panel</td>
                 </tr>
               </table>
@@ -2858,26 +2881,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">affects tabs in <B>left panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">affects tabs in <B>right panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">affects tabs in <B>active panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>active panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">affects tabs in <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">affects tabs in <B>both panels</b></td>
+                  <td class="innerdescdesccell">affects tabs in <b>both panels</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">affects only the tabs of the active panel</td>
                 </tr>
               </table>
@@ -2886,7 +2909,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadFavoriteTabs" alt="cm_LoadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadfavoritetabs.png">
               <div class="cmdname"><a name="cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Prompt the user with a menu asking to select a previously saved setup.<br><span class="versionref">Version 1.0.0 + </span>Parameter "setup" overrides the menu and load directly the mentionned setup.
+            <td class="cmdhintcell">Prompt the user with a menu asking to select a previously saved setup.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2895,13 +2918,13 @@
                   <th class="innerdescheader">Description</th>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" rowspan="2">setup<p class="versionref">Version 1.0.0 +</p></td>
-                  <td class="innerdescvaluecell"><I>name</i></td>
-                  <td class="innerdescdesccell">will load the setup <I>name</i></td>
+                  <td class="innerdescparamcell" rowspan="2">setup</td>
+                  <td class="innerdescvaluecell"><i>name</i></td>
+                  <td class="innerdescdesccell">will load the setup <i>name</i></td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
-                  <td class="innerdescdesccell">No change current tabs, but will unselect current setup selection if any</td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
+                  <td class="innerdescdesccell">no change current tabs, but will unselect current setup selection if any</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">menutype</td>
@@ -2913,7 +2936,7 @@
                   <td class="innerdescdesccell">favorite tabs will be displayed in a tree view menu</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be through a popup menu</td>
                 </tr>
                 <tr>
@@ -2926,11 +2949,11 @@
                   <td class="innerdescdesccell">menu will be shown at the current mouse cursor position</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
                   <td class="innerdescdesccell">the default is assumed to be from the top left corner of active panel</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing, default)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
                   <td class="innerdescdesccell">popup menu shown from top left corner of active panel</td>
                 </tr>
               </table>
@@ -2975,44 +2998,44 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">index</td>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">will activate <B>1</b>st tab</td>
+                  <td class="innerdescdesccell">will activate <b>1</b>st tab</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell">will activate <B>2</b>nd tab</td>
+                  <td class="innerdescdesccell">will activate <b>2</b>nd tab</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">3</td>
-                  <td class="innerdescdesccell">will activate <B>3</b>rd tab</td>
+                  <td class="innerdescdesccell">will activate <b>3</b>rd tab</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>n</i></td>
-                  <td class="innerdescdesccell">will active <I><B>n</b></i>th tab</td>
+                  <td class="innerdescvaluecell"><i>n</i></td>
+                  <td class="innerdescdesccell">will active <i><b>n</b></i>th tab</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">-1</td>
-                  <td class="innerdescdesccell">will activate <B>last</b> tab</td>
+                  <td class="innerdescdesccell">will activate <b>last</b> tab</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">will switch to and use tabs of <B>left panel</b></td>
+                  <td class="innerdescdesccell">will switch to and use tabs of <b>left panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">will switch to and use tabs of <B>right panel</b></td>
+                  <td class="innerdescdesccell">will switch to and use tabs of <b>right panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">will switch to and use tabs of <B>inactive panel</b></td>
+                  <td class="innerdescdesccell">will switch to and use tabs of <b>inactive panel</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(absent)</i></td>
-                  <td class="innerdescdesccell">activated tab will be on <B>current active panel</b></td>
+                  <td class="innerdescdesccell">activated tab will be on <b>current active panel</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(nothing)</i></td>
-                  <td class="innerdescdesccell">Specifying at least the <B>index</b> is mandatory.</td>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing)</i></td>
+                  <td class="innerdescdesccell">Specifying at least the <b>index</b> is mandatory.</td>
                 </tr>
               </table>
               <br>
@@ -3025,7 +3048,7 @@
 
       <div>
         <h2><a name="catlogs">2.17. Logs</a></h2>
-        <P>Actions related with DC logs file.</p>
+        <p>Actions related with DC logs file.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Category "Logs"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
@@ -3049,91 +3072,9 @@
       </div>
 
       <div>
-        <BR>
+        <br>
         <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
-        <BR>
+        <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="variables.html">Previous</a> | <a title="Next page" href="regexp.html">Next</a></div></div>
-    <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
-      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-  </body>
-</html>
+    

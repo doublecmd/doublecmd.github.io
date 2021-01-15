@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Переменные в параметрах</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="toolbar.html">Пред.</a> | <a title="Следующая страница" href="cmds.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.8. Переменные в параметрах</h1>
+        <h1>2.9. Переменные в параметрах</h1>
       </div>
 
       <div>
@@ -41,201 +41,201 @@
       </div>
 
       <div>
-        <h2>1. <a name="quickpres">Краткий обзор</a></h2>
-        <P>Переменные будут помогать нам в создании <a href="toolbar.html">кнопок панели инструментов</a> или настройке <a href="help.html#5_2_fileAssoc">файловых ассоциаций</a>.</p>
-        <P>В основном мы будем использовать их, когда необходимо передать команде в качестве параметра выделенный файл(ы), каталог, в котором мы находимся, и другие подобных вещи, связанные с содержимым файловых панелей.</p>
-        <P>Вот простой пример. Пользователь создал кнопку запуска Irfanview с переменной <code>%p</code>.</p>
-        <P>Когда пользователь нажмёт эту кнопку, он запустит Irfanview, а переменную <code>%p</code> Double Commander заменит выбранным в активной панели файлом.</p>
-        <P>Вот что понимается под <B>переменными</b>, описанными на этой странице.</p>
+        <h2><a name="quickpres">1. Краткий обзор</a></h2>
+        <p>Переменные будут помогать нам в создании <a href="toolbar.html">кнопок панели инструментов</a> или настройке <a href="configuration.html#ConfigAssociations">файловых ассоциаций</a>.</p>
+        <p>В основном мы будем использовать их, когда необходимо передать команде в качестве параметра выделенный файл(ы), каталог, в котором мы находимся, и другие подобных вещи, связанные с содержимым файловых панелей.</p>
+        <p>Вот простой пример. Пользователь создал кнопку запуска IrfanView с переменной <code>%p</code>.</p>
+        <p>Когда пользователь нажмёт эту кнопку, он запустит IrfanView, а переменную <code>%p</code> Double Commander заменит выбранным в активной панели файлом.</p>
+        <p>Вот что понимается под <b>переменными</b>, описанными на этой странице.</p>
         <p>Как вы увидите далее, большинство из них начинаются со знака процента <code>%</code>.</p>
-        <p class="image"><img title="Пример переменной" alt="Пример переменной" src="images/imgDC/variablesample.png" width="616" height="200"></p>
+        <p class="image"><img title="Пример переменной" alt="Пример переменной" src="images/imgDC/variablesample.png" width="574" height="201"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="basicvar">Основные переменные</a></h2>
+        <h2><a name="basicvar">2. Основные переменные</a></h2>
         <p>Это основные переменные, которые могут использоваться и которые связаны с текущим выбором.</p>
         <p>По умолчанию все значения переменных автоматически берутся в двойные кавычки. Если вам не нужно такое поведение, смотрите секцию <a href="#quotation">Использование кавычек</a>.</p>
-        <p><I>В качестве примера для каждой переменной мы используем файл C:\Users\UserName\Desktop\comment.png.</i></p>
+        <p><i>В качестве примера для каждой переменной мы используем файл C:\Users\UserName\Desktop\comment.png.</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Основные переменные</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Переменная</th><th class="categorydesccolumn">Что обозначает</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%p</div></td>
-            <td class="hintcell">Полное имя файла, путь+имя файла<BR><code>Пример: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
+            <td class="hintcell">Полное имя файла, путь+имя файла<br><code>Пример: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%f</div></td>
-            <td class="hintcell">Только имя файла, включая расширение<BR><code>Пример: %f = "comment.png"</code></td>
+            <td class="hintcell">Только имя файла, включая расширение<br><code>Пример: %f = "comment.png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%d</div></td>
-            <td class="hintcell">Только путь, без разделителя каталогов в конце<BR><code>Пример: %d = "C:\Users\UserName\Desktop"</code></td>
+            <td class="hintcell">Только путь, без разделителя каталогов в конце<br><code>Пример: %d = "C:\Users\UserName\Desktop"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%z<p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="hintcell">Последняя папка в пути<BR><code>Пример: %z = "Desktop"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%z</div></td>
+            <td class="hintcell">Последняя папка в пути<br><code>Пример: %z = "Desktop"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%o</div></td>
-            <td class="hintcell">Имя файла без расширения<BR><code>Пример: %o = "comment"</code></td>
+            <td class="hintcell">Имя файла без расширения<br><code>Пример: %o = "comment"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%e</div></td>
-            <td class="hintcell">Расширение без точки<BR><code>Пример: %e = "png"</code></td>
+            <td class="hintcell">Расширение без точки<br><code>Пример: %e = "png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%v</div></td>
-            <td class="hintcell">Имя файла с относительным к текущему каталогу путём.<BR>Это сработает, если, например, вы вызвали внутреннюю команду <a href="cmds.html#cm_flatview">cm_FlatView</a>.<BR>Если мы включили вид без подкаталогов в каталоге <code>"C:\Users\UserName"</code>, то <code>%v</code> будет равно <code>"Desktop\comment.png"</code></td>
+            <td class="hintcell">Имя файла с относительным к текущему каталогу путём.<br>Это сработает, если, например, вы вызвали внутреннюю команду <a href="cmds.html#cm_flatview">cm_FlatView</a>.<br>Если мы включили вид без подкаталогов в каталоге <code>"C:\Users\UserName"</code>, то <code>%v</code> будет равно <code>"Desktop\comment.png"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="basicsuffix">Основные суффиксы переменных</a></h2>
+        <h2><a name="basicsuffix">3. Основные суффиксы переменных</a></h2>
         <p>К упомянутым выше переменным из одной буквы мы можем добавить ещё одну букву, что позволит уточнить значение используемой переменной.</p>
-        <p><I>Для каждого примера предполагаем следующее:<BR>В левой панели курсор стоит на файле "C:\LeftFolder\File.lft"<BR>В правой панели&nbsp;&mdash; на "C:\RightFolder\File.rgh"<BR>Активна правая панель.</i></p>
+        <p><i>Для каждого примера предполагаем следующее:<br>В левой панели курсор стоит на файле "C:\LeftFolder\File.lft"<br>В правой панели&nbsp;&mdash; на "C:\RightFolder\File.rgh"<br>Активна правая панель.</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Основные суффиксы</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Суффикс</th><th class="categorydesccolumn">Что обозначает</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">s</div></td>
-            <td class="hintcell">Исходная или активная панель (независимо от того, левая или правая)<BR><code>Пример: %ps = "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">Исходная или активная панель (независимо от того, левая или правая)<br><code>Пример: %ps = "C:\RightFolder\File.rgh"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">t</div></td>
-            <td class="hintcell">Целевая или неактивная панель (независимо от того, левая или правая)<BR><code>Пример: %pt = "C:\LeftFolder\File.lft"</code></td>
+            <td class="hintcell">Целевая или неактивная панель (независимо от того, левая или правая)<br><code>Пример: %pt = "C:\LeftFolder\File.lft"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">l</div></td>
-            <td class="hintcell">Левая панель<BR><code>Пример: %pl = "C:\LeftFolder\File.lft"</code></td>
+            <td class="hintcell">Левая панель<br><code>Пример: %pl = "C:\LeftFolder\File.lft"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">r</div></td>
-            <td class="hintcell">Правая панель<BR><code>Пример: %pr = "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">Правая панель<br><code>Пример: %pr = "C:\RightFolder\File.rgh"</code></td>
           </tr>
           <tr>
             <td class="varcell">
               <div class="firstcolumnaleft">p</div></td>
-            <td class="hintcell">Обе панели, сначала активная, затем пробел и далее неактивная<BR><code>Пример: %pp = "C:\RightFolder\File.rgh" "C:\LeftFolder\File.lft"</code></td>
+            <td class="hintcell">Обе панели, сначала активная, затем пробел и далее неактивная<br><code>Пример: %pp = "C:\RightFolder\File.rgh" "C:\LeftFolder\File.lft"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">b</div></td>
-            <td class="hintcell">Обе панели, сначала левая, затем пробел и далее правая<BR><code>Пример: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">Обе панели, сначала левая, затем пробел и далее правая<br><code>Пример: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>4. <a name="numsuffix">Нумерованный суффикс</a></h2>
+        <h2><a name="numsuffix">4. Нумерованный суффикс</a></h2>
         <p>Если у нас много выделенных файлов, мы можем добавить суффикс к ранее упомянутым переменным, чтобы уточнить, какой из них хотим использовать.</p>
-        <p><I>Для каждой строки таблицы предполагаем, что в активной панели открыт каталог "C:\temp\" и мы выделили двадцать шесть файлов с именем "FileA.txt", "FileB.txt" и т.д. до "FileZ.txt".</i></p>
+        <p><i>Для каждой строки таблицы предполагаем, что в активной панели открыт каталог "C:\temp\" и мы выделили двадцать шесть файлов с именем "FileA.txt", "FileB.txt" и т.д. до "FileZ.txt".</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Нумерованный суффикс</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Суффикс</th><th class="categorydesccolumn">Что обозначает</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">0</div></td>
-            <td class="hintcell">Файл под курсором<BR><code>Пример: %ps0 = "C:\temp\FileY.txt"</code></td>
+            <td class="hintcell">Файл под курсором<br><code>Пример: %ps0 = "C:\temp\FileY.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">1</div></td>
-            <td class="hintcell">Первый выделенный файл<BR><code>Пример: %ps1 = "C:\temp\FileA.txt"</code></td>
+            <td class="hintcell">Первый выделенный файл<br><code>Пример: %ps1 = "C:\temp\FileA.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">2</div></td>
-            <td class="hintcell">Второй выделенный файл<BR><code>Пример: %ps2 = "C:\temp\FileB.txt"</code></td>
+            <td class="hintcell">Второй выделенный файл<br><code>Пример: %ps2 = "C:\temp\FileB.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">3</div></td>
-            <td class="hintcell">Третий выделенный файл<BR><code>Пример: %ps3 = "C:\temp\FileC.txt"</code></td>
+            <td class="hintcell">Третий выделенный файл<br><code>Пример: %ps3 = "C:\temp\FileC.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">21</div></td>
-            <td class="hintcell">Двадцать первый выделенный файл<BR><code>Пример: %ps21 = "C:\temp\FileU.txt"</code></td>
+            <td class="hintcell">Двадцать первый выделенный файл<br><code>Пример: %ps21 = "C:\temp\FileU.txt"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>5. <a name="prefixpostfix">Указание префикса и постфикса для каждого файла</a></h2>
+        <h2><a name="prefixpostfix">5. Указание префикса и постфикса для каждого файла</a></h2>
         <p>Иногда в передаваемых исполняемому файлу параметрах необходимо что-то добавить перед именами файлов.</p>
         <p>В некоторых случаях нужно добавить что-то до и сразу после имён файлов.</p>
         <p>Обратите внимание, что описанное далее будет применяться к каждому выделенному файлу.</p>
-        <p><I>Для каждой строки таблицы предполагаем, что в активной панели открыт каталог "C:\Windows\Fonts" и мы выделили три файла с именами "courrier.ttf", "fixedsys.ttf" и "terminal.ttf".</i></p>
+        <p><i>Для каждой строки таблицы предполагаем, что в активной панели открыт каталог "C:\Windows\Fonts" и мы выделили три файла с именами "courrier.ttf", "fixedsys.ttf" и "terminal.ttf".</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Префикс и постфикс</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Префикс и постфикс</th><th class="categorydesccolumn">Что обозначает</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{}</div></td>
-            <td class="hintcell">Один набор фигурных скобок добавляет текст в фигурных скобках перед каждым выделенным файлом<BR><code>Пример: %fs{+} = "+courrier.ttf" "+fixedsys.ttf" "+terminal.ttf"</code></td>
+            <td class="hintcell">Один набор фигурных скобок добавляет текст в фигурных скобках перед каждым выделенным файлом<br><code>Пример: %fs{+} = "+courrier.ttf" "+fixedsys.ttf" "+terminal.ttf"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{}{}</div></td>
-            <td class="hintcell">Два набора фигурных скобок добавят текст в фигурных скобках соответственно до и после каждого выделенного файла<BR><code>Пример: %fs{[}{]} = "[courrier.ttf]" "[fixedsys.ttf]" "[terminal.ttf]"</code></td>
+            <td class="hintcell">Два набора фигурных скобок добавят текст в фигурных скобках соответственно до и после каждого выделенного файла<br><code>Пример: %fs{[}{]} = "[courrier.ttf]" "[fixedsys.ttf]" "[terminal.ttf]"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>6. <a name="pathpanel">Путь панели</a></h2>
+        <h2><a name="pathpanel">6. Путь панели</a></h2>
         <p>Ранее мы разбирали переменные, связанные с выделенными файлами и папками.</p>
         <p>Но мы также можем использовать переменную <code>%D</code> для выбора каталога конкретной панели.</p>
         <p>Для выбора панели к этой переменной мы можем добавить букву из упомянутых выше <a href="#basicsuffix">основных суффиксов</a>.</p>
-        <p><I>Для каждого примера предполагаем следующее:<BR>В левой панели открыт каталог "C:\Reference"<BR>В правой панели&nbsp;&mdash; "E:\Work"<BR>Активна правая панель.</i></p>
+        <p><i>Для каждого примера предполагаем следующее:<br>В левой панели открыт каталог "C:\Reference"<br>В правой панели&nbsp;&mdash; "E:\Work"<br>Активна правая панель.</i></p>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Путь панели</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Переменная</th><th class="categorydesccolumn">Что обозначает</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%D</div></td>
-            <td class="hintcell">Одна, без суффикса, вернёт путь активной панели<BR><code>Пример: "E:\Work"</code></td>
+            <td class="hintcell">Одна, без суффикса, вернёт путь активной панели<br><code>Пример: "E:\Work"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Ds</div></td>
-            <td class="hintcell">Каталог исходной или активной панели (независимо от того, левая или правая)<BR><code>Пример: "E:\Work"</code></td>
+            <td class="hintcell">Каталог исходной или активной панели (независимо от того, левая или правая)<br><code>Пример: "E:\Work"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dt</div></td>
-            <td class="hintcell">Каталог целевой или неактивной панели (независимо от того, левая или правая)<BR><code>Пример: "C:\Reference"</code></td>
+            <td class="hintcell">Каталог целевой или неактивной панели (независимо от того, левая или правая)<br><code>Пример: "C:\Reference"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dl</div></td>
-            <td class="hintcell">Каталог левой панели<BR><code>Пример: "C:\Reference"</code></td>
+            <td class="hintcell">Каталог левой панели<br><code>Пример: "C:\Reference"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dr</div></td>
-            <td class="hintcell">Каталог правой панели<BR><code>Пример: "E:\Work"</code></td>
+            <td class="hintcell">Каталог правой панели<br><code>Пример: "E:\Work"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Z<p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="hintcell">Одна, без суффикса, вернёт имя последней папки в пути активной панели<BR><code>Пример: "Work"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Z</div></td>
+            <td class="hintcell">Одна, без суффикса, вернёт имя последней папки в пути активной панели<br><code>Пример: "Work"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zs<p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="hintcell">Имя последней папки в пути активной панели (независимо от того, левая или правая)<BR><code>Пример: "Work"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zs</div></td>
+            <td class="hintcell">Имя последней папки в пути активной панели (независимо от того, левая или правая)<br><code>Пример: "Work"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zt<p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="hintcell">Имя последней папки в пути неактивной панели (независимо от того, левая или правая)<BR><code>Пример: "Reference"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zt</div></td>
+            <td class="hintcell">Имя последней папки в пути неактивной панели (независимо от того, левая или правая)<br><code>Пример: "Reference"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zl<p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="hintcell">Имя последней папки в пути левой панели<BR><code>Пример: "Reference"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zl</div></td>
+            <td class="hintcell">Имя последней папки в пути левой панели<br><code>Пример: "Reference"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zr<p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="hintcell">Имя последней папки в пути правой панели<BR><code>Пример: "Work"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zr</div></td>
+            <td class="hintcell">Имя последней папки в пути правой панели<br><code>Пример: "Work"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>7. <a name="quotation">Использование кавычек</a></h2>
+        <h2><a name="quotation">7. Использование кавычек</a></h2>
         <p>Как вы видели ранее, DC возвращает результат, автоматически расставляя двойные кавычки.</p>
         <p>Это было полезно, если в имени файла были пробелы и мы хотели передать его в качестве параметра, и чтобы все это работало.</p>
         <p>Но по мере добавления новых переменных стало очевидно, что нам нужен способ получить результат без кавычек. Типичный пример: мы хотим в командной строке объединить исходное имя файла, но только имя файла без расширения, с новым расширением.</p>
@@ -272,7 +272,7 @@
       </div>
 
       <div>
-        <h2>8. <a name="trailingdelim">Разделитель каталогов в пути</a></h2>
+        <h2><a name="trailingdelim">8. Разделитель каталогов в пути</a></h2>
         <p>Как вы видели ранее, DC возвращает путь без разделителя каталогов в конце.</p>
         <p>Такое поведение также может быть изменено с помощью переменной.</p>
         <p>У нас есть:</p>
@@ -307,7 +307,7 @@
       </div>
 
       <div>
-        <h2>9. <a name="listoffiles">Список файлов</a></h2>
+        <h2><a name="listoffiles">9. Список файлов</a></h2>
         <p>Некоторые приложения в качестве параметра могут принимать текстовый файл со списком имён файлов.</p>
         <p>DC предлагает нам переменные, которые создадут временный текстовый файл со списком выделенных файлов и папок.</p>
         <table>
@@ -330,7 +330,7 @@
       </div>
 
       <div>
-        <h2>10. <a name="suffixforlist">Суффиксы для списка файлов</a></h2>
+        <h2><a name="suffixforlist">10. Суффиксы для списка файлов</a></h2>
         <p>По умолчанию имена файлов в списке не берутся в кавычки, но если это необходимо, они могут быть добавлены.</p>
         <p>Кроме того, есть возможность выбрать для списка файлов кодировку UTF-8 или UTF-16 LE.</p>
         <table>
@@ -353,7 +353,7 @@
       </div>
 
       <div>
-        <h2>11. <a name="combsuffixlist">Комбинирование суффиксов для списка файлов</a></h2>
+        <h2><a name="combsuffixlist">11. Комбинирование суффиксов для списка файлов</a></h2>
         <p>Вы также можете добавить ещё один суффикс, чтобы указать панель для получения списка файлов.</p>
         <p>Возможные примеры:</p>
         <table>
@@ -376,7 +376,7 @@
       </div>
 
       <div>
-        <h2>12. <a name="executeterm">Запуск в терминале</a></h2>
+        <h2><a name="executeterm">12. Запуск в терминале</a></h2>
         <p>В параметрах вы можете указать, что команду необходимо выполнить в терминале.</p>
         <p>Для этого используется переменная <code>%t</code>.</p>
         <table>
@@ -395,7 +395,7 @@
       </div>
 
       <div>
-        <h2>13. <a name="interaction">Взаимодействие</a></h2>
+        <h2><a name="interaction">13. Взаимодействие</a></h2>
         <p>Существуют две переменные: одна показывает окно сообщения, вторая&nbsp;&mdash; окно запроса со значением по умолчанию, которое позволяет изменить параметр на лету.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Взаимодействие</th></tr>
@@ -426,7 +426,7 @@
       </div>
 
       <div>
-        <h2>14. <a name="miscellaneous">Прочие переменные</a></h2>
+        <h2><a name="miscellaneous">14. Прочие переменные</a></h2>
         <p>В этом заключительном разделе перечислены переменные, которые ещё не были представлены.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Прочие переменные</th></tr>
@@ -453,7 +453,7 @@
         <p>Более того, вы можете что-то изменить в этом окне, непосредственно до запуска команды.</p>
         <p>Это особенно полезно, если вы не уверены в параметрах, передаваемых приложению.</p>
         <p>Иногда комбинация знака процента и буквы переменной может совпасть с системной переменной.</p>
-        <p>Например, если вы введёте <code>%os%ot</code>, ожидая объединения имён файлов в активной и неактивной панелях, вы будете удивлены, обнаружив, что это не может работать под Windows, т.к. <code>%os%</code>&nbsp;&mdash; системная переменная, в значении которой название операционной системы.</p>
+        <p>Например, если вы введёте <code>%os%ot</code>, ожидая объединения имён файлов в активной и неактивной панелях, вы будете удивлены, обнаружив, что это может не работать под Windows, т.к. <code>%os%</code>&nbsp;&mdash; системная переменная, в значении которой название операционной системы.</p>
         <p>Таким образом, здесь полезно использовать <code>%#</code>: в данном случае вы можете ввести <code>%##os#ot</code>.</p>
         <p><code>%#</code> указывает DC, что с этого момента символ <code>#</code> эквивалентен символу процента, таким образом можно избежать пересечения с возможными системными переменными.</p>
         <p>Это редко необходимо, но если потребуется, вы будете рады узнать, что способ обойти существует!</p>
@@ -462,7 +462,7 @@
       </div>
 
       <div>
-        <h2>15. <a name="summaryall">Сводная таблица со всеми переменными</a></h2>
+        <h2><a name="summaryall">15. Сводная таблица со всеми переменными</a></h2>
         <p>В этом разделе нет ничего нового, однако для удобства все переменные сведены в одну таблицу.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Различные переменные</th></tr>
@@ -479,6 +479,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">суффикс для правой панели (пример: %pr)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">суффикс для обеих панелей, активная первая, неактивная вторая (пример: %pp)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">суффикс для обеих панелей, левая первая, правая вторая (пример: %pb)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0</div></td><td class="hintcell">файл под курсором (пример: %ps0</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">1</div></td><td class="hintcell">первый выделенный файл (пример: %ps1)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">2</div></td><td class="hintcell">второй выделенный файл, если есть (пример: %ps2)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">3</div></td><td class="hintcell">третий выделенный файл, если есть (пример: %ps3)</td></tr>
@@ -516,89 +517,89 @@
 
       <div>
         <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
-        <BR>
+        <br>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="toolbar.html">Пред.</a> | <a title="Следующая страница" href="cmds.html">След.</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

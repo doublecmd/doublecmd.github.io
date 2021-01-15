@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Клавиатурные сочетания</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="multiarc.html">Пред.</a> | <a title="Следующая страница" href="toolbar.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="configuration.html">Пред.</a> | <a title="Следующая страница" href="findfiles.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.6. Клавиатурные сочетания</h1>
+        <h1>2.3. Клавиатурные сочетания</h1>
       </div>
 
       <div>
@@ -26,17 +26,19 @@
           <dt>2. <a href="#main_window">Главное окно</a></dt>
           <dt>3. <a href="#viewer">Встроенный просмотрщик</a></dt>
           <dt>4. <a href="#editor">Встроенный редактор</a></dt>
-          <dt>5. <a href="#options">Окно настроек</a></dt>
+          <dt>5. <a href="#differ">Поиск различий</a></dt>
+          <dt>6. <a href="#sync">Синхронизация каталогов</a></dt>
+          <dt>7. <a href="#options">Окно настроек</a></dt>
           <dd>
             <dl>
-              <dt>5.1. <a href="#dirhotlist">Избранные каталоги</a></dt>
+              <dt>7.1. <a href="#dirhotlist">Избранные каталоги</a></dt>
             </dl>
           </dd>
         </dl>
       </div>
 
       <div>
-        <h2>1. <a name="warning">Предупреждение</a></h2>
+        <h2><a name="warning">1. Предупреждение</a></h2>
         <p>Далее представлены горячие клавиши для вызова внутренних команд Double Commander, используемые "по умолчанию".</p>
         <p>Мы можем изменить их в окне настроек: Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Клавиши&nbsp;&gt; Горячие клавиши.</p>
         <p>Также мы можем воспользоваться внутренней командой <a href="cmds.html#cm_ConfigHotKeys">cm_ConfigHotKeys</a>.</p>
@@ -45,8 +47,8 @@
       </div>
 
       <div>
-        <h2>2. <a name="main_window">Главное окно</a></h2>
-        <BR>
+        <h2><a name="main_window">2. Главное окно</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Главное окно</th></tr>
           <tr class="rowsubtitle">
@@ -83,7 +85,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F8, Del</div></td>
-            <td class="hintcell">Удалить файлы/каталоги</td>
+            <td class="hintcell">Удалить выделенные файлы/каталоги</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F9</div></td>
@@ -110,8 +112,28 @@
             <td class="hintcell">Поиск файлов</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F8</div></td>
+            <td class="hintcell">Открыть историю командной строки</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Alt+F9</div></td>
             <td class="hintcell">Распаковать все файлы из архива под курсором</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">История каталогов</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">Перейти к предыдущей записи истории</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">Перейти к следующей записи истории</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+F9</div></td>
+            <td class="hintcell">Проверить целостность содержимого выбранного файла архива</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
@@ -122,32 +144,16 @@
             <td class="hintcell">Посчитать размеры всех каталогов</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Alt+Delete</div></td>
+            <td class="varcell"><div class="shortcutname">Alt+Del</div></td>
             <td class="hintcell">Уничтожить файл/каталог</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+V</div></td>
+            <td class="hintcell">Показать окно файловых операций со списком активных, если имеются</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Alt+Z</div></td>
             <td class="hintcell">Открыть в неактивной панели каталог, открытый в активной (Получатель = Источнику)</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
-            <td class="hintcell">Установить фокус в командную строку</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
-            <td class="hintcell">Создать новый текстовый файл и открыть его в редакторе (или открыть существующий)</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
-            <td class="hintcell">Копировать файлы (с переименованием) в этот же каталог</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
-            <td class="hintcell">Переименовать файлы в этом же каталоге</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+Enter</div></td>
-            <td class="hintcell">Выполнить приложение в терминале (выбирается в настройках)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
@@ -166,12 +172,8 @@
             <td class="hintcell">Сортировать по размеру</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+7</div></td>
-            <td class="hintcell">Открыть историю командной строки</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
-            <td class="hintcell">Выделить всё</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Enter</div></td>
+            <td class="hintcell">Вызвать для выделенного файла программу из системных файловых ассоциаций</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Alt+C</div></td>
@@ -180,6 +182,30 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Alt+X</div></td>
             <td class="hintcell">Скопировать в буфер обмена имена выделенных файлов/папок</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">Переключиться на следующую вкладку (правее) в активной панели</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">Переключиться на предыдущую вкладку (левее) в активной панели</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Выделить всё</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+B</div></td>
+            <td class="hintcell">Показать все файлы без подкаталогов: будут просканированы все каталоги панели и показано всё содержимое</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+B</div></td>
+            <td class="hintcell">Показать все файлы без подкаталогов: как <kbd>Ctrl+B</kbd>, но только для выделенных файлов и папок</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Копировать в буфер обмена</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
@@ -198,8 +224,40 @@
             <td class="hintcell">Инструмент группового переименования</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">Добавить путь в командную строку</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
             <td class="hintcell">Обновить содержимое активной панели</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">Запустить быстрый поиск по каталогу (см. Настройки)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
+            <td class="hintcell">Создать новую вкладку в активной панели</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+U</div></td>
+            <td class="hintcell">Поменять панели местами (активные вкладки)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">Вставить из буфера обмена</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">Закрыть активную вкладку</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">Вырезать в буфер обмена</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Создать/изменить комментарий к файлу</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+ &uarr;</div></td>
@@ -218,59 +276,36 @@
             <td class="hintcell">Курсор в левой панели: открыть в правой панели каталог под курсором</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+\</div></td>
+            <td class="hintcell">Перейти в корневой каталог ("/" в Unix и GNU/Linux) или корень текущего диска (Windows).<br>
+              В архиве: перейти в корень архива.</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Enter</div></td>
             <td class="hintcell">Добавить имя файла в командную строку</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
-            <td class="hintcell">Добавить путь в командную строку</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
-            <td class="hintcell">Запустить быстрый поиск по каталогу (см. Настройки)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+Enter</div></td>
             <td class="hintcell">Добавить полное имя (путь + имя файла) в командную строку, как <kbd>Ctrl+P</kbd> и <kbd>Ctrl+Enter</kbd></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
-            <td class="hintcell">Переключиться на предыдущую вкладку (левее) в активной панели</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td>
+            <td class="hintcell">Дерево каталогов</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+U</div></td>
-            <td class="hintcell">Поменять панели местами (активные вкладки)</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
+            <td class="hintcell">Копировать в буфер обмена полные имена файлов/папок</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
-            <td class="hintcell">Копировать в буфер обмена</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+X</div></td>
+            <td class="hintcell">Копировать в буфер обмена имена файлов/папок</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
-            <td class="hintcell">Вырезать в буфер обмена</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+H</div></td>
+            <td class="hintcell">Переключить расположение панелей: вертикально (левая/правая) или горизонтально (верхняя/нижняя)</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
-            <td class="hintcell">Вставить из буфера обмена</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
-            <td class="hintcell">Создать новую вкладку в активной панели</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
-            <td class="hintcell">Переключиться на следующую вкладку (правее) в активной панели</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
-            <td class="hintcell">Закрыть активную вкладку</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
-            <td class="hintcell">Создать/изменить комментарий к файлу</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+PgDown</div></td>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
             <td class="hintcell">1. Аналогично клавише <tt>Enter</tt><br>2. Открыть каталог/архив (включая самораспаковывающиеся архивы)</td>
           </tr>
           <tr>
@@ -304,6 +339,38 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+Num -</div></td>
             <td class="hintcell">Снять выделение со всех файлов в текущем каталоге с расширением как у файла под курсором</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">Установить фокус в командную строку</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">Создать новый текстовый файл и открыть его в редакторе (или открыть существующий)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
+            <td class="hintcell">Копировать файлы (с переименованием) в этот же каталог</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
+            <td class="hintcell">Переименовать файлы в этом же каталоге</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
+            <td class="hintcell">Показать контекстное меню файлов и папок</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F12</div></td>
+            <td class="hintcell">Показать окно со всеми внутренними командами</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
+            <td class="hintcell">Переключиться между списком файлов и деревом (если включено)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Enter</div></td>
+            <td class="hintcell">Выполнить приложение в терминале (выбирается в настройках)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Tab</div></td>
@@ -345,15 +412,15 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Правая клавиша мыши</div></td>
-            <td>Показать контекстное меню с настраиваемым списком действий (из <a href="help.html#cm_FileAssoc">файловых ассоциаций</a>)</td>
+            <td>Показать контекстное меню с настраиваемым списком действий (из <a href="configuration.html#ConfigAssociations">файловых ассоциаций</a>)</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="viewer">Встроенный просмотрщик</a></h2>
-        <BR>
+        <h2><a name="viewer">3. Встроенный просмотрщик</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Встроенный просмотрщик</th>
@@ -379,7 +446,7 @@
             <td class="hintcell">Выход</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+F, F7</div></td>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F7, Ctrl+F</div></td>
             <td class="hintcell">Поиск текста</td>
           </tr>
           <tr>
@@ -389,6 +456,26 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
             <td class="hintcell">Найти предыдущее</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">Показать/скрыть текстовый курсор</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
+            <td class="hintcell">Развернуть на весь экран</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Выделить всё</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Копировать в буфер обмена выделенный текст</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">Печать</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">1</div></td>
@@ -434,13 +521,25 @@
             <td class="varcell"><div class="shortcutname">Z</div></td>
             <td class="hintcell">Сменить кодировку: UTF-8</td>
           </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num +</div></td>
+            <td class="hintcell">Увеличить</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num -</div></td>
+            <td class="hintcell">Уменьшить</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">`</div></td>
+            <td class="hintcell">Показать/скрыть предварительный просмотр</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>4. <a name="editor">Встроенный редактор</a></h2>
-        <BR>
+        <h2><a name="editor">4. Встроенный редактор</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Встроенный редактор</th>
@@ -450,15 +549,15 @@
             <th class="categorydesccolumn">Действие</th>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Alt+X</div></td>
+            <td class="hintcell">Выход</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">F2, Ctrl+S</div></td>
             <td class="hintcell">Сохранить</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Esc</div></td>
-            <td class="hintcell">Выход</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+F, F7</div></td>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
             <td class="hintcell">Поиск текста</td>
           </tr>
           <tr>
@@ -470,16 +569,44 @@
             <td class="hintcell">Найти предыдущее</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
-            <td class="hintcell">Замена текста</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Выделить всё</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Копировать в буфер обмена выделенный текст</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Перейти к указанной строке</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
-            <td class="hintcell">Новый файл</td>
+            <td class="hintcell">Создать новый файл</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
             <td class="hintcell">Открыть файл</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Замена текста</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">Вставить текст из буфера обмена</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">Вырезать в буфер обмена выделенный текст</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Отменить</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Z</div></td>
+            <td class="hintcell">Повторить</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
@@ -500,14 +627,108 @@
       </div>
 
       <div>
-        <h2>5. <a name="options">Окно настроек</a></h2>
-        <p>На некоторых страницах окна настроек заданы горячие клавиши, они не настраиваются, их список ниже.</p>
+        <h2><a name="differ">5. Поиск различий</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Поиск различий</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Клавиша</th>
+            <th class="categorydesccolumn">Действие</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Home</div></td>
+            <td class="hintcell">Первое отличие</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+End</div></td>
+            <td class="hintcell">Последнее отличие</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &uarr;</div></td>
+            <td class="hintcell">Предыдущее отличие</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">Следующее отличие</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">Копировать блок налево</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">Копировать блок направо</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+X</div></td>
+            <td class="hintcell">Выход</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Перезагрузить файлы</td>
+          </tr>
+        </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
-        <BR>
       </div>
 
       <div>
-        <h2>5.1. <a name="dirhotlist">Избранные каталоги</a></h2>
+        <h2><a name="sync">6. Синхронизация каталогов</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Синхронизация каталогов</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Клавиша</th>
+            <th class="categorydesccolumn">Действие</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Внутренний просмотр слева</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Внутренний просмотр справа</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">Сравнить файлы по содержимому</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">Отметить для копирования (направление по умолчанию)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">Отметить для копирования -&gt; (слева направо)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Отметить для копирования &lt;- (справа налево)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+M</div></td>
+            <td class="hintcell">Снять метку копирования/удаления</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">Поменять направление копирования</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="options">7. Окно настроек</a></h2>
+        <p>На некоторых страницах окна настроек заданы горячие клавиши, они не настраиваются, их список ниже.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <br>
+      </div>
+
+      <div>
+        <h2><a name="dirhotlist">7.1. Избранные каталоги</a></h2>
         <p>Для помощи в настройке <a href="directoryhotlist.html">избранных каталогов</a> у нас есть много горячих клавиш.</p>
         <p>Они дают нам возможность изменять имена и пути без переноса фокуса ввода на дерево избранных каталогов, мы можем выделять запись в дереве, добавлять или удалять записи, сворачивать и разворачивать ветки и прочее без необходимости выделять нужную курсором мыши.</p>
         <table>
@@ -545,90 +766,89 @@
           <tr><td class="varcell"><div class="shortcutname">&darr;</div></td><td class="hintcell">Перемещает выделение вниз от текущей позиции</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
-        <BR>
+        <br>
       </div>
-
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="multiarc.html">Пред.</a> | <a title="Следующая страница" href="toolbar.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="configuration.html">Пред.</a> | <a title="Следующая страница" href="findfiles.html">След.</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

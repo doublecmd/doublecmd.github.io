@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Find files</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,50 +10,127 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="multirename.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.3. Find files</h1>
+        <h1>2.4. Find files</h1>
       </div>
 
       <div>
         <h2>Content</h2>
         <dl>
-          <dt>1. <a href="#attributes">Searching for files with specific attributes</a></dt>
-          <dt>2. <a href="#advpattrn">Advanced patterns</a></dt>
-          <dt>3. <a href="#examples">Examples</a></dt>
+          <dt>1. <a href="#intro">Introduction</a></dt>
+          <dt>2. <a href="#standard">Tab "Standard"</a></dt>
+          <dt>3. <a href="#advanced">Tab "Advanced"</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#attributes">Searching for files with specific attributes</a></dt>
+               <dd>
+                 <dl>
+                   <dt>3.1.1. <a href="#advpattrn">Advanced patterns</a></dt>
+                   <dt>3.1.2. <a href="#examples">Examples</a></dt>
+                 </dl>
+               </dd>
+            </dl>
+          </dd>
+          <dt>4. <a href="#plugins">Tab "Plugins"</a></dt>
+          <dt>5. <a href="#templates">Tab "Load/Save"</a></dt>
+          <dt>6. <a href="#results">Tab "Results"</a></dt>
+          <dt>7. <a href="#configuration">Additional configuration</a></dt>
         </dl>
       </div>
 
       <div>
-        <h2><a name="attributes">1. Searching for files with specific attributes.</a></h2>
-        <p>To search for specific attributes you must enter a string pattern, which specifies which attributes are searched for, and if they should be enabled or disabled.</p>
+        <h2><a name="intro">1. Introduction</a></h2>
+        <p>Search tool capabilities are grouped by tabs, we can switch between the tabs using <kbd>Alt+1</kbd>...<kbd>Alt+4</kbd> key combinations.</p>
+        <p>In addition, some functions can be accessed from the main menu of this window.</p>
+      </div>
+
+      <div>
+        <h2><a name="standard">2. Standard</a></h2>
+        <p>On this tab we can search for files by name and their content.</p>
+        <p class="figure"><img class="largeimage" title="Search: Standard" alt="Search: Standard" src="images/imgDC/findstandard.png" width="786" height="436"></p>
+        <p>Line <span class="italic">Start in directory</span> specifies directory to start search, by default will be use the current directory of the active panel.</p>
+        <p>Additional options for specifying file search locations:</p>
+        <ul>
+          <li><p><span class="italic">Opened tabs</span>&nbsp;&mdash; only directories of opened tabs will be used.</p></li>
+          <li><p><span class="italic">Selected directories and files</span>&nbsp;&mdash; if enabled, the search will be conducted only among selected files and folders in the active panel.</p></li>
+          <li><p><span class="italic">Follow symlinks</span>&nbsp;&mdash; if a symbolic link to a directory is found, the target directory will be read and used, otherwise this symbolic link will be considered a regular file.</p></li>
+          <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&mdash; a list of subdirectories to be excluded from the search.</p></li>
+          <li><p><span class="italic">Search subdirectories</span> can have:</p>
+          <ul>
+            <li><p>current dir only,</p></li>
+            <li><p>select number of levels (from 1 to 100),</p></li>
+            <li><p>all (unlimited depth).</p></li>
+          </ul>
+          <p>This setting controls the depth of the search in the filesystem tree. If set to "current dir only", the search will only be conducted in the directory specified in "Start in directory" (not in any subdirs).</p></li>
+        </ul>
+        <p>Line <span class="italic">File mask</span> sets the mask for the search.</p>
+        <p>Additional options:</p>
+        <ul>
+          <li><p><span class="italic">Search in archives</span>&nbsp;&mdash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>
+          <li><p><span class="italic">Search for part of file name</span>&nbsp;&mdash; should be disabled if we want to use exact file name.</p></li>
+          <li><p><span class="italic">Regular expression</span>&nbsp;&mdash; if enabled we can use <a href="regexp.html">regular expressions</a>.</p></li>
+          <li><p><span class="italic">Exclude files</span>&nbsp;&mdash; a list of file names to be excluded from the search.</p>
+        </ul>
+        <p>Note: <span class="italic">File mask</span>, <span class="italic">Exclude files</span>, <span class="italic">Start in directory</span> and <span class="italic">Exclude subdirectories</span> allow to enter several values, separated with semicolon ";" without spaces. If we need to find a file with semicolon in the name, we have to enable regular expressions.</p>
+        <p>If the <span class="italic">Find text in file</span> checkbox is enabled, the process will search for the specified text in the files. We can also replace this text with any other text, specified in the line <span class="italic">Replace by</span> by enabling the checkbox.</p>
+        <p>Additional options:</p>
+        <ul>
+          <li><p><span class="italic">Find files NOT containing the text</span>&nbsp;&mdash; displays files, that do not have the text specified in <span class="italic">Find text in file</span>.</p></li>
+          <li><p><span class="italic">Case sensitive</span>&nbsp;&mdash; indicates that uppercase should be distinguished from lowercase, e.g. "Fallout" and "fallout" would be different.</p></li>
+          <li><p><span class="italic">Hexadecimal</span>&nbsp;&mdash; searches for hexadecimal characters (case insensitive, with or without spaces between characters, for example, "C0&nbsp;C1&nbsp;C2" or "c0c1c2").</p></li>
+          <li><p><span class="italic">Office XML</span>&nbsp;&mdash; enables a search in Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS) files.</p></li>
+          <li><p>Also we can set encoding (UTF, ISO, KOI, DOS, ANSI etc.) and enable regular expressions.</p></li>
+        </ul>
+        <p>Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the input fields history.</p>
+        <p>The <span class="italic">Start</span> button starts search, <span class="italic">Cancel</span> stops search and <span class="italic">Close</span> closes the Find files window.</p>
+        <p><span class="italic">New search</span>&nbsp;&mdash; clears the old results and allows to start a new search (also with new conditions).</p>
+        <p><span class="italic">Last search</span>&nbsp;&mdash; loads parameters from the previous search (in the current session, before closing Double Commander).</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advanced">3. Tab "Advanced"</a></h2>
+        <p>Tab <span class="italic">Advanced</span> allows to specify additional conditions: date, time and age of file (by modification date), minimum and maximum file size, as well as file attributes.</p>
+        <p class="figure"><img class="largeimage" title="Search: Advanced" alt="Search: Advanced" src="images/imgDC/findadvanced.png" width="786" height="400"></p>
+        <p>File attributes can be specified manually or using a small assistant on the <span class="italic">Add</span> button (see below for more details on using file attributes). The <span class="italic">Help</span> button opens the next subsection of this page.</p>
+        <p>Here we can also choose to search for duplicate files using the following one or more criteria:</p>
+        <ul>
+          <li><p>compare file names;</p></li>
+          <li><p>compare file sizes;</p></li>
+          <li><p>compare file hashes: BLAKE2s (x32) or BLAKE2b (x64) checksum will be used;</p></li>
+          <li><p>compare file content (byte-by-byte comparison).</p></li>
+        </ul>
+        <p>In the result will be shown file names, group number of matching files and file locations.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="attributes">3.1. Searching for files with specific attributes.</a></h2>
+        <p>To search for specific attributes we must enter a string pattern, which specifies which attributes are searched for, and if they should be enabled or disabled.</p>
         <p>A single attribute is represented with the following format:</p>
         <p><code>&lt;attribute&gt;+</code> or <code>&lt;attribute&gt;-</code></p>
-
         <p>The plus sign means that the file must have that attribute set, a minus sign means that the file must not have that attribute set.</p>
-
         <p>The various <tt>&lt;attribute&gt;</tt> identifiers are as follows:</p>
-
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Attributes in Windows</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Attribute letter</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">read only</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">archive</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">hidden</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">system</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">compressed (NTFS compression)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">encrypted (EFS encryption)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">hidden</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">temporary</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">sparse</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">compressed</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">encrypted</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">read only</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">system</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">temporary</td></tr>
         </table>
-        <BR>
-
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Attributes in Unix/Linux (Permissions)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Permissions letters</th><th class="categorydesccolumn">What it stands for</th></tr>
@@ -70,8 +147,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">gs</div></td><td class="hintcell">set group ID</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">sb</div></td><td class="hintcell">sticky bit</td></tr>
         </table>
-        <BR>
-
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Attributes in Unix/Linux (File Types)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">File Types letters</th><th class="categorydesccolumn">What it stands for</th></tr>
@@ -83,50 +159,42 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">regular</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">socket</td></tr>
         </table>
-        <BR>
-
-        <p>In Unix/Linux you may also use octal representation of permissions. For example 0750 is the same as <tt>ur</tt>, <tt>uw</tt>, <tt>ux</tt>, <tt>gr</tt> and <tt>gx</tt> combined.</p>
+        <br>
+        <p>In Unix/Linux we may also use octal representation of permissions. For example 0750 is the same as <code>ur</code>, <code>uw</code>, <code>ux</code>, <code>gr</code> and <code>gx</code> combined.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="advpattrn">Advanced patterns</a></h2>
-        <p>Several attributes may be combined together with an AND relationship.</p>
-        <p>Just specify one pattern after another.</p>
-        <p>For example: <tt>r+s+h+</tt> matches files that have all three: read-only, hidden and system attributes set.</p>
-
-        <p>Furthermore, such groups of AND attributes may be combined together with an OR relationship.</p>
-        <p>This is done by using the "|" character (vertical bar). For example: <tt>r+|s+h+</tt> matches files that have either:</p>
+        <h2><a name="advpattrn">3.1.1. Advanced patterns</a></h2>
+        <p>Several attributes may be combined together with an AND relationship. Just specify one pattern after another.</p>
+        <p>For example: <code>r+s+h+</code> matches files that have all three: read-only, hidden and system attributes set.</p>
+        <p>Furthermore, such groups of AND attributes may be combined together with an OR relationship. This is done by using the "|" character (vertical bar).</p>
+        <p>For example: <code>r+|s+h+</code> matches files that have either:</p>
         <ul>
           <li>read-only attribute set</li>
           <li>both hidden and system attributes set.</li>
         </ul>
-
         <p>It is possible to negate AND sequences using "!" character specified at the start of the sequence.</p>
-        <p>For example: <tt>!r+s+h+</tt> matches files that don't have all three: read-only, hidden and system attributes set.</p>
-        <p>The matched file may have none, one or more of those attributes set, but not all of them.</p>
-        <p>Negation only applies to AND sequences, thus pattern <tt>!r+|!s+h+</tt> matches files that either:</p>
+        <p>For example: <code>!r+s+h+</code> matches files that don't have all three: read-only, hidden and system attributes set. The matched file may have none, one or more of those attributes set, but not all of them.</p>
+        <p>Negation only applies to AND sequences, thus pattern <code>!r+|!s+h+</code> matches files that either:</p>
         <ul>
-          <li>don't have read-only attribute set (the same as <tt>r-</tt>)</li>
+          <li>don't have read-only attribute set (the same as <code>r-</code>)</li>
           <li>don't have both hidden and system attributes set.</li>
         </ul>
-
-        <p>You cannot use parenthesis to separate sequences.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="examples">Examples</a></h2>
-        <BR>
+        <h2><a name="examples">3.1.2. Examples</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Example in Windows</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Examples letters</th><th class="categorydesccolumn">How it is interpreted</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">a+s-h-</div></td><td class="hintcell">matches files that have archive attribute set and don't have neither system nor hidden attributes set</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">e+|c+</div></td><td class="hintcell">matches files that are either compressed or encrypted (these are NTFS attributes)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e+|c+</div></td><td class="hintcell">matches files that are either compressed or encrypted</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">d-</div></td><td class="hintcell">matches files but not directories</td></tr>
         </table>
-        <BR>
-
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Example in Unix/Linux</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Examples letters</th><th class="categorydesccolumn">How it is interpreted</th></tr>
@@ -135,91 +203,208 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">d+ox+</div></td><td class="hintcell">matches directories that are accessible by anybody</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">!700+</div></td><td class="hintcell">matches files that are not fully accessible to the user</td></tr>
         </table>
-        <BR>
+        <br>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+      </div>
+
+      <div>
+        <h2><a name="plugins">4. Tab "Plugins"</a></h2>
+        <p>Search with the search (DSX) and content (WDX) plugins (description of plugin types and their installation is described <a href="configuration.html#ConfigPlugins">here</a>).</p>
+        <p>An example of images search by width with minimum and maximum values:</p>
+        <p class="figure"><img class="largeimage" title="Search: Plugins" alt="Search: Plugins" src="images/imgDC/findplugins.png" width="786" height="400"></p>
+        <p>The DSX plugins interface allows to send them parameter values from the "Standard" and "Advanced" tabs, the exact list of passed values depends on the capabilities of a particular plugin.</p>
+        <p>WDX plugins complement the search, their fields can be combined according to the following rules:</p>
+        <ul>
+          <li><p><span class="italic">AND (all match)</span>&nbsp;&mdash; all conditions must match.</p></li>
+          <li><p><span class="italic">OR (any match)</span>&nbsp;&mdash; one match is enough.</p></li>
+        </ul>
+        <p><span class="italic">Operator</span> and <span class="italic">Value</span> depend on the type of data returned by the plugin field: number, string, date, time or boolean type. For some numerical values, we can choose a unit of measurement (for example, for size or duration). The following compare operations are supported:</p>
+        <table class="innercmddesc">
+          <tr class="rowinnerdesc">
+            <th class="innerdescheader">Operator</th>
+            <th class="innerdescheader">Description</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">=</div></td>
+            <td class="hintcell">equal</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!=</div></td>
+            <td class="hintcell">not equal</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">=(case)</div></td>
+            <td class="hintcell">equal, case sensitive</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!=(case)</div></td>
+            <td class="hintcell">not equal, case sensitive</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&gt;</div></td>
+            <td class="hintcell">larger</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;</div></td>
+            <td class="hintcell">smaller</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&gt;=</div></td>
+            <td class="hintcell">larger or equal</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;=</div></td>
+            <td class="hintcell">smaller or equal</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">contains</div></td>
+            <td class="hintcell">string contains specific text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!contains</div></td>
+            <td class="hintcell">string does not contain specific text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">contains(case)</div></td>
+            <td class="hintcell">string contains specific text, case sensitive</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!contains(case)</div></td>
+            <td class="hintcell">string does not contain specific text, case sensitive</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">regexp</div></td>
+            <td class="hintcell">string matches <a href="regexp.html">regular expression</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!regexp</div></td>
+            <td class="hintcell">string does not match <a href="regexp.html">regular expression</a></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="templates">5. Tab "Load/Save"</a></h2>
+        <p>Tab <span class="italic">Load/Save</span>&nbsp;&mdash; allows to save search parameters so they can be used again later.</p>
+        <p>Also, here we can see the templates created in the <a href="#ConfigColorFiles">Colors&nbsp;&gt; File types</a> settings section and in the <a href="help.html#cm_MarkPlus">Select a Group</a> command dialog.</p>
+        <p>There is a field with a hint under the list of templates: for the selected template, the values of <span class="italic">File mask</span> and <span class="italic">Start in directory</span> (if it was saved) are displayed.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="results">6. Tab "Results"</a></h2>
+        <p>This tab contains results of the search (just a list of full filenames) and has the following buttons:</p>
+        <ul>
+          <li><p><span class="italic">View</span>&nbsp;&mdash; opens selected file in the viewer (<kbd>F3</kbd>).</p></li>
+          <li><p><span class="italic">Edit</span>&nbsp;&mdash; opens selected file in the editor (<kbd>F4</kbd>).</p></li>
+          <li><p><span class="italic">Go to file</span>&nbsp;&mdash; closes search window and sets cursor on the selected file in the panel.</p></li>
+          <li><p><span class="italic">Feed to listbox</span>&nbsp;&mdash; transfers a list of the found files in the active file panel.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configuration">7. Additional configuration</a></h2>
+        <p>Additional parameters associated with the search tool are presented on the <span class="italic">File operations</span>&nbsp;&gt; <span class="italic">File search</span> settings page.</p>
+        <p class="figure"><img class="largeimage" title="Search: Additional configuration" alt="Search: Additional configuration" src="images/imgDC/findconfiguration.png" width="512" height="253"></p>
+        <p>File search:</p>
+        <ul>
+          <li><p><span class="italic">Search for part of file name</span>&nbsp;&mdash; If unchecked, Double Commander will search for the exact name match.</p></li>
+          <li><p><span class="italic">When launching file search, clear file mask filter</span>&nbsp;&mdash; If enabled, Double Commander will automatically clear the <span class="italic">File mask</span> field each time.</p></li>
+          <li><p><span class="italic">Current filters with "New search" button</span>&nbsp;&mdash; sets the state of the rest of the search parameters: Double Commander will keep them, reset to default state or ask.</p></li>
+          <li><p><span class="italic">Show menu bar in "Find files"</span>&nbsp;&mdash; This menu contains the commands of the find files dialog (also hotkeys are shown) and items for quick jump to this section of settings and to the <a href="configuration.html#ConfigHotKeys">hotkey settings</a>.</p></li>
+          <li><p><span class="italic">Default search template</span>&nbsp;&mdash; We can choose one of the previously saved search templates and Double Commander will use its parameters as default parameters each time when we open the find files dialog.</p></li>
+        </ul>
+        <p>Text search in files:</p>
+        <ul>
+          <li><p><span class="italic">Use memory mapping for search text in files</span>&nbsp;&mdash; Copies the file into virtual memory before performing the search. It's faster, but needs a more powerful computer.</p></li>
+          <li><p><span class="italic">Use stream for search text in files</span>&nbsp;&mdash; Splits file into parts, then the search begins (slower, but fewer resources are required).</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="multirename.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

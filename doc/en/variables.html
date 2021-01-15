@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Variables in parameters</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="toolbar.html">Previous</a> | <a title="Next page" href="cmds.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.8. Variables in parameters</h1>
+        <h1>2.9. Variables in parameters</h1>
       </div>
 
       <div>
@@ -32,7 +32,7 @@
           <dt>8. <a href="#trailingdelim">Trailing path delimited or not</a></dt>
           <dt>9. <a href="#listoffiles">List of files</a></dt>
           <dt>10. <a href="#suffixforlist">Suffix for list of files</a></dt>
-          <dt>11. <a href="#combsuffixlist">Combinaisons of suffix for list of files</a></dt>
+          <dt>11. <a href="#combsuffixlist">Combination s of suffix for list of files</a></dt>
           <dt>12. <a href="#executeterm">Execute in terminal</a></dt>
           <dt>13. <a href="#interaction">Interaction</a></dt>
           <dt>14. <a href="#miscellaneous">Miscellaneous variables</a></dt>
@@ -41,201 +41,201 @@
       </div>
 
       <div>
-        <h2>1. <a name="quickpres">Quick presentation</a></h2>
-        <P>Variable will help us to when configurating <a href="toolbar.html">toolbar buttons</a> or setting <a href="help.html#5_2_fileAssoc">file association</a> action.</p>
-        <P>We will basically use them when it's time to provide a parameter to command based on the current selected file(s), directory where we are and other things like that related with the context of what we're displaying in the panels.</p>
-        <P>Here is an easy example. The person configured a button to launch Irfanview with the variable <code>%p</code> has the parameter.</p>
-        <P>When the person will click that button, it will launch Irfanview with the variable <code>%p</code> be substituted by the current selected file in the active panel.</p>
-        <P>That's what <B>variables</b> described in this page are all about.</p>
-        <p>As you will see, most of them are beginnng with the percent sign <code>%</code>.</p>
-        <p class="image"><img title="Example of variable" alt="Example of variable" src="images/imgDC/variablesample.png" width="616" height="200"></p>
+        <h2><a name="quickpres">1. Quick presentation</a></h2>
+        <p>Variable will help us to when configurating <a href="toolbar.html">toolbar buttons</a> or setting <a href="configuration.html#ConfigAssociations">file association</a> action.</p>
+        <p>We will basically use them when it's time to provide a parameter to command based on the current selected file(s), directory where we are and other things like that related with the context of what we're displaying in the panels.</p>
+        <p>Here is an easy example. The person configured a button to launch IrfanView with the variable <code>%p</code> has the parameter.</p>
+        <p>When the person will click that button, it will launch IrfanView with the variable <code>%p</code> be substituted by the current selected file in the active panel.</p>
+        <p>That's what <b>variables</b> described in this page are all about.</p>
+        <p>As you will see, most of them are beginning with the percent sign <code>%</code>.</p>
+        <p class="image"><img title="Example of variable" alt="Example of variable" src="images/imgDC/variablesample.png" width="560" height="201"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="basicvar">Basic parameter variables</a></h2>
+        <h2><a name="basicvar">2. Basic parameter variables</a></h2>
         <p>These are the basic variables that may be used and that are related with the current selection.</p>
         <p>By default, all the resulting values are quoted. If you need them unquoted, see the section <a href="#quotation">Quotation in result or not</a>.</p>
-        <p><I>For each one, the example is given assuming we're pointing the file C:\Users\UserName\Desktop\comment.png.</i></p>
+        <p><i>For each one, the example is given assuming we're pointing the file C:\Users\UserName\Desktop\comment.png.</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Basic variables</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variables</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%p</div></td>
-            <td class="hintcell">Complete filename, path+filename<BR><code>Example: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
+            <td class="hintcell">Complete filename, path+filename<br><code>Example: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%f</div></td>
-            <td class="hintcell">Just filename, including extension<BR><code>Example: %f = "comment.png"</code></td>
+            <td class="hintcell">Just filename, including extension<br><code>Example: %f = "comment.png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%d</div></td>
-            <td class="hintcell">Only path, excluding trailing path delimiter<BR><code>Example: %d = "C:\Users\UserName\Desktop"</code></td>
+            <td class="hintcell">Only path, excluding trailing path delimiter<br><code>Example: %d = "C:\Users\UserName\Desktop"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%z<p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="hintcell">Name of last directory in path<BR><code>Example: %z = "Desktop"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%z</div></td>
+            <td class="hintcell">Name of last directory in path<br><code>Example: %z = "Desktop"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%o</div></td>
-            <td class="hintcell">Just filename without extension<BR><code>Example: %o = "comment"</code></td>
+            <td class="hintcell">Just filename without extension<br><code>Example: %o = "comment"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%e</div></td>
-            <td class="hintcell">Just the extension, without the period<BR><code>Example: %e = "png"</code></td>
+            <td class="hintcell">Just the extension, without the period<br><code>Example: %e = "png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%v</div></td>
-            <td class="hintcell">Relative filename referenced to the current active directory<BR>This is pertinent for example if you've invoke the internal command <a href="cmds.html#cm_flatview">cm_FlatView</a>.<BR><code>If we've done a flat view from directory "C:\Users\UserName", the %v will result in "Desktop\comment.png"</code></td>
+            <td class="hintcell">Relative filename referenced to the current active directory<br>This is pertinent for example if you've invoke the internal command <a href="cmds.html#cm_flatview">cm_FlatView</a>.<br><code>If we've done a flat view from directory "C:\Users\UserName", the %v will result in "Desktop\comment.png"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="basicsuffix">Basic suffix variable</a></h2>
-        <p>Following the variable letter mentionned above, we may add another letter to the previous one to add precision to what we want to use.</p>
-        <p><I>For each one, the example is given assuming:<BR>In left panel we're pointing the file "C:\LeftFolder\File.lft"<BR>In right panel we're pointing "C:\RightFolder\File.rgh"<BR>The current active panel is the right one.</i></p>
+        <h2><a name="basicsuffix">3. Basic suffix variable</a></h2>
+        <p>Following the variable letter mentioned above, we may add another letter to the previous one to add precision to what we want to use.</p>
+        <p><i>For each one, the example is given assuming:<br>In left panel we're pointing the file "C:\LeftFolder\File.lft"<br>In right panel we're pointing "C:\RightFolder\File.rgh"<br>The current active panel is the right one.</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Basic suffix</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Suffix</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">s</div></td>
-            <td class="hintcell">The source or active panel (no matter if it's left or right)<BR><code>Example: %ps = "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">The source or active panel (no matter if it's left or right)<br><code>Example: %ps = "C:\RightFolder\File.rgh"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">t</div></td>
-            <td class="hintcell">The target or inactive panel (no matter if it's left or right)<BR><code>Example: %pt = "C:\LeftFolder\File.lft"</code></td>
+            <td class="hintcell">The target or inactive panel (no matter if it's left or right)<br><code>Example: %pt = "C:\LeftFolder\File.lft"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">l</div></td>
-            <td class="hintcell">Left panel<BR><code>Example: %pl = "C:\LeftFolder\File.lft"</code></td>
+            <td class="hintcell">Left panel<br><code>Example: %pl = "C:\LeftFolder\File.lft"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">r</div></td>
-            <td class="hintcell">Right panel<BR><code>Example: %pr = "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">Right panel<br><code>Example: %pr = "C:\RightFolder\File.rgh"</code></td>
           </tr>
           <tr>
             <td class="varcell">
               <div class="firstcolumnaleft">p</div></td>
-            <td class="hintcell">Both panel, active first, then a space, then the inactive second<BR><code>Example: %pp = "C:\RightFolder\File.rgh" "C:\LeftFolder\File.lft"</code></td>
+            <td class="hintcell">Both panel, active first, then a space, then the inactive second<br><code>Example: %pp = "C:\RightFolder\File.rgh" "C:\LeftFolder\File.lft"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">b</div></td>
-            <td class="hintcell">Both panel, left one first, then a space, then the right one<BR><code>Example: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
+            <td class="hintcell">Both panel, left one first, then a space, then the right one<br><code>Example: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>4. <a name="numsuffix">Numbered suffix</a></h2>
-        <p>If we currently have many file selected, we may add a suffic to the previous mentionned one to precise which one we want to use.</p>
-        <p><I>For each element of table, we're assuming in the source panel is pointing "C:\temp\" and we've selected twenty six files named like "FileA.txt", "FileB.txt", etc. up to "FileZ.txt".</i></p>
+        <h2><a name="numsuffix">4. Numbered suffix</a></h2>
+        <p>If we currently have many file selected, we may add a suffic to the previous mentioned one to precise which one we want to use.</p>
+        <p><i>For each element of table, we're assuming in the source panel is pointing "C:\temp\" and we've selected twenty six files named like "FileA.txt", "FileB.txt", etc. up to "FileZ.txt".</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Numbered suffix</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Suffix</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">0</div></td>
-            <td class="hintcell">The file under cursor<BR><code>Example: %ps0 = "C:\temp\FileY.txt"</code></td>
+            <td class="hintcell">The file under cursor<br><code>Example: %ps0 = "C:\temp\FileY.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">1</div></td>
-            <td class="hintcell">The first selected file<BR><code>Example: %ps1 = "C:\temp\FileA.txt"</code></td>
+            <td class="hintcell">The first selected file<br><code>Example: %ps1 = "C:\temp\FileA.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">2</div></td>
-            <td class="hintcell">The second selected file<BR><code>Example: %ps2 = "C:\temp\FileB.txt"</code></td>
+            <td class="hintcell">The second selected file<br><code>Example: %ps2 = "C:\temp\FileB.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">3</div></td>
-            <td class="hintcell">The third selected file<BR><code>Example: %ps3 = "C:\temp\FileC.txt"</code></td>
+            <td class="hintcell">The third selected file<br><code>Example: %ps3 = "C:\temp\FileC.txt"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">21</div></td>
-            <td class="hintcell">The twenty-first selected file<BR><code>Example: %ps21 = "C:\temp\FileU.txt"</code></td>
+            <td class="hintcell">The twenty-first selected file<br><code>Example: %ps21 = "C:\temp\FileU.txt"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5. <a name="prefixpostfix">Specifying prefix and postfix for each file</a></h2>
+        <h2><a name="prefixpostfix">5. Specifying prefix and postfix for each file</a></h2>
         <p>Sometimes when we pass parameters to an executable we need to include something before the filenames.</p>
         <p>Some other times we want to include something just before and just after the filenames.</p>
         <p>Please note that the following will apply to each and individual selected item.</p>
-        <p><I>For each element of table, we're assuming we're currently in "C:\Windows\Fonts" with three file selected named "courrier.ttf", "fixedsys.ttf" and "terminal.ttf".</i></p>
+        <p><i>For each element of table, we're assuming we're currently in "C:\Windows\Fonts" with three file selected named "courrier.ttf", "fixedsys.ttf" and "terminal.ttf".</i></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Prefix and postfix</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Prefix and postfix</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{}</div></td>
-            <td class="hintcell">One set of braces will result in adding the text between the braces before each and every selected items<BR><code>Example: %fs{+} = "+courrier.ttf" "+fixedsys.ttf" "+terminal.ttf"</code></td>
+            <td class="hintcell">One set of braces will result in adding the text between the braces before each and every selected items<br><code>Example: %fs{+} = "+courrier.ttf" "+fixedsys.ttf" "+terminal.ttf"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{}{}</div></td>
-            <td class="hintcell">Two sets of braces will result in placing text between the braces before and after respectively in each and every selected items.<BR><code>Example: %fs{[}{]} = "[courrier.ttf]" "[fixedsys.ttf]" "[terminal.ttf]"</code></td>
+            <td class="hintcell">Two sets of braces will result in placing text between the braces before and after respectively in each and every selected items.<br><code>Example: %fs{[}{]} = "[courrier.ttf]" "[fixedsys.ttf]" "[terminal.ttf]"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>6. <a name="pathpanel">Path of panels</a></h2>
+        <h2><a name="pathpanel">6. Path of panels</a></h2>
         <p>Previously we've indicated variables related with the current selected items inside the panel.</p>
         <p>But we may also use the variable <code>%D</code> to indicate we want to refer to the directory name of a panel.</p>
-        <p>To that variable we may add the same <a href="#basicsuffix">suffix letter</a> as mentionned above to precise wich panel we want to refer to.</p>
-        <p><I>For each one, the example is given assuming:<BR>In left panel we're in "C:\Reference"<BR>In right panel we're pointing "E:\Work"<BR>The current active panel is the right one.</i></p>
+        <p>To that variable we may add the same <a href="#basicsuffix">suffix letter</a> as mentioned above to precise which panel we want to refer to.</p>
+        <p><i>For each one, the example is given assuming:<br>In left panel we're in "C:\Reference"<br>In right panel we're pointing "E:\Work"<br>The current active panel is the right one.</i></p>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Path of panels</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variable</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%D</div></td>
-            <td class="hintcell">Alone, with no suffix, will return the path of the current active panel<BR><code>Example: "E:\Work"</code></td>
+            <td class="hintcell">Alone, with no suffix, will return the path of the current active panel<br><code>Example: "E:\Work"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Ds</div></td>
-            <td class="hintcell">Directory of the current active or source panel (no matter if it's on left or right)<BR><code>Example: "E:\Work"</code></td>
+            <td class="hintcell">Directory of the current active or source panel (no matter if it's on left or right)<br><code>Example: "E:\Work"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dt</div></td>
-            <td class="hintcell">Directory of inactive or target panel (no matter if it's on left or right)<BR><code>Example: "C:\Reference"</code></td>
+            <td class="hintcell">Directory of inactive or target panel (no matter if it's on left or right)<br><code>Example: "C:\Reference"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dl</div></td>
-            <td class="hintcell">Directory of left panel<BR><code>Example: "C:\Reference"</code></td>
+            <td class="hintcell">Directory of left panel<br><code>Example: "C:\Reference"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%Dr</div></td>
-            <td class="hintcell">Directory of right panel<BR><code>Example: "E:\Work"</code></td>
+            <td class="hintcell">Directory of right panel<br><code>Example: "E:\Work"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Z<p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="hintcell">Alone, with no suffix, will return the last directory name of path of the current active panel<BR><code>Example: "Work"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Z</div></td>
+            <td class="hintcell">Alone, with no suffix, will return the last directory name of path of the current active panel<br><code>Example: "Work"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zs<p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="hintcell">Last directory name of path of the current active panel (no matter if it's on left or right)<BR><code>Example: "Work"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zs</div></td>
+            <td class="hintcell">Last directory name of path of the current active panel (no matter if it's on left or right)<br><code>Example: "Work"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zt<p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="hintcell">Last directory name of path of inactive panel (no matter if it's on left or right)<BR><code>Example: "Reference"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zt</div></td>
+            <td class="hintcell">Last directory name of path of inactive panel (no matter if it's on left or right)<br><code>Example: "Reference"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zl<p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="hintcell">Last directory name of path of left panel<BR><code>Example: "Reference"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zl</div></td>
+            <td class="hintcell">Last directory name of path of left panel<br><code>Example: "Reference"</code></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%Zr<p class="versionref">Version 1.0.0 +</p></div></td>
-            <td class="hintcell">Last directory name of path of right panel<BR><code>Example: "Work"</code></td>
+            <td class="varcell"><div class="firstcolumnaleft">%Zr</div></td>
+            <td class="hintcell">Last directory name of path of right panel<br><code>Example: "Work"</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>7. <a name="quotation">Quotation in result or not</a></h2>
+        <h2><a name="quotation">7. Quotation in result or not</a></h2>
         <p>As you've seen previously, for historic and legacy reason, DC will return the result quoted.</p>
         <p>This was useful initially when there were spaces in filename and we wanted to pass filename as parameters and we wanted the whole thing to work.</p>
         <p>But as new variables were added, it was obvious that we needed a way to have unquoted result. Basic example is commonly when we want to concatenate a source filename, but just the filename with no extension, with a new specific extension we'll spcify ourself on the line.</p>
@@ -247,7 +247,7 @@
           <dt><code>%" </code>&nbsp;: also accepted to restore the default which is to have result quoted</dt>
         </dl>
 
-        <p>The following table gives us an example in situation we're we've selected a file named "Client List.mdb" and the result of the various combinaison of quoted/unquoted string.</p>
+        <p>The following table gives us an example in situation we're we've selected a file named "Client List.mdb" and the result of the various combination  of quoted/unquoted string.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of quotation or not</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
@@ -272,17 +272,17 @@
       </div>
 
       <div>
-        <h2>8. <a name="trailingdelim">Trailing path delimited or not</a></h2>
-        <p>As you've seen previously, for historic and legacy reason, when DC returns a path, it will be without trialing path delimiter.</p>
+        <h2><a name="trailingdelim">8. Trailing path delimited or not</a></h2>
+        <p>As you've seen previously, for historic and legacy reason, when DC returns a path, it will be without trailing path delimiter.</p>
         <p>This could be change by using a variable that will determine if the path variable that follows on the line will be with trailing path delimiter or not.</p>
-        <p>Basially we have:</p>
+        <p>Basically we have:</p>
         <dl>
           <dt><code>%/0</code> : the returned path will be without trailing delimiter</dt>
           <dt><code>%/1</code> : the returned path will be with trailing delimiter</dt>
           <dt><code>%/ </code>&nbsp;: also accepted, default, the returned path will be without trailing delimiter</dt>
         </dl>
 
-        <p>The following table gives us an example in situation we're we've selected the directory "C:\Users\UserName\Desktop" and the result of the various combinaison of trailing path variable:</p>
+        <p>The following table gives us an example in situation we're we've selected the directory "C:\Users\UserName\Desktop" and the result of the various combination  of trailing path variable:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of trailing path variable</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
@@ -307,7 +307,7 @@
       </div>
 
       <div>
-        <h2>9. <a name="listoffiles">List of files</a></h2>
+        <h2><a name="listoffiles">9. List of files</a></h2>
         <p>Some application will accept a single file name as a parameter and assumed this file is a text file containing a list of file names.</p>
         <p>DC proposes us variables that will create a temporary text file with the list of all specified selected items and the file name of the temporary created file will we substituted to the variable.</p>
         <table>
@@ -330,8 +330,8 @@
       </div>
 
       <div>
-        <h2>10. <a name="suffixforlist">Suffix for list of files</a></h2>
-        <p>By default, the above mentionned file names inside the file list are unquoted. But there is a suffix you may add to change that if required.</p>
+        <h2><a name="suffixforlist">10. Suffix for list of files</a></h2>
+        <p>By default, the above mentioned file names inside the file list are unquoted. But there is a suffix you may add to change that if required.</p>
         <p>Also, there are suffixes to specify if you want this file list to be coded in UT8 or UTF16.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Suffix to list of files variable</th></tr>
@@ -353,11 +353,11 @@
       </div>
 
       <div>
-        <h2>11. <a name="combsuffixlist">Combinaisons of suffix for list of files</a></h2>
-        <p>You may also add another suffix to specify from which panel the file list is required using the same suffix letter mentionned earlier.</p>
+        <h2><a name="combsuffixlist">11. Combination s of suffix for list of files</a></h2>
+        <p>You may also add another suffix to specify from which panel the file list is required using the same suffix letter mentioned earlier.</p>
         <p>Here are example of what is possible:</p>
         <table>
-          <tr class="rowcategorytitle"><th colspan="2">Combinaison of suffix to list of files variable</th></tr>
+          <tr class="rowcategorytitle"><th colspan="2">Combination  of suffix to list of files variable</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%LQt</div></td>
@@ -376,7 +376,7 @@
       </div>
 
       <div>
-        <h2>12. <a name="executeterm">Execute in terminal</a></h2>
+        <h2><a name="executeterm">12. Execute in terminal</a></h2>
         <p>You may specify in a parameter if you want the command-line you're configuring has to be executed in terminal.</p>
         <p>To do so you'll use the <code>%t</code> variable.</p>
         <table>
@@ -395,7 +395,7 @@
       </div>
 
       <div>
-        <h2>13. <a name="interaction">Interaction</a></h2>
+        <h2><a name="interaction">13. Interaction</a></h2>
         <p>Here are two variables useful to show message and request to provide parameter on-the-fly with a suggested default value:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Interaction</th></tr>
@@ -426,7 +426,7 @@
       </div>
 
       <div>
-        <h2>14. <a name="miscellaneous">Miscellaneous variables</a></h2>
+        <h2><a name="miscellaneous">14. Miscellaneous variables</a></h2>
         <p>In this final section we shows the variables that haven't been presented yet.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Miscellaneous variables</th></tr>
@@ -465,7 +465,7 @@
       </div>
 
       <div>
-        <h2>15. <a name="summaryall">Summary table of all variables</a></h2>
+        <h2><a name="summaryall">15. Summary table of all variables</a></h2>
         <p>Nothing new in this section, but let's put together into just ONE table a summary of all the supported variables and their meaning.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Miscellaneous variables</th></tr>
@@ -482,6 +482,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">suffix for right panel (example: %pr)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">suffix for both panels, active first, inactive second (example: %pp)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">suffix for both panels, left first, right second (example: %pb)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0</div></td><td class="hintcell">file under cursor (example: %ps0</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">1</div></td><td class="hintcell">first selected file (example: %ps1)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">2</div></td><td class="hintcell">second selected file if any (example: %ps2)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">3</div></td><td class="hintcell">third selected file if any (example: %ps3)</td></tr>
@@ -519,89 +520,89 @@
 
       <div>
         <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
-        <BR>
+        <br>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="toolbar.html">Previous</a> | <a title="Next page" href="cmds.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

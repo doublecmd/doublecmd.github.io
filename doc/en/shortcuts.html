@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Shortcuts</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="multiarc.html">Previous</a> | <a title="Next page" href="toolbar.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configuration.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.6. Shortcuts</h1>
+        <h1>2.3. Shortcuts</h1>
       </div>
 
       <div>
@@ -26,10 +26,12 @@
           <dt>2. <a href="#main_window">Main window</a></dt>
           <dt>3. <a href="#viewer">Internal viewer</a></dt>
           <dt>4. <a href="#editor">Internal editor</a></dt>
-          <dt>5. <a href="#options">Configuration</a></dt>
+          <dt>5. <a href="#differ">Differ</a></dt>
+          <dt>6. <a href="#sync">Synchronize Directories</a></dt>
+          <dt>7. <a href="#options">Configuration</a></dt>
           <dd>
             <dl>
-              <dt>5.1. <a href="#dirhotlist">Directory Hotlist</a></dt>
+              <dt>7.1. <a href="#dirhotlist">Directory Hotlist</a></dt>
             </dl>
           </dd>
         </dl>
@@ -37,7 +39,7 @@
 
 
       <div>
-        <h2>1. <a name="warning">Warning regarding this page</a></h2>
+        <h2><a name="warning">1. Warning regarding this page</a></h2>
         <p>The following table are are just the "default" shotcut key to access internal commands of Double Commander.</p>
         <p>Obviously, we may change them by doing Configuration&nbsp;&gt; Options...&nbsp;&gt; Keys&nbsp;&gt; Hotkeys.</p>
         <p>You may also use the internal command <a href="cmds.html#cm_ConfigHotKeys">cm_ConfigHotKeys</a>.</p>
@@ -47,8 +49,8 @@
       </div>
 
       <div>
-        <h2>2. <a name="main_window">Main window</a></h2>
-        <BR>
+        <h2><a name="main_window">2. Main window</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Main Window</th></tr>
           <tr class="rowsubtitle">
@@ -85,7 +87,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F8, Del</div></td>
-            <td class="hintcell">Delete item</td>
+            <td class="hintcell">Delete selected files/folders</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F9</div></td>
@@ -112,44 +114,48 @@
             <td class="hintcell">Find files</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F8</div></td>
+            <td class="hintcell">Invoke command line history pop up menu</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Alt+F9</div></td>
             <td class="hintcell">Unpack all files from archive under cursor</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">Directory history</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">Go to previous entry in history</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">Go to next entry in history</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+F9</div></td>
+            <td class="hintcell">Validate the integrity of the content of selected archive file</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
-            <td class="hintcell">Properties</td>
+            <td class="hintcell">File properties</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Alt+Shift+Enter</div></td>
             <td class="hintcell">Calculate size of all directories</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Alt+Delete</div></td>
+            <td class="varcell"><div class="shortcutname">Alt+Del</div></td>
             <td class="hintcell">Wipe file/directory</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+V</div></td>
+            <td class="hintcell">Shows a window with the file operations process currently in progress if any</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Alt+Z</div></td>
             <td class="hintcell">Show same directory in opposite panel (Target=Source)</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
-            <td class="hintcell">Set focus to command line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
-            <td class="hintcell">New file (or open existing file) in internal editor</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
-            <td class="hintcell">Copy items in the same directory ("inline")</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
-            <td class="hintcell">Move items in the same directory ("inline")</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+Enter</div></td>
-            <td class="hintcell">Execute command in terminal (choose in Options..)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
@@ -168,12 +174,8 @@
             <td class="hintcell">Sort by size</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+7</div></td>
-            <td class="hintcell">Invoke command line history pop up menu</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
-            <td class="hintcell">Select all</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Enter</div></td>
+            <td class="hintcell">Will invoke a program for the selected file from the system file associations</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Alt+C</div></td>
@@ -182,6 +184,30 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Alt+X</div></td>
             <td class="hintcell">Copy names of selected items to clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">Goto next tab in the active panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">Goto previous tab in the active panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Select all</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+B</div></td>
+            <td class="hintcell">Flat view: will scan all the directories of panel to show all content in one single panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+B</div></td>
+            <td class="hintcell">Flat view: like <kbd>Ctrl+B</kbd>, but for selected files and folders only</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Copy to clipboard</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
@@ -200,8 +226,40 @@
             <td class="hintcell">Multi-Rename Tool</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">Append active panel path to command line</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
             <td class="hintcell">Refresh actual panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">Quick search (see Options)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
+            <td class="hintcell">New tab in active panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+U</div></td>
+            <td class="hintcell">Swap panels (directory in left panel swaps with directory in right panel)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">Paste from clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">Close actual tab</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">Cut to clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Create/edit file comment</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+ &uarr;</div></td>
@@ -220,59 +278,36 @@
             <td class="hintcell">Cursor in left panel, open same directory in right panel</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+\</div></td>
+            <td class="hintcell">Go to root directory ("/" in Unix and GNU/Linux) or root of the current disk (Windows).<br>
+              In archive: go to root of this archive.</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Enter</div></td>
             <td class="hintcell">Append selected item to command line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
-            <td class="hintcell">Goto previous tab in the active panel</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
-            <td class="hintcell">Append active panel path to command line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
-            <td class="hintcell">Quick search (see Options)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+Enter</div></td>
             <td class="hintcell">Append concatenation of active panel path and selected item to command line</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+U</div></td>
-            <td class="hintcell">Swap panels (directory in left panel swaps with directory in right panel)</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td>
+            <td class="hintcell">Tree view panel</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
-            <td class="hintcell">Copy to clipboard</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
+            <td class="hintcell">Copy item full names to clipboard</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
-            <td class="hintcell">Cut to clipboard</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+X</div></td>
+            <td class="hintcell">Copy item names to clipboard</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
-            <td class="hintcell">Paste from clipboard</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+H</div></td>
+            <td class="hintcell">Will set the arrangement of panels between two vertical ones disposed in left/right OR two horizontal ones disposed in top/bottom</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
-            <td class="hintcell">New tab in active panel</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
-            <td class="hintcell">Goto next tab in the active panel</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
-            <td class="hintcell">Close actual tab</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
-            <td class="hintcell">Create/edit file comment</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+PgDown</div></td>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
             <td class="hintcell">1. Like <tt>Enter</tt><br>2. Open directory/archive (also self extracting archives)</td>
           </tr>
           <tr>
@@ -301,12 +336,45 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+Num +</div></td>
-            <td class="hintcell">Tag all files in the current directory with the same extension as the focused file</td>
+            <td class="hintcell">Select all files in the current directory with the same extension as the focused file</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+Num -</div></td>
-            <td class="hintcell">Untag all files in the current directory with the same extension as the focused file</td>
+            <td class="hintcell">Unselect all files in the current directory with the same extension as the focused file</td>
           </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">Set focus to command line</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">New file (or open existing file) in internal editor</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
+            <td class="hintcell">Copy items in the same directory ("inline")</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
+            <td class="hintcell">Move items in the same directory ("inline")</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
+            <td class="hintcell">Shows context menu for files and folders</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F12</div></td>
+            <td class="hintcell">Will show window with all internal commands</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
+            <td class="hintcell">Switch focus between current file list and tree view (if enabled)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Enter</div></td>
+            <td class="hintcell">Execute command in terminal (choose in Options..)</td>
+          </tr>
+
           <tr>
             <td class="varcell"><div class="shortcutname">Tab</div></td>
             <td class="hintcell">Switch between panels</td>
@@ -347,15 +415,15 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Right mouse button</div></td>
-            <td>Show popup menu with configurable commands (from <a href="help.html#cm_FileAssoc">file associations</a>)</td>
+            <td>Show popup menu with configurable commands (from <a href="configuration.html#ConfigAssociations">file associations</a>)</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="viewer">Internal Viewer</a></h2>
-        <BR>
+        <h2><a name="viewer">3. Internal Viewer</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Internal Viewer</th>
@@ -381,7 +449,7 @@
             <td class="hintcell">Close</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+F, F7</div></td>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F7, Ctrl+F</div></td>
             <td class="hintcell">Find text</td>
           </tr>
           <tr>
@@ -391,6 +459,26 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
             <td class="hintcell">Find previous</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">Show/hide text cursor</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
+            <td class="hintcell">Full Screen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Select All</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Copy selected text to clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">Print</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">1</div></td>
@@ -436,13 +524,25 @@
             <td class="varcell"><div class="shortcutname">Z</div></td>
             <td class="hintcell">Change encoding: UTF-8</td>
           </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num +</div></td>
+            <td class="hintcell">Zoom In</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num -</div></td>
+            <td class="hintcell">Zoom Out</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">`</div></td>
+            <td class="hintcell">Show/hide preview</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>4. <a name="editor">Internal Editor</a></h2>
-        <BR>
+        <h2><a name="editor">4. Internal Editor</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Internal Editor</th>
@@ -452,15 +552,15 @@
             <th class="categorydesccolumn">Action</th>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Alt+X</div></td>
+            <td class="hintcell">Quit</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">F2, Ctrl+S</div></td>
             <td class="hintcell">Save</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Esc</div></td>
-            <td class="hintcell">Quit</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+F, F7</div></td>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
             <td class="hintcell">Find text</td>
           </tr>
           <tr>
@@ -472,16 +572,44 @@
             <td class="hintcell">Find previous</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
-            <td class="hintcell">Replace text</td>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Select All</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Copy selected text to clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Go to the specified line</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
-            <td class="hintcell">New file</td>
+            <td class="hintcell">Create a new file</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
             <td class="hintcell">Open file</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Replace text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">Paste text from clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">Cut selected text to clipboard</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Undo</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Z</div></td>
+            <td class="hintcell">Redo</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
@@ -502,15 +630,109 @@
       </div>
 
       <div>
-        <h2>5. <a name="options">Configuration</a></h2>
-        <p>In the configuration pages, some of them have many possible actions to be done during the configuration, that some shorcut keys are present to help us to quickly do what needs to be done.</p>
-        <p>These ones are not reconfigurable but at least there are present by default and the following table will list them.</p>
+        <h2><a name="differ">5. Differ</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Differ</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Key</th>
+            <th class="categorydesccolumn">Action</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Home</div></td>
+            <td class="hintcell">First difference</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+End</div></td>
+            <td class="hintcell">Last difference</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &uarr;</div></td>
+            <td class="hintcell">Previous difference</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">Next difference</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">Copy block left</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">Copy block right</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+X</div></td>
+            <td class="hintcell">Close</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Reload files</td>
+          </tr>
+        </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
       </div>
 
       <div>
-        <h2>5.1. <a name="dirhotlist">Directory Hotlist</a></h2>
+        <h2><a name="sync">6. Synchronize Directories</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Synchronize Directories</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Key</th>
+            <th class="categorydesccolumn">Action</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">View left</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">View right</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">Compare files by contents</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">Select for copying (default direction)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">Select for copying -&gt; (left to right)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Select for copying &lt;- (right to left)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+M</div></td>
+            <td class="hintcell">Remove selection</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">Reverse copy direction</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="options">7. Configuration</a></h2>
+        <p>In the configuration pages, some of them have many possible actions to be done during the configuration, that some shorcut keys are present to help us to quickly do what needs to be done.</p>
+        <p>These ones are not reconfigurable but at least there are present by default and the following table will list them.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
+      </div>
+
+      <div>
+        <h2><a name="dirhotlist">7.1. Directory Hotlist</a></h2>
         <p>To help us to configure our <a href="directoryhotlist.html">directory hotlist</a>, we have plenty of shortcut keys.</p>
         <p>This allows us to remain with the focus in the bottom three boxes to enter our names and path, and still being able to move into the hotlist tree without quitting the text box.</p>
         <table>
@@ -548,90 +770,89 @@
           <tr><td class="varcell"><div class="shortcutname">&darr;</div></td><td class="hintcell">Will set the section to the entry just below the current ones</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+        <br>
       </div>
-
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="multiarc.html">Previous</a> | <a title="Next page" href="toolbar.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configuration.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

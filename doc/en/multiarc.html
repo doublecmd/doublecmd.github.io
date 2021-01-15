@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - External archivers</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="directoryhotlist.html">Previous</a> | <a title="Next page" href="shortcuts.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="directoryhotlist.html">Previous</a> | <a title="Next page" href="toolbar.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.5. External archivers</h1>
+        <h1>2.7. External archivers</h1>
       </div>
 
       <div>
@@ -24,7 +24,7 @@
         <dl>
           <dt>1. <a href="#workingcomp">Working with compressed files</a></dt>
           <dt>2. <a href="#resources">Resources to work with compressed files</a></dt>
-          <dt>3. <a href="#withplugin">Working with plugin</a></dt>
+          <dt>3. <a href="#withplugin">Working with plugins</a></dt>
           <dt>4. <a href="#archivers">Working with external archivers</a></dt>
           <dt>5. <a href="#config">Configuring external archivers integration</a></dt>
           <dd>
@@ -57,17 +57,17 @@
       </div>
 
       <div>
-        <h2>1. <a name="workingcomp">Working with compressed files</a></h2>
+        <h2><a name="workingcomp">1. Working with compressed files</a></h2>
         <p>Once properply configured, Double Commander may work with compressed files just like it would be simple folders.</p>
         <p>For example if we have a zip file into a panel, we may simply select it, press <kbd>Enter</kbd> and panel will show the content of the zip just like if we would change to a directory.</p>
         <p>Once "inside" the compressed file, we may do some minimal basic functions like viewing the file, copy it to the other panel and some limited function like that.</p>
-        <p>The next following image shows us an example where we selected the compressed file "Help.rar" and we simply press <kbd>Enter</kbd> in it just like it would be a directory:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg1.png" width="832" height="480"></p>
+        <p>The next following image shows us an example where we selected the compressed file "help.rar" and we simply press <kbd>Enter</kbd> in it just like it would be a directory:</p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg1.png" width="768" height="454"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="resources">Resources to work with compressed files</a></h2>
+        <h2><a name="resources">2. Resources to work with compressed files</a></h2>
         <p>Double Commander is versatile enough to use external programs to deal with compressed files through it own interface.</p>
         <p>It uses two different principles to deal with the compressed files:</p>
         <ul>
@@ -78,36 +78,36 @@
       </div>
 
       <div>
-        <h2>3. <a name="withplugin">Working with plugin</a></h2>
+        <h2><a name="withplugin">3. Working with plugins</a></h2>
         <p>We may configure Double Commander to use an external "packer plugin" files that will help to deal with a compressed archive.</p>
         <p>Right from the installation, Double Commander already incorporates some of these .WCX plugin files.</p>
-        <p>At the moment these lines are written, here are the onea that come with the installation:</p>
+        <p>At the moment these lines are written, here are the ones that come with the installation (listed types of archives that have already been added to the settings):</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Packer plugin from a fresh install (.WCX)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Plugin filename</th><th class="categorydesccolumn">Archive type supported</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">deb.wcx</div></td><td class="hintcell">.deb</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">rpm.wcx</div></td><td class="hintcell">.rpm</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">sevenzip.wcx</div></td><td class="hintcell">.7z, .cpio, .arj, .cab, .cramfs, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar &amp; .z</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">sevenzip.wcx</div></td><td class="hintcell">.7z, .arj, .cab, .cpio, .cramfs, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar &amp; .z</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">unrar.wcx</div></td><td class="hintcell">.rar</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">zip.wcx</div></td><td class="hintcell">.zip, .tar, .bz2, .tbz, .gz, .tbz, .tlz, .xz &amp; .txz</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zip.wcx</div></td><td class="hintcell">.bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .xz, .zip &amp; .zipx</td></tr>
         </table>
         <p><i>Please note that many of these will be to extract content only. They will not allow to create an archive of this type.</i></p>
-        <BR>
+        <br>
 
-        <p>Also, there are few others one on the web. We may just search for .WCX plugings.</p>
+        <p>Also, there are few others one on the web. We may just search for .WCX plugins.</p>
         <p>Also remember that the ones made to work with Total Commander should also basically work with Double Commander.</p>
-        <BR>
+        <br>
 
-        <p>To install, enable the usage of them or to configure them, we'll need to access Configuration&nbsp;&gt; Options...&nbsp;&gt; Plugins and then select the tab for the WCX like the illustration here:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg2.png" width="842" height="384"></p>
+        <p>To install, enable the usage of them or to configure them, we'll need to access Configuration&nbsp;&gt; Options...&nbsp;&gt; Plugins&nbsp;&gt; Plugins WCX:</p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg2.png" width="694" height="380"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>4. <a name="archivers">Working with external archivers</a></h2>
+        <h2><a name="archivers">4. Working with external archivers</a></h2>
         <p>Sometimes the plugin for the type of file archive we want to use does not exist.</p>
         <p>Or for whatever raison, sometimes it might happen we would want explicitly use an external packer to use the benefit of a feature or something not present in the pseudo equivalent plugin.</p>
-        <p>Double Commander uses principle of the work with external arhivers similar to plugin <a href="http://wcx.sourceforge.net/">MultiArc</a> for Total Commander.</p>
+        <p>Double Commander uses principle of the work with external archivers similar to plugin <a href="http://wcx.sourceforge.net/" target="_blank">MultiArc</a> for Total Commander.</p>
         <p>Just to make things clear, <b>using an external archiver may be summarized as this: it's a way to launch the archiver we may be familiar with but to have it driven by Double Commander, by providing to the archiver executable the various parameters we would need to make it like integrated into the application</b>.</p>
         <p>The remaining of this page will be on this matter: how to configure Double Commander to launch the external archiver to do whatever we need with it.</p>
         <p>Let's suppose we want to use "rar.exe" to deal with .rar archive.</p>
@@ -118,36 +118,36 @@
           <li>add one file or a list of file to a given or to-be-created archive file</li>
           <li>extract one file or a list of file from an archive file</li>
         </ul>
-        <BR>
+        <br>
 
         <p>This will be done by doing Configuration Options Archiver as illustrated below:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg3.png" width="858" height="585"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg3.png" width="756" height="571"></p>
 
         <p>Let's see in the following sections the versatile possibilities Double Commander offers us to properly integrate the usage of an external packer.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5. <a name="config">Configuring external archivers integration</a></h2>
+        <h2><a name="config">5. Configuring external archivers integration</a></h2>
         <p>We won't describe here each and every fields since once we've started it will be pretty straight forward, but we'll spend time to properly described an example of integration.</p>
         <p>We'll describe the integration of the "rar.exe" external archiver. There is nothing better than a complete step by step example.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.1. <a name="addingnew">Adding a new external archiver</a></h2>
+        <h2><a name="addingnew">5.1. Adding a new external archiver</a></h2>
         <p>We click the "Add" button at the bottom, we give a significant name to appear in the list of archiver and then we'll be ready to configure it.</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg4.png" width="792" height="432"></p>
-        <BR>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg4.png" width="606" height="410"></p>
+        <br>
         <p>We then need to indicate us a significant description for the archiver, the exact location where is the executable of the archiver and then associated file extension, without the period, to that archiver.</p>
         <p>If we have more than one possible, just add them with a single comma between each one, no space.</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg5.png" width="700" height="200"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg5.png" width="570" height="211"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.2. <a name="variables">Variables to interface with external archiver</a></h2>
-        <p>As mentionned earlier, we'll need to configure how to invoke our external archiver executable to do what we want.</p>
+        <h2><a name="variables">5.2. Variables to interface with external archiver</a></h2>
+        <p>As mentioned earlier, we'll need to configure how to invoke our external archiver executable to do what we want.</p>
         <p>To help us to do so, Double Commander offer us numerous dedicated variable to fill the configuration string for the various action we may configure.</p>
         <p>Here follows a table showing the variable that can be used and what will be substituted for it:</p>
         <table>
@@ -157,13 +157,13 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">Short name of archiving utility (as it is in "Archiver" key)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%A</div></td><td class="hintcell">Long name of archive file</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%a</div></td><td class="hintcell">Short name of archive file</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Filelist name.<BR>Filelist is the file containing names of files to be processed by the external archiver.<BR>File names is long.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Filelist name.<br>Filelist is the file containing names of files to be processed by the external archiver.<br>File names is long.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%l</div></td><td class="hintcell">Filelist with short file names</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">The name of a single file to process.<BR>The archiver will be executed several times until all file names are exhausted.<BR>This variable should be used only if the destination archiver does not support filelists on the command line.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">The name of a single file to process.<br>The archiver will be executed several times until all file names are exhausted.<br>This variable should be used only if the destination archiver does not support filelists on the command line.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">The volume size (for multivolume archive)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">The password</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Maximum acceptable command errorlevel.<BR>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<BR>This variable may be specified in any place of command.<BR>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt;</div></td><td class="hintcell">By default, multiarc convert archiver output from OEM encoding to UTF-8.<BR>Use this to override encoding. See below the possible encoding modifiers.<BR>Can be used with "List" action only.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Maximum acceptable command errorlevel.<br>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<br>This variable may be specified in any place of command.<br>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt;</div></td><td class="hintcell">By default, multiarc convert archiver output from OEM encoding to UTF-8.<br>Use this to override encoding. See below the possible encoding modifiers.<br>Can be used with "List" action only.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Target subdirectory IN archive</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">If some variable is enclosed in braces - it'll be added only if this variable will contain something non-empty</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Depends on modes, set in configuration dialog, MultiArc will ask user about additional command-line parameters should be passed in-place of %S</td></tr>
@@ -173,7 +173,7 @@
       </div>
 
       <div>
-        <h2>5.3. <a name="modifiers">Variable modifiers with external archiver</a></h2>
+        <h2><a name="modifiers">5.3. Variable modifiers with external archiver</a></h2>
         <p>These modifiers may be specified immediately after variables without spaces.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Variable modifiers</th></tr>
@@ -191,21 +191,21 @@
       </div>
 
       <div>
-        <h2>5.4. <a name="actionlist">Configuring the "List" action</a></h2>
+        <h2><a name="actionlist">5.4. Configuring the "List" action</a></h2>
         <p>If we want Double Commander to work with the compressed archive file like it would be a directory containing files, we need to be able to get the list of file that the archive has.</p>
         <p>At this point, we don't need to uncompress! No, it's just a matter of doing the list of what it contains so Double Commander will show the content to us.</p>
         <p>In our example with "rar.exe", it we look at the documentation of it, thre is the "v" command that allow us to get the console application "rar.exe" to give out the list of files inside the zip:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg6.png" width="570" height="140"></p>
-        <BR>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg6.png" width="568" height="139"></p>
+        <br>
         <p>So following the usage of the application, to get the list of what's inside the rar archive, we need to call the "rar.exe" with parameters with the "v" command and then the archive name.</p>
         <p>Let's test this manually first by attempting to show the content of a file like e:\Temp\just.rar</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg7.png" width="814" height="645"></p>
-        <BR>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg7.png" width="800" height="630"></p>
+        <br>
         <p>So what we need now to do is to configure the "list" to tell to Double Commander how to invoke "rar.exe" to get the content of the compressed archive.</p>
-        <p>To do that, we'll rewrite the same thing as what we've just did but by using the variable and variable modifier mentionned earlier.</p>
+        <p>To do that, we'll rewrite the same thing as what we've just did but by using the variable and variable modifier mentioned earlier.</p>
         <p>Here is what's it looks like:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg8.png" width="126" height="42"></p>
-        <p>We wrote <code>%P v %AQA</code> using the variable mentionned earlier with the Variable and Variable Modifier.</p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg8.png" width="86" height="41"></p>
+        <p>We wrote <code>%P v %AQA</code> using the variable mentioned earlier with the Variable and Variable Modifier.</p>
         <ul>
           <li><code>%P</code> will be substituted by our executable written earlier, so "E:\Program Files\WinRAR\Rar.exe"</li>
           <li><code>v</code> will remain as is and is the "v" command or the "rar.exe" external archiver to view list of files</li>
@@ -217,7 +217,7 @@
       </div>
 
       <div>
-        <h2>5.5. <a name="recuperate">Recuperating list of content</a></h2>
+        <h2><a name="recuperate">5.5. Recuperating list of content</a></h2>
         <p>So far what we've done will have the archiver to output the list of the files inside the archive files.</p>
         <p>But now that's not all! We need to recuperate this outputted data and display it in our panel.</p>
         <p>So we need Double Commander to interpret that output table we've that the command of the archiver will output.</p>
@@ -225,13 +225,13 @@
       </div>
 
       <div>
-        <h2>5.5.1. <a name="delimit">Delimiting the area to analyse</a></h2>
+        <h2><a name="delimit">5.5.1. Delimiting the area to analyse</a></h2>
         <p>As we see in previous capture, the output of the "rar.exe" regarding the content is not just bare data.</p>
         <p>There are some annoying information around we need to eliminate to keep only the actual file list.</p>
         <p>Luckily, we may configure in Double Commander a magic string so DC will wait to see that string prior to begin to parse the next following lines.</p>
         <p>Also, we may configure the magic string to stop parsing as well.</p>
         <p>Because we have dashed line before and after, it's pretty easy to set these two parameters with the dashed lines:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg9.png" width="370" height="78"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg9.png" width="360" height="79"></p>
         <p>In the eventuality that an external archive would immediately output bar data with no extra lines, simply let the two fields empty.</p>
         <p>The caret is a there to indicate that the magic string needs absolutely to start the line, with nothing else.</p>
         <p>If it would not be possible to be sure it starts the line, like for example if the external archiver would start the line with the date and time, and then a constant string, we would set the magic string to be the constant string but we would not add the caret which instruct to DC that the string to search might be anywhere.</p>
@@ -242,7 +242,7 @@
       </div>
 
       <div>
-        <h2>5.5.2. <a name="parsing">Parsing the list of content</a></h2>
+        <h2><a name="parsing">5.5.2. Parsing the list of content</a></h2>
         <p>Now DC knows exactly which data to parse to get the file list of the archive file.</p>
         <p>It would have been easy to hard coded in the application a routine to parse that "rar" output to get the file list.</p>
         <p>But Double Commander does not do that.</p>
@@ -253,7 +253,7 @@
       </div>
 
       <div>
-        <h2>5.5.3. <a name="standardparsing">Standard syntax for parsing</a></h2>
+        <h2><a name="standardparsing">5.5.3. Standard syntax for parsing</a></h2>
         <p>The following table gives us the "Standard syntax" for parsing the list of content the external archive generated us.</p>
         <p>As we will see with the next example, the "standard syntax" is based basically on more direct substitution than the "advanced syntax".</p>
         <p>When possible, we will try to use that syntax since it's parsing results faster than the "advanced syntax" which follows.</p>
@@ -282,11 +282,11 @@
       </div>
 
       <div>
-        <h2>5.5.4. <a name="standardexample">Example with standard syntax</a></h2>
+        <h2><a name="standardexample">5.5.4. Example with standard syntax</a></h2>
         <p>So the beauty of the thing here is to use the avaliable expressions from the previous table to write the "Listing format" string that will configure Double Commander for that external archiver so it will be able to get the content of the archive concerning directory and filenames, filesize, attributes, file dates, etc.</p>
         <p>First guess for us to help to generate that line would be to write in Notepad for example a line of text for one file we've done manually previously and write below that expression from the previous table that would fit.</p>
         <p>Here is an example of that:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg10.png" width="840" height="180"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg10.png" width="818" height="150"></p>
         <p>So as we can see, we wrote the parsing expression letter matching to each field at the same exact position where it is located into the output of the archive content that our external archiver outputed us:</p>
         <ul>
           <li>series of "a" for where is the file attributes</li>
@@ -295,12 +295,12 @@
           <li>series of "n", more than enough, for where is the actual filenames</li>
         </ul>
         <p>So configured that way, if we select our previous "just.rar" archive into a panel, we press <kbd>Enter</kbd> to get into it like it would be a directory, we see the file content showing us what we did "basically" worked (if we ignore the last file...):</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg11.png" width="740" height="570"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg11.png" width="668" height="570"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.5.5. <a name="advancedparsing">Advanced syntax for parsing</a></h2>
+        <h2><a name="advancedparsing">5.5.5. Advanced syntax for parsing</a></h2>
         <p>The following table gives us the "Advanced syntax" for parsing the list of content the external archive generated us.</p>
         <p>The element of this syntax will take a little more time to process than the one from the previous table.</p>
         <p>So use them only when it's impossible to solve a problematic situation with the previous one.</p>
@@ -311,7 +311,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">for name field not at line end: use all chars up to next space</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">after any numeric field: use all digits up to first non-digit character</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">n+</div></td><td class="hintcell">use all chars until the end of the line for filename</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">z+</div></td><td class="hintcell">use all digits up to first non-digit character for the upacked size</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z+</div></td><td class="hintcell">use all digits up to first non-digit character for the unpacked size</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">p+</div></td><td class="hintcell">use all digits up to first non-digit character for the packed size</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">$</div></td><td class="hintcell">skip all spaces/tabstops until next character or end of line</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">\</div></td><td class="hintcell">data continues on next line (maximum 2 lines supported)</td></tr>
@@ -323,41 +323,41 @@
       </div>
 
       <div>
-        <h2>5.5.6. <a name="advancedexample">Example with advanced syntax</a></h2>
+        <h2><a name="advancedexample">5.5.6. Example with advanced syntax</a></h2>
         <p>The example with the "standard syntax" was a good guess, but it is perfect.</p>
         <p>There are some cases where it won't work correctly.</p>
         <p>With huge files, the filesize is wider than expected so our first attempt of listing will fail.</p>
         <p>See our file <code>007 Skyfall.TS</code>.</p>
         <p>We can see it is not displayed with the appropriate information. Let's compare:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg12.png" width="782" height="135"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg12.png" width="756" height="122"></p>
         <p>So we see it's incorrect regarding the filename, file size, the date, etc.</p>
         <p>Let's use elements from the "advanced syntax" to solve this problematic situation.</p>
-        <p>Here is what could be use to make it work even if outputed field are not *exactly* always on the same widht:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg13.png" width="270" height="46"></p>
+        <p>Here is what could be use to make it work even if outputed field are not *exactly* always on the same width:</p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg13.png" width="258" height="41"></p>
         <p>It's a little more complex, but is very easy to described and at the end we'll see it's not so complicated to generate.</p>
         <p>Here's a colored description that will help us to visualize the parsing of each little block:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg14.png" width="756" height="510"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg14.png" width="748" height="495"></p>
         <p>So using that "listing format" string, we may now do again our test and we have the correct result, even for the huge file:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg15.png" width="742" height="576"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg15.png" width="668" height="570"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.6. <a name="actionextract">Configuring the "Extract" action</a></h2>
+        <h2><a name="actionextract">5.6. Configuring the "Extract" action</a></h2>
         <p>Using the same <a href="#variables">variables</a> and <a href="#modifiers">variable modifiers</a> mentioned earlier, this is the line to configure how to call the external archiver to "extract" a file or all files from the selected archive.</p>
         <p>Still continuing our example with "rar.exe", we know from its documentation that we use the command "x" to indicate we want to extract a file or a group of files.</p>
         <p>With "rar.exe", we may also provide in parameter a list of file to extract.</p>
         <p>So we will take advantage of the variable <code>%L</code> that Double Commander offers us which will create a text file with inside each and every file selected requested from the active to be extracted and that's this single list file that we will pass in parameter.</p>
         <p>Here is the line we'll configure in this example with "rar.exe" for the extraction:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg16.png" width="152" height="42"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg16.png" width="146" height="41"></p>
         <p>The description of this example is:</p>
         <ul>
-          <li><B>%P</b> - Will be substituted by the configured external archiver executable</li>
-          <li><B>x</b> - The command for "rar.exe" for an extraction</li>
-          <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" so it will accept to overwrite on existing file</li>
-          <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to unpack</li>
-          <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
+          <li><b>%P</b> - Will be substituted by the configured external archiver executable</li>
+          <li><b>x</b> - The command for "rar.exe" for an extraction</li>
+          <li><b>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" so it will accept to overwrite on existing file</li>
+          <li><b>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
+          <li><b>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to unpack</li>
+          <li><b>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>So this command will be invoke when we'll select an archive to extract the whole content, just one file, etc.</p>
         <p>We may not realize at first but when we'll "enter in" the archive like it would be a directory and we would press <kbd>F3</kbd> to view the content of a file inside the archive, this "Extract" action will took place in background. The selected file will be extracted using that pattern into a temporary location and then that's this temporary file that we will look at with the <kbd>F3</kbd> invoken viewer.</p>
@@ -366,21 +366,21 @@
       </div>
 
       <div>
-        <h2>5.7. <a name="actionadding">Configuring the "Adding" action</a></h2>
+        <h2><a name="actionadding">5.7. Configuring the "Adding" action</a></h2>
         <p>Using the same <a href="#variables">variables</a> and <a href="#modifiers">variable modifiers</a> mentioned earlier, this is the line to configure how to call the external archiver to "pack" a file or all files to the selected archive.</p>
         <p>Still continuing our example with "rar.exe", we know from its documentation that we use the command "a" to indicate we want to create an archive or to add to an existing archive a file or a group of files.</p>
         <p>With "rar.exe", we may also provide in parameter a list of file to add.</p>
         <p>So we will take advantage of the variable <code>%L</code> that Double Commander offers us which will create a text file with inside each and every file selected requested from the active panel to be added to the archive and that's this single list file that we will be passed in parameter.</p>
         <p>Here is the line we'll configure in this example with "rar.exe" for the archive creation or addition:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg17.png" width="146" height="44"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg17.png" width="146" height="41"></p>
         <p>The description of this example is:</p>
         <ul>
-          <li><B>%P</b> - Will be substituted by the configured external archiver executable</li>
-          <li><B>a</b> - The command for "rar.exe" for an archive creation or to add to an existing one</li>
-          <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
-          <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack</li>
-          <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
+          <li><b>%P</b> - Will be substituted by the configured external archiver executable</li>
+          <li><b>a</b> - The command for "rar.exe" for an archive creation or to add to an existing one</li>
+          <li><b>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
+          <li><b>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
+          <li><b>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack</li>
+          <li><b>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>So this command will be invoken when we'll select a file or a group of files and request to pack them using the "rar" external archiver.</p>
         <p>This will be use when we use the internal command <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>.</p>
@@ -388,197 +388,196 @@
       </div>
 
       <div>
-        <h2>5.8. <a name="actiondelete">Configuring the "Delete" action</a></h2>
+        <h2><a name="actiondelete">5.8. Configuring the "Delete" action</a></h2>
         <p>Some types of compressed file formats support the possibility to delete a file inside the actual compressed file directly.</p>
         <p>If this feature is supported, we may configure Double Commander to indicate how to invoke the external archiver to do so.</p>
         <p>Typical situation where this command will be used is when we've entered into a archive, we've selected a file inside it and we click to delete it.</p>
         <p>If this "Delete Action" is configured, then it will be used for the action.</p>
         <p>Please note that this action is on the second tab of the external archive configuration.</p>
         <p>Still continuing our example with "rar.exe", here is how we may configure this action:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg18.png" width="318" height="84"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg18.png" width="148" height="41"></p>
         <p>The description of this example is:</p>
         <ul>
-          <li><B>%P</b> - Will be substituted by the configured external archiver executable</li>
-          <li><B>d</b> - The command for "rar.exe" to delete an entry inside the archive</li>
-          <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
-          <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to erase (yes, we may erase more than one at once)</li>
-          <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
+          <li><b>%P</b> - Will be substituted by the configured external archiver executable</li>
+          <li><b>d</b> - The command for "rar.exe" to delete an entry inside the archive</li>
+          <li><b>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
+          <li><b>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
+          <li><b>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to erase (yes, we may erase more than one at once)</li>
+          <li><b>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.9. <a name="actiontest">Configuring the "Test" action</a></h2>
+        <h2><a name="actiontest">5.9. Configuring the "Test" action</a></h2>
         <p>Some archivers allow to validate the integrity of an archived file to make sure there is no error in them, making sure nothing is corrupted.</p>
         <p>If this feature is supported, we may configure Double Commander to indicate how to invoke the external archiver to do so.</p>
         <p>Still continuing our example with "rar.exe", here is how we may configure this action:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg19.png" width="288" height="32"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg19.png" width="98" height="41"></p>
         <p>The description of this example is:</p>
         <ul>
-          <li><B>%P</b> - Will be substituted by the configured external archiver executable</li>
-          <li><B>t</b> - The command for "rar.exe" to verify an archive</li>
-          <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
-          <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
+          <li><b>%P</b> - Will be substituted by the configured external archiver executable</li>
+          <li><b>t</b> - The command for "rar.exe" to verify an archive</li>
+          <li><b>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
+          <li><b>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
         </ul>
         <p>This will be use when we use the internal command <a href="cmds.html#cm_TestArchive">cm_TestArchive</a>.</p>
         <p>If there is no error, testing window will be closed. If there is an error, a message like the following will appear:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg20.png" width="526" height="188"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg20.png" width="514" height="184"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.10. <a name="actionextractnpath">Configuring the "Extract without path" action</a></h2>
+        <h2><a name="actionextractnpath">5.10. Configuring the "Extract without path" action</a></h2>
         <p>By default when invoking the internal command <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> to unpack an archive, if the files inside it are arranged with a certain directory structure, then archiver will recreate the same struture while extracting the files.</p>
         <p>But, when supported by the archiver, it's sometimes pertinent to extract all the files in the same location without re-creating the directory structure.</p>
         <p>So this is where the action "Extract without path" is used when configured.</p>
         <p>For example with "rar.exe", the command like to do that will be written this way:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg24.png" width="376" height="28"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg24.png" width="218" height="41"></p>
         <p>The description of this example is:</p>
         <ul>
-          <li><B>%P</b> - Will be substituted by the configured external archiver executable</li>
-          <li><B>e</b> - The command for "rar.exe" to extract from an archive but not re-creating the directory structure</li>
-          <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
-          <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to extract from archive</li>
-          <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
+          <li><b>%P</b> - Will be substituted by the configured external archiver executable</li>
+          <li><b>e</b> - The command for "rar.exe" to extract from an archive but not re-creating the directory structure</li>
+          <li><b>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
+          <li><b>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
+          <li><b>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to extract from archive</li>
+          <li><b>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>The effect of this will be visible in the requester when we request to unpack an archive:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg23.png" width="550" height="280"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg23.png" width="464" height="266"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.11. <a name="actionselfextract">Configuring the "Create self extracting archive" action</a></h2>
+        <h2><a name="actionselfextract">5.11. Configuring the "Create self extracting archive" action</a></h2>
         <p>Some archiver can create a "self-extractable" compressed file.</p>
         <p>This means that at the end of the process, what we will get is an executable that when it is executed, it will extract the content of what was zipped.</p>
         <p>This is useful when we want to be sure the persons who will need the content of the compressed file won't have problem to uncompress it: nothing needs to be installed, just execute the file and we'll get the uncompressed ones!</p>
         <p>Typically, this action will often be configured similarly as the "Adding action" and we just add a parameter indicating we want a self-extractable result.</p>
         <p>That's the case for example with our example with "rar.exe". Here is how we may configure this action:</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg21.png" width="330" height="28"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg21.png" width="248" height="41"></p>
         <p>The description of this example is:</p>
         <ul>
-          <li><B>%P</b> - Will be substituted by the configured external archiver executable</li>
-          <li><B>a</b> - The command for "rar.exe" for an archive creation or to add to an existing one</li>
-          <li><B>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
-          <li><B>-sfx</b> - A parameter for "rar.exe" to specify we want the end result to be a self extractable file</li>
-          <li><B>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
-          <li><B>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack</li>
-          <li><B>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
+          <li><b>%P</b> - Will be substituted by the configured external archiver executable</li>
+          <li><b>a</b> - The command for "rar.exe" for an archive creation or to add to an existing one</li>
+          <li><b>-y</b> - A parameter for "rar.exe" to "Assume Yes on all queries" to don't be bothered</li>
+          <li><b>-sfx</b> - A parameter for "rar.exe" to specify we want the end result to be a self extractable file</li>
+          <li><b>%AQA</b> - Filename of the archive. "Q" indicates we want DC to quote the name if there is space in it. "A" requesting ANSI encoding in the name</li>
+          <li><b>@</b> - The symbol to indicate to "rar.exe" that we'll provide a list of files as what to pack</li>
+          <li><b>%LQA</b> - Filename of the file list of names of files to be processed by the external archiver</li>
         </ul>
         <p>To create a self-extracted, please note that the procedure is the same as usual as when creating the compressed file, like using internal command <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>, but in the requester that appear, we'll check the option "Create self extracting archive".</p>
-        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg22.png" width="548" height="300"></p>
+        <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg22.png" width="540" height="297"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+        <br>
       </div>
 
       <div>
-        <h2>5.12. <a name="configids">Configuring the "ID's"</a></h2>
+        <h2><a name="configids">5.12. Configuring the "ID's"</a></h2>
         <p>We may configure Double Commander in such way that it will ignore file extension of a file and attempt to detect a compressed file archive by it's internal content and then invoke the appropriate list and unpack commands described above.</p>
         <p>This is where we will use the internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
         <p>Example of the usage of this is when we want to see the actual content of a self-extracted .exe file without having to launch it.</p>
-        <p>Another example would be to see the content of archive that is saved with a different file extension than the regular archive like the .docx file of Microsoft Word 2010 which in fact actually a compressed zip file.</p>
+        <p>Another example would be to see the content of archive that is saved with a different file extension than the regular archive like the .docx file of Microsoft Word which in fact actually a compressed zip file.</p>
         <p>Basically we may configure DC to detect the presence of strategic pattern of data at specific location into selected file so it will recognize the configured archived.</p>
         <p>We will call "ID's" these patterns and this section is about configuration of them.</p>
         <p>We have three settings for that: ID, ID Position and ID Seek Range.</p>
         <p>We will instruct Double Commander where to search for specific ID's pattern to recognize an a type of archive and then use the configured commands specific to the recognized type of archive.</p>
         <p>Let's begin by a simple example. Here follows a snapshot of the beginning of a 7-Zip archived:</p>
-        <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="780" height="146"></p>
+        <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="764" height="138"></p>
         <p>By looking at other 7-Zip files, we see that the first four bytes are always the sequence 0x37 0x7A 0xBC 0xAF.</p>
         <p>So we will take profit of that by configuring Double Commander that when it sees a file starting with that sequence to assume that the file is an 7-Zip archive.</p>
         <p>That's what we do with the following configuration:</p>
-        <p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="404" height="260"></p>
+        <p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="130" height="121"></p>
         <p>We must write ID as a 2-digit hex numbers delimited with spaces.</p>
         <p>ID Position (optional) is a position of ID in archive. If not present, ID will be searched in the beginning of archive. We can define the positions with "-" sign: in this case the positions will be calculated from the end of file. Special value &lt;SeekID&gt; determinated search ID if not found by numeric values of ID Position. Seek in range "0 .. size of file" or "0 .. ID Seek Range". Values can be writed as decimal (12345) or heximal (0x3039). For negative values use notation 0xFFFFFFFF (-1).</p>
         <p>ID Seek Range (optional) is a count of bytes where ID seek if defined &lt;SeekID&gt;. By default it's 1 MB.</p>
-        <p><B>Note:</b> All above parameters can be defined with multiple values. We can use comma to separate those multiple values.</p>
+        <p><b>Note:</b> All above parameters can be defined with multiple values. We can use comma to separate those multiple values.</p>
         <p>In our example with 7-Zip archive, ID and ID Position (0, because in the beginning of file) will be enough.</p>
         <p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+        <br>
       </div>
-
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="directoryhotlist.html">Previous</a> | <a title="Next page" href="shortcuts.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="directoryhotlist.html">Previous</a> | <a title="Next page" href="toolbar.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

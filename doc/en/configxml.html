@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - doublecmd.xml</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.13. Settings in doublecmd.xml</h1>
+        <h1>2.14. Settings in doublecmd.xml</h1>
       </div>
 
       <div>
@@ -29,14 +29,14 @@
       </div>
 
       <div>
-        <h2>1. <a name="presenta">Presentation</a></h2>
-        <p>Main settings of Double Commander are saved/restored to/from an <a href="https://en.wikipedia.org/wiki/XML" target="_blank">XML</a> file named <code>doublecmd.xml</code>.</p>
+        <h2><a name="presenta">1. Presentation</a></h2>
+        <p>Main settings of Double Commander are saved/restored to/from an <a href="https://en.wikipedia.org/wiki/XML" target="_blank">XML</a> file named <tt>doublecmd.xml</tt>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="location">Location</a></h2>
-        <p>The location of this <code>doublecmd.xml</code> file may be in different places:</p>
+        <h2><a name="location">2. Location</a></h2>
+        <p>The location of this <tt>doublecmd.xml</tt> file may be in different places:</p>
         <ul>
           <li>It may be configured to be in the user home directory.</li>
           <li>It may be configured to be in the program directory itself, which is commonly the case when used in a portable context.</li>
@@ -44,21 +44,20 @@
         </ul>
         <p>We follow <a href="commandline.html">this link</a> if we want to specify it by with the command line paramter <code>--config-dir</code>.</p>
         <p>Other than that, we do Configuration&nbsp;&gt; Options...&nbsp;&gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px">&nbsp;&gt; set the option <i>Location of configuration files</i>.</p>
-        <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="719" height="174"></p>
-        <p>Another way to quickly find out where is located the <code>doublecmd.xml</code> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then we select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". We will find there the <code>doublecmd.xml</code> that application is currently using.</p>
-        <p class="figure"><img class="largeimage" title="Go to config location" alt="Go to config location" src="images/imgDC/gotoconfiglocation.png" width="882" height="260"></p>
+        <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="496" height="141"></p>
+        <p>Another way to quickly find out where is located the <tt>doublecmd.xml</tt> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then we select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". We will find there the <tt>doublecmd.xml</tt> that application is currently using.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="manualed">Options to change manually</a></h2>
+        <h2><a name="manualed">3. Options to change manually</a></h2>
         <p>The large majority of possible settings in Double Commander may be set via the application itself through the various option categories.</p>
-        <p>We simply click from the main menu bar Configuration&nbsp;&gt; Options and the various settings we'll configured there will be saved to the <code>doublecmd.xml</code> file when we close the application. Then, they will be restored on the next usage of the application.</p>
+        <p>We simply click from the main menu bar Configuration&nbsp;&gt; Options and the various settings we'll configured there will be saved to the <tt>doublecmd.xml</tt> file when we close the application. Then, they will be restored on the next usage of the application.</p>
         <p><span class="uline">So generally, we don't have to manually edit the content of the configuration file</span>.</p>
         <p>But there are some very rare specific settings that required to be edited manually from the configuration file if we want to tweak the application.</p>
-        <BR>
-        <p><B>WARNING:</B> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <code>doublecmd.xml</code> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
-        <BR>
+        <br>
+        <p><b>WARNING:</b> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <tt>doublecmd.xml</tt> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
+        <br>
         <p>The following table gives us these rare specific settings that we need to manually edit the file if we need to change them.</p>
         <p><b>About color format</b>: We can set color as hex number using format $BBGGRR (for example, if we want to use blue color, we would write <code>$FF0000</code>).</p>
 
@@ -67,9 +66,9 @@
           <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Description</th></tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<BR><small>from &lt;Behaviours&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<br><small>from &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">
-              The right panel will be active when Double Commander starts.<BR>
+              The right panel will be active when Double Commander starts.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -84,14 +83,15 @@
                   <td class="innerdescdesccell">Left panel (default)</td>
                 </tr>
               </table>
-              <I>Example:</i> <code>&lt;ActiveRight&gt;True&lt;/ActiveRight&gt;</code>
+              <i>Example:</i> <code>&lt;ActiveRight&gt;True&lt;/ActiveRight&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;SingleClickStart&gt;<BR><small>from &lt;Behaviours&gt;&lt;Mouse&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<br><small>from many tags &lt;Fonts&gt;</small></div></td>
             <td class="hintcell">
-              This will determine what will launch the action when we're using the mouse button on an element from the displayed file list in a panel.<BR>
+              Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used. In other words, it determine the font quality.<br>
+              There are many tags where it's applicable individually.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -99,95 +99,56 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell">A double click is necessary to launch the action (default).</td>
+                  <td class="innerdescdesccell"><b>Default</b>: The quality is determined by the system settings (default).</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">A single click opens files and folders.</td>
+                  <td class="innerdescdesccell"><b>Draft</b>: For raster fonts, scaling is enabled; the font size can be increased but the quality may be lower.<br>Also the font supports Bold, Italic, Underline or Strikeout if necessary.<br>The quality is less important than when Proof is used.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell">A single click only opens folders. For files, a double click is needed.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">4 added to above</td>
-                  <td class="innerdescdesccell">The text cursor no longer follows the mouse cursor.</td>
-                </tr>
-              </table>
-              <BR>
-              <I>
-                If we want...<BR>
-                ...a single click opens files and folders: 1 + 0 = 1 so <code>&lt;SingleClickStart&gt;1&lt;/SingleClickStart&gt;</code><BR>
-                ...a single click only opens folders, for files, a double click is needed: 2 + 0 = 2 so <code>&lt;SingleClickStart&gt;2&lt;/SingleClickStart&gt;</code><BR>
-                ...a single click opens files and folders, the text cursor not follows the mouse cursor: 1 + 4 = 5 so <code>&lt;SingleClickStart&gt;5&lt;/SingleClickStart&gt;</code><BR>
-                ...a single click only opens folders, the text cursor not follows the mouse cursor: 2 + 4 = 6 so <code>&lt;SingleClickStart&gt;6&lt;/SingleClickStart&gt;</code><BR>
-              </I>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<BR><small>from many tags &lt;Fonts&gt;</small></div></td>
-            <td class="hintcell">
-              Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used.<BR>In other words, it determine the font quality.<BR>There are many tags where it's applicable individually.<BR>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell"><B>Default</b>: The quality is determined by the system settings (default).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell"><B>Draft</b>: For raster fonts, scaling is enabled; the font size can be increased but the quality may be lower.<BR>Also the font supports Bold, Italic, Underline or Strikeout if necessary.<BR>The quality is less important than when Proof is used.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell"><B>Proof</b>: The quality of the characters is important, so for the raster fonts, scaling is disabled and the font closest in size is chosen.</td>
+                  <td class="innerdescdesccell"><b>Proof</b>: The quality of the characters is important, so for the raster fonts, scaling is disabled and the font closest in size is chosen.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">3</td>
-                  <td class="innerdescdesccell"><B>NonAntialiased</b>: The font is never antialiased.</td>
+                  <td class="innerdescdesccell"><b>NonAntialiased</b>: The font is never antialiased.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">4</td>
-                  <td class="innerdescdesccell"><B>Antialiased</b>: The font is always antialiased if it supports it.<BR>The size of the font cannot be too small or too large.</td>
+                  <td class="innerdescdesccell"><b>Antialiased</b>: The font is always antialiased if it supports it.<br>The size of the font cannot be too small or too large.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">5</td>
-                  <td class="innerdescdesccell"><B>ClearType</b>: The font is rendered using the <a href="https://en.wikipedia.org/wiki/ClearType" target="_blank">ClearType</a> anti-aliasing method.</td>
+                  <td class="innerdescdesccell"><b>ClearType</b>: The font is rendered using the <a href="https://en.wikipedia.org/wiki/ClearType" target="_blank">ClearType</a> anti-aliasing method.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">6</td>
-                  <td class="innerdescdesccell"><B>ClearTypeNatural</b>: The font is rendered using the Natural ClearType antialiasing method.</td>
+                  <td class="innerdescdesccell"><b>ClearTypeNatural</b>: The font is rendered using the Natural ClearType antialiasing method.</td>
                 </tr>
               </table>
-              <I>Example:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
+              <i>Example:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<BR><small>from &lt;Colors&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>from &lt;Colors&gt;</small></div></td>
             <td class="hintcell">
-              We may configure DC so it will draw a rectangle around the active entry as we we cycle through them in a panel.<BR>
-              This &lt;gBorderFrameWidth&gt; setting allows us to configure the width of the lines used to draw a rectangle around the current active entry.<BR>
-              To view that rectangle, we must go in Configuration&nbsp;&gt; Options...&nbsp;&gt; Colors&nbsp;&gt; File panels and check the option <i>Use frame cursor</i>.<BR>
-              <I>Example:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
+              We may configure DC so it will draw a rectangle around the active entry as we we cycle through them in a panel.<br>
+              This <code>&lt;gBorderFrameWidth&gt;</code> setting allows us to configure the width of the lines used to draw a rectangle around the current active entry.<br>
+              To view that rectangle, we must go in Configuration&nbsp;&gt; Options...&nbsp;&gt; Colors&nbsp;&gt; File panels and check the option <i>Use frame cursor</i>.<br>
+              <i>Example:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<BR><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">
-              Change text color of log window (info, error, success messages).
-            </td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<br><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
+            <td class="hintcell">Change text color of log window (info, error, success messages).</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<BR><small>from &lt;Colors&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>from &lt;Colors&gt;</small></div></td>
             <td class="hintcell">
-              Change colors of <a href="help.html#iface_dir">current directory bar</a>:<BR>
+              Change colors of <a href="help.html#iface_dir">current directory bar</a>:<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Tag</th>
@@ -217,17 +178,27 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<BR><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
-              When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<BR>
+              When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<br>
               If we want to disable this behavior and use new value only in the current session, we must replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<BR><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>from &lt;Layout&gt;</small></div></td>
+            <td class="hintcell">Windows only: show colon after letters of disks in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>from &lt;Layout&gt;</small></div></td>
+            <td class="hintcell">Windows only: use uppercase letters in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
-              Changes the look of tabstop headers bar.<BR>Default value depends on your OS.<BR>
+              Changes the look of tabstop headers bar.<br>Default value depends on your OS.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -235,44 +206,49 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell"><B>tsLazarus</b>: The default Lazarus's look.</td>
+                  <td class="innerdescdesccell"><b>tsLazarus</b>: The default Lazarus's look.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell"><B>tsStandard</b>: A more contrasted look, like Delphi grids.</td>
+                  <td class="innerdescdesccell"><b>tsStandard</b>: A more contrasted look, like Delphi grids.</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell"><B>tsNative</b>: Tries to set a look that is in concordance with current widgetset theme.</td>
+                  <td class="innerdescdesccell"><b>tsNative</b>: Tries to set a look that is in concordance with current widgetset theme.</td>
                 </tr>
               </table>
-              <I>Example:</i> <code>&lt;TitleStyle&gt;2&lt;/TitleStyle&gt;</code>
+              <i>Example:</i> <code>&lt;TitleStyle&gt;2&lt;/TitleStyle&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<BR><small>from &lt;FilesViews&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
-              This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<BR>The value is interpreted directly in pixels.<BR>Default value is 2.<BR>
-              <I>Example:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+              This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<br>The value is interpreted directly in pixels.<br>Default value is 2.<br>
+              <i>Example:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>and</small> &lt;FolderPostfix&gt;<br><small>from &lt;FilesViews&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>and</small> &lt;FolderPostfix&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
-              By default DC shows square brackets around directory names (it's optional parameter in Files views&nbsp;&gt; Files views extra), but we can use any symbols instead them.<BR>
+              By default DC shows square brackets around directory names (it's optional parameter in Files views&nbsp;&gt; Files views extra), but we can use any symbols instead them.<br>
               Note: In XML some special symbols are reserved as part of markup and we can not use them as is. There are five predefined entities: <code>&lt;</code> should write as <code>&amp;lt;</code>, <code>&gt;</code> as <code>&amp;gt;</code>, <code>&amp;</code> as <code>&amp;amp;</code>, <code>'</code> as <code>&amp;apos;</code> and <code>"</code> as <code>&amp;quot;</code>.
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Warn if target path is longer than maximum length for a path (some programs will not be able to access a file/directory with such a long name). In Windows this value (MAX_PATH) is defined as 260 characters. <code>True</code> by default.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
-              Ignore time difference of exactly one hour between entries when comparing their date and time.<BR>
-              This takes place when using internal commands <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> or <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>.<BR>
-              It is useful when comparing items located on a NTFS partition to another one not on such partition.<BR>
-              Since the <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">time stamp of a file changes on a NTFS partition</a> when daylight savings period occurs and not when the same exact file is from a FAT32, we want the two files to be consider identical even if we visibly see a one hour difference between the two.<BR>
+              Ignore time difference of exactly one hour between entries when comparing their date and time.<br>
+              This takes place when using internal commands <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> or <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>.<br>
+              It is useful when comparing items located on a NTFS partition to another one not on such partition.<br>
+              Since the <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">time stamp of a file changes on a NTFS partition</a> when daylight savings period occurs and not when the same exact file is from a FAT32, we want the two files to be consider identical even if we visibly see a one hour difference between the two.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -287,44 +263,27 @@
                   <td class="innerdescdesccell">Disable (default)</td>
                 </tr>
               </table>
-              <I>Example:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+              <i>Example:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<BR><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
-               Suppose we've "entered" into a compressed file and browing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<BR>
-              <I>Example:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
+               Suppose we've "entered" into a compressed file and browsing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<br>
+              <i>Example:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UseShellForFileOperations&gt;</div></td>
-            <td class="hintcell">
-              To use the rename function as in Explorer.<BR>Works correctly with <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">UAC</a>.<BR>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Enable (default)</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Disable</td>
-                </tr>
-              </table>
-              <I>Example:</i> <code>&lt;UseShellForFileOperations&gt;True&lt;/UseShellForFileOperations&gt;</code>
-            </td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyXattributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="hintcell">Linux and other Unix-like systems: copy filesystem extended attributes (i.e. the named attributes) when copying/moving files or not. <code>True</code> by default.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<BR><small>from &lt;AutoRefresh&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<br><small>from &lt;AutoRefresh&gt;</small></div></td>
             <td class="hintcell">
-              The ability to delete watched directories.<BR>A "watched directory" is a directory that Double Commander has a kind of hook on it so it can monitor any modification in it.<BR>This way, it can refresh the displayable content of it if it's content changed.<BR>This setting allows to control how Double Commander will react if we attempt to delete one of these "watched directory" currently displayed in a panel, even in a non-activated tab.<BR>
+              The ability to delete watched directories.<br>A "watched directory" is a directory that Double Commander has a kind of hook on it so it can monitor any modification in it.<br>This way, it can refresh the displayable content of it if it's content changed.<br>This setting allows to control how Double Commander will react if we attempt to delete one of these "watched directory" currently displayed in a panel, even in a non-activated tab.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -343,15 +302,15 @@
                   <td class="innerdescdesccell">Watch whole drives instead of single directories to omit problems with deleting watched directories.</td>
                 </tr>
               </table>
-              <I>Example:</i> <code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
+              <i>Example:</i> <code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<br><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
-              This option will help to determine if the icons used for drives, folders or archives will be the default ones from the system <I>(Windows only)</i> OR if it will be custom ones that we may set ourselves.<BR>
-              The <code>CustomIcons</code> option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences:<BR>
+              Windows only: this option will help to determine if the icons used for drives, folders or archives will be the default ones from the system or if it will be custom ones that we may set ourselves.<br>
+              The <code>CustomIcons</code> option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences:<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Element</th>
@@ -374,16 +333,16 @@
                   <td class="innerdescdesccell">4</td>
                 </tr>
               </table>
-              <BR>
-              <I>
-                If we want...<BR>
-                ...everything from the system: 0 + 0 + 0= 0 so <code>&lt;CustomIcons&gt;0&lt;/CustomIcons&gt;</code><BR>
-                ...everything custom: 1 + 2 + 4 = 7 so <code>&lt;CustomIcons&gt;7&lt;/CustomIcons&gt;</code><BR>
-                ...drive custom, other system: 1 + 0 + 0 = 1 so <code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code><BR>
+              <br>
+              <i>
+                If we want...<br>
+                ...everything from the system: 0 + 0 + 0= 0 so <code>&lt;CustomIcons&gt;0&lt;/CustomIcons&gt;</code><br>
+                ...everything custom: 1 + 2 + 4 = 7 so <code>&lt;CustomIcons&gt;7&lt;/CustomIcons&gt;</code><br>
+                ...drive custom, other system: 1 + 0 + 0 = 1 so <code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code><br>
                 etc...
               </i>
-              <BR><BR>
-              If we wish to use custom icons, here is the location for each items:<BR>
+              <br><br>
+              If we wish to use custom icons, here is the location for each items:<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Element</th>
@@ -406,9 +365,9 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;DiskAlpha&gt;<BR><small>from &lt;Icons&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;DiskAlpha&gt;<br><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
-              Option to set the transparency level of unmounted drive icons.<BR>
+              Option to set the transparency level of unmounted drive icons.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -427,18 +386,16 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<BR><small>в &lt;Icons&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
-            <td class="hintcell">
-              Size of toolbar icons in the internal editor, viewer and differ tool, supported values: 16, 24 or 32.
-            </td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<br><small>from &lt;Icons&gt;</small></div></td>
+            <td class="hintcell">Size of toolbar icons in the internal editor, viewer and differ tool, supported values: 16, 24 or 32.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              Double Commander is able to recognize the metadata from <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">Exif</a> structure that might be encoded into a JPG image file.<BR>
-              Inside that structure, there is an <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">orientation flag</a> that may be used to display the picture into the same orientation as it was taken like if was in portrait, landscape, upside-down, mirror, etc.<BR>
-              The <code>ImageExifRotate</code> tag configures Double Commander to indicate if we want the viewer to display the image using that information or not.<BR>
+              Double Commander is able to recognize the metadata from <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">EXIF</a> structure that might be encoded into a JPG image file.<br>
+              Inside that structure, there is an <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">orientation flag</a> that may be used to display the picture into the same orientation as it was taken like if was in portrait, landscape, upside-down, mirror, etc.<br>
+              The <code>ImageExifRotate</code> tag configures Double Commander to indicate if we want the viewer to display the image using that information or not.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -453,57 +410,83 @@
                   <td class="innerdescdesccell">Ignore the orientation flag.</td>
                 </tr>
               </table>
-              <I>Example:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
+              <i>Example:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              For the internal viewer, configure the maximum number of characters to be displayed on one text line prior to wrap it up to the next one.<BR>
-              The valid range goes from 80 to 16384 and default value is 1024.<BR>
-              <I>Example:</i> <code>&lt;MaxTextWidth&gt;1024&lt;/MaxTextWidth&gt;</code>
+              For the internal viewer, configure the maximum number of characters to be displayed on one text line prior to wrap it up to the next one.<br>
+              The valid range goes from 80 to 16384 and default value is 1024.<br>
+              <i>Example:</i> <code>&lt;MaxTextWidth&gt;1024&lt;/MaxTextWidth&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<BR><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              For the internal viewer, set the width of tab stops to use.<BR>
-              The valid range goes from 1 to 32 and default value is 8.<BR>
-              <I>Example:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
+              For the internal viewer, set the width of tab stops to use.<br>
+              The valid range goes from 1 to 32 and default value is 8.<br>
+              <i>Example:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small><span class="versionref">(Version 1.0.0 +)</span></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
+            <td class="hintcell">For the internal Differ tool, set colors for added, deleted and modified lines.</td>
+          </tr>
+          
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
+            <td class="hintcell">For the internal Differ tool, set the color for differing characters in binary mode.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
             <td class="hintcell">
-              Change colors in the internal Differ tool (file comparison) for added, deleted and modified lines.
+              Synchronize directories: save or not asymmetric mode by default.<br>
+              <i>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
+              or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).</i>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Attribute <I>Save</I><BR><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
-            <td class="hintcell">
-              Synchronize directories: save or not asymmetric mode by default.<BR>
-              <I>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
-              or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).</I>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Left&gt;, &lt;Right&gt; <small>and</small> &lt;Unknown&gt;<br><small>from &lt;SyncDirs&gt;&lt;Colors&gt;</small></div></td>
+            <td class="hintcell">Text colors in the directory synchronization tool:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Tag</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;Left&gt;</td>
+                  <td class="innerdescdesccell">files selected for copying or deleting on the left</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;Right&gt;</td>
+                  <td class="innerdescdesccell">files selected for copying or deleting on the right</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;Unknown&gt;</td>
+                  <td class="innerdescdesccell">unique files (both side)</td>
+                </tr>
+              </table>
             </td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<BR><small>from &lt;Lua&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<br><small>from &lt;Lua&gt;</small></div></td>
             <td class="hintcell">
-              <a name="luapathtolibrary"></a>This is the path to indicate where is the Lua library.<BR>
-              It will indicate the location of the required dll file <tt>lua5.1.dll</tt> when doing <a href="lua.html">Lua Scripting</a>.<BR>
-              This path may be relative to the Double Commander executable file.<BR>
-              <I>Example:</I> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code>
+              <a name="luapathtolibrary"></a>This is the path to indicate where is the Lua library.<br>
+              It will indicate the location of the required dll file <tt>lua5.1.dll</tt> when doing <a href="lua.html">Lua Scripting</a>.<br>
+              This path may be relative to the Double Commander executable file.<br>
+              <i>Example:</i> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code>
             </td>
           </tr>
-
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+        <br>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
@@ -511,81 +494,81 @@
       <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
     </div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

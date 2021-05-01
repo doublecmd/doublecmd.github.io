@@ -2886,13 +2886,22 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadFavoriteTabs" alt="cm_LoadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadfavoritetabs.png">
               <div class="cmdname"><a name="cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Prompt the user with a popup to request asking to select a previously saved setup of tabs.<br>
+            <td class="cmdhintcell">Prompt the user with a menu asking to select a previously saved setup.<br><span class="versionref">Version 1.0.0 + </span>Parameter "setup" overrides the menu and load directly the mentionned setup.
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Parameter</th>
                   <th class="innerdescheader">Value</th>
                   <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">setup<p class="versionref">Version 1.0.0 +</p></td>
+                  <td class="innerdescvaluecell"><I>name</i></td>
+                  <td class="innerdescdesccell">will load the setup <I>name</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><I>(nothing)</i></td>
+                  <td class="innerdescdesccell">No change current tabs, but will unselect current setup selection if any</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">menutype</td>

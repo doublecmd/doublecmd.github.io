@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Multi-Rename Tool</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="help.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="findfiles.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.2. Multi-Rename Tool</h1>
+        <h1>2.5. Multi-Rename Tool</h1>
       </div>
 
       <div>
@@ -44,7 +44,7 @@
             <dl>
               <dt>5.1. <a href="#existing">Existing list</a></dt>
               <dt>5.2. <a href="#currentfilename">List created on the fly based on current file name</a></dt>
-              <dt>5.3. <a href="#newfilename">List created on the fly based on current new file name column</a><span class="versionref">(Version 1.0.0 +)</span></dt>
+              <dt>5.3. <a href="#newfilename">List created on the fly based on current new file name column</a></dt>
             </dl>
           </dd>
           <dt>6. <a href="#modifiers">Modifiers</a></dt>
@@ -60,7 +60,7 @@
           <dt>7. <a href="#actualaction">Actual renaming action</a></dt>
           <dt>8. <a href="#log">Log</a></dt>
           <dt>9. <a href="#presets">Presets</a></dt>
-          <dt>10. <a href="#configuration">Additional configuration</a><span class="versionref">(Version 1.0.0 +)</span></dt>
+          <dt>10. <a href="#configuration">Additional configuration</a></dt>
           <dd>
             <dl>
               <dt>10.1. <a href="#menubar">Show menu bar on top</a></dt>
@@ -74,37 +74,37 @@
       </div>
 
       <div>
-        <h2>1. <a name="presentation">Presentation</a></h2>
+        <h2><a name="presentation">1. Presentation</a></h2>
         <p>The Multi-Rename Tool allows us to rename many selected files at once using different means.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>1.1. <a name="recommendation">Recommendation</a></h2>
+        <h2><a name="recommendation">1.1. Recommendation</a></h2>
         <p>If we're not familiar with the Multi-Rename Tool, prior to actually explore it, it would be wise to make some tests with copies of actual files into a temporary directory.</p>
         <p>Then, when we get the idea, we may use the Multi-Rename Tool with actual files.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>1.2. <a name="overview">Overview</a></h2>
+        <h2><a name="overview">1.2. Overview</a></h2>
         <p>Let's suppose we've downloaded a bunch of podcast MP3 files.</p>
         <p>We might want to rename them to get a significant name for each.</p>
         <p>This is where the Multi-Rename Tool will be useful as it will help us to rename these multiple files in one action.</p>
-        <BR>
+        <br>
         <p>We will select the elements we want to rename from a panel.</p>
         <p>Then we invoke the Multi-Rename Tool either from</p>
         <ul>
-          <li>the main menu <B>Files</B>&nbsp;&gt; <B>Multi-Rename Tool</B></li>
+          <li>the main menu <b>Files</b>&nbsp;&gt; <b>Multi-Rename Tool</b></li>
           <li>with the internal command <a href="cmds.html#cm_MultiRename">cm_MultiRename</a></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="interface">Interface</a></h2>
+        <h2><a name="interface">2. Interface</a></h2>
         <p>This will get us to the Multi-Rename Tool dialog window like the following:</p>
-        <p class="figure"><img class="largeimage" title="Interface" alt="Interface" src="images/imgDC/mulrengeneral.png" width="781" height="436"></p>
+        <p class="figure"><img class="largeimage" title="Interface" alt="Interface" src="images/imgDC/mulrengeneral.png" width="728" height="430"></p>
         <p>On top we see a table with the files we've selected from source panel, one file per row, and about to be renamed.</p>
         <p>The table has three columns:</p>
         <table>
@@ -115,13 +115,13 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">File Path</div></td><td class="hintcell">Current location of file</td></tr>
         </table>
 
-        <p>The idea is to do some manipulation until the <B>New File Name</B> column shows us the actual new file names we want.</p>
-        <p>Then we will press the <B>Rename</B> button to actually rename the files.</p>
+        <p>The idea is to do some manipulation until the <b>New File Name</b> column shows us the actual new file names we want.</p>
+        <p>Then we will press the <b>Rename</b> button to actually rename the files.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="generation">Generation of the new file names</a></h2>
+        <h2><a name="generation">3. Generation of the new file names</a></h2>
         <p>We have tools at our disposition to generate the new file names we wish.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Possible tools</th></tr>
@@ -134,65 +134,65 @@
       </div>
 
       <div>
-        <h2>4. <a name="placeholders">Placeholders</a></h2>
+        <h2><a name="placeholders">4. Placeholders</a></h2>
         <p>Let's see the placeholders we may use.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>4.1. <a name="basic">Basic placeholders</a></h2>
-        <p>We define them in the box we have on left labeled <B>Mask</B>.</p>
-        <p>As we see, we define what will be used to form the <B>File name</B> and the <B>Extension</B> for our new wanted name.</p>
+        <h2><a name="basic">4.1. Basic placeholders</a></h2>
+        <p>We define them in the box we have on left labeled <b>Mask</b>.</p>
+        <p>As we see, we define what will be used to form the <b>File name</b> and the <b>Extension</b> for our new wanted name.</p>
         <p>These placeholders are defined between square brackets.</p>
         <p>Generally, each of these placeholders will return us a string that will be part of either the file name or its extension we want to create.</p>
         <p>We may define more than one in row and new part of filename will be the result of the concatenation of all these.</p>
-        <BR>
+        <br>
         <p>The basic placeholders are the following:</p>
         <ul>
-          <li><B>[N]</B> which stands for the current file name</li>
-          <li><B>[E]</B> which stands for the current file extension</li>
+          <li><b>[N]</b> which stands for the current file name</li>
+          <li><b>[E]</b> which stands for the current file extension</li>
         </ul>
 
         <p>For these two we may include some placeholders to delimit a range of characters from the file name and/or extension that will be used.</p>
         <p>Let's see a table showing the result based on this sample file:</p>
-        <p class="figure"><img class="largeimage" title="Sample file" alt="Sample file" src="images/imgDC/mulrensamplefile.png" width="635" height="63"></p>
+        <p class="figure"><img class="largeimage" title="Sample file" alt="Sample file" src="images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Possible placeholders</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Placeholders</th><th class="categorydesccolumn">Description</th><th class="categorynamecolumn">Example</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Nx]</div></td><td class="hintcell">character is position x of the file name</td><td class="hintcell"><code>[N9]</code> = T</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x]</div></td><td class="hintcell">same thing but count first from the end of the file name<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[N-5]</code> = P</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x]</div></td><td class="hintcell">same thing but count first from the end of the file name</td><td class="hintcell"><code>[N-5]</code> = P</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:y]</div></td><td class="hintcell">range of characters from position x to y in the file name</td><td class="hintcell"><code>[N5:6]</code> = 01</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:-y]</div></td><td class="hintcell">same thing but counting from the end of the file name<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[N-6:-7]</code> = 06</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:-y]</div></td><td class="hintcell">same thing but count first from the start and the last from the end<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[N10:-6]</code> = 060306</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:y]</div></td><td class="hintcell">same thing but count first from the end and the last from the start<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[N-16:6]</code> = 01</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx,y]</div></td><td class="hintcell">character range will start at x and be y characters in length<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[N10,6]</code> = 060306</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x,y]</div></td><td class="hintcell">same thing but count first from the end and picking y characters going left<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[N-8,4]</code> = 0603</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:-y]</div></td><td class="hintcell">same thing but counting from the end of the file name</td><td class="hintcell"><code>[N-6:-7]</code> = 06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:-y]</div></td><td class="hintcell">same thing but count first from the start and the last from the end</td><td class="hintcell"><code>[N10:-6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:y]</div></td><td class="hintcell">same thing but count first from the end and the last from the start</td><td class="hintcell"><code>[N-16:6]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx,y]</div></td><td class="hintcell">character range will start at x and be y characters in length</td><td class="hintcell"><code>[N10,6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x,y]</div></td><td class="hintcell">same thing but count first from the end and picking y characters going left</td><td class="hintcell"><code>[N-8,4]</code> = 0603</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Ex]</div></td><td class="hintcell">character is position x of the extension</td><td class="hintcell"><code>[E1]</code> = m</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x]</div></td><td class="hintcell">same thing but count first from the end of the extension<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[E-1]</code> = 3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x]</div></td><td class="hintcell">same thing but count first from the end of the extension</td><td class="hintcell"><code>[E-1]</code> = 3</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:y]</div></td><td class="hintcell">range of characters from position x to y in the extension</td><td class="hintcell"><code>[E2:3]</code> = p3</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:-y]</div></td><td class="hintcell">same thing but counting from the end of the extension<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[E-3:-2]</code> = mp</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:-y]</div></td><td class="hintcell">same thing but count first from the start and the last from the end<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[E1:-2]</code> = mp</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:y]</div></td><td class="hintcell">same thing but count first from the end and the last from the start<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[E-2:3]</code> = p3</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex,y]</div></td><td class="hintcell">character range will start at x and be y character in length<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[E1,3]</code> = mp3</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x,y]</div></td><td class="hintcell">same thing but count first from the end and picking y characters going left<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[E-1,2]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:-y]</div></td><td class="hintcell">same thing but counting from the end of the extension</td><td class="hintcell"><code>[E-3:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:-y]</div></td><td class="hintcell">same thing but count first from the start and the last from the end</td><td class="hintcell"><code>[E1:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:y]</div></td><td class="hintcell">same thing but count first from the end and the last from the start</td><td class="hintcell"><code>[E-2:3]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex,y]</div></td><td class="hintcell">character range will start at x and be y character in length</td><td class="hintcell"><code>[E1,3]</code> = mp3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x,y]</div></td><td class="hintcell">same thing but count first from the end and picking y characters going left</td><td class="hintcell"><code>[E-1,2]</code> = p3</td></tr>
         </table>
-        <BR>
+        <br>
         <p>Just to make sure we got the idea, here is an example where we've set the mask for the filename to <code>[N1,4]-[N5,2]-[N7,2]</code></p>
-        <p>We see that the <B>New File Name</B> column has been updated following the aboved described substitutions.</p>
+        <p>We see that the <b>New File Name</b> column has been updated following the aboved described substitutions.</p>
         <p class="figure"><img class="largeimage" title="Sample rename" alt="Sample rename" src="images/imgDC/mulrensample1.png" width="382" height="284"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>4.2. <a name="other">Other placeholders</a></h2>
+        <h2><a name="other">4.2. Other placeholders</a></h2>
         <p>Here are some other place holders, still with the same sample file:</p>
-        <p class="figure"><img class="largeimage" title="Sample file" alt="Sample file" src="images/imgDC/mulrensamplefile.png" width="635" height="63"></p>
+        <p class="figure"><img class="largeimage" title="Sample file" alt="Sample file" src="images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Other placeholders</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Placeholders</th><th class="categorydesccolumn">Description</th><th class="categorynamecolumn">Example</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">stands for the complete file name which include the whole path, path delimiters, extension, colon and period included<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[A]</code> =<BR><I>Complete filename</I></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">range may be specified like previously [Ax], [Ax:y], [A-x:-y], etc...<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">stands for the complete file name which include the whole path, path delimiters, extension, colon and period included</td><td class="hintcell"><code>[A]</code> =<br><i>Complete filename</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">range may be specified like previously [Ax], [Ax:y], [A-x:-y], etc...</td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Y]</div></td><td class="hintcell">the year of the file date expressed by its last 2 digits</td><td class="hintcell"><code>[Y]</code> = 19</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[YYYY]</div></td><td class="hintcell">the year expressed on 4 digits</td><td class="hintcell"><code>[YYYY]</code> = 2019</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[M]</div></td><td class="hintcell">the month number of the file date, straight</td><td class="hintcell"><code>[M]</code> = 1</td></tr>
@@ -209,16 +209,16 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">[nn]</div></td><td class="hintcell">the minute number padded with a zero to fit on 2 digits if necessary</td><td class="hintcell"><code>[nn]</code> = 02</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[s]</div></td><td class="hintcell">the second number of the file time, straight</td><td class="hintcell"><code>[s]</code> = 7</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[ss]</div></td><td class="hintcell">the second number padded with a zero to fit on 2 digits if necessary</td><td class="hintcell"><code>[ss]</code> = 07</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">a GUID form on the fly of the form:<BR>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[G]</code> =<BR><I>A 16-bytes GUID</I></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">directly name a x-level of complete path counting first near the root<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">directly name a x-level of complete path counting first near the file name<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">an autoincrementing counter for each iteration of using parameters of box "Counter"</td><td class="hintcell"><code>[C]</code> =<I>Number<BR>incrementing for<BR>each file</I></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[V:hint]</div></td><td class="hintcell">a user define variable "hint" that will be prompt to user at actual rename process<p class="versionref">Version 1.0.0 +</p></td><td class="hintcell"><code>[V:Guest]</code> = <I>Prompt<BR>Guest's value</I></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">a GUID form on the fly of the form:<br>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</td><td class="hintcell"><code>[G]</code> =<br><i>A 16-bytes GUID</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">directly name a x-level of complete path counting first near the root</td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">directly name a x-level of complete path counting first near the file name</td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">an autoincrementing counter for each iteration of using parameters of box "Counter"</td><td class="hintcell"><code>[C]</code> =<i>Number<br>incrementing for<br>each file</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[V:hint]</div></td><td class="hintcell">a user define variable "hint" that will be prompt to user at actual rename process</td><td class="hintcell"><code>[V:Guest]</code> = <i>Prompt<br>Guest's value</i></td></tr>
         </table>
 
         <p>Here is another example where we've used some of the above placeholders setting the mask to</p>
         <p><code>[C] - [YYYY]-[MM]-[DD] @ [hh]-[nn]-[ss]</code></p>
-        <p class="figure"><img class="largeimage" title="Sample rename" alt="Sample rename" src="images/imgDC/mulrensample2.png" width="723" height="458"></p>
+        <p class="figure"><img class="largeimage" title="Sample rename" alt="Sample rename" src="images/imgDC/mulrensample2.png" width="722" height="452"></p>
 
         <p>With time, if used often, we'll type from memory what we need!</p>
         <p>Waiting for that, luckily, we may press the button below each mask and then access a popup menu that will help us to have the application type it for us based on what we need.</p>
@@ -227,57 +227,57 @@
       </div>
 
       <div>
-        <h2>4.3. <a name="plugin">Placeholders using plugin</a></h2>
+        <h2><a name="plugin">4.3. Placeholders using plugin</a></h2>
         <p>We may also use a placeholder that will a content plugin.</p>
         <p>It will extract from the file the selected field and use it as part of the new name we want.</p>
         <p>Following example use a multimedia plugin to extract the length time of MP3 podcast file to place it in the filename between parentheses in the name:</p>
-        <p class="figure"><img class="largeimage" title="Using plugin" alt="Using plugin" src="images/imgDC/mulrenplugin.png" width="669" height="571"></p>
+        <p class="figure"><img class="largeimage" title="Using plugin" alt="Using plugin" src="images/imgDC/mulrenplugin.png" width="660" height="570"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5. <a name="listoffiles">List of files</a></h2>
+        <h2><a name="listoffiles">5. List of files</a></h2>
         <p>We may also use a text file containing a list of file names to rename our files.</p>
         <p>It will be assumed that each line of that text file holds the new file name, extension included, to give to the matching file in the same position order.</p>
-        <BR>
+        <br>
         <p>This list may</p>
         <ul>
           <li>be an existing text file you've made earlier</li>
-          <li>be created on the fly based on current file name (<B>Old File Name</B> column)</li>
-          <li>be created on the fly based on current <B>New File Name</B> column<span class="versionref">(Version 1.0.0 +)</span></li>
+          <li>be created on the fly based on current file name (<b>Old File Name</b> column)</li>
+          <li>be created on the fly based on current <b>New File Name</b> column</li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.1. <a name="existing">Existing list</a></h2>
-        <p>If we already have such file, we'll press the <B>Editor</B> button and <B>Load names from file</B>.</p>
+        <h2><a name="existing">5.1. Existing list</a></h2>
+        <p>If we already have such file, we'll press the <b>Editor</b> button and <b>Load names from file</b>.</p>
         <p class="figure"><img class="largeimage" title="Existing list" alt="Existing list" src="images/imgDC/mulrenlstfromfile.png" width="339" height="100"></p>
         <p>Then we'll be prompted to indicate our file list.</p>
-        <p>If the file holds the same number of lines as the number of elements to be renamed, we'll see in the <B>New File Name</B> column what would be the new file name for each file.</p>
-        <p>The actual renaming process will take place only when we'll press the <B>Rename</B> button.</p>
+        <p>If the file holds the same number of lines as the number of elements to be renamed, we'll see in the <b>New File Name</b> column what would be the new file name for each file.</p>
+        <p>The actual renaming process will take place only when we'll press the <b>Rename</b> button.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.2. <a name="currentfilename">List created on the fly based on current file name</a></h2>
+        <h2><a name="currentfilename">5.2. List created on the fly based on current file name</a></h2>
         <p>Similar to the above described <a href="#existing">Existing list</a>, Double Commander may offer us on the fly to create this file list.</p>
-        <p>Pressing the <B>Editor</B> button and then <B>Edit names...</B> will have the tool create a temporary text file based on the original file names that will be used like the previous point.</p>
+        <p>Pressing the <b>Editor</b> button and then <b>Edit names...</b> will have the tool create a temporary text file based on the original file names that will be used like the previous point.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>5.3. <a name="newfilename">List created on the fly based on current new file name column</a><span class="versionref">(Version 1.0.0 +)</span></h2>
-        <p>Same as above except that file names in the list are coming from the current <B>New File Name</B> column.</p>
+        <h2><a name="newfilename">5.3. List created on the fly based on current new file name column</a></h2>
+        <p>Same as above except that file names in the list are coming from the current <b>New File Name</b> column.</p>
         <p>This method may be particularly helpful in case the placeholders method gives us "almost" the file names we want so we just have to make some touch-ups to correct the ones that needs to fill our need.</p>
         <p>Following example shows us the flow of event when using this method.</p>
-        <p class="figure"><img class="largeimage" title="Edit new name column" alt="Edit new name column" src="images/imgDC/mulreneditnewnames.png" width="829" height="918"></p>
+        <p class="figure"><img class="largeimage" title="Edit new name column" alt="Edit new name column" src="images/imgDC/mulreneditnewnames.png" width="828" height="900"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>6. <a name="modifiers">Modifiers</a></h2>
-        <p>Still respecting and applied <B>after</B> the above mentionned placeholders and file list, we may apply modifiers to alter what would be the new file names.</p>
+        <h2><a name="modifiers">6. Modifiers</a></h2>
+        <p>Still respecting and applied <b>after</b> the above mentioned placeholders and file list, we may apply modifiers to alter what would be the new file names.</p>
         <p>These modifiers include:</p>
         <ul>
           <li>Changing the case of characters</li>
@@ -287,7 +287,7 @@
       </div>
 
       <div>
-        <h2>6.1. <a name="case">Case</a></h2>
+        <h2><a name="case">6.1. Case</a></h2>
         <p>The possible options are the following and will affect the case of the characters of the new file names:</p>
         <ul>
           <li>No change</li>
@@ -296,26 +296,26 @@
           <li>First char in uppercase, rest in lowercase</li>
           <li>First Char Of Every Word In Uppercase</li>
         </ul>
-        <p>Even if this modifier is inside the <B>Mask</B> box, it will be applied also if the file names are coming from a list.</p>
+        <p>Even if this modifier is inside the <b>Mask</b> box, it will be applied also if the file names are coming from a list.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>6.2. <a name="singlesearchreplace">Search and replace single sequence</a></h2>
+        <h2><a name="singlesearchreplace">6.2. Search and replace single sequence</a></h2>
         <p>We may search for a single sequence of characters in the string and replace them by another one.</p>
         <p class="figure"><img class="largeimage" title="Simple search and replace" alt="Simple search and replace" src="images/imgDC/mulrensrchrpl.png" width="401" height="205"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>6.3. <a name="multiplesearchandreplace">Multiple sequences replacement</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="multiplesearchandreplace">6.3. Multiple sequences replacement</a></h2>
         <p>But we may also replace different sequences by a single one, by placing the sequences between pipes like this example where 2020 will replace any occurence of 2017, 2018 or 2019:</p>
         <p class="figure"><img class="largeimage" title="Multiple replace" alt="Multiple replace" src="images/imgDC/mulrenrepl3for1.png" width="476" height="230"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>6.4. <a name="multiplepairs">Multiple pairs of search and replace</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="multiplepairs">6.4. Multiple pairs of search and replace</a></h2>
         <p>We may also define more than one pair of sequences by placing them between pipes.</p>
         <p>Each sequence to search will have its replacement defined in the same position.</p>
         <p class="figure"><img class="largeimage" title="Multiple search and replace pairs" alt="Multiple search and replace pairs" src="images/imgDC/mulrenreplplace.png" width="497" height="263"></p>
@@ -323,58 +323,58 @@
       </div>
 
       <div>
-        <h2>6.5. <a name="searchreplaceregex">Using regular expressions</a></h2>
+        <h2><a name="searchreplaceregex">6.5. Using regular expressions</a></h2>
         <p>We also have the possibility to use <a href="regexp.html">regular expressions</a> for the search part of string as well as for its substitution.</p>
         <p class="figure"><img class="largeimage" title="Using regular expressions" alt="Using regular expressions" src="images/imgDC/mulrenregex.png" width="328" height="304"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>7. <a name="actualaction">Actual renaming action</a></h2>
-        <p>When we have defined all the <B>New File Names</B> we want with the above mentioned methods, we're ready to launch the actual <B>Rename</B> action.</p>
+        <h2><a name="actualaction">7. Actual renaming action</a></h2>
+        <p>When we have defined all the <b>New File Names</b> we want with the above mentioned methods, we're ready to launch the actual <b>Rename</b> action.</p>
         <p class="figure"><img class="largeimage" title="Actual renaming action" alt="Actual renaming action" src="images/imgDC/mulrenrename.png" width="191" height="35"></p>
         <p>After the rename process, the application will rescan the files and refill again the above table.</p>
-        <p>The <B>Old File Name</B> column will normally show the result of our renaming process.</p>
-        <p>The <B>New File Name</B> one will be refreshed as well by re-applying the same placeholders/lists/modifiers still defined.</p>
+        <p>The <b>Old File Name</b> column will normally show the result of our renaming process.</p>
+        <p>The <b>New File Name</b> one will be refreshed as well by re-applying the same placeholders/lists/modifiers still defined.</p>
         <p>Normally, we should then pay attention more on the first column one since it represents the new actual file names that we've just renamed.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>8. <a name="log">Log</a></h2>
+        <h2><a name="log">8. Log</a></h2>
         <p>Application can create a log file, or append to an exiting one, with the result of all the renaming attempts that took place when launching the actual rename.</p>
         <p>It might be useful later if we search the original file name or something we would inadvertently renamed.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>9. <a name="presets">Presets</a></h2>
+        <h2><a name="presets">9. Presets</a></h2>
         <p>We may need to re-use the same placeholders/modifiers for the same type of multi-renaming as we did on a previous session.</p>
         <p>Instead of having to keep retyping the same configuration we would already done over and over, we may save a current configuration in preset and then re-use it later.</p>
-        <p>To do that, we click the button giving access to actions associated with the presets and select <B>Save as...</B>.</p>
+        <p>To do that, we click the button giving access to actions associated with the presets and select <b>Save as...</b>.</p>
         <p>We give a significant name and we now have added a kind of configuration in our preset.</p>
         <p>Next time we need it again for a batch rename, we will click the preset drop box, select our preset and then fields will be filled with what we've saved.</p>
-        <BR>
-        <p>The menu mentionned offers us various actions related with the presets regarding actions like loading them, saving them, renaming them, deleting them, sorting them, etc.<span class="versionref">(Version 1.0.0 +)</span></p>
+        <br>
+        <p>The menu mentioned offers us various actions related with the presets regarding actions like loading them, saving them, renaming them, deleting them, sorting them, etc.</p>
         <p class="figure"><img class="largeimage" title="Presets" alt="Presets" src="images/imgDC/mulrenpreset.png" width="598" height="383"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>10. <a name="configuration">Additional configuration</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="configuration">10. Additional configuration</a></h2>
         <p>In the configuration pages, additional settings related with the Multi-Rename Tool are present in a dedicated page.</p>
         <p class="figure"><img class="largeimage" title="Additional configuration" alt="Additional configuration" src="images/imgDC/mulrenconfiguration.png" width="126" height="32"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>10.1. <a name="menubar">Show menu bar on top</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="menubar">10.1. Show menu bar on top</a></h2>
         <p>If we prefer to have a menu bar on top of the window giving us access to all pertinent function and view them in a menu, we check this option.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>10.2. <a name="invalidchar">Replace invalid filename character by</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="invalidchar">10.2. Replace invalid filename character by</a></h2>
         <p>It might happen that with our adjustments, an invalid character for a filename would appear in the resulting name of a file.</p>
         <p>To avoid generating an error, Double Commander will replace that invalid character by what we will enter in this box.</p>
         <p>If we wish to simply strip the invalid characters, we let this box empty.</p>
@@ -383,21 +383,21 @@
       </div>
 
       <div>
-        <h2>10.3. <a name="presetatlaunch">Preset at launch</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="presetatlaunch">10.3. Preset at launch</a></h2>
         <p>This setting determines what will be the default preset loaded each time we invoke the Multi-Rename Tool.</p>
         <p class="figure"><img class="largeimage" title="Preset at launch" alt="Preset at launch" src="images/imgDC/mulrenpresetlaunch.png" width="518" height="106"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>10.4. <a name="exitmodified">Exit with modified preset</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="exitmodified">10.4. Exit with modified preset</a></h2>
         <p>If we've loaded an existing preset, that we've changed at least one setting and then attempt to quit the Multi-Rename Tool window without haven't saved our modified preset, this option will determine the behavior of Double Commander.</p>
         <p class="figure"><img class="largeimage" title="Exit with modified preset" alt="Exit with modified preset" src="images/imgDC/mulrenexitmodified.png" width="518" height="106"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2>10.5. <a name="renamelog">Rename log</a><span class="versionref">(Version 1.0.0 +)</span></h2>
+        <h2><a name="renamelog">10.5. Rename log</a></h2>
         <p>These settings help to determine how to handle the saving of renaming log file.</p>
         <p>By legacy, each renaming log file was defined in each preset.</p>
         <p>But with option here, we may instruct Double Commander to save these logs into the single location defined there where the result of each rename action will be appended into a rename log file.</p>
@@ -406,87 +406,86 @@
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
     </div>
-
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="help.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="findfiles.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Frequently Asked Questions (FAQ)</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,7 +10,7 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="about.html">Previous</a> | <a title="Next page" href="help.html">Next</a></div></div>
 
@@ -27,8 +27,8 @@
             <dl>
               <dt>1.1. <a href="#whatisit">What is Double Commander?</a></dt>
               <dt>1.2. <a href="#whatsnew">What's new in this version?</a></dt>
-              <dt>1.3. <a href="#linux">Is it a Total Commander&reg; for Linux?</a></dt>
-              <dt>1.4. <a href="#wincmd">What is the difference between this program and my favorite file manager (Total Commander&reg;)?</a></dt>
+              <dt>1.3. <a href="#linux">Is it a Total Commander for Linux?</a></dt>
+              <dt>1.4. <a href="#wincmd">What is the difference between this program and my favorite file manager (Total Commander)?</a></dt>
               <dt>1.5. <a href="#opsys">I have a 64-bit Operating System. Can I download Double Commander for it?</a></dt>
               <dt>1.6. <a href="#link">How can I contact the developers of Double Commander?</a></dt>
             </dl>
@@ -38,7 +38,7 @@
             <dl>
               <dt>2.1. <a href="#version">Which version do I download?</a></dt>
               <dt>2.2. <a href="#repo">Where is the project repository?</a></dt>
-              <dt>2.3. <a href="#plugins">Plugins from Total Commander&reg; do not work?!</a></dt>
+              <dt>2.3. <a href="#plugs">Plugins from Total Commander do not work?!</a></dt>
               <dt>2.4. <a href="#gvfs">Can I get access to network resources like in Nautilus or Thunar?</a></dt>
             </dl>
           </dd>
@@ -60,17 +60,20 @@
               <dt>4.1. <a href="#cursor_down">Is it possible to automatically move the cursor down one line after selecting using the <kbd>Space</kbd> key?</a></dt>
               <dt>4.2. <a href="#queue">Is there an ability to create a file operations queue?</a></dt>
               <dt>4.3. <a href="#hotkeys_default"><kbd>Ctrl+A</kbd> doesn't work, how to enable it?</a></dt>
-              <dt>4.4. <a href="#context_menu_create">How to create my own context menu in this program?</a></dt>
-              <dt>4.5. <a href="#context_menu_edit">How to customise the context menu, for example, add the item "Open With"?</a></dt>
+              <dt>4.4. <a href="#mouse_unmark">When all files are selected in a directory, there is no way to deselect them using a mouse.</a></dt>
+              <dt>4.5. <a href="#context_menu_create">How to create my own context menu in this program?</a></dt>
+              <dt>4.6. <a href="#context_menu_edit">How to customise the context menu, for example, add the item "Open With"?</a></dt>
+              <dt>4.7. <a href="#auto_extract">How to automatically unpack and run file from an open archive? It is inconvenient to use the "Unpack and execute" button in the properties window of the packed file every time.</a></dt>
+              <dt>4.8. <a href="#descript_ion">Can the comments (via the descript.ion file) be copied/moved when a file is copied/moved from one directory to another?</a></dt>
             </dl>
           </dd>
           <dt><a name="viewer">5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
           <dd>
             <dl>
-              <dt>5.1. <a href="#f3_compiz">Editor and browser windows appear in random positions, when Compiz is enabled</a></dt>
-              <dt>5.2. <a href="#f3_font">Internal editor has a strange font &nbsp;&mdash; horizontal characters overwrite each other</a></dt>
-              <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most</a></dt>
-              <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge</a></dt>
+              <dt>5.1. <a href="#f3_compiz">Editor and browser windows appear in random positions, when Compiz is enabled.</a></dt>
+              <dt>5.2. <a href="#f3_font">Internal editor has a strange font&nbsp;&mdash; horizontal characters overwrite each other.</a></dt>
+              <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most.</a></dt>
+              <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge.</a></dt>
               <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Is it possible to add support SVG in the viewer?</a></dt>
               <dt>5.7. <a href="#f34_regutf8">How can I use regular expressions to search in UTF-8?</a></dt>
@@ -82,6 +85,13 @@
               <dt>6.1. <a href="#fv_datetime">I didn't find a suitable date format for file panels in the list! How to add my own?</a></dt>
               <dt>6.2. <a href="#fv_svg">Is it possible to add support SVG thumbnails in thumbnails view?</a></dt>
               <dt>6.3. <a href="#fn_ext">I want to see the filenames in the "Name" column with extensions, can I do it?</a></dt>
+              <dt>6.4. <a href="#folder_sort">Is it possible to sort folders by clicking on column header ("Date", "Size" and so on)?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="plugins">7. Plugins</a></dt>
+          <dd>
+            <dl>
+              <dt>7.1. <a href="#ftps_reuse">ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></dt>
             </dl>
           </dd>
         </dl>
@@ -91,83 +101,86 @@
         <h2>1. Common questions</h2>
         <p class="bold"><a name="whatisit">Q: What is Double Commander?</a></p>
         <p><span class="bold">A:</span> Double Commander is a cross-platform, twin-panel file manager. Details see <a href="about.html">here</a>.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="whatsnew">Q: What's new in this version?</a></p>
-        <p><span class="bold">A:</span> History log can be found online at <a href="https://sourceforge.net/p/doublecmd/news/">this page</a>. But the project is now under development, so later <a href="https://doublecmd.sourceforge.io/">nightly builds</a> contain many new features and improvements.</p>
-        <BR>
+        <p><span class="bold">A:</span> List of changes can be found on the <a href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki page</a>.
+          But the project is now under development, so later <a href="https://doublecmd.sourceforge.io/site/eng/snapshots.php" target="_blank">nightly builds</a> contain many new features and improvements.</p>
+        <br>
 
-        <p class="bold"><a name="linux">Q: Is it a Total Commander&reg; for Linux?</a></p>
-        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows&reg;, GNU/Linux operating systems with toolkits GTK2 and Qt and Mac OS.</p>
-        <BR>
+        <p class="bold"><a name="linux">Q: Is it a Total Commander for Linux?</a></p>
+        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK2 and Qt and Mac OS.</p>
+        <br>
 
-        <p class="bold"><a name="wincmd">Q: What is the difference between this program and my favorite file manager (Total Commander&reg;)?</a></p>
-        <p><span class="bold">A:</span> The goal of the project is to create a program close to TC in operation and with maximum compatibility via the plugins and configuration files. However, Double Commander has some important advantages: it's free to use, works with different operating systems, and is open source.</p>
-        <BR>
+        <p class="bold"><a name="wincmd">Q: What is the difference between this program and my favorite file manager (Total Commander)?</a></p>
+        <p><span class="bold">A:</span> The goal of the project is to create a program close to TC in operation and with maximum compatibility via the plugins and configuration files.
+          However, Double Commander has some important advantages: it's free to use, works with different operating systems, and is open source.</p>
+        <br>
 
         <p class="bold"><a name="opsys">Q: I have a 64-bit Operating System. Can I download Double Commander for it?</a></p>
         <p><span class="bold">A:</span> Yes, builds for x64 exist under all supported platforms.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="link">Q: How can I contact the developers of Double Commander?</a></p>
-        <p><span class="bold">A:</span> Just write to the project's <a href="https://doublecmd.sourceforge.io/forum/">official forum</a> and the developers will (possibly) pay attention to your suggestions.</p>
+        <p><span class="bold">A:</span> The project's <a href="https://doublecmd.h1n.ru/" target="_blank">official forum</a> or <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
+          Make sure you are using the latest version of the program and it's a good idea to check the development (alpha) version before reporting a bug or requesting a new feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>2. Issues related to GNU/Linux</h2>
         <p class="bold"><a name="version">Q: Which version do I download?</a></p>
-        <p><span class="bold">A:</span> If you have KDE - download a Qt-build; in other cases (Gnome, Xfce, LXDE) a build for GTK toolkit.</p>
-        <BR>
+        <p><span class="bold">A:</span> If you have KDE or LXQt&nbsp;&mdash; download a Qt-build; in other cases (Gnome, Xfce, LXDE) a build for GTK toolkit. But this is not strict rule.</p>
+        <br>
 
         <p class="bold"><a name="repo">Q: Where is the project repository?</a></p>
         <p><span class="bold">A:</span> Repositories for GNU/Linux (CentOS, Debian, Fedora, openSUSE, Ubuntu):</p>
         <ul>
           <li>
             <p>release:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt5">Qt5</a>
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt5" target="_blank">Qt5</a>
               or
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk">GTK2</a>
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
             </p>
           </li>
           <li>
             <p>alpha ("nightly") build:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt5">Qt5</a>
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
               or
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk">GTK2</a>
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
             </p>
           </li>
         </ul>
         <p>And you can download installation packages deb, rpm or "portable" (binaries packed with bz2) from the official site. Also you can download the source code and compile DC for yourself.</p>
-        <BR>
+        <br>
 
-        <p class="bold"><a name="plugins">Q: Plugins from Total Commander&reg; do not work!?</a></p>
-        <p><span class="bold">A:</span> They work, but not all of them. Plugins from TC compiled for Windows&reg; can only be used with Windows&reg; version of Double Commander. But if the plugins have open source code, you can try to build them for GNU/Linux (or maybe ask the plugin developer to do it :)).</p>
-        <BR>
+        <p class="bold"><a name="plugs">Q: Plugins from Total Commander do not work?!</a></p>
+        <p><span class="bold">A:</span> They work, but not all of them. Plugins from TC compiled for Windows can only be used with Windows version of Double Commander.
+          But if the plugins have open source code, you can try to build them for GNU/Linux (or maybe ask the plugin developer to do it :)).</p>
+        <br>
 
         <p class="bold"><a name="gvfs">Q: Can I get access to network resources like in Nautilus or Thunar?</a></p>
         <p><span class="bold">A:</span> Yes, DC can use Gvfs. Gvfs supports many protocols: NFS, SMB, FTP, SFTP, WebDAV, MTP, mobile phones (Windows, Android, Apple), media players and other.</p>
-        <p>First, packages <code>gvfs</code> and <code>gvfs-backends</code> should be installed (also add <code>gvfs-fuse</code>, it can be useful). Keep in mind that some distributions have not packages <code>gvfs-backends</code> and <code>gvfs-fuse</code>, because they are part of package <code>gvfs</code>, or it can be several packages with names <code>gvfs-backends-*</code> or <code>gvfs-*</code>.</p>
-        <p>Now insert Gvfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command cm_EditPath).</p>
+        <p>First, packages <tt>gvfs</tt> and <tt>gvfs-backends</tt> should be installed (also add <tt>gvfs-fuse</tt>, it can be useful).
+          Keep in mind that some distributions have not packages <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt>, 
+          because they are part of package <tt>gvfs</tt>, or it can be several packages with names <tt>gvfs-backends-*</tt> or <tt>gvfs-*</tt>.</p>
+        <p>Now insert Gvfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>).</p>
         <p>For example, access to</p>
         <ul>
-          <li>Yandex.Disk (using WebDAV): <code>davs://webdav.yandex.ru</code></li>
           <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
           <li>SMB: <code>smb://servername/sharename/</code></li>
+          <li>WebDAV: <code>davs://servername</code></li>
         </ul>
-        <p>Well, for access to FTP (for SSH+SCP too) and SMB you can use default WFX plugins <code>ftp</code> and <code>samba</code>.</p>
+        <p>Well, for access to FTP (for SSH+SCP too) and SMB you can use default WFX plugins <tt>ftp</tt> and <tt>samba</tt>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>3. Interface configuration</h2>
         <p class="bold"><a name="color">Q: How can I change color settings for the panels?</a></p>
-        <p><span class="bold">A:</span> To change the color, you must do the following:</p>
-        <ul>
-          <li><p>Configurations&nbsp;&gt; Options...&nbsp;&gt; Colors (but first you must create your own columns style)</p></li>
-          <li><p>Configurations&nbsp;&gt; Options...&nbsp;&gt; Columns, set default style, click "Edit" and configure :)</p></li>
-        </ul>
-        <BR>
+        <p><span class="bold">A:</span> To change the color, you must go to Configurations&nbsp;&gt; Options...&nbsp;&gt; Colors&nbsp;&gt; File panels.
+          These are global settings for both panels and can be overridden, see Configurations&nbsp;&gt; Options...&nbsp;&gt; Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns.</p>
+        <br>
 
         <p class="bold"><a name="colorbuttons">Q: What are buttons <kbd>R</kbd> and <kbd>All</kbd> in the color settings?</a></p>
         <p><span class="bold">A:</span> They are as follows:</p>
@@ -175,23 +188,23 @@
           <li><p><kbd>R</kbd>&nbsp;&mdash; restore color to the default.</p></li>
           <li><p><kbd>All</kbd>&nbsp;&mdash; apply selected color to all columns.</p></li>
         </ul>
-        <BR>
+        <br>
 
         <p class="bold"><a name="columns">Q: Some text in a column overwrites another column's text!</a></p>
-        <p><span class="bold">A:</span> Configurations&nbsp;&gt; Options...&nbsp;&gt; Columns, set checkbox "Cut text to column width".</p>
-        <BR>
+        <p><span class="bold">A:</span> Configurations&nbsp;&gt; Options...&nbsp;&gt; Files views&nbsp;&gt; Columns, set checkbox "Cut text to column width".</p>
+        <br>
 
         <p class="bold"><a name="icons">Q: How to associate my own icons with some file types?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; <a href="help.html#5_2_fileAssoc">File associations</a>.</p>
-        <BR>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; <a href="configuration.html#ConfigAssociations">File associations</a>.</p>
+        <br>
 
         <p class="bold"><a name="splitter">Q: How to create a splitter on the buttons panel?</a></p>
         <p><span class="bold">A:</span> Add a button from the category <a href="toolbar.html#catseparator">separator</a>.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="theme">Q: Does DC has other icon themes?</a></p>
-        <p><span class="bold">A:</span> Now we know only one small theme <a href="https://doublecmd.sourceforge.io/forum/viewtopic.php?f=5&amp;t=3658" target="_blank">doubleMac</a>, but the installation instruction is outdated (see below).<br>
-        You can make icon theme yourself, it's easy (we will use the name "MyDCTheme" as an example).</p>
+        <p><span class="bold">A:</span> Now we know only one small theme <a href="https://doublecmd.h1n.ru/viewtopic.php?f=5&amp;t=3658" target="_blank">DoubleMac</a>, but the installation instruction is outdated (see below).<br>
+          You can make icon theme yourself, it's easy (we will use the name "MyDCTheme" as an example).</p>
         <p><span class="uline"><i>How to make:</i></span><br>
           -&nbsp;open DC folder and see directory structure of "pixmaps/dctheme";<br>
           -&nbsp;make copy of "dctheme" with name "mydctheme";<br>
@@ -204,18 +217,19 @@
           4. Also see <a href="configxml.html">&lt;CustomIcons&gt;</a>.</p>
         <p><span class="uline"><i>How to install:</i></span></p>
         <p>1. Portable version<br>
-          Copy (or move) your "mydctheme" folder to the "pixmaps" folder near <tt>doublecmd.exe</tt>, restart DC, go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
+          Copy (or move) your "mydctheme" folder to the "pixmaps" folder near <tt>doublecmd.exe</tt>, restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
         <p>2. Installed version<br>
-          Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Configuration&nbsp;&gt; Directories&nbsp;&gt; Icon themes:, here you will see list of possible directories.<br>
-          Don't use <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> or other system directory: this requires root/admin rights, also this would be a intervention to the packages manager's work on Linux or DC installer for Windows. DC usually suggests the following additional path (besides the "pixmaps" folder near <tt>doublecmd.exe</tt>):</p>
+          Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Configuration&nbsp;&gt; Directories&nbsp;&gt; Icon themes:, here you will see list of possible directories.<br>
+          Don't use <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> or other system directory: this requires root/admin rights, also this would be a intervention to the packages manager's work in Linux or DC installer for Windows.
+          DC usually suggests the following additional path (besides the "pixmaps" folder near <tt>doublecmd.exe</tt>):</p>
           <ul>
-            <li>Windows XP: C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</li>
-            <li>Windows Vista/7-10: C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</li>
-            <li>Unix-like OS: /home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</li>
+            <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</i></li>
+            <li>Windows Vista/7-10: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+            <li>Unix-like OS: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</i></li>
           </ul>
           <p>If the directory doesn't exist, create it.<br>
-          Now restart DC, go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
-        <BR>
+            Now restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
+        <br>
 
         <p class="bold"><a name="cs_size">Q: How to make function keys and address bar bigger?</a></p>
         <p><span class="bold">A:</span> The size depends on the font size, three ways exists:</p>
@@ -227,9 +241,9 @@
           -&nbsp;search results in find files dialog;<br>
           -&nbsp;internal editor;<br>
           -&nbsp;internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p>
-        <p>2. Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Fonts.<br>
-          Note: all possible are available in version 1.0.0+ only, for 0.9.x and below additionally see the third item.</p>
-        <p>3. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <tt>&lt;Fonts&gt;&lt;/Fonts&gt;</tt> and change <tt>&lt;Size&gt;</tt> of the interface element manually.</p>
+        <p>2. Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Fonts.<br>
+          Note: All possible are available in version 1.0.0+ only, for 0.9.x and below additionally see the third item.</p>
+        <p>3. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> and change <code>&lt;Size&gt;</code> of the interface element manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -237,29 +251,48 @@
         <h2>4. Issues related to control and navigation</h2>
         <p class="bold"><a name="cursor_down">Q: Is it possible to automatically move the cursor down one line after selecting using the <kbd>Space</kbd> key?</a></p>
         <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; File views&nbsp;&gt; When selecting file with spacebar, move down to next file (as with insert).</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="queue">Q: Is there an ability to create a file operations queue?</a></p>
-        <p><span class="bold">A:</span> A file operations queue was implemented in version 0.4.6 alpha, and will be added to the next stable release.</p>
-        <BR>
+        <p><span class="bold">A:</span> A file operations queue was implemented in version 0.4.6 alpha, and was added to the next stable release.</p>
+        <br>
 
         <p class="bold"><a name="hotkeys_default">Q: <kbd>Ctrl+A</kbd> doesn't work, how to enable it?</a></p>
-        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; Keys&nbsp;&gt; Hot keys&nbsp;&gt; In the category "Main", scroll to see command cm_MarkMarkAll and set <kbd>Ctrl+A</kbd> shortcut key for it.</p>
-        <BR>
+        <p><span class="bold">A:</span> You must do the following: Configurations&nbsp;&gt; Options...&nbsp;&gt; Keys&nbsp;&gt; Hot keys&nbsp;&gt; In the category "Main", scroll to see command <tt>cm_MarkMarkAll</tt> and set <kbd>Ctrl+A</kbd> shortcut key for it.</p>
+        <br>
+
+        <p class="bold"><a name="mouse_unmark">Q: When all files are selected in a directory, there is no way to deselect them using a mouse.</a></p>
+        <p><span class="bold">A:</span> Several ways:</p>
+        <ul>
+          <li>Use the ".." item at the beginning of the file list (but if the list of files is long, it will be necessary to scroll it for this).</li>
+          <li>Use the main menu: Mark&nbsp;&gt; Unselect All.</li>
+          <li>Add the "Unselect All" button (internal command <tt>cm_MarkUnmarkAll</tt>) on the toolbar.</li>
+          <li>Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Mouse&nbsp;&gt; Selection by mouse&nbsp;&gt; enable "By clicking on icon": the first click will unmark one file, now click on his name.</li>
+        </ul>
+        <br>
 
         <p class="bold"><a name="context_menu_create">Q: How to create my own context menu in this program?</a></p>
         <p><span class="bold">A:</span> Add button to the toolbar of the category "menu". See <a href="toolbar.html#catmenu">this section</a> for an example.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="context_menu_edit">Q: How to customize the context menu, for example, add the item "Open With"?</a></p>
-        <p><span class="bold">A:</span> This can been incorporated into Double Commander; however, it's easy to add a command to the Actions item of the context menu. Here is an example of how to open any directory with root privileges:</p>
+        <p><span class="bold">A:</span> This can been incorporated into Double Commander; however, it's easy to add a command to the "Actions" submenu of the context menu.
+          Here is an example of how to open any directory with root privileges:</p>
         <ol>
-          <li>Under File Types, click Add, then enter, e.g. <span class="bold">dir</span> in the popup.</li>
-          <li>Under Extensions, click Add, and enter, e.g. <span class="bold">folder</span> in the popup.</li>
-          <li>Under Actions, click Add, then in the Action: edit line below, enter the action desired, e.g. <span class="bold">Open as root</span></li>
-          <li>In the Command edit line, enter the desired command: eg. <span class="bold">gksu doublecmd %p</span></li>
-          <li>After this just right click on any folder, choose <span class="bold">Open as root</span> and enter root's password. :)</li>
+          <li>Under File Types, click Add, then enter, e.g. <code>Dir</code> in the popup.</li>
+          <li>Under Extensions, click Add, and enter, e.g. <code>folder</code> in the popup.</li>
+          <li>Under Actions, click Add, then in the Action: edit line below, enter the action desired, e.g. <code>Open as root</code></li>
+          <li>In the Command edit line, enter the desired command: eg. <code>pkexec doublecmd %p</code></li>
+          <li>After this just right click on any folder, choose "Open as root" and enter root's password. :)</li>
         </ol>
+        <br>
+
+        <p class="bold"><a name="auto_extract">Q: How to automatically unpack and run file from an open archive? It is inconvenient to use the "Unpack and execute" button in the properties window of the packed file every time.</a></p>
+        <p><span class="bold">A:</span> See description of <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>.</p>
+        <br>
+
+        <p class="bold"><a name="descript_ion">Q: can the comments (via the descript.ion file) be copied/moved when a file is copied/moved from one directory to another?</a></p>
+        <p><span class="bold">A:</span> Yes, it is possible: go to Configurations&nbsp;&gt; Options&nbsp;&gt; File operations and enable "Process comments with files/folders".</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -267,39 +300,40 @@
         <h2>5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</h2>
         <p class="bold"><a name="f3_compiz">Q: Editor and browser windows appear in random positions, when Compiz is enabled.</a></p>
         <p><span class="bold">A:</span> Edit Compiz settings: place windows&nbsp;&gt; windows with fixed positions and window rules&nbsp;&gt; fixed size windows.</p>
-        <pre class="CODE">Code: (class=Doublecmd) &amp; (title=/)</pre>
-        <BR>
+        <pre class="CODE">(class=Doublecmd) &amp; (title=/)</pre>
+        <br>
 
         <p class="bold"><a name="f3_font">Q: Internal editor has a strange font&nbsp;&mdash; horizontal characters overwrite each other.</a></p>
         <p><span class="bold">A:</span> You must use monospace fonts in the viewer and editor.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="f3_jpg">Q: Viewer does not work with a few images, but works with most.</a></p>
-        <p><span class="bold">A:</span> A component used to view the images did not support some JPG files.</p>
-        <BR>
+        <p><span class="bold">A:</span> A component used to view the images did not support some JPEG files.</p>
+        <br>
 
         <p class="bold"><a name="f3_hscroll">Q: On some text files lines go beyond the window's edge.</a></p>
         <p><span class="bold">A:</span> Use "Show as Wrap text" option in the viewer.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="f4_colmode">Q: Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></p>
         <p><span class="bold">A:</span> Internal editor supports column and line selection modes and multi-carets, see keyboard shortcuts <a href="shortcuts.html#editor">here</a>.</p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="f3_svg">Q: Is it possible to add support SVG in the viewer?</a></p>
         <p><span class="bold">A:</span> Supported via librsvg:</p>
         <ul>
-          <li><p>Linux: install package <code>librsvg</code>.</p></li>
-          <li><p>Windows: needs <code>libcairo-2.dll</code>, <code>librsvg-2-2.dll</code> and <code>libgobject-2.0-0.dll</code> (+ all dependencies), for example, you can take DLLs from GIMP. You should copy this DLLs to Double Commander folder or in PATH.</p></li>
+          <li><p>Linux: install package <tt>librsvg</tt>.</p></li>
+          <li><p>Windows: needs <tt>libcairo-2.dll</tt>, <tt>librsvg-2-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (+ all dependencies), for example, you can take DLLs from GIMP. You should copy this DLLs to Double Commander folder or in PATH.</p></li>
         </ul>
-        <BR>
+        <br>
 
         <p class="bold"><a name="f34_regutf8">Q: How can I use regular expressions to search in UTF-8?</a></p>
         <p><span class="bold">A:</span> This feature has been added to version 1.0.0. Needs PCRE2 library with support 8-bit code units and Unicode support enabled (usually enabled by default):</p>
         <ul>
-          <li><p>Linux: needs <code>libpcre2-8.so.0</code>. For example, package <code>libpcre2-8-0</code> in Debian/Debian-based distributions or <code>pcre2</code> in Arch Linux.</p></li>
-          <li><p>Windows: needs <code>libpcre2-8.dll</code>. If you have not <code>libpcre2-8.dll</code> in Double Commander folder than you can take this DLL here: <a href="https://doublecmd.sourceforge.io/test/libpcre2_win32.zip">32-bit</a> or <a href="https://doublecmd.sourceforge.io/test/libpcre2_win64.zip">64-bit</a>.</p></li>
-          <li><p>MacOS: needs <code>libpcre2-8.dylib</code>.</p></li>
+          <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Debian-based distributions or <tt>pcre2</tt> in Arch Linux.</p></li>
+          <li><p>Windows: needs <tt>libpcre2-8.dll</tt>. If you have not <tt>libpcre2-8.dll</tt> in Double Commander folder than you can take this DLL here:
+            <a href="https://doublecmd.sourceforge.io/test/libpcre2_win32.zip">32-bit</a> or <a href="https://doublecmd.sourceforge.io/test/libpcre2_win64.zip">64-bit</a>.</p></li>
+          <li><p>MacOS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -307,99 +341,113 @@
       <div>
         <h2>6. Issues related to the file panels</h2>
         <p class="bold"><a name="fv_datetime">Q: I didn't find a suitable date format for file panels in the list! How to add my own?</a></p>
-        <p><span class="bold">A:</span> Date and time format is easy configurable: go to Configurations&nbsp;&gt; Options &nbsp;&gt; Files views&nbsp;&gt; Formatting&nbsp;&gt; Date and time format and use <a href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html">this table</a>.</p>
-        <BR>
+        <p><span class="bold">A:</span> Date and time format is easy configurable: go to Configurations&nbsp;&gt; Options &nbsp;&gt; Files views&nbsp;&gt; Formatting&nbsp;&gt; Date and time format and use <a href="configuration.html#dt_format">this table</a>.</p>
+        <br>
 
         <p class="bold"><a name="fv_svg">Q: Is it possible to add support SVG thumbnails in thumbnails view?</a></p>
         <p><span class="bold">A:</span> It's already supported, see <a href="faq.html#f3_svg">Is it possible to add support SVG in the viewer?</a></p>
-        <BR>
+        <br>
 
         <p class="bold"><a name="fn_ext">Q: I want to see the filenames in the "Name" column with extensions, can I do it?</a></p>
-        <p><span class="bold">A:</span> Yes, it's possible. Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns, now create a new column set or change existing default set: by default, DC uses <tt>GETFILENAMENOEXT</tt> field for name, use <tt>GETFILENAME</tt> instead.</p>
+        <p><span class="bold">A:</span> Yes, it's possible. Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns,
+          now create a new column set or change existing default set: by default, DC uses <code>GETFILENAMENOEXT</code> field for name, use <code>GETFILENAME</code> instead.</p>
+        <br>
+
+        <p class="bold"><a name="folder_sort">Q: Is it possible to sort folders by clicking on column header ("Date", "Size" and so on)?</a></p>
+        <p><span class="bold">A:</span> Yes, you can enable this feature: go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt;
+          Files views&nbsp;&gt; Sorting&nbsp;&gt; Sorting directories and use "sort like files and show first" or "sort like files".</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
       </div>
+
+      <div>
+        <h2>7. Plugins</h2>
+        <p class="bold"><a name="ftps_reuse">Q: ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></p>
+        <p><span class="bold">A:</span> This server requires session reuse support and <tt>ftp.wfx</tt> supports it, but needs the OpenSSL libraries: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
+      </div>
+
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="about.html">Previous</a> | <a title="Next page" href="help.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

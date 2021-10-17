@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Поиск файлов</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,50 +10,127 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="multirename.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="multirename.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.3. Поиск файлов</h1>
+        <h1>2.4. Поиск файлов</h1>
       </div>
 
       <div>
         <h2>Содержание</h2>
         <dl>
-          <dt>1. <a href="#attributes">Поиск файлов с определёнными атрибутами</a></dt>
-          <dt>2. <a href="#advpattrn">Расширенные паттерны</a></dt>
-          <dt>3. <a href="#examples">Примеры</a></dt>
+          <dt>1. <a href="#intro">Введение</a></dt>
+          <dt>2. <a href="#standard">Вкладка "Стандартный"</a></dt>
+          <dt>3. <a href="#advanced">Вкладка "Расширенный"</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#attributes">Поиск файлов с определёнными атрибутами</a></dt>
+               <dd>
+                 <dl>
+                   <dt>3.1.1. <a href="#advpattrn">Расширенные паттерны</a></dt>
+                   <dt>3.1.2. <a href="#examples">Примеры</a></dt>
+                 </dl>
+               </dd>
+            </dl>
+          </dd>
+          <dt>4. <a href="#plugins">Вкладка "Плагины"</a></dt>
+          <dt>5. <a href="#templates">Вкладка "Шаблоны поиска"</a></dt>
+          <dt>6. <a href="#results">Вкладка "Результаты"</a></dt>
+          <dt>7. <a href="#configuration">Дополнительные настройки</a></dt>
         </dl>
       </div>
 
       <div>
-        <h2>1. <a name="attributes">Поиск файлов с определёнными атрибутами</a></h2>
+        <h2><a name="intro">1. Введение</a></h2>
+        <p>Вожности инструмента поиска сгруппированы по вкладкам, мы можем переключаться по вкладкам с помощью комбинаций клавиш <kbd>Alt+1</kbd>...<kbd>Alt+4</kbd>.</p>
+        <p>Кроме того, к некоторым функциям можно получить доступ из главного меню этого окна.</p>
+      </div>
+
+      <div>
+        <h2><a name="standard">2. Вкладка "Стандартный"</a></h2>
+        <p>На этой вкладке мы можем искать файлы по имени и их содержимому.</p>
+        <p class="figure"><img class="largeimage" title="Поиск: Стандартный" alt="Поиск: Стандартный" src="images/imgDC/findstandard.png" width="786" height="436"></p>
+        <p>В строке <span class="italic">Начинать с каталога</span> указываем начальный каталог для поиска, по умолчанию будет использоваться текущий каталог активной панели.</p>
+        <p>Дополнительные параметры для указания места поиска файлов:</p>
+        <ul>
+          <li><p><span class="italic">В открытых вкладках</span>&nbsp;&mdash; будут использоваться только каталоги открытых вкладок.</p></li>
+          <li><p><span class="italic">Выделенные файлы и каталоги</span>&nbsp;&mdash; если включено, то поиск будет вестись только среди выделенных в активной панели файлов и папок.</p></li>
+          <li><p><span class="italic">Следовать ссылкам</span>&nbsp;&mdash; если будет найдена символьная ссылка на каталог, целевой каталог будет прочитан и использован, иначе эта символьная ссылка будет считаться обычным файлом.</p></li>
+          <li><p><span class="italic">Исключить подкаталоги</span>&nbsp;&mdash; список подкаталогов, которые нужно исключить из поиска.</p></li>
+          <li><p><span class="italic">Глубина вложенности подкаталогов</span> может принимать значения:</p>
+          <ul>
+            <li><p>только текущий,</p></li>
+            <li><p>число уровней (на выбор от 1 до 100),</p></li>
+            <li><p>все (неограниченная).</p></li>
+          </ul>
+          <p>Эта настройка управляет глубиной "погружения" по дереву каталогов во время поиска. Указав "только текущий", мы ограничим поиск папкой, указанной в строке "Начинать с каталога" (подкаталоги просматриваться не будут).</p></li>
+        </ul>
+        <p>В строке <span class="italic">Искать файлы</span> задаём маску, по которой будет осуществляться поиск.</p>
+        <p>Дополнительные параметры:</p>
+        <ul>
+          <li><p><span class="italic">Искать в архивах</span>&nbsp;&mdash; если включено, Double Commander дополнительно попытается прочитать содержимое всех архивов в каталоге(ах) поиска. Список поддерживаемых форматов зависит от добавленных архиваторных плагинов.</p></li>
+          <li><p><span class="italic">Поиск по части имени</span>&nbsp;&mdash; необходимо отключить, если хотим использовать точное имя файла.</p></li>
+          <li><p><span class="italic">Регулярное выражение</span>&nbsp;&mdash; если включено, можно использовать <a href="regexp.html">регулярные выражения</a>.</p></li>
+          <li><p><span class="italic">Исключить файлы</span>&nbsp;&mdash; список подкаталогов, которые нужно исключить из поиска.</p>
+        </ul>
+        <p>Примечание: <span class="italic">Маска файла</span>, <span class="italic">Исключить файлы</span>, <span class="italic">Начинать с каталога</span> и <span class="italic">Исключить подкаталоги</span> позволяют ввести несколько значений, разделённых точкой с запятой ";" (без пробелов). Если нужно найти файл с точкой с запятой в имени, нужно включить регулярные выражения.</p>
+        <p>Если отмечено <span class="italic">Искать в файле текст</span>, во время поиска будет происходить просмотр содержимого файлов и в результат поиска попадут только содержащие указанный текст. Также во время поиска можно сразу заменить указанный текст на другой, включив <span class="italic">Заменить текст</span> и указав строку замены.</p>
+        <p>Дополнительные параметры:</p>
+        <ul>
+          <li><p><span class="italic">Файлы, НЕ содержащие этот текст</span>&nbsp;&mdash; заставляет программу показывать только те файлы, в содержимом которых не найден текст, указанный в поле <span class="italic">Искать в файле текст</span>.</p></li>
+          <li><p><span class="italic">С учётом регистра</span>&nbsp;&mdash; указывает, что прописные буквы нужно отличать от строчных. Т.е. "Fallout" и "fallout" будут восприниматься как разные.</p></li>
+          <li><p><span class="italic">Шестнадцатеричное</span>&nbsp;&mdash; поиск шестнадцатеричных символов (без учёта регистра, с пробелами между символами или без, например, "C0&nbsp;C1&nbsp;C2" или "c0c1c2").</p></li>
+          <li><p><span class="italic">Офисные XML</span>&nbsp;&mdash; включает поиск в файлах Microsoft Office (DOCX, XLSX) и OpenOffice/LibreOffice (ODT, ODS).</p></li>
+          <li><p>Также можно указать кодировку (UTF, ISO, KOI, DOS, ANSI и т.д.), включить регулярные выражения.</p></li>
+        </ul>
+        <p>Для удаления ненужных записей из истории полей ввода используйте <kbd>Shift+Del</kbd>.</p>
+        <p>Кнопка <span class="italic">Старт</span> запускает поиск, <span class="italic">Отмена</span> останавливает, а <span class="italic">Закрыть</span> закрывает окно поиска файлов.</p>
+        <p><span class="italic">Новый поиск</span>&nbsp;&mdash; очищает поле результатов и позволяет запустить поиск заново (возможно, с другими условиями).</p>
+        <p><span class="italic">Предыдущий поиск</span>&nbsp;&mdash; загружает параметры из предыдущего поиска (в текущей сессии, до закрытия Double Commander).</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advanced">3. Вкладка "Расширенный"</a></h2>
+        <p>Вкладка <span class="italic">Расширенный</span> позволяет указать дополнительные условия поиска файла: дата, время и возраст файла (по дате модификации), минимальный и максимальный размер файла, а также атрибуты.</p>
+        <p class="figure"><img class="largeimage" title="Поиск: Расширенный" alt="Поиск: Расширенный" src="images/imgDC/findadvanced.png" width="786" height="400"></p>
+        <p>Атрибуты файла можно указать вручную или используя небольшой помощник на кнопке <span class="italic">Добавить</span> (подробнее об использовании атрибутов файлов смотрите ниже). Кнопка <span class="italic">Помощь</span> открывает следующий подраздел этой страницы.</p>
+        <p>Также здесь можно задать поиск дубликатов файлов по следующим одному или нескольким критериям:</p>
+        <ul>
+          <li><p>сравнить имена файлов;</p></li>
+          <li><p>сравнить размеры файлов;</p></li>
+          <li><p>сравнить хеши: будет использоваться контрольная сумма BLAKE2s (x32) или BLAKE2b (x64);</p></li>
+          <li><p>сравнить содержимое файлов (побайтовое сравнение).</p></li>
+        </ul>
+        <p>В результате будут показаны имена файлов, номер группы совпадающих файлов и расположение файлов.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="attributes">3.1. Поиск файлов с определёнными атрибутами</a></h2>
         <p>Для поиска по атрибутам необходимо использовать шаблон, который определяет, какие атрибуты искать и их состояние (установлены ли они или сняты).</p>
         <p>Одиночный атрибут представляется в следующем формате:</p>
         <p><code>&lt;атрибут&gt;+</code> или <code>&lt;атрибут&gt;-</code></p>
-
         <p>Знак плюс означает, что у файл должен быть установлен этот атрибут, знак минус&nbsp;&mdash; наоборот, что у файла этот атрибут не должен быть установлен.</p>
-
         <p>Возможные атрибуты представлены в таблице:</p>
-
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Windows</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Атрибут</th><th class="categorydesccolumn">Что обозначает</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">только для чтения</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">архивный</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">скрытый</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">системный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">сжатый (сжатие NTFS)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">каталог</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">зашифрованный (шифрование EFS)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">скрытый</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">символьная ссылка</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">разрежённый</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">только для чтения</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">системный</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">временный</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">разряженный</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">сжатый (имеется в виду сжатие NTFS)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">зашифрованный</td></tr>
         </table>
-        <BR>
-
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Unix/Linux (права доступа)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Права доступа</th><th class="categorydesccolumn">Что обозначает</th></tr>
@@ -70,8 +147,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">gs</div></td><td class="hintcell">установка ID группы во время выполнения (SGID)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">sb</div></td><td class="hintcell">бит сохранения задачи/закрепления в памяти (sticky bit)</td></tr>
         </table>
-        <BR>
-
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Unix/Linux (типы файлов)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Типы файлов</th><th class="categorydesccolumn">Что обозначает</th></tr>
@@ -83,48 +159,42 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">обычный файл</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">сокет (socket)/доменное гнездо</td></tr>
         </table>
-        <BR>
-
-        <p>В Unix/Linux также можно использовать восьмеричное представление разрешений. Например, 0750&nbsp;&mdash; то же самое, что и комбинация <tt>ur</tt>, <tt>uw</tt>, <tt>ux</tt>, <tt>gr</tt> и <tt>gx</tt>.</p>
+        <br>
+        <p>В Unix/Linux также можно использовать восьмеричное представление разрешений. Например, 0750&nbsp;&mdash; то же самое, что и комбинация <code>ur</code>, <code>uw</code>, <code>ux</code>, <code>gr</code> и <code>gx</code>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="advpattrn">Расширенные паттерны</a></h2>
+        <h2><a name="advpattrn">3.1.1. Расширенные паттерны</a></h2>
         <p>Некоторые атрибуты могут быть объединены в группу с отношением И, просто укажите один шаблон за другим.</p>
-        <p>Например: <tt>r+s+h+</tt> соответствует файлам, у которых установлены все три атрибута: только для чтения, системный и скрытый.</p>
-
+        <p>Например: <code>r+s+h+</code> соответствует файлам, у которых установлены все три атрибута: только для чтения, системный и скрытый.</p>
         <p>Кроме того, такие группы атрибутов могут быть объединены вместе с отношения ИЛИ. Это делается с помощью символа "|" (вертикальная черта).</p>
-        <p>Например: <tt>r+|s+h+</tt> соответствует файлам, у которых:</p>
+        <p>Например: <code>r+|s+h+</code> соответствует файлам, у которых:</p>
         <ul>
           <li>или установлен атрибут только для чтения</li>
           <li>или установлены атрибутами системный и скрытый.</li>
         </ul>
-
         <p>В шаблонах, объединённых в группу с отношением И, можно использовать оператор "не равно", добавив символ "!" в начале.</p>
-        <p>Например: <tt>!r+s+h+</tt> соответствует файлам, которые не имеют всех трёх атрибутов: только для чтения, системный и скрытый. Соответствующий файл может не иметь ни одного, иметь один или два из этого набора атрибутов, но не все сразу.</p>
-        <p>Оператор "не равно" можно применять только к группе атрибутов с отношением И, например, шаблон <tt>!r+|!s+h+</tt> соответствует файлам, у которых:</p>
+        <p>Например: <code>!r+s+h+</code> соответствует файлам, которые не имеют всех трёх атрибутов: только для чтения, системный и скрытый. Соответствующий файл может не иметь ни одного, иметь один или два из этого набора атрибутов, но не все сразу.</p>
+        <p>Оператор "не равно" можно применять только к группе атрибутов с отношением И, например, шаблон <code>!r+|!s+h+</code> соответствует файлам, у которых:</p>
         <ul>
-          <li>или не установлен атрибут только для чтения (аналогично <tt>r-</tt>)</li>
+          <li>или не установлен атрибут только для чтения (аналогично <code>r-</code>)</li>
           <li>или не установлены атрибуты системный и скрытый.</li>
         </ul>
-
-        <p>Вы не можете использовать скобки для разделения групп.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="examples">Примеры</a></h2>
-        <BR>
+        <h2><a name="examples">3.1.2. Примеры</a></h2>
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Примеры в Windows</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Пример</th><th class="categorydesccolumn">Как интерпретировать</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">a+s-h-</div></td><td class="hintcell">соответствует файлам, имеющим установленный атрибут архивный и снятые системный и скрытый</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">e+|c+</div></td><td class="hintcell">соответствует файлам, имеющим установленный атрибут сжатый или зашифрованный (это атрибуты файловой системы NTFS)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e+|c+</div></td><td class="hintcell">соответствует файлам, имеющим установленный атрибут сжатый или зашифрованный</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">d-</div></td><td class="hintcell">соответствует файлам, но не каталогам</td></tr>
         </table>
-        <BR>
-
+        <br>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Примеры в Unix/Linux</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Пример</th><th class="categorydesccolumn">Как интерпретировать</th></tr>
@@ -133,91 +203,208 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">d+ox+</div></td><td class="hintcell">соответствует каталогам, которые доступны всем</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">!700+</div></td><td class="hintcell">соответствует файлам, которые не являются полностью доступными для пользователя</td></tr>
         </table>
-        <BR>
+        <br>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
-        <BR>
+      </div>
+
+      <div>
+        <h2><a name="plugins">4. Вкладка "Плагины"</a></h2>
+        <p>Поиск с помощью поисковых (DSX) или информационных (контентных, WDX) плагинов (описание типов плагинов и их установка описаны <a href="configuration.html#ConfigPlugins">здесь</a>).</p>
+        <p>Пример поиска изображений по ширине с минимальным и максимальным значениями:</p>
+        <p class="figure"><img class="largeimage" title="Поиск: Плагины" alt="Поиск: Плагины" src="images/imgDC/findplugins.png" width="786" height="400"></p>
+        <p>Интерфейс DSX-плагинов позволяет отправлять им значения параметров из вкладок "Стандартный" и "Расширенный", точный список передаваемых значений зависит от возможностей конкретного плагина.</p>
+        <p>WDX-плагины дополняют поиск, их поля можно комбинировать по следующим правилам:</p>
+        <ul>
+          <li><p><span class="italic">И (все правила)</span>&nbsp;&mdash; все условия должны совпадать.</p></li>
+          <li><p><span class="italic">ИЛИ (любое правило)</span>&nbsp;&mdash; достаточно одного совпадения.</p></li>
+        </ul>
+        <p><span class="italic">Оператор</span> и <span class="italic">Значение</span> зависят от типа данных, возвращаемых полем плагина: число, строка, дата, время или логический (булев) тип. Для некоторых числовых значений мы можем выбрать единицу измерения (например, размер или продолжительность). Поддерживаются следующие операции сравнения:</p>
+        <table class="innercmddesc">
+          <tr class="rowinnerdesc">
+            <th class="innerdescheader">Оператор</th>
+            <th class="innerdescheader">Описание</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">=</div></td>
+            <td class="hintcell">равно</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!=</div></td>
+            <td class="hintcell">не равно</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">=(с учётом регистра)</div></td>
+            <td class="hintcell">равно, с учётом регистра</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!=(с учётом регистра)</div></td>
+            <td class="hintcell">не равно, с учётом регистра</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&gt;</div></td>
+            <td class="hintcell">больше</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;</div></td>
+            <td class="hintcell">меньше</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&gt;=</div></td>
+            <td class="hintcell">больше или равно</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;=</div></td>
+            <td class="hintcell">меньше или равно</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">содержит</div></td>
+            <td class="hintcell">строка содержит заданный текст</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!содержит</div></td>
+            <td class="hintcell">строка не содержит заданный текст</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">содержит(с учётом регистра)</div></td>
+            <td class="hintcell">строка содержит заданный текст, с учётом регистра</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!содержит(с учётом регистра)</div></td>
+            <td class="hintcell">строка не содержит заданный текст, с учётом регистра</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">рег. выраж.</div></td>
+            <td class="hintcell">строка соответствует <a href="regexp.html">регулярному выражению</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!рег. выраж.</div></td>
+            <td class="hintcell">строка не соответствует <a href="regexp.html">регулярному выражению</a></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="templates">5. Вкладка "Шаблоны поиска"</a></h2>
+        <p>Вкладка <span class="italic">Шаблоны поиска</span> позволяет сохранить параметры поиска, чтобы их можно было повторно использовать позднее.</p>
+        <p>Также здесь мы можем видеть шаблоны, созданные в разделе настроек <a href="configuration.html#ConfigColorFiles">Цвета&nbsp;&gt; Типы файлов</a> и в диалоге команды <a href="help.html#cm_MarkPlus">Выделить группу</a>.</p>
+        <p>Под списком шаблонов расположено поле с подсказкой: для выделенного шаблона отображаются значения <span class="italic">Искать файлы</span> и <span class="italic">Начинать с каталога</span> (если он был сохранён).</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="results">6. Вкладка "Результаты"</a></h2>
+        <p>Эта вкладка содержит результат поиска (просто список полных имён файлов) и следующие кнопки:</p>
+        <ul>
+          <li><p><span class="italic">Просмотр</span>&nbsp;&mdash; открывает выбранный файл в окне просмотрщика (<kbd>F3</kbd>).</p></li>
+          <li><p><span class="italic">Правка</span>&nbsp;&mdash; открывает выбранный файл в редакторе (<kbd>F4</kbd>).</p></li>
+          <li><p><span class="italic">Перейти к файлу</span>&nbsp;&mdash; закрывает окно поиска и устанавливает курсор на выбранном файле.</p></li>
+          <li><p><span class="italic">Файлы на панель</span>&nbsp;&mdash; передаёт список найденных файлов в активную файловую панель.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configuration">7. Дополнительные настройки</a></h2>
+        <p>Дополнительные параметры, связанные с инструментом поиска, представлены на странице настроек <span class="italic">Файловые операции</span>&nbsp;&gt; <span class="italic">Поиск файлов</span>.</p>
+        <p class="figure"><img class="largeimage" title="Поиск: Дополнительные настройки" alt="Поиск: Дополнительные настройки" src="images/imgDC/findconfiguration.png" width="512" height="253"></p>
+        <p>Поиск файлов:</p>
+        <ul>
+          <li><p><span class="italic">Поиск по части имени</span>&nbsp;&mdash; Если не отмечено, Double Commander будет искать точное совпадение имени.</p></li>
+          <li><p><span class="italic">При запуске поиска очистить фильтр маски файла</span>&nbsp;&mdash; Если отмечено, Double Commander будет каждый раз автоматически очищать поле <span class="italic">Искать файлы</span>.</p></li>
+          <li><p><span class="italic">Текущие фильтры после нажатия "Новый поиск"</span>&nbsp;&mdash; устанавливает состояние остальных параметров поиска: Double Commander сохранит их, сбросит до состояния по умолчанию или спросит.</p></li>
+          <li><p><span class="italic">Показать меню окна в "Поиск файлов"</span>&nbsp;&mdash; Это меню содержит команды диалога поиска файлов (также показаны горячие клавиши) и пункты для быстрого перехода к этому разделу настроек и к <a href="configuration.html#ConfigHotKeys">настройкам горячих клавиш</a>.</p></li>
+          <li><p><span class="italic">Шаблон поиска по умолчанию</span>&nbsp;&mdash; Мы можем выбрать один из сохранённых ранее шаблонов поиска и Double Commander будет использовать его параметры в качестве параметров по умолчанию каждый раз, когда вызываем диалог поиска файлов.</p></li>
+        </ul>
+        <p>Поиск текста в файлах:</p>
+        <ul>
+          <li><p><span class="italic">Использовать отображение в память</span>&nbsp;&mdash; При таком поиске файл читается в оперативную память целиком и происходит её просмотр на наличие искомого текста (поиск идёт быстрее, но требуется больше памяти).</p></li>
+          <li><p><span class="italic">Использовать поток</span>&nbsp;&mdash; Если используется этот метод, то файл читается по частям и в каждой части идёт поиск нужного текста (медленнее, зато потребует меньше ресурсов).</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="multirename.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="multirename.html">След.</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

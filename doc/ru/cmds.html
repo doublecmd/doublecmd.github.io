@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Внутренние команды</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="variables.html">Пред.</a> | <a title="Следующая страница" href="regexp.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.9. Внутренние команды</h1>
+        <h1>2.10. Внутренние команды</h1>
       </div>
 
       <div>
@@ -59,19 +59,19 @@
           <tr class="rowcategorysubtitle"><th class="categorynamecolumn">Категория</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catactivepanel">Активная панель</a></div></td>
-            <td class="categorydesc">Эти команды применимы к <B>текущей выбранной панели</b>, левой или правой.</td>
+            <td class="categorydesc">Эти команды применимы к <b>текущей выбранной панели</b>, левой или правой.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catleftpanel">Левая панель</a></div></td>
-            <td class="categorydesc">Эти команды применимы к <B>левой панели</b>, независимо от того, какая в данный момент активна.</td>
+            <td class="categorydesc">Эти команды применимы к <b>левой панели</b>, независимо от того, какая в данный момент активна.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catrightpanel">Правая панель</a></div></td>
-            <td class="categorydesc">Эти команды применимы к <B>правой панели</b>, независимо от того, какая в данный момент активна.</td>
+            <td class="categorydesc">Эти команды применимы к <b>правой панели</b>, независимо от того, какая в данный момент активна.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catfileoperations">Файловые операции</a></div></td>
-            <td class="categorydesc">Эти команды применяются к выбранному файлу или папке в активной панели.<br>Они включают в себя такие операции как просмотр, копирование, перемещение, переименование, удаление, упаковку, распаковку, разрезание и т.д.<br>Это команды, которые могут оказать <B>непосредственное влияние на ваши файлы</b>.</td>
+            <td class="categorydesc">Эти команды применяются к выбранному файлу или папке в активной панели.<br>Они включают в себя такие операции как просмотр, копирование, перемещение, переименование, удаление, упаковку, распаковку, разрезание и т.д.<br>Это команды, которые могут оказать <b>непосредственное влияние на ваши файлы</b>.</td>
           </tr>
           <tr>
             <td class="categorycell"><div class="categoryname"><a href="#catconfiguration">Настройка</a></div></td>
@@ -145,7 +145,7 @@
 
       <div>
         <h2><a name="catactivepanel">2.1. Активная панель</a></h2>
-        <p>Эти команды применимы к <B>текущей выбранной панели</b>, левой или правой.</p>
+        <p>Эти команды применимы к <b>текущей выбранной панели</b>, левой или правой.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Категория "Активная панель"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -153,7 +153,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_BriefView" alt="cm_BriefView" src="../../pixmaps/dctheme/32x32/actions/cm_briefview.png">
               <div class="cmdname"><a name="cm_BriefView">cm_BriefView</a></div>
               <div class="shrtctkey">Ctrl+F1</div></td>
-            <td class="cmdhintcell">Краткий вид, просто имена файлов и папок.<BR>Более одной колонки, если возможно.</td>
+            <td class="cmdhintcell">Краткий вид, просто имена файлов и папок.<br>Более одной колонки, если возможно.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ColumnsView" alt="cm_ColumnsView" src="../../pixmaps/dctheme/32x32/actions/cm_columnsview.png">
@@ -169,21 +169,23 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">columnset</td>
-                  <td class="innerdescvaluecell"><I>имя набора колонок</i></td>
+                  <td class="innerdescvaluecell"><i>имя набора колонок</i></td>
                   <td class="innerdescdesccell">переключить на указанный набор колонок</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">переключить на набор по умолчанию</td>
                 </tr>
               </table>
-            См. <a href="help.html#5_1_15_colonki">Колонки</a> в основном разделе справки.</td>
+              <br>
+              См. раздел <a href="configuration.html#ConfigColumns">Колонки</a>.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ThumbnailsView" alt="cm_ThumbnailsView" src="../../pixmaps/dctheme/32x32/actions/cm_thumbnailsview.png">
               <div class="cmdname"><a name="cm_ThumbnailsView">cm_ThumbnailsView</a></div>
               <div class="shrtctkey">Ctrl+Shft+F1</div></td>
-            <td class="cmdhintcell">Просмотр эскизов, файлы и папки отображаются как маленькие изображения.<BR>Более одной колонки, если возможно.</td>
+            <td class="cmdhintcell">Просмотр эскизов, файлы и папки отображаются как маленькие изображения.<br>Более одной колонки, если возможно.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatView" alt="cm_FlatView" src="../../pixmaps/dctheme/32x32/actions/cm_flatview.png">
@@ -198,7 +200,7 @@
                   <th class="innerdescheader">Описание</th>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" rowspan="4">side<p class="versionref">Версия 1.0.0 +</p></td>
+                  <td class="innerdescparamcell" rowspan="4">side</td>
                   <td class="innerdescvaluecell">left</td>
                   <td class="innerdescdesccell">в левой панели, как команда <a href="#cm_LeftFlatView">cm_LeftFlatView</a></td>
                 </tr>
@@ -215,7 +217,7 @@
                   <td class="innerdescdesccell">в текущей активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">в текущей активной панели</td>
                 </tr>
               </table>
@@ -223,14 +225,14 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FlatViewSel" alt="cm_FlatViewSel" src="../../pixmaps/dctheme/32x32/actions/cm_flatviewsel.png">
-              <div class="cmdname"><a name="cm_FlatViewSel">cm_FlatViewSel</a><p class="versionref">Версия 1.0.0 +</p></div>
+              <div class="cmdname"><a name="cm_FlatViewSel">cm_FlatViewSel</a></div>
             <td class="cmdhintcell">Как команда cm_FlatView без параметра, но только для выделенных файлов и папок.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
               <div class="cmdname"><a name="cm_QuickView">cm_QuickView</a></div>
               <div class="shrtctkey">Ctrl+Q</div></td>
-            <td class="cmdhintcell">Быстрый просмотр, содержимое выбранного файла будет показано на противоположной панели.<BR>При перемещении на следующий или предыдущий отображаемое содержимое обновится.</td>
+            <td class="cmdhintcell">Быстрый просмотр, содержимое выбранного файла будет показано на противоположной панели.<br>При перемещении на следующий или предыдущий отображаемое содержимое обновится.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SortByName" alt="cm_SortByName" src="../../pixmaps/dctheme/32x32/actions/cm_sortbyname.png">
@@ -341,7 +343,8 @@
                   <td colspan="3">Примечание: Если какой-либо из этих трёх параметров не задан или задан неправильно, то значениями по умолчанию для этих параметров будут: panel=active, column=name и order=ascending.</td>
                 </tr>
               </table>
-              Пример:<br>"cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>Эта команда отсортирует содержимое активной панели по колонке с размером&nbsp;&mdash; чем больше размер файла, тем выше он в списке.
+              <br>
+              Пример: "cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>Эта команда отсортирует содержимое активной панели по колонке с размером&nbsp;&mdash; чем больше размер файла, тем выше он в списке.
             </td>
           </tr>
           <tr>
@@ -356,14 +359,14 @@
 
       <div>
         <h2><a name="catleftpanel">2.2. Левая панель</a></h2>
-        <P>Эти команды применимы к <B>левой панели</b>, независимо от того, какая в данный момент активна.</p>
+        <p>Эти команды применимы к <b>левой панели</b>, независимо от того, какая в данный момент активна.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Левая панель"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftBriefView" alt="cm_LeftBriefView" src="../../pixmaps/dctheme/32x32/actions/cm_leftbriefview.png">
               <div class="cmdname"><a name="cm_LeftBriefView">cm_LeftBriefView</a></div>
-            <td class="cmdhintcell">Краткий вид в левой панели, просто имена файлов и папок.<BR>Более одной колонки, если возможно.</td>
+            <td class="cmdhintcell">Краткий вид в левой панели, просто имена файлов и папок.<br>Более одной колонки, если возможно.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftColumnsView" alt="cm_LeftColumnsView" src="../../pixmaps/dctheme/32x32/actions/cm_leftcolumnsview.png">
@@ -378,20 +381,22 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">columnset</td>
-                  <td class="innerdescvaluecell"><I>имя набора колонок</i></td>
+                  <td class="innerdescvaluecell"><i>имя набора колонок</i></td>
                   <td class="innerdescdesccell">переключить на указанный набор колонок</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">переключить на набор по умолчанию</td>
                 </tr>
               </table>
-              См. <a href="help.html#5_1_15_colonki">Колонки</a> в основном разделе справки.</td>
+              <br>
+              См. раздел <a href="configuration.html#ConfigColumns">Колонки</a>.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftThumbView" alt="cm_LeftThumbView" src="../../pixmaps/dctheme/32x32/actions/cm_leftthumbview.png">
               <div class="cmdname"><a name="cm_LeftThumbView">cm_LeftThumbView</a></div>
-            <td class="cmdhintcell">Просмотр эскизов в левой панели, файлы и папки отображаются как маленькие изображения.<BR>Более одной колонки, если возможно.</td>
+            <td class="cmdhintcell">Просмотр эскизов в левой панели, файлы и папки отображаются как маленькие изображения.<br>Более одной колонки, если возможно.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LeftFlatView" alt="cm_LeftFlatView" src="../../pixmaps/dctheme/32x32/actions/cm_leftflatview.png">
@@ -440,14 +445,14 @@
 
       <div>
         <h2><a name="catrightpanel">2.3. Правая панель</a></h2>
-        <P>Эти команды применимы к <B>правой панели</b>, независимо от того, какая в данный момент активна.</p>
+        <p>Эти команды применимы к <b>правой панели</b>, независимо от того, какая в данный момент активна.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Правая панель"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightBriefView" alt="cm_RightBriefView" src="../../pixmaps/dctheme/32x32/actions/cm_rightbriefview.png">
               <div class="cmdname"><a name="cm_RightBriefView">cm_RightBriefView</a></div>
-            <td class="cmdhintcell">Краткий вид в правой панели, просто имена файлов и папок.<BR>Более одной колонки, если возможно.</td>
+            <td class="cmdhintcell">Краткий вид в правой панели, просто имена файлов и папок.<br>Более одной колонки, если возможно.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightColumnsView" alt="cm_RightColumnsView" src="../../pixmaps/dctheme/32x32/actions/cm_rightcolumnsview.png">
@@ -462,20 +467,22 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">columnset</td>
-                  <td class="innerdescvaluecell"><I>имя набора колонок</i></td>
+                  <td class="innerdescvaluecell"><i>имя набора колонок</i></td>
                   <td class="innerdescdesccell">переключить на указанный набор колонок</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">переключить на набор по умолчанию</td>
                 </tr>
               </table>
-              См. <a href="help.html#5_1_15_colonki">Колонки</a> в основном разделе справки.</td>
+              <br>
+              См. раздел <a href="configuration.html#ConfigColumns">Колонки</a>.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightThumbView" alt="cm_RightThumbView" src="../../pixmaps/dctheme/32x32/actions/cm_rightthumbview.png">
               <div class="cmdname"><a name="cm_RightThumbView">cm_RightThumbView</a></div>
-            <td class="cmdhintcell">Просмотр эскизов в правой панели, файлы и папки отображаются как маленькие изображения.<BR>Более одной колонки, если возможно.</td>
+            <td class="cmdhintcell">Просмотр эскизов в правой панели, файлы и папки отображаются как маленькие изображения.<br>Более одной колонки, если возможно.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RightFlatView" alt="cm_RightFlatView" src="../../pixmaps/dctheme/32x32/actions/cm_rightflatview.png">
@@ -524,7 +531,7 @@
 
       <div>
         <h2><a name="catfileoperations">2.4. Файловые операции</a></h2>
-        <P>Эти команды применяются к выбранному файлу или папке в активной панели.<br>Они включают в себя такие операции как просмотр, копирование, перемещение, переименование, удаление, упаковку, распаковку, разрезание и т.д.<br>Это команды, которые могут оказать <B>непосредственное влияние на ваши файлы</b>.</p>
+        <p>Эти команды применяются к выбранному файлу или папке в активной панели.<br>Они включают в себя такие операции как просмотр, копирование, перемещение, переименование, удаление, упаковку, распаковку, разрезание и т.д.<br>Это команды, которые могут оказать <b>непосредственное влияние на ваши файлы</b>.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Файловые операции"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -532,7 +539,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_View" alt="cm_View" src="../../pixmaps/dctheme/32x32/actions/cm_view.png">
               <div class="cmdname"><a name="cm_View">cm_View</a></div>
               <div class="shrtctkey">F3</div></td>
-            <td class="cmdhintcell">Открыть файл в программе <a href="help.html#5_1_3_instruments">просмотра</a>.</td>
+            <td class="cmdhintcell">Открыть файл в программе <a href="configuration.html#ConfigTools">просмотра</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Edit" alt="cm_Edit" src="../../pixmaps/dctheme/32x32/actions/cm_edit.png">
@@ -544,7 +551,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_EditNew" alt="cm_EditNew" src="../../pixmaps/dctheme/32x32/actions/cm_editnew.png">
               <div class="cmdname"><a name="cm_EditNew">cm_EditNew</a></div>
               <div class="shrtctkey">Shift+F4</div></td>
-            <td class="cmdhintcell">Создать новый файл и открыть его в редакторе (<a href="help.html#5_1_3_instruments">см. настройки</a>).</td>
+            <td class="cmdhintcell">Создать новый файл и открыть его в редакторе (см. <a href="configuration.html#ConfigTools">настройки</a>).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Copy" alt="cm_Copy" src="../../pixmaps/dctheme/32x32/actions/cm_copy.png">
@@ -669,7 +676,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">setting</td>
-                  <td class="innerdescdesccell">(по умолчанию) действует в соответствии с глобальным значением в <a href="help.html#5_1_10_fileOper">настройках файловых операций</a>, если этот параметр включен, то будет удалено в корзину, в противном случае навсегда</td>
+                  <td class="innerdescdesccell">(по умолчанию) действует в соответствии с глобальным значением в <a href="configuration.html#ConfigOperations">настройках файловых операций</a>, если этот параметр включен, то будет удалено в корзину, в противном случае навсегда</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">reversesetting</td>
@@ -698,11 +705,11 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">PackHere</td>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">архив будет создан в каталоге активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">архив будет создан в каталоге неактивной панели</td>
                 </tr>
               </table>
@@ -719,7 +726,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenArchive" alt="cm_OpenArchive" src="../../pixmaps/dctheme/32x32/actions/cm_openarchive.png">
               <div class="cmdname"><a name="cm_OpenArchive">cm_OpenArchive</a></div>
               <div class="shrtctkey">Ctrl+PgDown</div></td>
-            <td class="cmdhintcell">Если выделен каталог, то открыть его.<BR>Если выделен файл, то попытаться открыть его как архив, игнорируя расширение (см. <a href="multiarc.html#configids">использование ID</a>).</td>
+            <td class="cmdhintcell">Если выделен каталог, то открыть его.<br>Если выделен файл, то попытаться открыть его как архив, игнорируя расширение (см. <a href="multiarc.html#configids">использование ID</a>).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ExtractFiles" alt="cm_ExtractFiles" src="../../pixmaps/dctheme/32x32/actions/cm_extractfiles.png">
@@ -735,11 +742,11 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">ExtractHere</td>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">архивы будут распакованы в каталог активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">архивы будут распакованы в каталог неактивной панели</td>
                 </tr>
               </table>
@@ -771,7 +778,8 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ContextMenu" alt="cm_ContextMenu" src="../../pixmaps/dctheme/32x32/actions/cm_contextmenu.png">
               <div class="cmdname"><a name="cm_ContextMenu">cm_ContextMenu</a></div>
               <div class="shrtctkey">Shift+F10</div></td>
-            <td class="cmdhintcell">Показать <a href="help.html#cm_ContextMenu">контекстное меню</a> файлов и папок.<br>
+            <td class="cmdhintcell">Показать контекстное меню файлов и папок.<br>
+              В Windows Double Commander покажет системное контекстное меню (как в Проводнике Windows), в других операционных системах Double Commander создаёт собственное контекстное меню с типичными действиями.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -782,11 +790,11 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">justactionmenu</td>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">меню будет включать в себя системное контекстное меню по умолчанию И действия, определённые для типа файла в файловых ассоциациях Double Commander (по умолчанию)</td>
+                  <td class="innerdescdesccell">меню будет включать в себя системное контекстное меню по умолчанию И действия, заданные для типа файла в файловых ассоциациях Double Commander (по умолчанию)</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">в меню будут только действия, определённые для типа файла в файловых ассоциациях Double Commander (пункты системного контекстное меню не будут отображаться)</td>
+                  <td class="innerdescdesccell">в меню будут только действия, заданные для типа файла в файловых ассоциациях Double Commander (пункты системного контекстное меню не будут отображаться)</td>
                 </tr>
               </table>
             </td>
@@ -795,13 +803,13 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Open" alt="cm_Open" src="../../pixmaps/dctheme/32x32/actions/cm_open.png">
               <div class="cmdname"><a name="cm_Open">cm_Open</a></div>
               <div class="shrtctkey">Enter</div></td>
-            <td class="cmdhintcell">Открыть файл или программу под курсором.<BR>Может быть использовано приложение из настроек файловых ассоциаций и т.д.</td>
+            <td class="cmdhintcell">Открыть файл или программу под курсором.<br>Может быть использовано приложение из настроек файловых ассоциаций и т.д.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ShellExecute" alt="cm_ShellExecute" src="../../pixmaps/dctheme/32x32/actions/cm_shellexecute.png">
               <div class="cmdname"><a name="cm_ShellExecute">cm_ShellExecute</a></div>
               <div class="shrtctkey">Ctrl+Alt+Enter</div></td>
-            <td class="cmdhintcell">Вызвать для выделенного файла программу из системных файловых ассоциаций.<BR>Возможно указать один параметр.</td>
+            <td class="cmdhintcell">Вызвать для выделенного файла программу из системных файловых ассоциаций.<br>Возможно указать один параметр.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SymLink" alt="cm_SymLink" src="../../pixmaps/dctheme/32x32/actions/cm_symlink.png">
@@ -826,12 +834,12 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CheckSumCalc" alt="cm_CheckSumCalc" src="../../pixmaps/dctheme/32x32/actions/cm_checksumcalc.png">
               <div class="cmdname"><a name="cm_CheckSumCalc">cm_CheckSumCalc</a></div>
-            <td class="cmdhintcell">Создать файл <a href="help.html#012_controlnaya_summa">контрольных сумм</a> (MD5, SHA1 и т.д.).</td>
+            <td class="cmdhintcell"><a href="help.html#cm_CheckSumCalc">Создать</a> файл контрольных сумм (MD5, SHA1 и т.д.).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CheckSumVerify" alt="cm_CheckSumVerify" src="../../pixmaps/dctheme/32x32/actions/cm_checksumverify.png">
               <div class="cmdname"><a name="cm_CheckSumVerify">cm_CheckSumVerify</a></div>
-            <td class="cmdhintcell">Проверить контрольные суммы MD5, SHA1 и т.д.</td>
+            <td class="cmdhintcell"><a href="help.html#cm_CheckSumVerify">Проверить</a> контрольные суммы MD5, SHA1 и т.д.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -839,14 +847,14 @@
 
       <div>
         <h2><a name="catconfiguration">2.5. Настройка</a></h2>
-        <P>Доступ к опциям и настройкам Double Commander.</p>
+        <p>Доступ к опциям и настройкам Double Commander.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Настройка"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Options" alt="cm_Options" src="../../pixmaps/dctheme/32x32/actions/cm_options.png">
               <div class="cmdname"><a name="cm_Options">cm_Options</a></div>
-            <td class="cmdhintcell">Открыть диалоговое окно <a href="help.html#cm_Options">настроек</a>.<BR>
+            <td class="cmdhintcell">Открыть диалоговое окно <a href="help.html#cm_Options">настроек</a>.<br>
               Команда поддерживает один параметр для перехода к указанному разделу (странице) настроек.
               Список возможных параметров можно посмотреть <a href="cm_options.html">здесь</a>.</td>
           </tr>
@@ -859,8 +867,8 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigDirHotList" alt="cm_ConfigDirHotList" src="../../pixmaps/dctheme/32x32/actions/cm_configdirhotlist.png">
               <div class="cmdname"><a name="cm_ConfigDirHotList">cm_ConfigDirHotList</a></div>
               <div class="shrtctkey">Ctrl+Shift+D</div></td>
-            <td class="cmdhintcell">Перейти к странице настроек избранных каталогов.<BR><BR>
-              Эквивалент команде cm_WorkWithDirectoryHotlist со следующими параметрами:<BR>action=config source=%Ds</td>
+            <td class="cmdhintcell">Перейти к странице настроек избранных каталогов.<br>
+              Эквивалент команде cm_WorkWithDirectoryHotlist со следующими параметрами:<br>action=config source=%Ds</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_WorkWithDirectoryHotlist" alt="cm_WorkWithDirectoryHotlist" src="../../pixmaps/dctheme/32x32/actions/cm_workwithdirectoryhotlist.png">
@@ -903,7 +911,7 @@
                   <td class="innerdescdesccell">настроить указанную "N-ую" запись</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">так же как "add"</td>
                 </tr>
                 <tr>
@@ -912,7 +920,7 @@
                   <td class="innerdescdesccell">каталог для добавления/настройки как "Путь"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">каталог, открытый в активной панели</td>
                 </tr>
                 <tr>
@@ -921,7 +929,7 @@
                   <td class="innerdescdesccell">каталог для добавления/настройки как "Целевой путь"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">каталог, открытый в неактивной панели</td>
                 </tr>
                 <tr>
@@ -930,17 +938,18 @@
                   <td class="innerdescdesccell">если action=directconfig, то "N-ая" запись в списке</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">будет использоваться index=0</td>
                 </tr>
               </table>
-              Пример:<br>"cm_WorkWithDirectoryHotlist action=addboth"<br>Добавит в список избранных каталогов текущие каталоги активной и неактивной панелей в качестве пути и целевого пути соответственно.
+              <br>
+              Пример: "cm_WorkWithDirectoryHotlist action=addboth"<br>Добавит в список избранных каталогов текущие каталоги активной и неактивной панелей в качестве пути и целевого пути соответственно.
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FileAssoc" alt="cm_FileAssoc" src="../../pixmaps/dctheme/32x32/actions/cm_fileassoc.png">
               <div class="cmdname"><a name="cm_FileAssoc">cm_FileAssoc</a></div>
-            <td class="cmdhintcell">Перейти к странице настроек <a href="help.html#cm_FileAssoc">файловых ассоциаций</a>.</td>
+            <td class="cmdhintcell">Перейти к странице настроек <a href="configuration.html#ConfigAssociations">файловых ассоциаций</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigFolderTabs" alt="cm_ConfigFolderTabs" src="../../pixmaps/dctheme/32x32/actions/cm_configfoldertabs.png">
@@ -963,24 +972,24 @@
             <td class="cmdhintcell">Перейти к странице настроек цветов, используемых в древовидном меню.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png">
-              <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
-            <td class="cmdhintcell">Перейти к странице настроек горячих клавиш.</td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSearches" alt="cm_ConfigSearches" src="../../pixmaps/dctheme/32x32/actions/cm_configsearches.png">
               <div class="cmdname"><a name="cm_ConfigSearches">cm_ConfigSearches</a></div></td>
             <td class="cmdhintcell">Перейти к странице общих настроек поиска файлов.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png">
-              <div class="cmdname"><a name="cm_ConfigSaveSettings">cm_ConfigSaveSettings</a></div>
-            <td class="cmdhintcell">Сохранить все текущие настройки и историю, так же, как если закрыть приложение и запустить снова.<br><I>Это может быть полезно, если вы использовали DC в течение продолжительной сессии и хотите сохранить текущий контекст на случай, например, краха системы, и не потерять текущую историю при следующем запуске DC.</i></td>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png">
+              <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
+            <td class="cmdhintcell">Перейти к странице настроек горячих клавиш.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSavePos" alt="cm_ConfigSavePos" src="../../pixmaps/dctheme/32x32/actions/cm_configsavepos.png">
               <div class="cmdname"><a name="cm_ConfigSavePos">cm_ConfigSavePos</a></div>
             <td class="cmdhintcell">Сохранить текущее состояние и положение главного окна DC.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png">
+              <div class="cmdname"><a name="cm_ConfigSaveSettings">cm_ConfigSaveSettings</a></div>
+            <td class="cmdhintcell">Сохранить все текущие настройки и историю, так же, как если закрыть приложение и запустить снова.<br><i>Это может быть полезно, если вы использовали DC в течение продолжительной сессии и хотите сохранить текущий контекст на случай, например, краха системы, и не потерять текущую историю при следующем запуске DC.</i></td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigArchivers" alt="cm_ConfigArchivers" src="../../pixmaps/dctheme/32x32/actions/cm_configarchivers.png">
@@ -997,13 +1006,20 @@
               <div class="cmdname"><a name="cm_ConfigPlugins">cm_ConfigPlugins</a></div>
             <td class="cmdhintcell">Перейти к странице настроек плагинов.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPlugin" alt="cm_AddPlugin" src="../../pixmaps/dctheme/32x32/actions/cm_addplugin.png">
+              <div class="cmdname"><a name="cm_AddPlugin">cm_AddPlugin</a></div>
+            <td class="cmdhintcell">Добавить плагин: Double Commander предложит указать файл плагина, автоматически определит его тип (WCX, WDX, WFX, WLX или DSX), откроет нужный раздел настроек и добавит его в список.<br>
+              Имя файла может быть указано как параметр.
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2><a name="catnetwork">2.6. Сеть</a></h2>
-        <P>Связанные непосредственно с компьютерной сетью.</p>
+        <p>Связанные непосредственно с компьютерной сетью.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Сеть"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1023,7 +1039,7 @@
 
       <div>
         <h2><a name="catmiscellaneous">2.7. Разное</a></h2>
-        <P>Неизбежная категория с командами, которые мы не знали, где разместить!<br>Были предприняты усилия, чтобы попытаться не помещать в эту категорию слишком много команд.</p>
+        <p>Неизбежная категория с командами, которые мы не знали, где разместить!<br>Были предприняты усилия, чтобы попытаться не помещать в эту категорию слишком много команд.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Разное"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1083,7 +1099,7 @@
 
       <div>
         <h2><a name="catmark">2.8. Выделение</a></h2>
-        <P>Выбор файлов и папок для файловых операций.</p>
+        <p>Выбор файлов и папок для файловых операций.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Выделение"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1174,17 +1190,17 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"></td>
-                  <td class="innerdescdesccell">примечание: это значит "attr=", без правильного значения.<BR>будет фильтроваться всё, независимо от параметра "Маска атрибута по умолчанию"</td>
+                  <td class="innerdescdesccell">примечание: это значит "attr=", без правильного значения.<br>будет фильтроваться всё, независимо от параметра "Маска атрибута по умолчанию"</td>
                 </tr>
               </table>
-              <B>Примечание1:</b> Если команда используется без каких-либо параметров, необходимо будет ввести свой фильтр, а состояние остальных опций будет то же, что и в предыдущем вызове в текущей сессии.<BR>
-              <B>Примечание2:</b> При использовании фильтра в стиле Windows, фильтром <i>*.*</i> будут выбраны файла без расширения, в отличие от стиля DC.<BR>
-              <B>Примечание3:</b> При указании параметра "mask", можно также использовать предопределённый тип (шаблон), просто поставьте перед его именем символ "&gt;", например, "<I>mask=&gt;Pascal files</i>".<BR>
-              <B>Примечание4:</b> При использовании "<I>ignoreaccents=TRUE</i>", лигатуры, такие как "<i>&oelig;</i>", например, будут восприняты как последовательность "<i>oe</i>". Например, "<I>c&oelig;ur</i>" будет соответствовать "<I>coeur</i>".<BR>
-              <B>Примечание5:</b> Использование параметров, например, "casesensitive", не повлияет на последующее использование cm_MarkPlus без каких-либо параметров, по умолчанию будут использоваться те же параметры, что были получены при последнем вызове.<BR>
-              <B>Примечание6:</b> Возможные значения "attr" смотрите в секции "<a href="findfiles.html#attributes">Поиск файлов с определёнными атрибутами</a>" в разделе справки "Поиск файлов", атрибуты указываются аналогично.<BR>
-              <B>Пример1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" выделит все файлы, соответствующие заданной маске фильтра (обычные расширения исходных файлов Delphi), игнорируя регистр букв.<BR>
-              <B>Пример2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" выделит все файлы, соответствующие заданной маске фильтра (документы Microsoft Word со словом "ecole" в их именах), игнорируя акценты. Т.к. акценты игнорируются, то так же, как и файлы с "ecole" в имени, будут выделены и файлы, содержащие в имени "école".
+              <b>Примечание1:</b> Если команда используется без каких-либо параметров, необходимо будет ввести свой фильтр, а состояние остальных опций будет то же, что и в предыдущем вызове в текущей сессии.<br>
+              <b>Примечание2:</b> При использовании фильтра в стиле Windows, фильтром <i>*.*</i> будут выбраны файла без расширения, в отличие от стиля DC.<br>
+              <b>Примечание3:</b> При указании параметра "mask", можно также использовать предопределённый тип (шаблон), просто поставьте перед его именем символ "&gt;", например, "<i>mask=&gt;Pascal files</i>".<br>
+              <b>Примечание4:</b> При использовании "<i>ignoreaccents=TRUE</i>", лигатуры, такие как "<i>&oelig;</i>", например, будут восприняты как последовательность "<i>oe</i>". Например, "<i>c&oelig;ur</i>" будет соответствовать "<i>coeur</i>".<br>
+              <b>Примечание5:</b> Использование параметров, например, "casesensitive", не повлияет на последующее использование cm_MarkPlus без каких-либо параметров, по умолчанию будут использоваться те же параметры, что были получены при последнем вызове.<br>
+              <b>Примечание6:</b> Возможные значения "attr" смотрите в секции "<a href="findfiles.html#attributes">Поиск файлов с определёнными атрибутами</a>" в разделе справки "Поиск файлов", атрибуты указываются аналогично.<br>
+              <b>Пример1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" выделит все файлы, соответствующие заданной маске фильтра (обычные расширения исходных файлов Delphi), игнорируя регистр букв.<br>
+              <b>Пример2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" выделит все файлы, соответствующие заданной маске фильтра (документы Microsoft Word со словом "ecole" в их именах), игнорируя акценты. Т.к. акценты игнорируются, то так же, как и файлы с "ecole" в имени, будут выделены и файлы, содержащие в имени "école".
             </td>
           </tr>
           <tr>
@@ -1232,7 +1248,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"></td>
-                  <td class="innerdescdesccell">примечание: это значит "attr=", без правильного значения.<BR>будет фильтроваться всё, независимо от параметра "Маска атрибута по умолчанию"</td>
+                  <td class="innerdescdesccell">примечание: это значит "attr=", без правильного значения.<br>будет фильтроваться всё, независимо от параметра "Маска атрибута по умолчанию"</td>
                 </tr>
               </table>
             </td>
@@ -1252,8 +1268,8 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentPath" alt="cm_MarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentpath.png">
               <div class="cmdname"><a name="cm_MarkCurrentPath">cm_MarkCurrentPath</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Выделить</a> файлы с тем же путём, что и у файла под курсором в активной панели.<BR>
-              <B>Примечание:</b> На первый взгляд может показаться бесполезной, но можно использовать по меньшей мере в двух ситуациях:<br>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Выделить</a> файлы с тем же путём, что и у файла под курсором в активной панели.<br>
+              <b>Примечание:</b> На первый взгляд может показаться бесполезной, но можно использовать по меньшей мере в двух ситуациях:<br>
               <div style="margin: 0 0 0 15;">
                 В панели результата поиска по разным уровням директорий<br>
                 После вызова внутренней команды <a href="#cm_FlatView">cm_FlatView</a>.
@@ -1263,7 +1279,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentPath" alt="cm_UnmarkCurrentPath" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentpath.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentPath">cm_UnmarkCurrentPath</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Снять выделение</a> с файлов с тем же путём, что и у файла под курсором в активной панели.<BR>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Снять выделение</a> с файлов с тем же путём, что и у файла под курсором в активной панели.<br>
               См. примечание в описании команды <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>.
             </td>
           </tr>
@@ -1294,14 +1310,14 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MarkCurrentNameExt" alt="cm_MarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_markcurrentnameext.png">
               <div class="cmdname"><a name="cm_MarkCurrentNameExt">cm_MarkCurrentNameExt</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Выделить</a> файлы с именем и расширением как у файла под курсором в активной панели.<BR>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Выделить</a> файлы с именем и расширением как у файла под курсором в активной панели.<br>
               См. примечание в описании команды <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>.
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_UnmarkCurrentNameExt" alt="cm_UnmarkCurrentNameExt" src="../../pixmaps/dctheme/32x32/actions/cm_unmarkcurrentnameext.png">
               <div class="cmdname"><a name="cm_UnmarkCurrentNameExt">cm_UnmarkCurrentNameExt</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#mnu_select">Снять выделение</a> с файлов с именем и расширением как у файла под курсором в активной панели.<BR>
+            <td class="cmdhintcell"><a href="help.html#mnu_select">Снять выделение</a> с файлов с именем и расширением как у файла под курсором в активной панели.<br>
               См. примечание в описании команды <a href="#cm_MarkCurrentPath">cm_MarkCurrentPath</a>.
             </td>
           </tr>
@@ -1317,17 +1333,17 @@
                   <th class="innerdescheader">Описание</th>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell">files<p class="versionref">Версия 1.0.0 +</p></td>
+                  <td class="innerdescparamcell">files</td>
                   <td class="innerdescvaluecell">on/off</td>
                   <td class="innerdescdesccell">выделить файлы</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell">directories<p class="versionref">Версия 1.0.0 +</p></td>
+                  <td class="innerdescparamcell">directories</td>
                   <td class="innerdescvaluecell">on/off</td>
                   <td class="innerdescdesccell">выделить каталоги</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">выделить только файлы</td>
                 </tr>
               </table>
@@ -1346,8 +1362,8 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelectionToFile" alt="cm_SaveSelectionToFile" src="../../pixmaps/dctheme/32x32/actions/cm_saveselectiontofile.png">
               <div class="cmdname"><a name="cm_SaveSelectionToFile">cm_SaveSelectionToFile</a></div></td>
-            <td class="cmdhintcell">Сохранить текущее выделение в файл.<BR>
-              Вы можете указать имя файла в первом параметре.<BR>
+            <td class="cmdhintcell">Сохранить текущее выделение в файл.<br>
+              Вы можете указать имя файла в первом параметре.<br>
               Если параметр не используется, то Double Commander предложит указать имя файла.</td>
           </tr>
           <tr>
@@ -1368,7 +1384,7 @@
 
       <div>
         <h2><a name="catclipboard">2.9. Буфер обмена</a></h2>
-        <P>Взаимодействие с буфером обмена и выбранными файлами и папками.</p>
+        <p>Взаимодействие с буфером обмена и выбранными файлами и папками.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Буфер обмена"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1423,7 +1439,7 @@
 
       <div>
         <h2><a name="catnavigation">2.10. Навигация</a></h2>
-        <P>Переход из одной папки в другую для доступа к различным файлам и папкам в зависимости от их расположения.</p>
+        <p>Переход из одной папки в другую для доступа к различным файлам и папкам в зависимости от их расположения.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Навигация"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1449,7 +1465,7 @@
                   <td class="innerdescdesccell">история каталогов будет показана в древовидном меню</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию будет использоваться всплывающее меню</td>
                 </tr>
                 <tr>
@@ -1462,11 +1478,11 @@
                   <td class="innerdescdesccell">меню будет показано в позиции курсора мыши</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию в левом верхнем углу активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">всплывающее меню будет показано в левом верхнем углу активной панели</td>
                 </tr>
               </table>
@@ -1494,7 +1510,7 @@
                   <td class="innerdescdesccell">избранные каталоги будут показаны в древовидном меню</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию будет использоваться всплывающее меню</td>
                 </tr>
                 <tr>
@@ -1507,15 +1523,21 @@
                   <td class="innerdescdesccell">меню будет показано в позиции курсора мыши</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию в левом верхнем углу активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">всплывающее меню будет показано в левом верхнем углу активной панели</td>
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_SyncChangeDir" alt="cm_SyncChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_syncchangedir.png">
+              <div class="cmdname"><a name="cm_SyncChangeDir">cm_SyncChangeDir</a></div></td>
+            <td class="cmdhintcell">Синхронная смена каталогов в панелях.<br>
+              Синхронная навигация отключается при повторном вызове команды или автоматически, если нет совпадающих имён папок.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDirToParent" alt="cm_ChangeDirToParent" src="../../pixmaps/dctheme/32x32/actions/cm_changedirtoparent.png">
@@ -1533,13 +1555,13 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDirToRoot" alt="cm_ChangeDirToRoot" src="../../pixmaps/dctheme/32x32/actions/cm_changedirtoroot.png">
               <div class="cmdname"><a name="cm_ChangeDirToRoot">cm_ChangeDirToRoot</a></div>
               <div class="shrtctkey">Ctrl+\</div></td>
-            <td class="cmdhintcell">Перейти в корневой каталог ("/" в Unix и GNU/Linux).</td>
+            <td class="cmdhintcell">Перейти в корневой каталог ("/" в Unix и GNU/Linux) или корень текущего диска (Windows).<br>В архиве: перейти в корень архива.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TargetEqualSource" alt="cm_TargetEqualSource" src="../../pixmaps/dctheme/32x32/actions/cm_targetequalsource.png">
               <div class="cmdname"><a name="cm_TargetEqualSource">cm_TargetEqualSource</a></div>
               <div class="shrtctkey">Alt+Z</div></td>
-            <td class="cmdhintcell">Показать <a href="help.html#cm_TargetEqualSource">тот же</a> каталог в противоположной панели.</td>
+            <td class="cmdhintcell">Показать тот же каталог в противоположной панели.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TransferLeft" alt="cm_TransferLeft" src="../../pixmaps/dctheme/32x32/actions/cm_transferleft.png">
@@ -1570,10 +1592,61 @@
             <td class="cmdhintcell"><a href="help.html#cm_Exchange">Поменять местами</a> содержимое панелей.</td>
           </tr>
           <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
+              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
+            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
+              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
+            <td class="cmdhintcell">Изменить путь активной/неактивной/левой/правой панели на указанный каталог(и).<br>
+              Обратите внимание, что можно указать более одного параметра, поэтому одной командой можно одновременно установить пути и в активной, и в неактивной панели.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">activepath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в активной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">inactivepath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в неактивной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">leftpath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в левой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">rightpath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в правой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="3">Также в качестве единственного параметра можно просто указать путь и DC откроет этот путь в активной панели (сохранено для обеспечения обратной совместимости).</td>
+                </tr>
+              </table>
+              <br>
+              Примеры:<br>
+              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
+              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&mdash; папка "Paul Houde".<br><br>
+              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
+              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&mdash; в правой.<br><br>
+              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
+              В активной панели будет открыт указанный сетевой путь.
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickSearch" alt="cm_QuickSearch" src="../../pixmaps/dctheme/32x32/actions/cm_quicksearch.png">
               <div class="cmdname"><a name="cm_QuickSearch">cm_QuickSearch</a></div>
               <div class="shrtctkey">Ctrl+S</div></td>
-            <td class="cmdhintcell"><a href="help.html#5_1_14_bystrPoisk">Быстрый поиск</a> в каталоге.<br>
+            <td class="cmdhintcell"><a href="configuration.html#ConfigQuick">Быстрый поиск</a> в каталоге.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -1584,18 +1657,18 @@
                  <tr>
                   <td class="innerdescparamcell">search</td>
                   <td class="innerdescvaluecell">on/off/cycle</td>
-                  <td class="innerdescdesccell">Определяет состояние панели быстрого поиска (внизу файловой панели):<BR>
-                    - "on"&nbsp;&mdash; применяет указанные параметры поиска, панель быстрого поиска отображается<BR>
-                    - "off"&nbsp;&mdash; закрывает быстрый поиск и скрывает панель<BR>
+                  <td class="innerdescdesccell">Определяет состояние панели быстрого поиска (внизу файловой панели):<br>
+                    - "on"&nbsp;&mdash; применяет указанные параметры поиска, панель быстрого поиска отображается<br>
+                    - "off"&nbsp;&mdash; закрывает быстрый поиск и скрывает панель<br>
                     - "cycle"&nbsp;&mdash; используется для многократных вызовов команды подряд, чтобы перейти к следующему совпадающему пункту</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">direction</td>
                   <td class="innerdescvaluecell">first/last/next</td>
-                  <td class="innerdescdesccell">Определяет направление быстрого поиска пункта, соответствующего критериям поиска:<BR>
-                    - "first"&nbsp;&mdash; к первому найденному сверху пункту<BR>
-                    - "last"&nbsp;&mdash; к последнему пункту<BR>
-                    - "next"&nbsp;&mdash; к следующему после текущего найденного. Обратите внимание, что возможен "оборот" и возврат к текущему пункту, если следующий не найден.<BR>
+                  <td class="innerdescdesccell">Определяет направление быстрого поиска пункта, соответствующего критериям поиска:<br>
+                    - "first"&nbsp;&mdash; к первому найденному сверху пункту<br>
+                    - "last"&nbsp;&mdash; к последнему пункту<br>
+                    - "next"&nbsp;&mdash; к следующему после текущего найденного. Обратите внимание, что возможен "оборот" и возврат к текущему пункту, если следующий не найден.<br>
                     *Примечание: Этот параметр не имеет значения, когда "search=cycle".</td>
                 </tr>
                 <tr>
@@ -1705,65 +1778,24 @@
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
-              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
-              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
-            <td class="cmdhintcell">Изменить путь активной/неактивной/левой/правой панели на указанный каталог(и).<br>
-              Обратите внимание, что можно указать более одного параметра, поэтому одной командой можно одновременно установить пути и в активной, и в неактивной панели.<br>
-              <br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Параметр</th>
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">activepath</td>
-                  <td class="innerdescvaluecell"><I>путь</i></td>
-                  <td class="innerdescdesccell"><I>путь</i> будет открыт в активной панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">inactivepath</td>
-                  <td class="innerdescvaluecell"><I>путь</i></td>
-                  <td class="innerdescdesccell"><I>путь</i> будет открыт в неактивной панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">leftpath</td>
-                  <td class="innerdescvaluecell"><I>путь</i></td>
-                  <td class="innerdescdesccell"><I>путь</i> будет открыт в левой панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">rightpath</td>
-                  <td class="innerdescvaluecell"><I>путь</i></td>
-                  <td class="innerdescdesccell"><I>путь</i> будет открыт в правой панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell" colspan="3">Также в качестве единственного параметра можно просто указать путь и DC откроет этот путь в активной панели (сохранено для обеспечения обратной совместимости).</td>
-                </tr>
-              </table>
-              <br>
-              Примеры:<br>
-              <I>cm_ChangeDir activepath=%DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
-              В активной панели будет открыт каталог %DESKTOP% (Рабочий стол), а в неактивной&nbsp;&mdash; папка "Paul Houde".<br><br>
-              <I>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
-              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&mdash; в правой.<br><br>
-              <I>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              В активной панели будет открыт указанный сетевой путь.
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
-              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
+              <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a></div></td>
             <td class="cmdhintcell">Поместить курсор на первую папку или файл в списке.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastEntry" alt="cm_GoToLastEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastentry.png">
-              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
+              <div class="cmdname"><a name="cm_GoToLastEntry">cm_GoToLastEntry</a></div></td>
             <td class="cmdhintcell">Поместить курсор на последнюю папку или файл в списке.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
+              <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a></div></td>
+            <td class="cmdhintcell">Поместить курсор на следующую папку или файл.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
+              <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a></div></td>
+            <td class="cmdhintcell">Поместить курсор на предыдущую папку или файл.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstFile" alt="cm_GoToFirstFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstfile.png">
@@ -1774,16 +1806,6 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastFile" alt="cm_GoToLastFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastfile.png">
               <div class="cmdname"><a name="cm_GoToLastFile">cm_GoToLastFile</a></div></td>
             <td class="cmdhintcell">Поместить курсор на последний файл в списке.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
-              <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Поместить курсор на следующую папку или файл.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
-              <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a><p class="versionref">Версия 1.0.0 +</p></div></td>
-            <td class="cmdhintcell">Поместить курсор на предыдущую папку или файл.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistory" alt="cm_ViewHistory" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistory.png">
@@ -1806,7 +1828,7 @@
                   <td class="innerdescdesccell">история каталогов будет показана в древовидном меню</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию будет использоваться всплывающее меню</td>
                 </tr>
                 <tr>
@@ -1819,11 +1841,11 @@
                   <td class="innerdescdesccell">меню будет показано в позиции курсора мыши</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию будет использоваться меню в позиции курсора мыши</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">всплывающее меню будет показано в позиции курсора мыши</td>
                 </tr>
               </table>
@@ -1855,40 +1877,40 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">index</td>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">открыть <B>1</b>-й диск из списка</td>
+                  <td class="innerdescdesccell">открыть <b>1</b>-й диск из списка</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell">открыть <B>2</b>-й диск из списка</td>
+                  <td class="innerdescdesccell">открыть <b>2</b>-й диск из списка</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">3</td>
-                  <td class="innerdescdesccell">открыть <B>3</b>-й диск из списка</td>
+                  <td class="innerdescdesccell">открыть <b>3</b>-й диск из списка</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>n</i></td>
-                  <td class="innerdescdesccell">открыть <I><B>n</b></i>-й диск из списка</td>
+                  <td class="innerdescvaluecell"><i>n</i></td>
+                  <td class="innerdescdesccell">открыть <i><b>n</b></i>-й диск из списка</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">открыть в <B>левой панели</b></td>
+                  <td class="innerdescdesccell">открыть в <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">открыть в <B>правой панели</b></td>
+                  <td class="innerdescdesccell">открыть в <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">открыть в <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">открыть в <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
-                  <td class="innerdescdesccell">открыть в <B>текущей активной панели</b></td>
+                  <td class="innerdescdesccell">открыть в <b>текущей активной панели</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто)</i></td>
-                  <td class="innerdescdesccell"><B>index</b> должен быть указан обязательно</td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто)</i></td>
+                  <td class="innerdescdesccell"><b>index</b> должен быть указан обязательно</td>
                 </tr>
               </table>
               <br>
@@ -1916,7 +1938,7 @@
                   <td class="innerdescdesccell">установить фокус на правую панель</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">установить фокус на противоположную панель</td>
                 </tr>
               </table>
@@ -1928,7 +1950,7 @@
 
       <div>
         <h2><a name="cathelp">2.11. Помощь</a></h2>
-        <P>Доступ к файлам справки Double Commander.</p>
+        <p>Доступ к файлам справки Double Commander.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Помощь"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1940,7 +1962,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Keyboard" alt="cm_Keyboard" src="../../pixmaps/dctheme/32x32/actions/cm_keyboard.png">
               <div class="cmdname"><a name="cm_Keyboard">cm_Keyboard</a></div>
-            <td class="cmdhintcell">Открыть страницу справки с <a href="shortcuts.html">клавиатурными сочетаниями</a>.<br><B>Примечание</b>: Это просто HTML-файл, поэтому, если вы измените сочетание клавиш по умолчанию, помните, что файл справки не отображает фактическое, используемое в приложении в настоящее время, сочетание.</td>
+            <td class="cmdhintcell">Открыть страницу справки с <a href="shortcuts.html">клавиатурными сочетаниями</a>.<br><b>Примечание</b>: Это просто HTML-файл, поэтому, если вы измените сочетание клавиш по умолчанию, помните, что файл справки не отображает фактическое, используемое в приложении в настоящее время, сочетание.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_VisitHomePage" alt="cm_VisitHomePage" src="../../pixmaps/dctheme/32x32/actions/cm_visithomepage.png">
@@ -1959,7 +1981,7 @@
 
       <div>
         <h2><a name="catwindow">2.12. Окно</a></h2>
-        <P>Команды, относящиеся к окну Double Commander, его внешнему виду и поведению.</p>
+        <p>Команды, относящиеся к окну Double Commander, его внешнему виду и поведению.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Окно"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -1977,7 +1999,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">mode</td>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">переключение между горизонтальным/вертикальным</td>
                 </tr>
                 <tr>
@@ -2010,7 +2032,7 @@
                   <td class="innerdescdesccell">процент ширины от доступного пространства для левой панели<br>(или верхней, если включено горизонтальное расположение)</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">соответствует 50%</td>
                 </tr>
               </table>
@@ -2048,7 +2070,7 @@
                   <td class="innerdescdesccell">заглушка, будет проигнорировано</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">переключение видимости главного меню</td>
                 </tr>
               </table>
@@ -2086,7 +2108,7 @@
                   <td class="innerdescdesccell">заглушка, будет проигнорировано</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">переключение видимости панели инструментов</td>
                 </tr>
               </table>
@@ -2132,7 +2154,7 @@
 
       <div>
         <h2><a name="catcommandline">2.13. Командная строка</a></h2>
-        <P>Взаимодействие с командной строкой, просмотр последних команд и помощь в вызове новых.</p>
+        <p>Взаимодействие с командной строкой, просмотр последних команд и помощь в вызове новых.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Командная строка"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -2145,7 +2167,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowCmdLineHistory" alt="cm_ShowCmdLineHistory" src="../../pixmaps/dctheme/32x32/actions/cm_showcmdlinehistory.png">
               <div class="cmdname"><a name="cm_ShowCmdLineHistory">cm_ShowCmdLineHistory</a></div>
-              <div class="shrtctkey">Ctrl+7</div></td>
+              <div class="shrtctkey">Alt+F8, Ctrl+ &darr;</div></td>
             <td class="cmdhintcell">Показать историю всех команд, использованных в <a href="help.html#iface_path">командной строке</a>.<br>
               <br>
               <table class="innercmddesc">
@@ -2164,17 +2186,11 @@
                   <td class="innerdescdesccell">над командной строкой будет открыто древовидное меню с историей введённых команд</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию выбран выпадающий список</td>
                 </tr>
               </table>
             </td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png">
-              <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
-              <div class="shrtctkey">Ctrl+O</div></td>
-            <td class="cmdhintcell">Переключить консольное окно в режим полного экрана.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CmdLineNext" alt="cm_CmdLineNext" src="../../pixmaps/dctheme/32x32/actions/cm_cmdlinenext.png">
@@ -2217,7 +2233,7 @@
                   <td class="innerdescdesccell">пользователю будет задан вопрос, взять ли путь в кавычки, с выбором по умолчанию как если бы "mode=smartquote"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию предполагается "mode=smartquote"</td>
                 </tr>
               </table>
@@ -2227,13 +2243,19 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddFilenameToCmdLine" alt="cm_AddFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addfilenametocmdline.png">
               <div class="cmdname"><a name="cm_AddFilenameToCmdLine">cm_AddFilenameToCmdLine</a></div>
               <div class="shrtctkey">Ctrl+Enter</div></td>
-            <td class="cmdhintcell">Вставить в командную строку имя файла под курсором.<BR><B>Примечание:</b> Команда принимает те же параметры, что и <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+            <td class="cmdhintcell">Вставить в командную строку имя файла под курсором.<br><b>Примечание:</b> Команда принимает те же параметры, что и <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPathAndFilenameToCmdLine" alt="cm_AddPathAndFilenameToCmdLine" src="../../pixmaps/dctheme/32x32/actions/cm_addpathandfilenametocmdline.png">
               <div class="longcmdname"><a name="cm_AddPathAndFilenameToCmdLine">cm_AddPathAndFilenameToCmdLine</a></div>
               <div class="shrtctkey">Ctrl+Shift+Enter</div></td>
-            <td class="cmdhintcell">Вставить в командную строку текущий путь и имя файла под курсором.<BR><B>Примечание:</b> Команда принимает те же параметры, что и <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+            <td class="cmdhintcell">Вставить в командную строку текущий путь и имя файла под курсором.<br><b>Примечание:</b> Команда принимает те же параметры, что и <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png">
+              <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
+              <div class="shrtctkey">Ctrl+O</div></td>
+            <td class="cmdhintcell">Переключить консольное окно в режим полного экрана.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -2241,7 +2263,7 @@
 
       <div>
         <h2><a name="cattools">2.14. Инструменты</a></h2>
-        <P>Действия, требующие более одного щелчка мыши. Эти команды, как правило, показывают другое окно Double Commander, чтобы выполнить некоторые более сложные действия.</p>
+        <p>Действия, требующие более одного щелчка мыши. Эти команды, как правило, показывают другое окно Double Commander, чтобы выполнить некоторые более сложные действия.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Инструменты"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -2263,7 +2285,7 @@
                   <td class="innerdescdesccell">Будет загружен шаблон с указанным именем</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">Загрузить последние использованные настройки или то, что было выбрано в <a href="multirename.html#presetatlaunch">Шаблон при запуске</a></td>
                 </tr>
               </table>
@@ -2273,7 +2295,9 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Search" alt="cm_Search" src="../../pixmaps/dctheme/32x32/actions/cm_search.png">
               <div class="cmdname"><a name="cm_Search">cm_Search</a></div>
               <div class="shrtctkey">Alt+F7</div></td>
-            <td class="cmdhintcell">Открыть окно <a href="help.html#cm_Search">поиска</a> с параметрами по умолчанию или с шаблоном поиска по умолчанию (см. Файловые операции&nbsp;&gt; Поиск файлов, опция "Шаблон поиска по умолчанию").<br>Также команда поддерживает один параметр для открытия диалога поиска с сохранённым шаблоном, используйте имя шаблона как есть, без кавычек.</td>
+            <td class="cmdhintcell">Открыть окно <a href="help.html#cm_Search">поиска</a> с параметрами по умолчанию или с шаблоном поиска по умолчанию (см. Файловые операции&nbsp;&gt; Поиск файлов, опция "Шаблон поиска по умолчанию").<br>
+              Также команда поддерживает один параметр для открытия диалога поиска с сохранённым шаблоном, используйте имя шаблона как есть, без кавычек.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddNewSearch" alt="cm_AddNewSearch" src="../../pixmaps/dctheme/32x32/actions/cm_addnewsearch.png">
@@ -2318,7 +2342,7 @@
 
       <div>
         <h2><a name="catview">2.15. Вид</a></h2>
-        <P>Команды, связанные с видимостью файлов, включая системные и т.д.</p>
+        <p>Команды, связанные с видимостью файлов, включая системные и т.д.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Вид"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -2336,7 +2360,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SwitchIgnoreList" alt="cm_SwitchIgnoreList" src="../../pixmaps/dctheme/32x32/actions/cm_switchignorelist.png">
               <div class="cmdname"><a name="cm_SwitchIgnoreList">cm_SwitchIgnoreList</a></div></td>
-            <td class="cmdhintcell">Включить или выключить <a href="help.html#ignore_list">функцию исключения имён файлов</a> ("Список исключений"), в зависимости от параметра.<br>
+            <td class="cmdhintcell">Включить или выключить <a href="configuration.html#ConfigIgnore">функцию исключения имён файлов</a> ("Список исключений"), в зависимости от параметра.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2354,7 +2378,7 @@
                   <td class="innerdescdesccell">запретить использовать список исключения имён</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">переключение состояния включить/выключить</td>
                 </tr>
               </table>
@@ -2368,7 +2392,7 @@
 
       <div>
         <h2><a name="cattabs">2.16. Вкладки</a></h2>
-        <P>Взаимодействие с вкладками: создание новых, переход между ними, закрытие и т.д.</p>
+        <p>Взаимодействие с вкладками: создание новых, переход между ними, закрытие и т.д.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Вкладки"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -2421,32 +2445,32 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">команда закроет все вкладки <B>левой панели</b></td>
+                  <td class="innerdescdesccell">команда закроет все вкладки <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">команда закроет все вкладки <B>правой панели</b></td>
+                  <td class="innerdescdesccell">команда закроет все вкладки <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">команда закроет все вкладки <B>активной панели</b></td>
+                  <td class="innerdescdesccell">команда закроет все вкладки <b>активной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">команда закроет все вкладки <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">команда закроет все вкладки <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">команда закроет все вкладки <B>обеих панелей</b></td>
+                  <td class="innerdescdesccell">команда закроет все вкладки <b>обеих панелей</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">dolocked</td>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">команда закроет также <B>заблокированные вкладки</b></td>
+                  <td class="innerdescdesccell">команда закроет также <b>заблокированные вкладки</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">игнорировать <B>заблокированные вкладки</b></td>
+                  <td class="innerdescdesccell">игнорировать <b>заблокированные вкладки</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">confirmlocked</td>
@@ -2458,11 +2482,11 @@
                   <td class="innerdescdesccell">если параметр "dolocked" разрешён, то заблокированные вкладки будут закрыты без подтверждения, независимо от состояния опции "Подтверждать закрытие заблокированных вкладок"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(не указано)</i></td>
+                  <td class="innerdescvaluecell"><i>(не указано)</i></td>
                   <td class="innerdescdesccell">если параметр "dolocked" разрешён, то появление запроса подтверждения закрытия заблокированных вкладок будет зависеть от состояния опции "Подтверждать закрытие заблокированных вкладок"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">команда закроет все, кроме текущей, незаблокированные вкладки активной панели</td>
                 </tr>
                 <tr>
@@ -2485,32 +2509,32 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <B>левой панели</b></td>
+                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <B>правой панели</b></td>
+                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <B>активной панели</b></td>
+                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <b>активной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <B>обеих панелях</b></td>
+                  <td class="innerdescdesccell">команда закроет дублирующие вкладки в <b>обеих панелях</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">dolocked</td>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">команда закроет также дублирующие <B>заблокированные вкладки</b></td>
+                  <td class="innerdescdesccell">команда закроет также дублирующие <b>заблокированные вкладки</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">игнорировать дублирующие <B>заблокированные вкладки</b></td>
+                  <td class="innerdescdesccell">игнорировать дублирующие <b>заблокированные вкладки</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">confirmlocked</td>
@@ -2522,11 +2546,11 @@
                   <td class="innerdescdesccell">если параметр "dolocked" разрешён, то заблокированные дублирующие вкладки будут закрыты без подтверждения, независимо от состояния опции "Подтверждать закрытие заблокированных вкладок"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(не указано)</i></td>
+                  <td class="innerdescvaluecell"><i>(не указано)</i></td>
                   <td class="innerdescdesccell">если параметр "dolocked" разрешён, то появление запроса подтверждения закрытия заблокированных дублирующих вкладок будет зависеть от состояния опции "Подтверждать закрытие заблокированных вкладок"</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">команда закроет все, кроме текущей, незаблокированные дублирующие вкладки активной панели</td>
                 </tr>
               </table>
@@ -2546,27 +2570,27 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">будут скопированы вкладки из <B>левой панели</b> в правую</td>
+                  <td class="innerdescdesccell">будут скопированы вкладки из <b>левой панели</b> в правую</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">будут скопированы вкладки из <B>правой панели</b> в левую</td>
+                  <td class="innerdescdesccell">будут скопированы вкладки из <b>правой панели</b> в левую</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">будут скопированы вкладки из <B>активной панели</b> в неактивную</td>
+                  <td class="innerdescdesccell">будут скопированы вкладки из <b>активной панели</b> в неактивную</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">будут скопированы вкладки из <B>неактивной панели</b> в активную</td>
+                  <td class="innerdescdesccell">будут скопированы вкладки из <b>неактивной панели</b> в активную</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">вкладки <B>обеих панелей</b> будут скопированы на противоположные</td>
+                  <td class="innerdescdesccell">вкладки <b>обеих панелей</b> будут скопированы на противоположные</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
-                  <td class="innerdescdesccell">будут скопированы вкладки из <B>активной панели</b> в неактивную</td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescdesccell">будут скопированы вкладки из <b>активной панели</b> в неактивную</td>
                 </tr>
               </table>
             </td>
@@ -2594,77 +2618,77 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="6">loadleftto</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <B>левой</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <b>левой</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <B>правой</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <b>правой</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <B>активной</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <b>активной</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <B>неактивной</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <b>неактивной</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <B>обеих</b> панелях</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут загружены в <b>обеих</b> панелях</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">none</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут <B>проигнорированы</b></td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с левой панели, будут <b>проигнорированы</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="6">loadrightto</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <B>левой</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <b>левой</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <B>правой</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <b>правой</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <B>активной</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <b>активной</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <B>неактивной</b> панели</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <b>неактивной</b> панели</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <B>обеих</b> панелях</td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут загружены в <b>обеих</b> панелях</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">none</td>
-                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут <B>проигнорированы</b></td>
+                  <td class="innerdescdesccell">вкладки, сохранённые в TAB-файл с правой панели, будут <b>проигнорированы</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="6">keep</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">открытые в <B>левой</b> панели вкладки будут сохранены</td>
+                  <td class="innerdescdesccell">открытые в <b>левой</b> панели вкладки будут сохранены</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">открытые в <B>правой</b> панели вкладки будут сохранены</td>
+                  <td class="innerdescdesccell">открытые в <b>правой</b> панели вкладки будут сохранены</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">открытые в <B>активной</b> панели вкладки будут сохранены</td>
+                  <td class="innerdescdesccell">открытые в <b>активной</b> панели вкладки будут сохранены</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">открытые в <B>неактивной</b> панели вкладки будут сохранены</td>
+                  <td class="innerdescdesccell">открытые в <b>неактивной</b> панели вкладки будут сохранены</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">открытые в <B>обеих</b> панелях вкладки будут сохранены</td>
+                  <td class="innerdescdesccell">открытые в <b>обеих</b> панелях вкладки будут сохранены</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">none</td>
-                  <td class="innerdescdesccell"><B>ни одна</b> из существующих вкладок не будет сохранена</td>
+                  <td class="innerdescdesccell"><b>ни одна</b> из существующих вкладок не будет сохранена</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" colspan="3">Также можно просто подставить имя файла в качестве единственного параметра и DC загрузит TAB-файл "как есть": вкладки слева и вкладки справа будут восстановлены в левой и правой панели соответственно (сохранено для обеспечения обратной совместимости).</td>
@@ -2685,11 +2709,11 @@
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">filename</td>
-                  <td class="innerdescvaluecell"><I>filename.tab</i></td>
+                  <td class="innerdescvaluecell"><i>filename.tab</i></td>
                   <td class="innerdescdesccell">файл, используемый для сохранения вкладок</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(не указано)</i></td>
+                  <td class="innerdescvaluecell"><i>(не указано)</i></td>
                   <td class="innerdescdesccell">пользователю будет предложено указать TAB-файл для сохранения вкладок</td>
                 </tr>
                 <tr>
@@ -2741,26 +2765,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>левой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>правой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>активной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>активной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>обеих панелей</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>обеих панелей</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">применить к вкладкам только активной панели</td>
                 </tr>
               </table>
@@ -2780,26 +2804,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>левой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>правой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>активной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>активной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>обеих панелей</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>обеих панелей</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">применить только к вкладкам активной панели</td>
                 </tr>
               </table>
@@ -2819,26 +2843,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>левой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>правой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>активной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>активной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>обеих панелей</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>обеих панелей</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">применить только к вкладкам активной панели</td>
                 </tr>
               </table>
@@ -2858,26 +2882,26 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>левой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>правой панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">active</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>активной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>активной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">both</td>
-                  <td class="innerdescdesccell">применить к вкладкам <B>обеих панелей</b></td>
+                  <td class="innerdescdesccell">применить к вкладкам <b>обеих панелей</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">применить только к вкладкам активной панели</td>
                 </tr>
               </table>
@@ -2886,13 +2910,22 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadFavoriteTabs" alt="cm_LoadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_loadfavoritetabs.png">
               <div class="cmdname"><a name="cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Показать всплывающее меню с возможностью выбрать ранее сохранённые наборы вкладок.<br>
+            <td class="cmdhintcell">Показать меню с возможностью выбрать сохранённые ранее наборы вкладок.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Параметр</th>
                   <th class="innerdescheader">Значение</th>
                   <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">setup</td>
+                  <td class="innerdescvaluecell"><i>имя</i></td>
+                  <td class="innerdescdesccell">будет загружен набор <i>имя</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
+                  <td class="innerdescdesccell">открытые вкладки не изменятся, но будет отменён выбор текущего набора (если он был загружен)</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">menutype</td>
@@ -2904,7 +2937,7 @@
                   <td class="innerdescdesccell">будет показано древовидное меню с избранными вкладками</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию будет использоваться всплывающее меню</td>
                 </tr>
                 <tr>
@@ -2917,11 +2950,11 @@
                   <td class="innerdescdesccell">меню будет показано в позиции курсора мыши</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>(пусто)</i></td>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
                   <td class="innerdescdesccell">по умолчанию будет использоваться меню в левом верхнем углу активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
                   <td class="innerdescdesccell">будет показано всплывающее меню в левом верхнем углу активной панели</td>
                 </tr>
               </table>
@@ -2935,7 +2968,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ReloadFavoriteTabs" alt="cm_ReloadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_reloadfavoritetabs.png">
               <div class="cmdname"><a name="cm_ReloadFavoriteTabs">cm_ReloadFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Перезагрузить загруженные избранные вкладки, т.е. команда используется для восстановления сохранённого набора "как есть" после переходов по папкам в каждой вкладке, добавления новых вкладок и т.д.</td>
+            <td class="cmdhintcell">Перезагрузить последние загруженные избранные вкладки, т.е. команда используется для восстановления сохранённого набора "как есть" после переходов по папкам в каждой вкладке, добавления новых вкладок и т.д.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ResaveFavoriteTabs" alt="cm_ResaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_resavefavoritetabs.png">
@@ -2966,44 +2999,44 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">index</td>
                   <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">активировать <B>1</b>-ю вкладку</td>
+                  <td class="innerdescdesccell">активировать <b>1</b>-ю вкладку</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell">активировать <B>2</b>-ю вкладку</td>
+                  <td class="innerdescdesccell">активировать <b>2</b>-ю вкладку</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">3</td>
-                  <td class="innerdescdesccell">активировать <B>3</b>-ю вкладку</td>
+                  <td class="innerdescdesccell">активировать <b>3</b>-ю вкладку</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell"><I>n</i></td>
-                  <td class="innerdescdesccell">активировать <I><B>n</b></i>-ю вкладку</td>
+                  <td class="innerdescvaluecell"><i>n</i></td>
+                  <td class="innerdescdesccell">активировать <i><b>n</b></i>-ю вкладку</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">-1</td>
-                  <td class="innerdescdesccell">активировать <B>последнюю</b> вкладку</td>
+                  <td class="innerdescdesccell">активировать <b>последнюю</b> вкладку</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">side</td>
                   <td class="innerdescvaluecell">left</td>
-                  <td class="innerdescdesccell">активировать вкладку в <B>левой панели</b></td>
+                  <td class="innerdescdesccell">активировать вкладку в <b>левой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">right</td>
-                  <td class="innerdescdesccell">активировать вкладку в <B>правой панели</b></td>
+                  <td class="innerdescdesccell">активировать вкладку в <b>правой панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">inactive</td>
-                  <td class="innerdescdesccell">активировать вкладку в <B>неактивной панели</b></td>
+                  <td class="innerdescdesccell">активировать вкладку в <b>неактивной панели</b></td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
-                  <td class="innerdescdesccell">активировать вкладку в <B>текущей активной панели</b></td>
+                  <td class="innerdescdesccell">активировать вкладку в <b>текущей активной панели</b></td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" colspan="2"><I>(пусто)</i></td>
-                  <td class="innerdescdesccell"><B>index</b> должен быть указан обязательно</td>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто)</i></td>
+                  <td class="innerdescdesccell"><b>index</b> должен быть указан обязательно</td>
                 </tr>
               </table>
               <br>
@@ -3016,7 +3049,7 @@
 
       <div>
         <h2><a name="catlogs">2.17. Протокол</a></h2>
-        <P>Действия, связанные с протоколом файловых операций DC.</p>
+        <p>Действия, связанные с протоколом файловых операций DC.</p>
         <table class="cmddesc">
           <tr class="rowcategorytitle"><th colspan="2">Категория "Протокол"</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
@@ -3040,91 +3073,91 @@
       </div>
 
       <div>
-        <BR>
+        <br>
         <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
-        <BR>
+        <br>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="variables.html">Пред.</a> | <a title="Следующая страница" href="regexp.html">След.</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

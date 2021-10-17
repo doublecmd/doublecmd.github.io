@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Групповое переименование</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="findfiles.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.2. Групповое переименование</h1>
+        <h1>2.5. Групповое переименование</h1>
       </div>
 
       <div>
@@ -25,7 +25,7 @@
           <dt>1. <a href="#presentation">Описание</a></dt>
           <dd>
             <dl>
-              <dt>1.1. <a href="#recommandation">Совет</a></dt>
+              <dt>1.1. <a href="#recommendation">Совет</a></dt>
               <dt>1.2. <a href="#overview">Краткий обзор</a></dt>
             </dl>
           </dd>
@@ -44,7 +44,7 @@
             <dl>
               <dt>5.1. <a href="#existing">Существующий список</a></dt>
               <dt>5.2. <a href="#currentfilename">Создание на лету списка текущих имён файлов</a></dt>
-              <dt>5.3. <a href="#newfilename">Создание на лету списка из колонки новых имён</a><span class="versionref">(Версия 1.0.0 +)</span></dt>
+              <dt>5.3. <a href="#newfilename">Создание на лету списка из колонки новых имён</a></dt>
             </dl>
           </dd>
           <dt>6. <a href="#modifiers">Модификаторы</a></dt>
@@ -60,7 +60,7 @@
           <dt>7. <a href="#actualaction">Переименование файлов</a></dt>
           <dt>8. <a href="#log">Протокол</a></dt>
           <dt>9. <a href="#presets">Шаблоны</a></dt>
-          <dt>10. <a href="#configuration">Дополнительные настройки</a><span class="versionref">(Версия 1.0.0 +)</span></dt>
+          <dt>10. <a href="#configuration">Дополнительные настройки</a></dt>
           <dd>
             <dl>
               <dt>10.1. <a href="#menubar">Показать меню окна</a></dt>
@@ -74,36 +74,36 @@
       </div>
 
       <div>
-        <h2>1. <a name="presentation">Описание</a></h2>
+        <h2><a name="presentation">1. Описание</a></h2>
         <p>Инструмент группового переименования позволяет нам переименовывать выбранные файлы одновременно, используя разные способы.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>1.1. <a name="recommandation">Совет</a></h2>
+        <h2><a name="recommendation">1.1. Совет</a></h2>
         <p>Если мы не знакомы с инструментом группового переименования, то прежде чем приступить к его использованию, было бы целесообразно сделать несколько тестов с копиями реальных файлов во временном каталоге.</p>
         <p>Затем, получив некоторое представление, мы можем использовать его с реальными файлами.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>1.2. <a name="overview">Краткий обзор</a></h2>
+        <h2><a name="overview">1.2. Краткий обзор</a></h2>
         <p>Предположим, мы загрузили несколько MP3-файлов подкаста.</p>
         <p>Мы могли бы пожелать переименовать их, чтобы получить значимое имя для каждого.</p>
         <p>Вот где инструмент группового переименования будет полезен, поскольку он поможет нам одним действием переименовать несколько файлов.</p>
-        <BR>
+        <br>
         <p>Выделим на панели элементы, которые хотим переименовать, затем вызываем инструмент группового переименования одним из способов:</p>
         <ul>
-          <li>в главном меню <B>Файлы</B>&nbsp;&gt; <B>Групповое переименование</B></li>
+          <li>в главном меню <b>Файлы</b>&nbsp;&gt; <b>Групповое переименование</b></li>
           <li>с помощью внутренней команды <a href="cmds.html#cm_MultiRename">cm_MultiRename</a></li>
         </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>2. <a name="interface">Интерфейс</a></h2>
+        <h2><a name="interface">2. Интерфейс</a></h2>
         <p>Это приведёт нас к диалоговому окну инструмента группового переименования:</p>
-        <p class="figure"><img class="largeimage" title="Интерфейс" alt="Интерфейс" src="images/imgDC/mulrengeneral.png" width="733" height="436"></p>
+        <p class="figure"><img class="largeimage" title="Интерфейс" alt="Интерфейс" src="images/imgDC/mulrengeneral.png" width="720" height="430"></p>
         <p>В верхней части мы видим таблицу с файлами, выделенными на исходной панели, по одному файлу на строку.</p>
         <p>Таблица содержит три колонки:</p>
        <table>
@@ -113,13 +113,13 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">Новое имя</div></td><td class="hintcell">Новое имя файла, если мы подтвердим переименование</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Путь файла</div></td><td class="hintcell">Текущее расположение файла</td></tr>
         </table>
-        <p>Идея состоит в том, чтобы некоторыми манипуляциями добиться появления в колонке <B>Новое имя</B> желаемых новых имён файлов.</p>
-        <p>Затем нажмём кнопку <B>Переименовать</B>, чтобы на самом деле переименовать файлы.</p>
+        <p>Идея состоит в том, чтобы некоторыми манипуляциями добиться появления в колонке <b>Новое имя</b> желаемых новых имён файлов.</p>
+        <p>Затем нажмём кнопку <b>Переименовать</b>, чтобы на самом деле переименовать файлы.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>3. <a name="generation">Генерация новых имён файлов</a></h2>
+        <h2><a name="generation">3. Генерация новых имён файлов</a></h2>
         <p>В нашем распоряжении есть инструменты для генерации новых имён файлов.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Доступные инструменты</th></tr>
@@ -132,65 +132,65 @@
       </div>
 
       <div>
-        <h2>4. <a name="placeholders">Выражения</a></h2>
+        <h2><a name="placeholders">4. Выражения</a></h2>
         <p>Давайте посмотрим на выражения, которые мы можем использовать.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>4.1. <a name="basic">Основные выражения</a></h2>
-        <p>Выражения используются в левой части окна под меткой <B>Маска</B>.</p>
-        <p>Как видим, здесь в полях <B>Имя файла</B> и <B>Расширение</B> мы указываем, что будет использоваться для формирования имени файла и расширения.</p>
+        <h2><a name="basic">4.1. Основные выражения</a></h2>
+        <p>Выражения используются в левой части окна под меткой <b>Маска</b>.</p>
+        <p>Как видим, здесь в полях <b>Имя файла</b> и <b>Расширение</b> мы указываем, что будет использоваться для формирования имени файла и расширения.</p>
         <p>Эти выражения всегда указываются в квадратных скобках.</p>
         <p>Обычно каждое из выражений возвращает строку, которая будет частью имени файла или его расширения.</p>
         <p>Мы можем указать в строке более одного выражения и новая часть имени файла будет результатом объединения их всех.</p>
-        <BR>
+        <br>
         <p>Основные выражения:</p>
         <ul>
-          <li><B>[N]</B> обозначает текущее имя файла</li>
-          <li><B>[E]</B> обозначает текущее расширение файла</li>
+          <li><b>[N]</b> обозначает текущее имя файла</li>
+          <li><b>[E]</b> обозначает текущее расширение файла</li>
         </ul>
 
         <p>Для этих двух мы можем включить некоторые выражения, позволяющие использовать диапазон символов из имени файла и/или расширения.</p>
         <p>Давайте посмотрим на таблицу, показывающую результат на примере файла:</p>
-        <p class="figure"><img class="largeimage" title="Образец файла" alt="Образец файла" src="images/imgDC/mulrensamplefile.png" width="635" height="63"></p>
+        <p class="figure"><img class="largeimage" title="Пример файла" alt="Пример файла" src="images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Возможные выражения</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Выражения</th><th class="categorydesccolumn">Описание</th><th class="categorynamecolumn">Пример</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Nx]</div></td><td class="hintcell">символ с позиции x в имени файла</td><td class="hintcell"><code>[N9]</code> = T</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца имени файла<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[N-5]</code> = P</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца имени файла</td><td class="hintcell"><code>[N-5]</code> = P</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:y]</div></td><td class="hintcell">диапазон символов имени файла с позиции x по y</td><td class="hintcell"><code>[N5:6]</code> = 01</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:-y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца имени файла<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[N-6:-7]</code> = 06</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:-y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с начала, а последний с конца<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[N10:-6]</code> = 060306</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с конца, а последний с начала<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[N-16:6]</code> = 01</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx,y]</div></td><td class="hintcell">диапазон символов начиная с x и длиной y символов<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[N10,6]</code> = 060306</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x,y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца и выбираются y символов левее x<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[N-8,4]</code> = 0603</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:-y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца имени файла</td><td class="hintcell"><code>[N-6:-7]</code> = 06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:-y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с начала, а последний с конца</td><td class="hintcell"><code>[N10:-6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с конца, а последний с начала</td><td class="hintcell"><code>[N-16:6]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx,y]</div></td><td class="hintcell">диапазон символов начиная с x и длиной y символов</td><td class="hintcell"><code>[N10,6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x,y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца и выбираются y символов левее x</td><td class="hintcell"><code>[N-8,4]</code> = 0603</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Ex]</div></td><td class="hintcell">символ с позиции x в расширении</td><td class="hintcell"><code>[E1]</code> = m</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца расширения<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[E-1]</code> = 3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца расширения</td><td class="hintcell"><code>[E-1]</code> = 3</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:y]</div></td><td class="hintcell">диапазон символов расширения с позиции x по y</td><td class="hintcell"><code>[E2:3]</code> = p3</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:-y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца расширения<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[E-3:-2]</code> = mp</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:-y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с начала, а последний с конца<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[E1:-2]</code> = mp</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с конца, а последний с начала<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[E-2:3]</code> = p3</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex,y]</div></td><td class="hintcell">диапазон символов начиная с x и длиной y символов<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[E1,3]</code> = mp3</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x,y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца и выбираются y символов левее x<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[E-1,2]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:-y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца расширения</td><td class="hintcell"><code>[E-3:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:-y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с начала, а последний с конца</td><td class="hintcell"><code>[E1:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:y]</div></td><td class="hintcell">то же самое, но первый символ отсчитывается с конца, а последний с начала</td><td class="hintcell"><code>[E-2:3]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex,y]</div></td><td class="hintcell">диапазон символов начиная с x и длиной y символов</td><td class="hintcell"><code>[E1,3]</code> = mp3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x,y]</div></td><td class="hintcell">то же самое, но отсчёт ведётся с конца и выбираются y символов левее x</td><td class="hintcell"><code>[E-1,2]</code> = p3</td></tr>
         </table>
-        <BR>
+        <br>
         <p>Просто чтобы убедиться, что мы поняли идею, ниже пример c маской для имени файла в виде <code>[N1,4]-[N5,2]-[N7,2]</code></p>
-        <p>Мы видим, что колонка <B>Новое имя</B> была обновлена после предложенных замен.</p>
+        <p>Мы видим, что колонка <b>Новое имя</b> была обновлена после предложенных замен.</p>
         <p class="figure"><img class="largeimage" title="Образец переименования" alt="Образец переименования" src="images/imgDC/mulrensample1.png" width="382" height="284"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>4.2. <a name="other">Другие выражения</a></h2>
+        <h2><a name="other">4.2. Другие выражения</a></h2>
         <p>Здесь некоторые другие выражения, с тем же примером файла:</p>
-        <p class="figure"><img class="largeimage" title="Образец файла" alt="Образец файла" src="images/imgDC/mulrensamplefile.png" width="635" height="63"></p>
+        <p class="figure"><img class="largeimage" title="Пример файла" alt="Пример файла" src="images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Другие выражения</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Выражения</th><th class="categorydesccolumn">Описание</th><th class="categorynamecolumn">Пример</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">обозначает полное имя файла: полный путь, разделители пути и расширение, включая двоеточие и точку<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[A]</code> =<BR><I>Полное имя файла</I></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">диапазон, аналогично [N] и [E]: [Ax], [Ax:y], [A-x:-y] и т.д.<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">обозначает полное имя файла: полный путь, разделители пути и расширение, включая двоеточие и точку</td><td class="hintcell"><code>[A]</code> =<br><i>Полное имя файла</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">диапазон, аналогично [N] и [E]: [Ax], [Ax:y], [A-x:-y] и т.д.</td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Y]</div></td><td class="hintcell">год даты файла, две последние цифры</td><td class="hintcell"><code>[Y]</code> = 19</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[YYYY]</div></td><td class="hintcell">четыре цифры года</td><td class="hintcell"><code>[YYYY]</code> = 2019</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[M]</div></td><td class="hintcell">месяц даты файла</td><td class="hintcell"><code>[M]</code> = 1</td></tr>
@@ -207,16 +207,16 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">[nn]</div></td><td class="hintcell">минуты двумя цифрами (с добавлением лидирующего нуля, если необходимо)</td><td class="hintcell"><code>[nn]</code> = 02</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[s]</div></td><td class="hintcell">секунды времени файла</td><td class="hintcell"><code>[s]</code> = 7</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[ss]</div></td><td class="hintcell">секунды двумя цифрами (с добавлением лидирующего нуля, если необходимо)</td><td class="hintcell"><code>[ss]</code> = 07</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">GUID на лету в виде:<BR>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[G]</code> =<BR><I>16-байтный GUID</I></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">имя каталога на уровне x, считая от начала пути<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">имя каталога на уровне x, считая с конца пути<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">добавляет счётчик с параметрами из группы "Счётчик"</td><td class="hintcell"><code>[C]</code> = <I>Номер</I></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[V:запрос]</div></td><td class="hintcell">пользовательская переменная, значение будет запрошено в начале процесса переименования<p class="versionref">Версия 1.0.0 +</p></td><td class="hintcell"><code>[V:Guest]</code> = <I>Запросить<BR> значение Guest</I></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">GUID на лету в виде:<br>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</td><td class="hintcell"><code>[G]</code> =<br><i>16-байтный GUID</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">имя каталога на уровне x, считая от начала пути</td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">имя каталога на уровне x, считая с конца пути</td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">добавляет счётчик с параметрами из группы "Счётчик"</td><td class="hintcell"><code>[C]</code> = <i>Номер</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[V:запрос]</div></td><td class="hintcell">пользовательская переменная, значение будет запрошено в начале процесса переименования</td><td class="hintcell"><code>[V:Guest]</code> = <i>Запросить<br> значение Guest</i></td></tr>
         </table>
 
         <p>Ещё один пример, где мы использовали некоторые из перечисленных выше выражений, добавив маску</p>
         <p><code>[C] - [YYYY]-[MM]-[DD] @ [hh]-[nn]-[ss]</code></p>
-        <p class="figure"><img class="largeimage" title="Образец переименования" alt="Образец переименования" src="images/imgDC/mulrensample2.png" width="723" height="458"></p>
+        <p class="figure"><img class="largeimage" title="Образец переименования" alt="Образец переименования" src="images/imgDC/mulrensample2.png" width="722" height="452"></p>
 
         <p>Со временем, при частом использовании, мы будем набирать по памяти то, что нам нужно!</p>
         <p>В ожидании этого, к счастью, мы можем нажать кнопку под каждой маской и получить доступ к всплывающему меню, которое поможет нам получить нужный результат.</p>
@@ -225,56 +225,56 @@
       </div>
 
       <div>
-        <h2>4.3. <a name="plugin">Использование плагинов</a></h2>
-        <p>Также мы можем использовать контентные (информационые) плагины, информация из выбранного поля будет использоваться как часть нового имени.</p> 
+        <h2><a name="plugin">4.3. Использование плагинов</a></h2>
+        <p>Также мы можем использовать информационные (контентные) плагины, информация из выбранного поля будет использоваться как часть нового имени.</p> 
         <p>В примере ниже мультимедийным плагином извлекаем продолжительность MP3-файла подкаста и в круглых скобках добавляем в имя файла:</p>
-        <p class="figure"><img class="largeimage" title="Использование плагина" alt="Использование плагина" src="images/imgDC/mulrenplugin.png" width="684" height="571"></p>
+        <p class="figure"><img class="largeimage" title="Использование плагина" alt="Использование плагина" src="images/imgDC/mulrenplugin.png" width="674" height="570"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>5. <a name="listoffiles">Список файлов</a></h2>
+        <h2><a name="listoffiles">5. Список файлов</a></h2>
         <p>Для переименования наших файлов мы можем использовать текстовый файл, содержащий список имён.</p>
         <p>Предполагается, что каждая строка этого текстового файла содержит новое имя файла (включая расширение), которое будет присвоено соответствующему, в порядке расположения в таблице, файлу.</p>
-        <BR>
+        <br>
         <p>Список может быть</p>
         <ul>
           <li>существующим, сделанным заранее, текстовым файлом</li>
-          <li>созданным на лету по списку текущих имён файлов (колонка <B>Старое имя</B>)</li>
-          <li>созданным на лету по списку имён из колонки <B>Новое имя</B><span class="versionref">(Версия 1.0.0 +)</span></li>
+          <li>созданным на лету по списку текущих имён файлов (колонка <b>Старое имя</b>)</li>
+          <li>созданным на лету по списку имён из колонки <b>Новое имя</b></li>
         </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>5.1. <a name="existing">Существующий список</a></h2>
-        <p>Если у нас уже есть такой файл, то жмём кнопку <B>Правка</B> и выбираем <B>Загрузить имена из файла</B>.</p>
+        <h2><a name="existing">5.1. Существующий список</a></h2>
+        <p>Если у нас уже есть такой файл, то жмём кнопку <b>Правка</b> и выбираем <b>Загрузить имена из файла</b>.</p>
         <p class="figure"><img class="largeimage" title="Существующий список" alt="Существующий список" src="images/imgDC/mulrenlstfromfile.png" width="382" height="100"></p>
         <p>Затем нам будет предложено указать наш список файлов.</p>
-        <p>Если файл содержит то же количество строк, что и количество элементов для переименования, то в колонке <B>Новое имя</B> мы увидим новое имя для каждого файла.</p>
-        <p>Процесс переименования произойдёт только после нажатия кнопки <B>Переименовать</B>.</p>
+        <p>Если файл содержит то же количество строк, что и количество элементов для переименования, то в колонке <b>Новое имя</b> мы увидим новое имя для каждого файла.</p>
+        <p>Процесс переименования произойдёт только после нажатия кнопки <b>Переименовать</b>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>5.2. <a name="currentfilename">Создание на лету списка текущих имён файлов</a></h2>
+        <h2><a name="currentfilename">5.2. Создание на лету списка текущих имён файлов</a></h2>
         <p>Подобно описанному выше <a href="#existing">существующему списку</a>, Double Commander может предложить нам на лету создать этот список файлов.</p>
-        <p>После нажатия кнопки <B>Правка</B> и выбора <B>Редактировать имена</B>, будет создан временный текстовый файл со списком исходных имён файлов, который далее будет использоваться так же, как и в предыдущем пункте.</p>
+        <p>После нажатия кнопки <b>Правка</b> и выбора <b>Редактировать имена</b>, будет создан временный текстовый файл со списком исходных имён файлов, который далее будет использоваться так же, как и в предыдущем пункте.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>5.3. <a name="newfilename">Создание на лету списка из колонки новых имён</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
-        <p>То же, что и выше, за исключением того, что имена файлов берутся из колонки <B>Новое имя</B>.</p>
+        <h2><a name="newfilename">5.3. Создание на лету списка из колонки новых имён</a></h2>
+        <p>То же, что и выше, за исключением того, что имена файлов берутся из колонки <b>Новое имя</b>.</p>
         <p>Этот метод может быть особенно полезен в случае, если использование выражений дает нам "почти" подходящие имена файлов, нам нужно будет просто сделать некоторые исправления.</p>
        <p>Пример ниже показывает последовательность действий.</p>
-        <p class="figure"><img class="largeimage" title="Редактирование новых имён" alt="Редактирование новых имён" src="images/imgDC/mulreneditnewnames.png" width="829" height="918"></p>
+        <p class="figure"><img class="largeimage" title="Редактирование новых имён" alt="Редактирование новых имён" src="images/imgDC/mulreneditnewnames.png" width="828" height="900"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>6. <a name="modifiers">Модификаторы</a></h2>
-        <p>Применяются <B>после</B> упомянутых выше выражений и списка файлов. В их число входят:</p>
+        <h2><a name="modifiers">6. Модификаторы</a></h2>
+        <p>Применяются <b>после</b> упомянутых выше выражений и списка файлов. В их число входят:</p>
         <ul>
           <li>Изменение регистра букв</li>
           <li>Поиск и замена последовательности символов на другие</li>
@@ -283,7 +283,7 @@
       </div>
 
       <div>
-        <h2>6.1. <a name="case">Регистр</a></h2>
+        <h2><a name="case">6.1. Регистр</a></h2>
         <p>Возможные варианты изменения регистра букв новых имён файлов:</p>
         <ul>
           <li>Без изменений</li>
@@ -292,26 +292,26 @@
           <li>Первая буква в верхнем регистре, остальные в нижнем</li>
           <li>Первая Буква Каждого Слова В Верхнем Регистре</li>
         </ul>
-        <p>Этот модификатор находится внутри группы <B>Маска</B>, но он также будет применяться, если имена файлов будут взяты из списка.</p>
+        <p>Этот модификатор находится внутри группы <b>Маска</b>, но он также будет применяться, если имена файлов будут взяты из списка.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>6.2. <a name="singlesearchreplace">Поиск и замена одной последовательности</a></h2>
+        <h2><a name="singlesearchreplace">6.2. Поиск и замена одной последовательности</a></h2>
         <p>Мы можем искать в строке одну последовательность символов и заменять её другой.</p>
         <p class="figure"><img class="largeimage" title="Простой поиск и замена" alt="Простой поиск и замена" src="images/imgDC/mulrensrchrpl.png" width="401" height="205"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>6.3. <a name="multiplesearchandreplace">Замена нескольких последовательностей</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="multiplesearchandreplace">6.3. Замена нескольких последовательностей</a></h2>
         <p>Но мы также можем заменить разные последовательности на одну, разделяя их вертикальной чертой, как в примере ниже, где 2017, 2018 или 2019 будут заменены на 2020:</p>
         <p class="figure"><img class="largeimage" title="Множественная замена" alt="Множественная замена" src="images/imgDC/mulrenrepl3for1.png" width="476" height="230"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>6.4. <a name="multiplepairs">Несколько пар поиска и замены</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="multiplepairs">6.4. Несколько пар поиска и замены</a></h2>
         <p>Мы также можем задать более одной пары последовательностей, разделяя их вертикальной чертой.</p>
         <p>Каждая последовательность для поиска будет заменена на свою пару для замены (в той же позиции).</p>
         <p class="figure"><img class="largeimage" title="Множественный поиск и замена пар" alt="Множественный поиск и замена пар" src="images/imgDC/mulrenreplplace.png" width="497" height="263"></p>
@@ -319,57 +319,57 @@
       </div>
 
       <div>
-        <h2>6.5. <a name="searchreplaceregex">Использование регулярных выражений</a></h2>
+        <h2><a name="searchreplaceregex">6.5. Использование регулярных выражений</a></h2>
         <p>Ещё у нас есть возможность использовать <a href="regexp.html">регулярные выражения</a> для поиска части строки, а также для замены.</p>
         <p class="figure"><img class="largeimage" title="Использование регулярных выражений" alt="Использование регулярных выражений" src="images/imgDC/mulrenregex.png" width="338" height="304"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>7. <a name="actualaction">Переименование файлов</a></h2>
-        <p>Определившись с содержимым колонки <B>Новое имя</B>, мы готовы запустить переименование кнопкой <B>Переименовать</B>.</p>
+        <h2><a name="actualaction">7. Переименование файлов</a></h2>
+        <p>Определившись с содержимым колонки <b>Новое имя</b>, мы готовы запустить переименование кнопкой <b>Переименовать</b>.</p>
         <p class="figure"><img class="largeimage" title="Запуск переименования" alt="Запуск переименования" src="images/imgDC/mulrenrename.png" width="176" height="35"></p>
         <p>После завершения процесса переименования приложение пересканирует файлы и снова заполнит таблицу.</p>
-        <p>Колонка <B>Старое имя</B> обычно показывает результат нашего переименования.</p>
-        <p>Колонка <B>Новое имя</B> также будет обновлена, с учётом повторного применения тех же, всё ещё заданных, выражений/списков/модификаторов.</p>
+        <p>Колонка <b>Старое имя</b> обычно показывает результат нашего переименования.</p>
+        <p>Колонка <b>Новое имя</b> также будет обновлена, с учётом повторного применения тех же, всё ещё заданных, выражений/списков/модификаторов.</p>
         <p>Обычно мы должны больше внимания уделить первой колонке, поскольку в ней представлены новые имена только что переименованных файлов.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>8. <a name="log">Протокол</a></h2>
+        <h2><a name="log">8. Протокол</a></h2>
         <p>Приложение может создать файл протокола (или дописать в уже существующий) с результатом запуска переименования.</p>
         <p>Это может быть полезно, если нам понадобится найти оригинальное имя файла или что-то, что мы переименовали случайно.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>9. <a name="presets">Шаблоны</a></h2>
+        <h2><a name="presets">9. Шаблоны</a></h2>
         <p>Нам может потребоваться повторно использовать те же выражения/модификаторы для того же типа переименования, что и в предыдущий раз.</p>
         <p>Вместо того, чтобы снова и снова вводить одни и те же значения, мы можем сохранить текущие в шаблон, а затем повторно использовать его позже.</p>
-        <p>Для этого жмём кнопку, дающую доступ к действиям, связанным с шаблонами, выбираем <B>Сохранить как...</B> и даём имя новому шаблону.</p>
+        <p>Для этого жмём кнопку, дающую доступ к действиям, связанным с шаблонами, выбираем <b>Сохранить как...</b> и даём имя новому шаблону.</p>
         <p>В следующий раз, когда нам понадобится, мы вызовем выпадающий список шаблонов, выберем нужный и поля будут заполнены тем, что мы сохранили.</p>
-        <BR>
-        <p>Упомянутое меню предлагает нам различные действия, связанные с шаблонами: загрузка, сохранение, переименование, удаление, сортировка и т.д.<span class="versionref">(Версия 1.0.0 +)</span></p>
+        <br>
+        <p>Упомянутое меню предлагает нам различные действия, связанные с шаблонами: загрузка, сохранение, переименование, удаление, сортировка и т.д.</p>
         <p class="figure"><img class="largeimage" title="Шаблоны" alt="Шаблоны" src="images/imgDC/mulrenpreset.png" width="616" height="383"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>10. <a name="configuration">Дополнительные настройки</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="configuration">10. Дополнительные настройки</a></h2>
         <p>Дополнительные параметры, связанные с инструментом группового переименования, представлены на специальной странице настроек Double Commander.</p>
-        <p class="figure"><img class="largeimage" title="Дополнительные настройки" alt="Дополнительные настройки" src="images/imgDC/mulrenconfiguration.png" width="133" height="32"></p>
+        <p class="figure"><img class="largeimage" title="Дополнительные настройки" alt="Дополнительные настройки" src="images/imgDC/mulrenconfiguration.png" width="112" height="32"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>10.1. <a name="menubar">Показать меню окна</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="menubar">10.1. Показать меню окна</a></h2>
         <p>Выбираем эту опцию, если предпочитаем использовать строку меню в верхней части окна, которая даёт нам доступ ко всем соответствующим функциям.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>10.2. <a name="invalidchar">Замена символов, недопустимых в именах файлов</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="invalidchar">10.2. Замена символов, недопустимых в именах файлов</a></h2>
         <p>Может случиться так, что с нашими настройками в результирующем имени появится недопустимый для имён файлов символ.</p>
         <p>Чтобы избежать появления ошибки, Double Commander заменит этот недопустимый символ тем, который мы укажем на странице настроек.</p>
         <p>Если хотим просто удалить недопустимые символы, то оставляем значение пустым.</p>
@@ -378,21 +378,21 @@
       </div>
 
       <div>
-        <h2>10.3. <a name="presetatlaunch">Шаблон при запуске</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="presetatlaunch">10.3. Шаблон при запуске</a></h2>
         <p>Этот параметр определяет значения по умолчанию для каждого вызова инструмента группового переименования.</p>
         <p class="figure"><img class="largeimage" title="Шаблон при запуске" alt="Шаблон при запуске" src="images/imgDC/mulrenpresetlaunch.png" width="518" height="106"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>10.4. <a name="exitmodified">Выход с изменённым шаблоном</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="exitmodified">10.4. Выход с изменённым шаблоном</a></h2>
         <p>Этот параметр определяет поведение Double Commander при закрытии окна инструмента группового переименования, в случае если загруженный шаблон был изменён, но мы не сохранили изменения.</p>
         <p class="figure"><img class="largeimage" title="Выход с изменённым шаблоном" alt="Выход с изменённым шаблоном" src="images/imgDC/mulrenexitmodified.png" width="518" height="106"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2>10.5. <a name="renamelog">Протокол переименования</a><span class="versionref">(Версия 1.0.0 +)</span></h2>
+        <h2><a name="renamelog">10.5. Протокол переименования</a></h2>
         <p>Эти настройки определяют параметры сохранения файла протокола переименования.</p>
         <p>Ранее каждый файл протокола переименования задавался для каждого шаблона, теперь Double Commander может хранить их в одном месте или использовать один файл для всех.</p>
         <p>Также мы можем задать хранение протокола в отдельном каталоге на каждый день.</p>
@@ -400,86 +400,86 @@
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="findfiles.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

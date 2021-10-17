@@ -1,0 +1,949 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Настройки</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="shortcuts.html">След.</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.2. Настройки</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#config_files">Файлы конфигурации</a></dt>
+          <dt>2. <a href="#settings">Настройки</a>:</dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#ConfigLang">Язык</a></dt>
+              <dt>2.2. <a href="#ConfigBehaviors">Поведение</a></dt>
+              <dt>2.3. <a href="#ConfigTools">Инструменты</a></dt>
+              <dt>2.4. <a href="#ConfigFonts">Шрифты</a></dt>
+              <dt>2.5. Цвета:</dt>
+              <dd>
+                <dl>
+                  <dt>2.5.1. <a href="#ConfigColorPanels">Файловые панели</a></dt>
+                  <dt>2.5.2. <a href="#ConfigColorFiles">Типы файлов</a></dt>
+                </dl>
+              </dd>
+              <dt>2.6. <a href="#ConfigKeys">Клавиши</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.6.1. <a href="#ConfigHotKeys">Горячие клавиши</a></dt>
+                </dl>
+              </dd>
+              <dt>2.7. <a href="#ConfigMouse">Мышь</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.7.1. <a href="#ConfigMouseDD">Перетаскивание</a></dt>
+                </dl>
+              </dd>
+              <dt>2.8. <a href="#ConfigView">Список файлов</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.8.1. <a href="#ConfigViewEx">Список файлов (дополнительно)</a></dt>
+                  <dt>2.8.2. <a href="#ConfigViewBrief">Краткий</a></dt>
+                  <dt>2.8.3. <a href="#ConfigViewFull">Колонки</a></dt>
+                  <dd>
+                    <dl>
+                      <dt>2.8.3.1. <a href="#ConfigColumns">Наборы колонок</a></dt>
+                    </dl>
+                  </dd>
+                </dl>
+              </dd>
+              <dt>2.9. <a href="#ConfigPlugins">Плагины</a></dt>
+              <dt>2.10. <a href="#ConfigLayout">Вид окна</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.10.1. <a href="#ConfigDrivesList">Кнопка списка дисков</a></dt>
+                  <dt>2.10.2. <a href="#ConfigTreeMenu">Древовидное меню</a></dt>
+                  <dt>2.10.3. <a href="#ConfigTreeMenuColor">Цвета древовидного меню</a></dt>
+                </dl>
+              </dd>
+              <dt>2.11. <a href="#ConfigToolbar">Панель инструментов</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.11.1. <a href="#ConfigToolbar">Центральная панель</a></dt>
+                  <dt>2.11.2. <a href="#ConfigToolbarEx">Панель инструментов (дополнительно)</a></dt>
+                </dl>
+              </dd>
+              <dt>2.12. <a href="#ConfigOperations">Файловые операции</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.12.1. <a href="#ConfigSearch">Поиск файлов</a></dt>
+                  <dt>2.12.2. <a href="#ConfigRename">Групповое переименование</a></dt>
+                </dl>
+              </dd>
+              <dt>2.13. <a href="#ConfigTabs">Вкладки каталогов</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.13.1. <a href="#ConfigFavoriteTabs">Избранные вкладки</a></dt>
+                  <dt>2.13.2. <a href="#ConfigTabsEx">Вкладки каталогов (дополнительно)</a></dt>
+                </dl>
+              </dd>
+              <dt>2.14. <a href="#ConfigLog">Протокол</a></dt>
+              <dt>2.15. <a href="#ConfigDC">Конфигурация</a></dt>
+              <dt>2.16. <a href="#ConfigQuick">Быстрый поиск/фильтр</a></dt>
+              <dt>2.17. <a href="#ConfigMisc">Разное</a></dt>
+              <dt>2.18. <a href="#ConfigRefresh">Автообновление</a></dt>
+              <dt>2.19. <a href="#ConfigIcons">Значки</a></dt>
+              <dt>2.20. <a href="#ConfigIgnore">Список исключений</a></dt>
+              <dt>2.21. <a href="#ConfigArchivers">Архиваторы</a></dt>
+              <dt>2.22. <a href="#ConfigTooltips">Подсказки</a></dt>
+              <dt>2.23. <a href="#ConfigAssociations">Файловые ассоциации</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.23.1. <a href="#ConfigAssocEx">Файловые ассоциации (дополнительно)</a></dt>
+                </dl>
+              </dd>
+              <dt>2.24. <a href="#ConfigDirHotlist">Избранные каталоги</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.24.1. <a href="#ConfigDirHotlistEx">Избранные каталоги (дополнительно)</a></dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="config_files">1. Файлы конфигурации</a></h2>
+        <p>Double Commander сохраняет свои настройки в файлах, вы можете изменить их расположение в настройках.</p>
+        <p>Основными файлами являются:</p>
+        <ul>
+          <li><p><tt>doublecmd.xml</tt>&nbsp;&mdash; все главные настройки программы;</p></li>
+          <li><p><tt>extassoc.xml</tt>&nbsp;&mdash; настройки файловых ассоциаций;</p></li>
+          <li><p><tt>highlighters.xml</tt>&nbsp;&mdash; настройки цветов редактора;</p></li>
+          <li><p><tt>shortcuts.scf</tt>&nbsp;&mdash; настройки горячих клавиш;</p></li>
+          <li><p><tt>multiarc.ini</tt>&nbsp;&mdash; внешние архиваторы;</p></li>
+          <li><p><tt>history.xml</tt>&nbsp;&mdash; история каталогов, командной строки, поиска и так далее;</p></li>
+          <li><p>и несколько других...</p></li>
+        </ul>
+        <p>Обычно нам не нужно редактировать эти файлы вручную, так как за редким исключением параметры Double Commander доступны через интерфейс программы.</p>
+      </div>
+
+      <div>
+        <h2><a name="settings">2. Настройки</a></h2>
+        <p>Диалоговое окно "Настройки" позволяет изменить почти все параметры Double Commander, но есть <a href="configxml.html">несколько параметров</a>, которые можно изменить только вручную в файле конфигурации <tt>doublecmd.xml</tt>.</p>
+        <p>В Double Commander есть несколько <a href="cmds.html#catconfiguration">внутренних команд</a> для открытия диалога настроек и быстрого перехода к нужному разделу.</p>
+        <p>Примечание: Справа от кнопок выбора файла или каталога находится кнопка <span class="italic">Некоторые функции для выбора подходящего пути</span>: всплывающее меню содержит списки переменных (включая переменные окружения) и некоторые дополнительные функции, описание смотрите <a href="directoryhotlist.html#helperpath">здесь</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLang">2.1. Язык</a></span></p>
+        <p>Тут мы видим все варианты перевода программы и можем выбрать предпочитаемый.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigBehaviors">2.2. Поведение</a></span></p>
+        <p>Здесь 5 параметров, включая один список, которые влияют на некоторые аспекты поведения DC.</p>
+        <p><span class="italic">Не запускать более одной копии DC</span>&nbsp;&mdash; Если включено, может быть запущена только одна копия программы. Если вы попробуете запустить вторую копию Double Commander, будет активирована первая копия.</p>
+        <p><span class="italic">Сворачивать в системный трей</span>&nbsp;&mdash; Double Commander будет сворачиваться в значок в системном трее (область уведомлений), а не в список окон на панель (или панель задач Windows).</p>
+        <p><span class="italic">Всегда показывать значок в трее</span>&nbsp;&mdash; Если включено, в дополнение к кнопке окна Double Commander на панели (или панели задач Windows) будет показан значок в трее.</p>
+        <p><span class="italic">Чёрный список дисков</span>&nbsp;&mdash; используется, чтобы скрыть определённые диски в панели дисков. Каждый элемент должен содержать полный путь к диску или точке монтирования. Несколько элементов можно указать, перечислив их через точку с запятой ";" без пробелов. Примеры: <code>/media/cdrom;/mnt/win_c</code> (Linux) или <code>a:\;b:\;d:\</code> (Windows). Также в Unix/Linux вы можете использовать маски, пример для файлов AppImage: <tt>/tmp/.mount_*</tt>. Скрытые диски будут по-прежнему доступны, например, вы можете открыть их из меню избранных каталогов или вручную изменить путь.</p>
+        <p><span class="italic">Скрывать отмонтированные устройства</span>&nbsp;&mdash; Отмонтированное устройство будет автоматически удалено с <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и из <a href="help.html#iface_drive_btn">списка дисков</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTools">2.3. Инструменты</a></span>.</p>
+        <p>В этом разделе собраны настройки встроенных инструментов Double Commander (редактор (<kbd>F4</kbd>), просмотрщик (<kbd>F3</kbd>) и инструмент сравнения файлов) и команды для запуска терминала.</p>
+        <p>Здесь можно указать свои программы для редактирования, просмотра и поиска различий, они будут использоваться вместо встроенных.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigFonts">2.4. Шрифты</a></span></p>
+        <p class="figure"><img class="largeimage" title="Настройка шрифтов" alt="Настройка шрифтов" src="images/imgDC/ris28.png" width="512" height="335"></p>
+        <p>Здесь можно выбрать шрифты для редактора (<kbd>F4</kbd>), просмотрщика (<kbd>F3</kbd>), файловых панелей (<span class="italic">Основной</span>) и других элементов интерфейса Double Commander, а также их размеры. Для каждого вы можете видеть выбранный шрифт. Одно важное замечание: шрифты для редактора и просмотрщика должны быть <span class="red">МОНОШИРИННЫЕ</span>. На изображении ниже показан пропорциональный шрифт (обратите внимание на странный интервал) и моноширинный шрифт, который отображается с правильными интервалами. Кроме того, с некоторыми пропорциональными шрифтами символы могут налезать друг на друга и выглядеть довольно странно.</p>
+        <p class="figure"><img class="largeimage" title="Различия шрифтов" alt="Различия шрифтов" src="images/imgDC/ris29.png" width="576" height="360"></p>
+        <p>Вверху обычный, пропорциональный, шрифт, внизу моноширинный</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColorPanels">2.5.1. Цвета&nbsp;&gt; Файловые панели</a></span></p>
+        <p>В этом разделе собраны настройки внешнего вида файловых панелей:</p>
+        <p class="figure"><img class="largeimage" title="Настройка цвета" alt="Настройка цвета" src="images/imgDC/ris30.png" width="804" height="459"></p>
+        <p>Настройки цвета здесь являются глобальными настройками для обеих панелей. Эти настройки можно переопределить, создав набор колонок, который может иметь собственные настройки цвета и многое другое для каждой вкладки панели! Подробнее о том, как это сделать, смотрите в разделе <a href="#ConfigColumns">Список файлов&nbsp;&gt; Колонки&nbsp;&gt; Наборы колонок</a>. Вы должны настроить текущий стиль колонок (<span class="italic">Default</span> по умолчанию) или создать свой собственный стиль и применить его для любой вкладки.</p>
+        <p>Здесь вы можете выбрать цвета, которые будут использоваться для файловых панелей: <span class="italic">Текст</span>, <span class="italic">Фон 1</span>, <span class="italic">Фон 2</span>, <span class="italic">Выделение</span>, <span class="italic">Курсор</span>, <span class="italic">Текст под курсором</span>, <span class="italic">Неактивный курсор</span>, <span class="italic">Неактивное выделение</span>, а также <span class="italic">Рамка вокруг курсора</span> (если вы не используете курсор-рамку). С помощью двух опций для фона вы можете сделать чередующиеся полосы на панелях, как на некоторых скриншотах.</p>
+        <p><span class="italic">Инверсное выделение</span>&nbsp;&mdash; инвертирует цвета выделенного текста и текста под курсором.</p>
+        <p><span class="italic">Курсор в неактивной панели</span>&nbsp;&mdash; включает отображение курсора также в неактивной панели.</p>
+        <p><span class="italic">Курсор-рамка</span>&nbsp;&mdash; Вместо сплошного прямоугольника Double Commander будет использовать рамку.</p>
+        <p><span class="italic">Разрешить наложение цвета</span> включает возможность использовать для имён файлов цвет, отличный от цвета по умолчанию (смотрите раздел <a href="#ConfigColorFiles">Цвета&nbsp;&gt; Типы файлов</a>).</p>
+        <p>Также здесь вы можете уменьшить яркость неактивной панели и изменить цвета индикатора свободного места на диске.</p>
+        <p>Внизу окна расположена область предварительного просмотра, таким образом, вы можете сразу увидеть все изменения.</p>
+        <p>Кнопка <span class="italic">Сбросить на умолчания DC</span> сбросит все параметры до значений по умолчанию.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColorFiles">2.5.2. Цвета&nbsp;&gt; Типы файлов</a></span></p>
+        <p>Здесь можно указать типы файлов, имена которых будут другого цвета, отличного от цвета по умолчанию. Должен быть включен параметр <a href="#ConfigColorPanels">Разрешить наложение цвета</a> (по умолчанию включено).</p>
+        <p class="figure"><img class="largeimage" title="Типы файлов по цветам" alt="Типы файлов по цветам" src="images/imgDC/ris31.png" width="512" height="353"></p>
+        <p>Строка <span class="italic">Имя</span> служит для описания файла (что он делает или какой программой открывается).</p>
+        <p>В строке <span class="italic">Маска</span> указывается маска файлов, по которой Double Commander будет их распознавать (звёздочка "*" обозначает любое количество символов, знак вопроса "?"&nbsp;&mdash; любой один символ). Если масок несколько, то они перечисляются через точку с запятой ";" без пробелов. Также вы можете использовать шаблоны поиска, в том числе поиска с информационными (контентными) плагинами.</p>
+        <p>В строке <span class="italic">Атрибуты</span> вы можете указать атрибуты файлов, с помощью которых также будут распознаваться различные их типы (недоступно при использовании шаблона поиска). Атрибуты файла задаются следующими шаблонами:</p>
+        <ul>
+          <li><p>Windows: [<code>d</code> или <code>l</code>]<code>rahs</code>[<code>c</code> или <code>e</code>]<code>tp</code></p></li>
+          <li><p>Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code>, <code>r</code> или <code>s</code>]<code>rwxrwxrwx</code></p></li>
+        </ul>
+        <p>Описание значений смотрите <a href="findfiles.html#attributes">здесь</a>. Если атрибут не должен быть установлен, его нужно заменить символом "-", ненужные следует скрыть: звёздочка "*" обозначает любое количество символов, знак вопроса "?"&nbsp;&mdash; любой один символ. Например, с <code>?r*</code> (Windows) или <code>?r-*</code> (Linux) будут найдены все файлы и папки только для чтения.</p>
+        <p>Вы можете использовать цвет из списка или указать свой с помощью кнопки "&gt;&gt;".</p>
+        <p>Не забывайте нажимать на кнопку "Применить" после внесения изменений в список или в свойства.</p>
+        <p>Правила применяются строго в обратном порядке: правило, находящееся выше в списке, будет перекрывать любое правило ниже.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigKeys">2.6. Клавиши</a></span></p>
+        <p>Здесь вы можете настроить действие при нажатии некоторых клавиш в активной файловой панели: <span class="italic">Буквы</span>, <span class="italic">Alt+Буква</span>, <span class="italic">Ctrl+Alt+Буква</span>. Вы можете выбрать одно из следующих действий: ничего не делать, установить фокус на командную строку и ввести команду, запустить быстрый поиск или быстрый фильтр</p>
+        <p><span class="italic">Правая и левая стрелки меняют каталог (Lynx-поведение)</span>&nbsp;&mdash; <kbd>стрелка вправо</kbd> открывает каталог или запускает программу под курсором, а <kbd>стрелка влево</kbd> открывает родительский каталог.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigHotKeys">2.6.1. Клавиши&nbsp;&gt; Горячие клавиши</a></span></p>
+        <p>Здесь можно назначить клавиши для вызова команд, а также указать параметры для этих команд.</p>
+        <p class="figure"><img class="largeimage" title="Настройка горячих клавиш" alt="Настройка горячих клавиш" src="images/imgDC/ris32.png" width="612" height="440"></p>
+        <p><span class="italic">Набор горячих клавиш</span>&nbsp;&mdash; Выпадающее меню, содержащее список файлов с набором горячих клавиш. Они хранятся в каталоге с файлами настроек программы.</p>
+        <p>Справа кнопка меню, связанного с файлом:</p>
+        <ul>
+          <li><p>Действия с текущим файлом: <span class="italic">Сохранить сейчас</span>, <span class="italic">Переименовать</span>, <span class="italic">Копировать</span> и <span class="italic">Удалить</span>.</p></li>
+          <li><p><span class="italic">Восстановить настройки DC</span>.</p></li>
+          <li><p>Команды для переключения на предыдущую и следующую категории.</p></li>
+          <li><p>Команды для переключения порядка сортировки таблицы команд (см. ниже).</p></li>
+        </ul>
+        <p><span class="italic">Категории</span>&nbsp;&mdash; выбор категории комбинаций горячих клавиш:
+          <span class="italic">Основные</span>,
+          <span class="italic">Внутренняя программа просмотра</span>,
+          <span class="italic">Групповое переименование</span>,
+          <span class="italic">Диалог копирования/перемещения</span>,
+          <span class="italic">Диалог редактирования комментария</span>,
+          <span class="italic">Поиск различий</span>,
+          <span class="italic">Поиск файлов</span>,
+          <span class="italic">Редактор</span>,
+          <span class="italic">Синхронизация каталогов</span>.
+        </p>
+        <p><span class="italic">Фильтр</span>&nbsp;&mdash; аналог быстрого поиска, только по внутренним командам.</p>
+        <p><span class="italic">Порядок сортировки</span>&nbsp;&mdash; переключает порядок сортировки таблицы команд:</p>
+        <ul>
+          <li><p><span class="italic">По имени команды.</span>.</p></li>
+          <li><p><span class="italic">По горячим клавишам (группировать)</span>&nbsp;&mdash; Если назначено несколько горячих клавиш, они будут перечислены через точку с запятой ";".</p></li>
+          <li><p><span class="italic">По горячим клавишам (по одной)</span>.</p></li>
+        </ul>
+        <p><span class="italic">Команды</span>&nbsp;&mdash; список всех доступных <a href="cmds.html">внутренних команд</a> Double Commander. Список представлен в виде таблицы из трёх колонок:</p>
+        <ul>
+          <li><p>Команда (имя внутренней команды).</p></li>
+          <li><p>Горячие клавиши (назначенные сочетания клавиш, если есть).</p></li>
+          <li><p>Описание (краткое описание).</p></li>
+        </ul>
+        <p>В таблице внизу окна показаны назначенные клавиатурные сочетания, параметры и элементы интерфейса (см. ниже) для выделенной команды.</p>
+        <p><span class="italic">Добавить</span>&nbsp;&mdash; откроет окно для добавления горячих клавиш.</p>
+        <p><span class="italic">Редактировать</span>&nbsp;&mdash; откроет то же окно, но с уже установленными горячими клавишами и другими параметрами.</p>
+        <p><span class="italic">Удалить</span>&nbsp;&mdash; удалит выделенную в списке горячую клавишу.</p>
+        <p>Окно для добавления горячих клавиш:</p>
+        <p class="figure"><img class="largeimage" title="Добавить новую горячую клавишу" alt="Добавить новую горячую клавишу" src="images/imgDC/ris33.png" width="418" height="440"></p>
+        <p><span class="italic">Сочетание клавиш</span>&nbsp;&mdash; здесь отображается новое клавиатурное сочетание для команды. Поставьте курсор в эту строку и нажмите желаемую комбинацию клавиш. Если новая комбинация уже используется для другой команды, Double Commander покажет предупреждение.</p>
+        <p><span class="italic">Параметры (каждый в отдельной строке)</span>&nbsp;&mdash; здесь можно добавить какие-нибудь параметры команды. Большинство параметров должны быть добавлены как <span class="italic">параметр=значение</span> (если не указано иное), без кавычек и каждый в отдельной строке.</p>
+        <p><span class="italic">Только для этих элементов</span>&nbsp;&mdash; Горячая клавиша будет работать, только если выбранный элемент(ы) интерфейса в фокусе: командная строка, файловая панель или панель быстрого поиска.</p>
+        <p>В правой части окна расположены следующие кнопки:</p>
+        <ul>
+          <li><p>Кнопка <span class="italic">F1</span>&nbsp;&mdash; покажет меню со списком свободных доступных сочетаний клавиш, сгруппированных по алфавиту и модификаторам.</p></li>
+          <li><p>Кнопка "+" добавит ещё одно поле для сочетания клавиш (до пяти).</p></li>
+          <li><p>Кнопка "-" удалит последнее сочетание клавиш из списка.</p></li>
+        </ul>
+        <p>Вы можете задать несколько горячих клавиш для внутренней команды двумя способами: используйте кнопки <span class="italic">Добавить</span> и "+" или кнопку <span class="italic">Добавить</span> несколько раз. Второй способ позволяет использовать выбранную команду с разными параметрами.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMouse">2.7. Мышь</a></span></p>
+        <p><span class="italic">Выделение с помощью мыши</span>, <span class="italic">Режим</span>&nbsp;&mdash; возможность выделять и снимать выделение с файлов и папок с помощью мыши. Режим имеет значение <kbd>Левая клавиша</kbd> или <kbd>Правая клавиша</kbd>.</p>
+        <p><span class="italic">Щелчком по значку</span>&nbsp;&mdash; позволяет выделять файлы одним щелчком мыши по значку.</p>
+        <p><span class="italic">Прокрутка</span>&nbsp;&mdash; возможность использовать колесо мыши для прокручивания списка файлов в панелях.</p>
+        <ul>
+          <li><p><span class="italic">Построчно, с движением курсора</span>&nbsp;&mdash; при вращении колеса мыши вместе с прокруткой списка вверх и вниз будет двигаться и курсор.</p></li>
+          <li><p><span class="italic">Построчно</span>&nbsp;&mdash; то же самое, только без движения курсора, он будет оставаться в одном положении. Также вы можете указать количество строк.</p></li>
+          <li><p><span class="italic">Постранично</span>&nbsp;&mdash; как предыдущее, но прокрутка осуществляется по страницам, а не по строкам (более быстрая прокрутка).</p></li>
+        </ul>
+        <p><span class="italic">Открытие файлов и запуск программ</span>&nbsp;&mdash; задаёт поведение при щелчке мыши по элементу списка файловой панели:</p>
+        <ul>
+          <li><p>Двойной щелчок мыши открывает папки и файлы или запускает приложения (по умолчанию).</p></li>
+          <li><p>Один щелчок открывает файлы и папки.</p></li>
+          <li><p>Один щелчок открывает только папки. Для файлов необходим двойной щелчок.</p></li>
+        </ul>
+        <p><span class="italic">Текстовый курсор не следует за курсором мыши</span>&nbsp;&mdash; используется для двух последних значений. Если включен одиночный щелчок, по умолчанию текстовый курсор будет перемещаться вслед за курсором мыши: это помогает избежать случайного открытия файлов или папок. Вы можете отключить, если вам это не нужно (или не нравится).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMouseDD">2.7.1. Мышь&nbsp;&gt; Перетаскивание</a></span></p>
+        <p><span class="italic">Показать диалог подтверждения при перетаскивании</span>&nbsp;&mdash; помогает избежать случайных ошибок при использовании перетаскивания файлов внутри активной файловой панели или между панелями: Double Commander покажет диалоговое окно подтверждения, как при обычном копировании или перемещении (если была зажата клавиша <kbd>Shift</kbd>) файлов.</p>
+        <p>Следующая функция доступна только в Windows: вы можете перетащить текст, выделенный в веб-браузере или текстовом процессоре (например, LibreOffice Writer или Microsoft Word), на панель и сохранить его. Здесь вы можете выбрать формат файла (RTF, HTML или обычный текстовый файл), кодировку и включить автоматическое создание имени.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigView">2.8. Список файлов</a></span></p>
+        <p>В этом разделе вы можете задать различные параметры сортировки файлов, а также форматы даты/времени и размера.</p>
+        <p class="figure"><img class="largeimage" title="Список файлов: сортировка и форматирование" alt="Список файлов: сортировка и форматирование" src="images/imgDC/ris34.png" width="710" height="426"></p>
+
+        <p><span class="italic">Метод сортировки</span>&nbsp;&mdash; задаёт метод сортировки в файловых панелях:</p>
+        <ul>
+          <li><p><span class="italic">Алфавитная, с учётом особенностей языка</span>&nbsp;&mdash; Этот метод сортирует по алфавиту, с учётом особенностей языка системы и региональных настроек: также будут учтены дополнительные символы (например, умлаут и другие диакритические символы в германских языках или буква "ё" в русском).</p></li>
+          <li><p><span class="italic">Алфавитная с сортировкой спецсимволов</span>&nbsp;&mdash; Аналогично предыдущему методу, но дополнительно список будет отсортирован по специальным символам и знакам препинания перед буквами.</p></li>
+          <li><p><span class="italic">Естественная сортировка: алфавитно-числовая</span>&nbsp;&mdash; Этот метод сортирует цифры как числа: например, "3" будет показано перед "20", потому что 20 больше 3.</p></li>
+          <li><p><span class="italic">Естественная с сортировкой спецсимволов</span>&nbsp;&mdash; Аналогично предыдущему методу, но также с сортировкой по специальным символам и знакам препинания.</p></li>
+        </ul>
+        <p><span class="italic">Чувствительность к регистру</span>&nbsp;&mdash; дополняет выбранный метод:</p>
+        <ul>
+          <li><p>не чувствителен к регистру;</p></li>
+          <li><p>соответственно локальным установкам (аАбБгГ);</p></li>
+          <li><p>сначала верхний регистр, потом нижний (АБВабв).</p></li>
+        </ul>
+        <p><span class="italic">Сортировка каталогов</span>&nbsp;&mdash; задаёт положение каталогов в списке файлов:</p>
+        <ul>
+          <li><p>сортировать по имени и показывать первыми;</p></li>
+          <li><p>сортировать как файлы и показывать первыми;</p></li>
+          <li><p>сортировать как файлы.</p></li>
+        </ul>
+        <p><span class="italic">Вставлять новые файлы</span>&nbsp;&mdash; задаёт позицию нового файла в списке:</p>
+        <ul>
+          <li><p>вверху списка файлов;</p></li>
+          <li><p>после каталогов (если каталоги отсортированы перед файлами);</p></li>
+          <li><p>в отсортированной позиции;</p></li>
+          <li><p>внизу списка файлов.</p></li>
+        </ul>
+        <p><span class="italic">Перемещать изменённые файлы</span>&nbsp;&mdash; задаёт позицию, если свойство файла, используемое в данный момент для сортировки, было изменено (дата модификации, размер и т. д.):</p>
+        <ul>
+          <li><p>не менять позицию;</p></li>
+          <li><p>использовать то же, что и для новых файлов;</p></li>
+          <li><p>в отсортированной позиции.</p></li>
+        </ul>
+
+        <p>Первый параметр в группе <span class="italic">Форматирование</span>&nbsp;&mdash; <span class="italic"><a name="dt_format">Формат даты и времени</a></span>. Вы можете выбрать один из существующих шаблонов из выпадающего списка или задать собственный, используя символы форматирования даты и времени.</p>
+        <p>Символы форматирования представлены ниже (на основе <a title="Free Pascal: Формат даты и времени" href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html" target="_blank">документации Free Pascal</a>). Некоторые значения зависят от ваших региональных настроек!</p>
+        <p>Как пример мы будем использовать 2021.01.24 09:06:02 (то есть <tt>yyyy.mm.dd hh:mm:ss</tt>) и регион Россия.</p>
+        <table><tbody>
+          <tr class="rowcategorytitle"><th colspan="3">Возможные символы</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">Символы</th><th class="categorydesccolumn">Описание</th><th class="categorynamecolumn">Пример</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">краткая дата и полное время, если оно не равно нулю</td><td class="hintcell">24.01.2021 9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">как <tt>c</tt>, но добавляет время, даже если оно равно нулю</td><td class="hintcell">24.01.2021 9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">день месяца</td><td class="hintcell">24</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dd</div></td><td class="hintcell">день месяца (с лидирующим нулём)</td><td class="hintcell">24</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ddd</div></td><td class="hintcell">день недели (аббревиатура)</td><td class="hintcell">Вс</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dddd</div></td><td class="hintcell">день недели (полностью)</td><td class="hintcell">воскресенье</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ddddd</div></td><td class="hintcell">краткая дата</td><td class="hintcell">24.01.2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dddddd</div></td><td class="hintcell">полная дата</td><td class="hintcell">24 Январь 2021 г.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">m</div></td><td class="hintcell">месяц или минуты, если указано после <tt>h</tt> или <tt>hh</tt></td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mm</div></td><td class="hintcell">месяц или минуты, если указано после <tt>h</tt> или <tt>hh</tt>, с лидирующим нулём</td><td class="hintcell">01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mmm</div></td><td class="hintcell">месяц (аббревиатура)</td><td class="hintcell">янв</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mmmm</div></td><td class="hintcell">месяц (полностью)</td><td class="hintcell">Январь</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">yy</div></td><td class="hintcell">год (две цифры)</td><td class="hintcell">21</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">yyyy</div></td><td class="hintcell">год (с веком)</td><td class="hintcell">2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">часы</td><td class="hintcell">9</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">hh</div></td><td class="hintcell">часы (с лидирующим нулём)</td><td class="hintcell">09</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n</div></td><td class="hintcell">минуты</td><td class="hintcell">6</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">nn</div></td><td class="hintcell">минуты (с лидирующим нулём)</td><td class="hintcell">06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">секунды</td><td class="hintcell">2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ss</div></td><td class="hintcell">секунды (с лидирующим нулём)</td><td class="hintcell">02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">краткое время</td><td class="hintcell">9:06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">tt</div></td><td class="hintcell">полное время</td><td class="hintcell">9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">am/pm</div></td><td class="hintcell">12-часовой формат времени с am или pm соответственно (также <tt>AM/PM</tt>, <tt>a/m</tt> или <tt>A/M</tt>); например, <code>t&nbsp;AM/PM</code></td><td class="hintcell">9:06 AM</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">вставить разделитель даты</td><td class="hintcell">.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">вставить разделитель времени</td><td class="hintcell">:</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">"текст"</div></td><td class="hintcell">текст как есть; например, <code>yyyy "от РХ"</code></td><td class="hintcell">2021 от РХ</td></tr>
+        </tbody></table>
+
+        <p>Следующие параметры задают формат размера файла:</p>
+        <ul>
+          <li><p><span class="italic">Формат размера файла</span>&nbsp;&mdash; будет использоваться в файловых панелях.</p></li>
+          <li><p><span class="italic">Информация о диске</span>&nbsp;&mdash; будет использоваться в списке дисков и строке свободного места.</p></li>
+          <li><p><span class="italic">Строка состояния</span>&nbsp;&mdash; будет использоваться в строке состояния файловых панелей.</p></li>
+          <li><p><span class="italic">Файловые операции</span>&nbsp;&mdash; будет использоваться в диалогах файловых операций: копирование, перемещение, подсчёт контрольных сумм и так далее.</p></li>
+        </ul>
+        <p>Также справа вы можете задать количество цифр после десятичного разделителя (т.е. разделителя целой и дробной частей числа): 0, 1, 2 или 3.</p>
+        <p>Единицы измерения размера файла: байты, килобайты, мегабайты, гигабайты, терабайты или плавающий (Double Commander выберет единицу измерения автоматически, в зависимости от размера).</p>
+        <p>"Пользовательский" в названии означает, что Double Commander будет использовать <span class="italic">Пользовательские сокращения</span> из списка ниже. Кнопка <span class="italic">По умолчанию</span> сбросит их до значений по умолчанию для выбранного языка (указаны в соответствующем языковом файле).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewEx">2.8.1. Список файлов&nbsp;&gt; Список файлов (дополнительно)</a></span></p>
+        <p>Выделение/снятие выделения:</p>
+        <ul>
+          <li><p><span class="italic">Фильтр для файлов в стиле Windows ("*.*" выделяет также файлы без расширения и т.д.)</span>.</p></li>
+          <li><p><span class="italic">Маска атрибута по умолчанию</span>&nbsp;&mdash; будет использоваться для следующих команд:
+            <span class="italic">Выделить все</span> (<tt>cm_MarkMarkAll</tt>),
+            <span class="italic">Снять выделение со всех</span> (<tt>cm_MarkUnmarkAll</tt>),
+            <span class="italic">Инвертировать выделение</span> (<tt>cm_MarkInvert</tt>),
+            <span class="italic">Выделить группу</span> (<tt>cm_MarkPlus</tt>)
+            и <span class="italic">Снять выделение с группы</span> (<tt>cm_MarkMinus</tt>).
+            Например, если вы хотите, чтобы эти команды работали только с файлами, укажите <code>d-</code>.
+            Кнопка <span class="italic">Добавить</span> открывает окно выбора атрибутов файла, вы можете использовать её или ввести их вручную. Подробнее об атрибутах файлов и их использовании смотрите <a href="findfiles.html#attributes">здесь</a>.</p></li>
+          <li><p><span class="italic">Использовать в диалоге выбора маски независимый фильтр атрибутов</span>&nbsp;&mdash; Если включено, в диалоговые окна команд <span class="italic">Выделить группу</span> (<tt>cm_MarkPlus</tt>) и <span class="italic">Снять выделение с группы</span> (<tt>cm_MarkMinus</tt>) будет добавлен фильтр атрибутов.</p></li>
+        </ul>
+        <p><span class="italic">При выделении файлов пробелом перемещать курсор на следующий файл</span>&nbsp;&mdash; реализует способ выделения нескольких файлов с помощью клавиши пробела. При зажатом пробеле курсор спускается вниз, отмечая файлы (как при выделении клавишей <kbd>Insert</kbd>). По умолчанию подобного результата можно добиться с помощью комбинаций клавиш <kbd>Shift+Вниз</kbd> или <kbd>Shift+Вверх</kbd>.</p>
+        <p><span class="italic">Показывать квадратные скобки вокруг имён папок</span>&nbsp;&mdash; позволяет визуально отличать папки от файлов при отключенном показе значков. Также вы можете использовать вместо них любые символы, смотрите описание параметров <code>&lt;FolderPrefix&gt;</code> и <code>&lt;FolderPostfix&gt;</code> <a href="configxml.html">здесь</a>.</p>
+        <p><span class="italic"><a name="show_hidden">Показывать системные и скрытые файлы</a></span>&nbsp;&mdash; Если включено, Double Commander будет показывать файлы и папки с атрибутом "скрытый" или "системный" (Windows) или с именем с точкой в начале (Linux и другие Unix-подобные системы). Также можно переключить в <a href="help.html#cm_ShowSysFiles">главном меню</a>.</p>
+        <p>Параметры <span class="italic">Загружать список файлов в отдельном потоке</span> и <span class="italic">Загружать значки после списка файлов</span> предназначены для ускорения отображения списка файлов в панели, т.е. окно приложения будет меньше зависать при открытии больших каталогов.</p>
+        <p><span class="italic">Не загружать список файлов, пока вкладка не будет активирована</span>&nbsp;&mdash; При запуске Double Commander не будет загружать список файлов неактивных вкладок, открытых в предыдущей сессии.</p>
+        <p><span class="italic">Подсвечивать новые и изменённые файлы</span>&nbsp;&mdash; Если включено, имена файлов, которые в настоящее время создаются или изменяются, будут мигать.</p>
+        <p><span class="italic">Разрешить переименование при щелчке по имени файла под курсором</span>&nbsp;&mdash; дополнительная возможность переименовать файл с помощью левой кнопки мыши (не зависит от клавиши, выбранной для выделения мышью), как в Проводнике Windows. В разделе <a href="#ConfigMouse">настроек мыши</a> должно быть выбрано <span class="italic">Двойной щелчок мыши открывает папки и файлы или запускает приложения</span>.</p>
+        <p><span class="italic">Разрешить переход в родительский каталог двойным щелчком по свободному месту в файловой панели</span>&nbsp;&mdash; дополнительная функция для упрощения навигации по каталогам. Но неприменимо, если вы используете набор колонок и список файлов в текущем каталоге не помещается в панели (т.е. вы видите вертикальную полосу прокрутки).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewBrief">2.8.2. Список файлов&nbsp;&gt; Краткий</a></span></p>
+        <p>Здесь всего два параметра.</p>
+        <p><span class="italic">Показывать расширения файлов</span>: <span class="italic">сразу после имени</span> или <span class="italic">выровненными (по Tab)</span>. Во втором случае расширения файлов будут показаны отдельно, выровненными по правой стороне колонок.</p>
+        <p><span class="italic">Размер колонок</span>: Double Commander установит размер автоматически (размер будет зависеть от длины имён файлов) или вы можете установить ширину колонок или их количество.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewFull">2.8.3. Список файлов&nbsp;&gt; Колонки</a></span></p>
+        <p>Первая группа <span class="italic">Показывать сетку</span>:</p>
+        <ul>
+          <li><p><span class="italic">Вертикальные линии</span>&nbsp;&mdash; включает вертикальные линии, которые визуально отделяют колонки в панели друг от друга.</p></li>
+          <li><p><span class="italic">Горизонтальные линии</span>&nbsp;&mdash; включает горизонтальные линии, которые визуально отделяют строки в панели друг от друга.</p></li>
+        </ul>
+        <p>Изображения ниже иллюстрируют этот эффект сетки. На снимке экрана слева включены вертикальные и горизонтальные линии, справа&nbsp;&mdash; нет.</p>
+        <p class="figure"><img class="largeimage" title="с сеткой и без" alt="с сеткой и без" src="images/imgDC/ris35.png" width="690" height="128"></p>
+        <p><span class="italic">Растягивать колонки на всю ширину панели</span>&nbsp;&mdash; Если включено, при изменении размера окна (или если есть свободное место) Double Commander изменит размер колонки, выбранной в следующем параметре <span class="italic">Изменять размер колонки:</span> (первую или последнюю).</p>
+        <p>Если содержимое колонки больше её ширины:</p>
+        <ul>
+          <li><p><span class="italic">Обрезать текст по ширине колонки</span>&nbsp;&mdash; Иногда текст колонки может перекрываться текстом других. Эта опция обрезает любой выступающий текст на границе колонки.</p></li>
+          <li><p><span class="italic">Расширить ширину ячейки, если текст не умещается в колонке</span>&nbsp;&mdash; Если текст не умещается и соседняя ячейка пуста, то текст также займет соседнюю ячейку.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColumns">2.8.3.1. Список файлов&nbsp;&gt; Колонки&nbsp;&gt; Наборы колонок</a></span></p>
+        <p>В этом разделе можно настроить вид файловых панелей, количество и состав колонок, цвета, шрифты и т.д. Здесь Double Commander очень гибко настраивается.</p>
+        <p class="figure"><img class="largeimage" title="Наборы колонок" alt="Наборы колонок" src="images/imgDC/ris36.png" width="884" height="464"></p>
+        <p>Внизу окна расположена область предварительного просмотра, таким образом, вы можете сразу увидеть все изменения. Можно перемещать курсор и выбирать файлы, получив полное представление о выбранных настройках</p>
+        <p><span class="italic">Файловая система</span>&nbsp;&mdash; позволяет переключиться на настройки колонок для WFX-плагинов (если установленные плагины поддерживают это).</p>
+        <p><span class="italic">Набор колонок</span>&nbsp;&mdash; список уже имеющихся наборов колонок. По умолчанию один набор <span class="italic">Default</span>.</p>
+        <p><span class="italic">Сохранить</span>&nbsp;&mdash; сохраняет изменения в выбранном наборе колонок.</p>
+        <p><span class="italic">Сохранить как</span>&nbsp;&mdash; позволяет сохранить выбранный набор колонок (как есть или с изменениями) с новым именем.</p>
+        <p><span class="italic">Создать</span>&nbsp;&mdash; создаёт новый набор колонок на основе выбранного. С тем же именем + текущие дата и время.</p>
+        <p><span class="italic">Переименовать</span>&nbsp;&mdash; предложит ввести новое имя.</p>
+        <p><span class="italic">Удалить</span>&nbsp;&mdash; удаляет выбранный набор колонок.</p>
+        <p>Ниже представлена таблица с колонками выбранного набора, здесь вы можете установить количество колонок, их название, содержание, расположение и размер. Количество строк в таблице равно количеству колонок в наборе. Добавление новой колонки: щёлкните правой кнопкой мыши в пустой области рядом с таблицей и выберите <span class="italic">Добавить колонку</span>.</p>
+        <p>Параметры колонок, устанавливаемые в таблице (для редактирования щёлкните мышью в поле):</p>
+        <p class="figure"><img class="largeimage" title="Колонки" alt="Колонки" src="images/imgDC/ris37.png" width="612" height="46"></p>
+        <p><span class="italic">Колонка</span>&nbsp;&mdash; показывает индикатор выбранной колонки.</p>
+        <p><span class="italic">Заголовок</span>&nbsp;&mdash; в этом поле указывается название колонки, то, что будет отображаться в <a href="help.html#iface_columns">панели заголовков колонок</a>. Сюда можно вписать любое удобное имя.</p>
+        <p><span class="italic">Ширина</span>&nbsp;&mdash; это ширина колонки (в пикселях), которая будет установлена при запуске DC. Ширина должна зависеть от содержания колонки, т.е. если это, например, колонка расширения файла, то нет смысла делать её широкой.</p>
+        <p><span class="italic">Выравн.</span>&nbsp;&mdash; указывает, по какому краю будет выровнено содержимое колонки. Три значения:</p>
+        <ul>
+          <li><p><tt>"&lt;-"</tt>&nbsp;&mdash; выравнивание по левому краю;</p></li>
+          <li><p><tt>"-&gt;"</tt>&nbsp;&mdash; выравнивание по правому краю;</p></li>
+          <li><p><tt>"="</tt>&nbsp;&mdash; выравнивание по центру.</p></li>
+        </ul>
+        <p><span class="italic">Содержимое поля данных</span>&nbsp;&mdash; в этом поле указывается самое основное, что будет содержать колонка&nbsp;&mdash; данные о файле или папке. Вы можете выбрать внутренние поля Double Commander (подменю "DC") или поля установленных WDX-плагинов (подменю "Плагины"). Список внутренних полей:</p>
+        <ul>
+          <li><p><tt>GETFILENAME</tt>&nbsp;&mdash; имя файла и расширение (<tt>text.txt</tt>).</p></li>
+          <li><p><tt>GETFILENAMENOEXT</tt>&nbsp;&mdash; имя файла без расширения (<tt>text</tt>).</p></li>
+          <li><p><tt>GETFILEEXT</tt>&nbsp;&mdash; расширение файла (всё, что идёт с конца до точки, например, <tt>txt</tt>).</p></li>
+          <li><p><tt>GETFILESIZE</tt>&nbsp;&mdash; размер файла или каталога. По умолчанию вид будет зависеть от настроек в разделе <a href="#ConfigView">Список файлов</a>, но все возможные форматы размера также доступны.</p></li>
+          <li><p><tt>GETFILETIME</tt>&nbsp;&mdash; дата модификации файла или каталога. Вид будет зависеть от настроек в разделе <a href="#ConfigView">Список файлов</a>.</p></li>
+          <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&mdash; дата создания файла или каталога (не работает в Linux/BSD, ограничение POSIX).</p></li>
+          <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&mdash; дата последнего доступа файла или каталога.</p></li>
+          <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&mdash; дата изменения статуса файла или каталога.</p></li>
+          <li><p><tt>GETFILEATTR</tt>&nbsp;&mdash; атрибуты файла или каталога. В Linux можно выбрать числовое (восьмеричное) значение.</p></li>
+          <li><p><tt>GETFILEPATH</tt>&nbsp;&mdash; путь к каталогу, в котором находится файл или папка. Обычно используется при просмотре результата поиска файлов.</p></li>
+          <li><p><tt>GETFILEGROUP</tt>&nbsp;&mdash; группа владельца файла.</p></li>
+          <li><p><tt>GETFILEOWNER</tt>&nbsp;&mdash; владелец файла.</p></li>
+          <li><p><tt>GETFILELINKTO</tt>&nbsp;&mdash; путь и файл, на который указывает символьная ссылка.</p></li>
+          <li><p><tt>GETFILETYPE</tt>&nbsp;&mdash; тип файла (как в Проводнике Windows или MIME-тип).</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&mdash; описание (комментарий) файла или каталога из файла <tt>descript.ion</tt>.</p></li>
+          <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&mdash; размер сжатого файла (реальный размер, если используется сжатие NTFS).</p></li>
+        </ul>
+        <p><span class="italic">Переместить</span>&nbsp;&mdash; позволяет перемещать строки, для появления кнопок нужно дважды щёлкнуть мышью в поле. Чем выше строка, тем левее будет отображаться эта колонка.</p>
+        <p><span class="italic">Удалить</span>&nbsp;&mdash; позволяет удалить любую строку. Для удаления щёлкните мышью в поле "Удалить", затем ещё раз и появится кнопка удаления, если вы щёлкните в третий раз, то строка будет удалена из таблицы.</p>
+        <p>Далее вы можете изменить внешний вид файловых панелей.</p>
+        <p><span class="italic">Перейти к умолчаниям</span>&nbsp;&mdash; открывает раздел <a href="#ConfigColorPanels">Цвета&nbsp;&gt; Файловые панели</a>.</p>
+        <p><span class="italic">Изменить шрифт и цвет для этого набора</span>&nbsp;&mdash; позволяет изменить внешний вид файловых панелей только для этого набора колонок (и отдельно для каждой колонки, если нужно). Вы можете переопределить шрифт для файловых панелей и глобальные настройки из <a href="#ConfigColorPanels">Цвета&nbsp;&gt; Файловые панели</a>:</p>
+        <p class="figure"><img class="largeimage" title="Настройки шрифта и цвета" alt="Настройки шрифта и цвета" src="images/imgDC/ris38.png" width="884" height="300"></p>
+        <p>Примечание: <span class="italic">Рамка вокруг курсора</span> и <span class="italic">Курсор-рамка</span> могут быть применены только для всего набора.</p>
+        <p><span class="italic">Назад</span>, <span class="italic">Далее</span>&nbsp;&mdash; переключают колонки.</p>
+        <p><span class="italic">Настроить колонку</span>&nbsp;&mdash; показывает имя настраиваемой колонки.</p>
+        <p><span class="italic">&gt;&gt;</span>&nbsp;&mdash; кнопка для выбора любого цвета из палитры.</p>
+        <p><span class="italic">R</span>&nbsp;&mdash; возвращает значение по умолчанию.</p>
+        <p><span class="italic">Все</span>&nbsp;&mdash; применяет изменение и на все остальные колонки.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigPlugins">2.9. Плагины</a></span></p>
+        <p>Плагины&nbsp;&mdash; это расширения, увеличивающие функциональность Double Commander. Есть несколько типов плагинов:</p>
+        <p><span class="italic">1. Архиваторные плагины (WCX)</span></p>
+        <p>Архиваторные плагины используются для распаковки определённых типов файлов, обычно архивных форматов. Некоторые плагины также поддерживают создание новых архивов и изменение существующих.<br>
+          Существуют WCX-плагины, позволяющие сохранить список выделенных файлов или использовать пакетную обработку: создание ссылок, конвертирование файлов, копирование с определёнными условиями и т.д.</p>
+        <p><span class="italic">2. Информационные (или контентные) плагины (WDX)</span></p>
+        <p>Информационные плагины предназначены для получения свойств файла или информации о его содержимом (например, теги EXIF или ID3). Вы можете использовать эти данные в инструменте поиска файлов или группового переименования, наборе колонок, всплывающих подсказках.<br>
+          Также Double Commander поддерживает контентные плагины, написанные на языке Lua (скрипты добавляются как обычные плагины). Примеры можно найти в папке программы (<tt>plugins/wdx/scripts</tt>).</p>
+        <p><span class="italic">3. Плагины файловой системы (WFX)</span></p>
+        <p>Плагины файловой системы используют собственные файловые системы или предоставляют доступ к другим файловым системам и устройствам (локальным или удалённым). Например, FTP-серверы, Samba, мобильные устройства. Также это могут быть списки файлов, запущенных процессов и служб или реестр Windows.</p>
+        <p><span class="italic">4. Плагины внутренней программы просмотра (WLX)</span></p>
+        <p>Встроенный просмотрщик отображает простые текстовые файлы, некоторые форматы изображений и вывод консольных команд, плагины позволяют расширить этот список: электронные документы и базы данных, аудио и видео файлы, файлы шрифтов, содержимое архивов, подробная информация о некоторых файлах, файлы исходного кода с подсветкой синтаксиса.<br>
+          Порядок имеет значение: при выборе подходящего плагина Double Commander начинает проверку сверху вниз.</p>
+        <p><span class="italic">5. Плагины поиска (DSX)</span></p>
+        <p>Плагины поиска&nbsp;&mdash; собственный тип плагинов Double Commander, эти плагины используют консольные программы для поиска файлов (например, Locate, Everything или Recoll). Интерфейс DSX-плагинов позволяет отправлять им <a href="findfiles.html">значения параметров поиска</a> из вкладок "Стандартный" и "Расширенный".</p>
+        <p>Кнопки:</p>
+        <ul>
+          <li><p><span class="italic">Добавить</span>&nbsp;&mdash; открывает диалог выбора файла. В качестве альтернативы вы можете использовать внутреннюю команду <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a>.</p></li>
+          <li><p><span class="italic">Отключить</span>&nbsp;&mdash; позволяет временно отключить выбранный плагин.</p></li>
+          <li><p><span class="italic">Удалить</span>&nbsp;&mdash;  удаляет выбранный плагин из списка (но не файл плагина!).</p></li>
+          <li><p>
+            <span class="italic">Параметры</span>&nbsp;&mdash; действие зависит от типа плагина:<br>
+            - WCX: изменить путь к плагину, задать расширения файлов и поддерживаемые функции;<br>
+            - WDX и WLX: изменить путь к плагину, отображаемое имя или детект-строку;<br>
+            - WFX: изменить путь к плагину или отображаемое имя.
+          </p></li>
+          <li><p><span class="italic">Настроить</span>&nbsp;&mdash; открывает собственное окно настроек плагина (если выбранный плагин поддерживает эту функцию).</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLayout">2.10. Вид окна</a></span></p>
+        <p class="figure"><img class="largeimage" title="Вид окна" alt="Вид окна" src="images/imgDC/ris39.png" width="438" height="462"></p>
+        <p>Тут можно изменить вид главного окна Double Commander. Полагаю, проблем здесь возникнуть не должно, все опции видны на изображении выше. На изображении ниже показано, как выглядит DC с отключенными элементами управления и дополнительными окнами.</p>
+        <p class="figure"><img class="largeimage" title="Вид окна DC" alt="Вид окна DC" src="images/imgDC/ris40.png" width="707" height="382"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDrivesList">2.10.1. Вид окна&nbsp;&gt; Кнопка списка дисков</a></span></p>
+        <p>В этом разделе вы можете выбрать, какую дополнительную информацию Double Commander будет показывать в <a href="help.html#iface_drive_btn">меню списка дисков</a>: метка диска, файловая система и свободное место.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTreeMenu">2.10.2. Вид окна&nbsp;&gt; Древовидное меню</a></span></p>
+        <p>В этом разделе вы можете включить древовидное меню и выбрать, где оно будет использоваться.</p>
+        <p>Древовидное меню&nbsp;&mdash; способ отображения некоторых меню Double Commander в отдельном окне в виде дерева: избранные каталоги, избранные вкладки, история каталогов и командной строки. Такой способ представления содержимого и фильтр помогут быстро выбрать нужный пункт меню.</p>
+        <p class="figure"><img class="largeimage" title="Древовидное меню" alt="Древовидное меню" src="images/imgDC/ris41.png" width="412" height="384"></p>
+        <p>Используя параметры соответствующих внутренних команд вы можете задать положение древовидного меню:</p>
+        <ul>
+          <li><p>меню будет показано в левом верхнем углу активной панели;</p></li>
+          <li><p>меню будет показано в позиции курсора мыши.</p></li>
+        </ul>
+        <p>Параметры можно указать в настройках <a href="#ConfigHotKeys">горячих клавиш</a> или добавьте кнопку на <a href="toolbar.html">панель инструментов</a>.</p>
+        <p>Также Double Commander может отобразить в виде дерева главное меню и панель инструментов (всегда в центре своего окна), смотрите описание команд <a href="cmds.html#cm_ShowMainMenu">cm_ShowMainMenu</a> и <a href="cmds.html#cm_ShowButtonMenu">cm_ShowButtonMenu</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTreeMenuColor">2.10.3. Вид окна&nbsp;&gt; Цвета древовидного меню</a></span></p>
+        <p>Здесь вы можете настроить внешний вид меню по своему вкусу, предварительный просмотр покажет все изменения до сохранения.</p>
+        <br>
+
+        <p><span class="bold">2.11. <a name="ConfigToolbar">Панель инструментов</a></span> и <span class="bold">Панель инструментов&nbsp;&gt; Центральная панель</span></p>
+        <p>Подробности настройки и использования выделены в отдельную страницу справки <a href="toolbar.html">Панель инструментов</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolbarEx">2.11.2. Панель инструментов&nbsp;&gt; Панель инструментов (дополнительно)</a></span></p>
+        <p>В этом разделе вы можете выбрать, как будет установлен путь при добавлении значков, команд и путей запуска:</p>
+        <ul>
+          <li><p>С полным абсолютным путём.</p></li>
+          <li><p>С путём относительно %COMMANDER_PATH%.</p></li>
+          <li><p>С путём относительно указанного.</p></li>
+        </ul>
+        <p>Также вы можете применить выбранный способ к уже добавленным путям.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigOperations">2.12. Файловые операции</a></span></p>
+        <p>Этот раздел содержит настройки, относящиеся к работе с файлами.</p>
+        <p><span class="italic">Показать прогресс операций в</span>&nbsp;&mdash; устанавливает изначальный способ отображения и положение прогресса выполнения файловых операций:</p>
+        <ul>
+          <li><p>отдельное окно;</p></li>
+          <li><p>свёрнутое отдельное окно;</p></li>
+          <li><p>панель операций: будет использоваться специальная панель над панелью функциональных клавиш<br>
+            <img class="largeimage" title="Панель операций" alt="Панель операций" src="images/imgDC/ris42.png" width="320" height="100"><br>
+            (вы можете переключиться на отображение прогресса в отдельном окне, щёлкнув по нему мышью).</p></li>
+        </ul>
+        <p><span class="italic">Сбросить флаг "Только для чтения"</span>&nbsp;&mdash; Если разрешено, Double Commander будет сбрасывать этот флаг в Windows и добавлять флаг разрешения на запись "w" в Linux если он отсутствует. Это удобно при копировании файлов с CD/DVD-носителей, когда по умолчанию файлы сохраняют атрибут "только для чтения".</p>
+        <p><span class="italic">При переименовании выделять только имя файла, без расширения</span>&nbsp;&mdash; Если включено, при переименовании с помощью клавиши <kbd>F2</kbd> будут выделены все символы в имени файла до последней точки, в противном случае имя файла будет выделено целиком.</p>
+        <p><span class="italic">Показывать панель выбора вкладок в диалоге копирования/перемещения</span>&nbsp;&mdash; Если при копировании/перемещении в целевой панели открыто несколько вкладок, то будет предоставлен выбор, в какую вкладку копировать/перемещать:</p>
+        <p class="figure"><img class="largeimage" title="Вкладки в диалоге копирования/перемещения" alt="Вкладки в диалоге копирования/перемещения" src="images/imgDC/ris43.png" width="534" height="298"></p>
+        <p><span class="italic">Удаление в Корзину (с Shift - окончательно)</span>&nbsp;&mdash; Если включено, Double Commander удалит выбранные файлы или файл под курсором в корзину, когда вы нажимаете <kbd>F8</kbd> или <kbd>Del</kbd> или навсегда, когда вы используете <kbd>Shift+F8</kbd> или <kbd>Shift+Del</kbd>. Если не отмечено, <kbd>F8</kbd> или <kbd>Del</kbd> удалит их навсегда.</p>
+        <p><span class="italic">Показывать окно подтверждения для следующих операций</span>&nbsp;&mdash; позволяет выбрать операции с файлами, для которых Double Commander будет показывать диалог подтверждения. По умолчанию выбрано максимально безопасное поведение.</p>
+        <p>Следующие параметры напрямую связаны с выполнением операций.</p>
+        <p>Параметры <span class="italic">Размер буфера для файловых операций (Кб)</span> и <span class="italic">Размер буфера для вычисления хеша (Кб)</span> задают размер выделенной памяти для таких операций, как копирование или перемещение файлов и вычисление контрольных сумм. Следует иметь в виду, что универсального значения не существует, но можно попробовать найти более подходящий размер.</p>
+        <p><span class="italic">Число перезаписей при стирании (Wipe)</span>&nbsp;&mdash; Здесь вы можете указать количество перезаписей для <a href="help.html#cm_Wipe">безопасного удаления файлов</a>.</p>
+        <p><span class="italic">Обрабатывать комментарии с файлами/папками</span>&nbsp;&mdash; используется при работе с комментариями (<tt>descript.ion</tt>): если включено, то при копировании или перемещении файла/папки с прикреплённым комментарием файл комментария также будет скопирован или перемещён в каталог назначения.</p>
+        <p><span class="italic">Выводить сообщения об ошибках файловых операций только в окно протокола</span>&nbsp;&mdash; В случае возникновения ошибки файловой операции, сообщение об ошибке появится в окне протокола под файловыми панелями, без появления диалогового окна. Это может быть полезно, потому что окно ошибки приостановит операцию.</p>
+        <p><span class="italic">Стиль автопереименования совпадающих имён</span>&nbsp;&mdash; задаёт шаблон автопереименования файла, если файл с таким именем уже существует в целевом каталоге (то есть, когда вы выбираете <span class="italic">Автоматически переименовывать копируемые файлы</span> или <span class="italic">Автоматически переименовывать имеющиеся файлы</span> в диалоге копирования/перемещения): "Копия&nbsp;(x)&nbsp;имяфайла.тип", "имяфайла&nbsp;(x).тип" или "имяфайла(x).тип", где "x"&nbsp;&mdash; счётчик (2, 3, 4 и т.д.).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigSearch">2.12.1. Файловые операции&nbsp;&gt; Поиск файлов</a></span></p>
+        <p>Смотрите описание на странице справки <a href="findfiles.html#configuration">Поиск файлов</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigRename">2.12.2. Файловые операции&nbsp;&gt; Групповое переименование</a></span></p>
+        <p>Смотрите описание на странице справки <a href="multirename.html#configuration">Групповое переименование</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTabs">2.13. Вкладки каталогов</a></span></p>
+        <p><span class="italic">Показывать заголовок вкладки, даже если она одна</span>&nbsp;&mdash; Если эта опция отключена и на панели есть только одна вкладка, то панель заголовков вкладок не появится (обычно это выглядит более привлекательно).</p>
+        <p><span class="italic">Размещать вкладки в несколько рядов</span> (только Windows)&nbsp;&mdash; Если вкладки папок не помещаются в один ряд, то они будут размещены в несколько рядов. В противном случае справа (GTK2: справа и слева) будут показаны кнопки, позволяющие их прокручивать.</p>
+        <p><span class="italic">Ограничить размер заголовка до</span>&nbsp;&mdash; Вкладки с длинными именами будут ограничены заданным числом символов, всё, что далее&nbsp;&mdash; будет отсечено.</p>
+        <p><span class="italic">Подтверждать закрытие заблокированных вкладок</span>&nbsp;&mdash; Если отмечено, будет предложено подтвердить, что вы хотите закрыть заблокированную вкладку. В противном случае такая вкладка будет закрыта как обычная вкладка.</p>
+        <p><span class="italic"><a name="5_1_11_0_vopros">Подтверждать закрытие всех вкладок</a></span>&nbsp;&mdash; Если отмечено, то при вызове команды <a href="help.html#cm_CloseAllTabs">Закрыть все вкладки</a> будет показано окно подтверждения действия (полезно, чтобы уберечься от случайного выполнения команды).</p>
+        <p><span class="italic">Закрыть дубликаты вкладок при закрытии приложения</span>&nbsp;&mdash; Если отмечено, Double Commander проверит список открытых вкладок и закроет дублирующие (отдельно для каждой панели!), будет сохранена только первая из них (отсчёт слева).</p>
+        <p><span class="italic"><a name="5_1_11_2_vopros">Ctrl+вверх делает новую вкладку активной</a></span>&nbsp;&mdash; эта опция меняет поведение команды <a href="help.html#cm_OpenDirInNewTab">Открыть папку в новой вкладке</a> (<tt>cm_OpenDirInNewTab</tt>): если отмечено, то Double Commander откроет папку под курсором в новой вкладке и переключится на неё.</p>
+        <p><span class="italic">Открывать новую вкладку рядом с текущей</span>&nbsp;&mdash; Если отмечено, новая вкладка будет создаваться справа рядом с текущей активной вкладкой. Иначе новые вкладки будут добавлены справа после последней вкладки.</p>
+        <p><span class="italic">По возможности использовать существующие вкладки</span>&nbsp;&mdash; Для заблокированной вкладки с открытием каталогов в новой вкладке: если выбранная папка уже открыта на какой-либо вкладке, то эта вкладка будет активирована вместо создания новой.</p>
+        <p><span class="italic"><a name="5_1_11_3_vopros">Кнопка закрытия вкладки</a></span> (только Unix-подобные системы)&nbsp;&mdash; Если отмечено, то на вкладках появится небольшая кнопка "x", щёлкнув по которой их можно закрывать.</p>
+        <p><span class="italic"><a name="5_1_12_1_zvezda">Отмечать заблокированные вкладки звездочкой *</a></span>&nbsp;&mdash; Чтобы отличить заблокированные вкладки от обычных, не заблокированных, в начале имён заблокированных вкладок будет добавлена звёздочка "*". Вкладка <tt>Downloads</tt> заблокирована:</p>
+        <p class="figure"><img class="largeimage" title="Вкладки" alt="Вкладки" src="images/imgDC/ris6.png" width="228" height="28"></p>
+        <p><span class="italic">Сохранять изменённое имя при разблокировании вкладки</span>&nbsp;&mdash; Когда мы меняем состояние вкладки с "заблокированная" на "обычная", Double Commander возвращает обычное имя вкладки (текущее имя папки): этот параметр позволяет сохранять изменённое имя.</p>
+        <p><span class="italic">Делать панель активной при щелчке по одной из её вкладок</span>&nbsp;&mdash; Если отмечено, то при щелчке мышью по вкладке другой панели фокус автоматически будет перенесён на неё (панель станет активной). При переключении между панелями таким способом позиция курсора будет сохранена.</p>
+        <p><span class="italic">Всегда показывать букву диска в заголовке вкладки</span> (только Windows)&nbsp;&mdash; Показывает букву диска с двоеточием перед именем вкладки, например, "c:plugins".</p>
+        <p><span class="italic">Положение вкладок</span>&nbsp;&mdash; Размещать вкладки папок вверху или внизу файловых панелей.</p>
+        <p><span class="italic">Действие двойного щелчка по вкладке:</span>&nbsp;&mdash; Вы можете выбрать одно из следующих действий:</p>
+        <ul>
+          <li><p>ничего не делать;</p></li>
+          <li><p>закрыть вкладку;</p></li>
+          <li><p>доступ к избранным вкладкам (сохранить текущие вкладки, загрузить сохранённый набор или настроить);</p></li>
+          <li><p>показать всплывающее меню вкладок с теми же пунктами, что и в меню <a href="help.html#mnu_tabs">"Вкладки"</a>.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigFavoriteTabs">2.13.1. Вкладки каталогов&nbsp;&gt; Избранные вкладки</a></span></p>
+        <p>Избранные вкладки&nbsp;&mdash; это сохранённые наборы вкладок, сгруппированных по удобным для вас критериям (работа, проекты, хобби и так далее), они позволяют открывать во вкладках сразу все нужные каталоги.</p>
+        <p>Список сохранённых наборов вкладок доступен в меню <a href="help.html#mnu_fav">"Избранное"</a> и во всплывающем меню, вызываемом командой <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a>.</p>
+        <p>В этом разделе вы можете управлять ими: изменить порядок, имена, удалить ненужное, отсортировать или сгруппировать в подменю.</p>
+        <p>Также вы можете экспортировать записи в выбранный каталог и импортировать их. Каждая запись будет сохранена в отдельный TAB-файл (при необходимости вкладки из такого файла можно загрузить с помощью команды <a href="cmds.html#cm_LoadTabs">cm_LoadTabs</a>).</p>
+        <p>Некоторые типичные действия добавлены в контекстное меню записей.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTabsEx">2.13.2. Вкладки каталогов&nbsp;&gt; Вкладки каталогов (дополнительно)</a></span></p>
+        <p>В этом разделе содержатся дополнительные настройки избранных вкладок.</p>
+        <p><span class="italic">Включить дополнительные параметры избранных вкладок (выбор панели при восстановлении и т.д.)</span>&nbsp;&mdash; По умолчанию сохранённые вкладки будут восстановлены на той же панели и они заменят все открытые вкладки, вы можете изменить это с:</p>
+        <ul>
+          <li><p><span class="italic">Сохранённые слева вкладки будут восстановлены:</span></p></li>
+          <li><p><span class="italic">Сохранённые справа вкладки будут восстановлены:</span></p></li>
+          <li><p><span class="italic">При восстановлении сохранить существующие вкладки:</span>&nbsp;&mdash; то есть избранные вкладки будут добавлены к уже открытым вкладкам.</p></li>
+        </ul>
+        <p>Для каждого параметра доступны следующие значения: <span class="italic">Слева</span>, <span class="italic">Справа</span>, <span class="italic">В активной</span>, <span class="italic">В неактивной</span>, <span class="italic">В обеих</span> или <span class="italic">Нет</span>.</p>
+        <p><span class="italic">Сохранять историю каталогов для избранных вкладок</span>&nbsp;&mdash; включает или отключает сохранение истории каждой вкладки.</p>
+        <p>Также вы можете применить эти параметры отдельно для каждого набора вкладок.</p>
+        <p><span class="italic">Позиция в меню по умолчанию при сохранении новых избранных вкладок</span>&nbsp;&mdash; определяет порядок добавления нового набора:</p>
+        <ul>
+          <li><p>Добавить в начало</p></li>
+          <li><p>Добавить в конец.</p></li>
+          <li><p>По алфавиту.</p></li>
+        </ul>
+        <p>Вы можете указать дополнительное действие после сохранения нового или пересохранения текущего набора:</p>
+        <ul>
+          <li><p><span class="italic">Перейти к настройкам избранных вкладок после сохранения новых</span>.</p></li>
+          <li><p><span class="italic">Перейти к настройкам избранных вкладок после пересохранения</span>.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLog">2.14. Протокол</a></span></p>
+        <p>Здесь можно выбрать куда и в какой файл Double Commander будет записывать отчёт об операциях (копирование или перемещение файлов, создание каталогов, запуск внешних приложений и так далее). А также выбрать протоколируемые операции, их вид и тип.</p>
+        <p class="figure"><img class="largeimage" title="Протокол" alt="Протокол" src="images/imgDC/ris44.png" width="542" height="407"></p>
+        <p>Если отмечено <span class="italic">Добавлять дату в имя файла протокола</span>, Double Commander будет создавать отдельный файл на каждый день. В этом случае вы можете задать количество файлов протокола: более старые файлы будут удаляться автоматически.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDC">2.15. Конфигурация</a></span></p>
+        <p><span class="italic">Расположение файлов конфигурации</span>&nbsp;&mdash; Здесь можно выбрать место хранения всех файлов конфигурации (также вы можете увидеть здесь полный путь):</p>
+        <ul>
+          <li><p>Каталог программы (портативная версия).</p></li>
+          <li><p>Домашний каталог пользователя.</p></li>
+        </ul>
+        <p>Если вы запустили Double Commander с параметром <a href="commandline.html">--config-dir</a>, то DC просто напишет <span class="italic">Задано через командную строку</span> и покажет полный путь к файлам конфигурации.</p>
+        <p>Кнопки <span class="italic">Редактировать</span> и <span class="italic">Применить</span>&nbsp;&mdash; позволяют открыть файл конфигурации <tt>doublecmd.xml</tt> и изменить настройки вручную. Имейте в виду, что для применения некоторых настроек требуется перезапуск Double Commander.</p>
+        <p>Примечание (или маленькая хитрость): Такой способ позволяет применить некоторые настройки сразу, без перезапуска DC (но не все!): например, вы можете изменить и сразу применить размер иконок в файловых панелях, но не сможете изменить язык программы без перезапуска.</p>
+        <p><span class="italic">Сохранять при выходе</span>&nbsp;&mdash; Здесь вы можете выбрать, что Double Commander будет сохранять при выходе. Флажок <span class="italic">Сохранять конфигурацию</span> включает или выключает сохранение:</p>
+        <ul>
+          <li><p><span class="italic">Состояние главного окна</span>&nbsp;&mdash; Размер и положение окна приложения.</p></li>
+          <li><p><span class="italic">Вкладки каталогов</span>&nbsp;&mdash; Список вкладок, открытых в левой и правой панелях.</p></li>
+          <li><p>И история: список всех посещённых каталогов, введённые в командной строке команды, маски файлов и история поиска и замены текста.</p></li>
+        </ul>
+        <p>Вы можете выбрать, как будет выглядеть список разделов настроек:</p>
+        <ul>
+          <li><p><span class="italic">Сортировка дерева разделов настроек (слева)</span>&nbsp;&mdash; Вы можете выбрать классическую (как в исходном коде Double Commander и справке) или по алфавиту. В обоих случаях раздел <span class="bold">Язык</span> будет первым.</p></li>
+          <li><p><span class="italic">Состояние дерева при открытии окна настроек</span>&nbsp;&mdash; развернуть дерево целиком или свернуть.</p></li>
+        </ul>
+        <p><span class="italic">Каталоги</span>&nbsp;&mdash; Здесь вы можете увидеть список каталогов, которые Double Commander может использовать для хранения кэша эскизов, тем значков и файлов подсветки синтаксиса для встроенного редактора. Вы не можете их изменить, это просто информация.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigQuick">2.16. Быстрый поиск/фильтр</a></span></p>
+        <p>Быстрый поиск используется для поиска по текущему содержимому файловой панели, быстрый фильтр скроет все имена файлов, не соответствующие условиям.</p>
+        <p>Вы можете задать способ вызова панели быстрого поиска/фильтра в разделе <a href="#ConfigKeys">Клавиши</a> или использовать команды <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> и <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a>.</p>
+        <p class="figure"><img class="largeimage" title="Быстрый поиск/фильтр" alt="Быстрый поиск/фильтр" src="images/imgDC/ris45.png" width="512" height="332"></p>
+        <p>Точное соответствие имени:</p>
+        <ul>
+          <li><p><span class="italic">Начало (имя должно начинаться с набранных символов)</span>&nbsp;&mdash; означает, что набранный текст будет соответствовать маске "текст*", где "*"&nbsp;&mdash; любое количество любых символов.</p></li>
+          <li><p><span class="italic">Конец (последние символы до набранной точки "." должны совпадать)</span>&nbsp;&mdash; Если среди набранных символов есть точка, имя должно заканчиваться этими символами. Например, если вы ввели "dx.l", маской файлов будет "*dx.l*".</p></li>
+        </ul>
+        <p>Если ничего не отмечено, набранные символы могут располагаться в любой части имени файла.</p>
+        <p>Мне нравится <span class="italic">Начало (имя должно начинаться с набранных символов)</span>, тогда я могу просто ввести первый символ имени файла, а затем второй символ и т.д. Таким образом файл будет быстро найден.</p>
+        <p>Ниже вы можете задать чувствительность к регистру и выбрать то, что вы хотите искать: только файлы или каталоги, или и то, и другое.</p>
+        <p>Эти опции можно изменить на лету непосредственно в панели быстрого поиска/фильтра. Также вы можете переключаться между поиском и фильтром.</p>
+        <p>Настройки:</p>
+        <ul>
+          <li><p><span class="italic">Скрывать панель фильтра, когда она не в фокусе</span>&nbsp;&mdash; Панель быстрого поиска/фильтра будет автоматически скрыта, как только вы переместите фокус в файловую панель.</p></li>
+          <li><p><span class="italic">Сохранять настройки, изменённые через панель фильтра</span>&nbsp;&mdash; Все параметры, которые были изменены в панели, будут сохранены для следующего вызова быстрого поиска/фильтра.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMisc">2.17. Разное</a></span></p>
+        <p>В этом разделе находятся параметры, для которых не нашлось подходящего места в других разделах настроек:</p>
+        <p class="figure"><img class="largeimage" title="Разное" alt="Разное" src="images/imgDC/ris46.png" width="588" height="483"></p>
+        <p><span class="italic">Показывать некритические сообщения об ошибках (с одной кнопкой "ОК")</span>&nbsp;&mdash; если программа совершит действие или операцию с ошибкой и при этом не произойдёт никаких фатальных потерь, то будет показано окно с текстом ошибки и одной кнопкой "ОК". Иначе ошибка выводится не будет. (Например, если Double Commander не может установить какое-либо свойство или атрибут файла из-за ограничений файловой системы в целевом каталоге.)</p>
+        <p><span class="italic">При смене диска всегда переходить в корневой каталог</span>&nbsp;&mdash; Если не отмечено, Double Commander будет переходить в последний открытый каталог этого диска (в этом случае вы можете перейти в корневой каталог диска, дважды нажав его кнопку).</p>
+        <p><span class="italic">Показывать текущий каталог в заголовке окна</span>&nbsp;&mdash; Если включено, Double Commander будет отображать в заголовке окна имя текущей папки и путь активной панели.</p>
+        <p><span class="italic">Эскизы</span>&nbsp;&mdash; Здесь вы можете включить сохранение кэша миниатюр изображений и установить их размер. Кнопка <span class="italic">Удалить эскизы для отсутствующих файлов</span> поможет удалить устаревшие эскизы.</p>
+        <p><span class="italic">Комментарии к файлам (descript.ion)</span>&nbsp;&mdash; Здесь вы можете установить кодировку по умолчанию для файлов с комментариями (OEM, ANSI или UTF-8) и кодировку для новых файлов (UTF-8 BOM, UTF-16 LE или UTF-16 BE).</p>
+        <p>Следующая группа параметров используется для импортирования из Total Commander и экспортирования <a href="directoryhotlist.html#exportimporttc">избранных каталогов</a> и <a href="toolbar.html">панели инструментов</a>: <span class="italic">Исполняемый файл TC</span>, <span class="italic">Файл настроек</span> и <span class="italic">Каталог с панелями инструментов</span>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigRefresh">2.18. Автообновление</a></span></p>
+        <p>Позволяет Double Commander автоматически обновлять содержимое файловых панелей, так же, как обновление вручную командой <kbd>Ctrl+R</kbd>.</p>
+        <p><span class="italic">Обновлять список файлов</span>&nbsp;&mdash; указывает, на какие события Double Commander должен реагировать и обновлять список файлов и строку состояния:</p>
+        <ul>
+          <li><p>При создании, удалении и переименовании файлов.</p></li>
+          <li><p>При изменении размера, даты или атрибутов.</p></li>
+        </ul>
+        <p>Также вы можете отключить автообновление:</p>
+        <ul>
+          <li><p>Когда окно Double Commander неактивно или свёрнуто.</p></li>
+          <li><p>Для указанных путей и их подкаталогов, просто перечислите их через точку с запятой ";" без пробелов (например, <code>/home;/media/cdrom</code>).</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIcons">2.19. Значки</a></span></p>
+        <p>Первый параметр включает отображение значков типов файлов слева от имени:</p>
+        <ul>
+          <li><p><span class="italic">Все ассоциированные + EXE/LNK (медленно)</span>&nbsp;&mdash; То же, что и <span class="italic">Все</span>, но дополнительно будут извлечены значки из EXE-файлов и ярлыков.</p></li>
+          <li><p><span class="italic">Все</span>&nbsp;&mdash; Будут отображаться значки всех типов файлов, которые ассоциированны с какой-либо программой (из настроек системы и <a href="#ConfigAssociations">файловых ассоциаций</a> Double Commander). Также DC покажет значок папки, заданный в файлах <tt>desktop.ini</tt> (Windows) и <tt>.directory</tt> (Linux).</p></li>
+          <li><p><span class="italic">Только стандартные</span>&nbsp;&mdash; Будут отображаться значки типов файлов, перечисленных в файле <tt>pixmaps.txt</tt>. Новые расширения файлов добавляются аналогично существующим (как правило, в Unix-подобных системах системная тема содержит значки для распространённых MIME-типов, но в Windows вы должны добавить выбранный значок в каталоги <tt>pixmaps/dctheme/XXxXX/mimetypes/</tt>, лучшим способом будет добавление значков в свою тему DC, смотрите <a href="faq.html#theme">пункт 3.6</a> в часто задаваемых вопросах).</p></li>
+          <li><p><span class="italic">Не показывать значки</span>.</p></li>
+        </ul>
+        <p><span class="italic">Показывать оверлейные значки (например, для ярлыков)</span>&nbsp;&mdash; Если отмечено, Double Commander будет показывать оверлейные значки, например, стрелки для LNK-файлов и ссылок.</p>
+        <p><span class="italic">Затенять значки скрытых файлов (медленнее)</span>&nbsp;&mdash; Если отмечено, Double Commander будет показывать значки скрытых файлов с уровнем прозрачности 50%.</p>
+        <p><span class="italic">Отключить загрузку специальных значков</span>&nbsp;&mdash; Вы можете отключить загрузку специальных значков (оверлейные значки, значки из EXE/LNK-файлов) для указанных каталогов и их подкаталогов, просто перечислите их через точку с запятой ";" без пробелов.</p>
+        <p><span class="italic">Размер значков</span>&nbsp;&mdash; Вы можете выбрать один из следующих размеров:</p>
+        <ul>
+          <li><p><span class="italic">Панель файлов</span>&nbsp;&mdash; 16x16, 24x24, 32x32 или 48x48.</p></li>
+          <li><p><span class="italic">Панель дисков</span>&nbsp;&mdash; 16x16, 24x24 или 32x32.</p></li>
+          <li><p><span class="italic">Главное меню</span>&nbsp;&mdash; 16x16, 24x24 или 32x32.</p></li>
+        </ul>
+        <p><span class="italic">Показывать значки на кнопках</span>&nbsp;&mdash; Если отмечено, Double Commander будет показывать значки на кнопках диалоговых окон (<span class="italic">ОК</span>, <span class="italic">Отмена</span>, <span class="italic">Старт</span>, <span class="italic">В очередь</span> и т.д.).</p>
+        <p><span class="italic">Показывать значки для команд в меню</span>&nbsp;&mdash; Если отмечено, Double Commander будет показывать значки в главном меню.</p>
+        <p>В последнем параметре <span class="italic">Тема значков</span> вы можете выбрать набор значков из выпадающего меню. Double Commander поставляется с одной темой <span class="italic">DCTheme</span>, вы можете создать и добавить свою тему, смотрите <a href="faq.html#theme">пункт 3.6</a> в часто задаваемых вопросах.
+        <p>Примечание: В Unix-подобных системах Double Commander в первую очередь будет использовать системную тему значков, если каких-то значков не существует, то DC будет использовать свои собственные.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIgnore">2.20. Список исключений</a></span></p>
+        <p>Исключение указанных файлов и папок (один на строку): они не будут отображаться в панелях.</p>
+        <ul>
+          <li><p>Вы можете использовать полный путь к файлу или имя файла.</li>
+          <li><p>Поддерживаются маски <tt>*</tt> и <tt>?</tt>.</p></li>
+          <li><p>Если имя заканчивается разделителем каталогов, оно будет соответствовать только каталогам.</p></li>
+        </ul>
+        <p><span class="italic">Сохранить в:</span>&nbsp;&mdash; расположение списка исключений (по умолчанию это <tt>ignorelist.txt</tt> рядом с <tt>doublecmd.xml</tt>).</p>
+        <p><span class="italic">Добавить все выделенные с путями</span>&nbsp;&mdash; добавит все файлы/папки, выделенные в активной панели (если есть), или файл под курсором с полным путём.</p>
+        <p><span class="italic">Добавить все выделенные</span>&nbsp;&mdash; добавит имена всех файлов/папок, выделенных в активной панели (если есть), или файла под курсором. Это означает, что они будут скрыты везде.</p>
+        <p>Примечание: Эти две кнопки не будут добавлять разделитель каталогов в конец имён папок.</p>
+        <p>Для включения и выключения этой функции вы можете использовать команду <a href="cmds.html#cm_SwitchIgnoreList">cm_SwitchIgnoreList</a>, добавьте кнопку на панель инструментов или сочетание клавиш.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigArchivers">2.21. Архиваторы</a></span></p>
+        <p>Подробнее ознакомиться с настройкой и использованием можно на странице справки <a href="multiarc.html">Внешние архиваторы</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTooltips">2.22. Подсказки</a></span></p>
+        <p>В этом разделе содержатся настройки всплывающих подсказок при наведении указателя мыши на файл.</p>
+        <p class="figure"><img class="largeimage" title="Подсказки" alt="Подсказки" src="images/imgDC/ris47.png" width="792" height="416"></p>
+        <p><span class="italic">Показывать всплывающие подсказки в файловой панели</span>&nbsp;&mdash; включает возможность использования подсказок.</p>
+        <p><span class="italic">Типы файлов</span>&nbsp;&mdash; содержит список групп файлов.</p>
+        <p>Кнопки:</p>
+        <ul>
+          <li><p><span class="italic">Применить</span>&nbsp;&mdash; сохранит настройки для выделенного типа файлов.</p></li>
+          <li><p><span class="italic">Добавить</span>&nbsp;&mdash; добавит новый тип файлов и предложит указать имя, служит для описания файла (что он делает или какой программой открывается).</p></li>
+          <li><p><span class="italic">Копировать</span>&nbsp;&mdash; скопирует выделенный тип файлов с новым именем.</p></li>
+          <li><p><span class="italic">Переименовать</span>&nbsp;&mdash; предложит ввести новое имя для выделенного типа файлов.</p></li>
+          <li><p><span class="italic">Удалить</span>&nbsp;&mdash; удалит выделенный тип файлов.</p></li>
+        </ul>
+        <p>Кнопка <span class="italic">Другое...</span>&nbsp;&mdash; это меню:</p>
+        <ul>
+          <li><p><span class="italic">Отменить изменения</span>&nbsp;&mdash; сбросит все несохранённые изменения в выделенном типе файлов.</p></li>
+          <li><p><span class="italic">Сортировать типы файлов</span>&nbsp;&mdash; отсортирует типы файлов по алфавиту (сначала верхний регистр, потом нижний).</p></li>
+          <li><p><span class="italic">Экспорт...</span> и <span class="italic">Импорт...</span>&nbsp;&mdash; позволяют экспортировать подсказки в файл подсказок DC и импортировать их из таких файлов (целиком или по частям).</p></li>
+        </ul>
+        <p>Ниже вы можете настроить содержимое всплывающей подсказки для выбранного типа файлов.</p>
+        <p>В строке <span class="italic">Маска</span> указывается маска файлов, по которой Double Commander будет их распознавать (звёздочка "*" обозначает любое количество символов, знак вопроса "?"&nbsp;&mdash; любой один символ). Если масок несколько, то они перечисляются через точку с запятой ";" без пробелов. Также вы можете использовать шаблоны поиска, в том числе поиска с информационными (контентными) плагинами.</p>
+        <p>В поле <span class="italic">Подсказка</span> вы можете ввести любой текст и использовать поля WDX-плагинов для получения информации (кнопка "&gt;&gt;").</p>
+        <p>Остальные параметры являются общими параметрами подсказок.</p>
+        <p><span class="italic">Режим использования</span>&nbsp;&mdash; определяет, какой тип подсказок будет показывать Double Commander и как их комбинировать, если оба типа:</p>
+        <ul>
+          <li><p>Объединить подсказку DC и системную, сначала из DC.</p></li>
+          <li><p>Объединить подсказку DC и системную, сначала системная.</p></li>
+          <li><p>Показать подсказку DC, если возможно, и системную, если нет.</p></li>
+          <li><p>Показать только подсказку DC.</p></li>
+          <li><p>Показать только системную подсказку.</p></li>
+        </ul>
+        <p><span class="italic">Скрыть подсказку через</span>&nbsp;&mdash; устанавливает продолжительность отображения подсказки: значение из системы, 1 сек, 2 сек, 3 сек, 5 сек, 10 сек, 30 сек, 1 мин и никогда не скрывать (подсказка будет скрыта, когда вы переместите курсор мыши на другой файл или за пределы файловой панели).</p>
+        <p>На изображении в начале описания раздела вы можете видеть пример всплывающей подсказки с плагином <tt>textline.wdx</tt>, который показывает содержимое выбранных строк текстового файла (в данном случае первой, второй и третьей строк), выбран режим <span class="italic">Объединить подсказку DC и системную, сначала системная</span>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigAssociations">2.23. Файловые ассоциации</a></span></p>
+        <p>Этот пункт открывает окно настроек файловых ассоциаций. Все ассоциации сохраняются в файл <tt>extassoc.xml</tt>. Примеры файловых ассоциаций можно посмотреть в файле <tt>doublecmd.ext.example</tt> в каталоге программы.</p>
+        <p>Здесь можно настроить ассоциации файлов с различными программами, а также задать команды или скрипты для разных типов файлов. Указанные команды будут выводится в контекстном меню файлов (команда <tt>cm_ContextMenu</tt>).</p>
+        <p class="figure"><img class="largeimage" title="Файловые ассоциации" alt="Файловые ассоциации" src="images/imgDC/ris48.png" width="612" height="548"></p>
+        <p><span class="italic">Типы файлов</span>&nbsp;&mdash; поле содержит список групп расширений. В каждой группе может содержаться множество расширений файлов, и такие группы можно ассоциировать с различными программами.</p>
+        <p><span class="italic">Добавить</span>&nbsp;&mdash; добавляет новую группу. Будет предложено ввести имя группы, которое потом появится в списке.</p>
+        <p><span class="italic">Удалить</span>&nbsp;&mdash; удаляет выбранную группу.</p>
+        <p><span class="italic">Переименовать</span>&nbsp;&mdash; позволяет задать для группы новое имя.</p>
+        <p><span class="italic">Значок</span>&nbsp;&mdash; здесь можно указать путь к значку для группы. Также вы можете использовать значки MIME-типа: например, если вы хотите использовать <tt>text-x-pascal.png</tt> из темы значков Double Commander (или из системной темы в Linux и других Unix-подобных системах), просто вставьте <code>text-x-pascal</code>.</p>
+        <p><span class="italic">Расширения</span>&nbsp;&mdash; здесь в выбранную группу добавляются расширения файлов (без точки). Специальные значения:</p>
+        <ul>
+          <li><p><tt>file</tt>&nbsp;&mdash; любой файл;</p></li>
+          <li><p><tt>folder</tt>&nbsp;&mdash; любой каталог;</p></li>
+          <li><p><tt>default</tt>&nbsp;&mdash; используется, когда для расширения не существует ассоциации.</p></li>
+        </ul>
+        <p><span class="italic">Вставить</span>&nbsp;&mdash; добавляет расширение над выделенным в списке.</p>
+        <p><span class="italic">Добавить</span>&nbsp;&mdash; добавляет расширение в конец списка.</p>
+        <p><span class="italic">Удалить</span>&nbsp;&mdash; удаляет выбранное расширение из группы.</p>
+        <p><span class="italic">Действия</span>&nbsp;&mdash; здесь можно задать команды для группы.</p>
+        <p><span class="italic">Вставить</span>&nbsp;&mdash; добавляет новое действие над выделенным в списке.</p>
+        <p><span class="italic">Добавить</span>&nbsp;&mdash; добавляет новое действие в конец списка.</p>
+        <p><span class="italic">Удалить</span>&nbsp;&mdash; удаляет выбранное действие из списка.</p>
+        <p><span class="italic">Вверх</span>, <span class="italic">Вниз</span>&nbsp;&mdash; перемещают команду по списку.</p>
+        <p><span class="italic">Название</span>&nbsp;&mdash; в этой строке указывается тип действия. Варианты:</p>
+        <ul>
+          <li><p>Из выпадающего меню</p>
+            <ul>
+              <li><p>Open&nbsp;&mdash; команда будет выполнена после нажатия <kbd>Enter</kbd> или двойного щелчка мышью.</p></li>
+              <li><p>View&nbsp;&mdash; команда будет выполнена после нажатия <kbd>F3</kbd>.</p></li>
+              <li><p>Edit&nbsp;&mdash; команда будет выполнена после нажатия <kbd>F4</kbd>.</p></li>
+            </ul>
+          </li>
+          <li><p>Остальные действия отображаются в контекстном меню файла (в подменю "Команды").</p></li>
+        </ul>
+        <p><span class="italic">Команда</span>&nbsp;&mdash; любая однострочная команда из среды рабочего стола, в которой можно использовать макросы (макросы регистрозависимые!):</p>
+        <ul>
+          <li><p><tt>{!DC-EDITOR}</tt>&nbsp;&mdash; вызывает встроенный редактор;</p></li>
+          <li><p><tt>{!DC-VIEWER}</tt>&nbsp;&mdash; вызывает встроенный просмотрщик;</p></li>
+          <li><p><tt>{!EDITOR}</tt>&nbsp;&mdash; вызывает редактор (встроенный или внешний, в зависимости от настроек);</p></li>
+          <li><p><tt>{!VIEWER}</tt>&nbsp;&mdash; вызывает просмотрщик (встроенный или внешний, в зависимости от настроек);</p></li>
+          <li><p><tt>{!SHELL}</tt>&nbsp;&mdash; для запуска программы использовать терминал.</p></li>
+        </ul>
+        <p><span class="italic">Параметры</span>&nbsp;&mdash; параметры команд, включая переменные:</p>
+        <ul>
+          <li><p>все <a href="variables.html">переменные, доступные в параметрах DC</a>;</p></li>
+          <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&mdash; запускает "command" в оболочке системы и подаёт вывод на команду выше.</p></li>
+        </ul>
+        <p><span class="italic">Путь запуска</span>&nbsp;&mdash; каталог запуска команды.</p>
+        <p>Все доступные действия отображаются в контекстном меню в подменю "Команды":</p>
+        <p class="figure"><img class="largeimage" title="Контекстное меню" alt="Контекстное меню" src="images/imgDC/ris49.png" width="508" height="288"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigAssocEx">2.23.1. Файловые ассоциации&nbsp;&gt; Файловые ассоциации (дополнительно)</a></span></p>
+        <p><span class="italic">Предлагать добавить в файловые ассоциации файл под курсором (если ещё не включен)</span>&nbsp;&mdash; При открытии настроек файловых ассоциаций будет предложено добавить тип с расширением файла под курсором (если оно не найдено в уже существующих типах). Это быстрый способ добавить действие "Открыть с помощью": Double Commander предложит вам указать имя типа и исполняемый файл, всё остальное будет сделано автоматически.</p>
+        <p><span class="italic">Расширенное контекстное меню</span>&nbsp;&mdash; позволяет добавить некоторые пункты в подменю "Команды":</p>
+        <ul>
+          <li><p>Запустить с помощью оболочки.</p></li>
+          <li><p>Запустить в терминале и закрыть.</p></li>
+          <li><p>Запустить в терминале и оставить открытым.</p></li>
+          <li><p>Настройки файловых ассоциаций.</p></li>
+        </ul>
+        <p>Ниже вы можете выбрать, как будет установлен путь при добавлении значков, команд и путей запуска:</p>
+        <ul>
+          <li><p>С полным абсолютным путём.</p></li>
+          <li><p>С путём относительно %COMMANDER_PATH%.</p></li>
+          <li><p>С путём относительно указанного.</p></li>
+        </ul>
+        <p>Также вы можете применить выбранный способ к уже добавленным путям.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDirHotlist">2.24. Избранные каталоги</a></span></p>
+        <p>Подробнее ознакомиться с настройкой и использованием можно на странице справки <a href="directoryhotlist.html">Избранные каталоги</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDirHotlistEx">2.24.1. Избранные каталоги&nbsp;&gt; Избранные каталоги (дополнительно)</a></span></p>
+        <p>В этом разделе вы можете выбрать, как будет установлен путь и целевой путь:</p>
+        <ul>
+          <li><p>С полным абсолютным путём.</p></li>
+          <li><p>С путём относительно %COMMANDER_PATH%.</p></li>
+          <li><p>С путём относительно указанного.</p></li>
+        </ul>
+        <p>Также вы можете применить выбранный способ к уже добавленным путям.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <br>
+        <p><small>Created by Rustem (dok_rust@bk.ru)</small></p>
+        <p><small>English version by Rod J (rodmac_shiels@hotmail.com)</small></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="shortcuts.html">След.</a></div></div>
+    <div class="checker">
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

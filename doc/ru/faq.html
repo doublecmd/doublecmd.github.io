@@ -73,7 +73,7 @@
               <dt>5.1. <a href="#f3_compiz">Окна редактора и просмотрщика появляются где хотят, при включенном Compiz'е.</a></dt>
               <dt>5.2. <a href="#f3_font">Во встроенном редакторе странный шрифт&nbsp;&mdash; по горизонтали символы наезжают друг на друга.</a></dt>
               <dt>5.3. <a href="#f3_jpg">На одну единственную картинку вьювер не срабатывает. Остальные картинки просматриваются, а вот эту отказывается.</a></dt>
-              <dt>5.4. <a href="#f3_hscroll">Есть такие текстовые файлы, в которых при быстром просмотре строчки уходят за край окошка! А внизу нет ползунка чтобы прочесть до конца!</a></dt>
+              <dt>5.4. <a href="#f3_hscroll">В некоторых текстовых файлах строки выходят за пределы края окна.</a></dt>
               <dt>5.5. <a href="#f4_colmode">Можете добавить функцию редактирования колонок (как в Notepad++, UltraEdit и т.д.)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></dt>
               <dt>5.7. <a href="#f34_regutf8">Как я могу использовать регулярные выражения для поиска в UTF-8?</a></dt>
@@ -92,6 +92,7 @@
           <dd>
             <dl>
               <dt>7.1. <a href="#ftps_reuse">ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></dt>
+              <dt>7.2. <a href="#ftp_openssl">ftp.wfx: Не работает с некоторыми серверами! После подключения получаю ошибки: "104,Connection reset by peer" и "CSOCK ERROR Connection reset by peer" или "10060,Connection timed out" и "CSOCK ERROR Connection timed out".</a></dt>
             </dl>
           </dd>
         </dl>
@@ -109,7 +110,7 @@
         <br>
 
         <p class="bold"><a name="linux">В: Это версия Total Commander для Linux, да?</a></p>
-        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK2 и Qt и Mac OS, также Double Commander есть в портах FreeBSD.</p>
+        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK и Qt (зависит от Lazarus, поэтому на данный момент GTK2 и Qt5) и Mac OS, также Double Commander доступен в портах FreeBSD.</p>
         <br>
 
         <p class="bold"><a name="wincmd">В: В чём отличия этой программы от моего любимого Total Commander?</a></p>
@@ -138,20 +139,21 @@
         <ul>
           <li>
             <p>релиз:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt5" target="_blank">Qt5</a>
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
               или
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
             </p>
           </li>
           <li>
-            <p>alpha версия ("ночные" сборки):
+            <p>альфа-версия ("ночные" сборки):
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
               или
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
             </p>
           </li>
         </ul>
-        <p>Также вы можете скачать с официального сайта установочные пакеты (deb, rpm) или портативную ("portable") версию, упакованную с помощью bzip2 или XZ. Либо можно скачать исходный код и собрать DC самостоятельно.</p>
+        <p>Вы можете скачать установочные пакеты (DEB, RPM) без добавления репозитория в систему.<br>
+          Также доступна портативная версия (скомпилированные двоичные файлы, упакованные XZ, для запуска используйте <tt>doublecmd.sh</tt>) или вы можете скачать исходный код и собрать DC самостоятельно.</p>
         <br>
 
         <p class="bold"><a name="plugs">В: Плагины от Total Commander не работают?!</a></p>
@@ -224,7 +226,7 @@
           DC обычно предлагает следующий дополнительный путь (помимо папки "pixmaps" рядом с <tt>doublecmd.exe</tt>):</p>
           <ul>
             <li>Windows XP: <i>C:\Documents and Settings\&lt;Имя пользователя&gt;\Local Settings\doublecmd\pixmaps</i></li>
-            <li>Windows Vista/7-10: <i>C:\Users\&lt;Имя пользователя&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+            <li>Windows Vista/7+: <i>C:\Users\&lt;Имя пользователя&gt;\AppData\Local\doublecmd\pixmaps</i></li>
             <li>Unix-подобные ОС: <i>/home/&lt;Имя пользователя&gt;/.local/share/doublecmd/pixmaps</i></li>
           </ul>
           <p>Если каталог не существует, создайте его.<br>
@@ -233,7 +235,7 @@
 
         <p class="bold"><a name="cs_size">В: Как сделать функциональные клавиши и панель адреса побольше?</a></p>
         <p><span class="bold">О:</span> Размер зависит от размера шрифта, существует три способа:</p>
-        <p>1. Простой и быстрый: вы можете использовать Ctrl+колесо мыши, работает для следующих элементов интерфейса или частей DC:<br>
+        <p>1. Простой и быстрый: вы можете использовать <kbd>Ctrl</kbd>+колесо мыши, работает для следующих элементов интерфейса или частей DC:<br>
           -&nbsp;список файлов в левой и правой панелях;<br>
           -&nbsp;панель текущего каталога (адреса);<br>
           -&nbsp;панель функциональных клавиш;<br>
@@ -311,8 +313,8 @@
         <p><span class="bold">О:</span> Судя по всему, компонент, используемый для просмотра изображений, не поддерживает некоторые файлы JPEG. Теперь вместо ошибки такие файлы открываются как текст.</p>
         <br>
 
-        <p class="bold"><a name="f3_hscroll">В: Есть такие текстовые файлы, в которых при быстром просмотре строчки уходят за край окошка! А внизу нет ползунка чтобы прочесть до конца!</a></p>
-        <p><span class="bold">О:</span> Хм... действительно горизонтальный ползунок не предусмотрен, в данном случае можно воспользоваться режимом "Показать как текст с разрывами строк".</p>
+        <p class="bold"><a name="f3_hscroll">В: В некоторых текстовых файлах строки выходят за пределы края окна.</a></p>
+        <p><span class="bold">О:</span> В просмотрщике используйте режим "Показать как текст с разрывами строк". Встроенный редактор не поддерживает перенос строк.</p>
         <br>
 
         <p class="bold"><a name="f4_colmode">В: Можете добавить функцию редактирования колонок (как в Notepad++, UltraEdit и т.д.)?</a></p>
@@ -363,6 +365,10 @@
         <h2>7. Плагины</h2>
         <p class="bold"><a name="ftps_reuse">В: ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></p>
         <p><span class="bold">О:</span> Сервер требует поддержки повторного использования сеанса (session reuse) и <tt>ftp.wfx</tt> это поддерживает, но нужны библиотеки OpenSSL: поместите <tt>libeay32.dll</tt> и <tt>ssleay32.dll</tt> рядом с <tt>doublecmd.exe</tt> или в PATH.</p>
+        <br>
+
+        <p class="bold"><a name="ftp_openssl">В: ftp.wfx: Не работает с некоторыми серверами! После подключения получаю ошибки: "104,Connection reset by peer" и "CSOCK ERROR Connection reset by peer" или "10060,Connection timed out" и "CSOCK ERROR Connection timed out".</a></p>
+        <p><span class="bold">О:</span> Требуются библиотеки OpenSSL: поместите <tt>libeay32.dll</tt> и <tt>ssleay32.dll</tt> рядом с <tt>doublecmd.exe</tt> или в PATH.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
         <br>
       </div>
@@ -370,8 +376,8 @@
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="about.html">Пред.</a> | <a title="Следующая страница" href="help.html">След.</a></div></div>
     <div class="checker">
-      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
-      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
     </div>
     <br>
     <br>

@@ -125,9 +125,10 @@
         <ul>
           <li><p><tt>doublecmd.xml</tt>&nbsp;&mdash; all the main program settings;</p></li>
           <li><p><tt>extassoc.xml</tt>&nbsp;&mdash; file extension association configuration;</p></li>
-          <li><p><tt>highlighters.xml</tt>&nbsp;&mdash; editor color settings;</p></li>
-          <li><p><tt>shortcuts.scf</tt>&nbsp;&mdash; keyboard layout settings;</p></li>
+          <li><p><tt>pixmaps.txt</tt>&nbsp;&mdash; maps file extensions to MIME-types icon names;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&mdash; external archivers;</p></li>
+          <li><p><tt>shortcuts.scf</tt>&nbsp;&mdash; keyboard layout settings;</p></li>
+          <li><p><tt>highlighters.xml</tt>&nbsp;&mdash; editor color settings;</p></li>
           <li><p><tt>history.xml</tt>&nbsp;&mdash; command line and directory history, search and replace, etc.;</p></li>
           <li><p>few others...&nbsp;&mdash; etc...</p></li>
         </ul>
@@ -150,7 +151,7 @@
         <p><span class="italic">Allow only one copy of DC at a time</span>&nbsp;&mdash; If enabled, only one copy of the program can be run. If you try to run a second copy of Double Commander, the first copy will be activated.</p>
         <p><span class="italic">Move icon to system tray when minimized</span>&nbsp;&mdash; When minimized Double Commander will display its icon in the system tray (notification area) rather than the panel (or Windows taskbar).</p>
         <p><span class="italic">Always show tray icon</span>&nbsp;&mdash; If enabled, in addition to the Double Commander window button on the panel (or Windows taskbar), it will additionally show the tray icon.</p>
-        <p><span class="italic">Drives blacklist</span>&nbsp;&mdash; use this to hide certain drives in the drives panel menu bar. Each item must contain the full path to the drive/mount point. Separate multiple drives with semicolons ";" without spaces. Examples: <code>/media/cdrom;/mnt/win_c</code> (Linux) or <code>a:\;b:\;d:\</code> (Windows). Also in Unix/Linux you may use wildcard mask, example for AppImage files: <tt>/tmp/.mount_*</tt>. Hidden drives will still be available, for example, you can open them from the Directory Hotlist menu or change the path manually.</p>
+        <p><span class="italic">Drives blacklist</span>&nbsp;&mdash; use this to hide certain drives in the drives panel menu bar. Each item must contain the full path to the drive/mount point. Separate multiple drives with semicolons ";" without spaces. Examples: <code>/media/cdrom;/mnt/win_c</code> (Linux) or <code>a:\;b:\;d:\</code> (Windows). Also in Unix/Linux you may use wildcard mask, example for AppImage files: <code>/tmp/.mount_*</code>. Hidden drives will still be available, for example, you can open them from the Directory Hotlist menu or change the path manually.</p>
         <p><span class="italic">Automatically hide unmounted devices</span>&nbsp;&mdash; An unmounted device will be automatically removed from the <a href="help.html#iface_drive_pane">drive button bar</a> and from the <a href="help.html#iface_drive_btn">drives list</a>.</p>
         <br>
 
@@ -702,7 +703,7 @@
         <ul>
           <li><p><span class="italic">All associated + EXE/LNK (slow)</span>&nbsp;&mdash; Same as <span class="italic">All</span>, but additionally extracts icons from .exe files and shortcuts.</p></li>
           <li><p><span class="italic">All</span>&nbsp;&mdash; Icons for all file types associated with any program will be displayed (from system settings and Double Commander <a href="#ConfigAssociations">file associations</a>). Also DC will show the folder icon specified in the <tt>desktop.ini</tt> (Windows) and <tt>.directory</tt> (Linux) files.</p></li>
-          <li><p><span class="italic">Only standard icons</span>&nbsp;&mdash; The icons for the file types listed in the <tt>pixmaps.txt</tt> file will be displayed. New file extensions are added similarly to existing ones (typically, in Unix-like systems, the system theme contains icons for common MIME types, but on Windows you should add the selected icon to the <tt>pixmaps/dctheme/XXxXX/mimetypes/</tt> directories, the best way is to add icons to your DC theme, see <a href="faq.html#theme">item 3.6</a> in the FAQ).</p></li>
+          <li><p><span class="italic">Only standard icons</span>&nbsp;&mdash; The icons for the file types listed in the <tt>pixmaps.txt</tt> file will be displayed. New file extensions are added similarly to existing ones and you should add the selected icon to the <tt>pixmaps/dctheme/XXxXX/mimetypes</tt> directories (the best way is to add icons to your DC theme, see <a href="faq.html#theme">item 3.6</a> in the FAQ).</p></li>
           <li><p><span class="italic">No icons</span>.</p></li>
         </ul>
         <p><span class="italic">Show overlay icons, e.g. for links</span>&nbsp;&mdash; If enabled, Double Commander will show overlay icons such as arrows for .lnk files and links.</p>
@@ -866,8 +867,8 @@
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="help.html">Previous</a> | <a title="Next page" href="shortcuts.html">Next</a></div></div>
     <div class="checker">
-      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
-      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
     </div>
     <br>
     <br>

@@ -264,7 +264,7 @@
               <p>Finds the next occurrence of a search sequence initiated by <var>FindFirst</var> by re-using the <var>Handle</var> returned previously.</p>
               <p>Returned <var>Result</var> will be non-nil if a file or directory is found and will be <code>nil</code> otherwise.</p>
               <p>The same notes mentioned for <code>SysUtils.FindFirst</code> applied here.</p>
-              <p><b><span class="uline">Remark:</span> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory loss.</b></p>
+              <p><b><span class="uline">Remark:</span> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory leaks.</b></p>
             </td>
           </tr>
           <tr>
@@ -1034,8 +1034,8 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="regexp.html">Previous</a> | <a title="Next page" href="commandline.html">Next</a></div></div>
     <div class="checker">
-      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
-      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
     </div>
     <br>
     <br>

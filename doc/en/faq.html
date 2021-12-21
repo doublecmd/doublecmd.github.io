@@ -92,6 +92,7 @@
           <dd>
             <dl>
               <dt>7.1. <a href="#ftps_reuse">ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></dt>
+              <dt>7.2. <a href="#ftp_openssl">ftp.wfx: Does not work with some servers! After connecting, I get errors: "104,Connection reset by peer" and "CSOCK ERROR Connection reset by peer" or "10060,Connection timed out" and "CSOCK ERROR Connection timed out".</a></dt>
             </dl>
           </dd>
         </dl>
@@ -109,7 +110,7 @@
         <br>
 
         <p class="bold"><a name="linux">Q: Is it a Total Commander for Linux?</a></p>
-        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK2 and Qt and Mac OS.</p>
+        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and Mac OS, also Double Commander is available in the FreeBSD Ports collection.</p>
         <br>
 
         <p class="bold"><a name="wincmd">Q: What is the difference between this program and my favorite file manager (Total Commander)?</a></p>
@@ -138,7 +139,7 @@
         <ul>
           <li>
             <p>release:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt5" target="_blank">Qt5</a>
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
               or
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
             </p>
@@ -151,7 +152,8 @@
             </p>
           </li>
         </ul>
-        <p>And you can download installation packages deb, rpm or "portable" (binaries packed with bz2) from the official site. Also you can download the source code and compile DC for yourself.</p>
+        <p>And you can download installation packages DEB or RPM without adding a repository to the system.<br>
+          Also portable version is available (compiled binaries packed with XZ, use <tt>doublecmd.sh</tt> to launch) or you can download the source code and compile DC for yourself.</p>
         <br>
 
         <p class="bold"><a name="plugs">Q: Plugins from Total Commander do not work?!</a></p>
@@ -224,7 +226,7 @@
           DC usually suggests the following additional path (besides the "pixmaps" folder near <tt>doublecmd.exe</tt>):</p>
           <ul>
             <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</i></li>
-            <li>Windows Vista/7-10: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+            <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</i></li>
             <li>Unix-like OS: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</i></li>
           </ul>
           <p>If the directory doesn't exist, create it.<br>
@@ -233,7 +235,7 @@
 
         <p class="bold"><a name="cs_size">Q: How to make function keys and address bar bigger?</a></p>
         <p><span class="bold">A:</span> The size depends on the font size, three ways exists:</p>
-        <p>1. Simple and fast: you can use Ctrl+mouse wheel, it works for the following interface elements or part of DC:<br>
+        <p>1. Simple and fast: you can use <kbd>Ctrl</kbd>+mouse wheel, it works for the following interface elements or part of DC:<br>
           -&nbsp;file list in left and right panels;<br>
           -&nbsp;current directory (address) bar;<br>
           -&nbsp;function key buttons bar;<br>
@@ -312,7 +314,7 @@
         <br>
 
         <p class="bold"><a name="f3_hscroll">Q: On some text files lines go beyond the window's edge.</a></p>
-        <p><span class="bold">A:</span> Use "Show as Wrap text" option in the viewer.</p>
+        <p><span class="bold">A:</span> Use "Show as Wrap text" option in the viewer. Internal editor does not support wrap lines.</p>
         <br>
 
         <p class="bold"><a name="f4_colmode">Q: Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></p>
@@ -362,7 +364,11 @@
       <div>
         <h2>7. Plugins</h2>
         <p class="bold"><a name="ftps_reuse">Q: ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></p>
-        <p><span class="bold">A:</span> This server requires session reuse support and <tt>ftp.wfx</tt> supports it, but needs the OpenSSL libraries: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
+        <p><span class="bold">A:</span> This server requires session reuse support and <tt>ftp.wfx</tt> supports it, but the OpenSSL libraries are needed: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
+        <br>
+
+        <p class="bold"><a name="ftp_openssl">Q: ftp.wfx: Does not work with some servers! After connecting, I get errors: "104,Connection reset by peer" and "CSOCK ERROR Connection reset by peer" or "10060,Connection timed out" and "CSOCK ERROR Connection timed out".</a></p>
+        <p><span class="bold">A:</span> OpenSSL libraries required: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>
@@ -370,8 +376,8 @@
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="about.html">Previous</a> | <a title="Next page" href="help.html">Next</a></div></div>
     <div class="checker">
-      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
-      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
     </div>
     <br>
     <br>

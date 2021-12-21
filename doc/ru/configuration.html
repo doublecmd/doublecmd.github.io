@@ -125,9 +125,10 @@
         <ul>
           <li><p><tt>doublecmd.xml</tt>&nbsp;&mdash; все главные настройки программы;</p></li>
           <li><p><tt>extassoc.xml</tt>&nbsp;&mdash; настройки файловых ассоциаций;</p></li>
-          <li><p><tt>highlighters.xml</tt>&nbsp;&mdash; настройки цветов редактора;</p></li>
-          <li><p><tt>shortcuts.scf</tt>&nbsp;&mdash; настройки горячих клавиш;</p></li>
+          <li><p><tt>pixmaps.txt</tt>&nbsp;&mdash; сопоставляет расширения файлов с именами значков MIME-типов;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&mdash; внешние архиваторы;</p></li>
+          <li><p><tt>shortcuts.scf</tt>&nbsp;&mdash; настройки горячих клавиш;</p></li>
+          <li><p><tt>highlighters.xml</tt>&nbsp;&mdash; настройки цветов редактора;</p></li>
           <li><p><tt>history.xml</tt>&nbsp;&mdash; история каталогов, командной строки, поиска и так далее;</p></li>
           <li><p>и несколько других...</p></li>
         </ul>
@@ -150,7 +151,7 @@
         <p><span class="italic">Не запускать более одной копии DC</span>&nbsp;&mdash; Если включено, может быть запущена только одна копия программы. Если вы попробуете запустить вторую копию Double Commander, будет активирована первая копия.</p>
         <p><span class="italic">Сворачивать в системный трей</span>&nbsp;&mdash; Double Commander будет сворачиваться в значок в системном трее (область уведомлений), а не в список окон на панель (или панель задач Windows).</p>
         <p><span class="italic">Всегда показывать значок в трее</span>&nbsp;&mdash; Если включено, в дополнение к кнопке окна Double Commander на панели (или панели задач Windows) будет показан значок в трее.</p>
-        <p><span class="italic">Чёрный список дисков</span>&nbsp;&mdash; используется, чтобы скрыть определённые диски в панели дисков. Каждый элемент должен содержать полный путь к диску или точке монтирования. Несколько элементов можно указать, перечислив их через точку с запятой ";" без пробелов. Примеры: <code>/media/cdrom;/mnt/win_c</code> (Linux) или <code>a:\;b:\;d:\</code> (Windows). Также в Unix/Linux вы можете использовать маски, пример для файлов AppImage: <tt>/tmp/.mount_*</tt>. Скрытые диски будут по-прежнему доступны, например, вы можете открыть их из меню избранных каталогов или вручную изменить путь.</p>
+        <p><span class="italic">Чёрный список дисков</span>&nbsp;&mdash; используется, чтобы скрыть определённые диски в панели дисков. Каждый элемент должен содержать полный путь к диску или точке монтирования. Несколько элементов можно указать, перечислив их через точку с запятой ";" без пробелов. Примеры: <code>/media/cdrom;/mnt/win_c</code> (Linux) или <code>a:\;b:\;d:\</code> (Windows). Также в Unix/Linux вы можете использовать маски, пример для файлов AppImage: <code>/tmp/.mount_*</code>. Скрытые диски будут по-прежнему доступны, например, вы можете открыть их из меню избранных каталогов или вручную изменить путь.</p>
         <p><span class="italic">Скрывать отмонтированные устройства</span>&nbsp;&mdash; Отмонтированное устройство будет автоматически удалено с <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и из <a href="help.html#iface_drive_btn">списка дисков</a>.</p>
         <br>
 
@@ -702,7 +703,7 @@
         <ul>
           <li><p><span class="italic">Все ассоциированные + EXE/LNK (медленно)</span>&nbsp;&mdash; То же, что и <span class="italic">Все</span>, но дополнительно будут извлечены значки из EXE-файлов и ярлыков.</p></li>
           <li><p><span class="italic">Все</span>&nbsp;&mdash; Будут отображаться значки всех типов файлов, которые ассоциированны с какой-либо программой (из настроек системы и <a href="#ConfigAssociations">файловых ассоциаций</a> Double Commander). Также DC покажет значок папки, заданный в файлах <tt>desktop.ini</tt> (Windows) и <tt>.directory</tt> (Linux).</p></li>
-          <li><p><span class="italic">Только стандартные</span>&nbsp;&mdash; Будут отображаться значки типов файлов, перечисленных в файле <tt>pixmaps.txt</tt>. Новые расширения файлов добавляются аналогично существующим (как правило, в Unix-подобных системах системная тема содержит значки для распространённых MIME-типов, но в Windows вы должны добавить выбранный значок в каталоги <tt>pixmaps/dctheme/XXxXX/mimetypes/</tt>, лучшим способом будет добавление значков в свою тему DC, смотрите <a href="faq.html#theme">пункт 3.6</a> в часто задаваемых вопросах).</p></li>
+          <li><p><span class="italic">Только стандартные</span>&nbsp;&mdash; Будут отображаться значки типов файлов, перечисленных в файле <tt>pixmaps.txt</tt>. Новые расширения файлов добавляются аналогично существующим и вы должны добавить выбранный значок в каталоги <tt>pixmaps/dctheme/XXxXX/mimetypes</tt> (лучшим способом будет добавление значков в свою тему DC, смотрите <a href="faq.html#theme">пункт 3.6</a> в часто задаваемых вопросах).</p></li>
           <li><p><span class="italic">Не показывать значки</span>.</p></li>
         </ul>
         <p><span class="italic">Показывать оверлейные значки (например, для ярлыков)</span>&nbsp;&mdash; Если отмечено, Double Commander будет показывать оверлейные значки, например, стрелки для LNK-файлов и ссылок.</p>
@@ -866,8 +867,8 @@
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="help.html">Пред.</a> | <a title="Следующая страница" href="shortcuts.html">След.</a></div></div>
     <div class="checker">
-      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
-      <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
     </div>
     <br>
     <br>

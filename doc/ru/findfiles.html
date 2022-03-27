@@ -12,11 +12,11 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="multirename.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="copymove.html">Пред.</a> | <a title="Следующая страница" href="multirename.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.4. Поиск файлов</h1>
+        <h1>2.5. Поиск файлов</h1>
       </div>
 
       <div>
@@ -102,10 +102,11 @@
         <ul>
           <li><p>сравнить имена файлов;</p></li>
           <li><p>сравнить размеры файлов;</p></li>
-          <li><p>сравнить хеши: будет использоваться контрольная сумма BLAKE2s (x32) или BLAKE2b (x64);</p></li>
+          <li><p>сравнить хеши: будет использоваться контрольная сумма BLAKE2b (x64) или BLAKE2s;</p></li>
           <li><p>сравнить содержимое файлов (побайтовое сравнение).</p></li>
         </ul>
-        <p>В результате будут показаны имена файлов, номер группы совпадающих файлов и расположение файлов.</p>
+        <p>В результате будут показаны имена файлов, номер группы совпадающих файлов и расположение файлов. Также после передачи списка в панель вы можете использовать специальный режим выделения, где можно выбрать только дубликаты:
+          <span class="italic">Выделить группу</span> и <span class="italic">Снять выделение с группы</span> в подменю <span class="italic">Выделение</span> (внутренние команды <tt>cm_MarkPlus</tt> и <tt>cm_MarkMinus</tt>).</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -298,7 +299,7 @@
         <ul>
           <li><p><span class="italic">Просмотр</span>&nbsp;&mdash; открывает выбранный файл в окне просмотрщика (<kbd>F3</kbd>).</p></li>
           <li><p><span class="italic">Правка</span>&nbsp;&mdash; открывает выбранный файл в редакторе (<kbd>F4</kbd>).</p></li>
-          <li><p><span class="italic">Перейти к файлу</span>&nbsp;&mdash; закрывает окно поиска и устанавливает курсор на выбранном файле.</p></li>
+          <li><p><span class="italic">Перейти к файлу</span>&nbsp;&mdash; закрывает окно поиска, открывает в активной файловой панели каталог выбранного файла и устанавливает курсор на этом файле.</p></li>
           <li><p><span class="italic">Файлы на панель</span>&nbsp;&mdash; передаёт список найденных файлов в активную файловую панель.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -325,7 +326,7 @@
         <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="multirename.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="copymove.html">Пред.</a> | <a title="Следующая страница" href="multirename.html">След.</a></div></div>
     <div class="checker">
       <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

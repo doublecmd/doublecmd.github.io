@@ -12,7 +12,7 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configuration.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configuration.html">Previous</a> | <a title="Next page" href="copymove.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
@@ -22,16 +22,18 @@
       <div>
         <h2>Content</h2>
         <dl>
-          <dt>1. <a href="#warning">Warning regarding this page</a></dt>
+          <dt>1. <a href="#intro">Introduction</a></dt>
           <dt>2. <a href="#main_window">Main window</a></dt>
           <dt>3. <a href="#viewer">Internal viewer</a></dt>
           <dt>4. <a href="#editor">Internal editor</a></dt>
-          <dt>5. <a href="#differ">Differ</a></dt>
-          <dt>6. <a href="#sync">Synchronize Directories</a></dt>
-          <dt>7. <a href="#options">Configuration</a></dt>
+          <dt>5. <a href="#find">Find Files</a></dt>
+          <dt>6. <a href="#mrename">Multi-Rename Tool</a></dt>
+          <dt>7. <a href="#differ">Differ</a></dt>
+          <dt>8. <a href="#sync">Synchronize Directories</a></dt>
+          <dt>9. <a href="#options">Configuration</a></dt>
           <dd>
             <dl>
-              <dt>7.1. <a href="#dirhotlist">Directory Hotlist</a></dt>
+              <dt>9.1. <a href="#dirhotlist">Directory Hotlist</a></dt>
             </dl>
           </dd>
         </dl>
@@ -39,12 +41,9 @@
 
 
       <div>
-        <h2><a name="warning">1. Warning regarding this page</a></h2>
-        <p>The following table are are just the "default" shotcut key to access internal commands of Double Commander.</p>
-        <p>Obviously, we may change them by doing Configuration&nbsp;&gt; Options...&nbsp;&gt; Keys&nbsp;&gt; Hotkeys.</p>
-        <p>You may also use the internal command <a href="cmds.html#cm_ConfigHotKeys">cm_ConfigHotKeys</a>.</p>
-        <p>So to get the actual current shortcut keys used in our installation, it might be better to look there than checking this help page.</p>
-        <p>But at least, here are the default ones.</p>
+        <h2><a name="intro">1. Introduction</a></h2>
+        <p>The following tables contain default keyboard shortcuts of Double Commander.</p>
+        <p>Most of them we may change them by doing Configuration&nbsp;&gt; Options...&nbsp;&gt; Keys&nbsp;&gt; Hotkeys (or you may use the internal command <a href="cmds.html#cm_ConfigHotKeys">cm_ConfigHotKeys</a>).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -52,7 +51,9 @@
         <h2><a name="main_window">2. Main window</a></h2>
         <br>
         <table>
-          <tr class="rowcategorytitle"><th colspan="2">Main Window</th></tr>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Main Window</th>
+          </tr>
           <tr class="rowsubtitle">
             <th class="namecolumn">Key</th>
             <th class="categorydesccolumn">Action</th>
@@ -78,8 +79,18 @@
             <td class="hintcell">Copy items from source to target</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
+            <td class="hintcell">Copy items in the same directory ("inline")</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">F6</div></td>
             <td class="hintcell">Rename or move items</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
+            <td class="hintcell">1. Move items in the same directory ("inline")<br>
+              2. If nothing is selected and the cursor is on the first item (<tt>[..]</tt>):
+              edit current path (as <a href="cmds.html#cm_EditPath">cm_EditPath</a>)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F7</div></td>
@@ -122,6 +133,14 @@
             <td class="hintcell">Unpack all files from archive under cursor</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Alt+digit (1..9)</div></td>
+            <td class="hintcell">Activate tab by index (see <a href="cmds.html#cm_ActivateTabByIndex">cm_ActivateTabByIndex</a>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+0</div></td>
+            <td class="hintcell">Activate last tab (see <a href="cmds.html#cm_ActivateTabByIndex">cm_ActivateTabByIndex</a>)</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
             <td class="hintcell">Directory history</td>
           </tr>
@@ -158,6 +177,18 @@
             <td class="hintcell">Show same directory in opposite panel (Target=Source)</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F1</div></td>
+            <td class="hintcell">Brief view</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F2</div></td>
+            <td class="hintcell">Columns view</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F1</div></td>
+            <td class="hintcell">Thumbnails view</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
             <td class="hintcell">Sort by name</td>
           </tr>
@@ -172,6 +203,10 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+F6</div></td>
             <td class="hintcell">Sort by size</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+digit (1..9)</div></td>
+            <td class="hintcell">Open drive by index (see <a href="cmds.html#cm_OpenDriveByIndex">cm_OpenDriveByIndex</a>)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Alt+Enter</div></td>
@@ -226,8 +261,16 @@
             <td class="hintcell">Multi-Rename Tool</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
+            <td class="hintcell">Toggle fullscreen mode console</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
             <td class="hintcell">Append active panel path to command line</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Q</div></td>
+            <td class="hintcell">Quick view: content of selected item shown in opposite panel</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
@@ -283,6 +326,10 @@
               In archive: go to root of this archive.</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+.</div></td>
+            <td class="hintcell">Show/hide hidden and system files</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Enter</div></td>
             <td class="hintcell">Append selected item to command line</td>
           </tr>
@@ -291,8 +338,16 @@
             <td class="hintcell">Append concatenation of active panel path and selected item to command line</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F7</div></td>
+            <td class="hintcell">New search instance</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td>
             <td class="hintcell">Tree view panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Home</div></td>
+            <td class="hintcell">Change directory to home</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
@@ -303,16 +358,21 @@
             <td class="hintcell">Copy item names to clipboard</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+D</div></td>
+            <td class="hintcell">Configuration of Directory Hotlist</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+H</div></td>
             <td class="hintcell">Will set the arrangement of panels between two vertical ones disposed in left/right OR two horizontal ones disposed in top/bottom</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
-            <td class="hintcell">1. Like <tt>Enter</tt><br>2. Open directory/archive (also self extracting archives)</td>
+            <td class="hintcell">1. Like <kbd>Enter</kbd><br>
+              2. Open directory/archive (also self extracting archives)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+PgUp</div></td>
-            <td class="hintcell">Like Backspace</td>
+            <td class="hintcell">Like <kbd>Backspace</kbd></td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Num +</div></td>
@@ -349,14 +409,6 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
             <td class="hintcell">New file (or open existing file) in internal editor</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
-            <td class="hintcell">Copy items in the same directory ("inline")</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
-            <td class="hintcell">Move items in the same directory ("inline")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
@@ -433,20 +485,16 @@
             <th class="categorydesccolumn">Action</th>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Q (or with any combination Ctrl, Shift, Alt)</div></td>
+            <td class="hintcell">Close</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">F2</div></td>
             <td class="hintcell">Reload current file</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">N</div></td>
-            <td class="hintcell">Next file in multiple files</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">P</div></td>
-            <td class="hintcell">Previous file in multiple files</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Esc, Q (or with any combination Ctrl, Shift, Alt)</div></td>
-            <td class="hintcell">Close</td>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">Show/hide text cursor</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F7, Ctrl+F7, Ctrl+F</div></td>
@@ -459,10 +507,6 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
             <td class="hintcell">Find previous</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">F6</div></td>
-            <td class="hintcell">Show/hide text cursor</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
@@ -523,6 +567,14 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Z</div></td>
             <td class="hintcell">Change encoding: UTF-8</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">N</div></td>
+            <td class="hintcell">Next file in multiple files</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">P</div></td>
+            <td class="hintcell">Previous file in multiple files</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Num +</div></td>
@@ -630,7 +682,229 @@
       </div>
 
       <div>
-        <h2><a name="differ">5. Differ</a></h2>
+        <h2><a name="find">5. Find Files</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Find Files</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Key</th>
+            <th class="categorydesccolumn">Action</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc</div></td>
+            <td class="hintcell">Cancel search and close window</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">View (for found files on the "Result" page)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">Edit (for found files on the "Result" page)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7</div></td>
+            <td class="hintcell">Enables searching by file contents and switches focus</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">Start</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+1, Alt+F7</div></td>
+            <td class="hintcell">Go to page "Standard"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+2</div></td>
+            <td class="hintcell">Go to page "Advanced"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+3</div></td>
+            <td class="hintcell">Go to page "Plugins"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+4</div></td>
+            <td class="hintcell">Go to page "Load/Save"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+5</div></td>
+            <td class="hintcell">Go to page "Results"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">Switch to Next Page</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">Switch to Previous Page</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F4</div></td>
+            <td class="hintcell">Cancel search, close and free from memory</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">Last search</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
+            <td class="hintcell">New search</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+N</div></td>
+            <td class="hintcell">New search (clear filters)</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mrename">6. Multi-Rename Tool</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Multi-Rename Tool</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Key</th>
+            <th class="categorydesccolumn">Action</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc</div></td>
+            <td class="hintcell">Close</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">Show presets list</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Load names from file</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">Edit names</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">Edit current new names</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">Rename</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F10</div></td>
+            <td class="hintcell">Configuration</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F11</div></td>
+            <td class="hintcell">View rename log file</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F12</div></td>
+            <td class="hintcell">Save preset with specified name</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+0</div></td>
+            <td class="hintcell">Load last preset</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+digit (1..9)</div></td>
+            <td class="hintcell">Load preset by index: 1st, 2nd and so on</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F1</div></td>
+            <td class="hintcell">File name: show submenu with plugin fields</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F1</div></td>
+            <td class="hintcell">Extension: show submenu with plugin fields</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F2</div></td>
+            <td class="hintcell">File name: show menu with placeholders</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F2</div></td>
+            <td class="hintcell">Extension: show menu with placeholders</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">File name: show the submenu of placeholders "Name"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F3</div></td>
+            <td class="hintcell">Extension: show the submenu of placeholders "Name"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F4</div></td>
+            <td class="hintcell">File name: show the submenu of placeholders "Extension"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F4</div></td>
+            <td class="hintcell">Extension: show the submenu of placeholders "Extension"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F5</div></td>
+            <td class="hintcell">File name: show the submenu of placeholders "Date"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F5</div></td>
+            <td class="hintcell">Extension: show the submenu of placeholders "Date"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F6</div></td>
+            <td class="hintcell">File name: show the submenu of placeholders "Time"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F6</div></td>
+            <td class="hintcell">Extension: show the submenu of placeholders "Time"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F7</div></td>
+            <td class="hintcell">File name: show the submenu of placeholders "Counter"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F7</div></td>
+            <td class="hintcell">Extension: show the submenu of placeholders "Counter"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+S</div></td>
+            <td class="hintcell">Sort presets</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">Delete preset</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+I</div></td>
+            <td class="hintcell">Show menu "Editor"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Reset all (return default state)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">Save modified preset</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">Show preset menu</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
+            <td class="hintcell">Rename preset</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="differ">7. Differ</a></h2>
         <br>
         <table>
           <tr class="rowcategorytitle">
@@ -677,7 +951,7 @@
       </div>
 
       <div>
-        <h2><a name="sync">6. Synchronize Directories</a></h2>
+        <h2><a name="sync">8. Synchronize Directories</a></h2>
         <br>
         <table>
           <tr class="rowcategorytitle">
@@ -724,7 +998,7 @@
       </div>
 
       <div>
-        <h2><a name="options">7. Configuration</a></h2>
+        <h2><a name="options">9. Configuration</a></h2>
         <p>In the configuration pages, some of them have many possible actions to be done during the configuration, that some shorcut keys are present to help us to quickly do what needs to be done.</p>
         <p>These ones are not reconfigurable but at least there are present by default and the following table will list them.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -732,7 +1006,7 @@
       </div>
 
       <div>
-        <h2><a name="dirhotlist">7.1. Directory Hotlist</a></h2>
+        <h2><a name="dirhotlist">9.1. Directory Hotlist</a></h2>
         <p>To help us to configure our <a href="directoryhotlist.html">directory hotlist</a>, we have plenty of shortcut keys.</p>
         <p>This allows us to remain with the focus in the bottom three boxes to enter our names and path, and still being able to move into the hotlist tree without quitting the text box.</p>
         <table>
@@ -773,7 +1047,7 @@
         <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configuration.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configuration.html">Previous</a> | <a title="Next page" href="copymove.html">Next</a></div></div>
     <div class="checker">
       <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

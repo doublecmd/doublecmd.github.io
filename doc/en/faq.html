@@ -31,6 +31,7 @@
               <dt>1.4. <a href="#wincmd">What is the difference between this program and my favorite file manager (Total Commander)?</a></dt>
               <dt>1.5. <a href="#opsys">I have a 64-bit Operating System. Can I download Double Commander for it?</a></dt>
               <dt>1.6. <a href="#link">How can I contact the developers of Double Commander?</a></dt>
+              <dt>1.7. <a href="#pupd">How to update the portable version without losing settings?</a></dt>
             </dl>
           </dd>
           <dt><a name="tux">2. Issues related to GNU/Linux</a></dt>
@@ -52,6 +53,7 @@
               <dt>3.5. <a href="#splitter">How to create a splitter on the buttons panel?</a></dt>
               <dt>3.6. <a href="#theme">Does DC has other icon themes?</a></dt>
               <dt>3.7. <a href="#cs_size">How to make function keys and address bar bigger?</a></dt>
+              <dt>3.8. <a href="#height">File panels: how to change the height of elements (strings) and the intervals between them?</a></dt>
             </dl>
           </dd>
           <dt><a name="navigation">4. Issues related to control and navigation</a></dt>
@@ -77,6 +79,7 @@
               <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Is it possible to add support SVG in the viewer?</a></dt>
               <dt>5.7. <a href="#f34_regutf8">How can I use regular expressions to search in UTF-8?</a></dt>
+              <dt>5.8. <a href="#f4_syntax">How to change the syntax highlighting scheme in the internal editor or add new ones?</a></dt>
             </dl>
           </dd>
           <dt><a name="fv">6. Issues related to the file panels</a></dt>
@@ -110,7 +113,7 @@
         <br>
 
         <p class="bold"><a name="linux">Q: Is it a Total Commander for Linux?</a></p>
-        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and Mac OS, also Double Commander is available in the FreeBSD Ports collection.</p>
+        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and Mac OS<sup>(<a title="Note about Mac OS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, also Double Commander is available in the FreeBSD Ports collection.</p>
         <br>
 
         <p class="bold"><a name="wincmd">Q: What is the difference between this program and my favorite file manager (Total Commander)?</a></p>
@@ -125,6 +128,15 @@
         <p class="bold"><a name="link">Q: How can I contact the developers of Double Commander?</a></p>
         <p><span class="bold">A:</span> The project's <a href="https://doublecmd.h1n.ru/" target="_blank">official forum</a> or <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
           Make sure you are using the latest version of the program and it's a good idea to check the development (alpha) version before reporting a bug or requesting a new feature.</p>
+        <br>
+
+        <p class="bold"><a name="pupd">Q: How to update the portable version without losing settings?</a></p>
+        <p><span class="bold">A:</span> Upgrading is done by simply unpacking and replacing files, but you should pay attention to the following files:</p>
+        <ul>
+          <li><tt>multiarc.ini</tt>&nbsp;&mdash; see <a href="multiarc.html">external archivers</a>;</li>
+          <li><tt>pixmaps.txt</tt>&nbsp;&mdash; see <a href="configuration.html#ConfigIcons">Configuration&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Only standard icons</a>.</li>
+        </ul>
+        <p>If you did not change these settings, then just agree with the replacement of files. Otherwise, compare with yours and copy the changes.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -139,16 +151,16 @@
         <ul>
           <li>
             <p>release:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
-              or
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
+              or
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
             </p>
           </li>
           <li>
             <p>alpha ("nightly") build:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
-              or
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
+              or
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
             </p>
           </li>
         </ul>
@@ -221,16 +233,16 @@
         <p>1. Portable version<br>
           Copy (or move) your "mydctheme" folder to the "pixmaps" folder near <tt>doublecmd.exe</tt>, restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
         <p>2. Installed version<br>
-          Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Configuration&nbsp;&gt; Directories&nbsp;&gt; Icon themes:, here you will see list of possible directories.<br>
+          Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Configuration&nbsp;&gt; Directories&nbsp;&gt; Icon themes:, here you will see the list of possible directories.<br>
           Don't use <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> or other system directory: this requires root/admin rights, also this would be a intervention to the packages manager's work in Linux or DC installer for Windows.
           DC usually suggests the following additional path (besides the "pixmaps" folder near <tt>doublecmd.exe</tt>):</p>
-          <ul>
-            <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</i></li>
-            <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</i></li>
-            <li>Unix-like OS: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</i></li>
-          </ul>
-          <p>If the directory doesn't exist, create it.<br>
-            Now restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+          <li>Unix-like OS: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</i></li>
+        </ul>
+        <p>If the directory doesn't exist, create it.<br>
+          Now restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
         <br>
 
         <p class="bold"><a name="cs_size">Q: How to make function keys and address bar bigger?</a></p>
@@ -246,6 +258,15 @@
         <p>2. Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Fonts.<br>
           Note: All possible are available in version 1.0.0+ only, for 0.9.x and below additionally see the third item.</p>
         <p>3. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> and change <code>&lt;Size&gt;</code> of the interface element manually.</p>
+        <br>
+
+        <p class="bold"><a name="height">Q: File panels: how to change the height of elements (strings) and the intervals between them?</a></p>
+        <p><span class="bold">A:</span> The view depends on the following parameters:</p>
+        <ul>
+          <li>Configuration &gt; Options... &gt; Fonts &gt; Main font</li>
+          <li>Configuration &gt; Options... &gt; Icons &gt; Icon size &gt; File panel</li>
+          <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (from &lt;FilesViews&gt;)</li>
+        </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -269,7 +290,7 @@
           <li>Use the ".." item at the beginning of the file list (but if the list of files is long, it will be necessary to scroll it for this).</li>
           <li>Use the main menu: Mark&nbsp;&gt; Unselect All.</li>
           <li>Add the "Unselect All" button (internal command <tt>cm_MarkUnmarkAll</tt>) on the toolbar.</li>
-          <li>Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Mouse&nbsp;&gt; Selection by mouse&nbsp;&gt; enable "By clicking on icon": the first click will unmark one file, now click on his name.</li>
+          <li>Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Mouse&nbsp;&gt; Selection by mouse&nbsp;&gt; enable "By clicking on icon": the first click will unmark one file, now click on his name. (How to use in thumbnail view, see the <a href="configuration.html#ConfigMouse">description</a> of this parameter.)</li>
         </ul>
         <br>
 
@@ -333,10 +354,49 @@
         <p><span class="bold">A:</span> This feature has been added to version 1.0.0. Needs PCRE2 library with support 8-bit code units and Unicode support enabled (usually enabled by default):</p>
         <ul>
           <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Debian-based distributions or <tt>pcre2</tt> in Arch Linux.</p></li>
-          <li><p>Windows: needs <tt>libpcre2-8.dll</tt>. If you have not <tt>libpcre2-8.dll</tt> in Double Commander folder than you can take this DLL here:
-            <a href="https://doublecmd.sourceforge.io/test/libpcre2_win32.zip">32-bit</a> or <a href="https://doublecmd.sourceforge.io/test/libpcre2_win64.zip">64-bit</a>.</p></li>
-          <li><p>MacOS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
+          <li><p>Windows: needs <tt>libpcre2-8.dll</tt> (by default, the Double Commander distribution contains this DLL).</p></li>
+          <li><p>Mac OS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
+        <br>
+
+        <p class="bold"><a name="f4_syntax">Q: How to change the syntax highlighting scheme in the internal editor or add new ones?</a></p>
+        <p><span class="bold">A:</span> DC uses two components:</p>
+        <p>1. <i>SynEdit</i> with built-in syntax highlighters. If you want to change any highlighter, you should change the DC or Lazarus source code.
+          But you can easily change the colors used and the file extension lists: go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Tools&nbsp;&gt; Editor&nbsp;&gt; Highlighters. Do not forget to save customizations for each file type.<br>
+          All settings are saved in the <tt>highlighters.xml</tt> file.</p>
+        <p>2. <i>SynUniHighlighter</i> for custom syntax highlighting schemes (*.hgl) and you can try to find or create this files yourself (see below).</p>
+        <p>This files are usual XML-based files, you can open them in a text editor and read/change. In the beginning of this files is the <code>&lt;General&gt;</code> tag (inside <code>&lt;Info&gt;</code>):</p>
+        <p>1) Old format: <code>&lt;General&gt;</code> has tags<br>
+          -&nbsp;<code>&lt;Name&gt;</code>: name for the <i>Syntax highlight</i> menu;<br>
+          -&nbsp;<code>&lt;FileTypeName&gt;</code>: list of supported file extensions.</p>
+        <p>2) New format: <code>&lt;General&gt;</code> has attributes<br>
+          -&nbsp;<code>Name</code>: name for the <i>Syntax highlight</i> menu;<br>
+          -&nbsp;<code>Extensions</code>: list of supported file extensions.</p>
+        <p>(DC supports both formats.)</p>
+        <p><span class="uline"><i>How to create or edit:</i></span></p>
+        <p>Use UniHighlighter Editor or HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">download</a>). Both programs were written for Windows, but you can use Wine. HglEditor will save HGL-file in the new format.<br>
+          Two packs of various highlighters are also available.</p>
+        <p><span class="uline"><i>How to add:</i></span></p>
+        <p>1) Portable version<br>
+          Copy (or move) your HGL-file(s) to the "highlighters" folder near <tt>doublecmd.exe</tt> and restart DC.</p>
+        <p>2) Installed version<br>
+          Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Configuration&nbsp;&gt; Directories&nbsp;&gt; Highlight:, here you will see the list of possible directories.<br>
+          Don't use <i>/usr/share/doublecmd/highlighters</i>, <i>C:\Program Files\Double Commander\highlighters</i> or other system directory: this requires root/admin rights, also this would be a intervention to the packages manager's work in Linux or DC installer for Windows.
+          DC usually suggests the following additional path (besides the "highlighters" folder near <tt>doublecmd.exe</tt>):</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\highlighters</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\highlighters</i></li>
+          <li>Unix-like OS: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/highlighters</i></li>
+        </ul>
+        <p>If the directory doesn't exist, create it. Now restart DC.</p>
+        <p><span class="uline"><i>Additional features:</i></span></p>
+        <p>1) <i>Other</i> submenu</p>
+        <p>Additional <i>Syntax highlight</i> menu item: if menu is too long then you can move some items to the <i>Other</i> submenu.
+          Just add new attribute <code>Other</code> and value 1 to the <code>&lt;General&gt;</code> tag and restart DC.<br>
+          For example, before<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3"/&gt;</code><br>
+          and after<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3" Other="1"/&gt;</code></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

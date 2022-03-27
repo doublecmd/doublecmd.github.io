@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.7. External archivers</h1>
+        <h1>2.8. External archivers</h1>
       </div>
 
       <div>
@@ -144,6 +144,7 @@
         <p>We then need to indicate us a significant description for the archiver, the exact location where is the executable of the archiver and then associated file extension, without the period, to that archiver.</p>
         <p>If we have more than one possible, just add them with a single comma between each one, no space.</p>
         <p class="figure"><img class="largeimage" title="Overview" alt="Overview" src="images/imgDC/archiveimg5.png" width="570" height="211"></p>
+        <p>Note: Double Commander supports double extensions (for example, "tar.gz", "tar.xz" and so on), they must be placed in the beginning of the list of extensions (i.e. "tar.gz" before "gz").</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -486,7 +487,7 @@
         <p>We will instruct Double Commander where to search for specific ID's pattern to recognize an a type of archive and then use the configured commands specific to the recognized type of archive.</p>
         <p>Let's begin by a simple example. Here follows a snapshot of the beginning of a 7-Zip archived:</p>
         <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="764" height="138"></p>
-        <p>By looking at other 7-Zip files, we see that the first four bytes are always the sequence 0x37 0x7A 0xBC 0xAF.</p>
+        <p>By looking at other 7-Zip files, we see that the first six bytes are always the sequence 0x37 0x7A 0xBC 0xAF 0x27 0x1C.</p>
         <p>So we will take profit of that by configuring Double Commander that when it sees a file starting with that sequence to assume that the file is an 7-Zip archive.</p>
         <p>That's what we do with the following configuration:</p>
         <p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="130" height="121"></p>
@@ -495,7 +496,7 @@
         <p>ID Seek Range (optional) is a count of bytes where ID seek if defined &lt;SeekID&gt;. By default it's 1 MB.</p>
         <p><b>Note:</b> All above parameters can be defined with multiple values. We can use comma to separate those multiple values.</p>
         <p>In our example with 7-Zip archive, ID and ID Position (0, because in the beginning of file) will be enough.</p>
-        <p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
+        <p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF 0x27 0x1C" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

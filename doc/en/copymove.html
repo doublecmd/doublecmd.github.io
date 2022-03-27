@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Copying/moving files</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.4. Copying/moving files</h1>
+      </div>
+
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#confirmation">Copy/move dialog window</a></dt>
+          <dt>2. <a href="#progress">Operation progress dialog</a></dt>
+          <dt>3. <a href="#aconfig">Additional configuration</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="confirmation">1. Copy/move dialog window</a></h2>
+        <p>Confirmation window for copying or moving files with the ability to change some parameters. This windows for both operations differ in only a few parameters, so they will be described together.</p>
+        <p class="figure"><img class="largeimage" title="Copying/moving files" alt="Copying/moving files" src="images/imgDC/copymove1.png" width="692" height="408"></p>
+        <p>Can be called with the <kbd>F5</kbd> (copy), <kbd>Shift+F5</kbd> (copy in the same directory) and <kbd>F6</kbd> (move) keys, with buttons on the function key buttons bar or with internal commands (<a href="cmds.html#cm_Copy">cm_Copy</a>, <a href="cmds.html#cm_CopySamePanel">cm_CopySamePanel</a> and <a href="cmds.html#cm_Rename">cm_Rename</a>). Also this dialog window appears when you drag and drop files (if <a href="configuration.html#ConfigMouseDD">Show confirmation dialog after drop</a> is enabled).</p>
+        <p>The window displays an editable field with the target directory and you can manually change the target path and file name. With <kbd>F5</kbd> or <kbd>F6</kbd> you can toggle the selection in the following order: base file name, file name, extension, path, all.</p>
+        <p>If no target directory is specified (<tt>cm_CopySamePanel</tt> or manual editing), the files will be copied to the source directory.</p>
+        <p>Several buttons:</p>
+        <ul>
+          <li><p><span class="italic">Start</span> and <span class="italic">Cancel</span>&nbsp;&mdash; start or cancel the operation.</p></li>
+          <li><p><span class="italic">Add To Queue</span>&nbsp;&mdash; adds a task to the queue of file operations. This is convenient if you have several tasks running at the same time: you can change the order of operations in the queue, stop or pause a task. The window with the list of file operations can be called in two ways: use the <span class="italic">Operations Viewer</span> item in the <span class="italic">Show</span> menu or <kbd>Alt+V</kbd> (internal command <tt>cm_OperationsViewer</tt>).</p></li>
+          <li><p><span class="italic">Options</span>&nbsp;&mdash; expands additional options.</p></li>
+        </ul>
+        <p>The first group of options determine the action to be taken when resolving a name conflict or when it is impossible to set file properties:</p>
+        <ul>
+          <li><p><span class="italic">When file exists</span>&nbsp;&mdash; If a file with the same name already exists in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Overwrite</span>, <span class="italic">Overwrite Older</span>, <span class="italic">Skip</span>.</p></li>
+          <li><p><span class="italic">When directory exists</span>&nbsp;&mdash; If a folder with the same name already exists in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Merge</span>, <span class="italic">Skip</span>.</p></li>
+          <li><p><span class="italic">When cannot set property</span>&nbsp;&mdash; What to do when cannot set file time, attributes, etc., for example, due to file system limitations in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Don't set anymore</span>, <span class="italic">Ignore errors</span>.</p></li>
+        </ul>
+        <p><span class="italic">Ask</span> (by default) gives more solution options: skip, rename (manually one at a time or automatically) and other.</p>
+        <p>The next group is a filter, the ability to specify which files to copy or move (file masks, age and so on). Here you can see the selected template and:</p>
+        <ul>
+          <li><p>The <span class="italic">Choose template</span> button (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="18" height="18">) opens a window with a list of saved templates and with the ability to add a new one.</p></li>
+          <li><p><span class="italic">Exclude empty directories</span>&nbsp;&mdash; If enabled, only non-empty directories will be copied or moved. Works only with templates.</p></li>
+        </ul>
+        <p>The list of the following parameters will vary depending on the type of file operation and operating system family.</p>
+        <ul>
+          <li><p><span class="italic">Verify</span>&nbsp;&mdash; If enabled, Double Commander will compare the source file and the copied file in the target directory: a byte-by-byte comparison (Windows) or BLAKE2 checksums (Linux and others). Double Commander will try to minimize the disk cache effects. Not available in Mac OS.</p></li>
+          <li><p><span class="italic">Check free space</span>&nbsp;&mdash; Double Commander calculates the size of the selected files, so it can check if there is enough free space in the target directory.</p></li>
+          <li><p><span class="italic">Reserve space</span>&nbsp;&mdash; If enabled, Double Commander will use pre-allocation of disk space, this will reduce the chances of file fragmentation. Also this is a faster way to create files. In Windows, Double Commander always reserves space.</p></li>
+          <li><p><span class="italic">Follow links</span>&nbsp;&mdash; If enabled, Double Commander will consider symbolic links to folders as regular folders and copy their contents; instead of file links, the target  files of this links will be copied. In the third state (the square is filled with color or with a dash): the program will ask each time what it should do.</p></li>
+          <li><p><span class="italic">Correct links</span>&nbsp;&mdash; If enabled, Double Commander will check the links and, if necessary, correct their target path based on the target directory. If a relative path is specified, then the corrected path will also be written as relative.</p></li>
+          <li><p><span class="italic">Copy attributes</span>&nbsp;&mdash; If enabled, the attributes of the source file will be copied, otherwise, default values will be used: 666 (files) or 777 (folders). Also see description of <code>&lt;CopyXattributes&gt;</code> <a href="configxml.html">here</a>. For Windows: see description of <code>&lt;CopyAttributes&gt;</code> <a href="configxml.html">here</a>.</p></li>
+          <li><p><span class="italic">Drop readonly flag</span>&nbsp;&mdash; If enabled, Double Commander will add "w" attribute (Linux).</p></li>
+          <li><p><span class="italic">Copy date/time</span>&nbsp;&mdash; If enabled, the modification date of the source file will be copied, otherwise, the current date will be used. For Windows: see description of <code>&lt;CopyTime&gt;</code> <a href="configxml.html">here</a>.</p></li>
+          <li><p><span class="italic">Copy ownership</span>&nbsp;&mdash; If not enabled, the owner will be the user on whose behalf the program is launched.</p></li>
+          <li><p><span class="italic">Copy permissions</span>&nbsp;&mdash; allows to copy permissions specific to the NTFS file system, otherwise, the rights of the current user will be used (the user on whose behalf the program is launched). Windows only.</p></li>
+          <li><p><span class="italic">Copy on write</span>&nbsp;&mdash; Support for one of the features of the Btrfs filesystem: by default, Btrfs uses the copy-on-write (COW) principle for all local files. Not available in Windows.</p></li>
+        </ul>
+        <p>Note: When copying files from archives, only the <span class="italic">When file exists</span> parameter will be available. When copying files from file system plugins (WFX), several parameters will be available: <span class="italic">When file exists</span>, <span class="italic">Copy date/time</span> and <span class="italic">Work in background (separate connection)</span>. The last parameter prohibits the file operation progress window from blocking the main window of Double Commander.</p>
+        <p><span class="italic">Save these options as default</span>&nbsp;&mdash; will set the current values as defaults for the next copy/move operations.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="progress">2. Operation progress dialog</a></h2>
+        <p>This dialog box shows the details of the progress of the operation: two progress bars (for the currently processed file and the general), progress in percentage (in the title), the total number of files and the number of processed files, the full name of the current file and the name in the target directory, size, speed and remaining time.</p>
+        <p>Buttons:</p>
+        <ul>
+          <li><p><span class="italic">Pause/Continue</span>&nbsp;&mdash; allows to pause or continue the operation.</p></li>
+          <li><p><span class="italic">Cancel</span>&nbsp;&mdash; will cancel the operation and close the dialog box.</p></li>
+          <li><p><span class="italic">To panel</span>&nbsp;&mdash; will minimize this dialog box to the <a href="configuration.html#ConfigOperations">operations panel</a>.</p></li>
+          <li><p><span class="italic">View all</span>&nbsp;&mdash; will call the <span class="italic">Operations Viewer</span> window.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="aconfig">3. Additional configuration</a></h2>
+        <p>Additional options related to copy/move operations are presented on the <a href="configuration.html#ConfigOperations">File operations</a> settings page.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">Previous</a> | <a title="Next page" href="findfiles.html">Next</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

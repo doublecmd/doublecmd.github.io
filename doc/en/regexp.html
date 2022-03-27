@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.11. Syntax of Regular Expressions</h1>
+        <h1>2.12. Syntax of Regular Expressions</h1>
       </div>
 
       <div>
@@ -38,24 +38,29 @@
               <dt>5.7. <a href="#meta-back">Metacharacters - backreferences</a></dt>
             </dl>
           </dd>
-          <dt>6. <a href="#modifiers">Modifiers</a></dt>
+          <dt>6. <a href="#look">Assertions (lookahead and lookbehind assertions)</a></dt>
+          <dt>7. <a href="#noncapt">Non-capturing groups</a></dt>
+          <dt>8. <a href="#agroups">Atomic groups</a></dt>
+          <dt>9. <a href="#unicode">Unicode categories</a></dt>
+          <dt>10. <a href="#modifiers">Modifiers</a></dt>
         </dl>
       </div>
 
-      <p>Double Commander uses the free Delphi library <span class="bold">TRegExpr</span> by Andrey V. Sorokin: <a href="https://regex.sorokin.engineer/en/latest/" target="_blank">https://regex.sorokin.engineer/en/latest/</a>.</p>
+      <p>Double Commander uses the free library <a href="https://regex.sorokin.engineer/en/latest/" target="_blank">TRegExpr</a> by Andrey Sorokin.</p>
       <p>Most of the explanations are from the help file for this library.</p>
 
       <div>
         <h2><a name="preface">1. Introduction</a></h2>
         <p>Regular Expressions are a widely-used method of specifying patterns of text to search for.</p>
         <p>Special <span class="bold">metacharacters</span> allow us to specify, for instance, that a particular string we are looking for occurs at the beginning or end of a line, or contains <span class="bold">n</span> recurrences of a certain character.</p>
-        <p>Regular expressions are mainly meant for professionals, but can also be useful in the office for finding certain documents (see examples below).</p>
         <p>Double Commander supports regular expressions in the following functions:</p>
         <ul>
-          <li>Commands&nbsp;&gt; Search (in file name)</li>
-          <li>In the internal Editor</li>
+          <li><a href="findfiles.html">Find files</a> (file names or content search)</li>
           <li>In the <a href="multirename.html">Multi-Rename Tool</a></li>
+          <li>In the internal editor</li>
+          <li>In the internal viewer</li>
         </ul>
+        <p>The TRegExp library supports two modes of operation: ANSI and Unicode. When searching in text files, Double Commander uses both (depending on the file encoding). When searching by name, Unicode is used.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -83,18 +88,18 @@
       <div>
         <h2><a name="esc">3. Escape sequences</a></h2>
         <p>Characters may be specified using a escape sequences syntax much like that used in C and Perl: "\n" matches a newline, "\t" a tab, etc.</p>
-        <p>More generally, \xnn, where nn is a string of hexadecimal digits, matches the character whose ASCII value is nn.</p>
-        <p>If you need wide (Unicode) character code, you can use "\x{nnnn}", where "nnnn" - one or more hexadecimal digits.</p>
+        <p>More generally, "\xnn", where "nn" is a string of hexadecimal digits, matches the character whose ASCII value is "nn".</p>
+        <p>If you need wide (Unicode) character code, you can use "\x{nnnn}", where "nnnn"&nbsp;&mdash; one or more hexadecimal digits.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Escape sequences</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\xnn</div></td>
-            <td class="hintcell">char with hex code nn</td>
+            <td class="hintcell">char with hex code "nn"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\x{nnnn}</div></td>
-            <td class="hintcell">char with hex code nnnn (one byte for plain text and two bytes for Unicode)</td>
+            <td class="hintcell">char with hex code "nnnn" (one byte for plain text and two bytes for Unicode)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\t</div></td>
@@ -106,7 +111,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\r</div></td>
-            <td class="hintcell">car.return (CR), same as \x0d</td>
+            <td class="hintcell">carriage return (CR), same as \x0d</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\f</div></td>
@@ -139,9 +144,9 @@
 
       <div>
         <h2><a name="symbols">4. Character classes</a></h2>
-        <p>You can specify a character class, by enclosing a list of characters in [], which will match any <span class="bold">one</span> character from the list.</p>
+        <p>You can specify a character class, by enclosing a list of characters in "[]", which will match any <span class="bold">one</span> character from the list.</p>
         <p>If the first character after the "[" is "^", the class matches any character <span class="bold">not</span> in the list.</p>
-        <p>Within a list, the "-" character is used to specify a <span class="bold">range</span>, so that a-z represents all characters between "a" and "z", inclusive.</p>
+        <p>Within a list, the "-" character is used to specify a <span class="bold">range</span>, so that "a-z" represents all characters between "a" and "z", inclusive.</p>
         <p>If you want "-" itself to be a member of a class, put it at the start or end of the list, or escape it with a backslash.</p>
         <p>If you want "]" you may place it at the start of list or escape it with a backslash.</p>
         <table>
@@ -165,7 +170,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\n-\x0D]</div></td>
-            <td class="hintcell">matches any of #10,#11,#12,#13</td>
+            <td class="hintcell">matches any of \x10, \x11, \x12, \x13</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\d-t]</div></td>
@@ -250,12 +255,14 @@
 
         <p>The "^" metacharacter by default is only guaranteed to match at the beginning of the input string/text, the "$" metacharacter only at the end. Embedded line separators will not be matched by "^" or "$".</p>
         <p>You may, however, wish to treat a string as a multi-line buffer, such that the "^" will match after any line separator within the string, and "$" will match before any line separator. You can do this by switching On the <a href="#modifiers">modifier m</a>.</p>
-        <p>The \A and \Z are just like "^" and "$", except that they won't match multiple times when the <a href="#modifiers">modifier m</a> is used, while "^" and "$" will match at every internal line separator.</p>
+        <p>The "\A" and "\Z" are just like "^" and "$", except that they won't match multiple times when the <a href="#modifiers">modifier m</a> is used, while "^" and "$" will match at every internal line separator.</p>
         <p>The "." metacharacter by default matches any character, but if you switch Off the <a href="#modifiers">modifier s</a>, then "." won't match embedded line separators.</p>
-        <p>TRegExpr works with line separators as recommended at <a href="https://www.unicode.org/" target="_blank">www.unicode.org</a> with <a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>:</p>
-        <p>"^" is at the beginning of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately following any occurrence of \x0D\x0A or \x0A or \x0D (if you are using <a href="https://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p>
-        <p>"$" is at the end of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately preceding any occurrence of \x0D\x0A or \x0A or \x0D (if you are using <a href="https://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p>
-        <p>"." matches any character, but if you switch Off <a href="#modifiers">modifier s</a> then "." doesn't match \x0D\x0A and \x0A and \x0D (if you are using <a href="https://regexpstudio.com/en/tregexpr_interface.html#unicode" target="_blank">Unicode version</a> of TRegExpr, then also \x2028 and \x2029 and \x0B and \x0C and \x85).</p>
+        <p>TRegExpr works with line separators as recommended at Unicode technical standards (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>):</p>
+        <ul>
+          <li><p>"^" is at the beginning of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately following any occurrence of \x0D\x0A or \x0A or \x0D (with Unicode support: also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p></li>
+          <li><p>"$" is at the end of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately preceding any occurrence of \x0D\x0A or \x0A or \x0D (with Unicode support: also \x2028 or \x2029 or \x0B or \x0C or \x85). Note that there is no empty line within the sequence \x0D\x0A.</p></li>
+          <li><p>"." matches any character, but if you switch Off <a href="#modifiers">modifier s</a> then "." doesn't match \x0D\x0A and \x0A and \x0D (with Unicode support: also \x2028 and \x2029 and \x0B and \x0C and \x85).</p></li>
+        </ul>
         <p>Note that "^.*$" (an empty line pattern) does not match the empty string within the sequence \x0D\x0A, but matches the empty string within the sequence \x0A\x0D.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -268,7 +275,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\w</div></td>
-            <td class="hintcell">an alphanumeric character (including "_"), i.e. [0-9A-Za-z_]</td>
+            <td class="hintcell">an alphanumeric character (including "_"), i.e. "[0-9A-Za-z_]"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\W</div></td>
@@ -284,14 +291,14 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\s</div></td>
-            <td class="hintcell">any space (same as [ \t\n\r\f])</td>
+            <td class="hintcell">any space (same as "[ \t\n\r\f]")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\S</div></td>
             <td class="hintcell">a non space</td>
           </tr>
         </table>
-        <p>You may use \w, \d and \s within custom <span class="bold">character classes</span>.</p>
+        <p>You may use "\w", "\d" and "\s" within custom <span class="bold">character classes</span>.</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Example of predefined classes</th></tr>
@@ -302,7 +309,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob[\w\s]r</div></td>
-            <td class="hintcell">matches strings like "foobar", "foob r", "foobbr" and so on but not "foob1r", "foob=r" and so on</td>
+            <td class="hintcell">matches strings like "foobar", "foob r", "foobbr" and so on but not "foob=r" and so on</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -310,7 +317,7 @@
 
       <div>
         <h2><a name="meta-words">5.3. Metacharacters - word boundaries</a></h2>
-        <p>A word boundary (\b) is a spot between two characters that has a \w on one side of it and a \W on the other side of it (in either order), counting the imaginary characters off the beginning and end of the string as matching a \W.</p>
+        <p>A word boundary ("\b") is a spot between two characters that has a "\w" on one side of it and a "\W" on the other side of it (in either order), counting the imaginary characters off the beginning and end of the string as matching a "\W".</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Word boundaries</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
@@ -328,64 +335,64 @@
 
       <div>
         <h2><a name="meta-dup">5.4. Metacharacters - iterators</a></h2>
-        <p>Any item of a regular expression may be followed by another type of metacharacters - iterators.</p>
+        <p>Any item of a regular expression may be followed by another type of metacharacters&nbsp;&mdash; iterators.</p>
         <p>Using these metacharacters you can specify the number of occurrences of the previous character, metacharacter or subexpression.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Iterators</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">*</div></td>
-            <td class="hintcell">zero or more ("greedy"), similar to {0,}</td>
+            <td class="hintcell">zero or more ("greedy"), similar to "{0,}"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">+</div></td>
-            <td class="hintcell">one or more ("greedy"), similar to {1,}</td>
+            <td class="hintcell">one or more ("greedy"), similar to "{1,}"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">?</div></td>
-            <td class="hintcell">zero or one ("greedy"), similar to {0,1}</td>
+            <td class="hintcell">zero or one ("greedy"), similar to "{0,1}"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n}</div></td>
-            <td class="hintcell">exactly n times ("greedy")</td>
+            <td class="hintcell">exactly "n" times ("greedy")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,}</div></td>
-            <td class="hintcell">at least n times ("greedy")</td>
+            <td class="hintcell">at least "n" times ("greedy")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,m}</div></td>
-            <td class="hintcell">at least n but not more than m times ("greedy")</td>
+            <td class="hintcell">at least "n" but not more than "m" times ("greedy")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">*?</div></td>
-            <td class="hintcell">zero or more ("non-greedy"), similar to {0,}?</td>
+            <td class="hintcell">zero or more ("non-greedy"), similar to "{0,}?"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">+?</div></td>
-            <td class="hintcell">one or more ("non-greedy"), similar to {1,}?</td>
+            <td class="hintcell">one or more ("non-greedy"), similar to "{1,}?"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">??</div></td>
-            <td class="hintcell">zero or one ("non-greedy"), similar to {0,1}?</td>
+            <td class="hintcell">zero or one ("non-greedy"), similar to "{0,1}?"</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n}?</div></td>
-            <td class="hintcell">exactly n times ("non-greedy")</td>
+            <td class="hintcell">exactly "n" times ("non-greedy")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,}?</div></td>
-            <td class="hintcell">at least n times ("non-greedy")</td>
+            <td class="hintcell">at least "n" times ("non-greedy")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,m}?</div></td>
-            <td class="hintcell">at least n but not more than m times ("non-greedy") </td>
+            <td class="hintcell">at least "n" but not more than "m" times ("non-greedy") </td>
           </tr>
         </table>
-        <p>So, digits in curly brackets of the form {n,m}, specify the <span class="bold">minimum</span> number of times to match the item n and the <span class="bold">maximum</span> m.</p>
-        <p>The form {n} is equivalent to {n,n} and matches exactly n times.</p>
-        <p>The form {n,} matches n or more times.</p>
-        <p>There is no limit to the size of n or m, but large numbers will chew up more memory and slow down execution.</p>
+        <p>So, digits in curly brackets of the form "{n,m}", specify the <span class="bold">minimum</span> number of times to match the item "n" and the <span class="bold">maximum</span> "m".</p>
+        <p>The form "{n}" is equivalent to "{n,n}" and matches exactly "n" times.</p>
+        <p>The form "{n,}" matches "n" or more times.</p>
+        <p>There is no limit to the size of "n" or "m", but large numbers will chew up more memory and slow down execution.</p>
         <p>If a curly bracket occurs in any other context, it is treated as a regular character.</p>
         <p>Here are some examples:</p>
         <table>
@@ -425,13 +432,13 @@
 
       <div>
         <h2><a name="meta-vars">5.5. Metacharacters - alternatives</a></h2>
-        <p>You can specify a series of <span class="bold">alternatives</span> for a pattern using "|" to separate them, so that fee|fie|foe will match any of "fee", "fie", or "foe" in the target string (as would f(e|i|o)e).</p>
+        <p>You can specify a series of <span class="bold">alternatives</span> for a pattern using "|" to separate them, so that "fee|fie|foe" will match any of "fee", "fie", or "foe" in the target string (as would "f(e|i|o)e").</p>
         <p>The first alternative includes everything from the last pattern delimiter ("(", "[", or the beginning of the pattern) up to the first "|", and the last alternative contains everything from the last "|" to the next pattern delimiter.</p>
         <p>For this reason, it's common practice to include alternatives in parentheses, to minimize confusion about where they start and end.</p>
         <p>Alternatives are tried from left to right, so the first alternative found for which the entire expression matches, is the one that is chosen.</p>
         <p>This means that alternatives are not necessarily greedy.</p>
-        <p>For example: when matching foo|foot against "barefoot", only the "foo" part will match, as that is the first alternative tried, and it successfully matches the target string. (This might not seem important, but it is important when you are capturing matched text using parentheses.)</p>
-        <p>Also remember that "|" is interpreted as a literal within square brackets, so if you write [fee|fie|foe] you're really only matching [feio|].</p>
+        <p>For example: when matching "foo|foot" against "barefoot", only the "foo" part will match, as that is the first alternative tried, and it successfully matches the target string. (This might not seem important, but it is important when you are capturing matched text using parentheses.)</p>
+        <p>Also remember that "|" is interpreted as a literal within square brackets, so if you write "[fee|fie|foe]" you're really only matching "[feio|]".</p>
         <p>Example:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Example of alternatives</th></tr>
@@ -446,10 +453,10 @@
 
       <div>
         <h2><a name="meta-sub">5.6. Metacharacters - subexpressions</a></h2>
-        <p>The bracketing construct ( ... ) may also be used for define regular expression subexpressions.</p>
+        <p>The bracketing construct "( ... )" may also be used for define regular expression subexpressions.</p>
         <p>After search you can call any subexpression, also you can use subexpressions as masks.</p>
         <p>Subexpressions are numbered based on the left to right order of their opening parenthesis.</p>
-        <p>First subexpression has number "1", up to 90 subexpressions are supported (whole regular expression match has number "0" - you can substitute it as "$0" or "$&amp;").</p>
+        <p>First subexpression has number 1, up to 90 subexpressions are supported (whole regular expression match has number 0&nbsp;&mdash; you can substitute it as "$0" or "$&amp;").</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Subexpressions</th></tr>
@@ -467,9 +474,9 @@
         <p><span class="bold">Notes about "Replace with" templates:</span></p>
         <ul>
           <li>If you want to place raw "$" or "\" into template, then use prefix "\".<br>
-              Example: "1\$ is $2\\rub\\" will return "1$ is &lt;subexp2&gt;\rub\".</li>
-          <li>If you want to place raw digit after "$n", then you must delimit n with curly braces "{}".<br>
-              For example, "a$12bc" will return "a&lt;subexp12&gt;bc", but "a${1}2bc" will return "a&lt;subexp1&gt;2bc".</li>
+              Example: "1\$ is $2\\rub\\" will return "1$ is &lt;subexpr2&gt;\rub\".</li>
+          <li>If you want to place raw digit after "$n", then you must delimit "n" with curly braces "{}".<br>
+              For example, "a$12bc" will return "a&lt;subexpr12&gt;bc", but "a${1}2bc" will return "a&lt;subexpr1&gt;2bc".</li>
         </ul>
         <p>Example:</p>
         <p>Let's invert date "21.01.2018" &gt; "2018.01.21":<br>
@@ -480,7 +487,7 @@
 
       <div>
         <h2><a name="meta-back">5.7. Metacharacters - backreferences</a></h2>
-        <p>Metacharacters \1 through \9 are interpreted as backreferences. \n matches previously matched subexpression #n.</p>
+        <p>Metacharacters "\1" through "\9" are interpreted as backreferences. "\n" matches previously matched subexpression "n".</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Examples of backreferences</th></tr>
@@ -502,11 +509,108 @@
       </div>
 
       <div>
-        <h2><a name="modifiers">6. Modifiers</a></h2>
-        <p class="bold">(?imsxr-imsxr)</p>
-        <p>Modifiers are for changing behaviour of regular expressions.</p>
-        <p>Any of these modifiers may be embedded within the regular expression itself using the <tt>(?...)</tt> construct.</p>
-        <p>If this construction is inlined into subexpression, then it effects only into this subexpression.</p>
+        <h2><a name="look">6. Assertions (lookahead and lookbehind assertions)</a></h2>
+        <p>Positive lookahead assertion: "foo(?=bar)" matches "foo" only before "bar", and "bar" is excluded from the match.</p>
+        <p>Negative lookahead assertion: "foo(?!bar)" matches "foo" only if it’s not followed by "bar".</p>
+        <p>Positive lookbehind assertion: "(?&lt;=foo)bar" matches "bar" only after "foo", and "foo" is excluded from the match.</p>
+        <p>Negative lookbehind assertion: "(?&lt;!foo)bar" matches "bar" only if it’s not prefixed with "foo".</p>
+        <p>Limitations:</p>
+        <ul>
+          <li><p>Brackets for lookahead must be at the very ending of expression, and brackets for lookbehind must be at the very beginning. So assertions between choices "|", or inside groups, are not supported.</p></li>
+          <li><p>For lookbehind "(?&lt;!foo)bar", regular expression "foo" must be of fixed length, ie contains only operations of fixed length matches. Quantifiers are not allowed, except braces with the repeated numbers "{n}" or "{n,n}". Char-classes are allowed here, dot is allowed, "\b" and "\B" are allowed. Groups and choices are not allowed.</p></li>
+          <li><p>For other 3 assertion kinds, expression in brackets can be of any complexity.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="noncapt">7. Non-capturing groups</a></h2>
+        <p>Syntax: "(?:expr)".</p>
+        <p>Such groups do not have the "index" and are invisible for backreferences. Non-capturing groups are used when you want to group a subexpression, but you do not want to save it as a matched/captured portion of the string. The use of non-capturing groups allows to speed up the work of a regular expression.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Non-capturing groups</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(https?|ftp)://([^/\r\n]+)</div></td>
+            <td class="hintcell">in "https://doublecmd.sourceforge.io" matches "https" and "doublecmd.sourceforge.io"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(?:https?|ftp)://([^/\r\n]+)</div></td>
+            <td class="hintcell">in "https://doublecmd.sourceforge.io" matches only "doublecmd.sourceforge.io"</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="agroups">8. Atomic groups</a></h2>
+        <p>Syntax: "(?&gt;expr|expr|...)".</p>
+        <p>Atomic groups are special case of non-capturing groups: this grouping disables backtracking for a parenthesized group if part of the pattern has already been found. Atomic group works faster, useful when optimizing groups with many different expressions.</p>
+        <p>For example, "a(bc|b)c" matches "abcc" and "abc", "a(?&gt;bc|b)c" matches "abcc" but not "abc" because the engine is forbidden from backtracking and try with setting the group as "b".</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="unicode">9. Unicode categories</a></h2>
+        <p>Unicode standard has names for character categories. These are 2-letter strings. For example "Lu" is uppercase letters, "Ll" is lowercase letters. And 1-letter bigger category "L" is all letters.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Unicode categories</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Category</th><th class="categorydesccolumn">Description</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">L</div></td><td class="hintcell">Letter</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lu</div></td><td class="hintcell">Uppercase Letter</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Ll</div></td><td class="hintcell">Lowercase Letter</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lt</div></td><td class="hintcell">Titlecase Letter</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lm</div></td><td class="hintcell">Modifier Letter</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lo</div></td><td class="hintcell">Other Letter</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">M</div></td><td class="hintcell">Mark</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Mn</div></td><td class="hintcell">Non-Spacing Mark</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Mc</div></td><td class="hintcell">Spacing Combining Mark</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Me</div></td><td class="hintcell">Enclosing Mark</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">N</div></td><td class="hintcell">Number</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Nd</div></td><td class="hintcell">Decimal Digit Number</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Nl</div></td><td class="hintcell">Letter Number</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">No</div></td><td class="hintcell">Other Number</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">S</div></td><td class="hintcell">Symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sm</div></td><td class="hintcell">Math Symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sc</div></td><td class="hintcell">Currency Symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sk</div></td><td class="hintcell">Modifier Symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">So</div></td><td class="hintcell">Other Symbol</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pc</div></td><td class="hintcell">Connector Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pd</div></td><td class="hintcell">Dash Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Ps</div></td><td class="hintcell">Open Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pe</div></td><td class="hintcell">Close Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pi</div></td><td class="hintcell">Initial Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pf</div></td><td class="hintcell">Final Punctuation</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Po</div></td><td class="hintcell">Other Punctuation</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Z</div></td><td class="hintcell">Separator</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Zs</div></td><td class="hintcell">Space Separator</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Zl</div></td><td class="hintcell">Line Separator</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Zp</div></td><td class="hintcell">Paragraph Separator</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">C</div></td><td class="hintcell">Other</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cc</div></td><td class="hintcell">Control</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cf</div></td><td class="hintcell">Format</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cs</div></td><td class="hintcell">Surrogate</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Co</div></td><td class="hintcell">Private Use</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cn</div></td><td class="hintcell">Unassigned</td></tr>
+        </table>
+        <p>Meta-character "\p" denotes one Unicode char of specified category. Syntaxes: "\pL" and "\p{L}" for 1-letter name, "\p{Lu}" for 2-letter names.</p>
+        <p>Meta-character "\P" is inverted, it denotes one Unicode char not in the specified category.</p>
+        <p>These meta-characters are supported withing character classes too.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="modifiers">10. Modifiers</a></h2>
+        <p>Syntax for one modifier: "(?i)" to turn on, and "(?-i)" to turn off. Many modifiers are allowed like this: "(?msgxr-imsgxr)".</p>
+        <p>Modifiers are for changing behaviour of regular expressions. Modifier affects only that part of regular expression that follows "(?imsgxr-imsgxr)" operator.</p>
+        <p>Any of these modifiers may be embedded within the regular expression itself. If modifier is inlined into subexpression, then it effects only into this subexpression.</p>
         <dl>
           <dt><tt>i</tt></dt>
           <dd>Do case-insensitive pattern matching (using installed in your system locale settings).</dd>
@@ -515,13 +619,13 @@
           <dt><tt>s</tt></dt>
           <dd>Treat string as single line. That is, change "." to match any character whatsoever, even a line separator (see also <a href="#meta-line">Line separators</a>), which it normally would not match. Enabled by default.</dd>
           <dt><tt>g</tt></dt>
-          <dd>Non standard modifier. Switching it Off you'll switch all following operators into non-greedy mode (by default this modifier is On). So, if modifier g is Off then "+" works as "+?", "*" as "*?" and so on.</dd>
+          <dd>Non standard modifier. Switching it Off you'll switch all following operators into non-greedy mode (by default this modifier is On). So, if modifier "g" is Off then "+" works as "+?", "*" as "*?" and so on.</dd>
           <dt><tt>x</tt></dt>
           <dd>Extend your pattern's legibility by permitting whitespace and comments (see explanation below).</dd>
           <dt><tt>r</tt></dt>
-          <dd>Non-standard modifier. If is set then range "а-я" additional include Russian letter "ё", "А-Я" additional include "Ё", and "а-Я" include all Russian symbols. Sorry for foreign users, but it's set by default.</dd>
+          <dd>Non-standard modifier. If is set then range "а-я" additional include Russian letter "ё", "А-Я" additional include "Ё", and "а-Я" include all Russian alphabet (by default this modifier is On).</dd>
           <dt><tt>#</tt></dt>
-          <dd><tt>(?#text)</tt>: A comment, the text is ignored. Note that TRegExpr closes the comment as soon as it sees a ")", so there is no way to put a literal ")" in the comment.</dd>
+          <dd><tt>(?#text)</tt>: A comment, the "text" is ignored. Note that TRegExpr closes the comment as soon as it sees a ")", so there is no way to put a literal ")" in the comment.</dd>
         </dl>
         <p>Here are some examples:</p>
         <table>
@@ -541,21 +645,21 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">((?i)Saint-)?Petersburg</div></td>
-            <td class="hintcell">matches "saint-Petersburg", but not "saint-petersburg"</td>
+            <td class="hintcell">matches "saint-Petersburg" but not "saint-petersburg"</td>
           </tr>
         </table>
         <br>
-        <p>The modifier x itself needs a little more explanation.</p>
+        <p>The modifier "x" itself needs a little more explanation.</p>
         <p>It tells to ignore whitespace that is neither backslashed nor within a character class.</p>
         <p>You can use this to break up your regular expression into (slightly) more readable parts.</p>
-        <p>The # character is also treated as a metacharacter introducing a comment, for example:</p>
-        <pre class="CODE">
+        <p>The "#" character is also treated as a metacharacter introducing a comment, for example:</p>
+        <pre class="code">
 (
   (abc) # comment 1
     |   # You can use spaces to format r.e. - TRegExpr ignores it
   (efg) # comment 2
 )</pre>
-        <p>This also means that if you want real whitespace or # characters in the pattern (outside a character class, where they are unaffected by x), that you'll either have to escape them or encode them using octal or hex escapes.</p>
+        <p>This also means that if you want real whitespace or "#" characters in the pattern (outside a character class, where they are unaffected by "x"), that you'll either have to escape them or encode them using octal or hex escapes.</p>
         <p>Taken together, these features go a long way towards making regular expressions text more readable.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>

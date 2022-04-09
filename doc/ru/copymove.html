@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Копирование/перемещение файлов</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="findfiles.html">След.</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.4. Копирование/перемещение файлов</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#confirmation">Диалоговое окно копирования/перемещения</a></dt>
+          <dt>2. <a href="#progress">Диалог выполнения операции</a></dt>
+          <dt>3. <a href="#aconfig">Дополнительные настройки</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="confirmation">1. Диалоговое окно копирования/перемещения</a></h2>
+        <p>Окно подтверждения копирования или перемещения файлов с возможностью изменить некоторые параметры. Эти окна для обеих операций отличаются лишь несколькими параметрами, поэтому они будут описаны вместе.</p>
+        <p class="figure"><img class="largeimage" title="Копирование/перемещение файлов" alt="Копирование/перемещение файлов" src="images/imgDC/copymove1.png" width="692" height="408"></p>
+        <p>Можно вызвать клавишами <kbd>F5</kbd> (копирование), <kbd>Shift+F5</kbd> (копировать в этот же каталог) и <kbd>F6</kbd> (перемещение), кнопками на панели функциональных клавиш или внутренними командами (<a href="cmds.html#cm_Copy">cm_Copy</a>, <a href="cmds.html#cm_CopySamePanel">cm_CopySamePanel</a> и <a href="cmds.html#cm_Rename">cm_Rename</a>). Также это диалоговое окно появляется при перетаскивании файлов (если отмечено <a href="configuration.html#ConfigMouseDD">Показать диалог подтверждения при перетаскивании</a>).</p>
+        <p>В окне отображается редактируемое поле с целевым каталогом, и вы можете вручную изменить целевой путь и имя файла. С помощью <kbd>F5</kbd> или <kbd>F6</kbd> вы можете переключать выделение в следующем порядке: базовое имя файла, имя файла, расширение, путь, всё.</p>
+        <p>Если целевой каталог не указан (<tt>cm_CopySamePanel</tt> или ручное редактирование), файлы будут скопированы в исходный каталог.</p>
+        <p>Несколько кнопок:</p>
+        <ul>
+          <li><p><span class="italic">Старт</span> и <span class="italic">Отмена</span>&nbsp;&mdash; запускает или отменяет операцию.</p></li>
+          <li><p><span class="italic">В очередь</span>&nbsp;&mdash; добавляет задание в очередь файловых операций. Это удобно, если у вас одновременно работают несколько заданий: вы можете изменить порядок операций в очереди, остановить или приостановить выполнение задачи. Окно со списком файловых операций можно вызвать двумя способами: используйте пункт <span class="italic">Файловые операции</span> в меню <span class="italic">Вид</span> или <kbd>Alt+V</kbd> (внутренняя команда <tt>cm_OperationsViewer</tt>).</p></li>
+          <li><p><span class="italic">Опции</span>&nbsp;&mdash; раскрывает дополнительные параметры.</p></li>
+        </ul>
+        <p>Первая группа параметров определяет действие при разрешении конфликта имён или когда невозможно установить свойства файлов:</p>
+        <ul>
+          <li><p><span class="italic">Если файл существует</span>&nbsp;&mdash; Если файл с таким именем уже существует в каталоге назначения. Действия: <span class="italic">Спрашивать</span>, <span class="italic">Перезаписывать</span>, <span class="italic">Перезаписывать более старые</span>, <span class="italic">Пропускать</span>.</p></li>
+          <li><p><span class="italic">Если каталог существует</span>&nbsp;&mdash; Если папка с таким именем уже существует в каталоге назначения. Действия: <span class="italic">Спрашивать</span>, <span class="italic">Объединять</span>, <span class="italic">Пропускать</span>.</p></li>
+          <li><p><span class="italic">Если нельзя устан. свойство</span>&nbsp;&mdash; Что делать, когда не удаётся установить время файла, его атрибуты и т.д., например, из-за ограничений файловой системы в целевом каталоге. Действия: <span class="italic">Спрашивать</span>, <span class="italic">Никогда не устанавливать</span>, <span class="italic">Игнорировать</span>.</p></li>
+        </ul>
+        <p><span class="italic">Спрашивать</span> (по умолчанию) даёт больше вариантов решения: пропустить, переименовать (вручную по одному или автоматически) и другое.</p>
+        <p>Следующая группа&nbsp;&mdash; это фильтр, возможность указать, какие файлы копировать или перемещать (маски файлов, возраст и т.д.). Здесь вы можете видеть выбранный шаблон и:</p>
+        <ul>
+          <li><p>Кнопка <span class="italic">Выбрать шаблон</span> (<img title="Шаблон..." alt="Шаблон..." src="images/imgDC/btemplate.png" width="18" height="18">) открывает окно со списком сохранённых шаблонов и возможностью добавить новый.</p></li>
+          <li><p><span class="italic">Исключить пустые каталоги</span>&nbsp;&mdash; Если отмечено, будут скопированы или перемещены только непустые каталоги. Работает только с шаблонами.</p></li>
+        </ul>
+        <p>Список следующих параметров будет различаться в зависимости от типа файловой операции и семейства операционных систем.</p>
+        <ul>
+          <li><p><span class="italic">Проверить после завершения</span>&nbsp;&mdash; Если отмечено, Double Commander будет сравнивать исходный файл и скопированный файл в целевом каталоге: побайтовое сравнение (Windows) или контрольные суммы BLAKE2 (Linux и другие). Double Commander попытается свести к минимуму эффекты дискового кэша. Недоступно в Mac OS.</p></li>
+          <li><p><span class="italic">Проверять свободное место</span>&nbsp;&mdash; Double Commander подсчитывает размер выбранных файлов, поэтому может проверить, достаточно ли свободного места в целевом каталоге.</p></li>
+          <li><p><span class="italic">Резервировать место</span>&nbsp;&mdash; Если отмечено, Double Commander будет использовать предварительное выделение дискового пространства, это снизит вероятность фрагментации файла. Также это более быстрый способ создания файлов. В Windows Double Commander всегда резервирует место.</p></li>
+          <li><p><span class="italic">Следовать ссылкам</span>&nbsp;&mdash; Если отмечено, Double Commander будет считать символьные ссылки на папки обычными папками и копировать их содержимое; вместо ссылок на файл будут скопированы файлы, на которые они указывают. В третьем состоянии (квадрат залит цветом или с тире): программа будет каждый раз спрашивать, что она должна делать.</p></li>
+          <li><p><span class="italic">Исправлять ссылки</span>&nbsp;&mdash; Если отмечено, Double Commander проверит и, если необходимо, поправит их целевой путь с учётом целевого каталога. Если задан относительный путь, то исправленный путь тоже будет записан как относительный.</p></li>
+          <li><p><span class="italic">Копировать атрибуты</span>&nbsp;&mdash; Если отмечено, будут скопированы атрибуты исходного файла, в противном случае будут использоваться значения по умолчанию: 666 (файлы) или 777 (папки). Также смотрите описание <code>&lt;CopyXattributes&gt;</code> <a href="configxml.html">здесь</a>. Для Windows: смотрите описание <code>&lt;CopyAttributes&gt;</code> <a href="configxml.html">здесь</a>.</p></li>
+          <li><p><span class="italic">Сбросить флаг "Только для чтения"</span>&nbsp;&mdash; Если отмечено, Double Commander будет добавлять флаг разрешения на запись "w" (Linux).</p></li>
+          <li><p><span class="italic">Копировать дату/время</span>&nbsp;&mdash; Если отмечено, будут скопирована дата модификации исходного файла, в противном случае будет использоваться текущая дата. Для Windows: смотрите описание <code>&lt;CopyTime&gt;</code> <a href="configxml.html">здесь</a>.</p></li>
+          <li><p><span class="italic">Копировать владельца</span>&nbsp;&mdash; Если не отмечено, владельцем будет пользователь, от имени которого запущена программа.</p></li>
+          <li><p><span class="italic">Копировать права доступа</span>&nbsp;&mdash; позволяет копировать разрешения, специфичные для файловой системы NTFS, в противном случае будут использоваться права текущего пользователя (пользователь, от имени которого запущена программа). Только Windows.</p></li>
+          <li><p><span class="italic">Копирование при записи</span>&nbsp;&mdash; Поддержка одной из особенностей файловой системы Btrfs: по умолчанию Btrfs использует принцип копирование-при-записи (copy-on-write, COW) для всех локальных файлов. Недоступно в Windows.</p></li>
+        </ul>
+        <p>Примечание: При копировании файлов из архивов будет доступен только параметр <span class="italic">Если файл существует</span>. При копировании файлов из плагинов файловой системы (WFX) будет доступно несколько параметров: <span class="italic">Если файл существует</span>, <span class="italic">Копировать дату/время</span> и <span class="italic">Работать в фоне (отдельное соединение)</span>. Последний параметр запрещает окну прогресса файловой операции блокировать главное окно Double Commander.</p>
+        <p><span class="italic">Сохранить по умолчанию</span>&nbsp;&mdash; установит текущие значения как значения по умолчанию для последующих операций копирования/перемещения.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="progress">2. Диалог выполнения операции</a></h2>
+        <p>В этом диалоговом окне отображается подробная информация о ходе операции: два индикатора выполнения (для текущего обрабатываемого файла и общий), прогресс в процентах (в заголовке), общее количество файлов и количество обработанных файлов, полное имя текущего файла и имя в целевом каталоге, размер, скорость и оставшееся время.</p>
+        <p>Кнопки:</p>
+        <ul>
+          <li><p><span class="italic">Пауза/Продолжить</span>&nbsp;&mdash; позволяет приостановить или продолжить операцию.</p></li>
+          <li><p><span class="italic">Отмена</span>&nbsp;&mdash; отменит операцию и закроет диалог.</p></li>
+          <li><p><span class="italic">На панель</span>&nbsp;&mdash; свернёт это окно в <a href="configuration.html#ConfigOperations">панель операций</a>.</p></li>
+          <li><p><span class="italic">Показать все</span>&nbsp;&mdash; вызовет окно <span class="italic">Файловые операции</span>.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="aconfig">3. Дополнительные настройки</a></h2>
+        <p>Дополнительные параметры, связанные с операциями копирования/перемещения, представлены на странице настроек <a href="configuration.html#ConfigOperations">Файловые операции</a>.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="shortcuts.html">Пред.</a> | <a title="Следующая страница" href="findfiles.html">След.</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

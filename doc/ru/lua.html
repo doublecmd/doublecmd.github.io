@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.12. Скрипты Lua</h1>
+        <h1>2.13. Скрипты Lua</h1>
       </div>
 
       <div>
@@ -68,20 +68,31 @@
       <div>
         <h2><a name="preface">1. Введение</a></h2>
         <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
-        <p>Также на языке Lua можно писать информационные плагины, примеры можно найти в папке программы (<tt>plugins/wdx/scripts</tt>).</p>
+        <p>Также на языке Lua можно писать информационные плагины, примеры можно найти в папке программы (<tt>plugins/wdx/scripts</tt>).
+          В Вики есть <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">страница</a>, посвящённая написанию плагинов.
+          Ограничения: поддерживаются только следующие типы данных</p>
+        <ul>
+          <li><i>ft_numeric_32</i>&nbsp;&mdash; 32-битное целое число со знаком;</li>
+          <li><i>ft_numeric_64</i>&nbsp;&mdash; 64-битное целое число со знаком;</li>
+          <li><i>ft_numeric_floating</i>&nbsp;&mdash; число с плавающей запятой;</li>
+          <li><i>ft_boolean</i>&nbsp;&mdash; логический (булев) тип: <i>true</i> или <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i>&nbsp;&mdash; значение, допускающее ограниченное количество вариантов выбора;</li>
+          <li><i>ft_string</i>&nbsp;&mdash; текстовая строка (используйте UTF-8);</li>
+          <li><i>ft_fulltext</i>&nbsp;&mdash; полный текст (многострочный текст), используется только для поиска с помощью плагинов;</li>
+          <li><i>ft_datetime</i>&nbsp;&mdash; для даты/времени: возвращаемая дата будет сконвертирована в отформатированную строку даты и времени (значение зависит от ваших региональных настроек).</li>
+        </ul>
+        <p>Примечание: При сохранении скриптов используйте кодировку UTF-8 без BOM.</p>
         <p>Более подробную информацию о языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">официальном веб-сайте Lua</a>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2><a name="dllrequired">2. Необходимая DLL</a></h2>
-        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua версии 5.1 или выше, DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
-        <p>По умолчанию DC ищет файл с именем <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix или GNU/Linux) или <code>liblua5.1.dylib</code> (Mac OS). Мы можем вручную изменить имя файла в параметре <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a>.</p>
+        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua (Double Commander поддерживает версии 5.1 - 5.4), DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
+        <p>По умолчанию DC ищет файл с именем <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix или GNU/Linux) или <code>liblua5.1.dylib</code> (Mac OS<sup>(<a title="Примечание о поддержке Mac OS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). Мы можем вручную изменить имя файла в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
         <p>Мы можем использовать DLL-файл <a href="https://luajit.org/" target="_blank">проекта LuaJIT</a>.
-           LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.
-           DLL для Windows: <a href="https://doublecmd.sourceforge.io/test/luajit_win32.zip">32-битная</a> или <a href="https://doublecmd.sourceforge.io/test/luajit_win64.zip">64-битная</a>.</p>
-        <p>Если мы используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
-        <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать.</p>
+           LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
+        <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать. Если используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -186,9 +197,9 @@
         <p>Предположим, наш скрипт <code>E:\scripts\lua\music.lua</code>, мы могли бы настроить эту кнопку следующим образом:</p>
         <p class="figure"><img class="largeimage" title="Вызов скрипта Lua кнопкой панели инструментов" alt="Вызов скрипта Lua кнопкой панели инструментов" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
 
-        <p>Кроме того, для редактирования наших скриптов мы можем использовать внутренний редактор Double Commander.</p>
-        <p>Если файл имеет расширение <code>.lua</code>, то он будет распознан внутренним редактором и открыт с подсветкой синтаксиса, специфичного для языка Lua:</p>
-        <p class="figure"><img class="largeimage" title="Подсветка синтаксиса Lua во внутреннем редакторе" alt="Подсветка синтаксиса Lua во внутреннем редакторе" src="images/imgDC/luaimg2.png" width="660" height="480"></p>
+        <p>Кроме того, для редактирования наших скриптов мы можем использовать встроенный редактор Double Commander.</p>
+        <p>Если файл имеет расширение <code>.lua</code>, то он будет распознан редактором и открыт с подсветкой синтаксиса, специфичного для языка Lua:</p>
+        <p class="figure"><img class="largeimage" title="Подсветка синтаксиса Lua во встроенном редакторе" alt="Подсветка синтаксиса Lua во встроенном редакторе" src="images/imgDC/luaimg2.png" width="660" height="480"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -271,6 +282,14 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
+              <p>Создаёт цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
+              <p>Возвращает <code>true</code>, если <var>Directory</var> уже существует или был успешно создан, или <code>false</code>, если не удалось создать какую-либо часть пути.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
@@ -293,14 +312,6 @@
               <p>Читает имя файла, на который указывает символьная ссылка <var>LinkName</var>.</p>
               <p>Если <var>Recursive</var> равно <code>true</code> и ссылка указывает на ссылку, то она разрешается рекурсивно до тех пор, пока не будет найдено допустимое имя файла, не являющееся ссылкой.</p>
               <p>Возвращает путь, на который указывает символьная ссылка <var>LinkName</var>, или пустую строку, если ссылка недействительна или файл, на который она указывает, не существует и значение <var>Recursive</var> равно <code>true</code>.</p>
-            </td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
-            <td class="hintcell">
-              <p class="definition">SysUtils.PathDelim</p>
-              <p>Позволяет получить от DC разделитель пути в системе.</p>
-              <p>В системах Unix/Linux это будет " / " и " \ " в Windows.</p>
             </td>
           </tr>
           <tr>
@@ -343,6 +354,29 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.GetAbsolutePath(FileName, BaseDirectory)</p>
+              <p>Возвращает абсолютный (полный) путь к файлу:</p>
+              <ul>
+                <li><var>FileName</var> : Имя файла с относительным путём.</li>
+                <li><var>BaseDirectory</var> : Каталог, который использовался как базовый каталог для <var>FileName</var>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.GetRelativePath(FileName, BaseDirectory)</p>
+              <p>Возвращает имя файла относительно указанного каталога:</p>
+              <ul>
+                <li><var>FileName</var> : Полное (абсолютное) имя файла.</li>
+                <li><var>BaseDirectory</var> : Каталог, который будет использоваться как базовый каталог для <var>FileName</var>.</li>
+              </ul>
+              <p>Если <var>FileName</var> и <var>BaseDirectory</var> содержат одно и то же значение, функция вернёт пустую строку ("").</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMask(FileName, Mask, MaskOptions)</p>
@@ -381,11 +415,11 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
-              <p>Создаёт цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
-              <p>Возвращает <code>true</code>, если <var>Directory</var> уже существует или был успешно создан, или <code>false</code>, если не удалось создать какую-либо часть пути.</p>
+              <p class="definition">SysUtils.PathDelim</p>
+              <p>Позволяет получить от DC разделитель пути в системе.</p>
+              <p>В системах Unix/Linux это будет " / " и " \ " в Windows.</p>
             </td>
           </tr>
         </table>
@@ -394,7 +428,7 @@
 
       <div>
         <h2><a name="detailattr">3.2.1. Описание возвращаемого значения SysUtils.FileGetAttr</a></h2>
-        <p><var>FileGetAttr</var> возвращает атрибуты <var>FileName</var> в виде ИЛИ-совокупности следующих констант:</p>
+        <p><code>FileGetAttr</code> возвращает атрибуты <var>FileName</var> в виде ИЛИ-совокупности следующих констант:</p>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, используемые в возвращаемом значении SysUtils.FileGetAttr</th></tr>
@@ -437,7 +471,7 @@
 
       <div>
         <h2><a name="exampleattr">3.2.2. Пример с SysUtils.FileGetAttr</a></h2>
-        <p>Пример скрипта ниже использует SysUtils.FileGetAttr.</p>
+        <p>Пример скрипта ниже использует <code>SysUtils.FileGetAttr</code>.</p>
         <p>Если параметр окажется каталогом, то скрипт откроет его в новой вкладке активной панели и переключится на неё.</p>
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
@@ -465,7 +499,7 @@
       <div>
         <h2><a name="examplefind">3.2.3. Пример использования FindFirst, FindNext и FindClose</a></h2>
         <p>В следующем примере мы просканируем содержимое каталога, переданного первым параметром, и сохраним полученные данные в текстовый файл с именем, переданным вторым параметром.</p>
-        <p>Это даст нам хорошее представление об использовании FindFirst, FindNext и FindClose.</p>
+        <p>Это даст нам хорошее представление об использовании <code>FindFirst</code>, <code>FindNext</code> и <code>FindClose</code>.</p>
 
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
@@ -967,9 +1001,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">
-              <p class="definition">resultcode = os.execute(command)</p>
-              <p>Выполнить <var>command</var>, аналогично введённой в командной строке, будет возвращён код завершения.</p>
-              <p><var>command</var> может быть:</p>
+              <p class="definition">ResultCode = os.execute(Command)</p>
+              <p>Выполнить <var>Command</var>, аналогично введённой в командной строке, будет возвращён код завершения.</p>
+              <p><var>Command</var> может быть:</p>
               <ul>
                 <li>Команда терминала, например, <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>Исполняемый файл, например, <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
@@ -980,43 +1014,43 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
-              <p class="definition">tempfilename = os.tmpname()</p>
+              <p class="definition">TempFileName = os.tmpname()</p>
               <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла.</p>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.remove</div></td>
             <td class="hintcell">
-              <p class="definition">bresult, errorstr, errorno = os.remove(filename)</p>
-              <p>Удалить файл с именем <var>filename</var>.</p>
+              <p class="definition">bResult, ErrorStr, ErrorNum = os.remove(FileName)</p>
+              <p>Удалить файл с именем <var>FileName</var>.</p>
               <p>Если удалось, функция вернёт <code>true</code>.</p>
               <p>Если не удалось, функция вернёт:</p>
               <ol>
                 <li><code>nil</code> как индикатор неудачи</li>
-                <li><var>errorstr</var> с описанием ошибки</li>
-                <li><var>errorno</var> в виде кода ошибки (число)</li>
+                <li><var>ErrorStr</var> с описанием ошибки</li>
+                <li><var>ErrorNum</var> в виде кода ошибки (число)</li>
               </ol>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.rename</div></td>
             <td class="hintcell">
-              <p class="definition">bresult, errorstr, errorno = os.rename(nameS, nameD)</p>
-              <p>Переименовать файл <var>nameS</var> в <var>nameD</var>.</p>
+              <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
+              <p>Переименовать файл <var>OldName</var> в <var>NewName</var>.</p>
               <p>Если удалось, функция вернёт <code>true</code>.</p>
               <p>Если не удалось, функция вернёт:</p>
               <ol>
                 <li><code>nil</code> как индикатор неудачи</li>
-                <li><var>errorstr</var> с описанием ошибки</li>
-                <li><var>errorno</var> в виде кода ошибки (число)</li>
+                <li><var>ErrorStr</var> с описанием ошибки</li>
+                <li><var>ErrorNum</var> в виде кода ошибки (число)</li>
               </ol>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.getenv</div></td>
             <td class="hintcell">
-              <p class="definition">value = os.getenv(variablename)</p>
-              <p>Получить в <var>value</var> значение переменной окружения <var>variablename</var>.<br>Если переменная не существует, то функция вернёт <code>nil</code>.</td>
+              <p class="definition">Value = os.getenv(VariableName)</p>
+              <p>Получить в <var>Value</var> значение переменной окружения <var>VariableName</var>.<br>Если переменная не существует, то функция вернёт <code>nil</code>.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>

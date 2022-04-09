@@ -75,19 +75,25 @@
 
       <div>
         <h2><a name="usage">1.2. Usage</a></h2>
-        <p>On the <a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">Sourceforge download page</a> you can see several versions of DC available for download.</p>
-        <p>First, you must choose which operating system (Windows, Linux, Mac, FreeBSD), whether 32 or 64 bit and then you may select the version to download.</p>
-        <p>For Windows there is an executable file <tt>.exe</tt> or an archive <tt>.zip</tt> (which is the so-called portable version).</p>
-        <p>For Linux there are versions for most popular Linux distributions and desktop environments.</p>
-        <p>You can download compiled <tt>deb</tt> packages for Debian-based distributions (e.g, Ubuntu) and/or <tt>rpm</tt> for Linux Mandriva.</p>
-        <p>Also available is a portable version of the archive <tt>tar.xz</tt>, it is the same source from which you can build the program yourself.</p>
-        <p>For various DE there are versions, based on GTK2 toolkit and based on Qt.</p>
+        <p>There are several ways to get Double Commander:</p>
+        <ul>
+          <li><p>The <a href="https://github.com/doublecmd/doublecmd/releases" target="_blank">releases</a> page on GitHub.</p></li>
+          <li><p>The <a href="https://sourceforge.net/p/doublecmd/wiki/Download/" target="_blank">releases</a> page on SourceForge.</p></li>
+          <li><p>Double Commander is available in the repositories of many Linux distributions and in the FreeBSD Ports collection.</p></li>
+          <li><p>Double Commander has its own <a href="faq.html#repo">repository</a> for several Linux distributions (the official repositories of Linux distributions do not always contain the current (latest) version of the program).</p></li>
+          <li><p>And you can build Double Commander yourself.</p></li>
+        </ul>
+        <p><a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">Version archive</a> is also available.</p>
+        <p>First, you must choose which operating system (Windows, Linux, Mac OS<sup>(<a title="Note about Mac OS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, FreeBSD), whether 32 or 64 bit and then you may select the version to download.</p>
+        <p>For Windows there is an executable file <tt>.exe</tt> (Inno Setup) or <tt>.msi</tt> and an archive <tt>.zip</tt> (which is the so-called portable version).</p>
+        <p>For Linux there are versions based on GTK toolkit and based on Qt. Also portable version is available (compiled binaries packed with XZ, use <tt>doublecmd.sh</tt> to launch).</p>
+        <p>Note: The features of the update of the portable version are described <a href="faq.html#pupd">here</a>.</p>
         <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages. The language can be changed in the menu via <a href="configuration.html#ConfigLang">Configuration&nbsp;&gt; Options...&nbsp;&gt; Language</a>.</p>
         <p>Also Double Commander determines and uses the current system theme. It looks like this (Ubuntu, two themes and two icon sets):</p>
         <p class="figure"><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="678" height="530"></p>
         <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager).</p>
-        <p>The Windows version of Double Commander is compatible with more than half of the many plugins from Total Commander (TC). The Linux version has no such compatibility.</p>
-        <p>DC does comes pre-installed with some WCX-type (archiver) plugins to work with cpio, deb, rpm, bz2, rar, zip, tar, gz, tgz archives as directories (virtual file system, VFS), WFX plugin for FTP access, some content plugins (WDX), also a search plugin (DSX) and a lister videoplayer plugin (WLX) for Linux. Other plugins can be installed manually.</p>
+        <p>Double Commander uses Total Commander plugin API, so under Windows you can use plugins from Total Commander (many of them are compatible with DC).</p>
+        <p>DC comes with several pre-installed plugins: <a href="multiarc.html#withplugin">several WCX (archiver) plugins</a> to work with archives as directories (virtual file system, VFS), WFX plugin for working with FTP, some content plugins (WDX). Version for Linux includes WFX plugin for working with network storage (SMB/CIFS), search plugin (DSX) and video player plugin (WLX). Version for Windows includes two WLX plugins: Windows Media Player and Explorer preview plugin. Other plugins can be installed manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -155,11 +161,11 @@
 
         <p><a name="cm_MultiRename"><span class="bold">Multi-Rename Tool</span></a> (internal command <tt>cm_MultiRename</tt>)</p>
         <p class="figure"><img class="largeimage" title="Multi-Rename Tool" alt="Multi-Rename Tool" src="images/imgDC/pic21.png" width="724" height="434"></p>
-        <p>Allows renaming any files by defined mask. For example, some files with different names could be renamed into Picture1, Picture2, Picture3, etc. First, select files to be renamed and then start this tool (see figure above). There you can see the old and new names for your files.</p>
-        <p>See <a href="multirename.html">this page</a> for detailed descriptions.</p>
+        <p>Allows renaming any files by defined mask. For example, some files with different names could be renamed into Picture1, Picture2, Picture3, etc. First, select files to be renamed and then start this tool (see figure above). There you can see the old and new names for your files. See <a href="multirename.html">this page</a> for detailed descriptions.</p>
 
         <p>By selecting item <a name="cm_PackFiles"><span class="bold">Pack files</span></a> (internal command <tt>cm_PackFiles</tt>) we call a standard dialog to pack files to the zip, tar and other archive formats: the list of supported formats depends on the added packer plugins and <a href="multiarc.html">external archivers</a>.</p>
         <p class="figure"><img class="largeimage" title="Pack" alt="Pack" src="images/imgDC/pic22.png" width="546" height="277"></p>
+        <p>If the list of available formats is too long and does not fit in the window, Double Commander will bring them into the drop-down menu (in this case, use the checkbox with the "=>" label).</p>
         <p>Also we can unpack files via <a name="cm_ExtractFiles"><span class="bold">Extract Files</span></a> (internal command <tt>cm_ExtractFiles</tt>). The same dialog is called when you copy files from the archive.</p>
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
         <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.
@@ -207,7 +213,7 @@
       </div>
 
       <div>
-        <h2><a name="mnu_select">2.1.2."Mark"</a></h2>
+        <h2><a name="mnu_select">2.1.2. "Mark"</a></h2>
         <p>There are some commands in this group with which you can select files in different ways.</p>
         <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions.</p>
         <p class="figure"><img class="largeimage" title="Select a group" alt="Select a group" src="images/imgDC/pic27.png" width="333" height="332"></p>
@@ -373,7 +379,11 @@
         <p>Internal command <tt>cm_SrcOpenDrives</tt> will show this menu for active panel.</p>
         <p>Additional navigation buttons:</p>
         <p><tt><a name="btn_dirlist">"*"</a></tt>&nbsp;&mdash; shows the bookmarks hotlist, see the dedicated <a href="directoryhotlist.html">Directory Hotlist</a> help page for details;</p>
-        <p><tt>"\"</tt> or <tt>"/"</tt>&nbsp;&mdash; go to the system drive (Windows) or to the file system root (Linux and other Unix-like systems);</p>
+        <p><tt>"\"</tt> or <tt>"/"</tt>&nbsp;&mdash; go to the root of the current drive (Windows) or to the file system root (Linux and other Unix-like systems). Exceptions:</p>
+        <ul>
+          <li>archive of WFX plugin: go to root of this archive or other virtual file system.</li>
+          <li>locked tab: if you use <a href="#cm_SetTabOptionPathResets">Locked with Directory Changes Allowed</a>, this button will change the current path to the locked path.</li>
+        </ul>
         <p><tt>".."</tt>&nbsp;&mdash; go to the parent directory;</p>
         <p><tt>"~"</tt>&nbsp;&mdash; go to your home directory;</p>
         <p><tt>"&lt;"</tt> and <tt>"&gt;"</tt>&nbsp;&mdash; commands <a href="cmds.html#cm_LeftEqualRight">cm_LeftEqualRight</a> and <a href="cmds.html#cm_RightEqualLeft">cm_RightEqualLeft</a>.</p>
@@ -392,7 +402,7 @@
         <p class="figure"><img class="largeimage" title="Current directory bar" alt="Current directory bar" src="images/imgDC/pic7.png" width="372" height="21"></p>
         <p>Displays the name of the current directory. A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories.</p>
         <p class="figure"><img class="largeimage" title="Directories history" alt="Directories history" src="images/imgDC/pic8.png" width="372" height="164"></p>
-        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually.</p>
+        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually (environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory).</p>
         <p>It is now also possible to click on parts of the directory bar to quickly navigate back in the directory structure. Very handy if you want to go to a parent directory back many levels. This is known as a "breadcrumb" navigation feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -400,7 +410,9 @@
       <div>
         <h2><a name="iface_columns">2.7. Tabstop headers bar</a></h2>
         <p class="figure"><img class="largeimage" title="Tabstop headers bar" alt="Tabstop headers bar" src="images/imgDC/pic9.png" width="448" height="19"></p>
-        <p>Shows the column names. On left click <a href="#sort_by">sorts</a> files by column. On right click shows a menu to change and edit custom column style set.</p>
+        <p>Shows the column names. On left click <a href="#sort_by">sorts</a> files by column. A small arrow to the left of the header text shows the sort direction. Also you can set the sort order for multiple columns by clicking on the header while holding down the <kbd>Ctrl</kbd> key. For example, try to sort files by extension, now click on the "Date" header with the <kbd>Ctrl</kbd> key: each file type will be sorted by date independently of the others.</p>
+        <p>The tabstop headers bar allows to change the width of the columns using the mouse, by default DC changes it for both panels and saves a new value for the next launches (see <a href="configxml.html">&lt;AutoSaveWidth&gt;</a>).</p>
+        <p>On right click shows a menu to change and edit custom column style set.</p>
         <p class="figure"><img class="largeimage" title="Column set style dialog" alt="Column set style dialog" src="images/imgDC/pic10.png" width="273" height="108"></p>
         <p><span class="italic">Default, File count</span>&nbsp;&mdash; existing styles.</p>
         <p><span class="italic">Configure custom columns</span>&nbsp;&mdash; opens <a href="configuration.html#ConfigColumns">Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns</a> section.</p>
@@ -417,7 +429,8 @@
       <div>
         <h2><a name="iface_path">2.9. Command line</a></h2>
         <p class="figure"><img class="largeimage" title="Command line" alt="Command line" src="images/imgDC/pic12.png" width="738" height="29"></p>
-        <p>Use to enter commands manually. Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). Right button opens history of commands.</p>
+        <p>Use to enter commands manually. Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). The button on the right with an arrow opens the history of the entered commands. Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history.</p>
+        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. Environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory. If you use a path with the file name, Double Commander will place the cursor on this file.</p>
         <p>Right mouse click will show the usual input box menu that contains standard commands <span class="italic">Cut</span>, <span class="italic">Copy</span>, <span class="italic">Paste</span>, <span class="italic">Delete</span>, <span class="italic">Select All</span> and submenu <span class="italic">Insert Unicode Control Character</span>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

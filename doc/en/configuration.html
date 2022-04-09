@@ -139,7 +139,8 @@
         <h2><a name="settings">2. Configuration</a></h2>
         <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
         <p>Double Commander has several <a href="cmds.html#catconfiguration">internal commands</a> to open the configuration dialog and quickly jump to the desired section.</p>
-        <p>Note: To the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span>: the popup menu contains lists of variables (including environment variables) and some additional functions, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
+        <p>Double Commander supports importing/exporting some settings: directory hotlist, favorite tabs, external archivers, toolbar (main and middle), tooltips. Also, the list of hotkeys can be saved to a new file and you can switch between them.</p>
+        <p>Note: To the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">: the popup menu contains lists of variables (including environment variables) and some additional functions, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigLang">2.1. Language</a></span></p>
@@ -185,7 +186,7 @@
         <p>Here you can specify file types that should be given a different color. The <a href="#ConfigColorPanels">Allow Overcolor</a> parameter must be enabled (enabled by default).</p>
         <p class="figure"><img class="largeimage" title="File types by color" alt="File types by color" src="images/imgDC/pic31.png" width="512" height="353"></p>
         <p>In line <span class="italic">Category name</span> you may write a description of the file, what it does or what program it opens.</p>
-        <p>In line <span class="italic">Category mask</span> put a wildcard mask to match file types (symbol "*" means match any number of characters, symbol "?" means any one character). You may put multiple file types here using a semicolon ";" without spaces between them. Also you can use search templates, including search with content plugins.</p>
+        <p>In line <span class="italic">Category mask</span> put a wildcard mask to match file types (symbol "*" means match any number of characters, symbol "?" means any one character). You may put multiple file types here using a semicolon ";" without spaces between them. Also you can use search templates (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">), including search with content plugins.</p>
         <p>In line <span class="italic">Category attributes</span> you can put file attributes, and DC will match any files which have matching attributes (not available if using a search template). File attributes are specified by the following templates:</p>
         <ul>
           <li><p>Windows: [<code>d</code> or <code>l</code>]<code>rahs</code>[<code>c</code> or <code>e</code>]<code>tp</code></p></li>
@@ -256,8 +257,8 @@
         <br>
 
         <p><span class="bold"><a name="ConfigMouse">2.7. Mouse</a></span></p>
-        <p><span class="italic">Selection by mouse</span>, <span class="italic">Mode</span>&nbsp;&mdash; ability to select and unselect files and folders with the mouse. Mode is set for <kbd>Left button</kbd> or <kbd>Right button</kbd>.</p>
-        <p><span class="italic">By clicking on icon</span>&nbsp;&mdash; allows to select files with one mouse click on the icon.</p>
+        <p><span class="italic">Selection by mouse</span>, <span class="italic">Mode</span>&nbsp;&mdash; ability to select and unselect files and folders with the mouse. Mode is set for <kbd>Left button</kbd> or <kbd>Right button</kbd> (a long press will call the context menu for files and folders).</p>
+        <p><span class="italic">By clicking on icon</span>&nbsp;&mdash; allows to select files with one mouse click on the icon. Selection by clicking on icon in thumbnail view works when you click on left part (25%) of image, so you can set cursor without selection by mouse clicking on right image part.</p>
         <p><span class="italic">Scrolling</span>&nbsp;&mdash; ability to use mouse wheel to list files at panels.</p>
         <ul>
           <li><p><span class="italic">Line by line with cursor movement</span>&nbsp;&mdash; cursor will move up or down the panel before scrolling takes place.</p></li>
@@ -274,7 +275,8 @@
         <br>
 
         <p><span class="bold"><a name="ConfigMouseDD">2.7.1. Mouse&nbsp;&gt; Drag &amp; drop</a></span></p>
-        <p><span class="italic">Show confirmation dialog after drop</span>&nbsp;&mdash; helps to avoid accidental errors when using drag and drop files inside the active file panel or between panels: Double Commander will show a confirmation dialog as for normal copying or moving (if the <kbd>Shift</kbd> key was held) files.</p>
+        <p><span class="italic">Show confirmation dialog after drop</span>&nbsp;&mdash; helps to avoid accidental errors when using drag and drop files inside the active file panel or between panels: Double Commander will show a confirmation dialog as for normal copying or moving (if the <kbd>Shift</kbd> key was held) files.<br>
+          Dragging using the right mouse button will show the menu with the following actions: <span class="italic">Copy</span>, <span class="italic">Move</span>, <span class="italic">Create link</span>, <span class="italic">Create symlink</span> and <span class="italic">Cancel</span>.</p>
         <p>The next feature is available in Windows only: you can drag and drop text selected in a web browser or word processor (for example, LibreOffice Writer or Microsoft Word) to the panel and save it. Here you can choose file format (RTF, HTML or plain text file), encoding and enable automatic name generation.</p>
         <br>
 
@@ -318,7 +320,7 @@
         <p>The first parameter in the <span class="italic">Formatting</span> group is <span class="italic"><a name="dt_format">Date and time format</a></span>. You can choose one of the existing templates from the drop down list or set your own using date and time formatting characters.</p>
         <p>Formatting characters are presented below (based on <a title="Free Pascal: Date and time format" href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html" target="_blank">Free Pascal documentation</a>). Some values depends on your regional settings!</p>
         <p>As example we will use 2021.01.24 09:06:02 (i.e. <tt>yyyy.mm.dd hh:mm:ss</tt>) and the USA region.</p>
-        <table><tbody>
+        <table>
           <tr class="rowcategorytitle"><th colspan="3">Possible characters</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Characters</th><th class="categorydesccolumn">Description</th><th class="categorynamecolumn">Example</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">short date format and long time format if the time is not zero</td><td class="hintcell">1/24/2021 9:06:02</td></tr>
@@ -347,7 +349,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">insert date separator</td><td class="hintcell">/</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">insert time separator</td><td class="hintcell">:</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">"text"</div></td><td class="hintcell">literal text; for example, <code>yyyy "AD"</code></td><td class="hintcell">2021 AD</td></tr>
-        </tbody></table>
+        </table>
 
         <p>The next parameters sets the file size format:</p>
         <ul>
@@ -418,7 +420,7 @@
         <p><span class="italic">New</span>&nbsp;&mdash; creates a new column set based on the selected one. With the same name + current date and time.</p>
         <p><span class="italic">Rename</span>&nbsp;&mdash; will prompt to enter a new name.</p>
         <p><span class="italic">Delete</span>&nbsp;&mdash; deletes selected columns set.</p>
-        <p>Below is a table with columns of the selected set, here you can set the number, name, content, place and size of columns. The count of lines in the table is equal to the count of columns in the set. Adding a new column: right-click in the empty area near the table and select <span class="italic">Add column</span>.</p>
+        <p>Below is a table with columns of the selected set, here you can set the number, name, content, place and size of columns. The count of lines in the table is equal to the count of columns in the set. Adding a new column: use the <kbd>down arrow</kbd> key or right-click in the empty area near the table and select <span class="italic">Add column</span>.</p>
         <p>These are the parameters that determine the table for the column (click in the boxes to edit them):</p>
         <p class="figure"><img class="largeimage" title="Columns" alt="Columns" src="images/imgDC/pic37.png" width="612" height="46"></p>
         <p><span class="italic">Column</span>&nbsp;&mdash; shows the indicator of the selected column.</p>
@@ -464,7 +466,18 @@
         <br>
 
         <p><span class="bold"><a name="ConfigPlugins">2.9. Plugins</a></span></p>
-        <p>Plugins are extensions that enhance the functionality of Double Commander. There are several types of plugins:</p>
+        <p>Plugins are extensions that enhance the functionality of Double Commander.</p>
+        <p>In the beginning, a few general settings.</p>
+        <p><span class="italic">When adding a new plugin, automatically go in tweak window</span>&nbsp;&mdash; See the description of the <span class="italic">Tweak</span> button below.</p>
+        <p><span class="italic">Plugin filename style when adding a new plugin</span>&nbsp;&mdash; Here you can choose how the path will be set when adding plugins:</p>
+        <ul>
+          <li><p>With complete absolute path.</p></li>
+          <li><p>Path relative to %COMMANDER_PATH%.</p></li>
+          <li><p>Relative to the specified path.</p></li>
+        </ul>
+        <p>Also you can apply the chosen way to the already added plugins.</p>
+        <p><span class="italic"><a name="luapathtolibrary">Lua library file to use</a></span>&nbsp;&mdash; the full name of the Lua library, or only the file name if the file is located in the program directory or system directories for libraries. This path may be relative to the Double Commander executable file. (Lua scripts can be used for automation and as content plugins, see more details <a href="lua.html">here</a>.)</p>
+        <p>There are several types of plugins:</p>
         <p><span class="italic">1. Packer plugins (WCX)</span></p>
         <p>Packer plugins are used to unpack specific types of files, usually archive formats. Some plugins also support creating new archives and modifying existing archives.<br>
           There are plugins that allow to save a list of selected files or use batch processing: creating links,converting files, copying with specific conditions, etc.</p>
@@ -636,6 +649,9 @@
           <li><p>Program directory (portable version).</p></li>
           <li><p>User home directory.</p></li>
         </ul>
+        <p>As an indicator, Double Commander uses an empty <tt>doublecmd.inf</tt> file in the program directory:
+          if the file exists, Double Commander will load configuration files from the program directory and save them here, otherwise Double Commander will use the current user's folder.
+          You can manually add the <tt>doublecmd.inf</tt> file and get a portable version, or delete it by switching the storage method to the user's folder.</p>
         <p>If you launch Double Commander with the <a href="commandline.html">--config-dir</a> parameter, then DC will just write <span class="italic">Set on command line</span> and show the full path to the configuration files.</p>
         <p>Buttons <span class="italic">Edit</span> and <span class="italic">Apply</span>&nbsp;&mdash; allow to open the <tt>doublecmd.xml</tt> configuration file and change the settings manually. Keep in mind that some settings require a restart of Double Commander to apply.</p>
         <p>Note (or little trick): This way allows to apply settings immediately without restarting the DC (but not all!): for example, you can change and immediately apply the size of the icons in the file panels, but you will not be able to change the program language without restarting.</p>
@@ -759,7 +775,7 @@
           <li><p><span class="italic">Export...</span> and <span class="italic">Import...</span>&nbsp;&mdash; allow to export tooltips to a DC Tooltip file and import them from such files (in whole or in parts).</p></li>
         </ul>
         <p>Below you can configure the content of the tooltip for the selected file type.</p>
-        <p>In line <span class="italic">Category mask</span> put a wildcard mask to match file types (symbol "*" means match any number of characters, symbol "?" means any one character). You may put multiple file types here using a semicolon ";" without spaces. Also you can use search templates, including search with content plugins.</p>
+        <p>In line <span class="italic">Category mask</span> put a wildcard mask to match file types (symbol "*" means match any number of characters, symbol "?" means any one character). You may put multiple file types here using a semicolon ";" without spaces. Also you can use search templates (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">), including search with content plugins.</p>
         <p>In the <span class="italic">Category hint</span> field, you can enter any text and use the WDX plugins fields to get information (the "&gt;&gt;" button).</p>
         <p>The remaining parameters are general tooltip parameters.</p>
         <p><span class="italic">Tooltip showing mode</span>&nbsp;&mdash; determines what type of tooltips Double Commander will show and how to combine them, if both types:</p>
@@ -783,7 +799,7 @@
         <p><span class="italic">Remove</span>&nbsp;&mdash; deletes a group.</p>
         <p><span class="italic">Rename</span>&nbsp;&mdash; allows to set a new name for the group.</p>
         <p><span class="italic">Icon</span>&nbsp;&mdash; you can set the path to an icon for this group. Also you can use MIME-type icons: for example, if you want to use <tt>text-x-pascal.png</tt> from Double Commander icons theme (or from system theme in Linux and other Unix-like systems), just insert <code>text-x-pascal</code>.</p>
-        <p><span class="italic">Extensions</span>&nbsp;&mdash; here you can set the extensions (without dot) for the selected group. Special values:</p>
+        <p><span class="italic">Extensions</span>&nbsp;&mdash; here you can set the extensions (without dot) for the selected group. You can add multiple extensions using a vertical bar "|" (without spaces between them). Special values:</p>
         <ul>
           <li><p><tt>file</tt>&nbsp;&mdash; any file;</p></li>
           <li><p><tt>folder</tt>&nbsp;&mdash; any directory;</p></li>

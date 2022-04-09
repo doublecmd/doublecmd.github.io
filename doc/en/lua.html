@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.12. Lua Scripting</h1>
+        <h1>2.13. Lua Scripting</h1>
       </div>
 
       <div>
@@ -68,20 +68,31 @@
       <div>
         <h2><a name="preface">1. Introduction</a></h2>
         <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.</p>
-        <p>It is also possible to write content plugins using Lua script, examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).</p>
+        <p>It is also possible to write content plugins using Lua script, examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).
+          The Wiki has a <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">page</a> dedicated to writing plugins.
+          Limitations: only the following data types are supported</p>
+        <ul>
+          <li><i>ft_numeric_32</i>&nbsp;&mdash; a 32-bit signed number;</li>
+          <li><i>ft_numeric_64</i>&nbsp;&mdash; a 64-bit signed number;</li>
+          <li><i>ft_numeric_floating</i>&nbsp;&mdash; a floating point number;</li>
+          <li><i>ft_boolean</i>&nbsp;&mdash; boolean type: <i>true</i> or <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i>&nbsp;&mdash; a value allowing a limited number of choices;</li>
+          <li><i>ft_string</i>&nbsp;&mdash; a text string (use UTF-8);</li>
+          <li><i>ft_fulltext</i>&nbsp;&mdash; a full text (multiple text strings), used only for searching with plugins;</li>
+          <li><i>ft_datetime</i>&nbsp;&mdash; for date/time: a returned date will be converted to a formatted date and time string (value depends on your regional settings).</li>
+        </ul>
+        <p>Note: When saving scripts, use UTF-8 encoding without BOM.</p>
         <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2><a name="dllrequired">2. DLL required</a></h2>
-        <p>In order to interpret Lua script file, we need to have a Lua DLL file (version 5.1 or higher) in the same folder as the executable of Double Commander or in system folder.</p>
-        <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS). We can change the file name in the <a href="configxml.html#luapathtolibrary">&lt;PathToLibrary&gt;</a> parameter manually.</p>
+        <p>In order to interpret Lua script file, we need to have a Lua DLL file (Double Commander supports versions 5.1 - 5.4) in the same folder as the executable of Double Commander or in system folder.</p>
+        <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS<sup>(<a title="Note about Mac OS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). We can change the file name in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter manually.</p>
         <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>.
-           LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.
-           DLL for Windows: <a href="https://doublecmd.sourceforge.io/test/luajit_win32.zip">32-bit</a> or <a href="https://doublecmd.sourceforge.io/test/luajit_win64.zip">64-bit</a>.</p>
-        <p>If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
-        <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it.</p>
+           LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
+        <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -277,6 +288,14 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
+              <p>Create a chain of directories, <var>Directory</var> is the full path to directory.</p>
+              <p>Returns <code>true</code> if <var>Directory</var> already exist or was created successfully. If it failed to create any of the parts, <code>false</code> is returned.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
@@ -299,14 +318,6 @@
               <p>Read destination of the symbolic link <var>LinkName</var>.</p>
               <p>If <var>Recursive</var> is <code>true</code> and the link points to a link then it's resolved recursively until a valid file name that is not a link is found.</p>
               <p>Returns the path where the symbolic link <var>LinkName</var> is pointing to or an empty string when the link is invalid or the file it points to does not exist and <var>Recursive</var> is <code>true</code>.</p>
-            </td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
-            <td class="hintcell">
-              <p class="definition">SysUtils.PathDelim</p>
-              <p>Allows a script to get from DC the system path delimiter.</p>
-              <p>In Unix/Linux system will be a " / " and in Windows will be " \ "</p>
             </td>
           </tr>
           <tr>
@@ -349,6 +360,29 @@
             </td>
           </tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.GetAbsolutePath(FileName, BaseDirectory)</p>
+              <p>Returns the absolute (full) path to the file:</p>
+              <ul>
+                <li><var>FileName</var> : The filename with a relative path.</li>
+                <li><var>BaseDirectory</var> : The directory that was used as the base directory for <var>FileName</var>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.GetRelativePath(FileName, BaseDirectory)</p>
+              <p>Returns the filename relative to the specified directory:</p>
+               <ul>
+                <li><var>FileName</var> : The full (absolute) filename.</li>
+                <li><var>BaseDirectory</var> : The directory that will be used as the base directory <var>FileName</var>.</li>
+              </ul>
+              <p>If <var>FileName</var> and <var>BaseDirectory</var> contain the same value, the function will return an empty string ("").</p>
+            </td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMask(FileName, Mask, MaskOptions)</p>
@@ -387,11 +421,11 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
+            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
-              <p>Create a chain of directories, <var>Directory</var> is the full path to directory.</p>
-              <p>Returns <code>true</code> if <var>Directory</var> already exist or was created successfully. If it failed to create any of the parts, <code>false</code> is returned.</p>
+              <p class="definition">SysUtils.PathDelim</p>
+              <p>Allows a script to get from DC the system path delimiter.</p>
+              <p>In Unix/Linux system will be a " / " and in Windows will be " \ "</p>
             </td>
           </tr>
         </table>
@@ -400,7 +434,7 @@
 
       <div>
         <h2><a name="detailattr">3.2.1. Details on SysUtils.FileGetAttr returned value</a></h2>
-        <p><var>FileGetAttr</var> returns the attribute settings of file <var>FileName</var>.</p>
+        <p><code>FileGetAttr</code> returns the attribute settings of file <var>FileName</var>.</p>
         <p>The attribute is a <var>OR</var>-ed combination of the following constants:</p>
 
         <table>
@@ -444,7 +478,7 @@
 
       <div>
         <h2><a name="exampleattr">3.2.2. Example with SysUtils.FileGetAttr</a></h2>
-        <p>This following script is an example of usage of the SysUtils.FileGetAttr.</p>
+        <p>This following script is an example of usage of the <code>SysUtils.FileGetAttr</code>.</p>
         <p>When the parameter is detected to be a directory, it will open a new tab in the active panel and switch to it.</p>
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
@@ -472,7 +506,7 @@
       <div>
         <h2><a name="examplefind">3.2.3. Example using FindFirst, FindNext and FindClose</a></h2>
         <p>In the following script example, we'll scan the content of the directory we received in parameter and store resulting data into a text file with the filename passed as a second parameter.</p>
-        <p>This will give us a good idea of the usage of FindFirst, FindNext and FindClose.</p>
+        <p>This will give us a good idea of the usage of <code>FindFirst</code>, <code>FindNext</code> and <code>FindClose</code>.</p>
 
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
@@ -976,9 +1010,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">
-              <p class="definition">resultcode = os.execute(command)</p>
-              <p>Will execute <var>command</var> as it would be typed on the command-line and return the result code of the operation.</p>
-              <p>The <var>command</var> could either be:</p>
+              <p class="definition">ResultCode = os.execute(Command)</p>
+              <p>Will execute <var>Command</var> as it would be typed on the command-line and return the result code of the operation.</p>
+              <p>The <var>Command</var> could either be:</p>
               <ul>
                 <li>A terminal commmand like <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>An executable like <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
@@ -989,43 +1023,43 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
-              <p class="definition">tempfilename = os.tmpname()</p>
+              <p class="definition">TempFileName = os.tmpname()</p>
               <p>Will return a filename to use as a temporary filename.</p>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.remove</div></td>
             <td class="hintcell">
-              <p class="definition">bresult, errorstr, errorno = os.remove(filename)</p>
-              <p>Will delete the file or the directory with the name <var>filename</var>.</p>
+              <p class="definition">bResult, ErrorStr, ErrorNum = os.remove(FileName)</p>
+              <p>Will delete the file or the directory with the name <var>FileName</var>.</p>
               <p>If it works, function returns <code>true</code>.</p>
               <p>If it fails, function returns three things:</p>
               <ol>
                 <li><code>nil</code> to indicate it failed</li>
-                <li><var>errorstr</var> for the error message description</li>
-                <li><var>errorno</var> for the error code number</li>
+                <li><var>ErrorStr</var> for the error message description</li>
+                <li><var>ErrorNum</var> for the error code number</li>
               </ol>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.rename</div></td>
             <td class="hintcell">
-              <p class="definition">bresult, errorstr, errorno = os.rename(nameS, nameD)</p>
-              <p>Will rename the file <var>nameS</var> with the new name <var>nameD</var>.</p>
+              <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
+              <p>Will rename the file <var>OldName</var> with the new name <var>NewName</var>.</p>
               <p>If it works, function returns <code>true</code>.</p>
               <p>If it fails, function returns three things:</p>
               <ol>
                 <li><code>nil</code> to indicate it failed</li>
-                <li><var>errorstr</var> for the error message description</li>
-                <li><var>errorno</var> for the error code number</li>
+                <li><var>ErrorStr</var> for the error message description</li>
+                <li><var>ErrorNum</var> for the error code number</li>
               </ol>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">os.getenv</div></td>
             <td class="hintcell">
-              <p class="definition">value = os.getenv(variablename)</p>
-              <p>Will return the <var>value</var> of the variable <var>variablename</var> passed in parameter.<br>If no variable of that name exists, it will return <code>nil</code>.</td>
+              <p class="definition">Value = os.getenv(VariableName)</p>
+              <p>Will return the <var>Value</var> of the variable <var>VariableName</var> passed in parameter.<br>If no variable of that name exists, it will return <code>nil</code>.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

@@ -12,11 +12,11 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="copymove.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.4. Find files</h1>
+        <h1>2.5. Find files</h1>
       </div>
 
       <div>
@@ -102,10 +102,11 @@
         <ul>
           <li><p>compare file names;</p></li>
           <li><p>compare file sizes;</p></li>
-          <li><p>compare file hashes: BLAKE2s (x32) or BLAKE2b (x64) checksum will be used;</p></li>
+          <li><p>compare file hashes: BLAKE2b (x64) or BLAKE2s checksum will be used;</p></li>
           <li><p>compare file content (byte-by-byte comparison).</p></li>
         </ul>
-        <p>In the result will be shown file names, group number of matching files and file locations.</p>
+        <p>In the result will be shown file names, group number of matching files and file locations. Also after feed to listbox you can use special selection mode, where you can select only duplicates:
+          <span class="italic">Select a Group</span> and <span class="italic">Unselect a Group</span> in the <span class="italic">Mark</span> submenu (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -298,7 +299,7 @@
         <ul>
           <li><p><span class="italic">View</span>&nbsp;&mdash; opens selected file in the viewer (<kbd>F3</kbd>).</p></li>
           <li><p><span class="italic">Edit</span>&nbsp;&mdash; opens selected file in the editor (<kbd>F4</kbd>).</p></li>
-          <li><p><span class="italic">Go to file</span>&nbsp;&mdash; closes search window and sets cursor on the selected file in the panel.</p></li>
+          <li><p><span class="italic">Go to file</span>&nbsp;&mdash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file.</p></li>
           <li><p><span class="italic">Feed to listbox</span>&nbsp;&mdash; transfers a list of the found files in the active file panel.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -325,7 +326,7 @@
         <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="shortcuts.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="copymove.html">Previous</a> | <a title="Next page" href="multirename.html">Next</a></div></div>
     <div class="checker">
       <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

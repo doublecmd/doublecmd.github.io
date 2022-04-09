@@ -31,6 +31,7 @@
               <dt>1.4. <a href="#wincmd">В чём отличия этой программы от моего любимого Total Commander?</a></dt>
               <dt>1.5. <a href="#opsys">У меня 64-битная ОС. Могу я скачать Double Commander, оптимизированный под мою систему?</a></dt>
               <dt>1.6. <a href="#link">Как можно связаться с разработчиками Double Commander?</a></dt>
+              <dt>1.7. <a href="#pupd">Как обновить портативную версию и не потерять настройки?</a></dt>
             </dl>
           </dd>
           <dt><a name="tux">2. Вопросы, связанные с GNU/Linux</a></dt>
@@ -52,6 +53,7 @@
               <dt>3.5. <a href="#splitter">Как создать разделитель на панели кнопок?</a></dt>
               <dt>3.6. <a href="#theme">Существуют ли темы значков для DC?</a></dt>
               <dt>3.7. <a href="#cs_size">Как сделать функциональные клавиши и панель адреса побольше?</a></dt>
+              <dt>3.8. <a href="#height">Файловые панели: как изменить высоту элементов (строк) и интервалов между ними?</a></dt>
             </dl>
           </dd>
           <dt><a name="navigation">4. Вопросы, связанные с навигацией и управлением</a></dt>
@@ -77,6 +79,7 @@
               <dt>5.5. <a href="#f4_colmode">Можете добавить функцию редактирования колонок (как в Notepad++, UltraEdit и т.д.)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Возможно ли добавить поддержку SVG во встроенный просмотрщик?</a></dt>
               <dt>5.7. <a href="#f34_regutf8">Как я могу использовать регулярные выражения для поиска в UTF-8?</a></dt>
+              <dt>5.8. <a href="#f4_syntax">Как изменить схему подсветки синтаксиса во встроенном редакторе или добавить новые?</a></dt>
             </dl>
           </dd>
           <dt><a name="fv">6. Вопросы, связанные с файловыми панелями</a></dt>
@@ -110,7 +113,7 @@
         <br>
 
         <p class="bold"><a name="linux">В: Это версия Total Commander для Linux, да?</a></p>
-        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK и Qt (зависит от Lazarus, поэтому на данный момент GTK2 и Qt5) и Mac OS, также Double Commander доступен в портах FreeBSD.</p>
+        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK и Qt (зависит от Lazarus, поэтому на данный момент GTK2 и Qt5) и Mac OS<sup>(<a title="Примечание о поддержке Mac OS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, также Double Commander доступен в портах FreeBSD.</p>
         <br>
 
         <p class="bold"><a name="wincmd">В: В чём отличия этой программы от моего любимого Total Commander?</a></p>
@@ -125,6 +128,15 @@
         <p class="bold"><a name="link">В: Как можно связаться с разработчиками Double Commander?</a></p>
         <p><span class="bold">О:</span> <a href="https://doublecmd.h1n.ru/" target="_blank">Официальный форум</a> проекта или <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
           Убедитесь, что вы используете последнюю версию программы, и перед тем, как сообщать об ошибке или запрашивать новую функцию, рекомендуется проверить разрабатываемую (альфа) версию.</p>
+        <br>
+
+        <p class="bold"><a name="pupd">В: Как обновить портативную версию и не потерять настройки?</a></p>
+        <p><span class="bold">О:</span> Обновление осуществляется простой распаковкой и заменой файлов, но следует обратить внимание на следующие файлы:</p>
+        <ul>
+          <li><tt>multiarc.ini</tt>&nbsp;&mdash; см. <a href="multiarc.html">внешние архиваторы</a>;</li>
+          <li><tt>pixmaps.txt</tt>&nbsp;&mdash; см. <a href="configuration.html#ConfigIcons">Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Значки&nbsp;&gt; Только стандартные</a>.</li>
+        </ul>
+        <p>Если вы не меняли эти настройки, то просто согласитесь с заменой файлов. В противном случае, сравните со своими и скопируйте изменения.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -139,16 +151,16 @@
         <ul>
           <li>
             <p>релиз:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
-              или
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
+              или
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
             </p>
           </li>
           <li>
             <p>альфа-версия ("ночные" сборки):
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
-              или
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
+              или
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
             </p>
           </li>
         </ul>
@@ -224,13 +236,13 @@
           Откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Конфигурация&nbsp;&gt; Каталоги&nbsp;&gt; Темы значков:, здесь вы увидите список возможных каталогов.<br>
           Не используйте <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> или другие системные каталоги: это потребует права root/администратора, также это будет вмешательством в работу менеджера пакетов в Linux или инсталлятора DC в Windows.
           DC обычно предлагает следующий дополнительный путь (помимо папки "pixmaps" рядом с <tt>doublecmd.exe</tt>):</p>
-          <ul>
-            <li>Windows XP: <i>C:\Documents and Settings\&lt;Имя пользователя&gt;\Local Settings\doublecmd\pixmaps</i></li>
-            <li>Windows Vista/7+: <i>C:\Users\&lt;Имя пользователя&gt;\AppData\Local\doublecmd\pixmaps</i></li>
-            <li>Unix-подобные ОС: <i>/home/&lt;Имя пользователя&gt;/.local/share/doublecmd/pixmaps</i></li>
-          </ul>
-          <p>Если каталог не существует, создайте его.<br>
-            Теперь перезапустите DC, откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Значки&nbsp;&gt; Тема значков, выберите вашу тему и снова перезапустите DC.</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;Имя пользователя&gt;\Local Settings\doublecmd\pixmaps</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;Имя пользователя&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+          <li>Unix-подобные ОС: <i>/home/&lt;Имя пользователя&gt;/.local/share/doublecmd/pixmaps</i></li>
+        </ul>
+        <p>Если каталог не существует, создайте его.<br>
+          Теперь перезапустите DC, откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Значки&nbsp;&gt; Тема значков, выберите вашу тему и снова перезапустите DC.</p>
         <br>
 
         <p class="bold"><a name="cs_size">В: Как сделать функциональные клавиши и панель адреса побольше?</a></p>
@@ -246,6 +258,15 @@
         <p>2. Откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Шрифты.<br>
           Примечание: Всё возможное доступно только в версии 1.0.0+, для 0.9.x и ниже дополнительно смотрите третий пункт.</p>
         <p>3. Закройте DC&nbsp;&gt; откройте <tt>doublecmd.xml</tt>&nbsp;&gt; найдите тег <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> и вручную измените <code>&lt;Size&gt;</code> элемента интерфейса.</p>
+        <br>
+
+        <p class="bold"><a name="height">В: Файловые панели: как изменить высоту элементов (строк) и интервалов между ними?</a></p>
+        <p><span class="bold">О:</span> Вид зависит от следующих параметров:</p>
+        <ul>
+          <li>Настройки &gt; Параметры... &gt; Шрифты &gt; Основной</li>
+          <li>Настройки &gt; Параметры... &gt; Значки &gt; Размер значков &gt; Панель файлов</li>
+          <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (в &lt;FilesViews&gt;)</li>
+        </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -269,7 +290,7 @@
           <li>Используйте пункт ".." в начале списка файлов (но если список файлов длинный, будет необходимо его прокрутить).</li>
           <li>Используйте главное меню: Выделение&nbsp;&gt; Снять выделение со всех.</li>
           <li>Добавьте кнопку "Снять выделение со всех" (внутренняя команда <tt>cm_MarkUnmarkAll</tt>) на панель инструментов.</li>
-          <li>Откройте "Настройки" в главном меню&nbsp;&gt; Параметры&nbsp;&gt; Мышь&nbsp;&gt; Выделение с помощью мыши&nbsp;&gt; включите "Щелчком по значку": первый щелчок снимет выделение с одного файла, теперь щёлкните по его имени.</li>
+          <li>Откройте "Настройки" в главном меню&nbsp;&gt; Параметры&nbsp;&gt; Мышь&nbsp;&gt; Выделение с помощью мыши&nbsp;&gt; включите "Щелчком по значку": первый щелчок снимет выделение с одного файла, теперь щёлкните по его имени. (Как использовать в режиме просмотра эскизов смотрите в <a href="configuration.html#ConfigMouse">описании</a> этого параметра.)</li>
         </ul>
         <br>
 
@@ -333,10 +354,49 @@
         <p><span class="bold">О:</span> Возможность была добавлена в версии 1.0.0. Необходима библиотека PCRE2 с поддержкой 8-битной кодировки и включенной поддержкой Юникода (обычно включено по умолчанию):</p>
         <ul>
           <li><p>Linux: необходим файл <tt>libpcre2-8.so.0</tt>. Например, пакет <tt>libpcre2-8-0</tt> в Debian и построенных на нём дистрибутивах или <tt>pcre2</tt> в Arch Linux.</p></li>
-          <li><p>Windows: необходим файл <tt>libpcre2-8.dll</tt>. Если у вас нет <tt>libpcre2-8.dll</tt> в папке Double Commander, то можете взять эту DLL здесь:
-            <a href="https://doublecmd.sourceforge.io/test/libpcre2_win32.zip">32-битная</a> или <a href="https://doublecmd.sourceforge.io/test/libpcre2_win64.zip">64-битная</a>.</p></li>
-          <li><p>MacOS: необходим файл <tt>libpcre2-8.dylib</tt>.</p></li>
+          <li><p>Windows: необходим файл <tt>libpcre2-8.dll</tt> (по умолчанию дистрибутив Double Commander содежит эту DLL).</p></li>
+          <li><p>Mac OS: необходим файл <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
+        <br>
+
+        <p class="bold"><a name="f4_syntax">В: Как изменить схему подсветки синтаксиса во встроенном редакторе или добавить новые?</a></p>
+        <p><span class="bold">О:</span> DC использует два компонента:</p>
+        <p>1. <i>SynEdit</i> со встроенными правилами подсветки синтаксиса. Если хотите изменить любую схему, вы должны изменить исходный код DC или Lazarus.
+          Но вы можете легко изменить используемые цвета и списки расширений файлов: откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Инструменты&nbsp;&gt; Редактор&nbsp;&gt; Подсветка. Не забывайте сохранять изменения для каждого типа файлов.<br>
+          Все настройки сохраняются в файле <tt>highlighters.xml</tt>.</p>
+        <p>2. <i>SynUniHighlighter</i> для пользовательских схем подсветки синтаксиса (*.hgl) и вы можете попробовать найти или создать эти файлы самостоятельно (смотрите ниже).</p>
+        <p>Это обычные XML-файлы, вы можете открыть их в текстовом редакторе и прочитать/отредактировать. В начале файлов расположен тег <code>&lt;General&gt;</code> (внутри <code>&lt;Info&gt;</code>):</p>
+        <p>1) Старый формат: теги <code>&lt;General&gt;</code><br>
+          -&nbsp;<code>&lt;Name&gt;</code>: имя для меню <i>Подсветка синтаксиса</i>;<br>
+          -&nbsp;<code>&lt;FileTypeName&gt;</code>: список расширений поддерживаемых файлов.</p>
+        <p>2) Новый формат: атрибуты <code>&lt;General&gt;</code><br>
+          -&nbsp;<code>Name</code>: имя для меню <i>Подсветка синтаксиса</i>;<br>
+          -&nbsp;<code>Extensions</code>: список расширений поддерживаемых файлов.</p>
+        <p>(DC поддерживает оба формата.)</p>
+        <p><span class="uline"><i>Как создать или изменить:</i></span></p>
+        <p>Используйте UniHighlighter Editor или HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">скачать</a>). Обе программы были написаны для Windows, но вы можете использовать Wine. HglEditor сохранит HGL-файл в новом формате.<br>
+          Также доступны два архива с различными схемами подсветки синтаксиса.</p>
+        <p><span class="uline"><i>Как добавить:</i></span></p>
+        <p>1) Портативная версия<br>
+          Скопируйте (или переместите) HGL-файл(ы) в папку "highlighters" рядом с <tt>doublecmd.exe</tt> и перезапустите DC.</p>
+        <p>2) Установленная версия<br>
+          Откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Конфигурация&nbsp;&gt; Каталоги&nbsp;&gt; Файлы подсветки:, здесь вы увидите список возможных каталогов.<br>
+          Не используйте <i>/usr/share/doublecmd/highlighters</i>, <i>C:\Program Files\Double Commander\highlighters</i> или другие системные каталоги: это потребует права root/администратора, также это будет вмешательством в работу менеджера пакетов в Linux или инсталлятора DC в Windows.
+          DC обычно предлагает следующий дополнительный путь (помимо папки "highlighters" рядом с <tt>doublecmd.exe</tt>):</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;Имя пользователя&gt;\Local Settings\doublecmd\highlighters</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;Имя пользователя&gt;\AppData\Local\doublecmd\highlighters</i></li>
+          <li>Unix-подобные ОС: <i>/home/&lt;Имя пользователя&gt;/.local/share/doublecmd/highlighters</i></li>
+        </ul>
+        <p>Если каталог не существует, создайте его. Теперь перезапустите DC.</p>
+        <p><span class="uline"><i>Дополнительные возможности:</i></span></p>
+        <p>1) Подменю <i>Другое</i></p>
+        <p>Дополнительный пункт в меню <i>Подсветка синтаксиса</i>: если меню слишком большое, вы можете переместить некоторые пункты в подменю <i>Другое</i>.
+          Просто добавьте в тег <code>&lt;General&gt;</code> атрибут <code>Other</code> и значение 1 и перезапустите DC.<br>
+          Например, до<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3" Extensions="AU3"/&gt;</code><br>
+          и после<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3" Extensions="AU3" Other="1"/&gt;</code></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 

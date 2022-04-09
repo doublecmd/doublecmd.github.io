@@ -131,7 +131,7 @@ div.categoryname {
   font-weight: bold;
 }
 
-body { font-size: 11pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #000000; text-decoration: none; background-color: #e6e8ea; }
+body { font-size: 11pt; font-family: 'Arial', sans-serif; font-style: normal; font-weight: normal; color: #000000; text-decoration: none; background-color: #e6e8ea; }
 
 div.dchelpage { border-left: 1px solid black; border-right: 1px solid black; text-align: left; margin: auto; width: 895px; background-color: #fcfcfc; }
 div.dchelpage h1 { background-color: #e0e0e0; margin: 0px; padding: 10px; color: #000000; }

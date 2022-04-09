@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.14. Файл конфигурации doublecmd.xml</h1>
+        <h1>2.15. Файл конфигурации doublecmd.xml</h1>
       </div>
 
       <div>
@@ -66,6 +66,32 @@
           <tr class="rowsubtitle"><th class="namecolumn">Тег</th><th class="categorydesccolumn">Описание</th></tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<br><small>в &lt;AutoRefresh&gt;</small></div></td>
+            <td class="hintcell">
+              Возможность удалить просматриваемые каталоги.<br>"Просматриваемый каталог"&nbsp;&mdash; это каталог, на который Double Commander создаёт своего рода хук, поэтому может отслеживать любые изменения в нём.<br>Таким образом, он может обновить отображаемое содержимое файловой панели, если оно изменилось.<br>Этот параметр позволяет контролировать, как Double Commander будет реагировать на попытку удалить один из таких "просматриваемых каталогов" (даже в неактивной вкладке).<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell">Блокировать удаление просматриваемых каталогов.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Не мешать удалению просматриваемых каталогов (по умолчанию).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">Отслеживать не каталог, а весь диск целиком: нет проблем с блокировкой открытых в DC каталогов, но может нагружать процессор.</td>
+                </tr>
+              </table>
+              <i>Пример:</i> <code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<br><small>в &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">
               При запуске Double Commander активной будет правая панель.<br>
@@ -84,6 +110,177 @@
                 </tr>
               </table>
               <i>Пример:</i> <code>&lt;ActiveRight&gt;True&lt;/ActiveRight&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>в &lt;Colors&gt;</small></div></td>
+            <td class="hintcell">
+              Мы можем настроить DC так, чтобы он рисовал рамку вокруг курсора. Параметр <code>&lt;gBorderFrameWidth&gt;</code> позволяет нам задать ширину линий.<br>
+              Чтобы включить курсор-рамку, мы должны перейти в Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Цвета&nbsp;&gt; Файловые панели и отметить параметр <i>Курсор-рамка</i>.<br>
+              <i>Пример:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>в &lt;Colors&gt;</small></div></td>
+            <td class="hintcell">
+              Изменение цвета <a href="help.html#iface_dir">панели текущего пути</a>:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Тег</th>
+                  <th class="innerdescheader">Файловая панель</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;ActiveColor&gt;</td>
+                  <td class="innerdescvaluecell" rowspan="2">активная</td>
+                  <td class="innerdescdesccell">цвет фона</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;ActiveFontColor&gt;</td>
+                  <td class="innerdescdesccell">цвет шрифта</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;InactiveColor&gt;</td>
+                  <td class="innerdescvaluecell" rowspan="2">неактивная</td>
+                  <td class="innerdescdesccell">цвет фона</td>
+                </tr>
+                <tr>
+                  <td class="innerdescdesccell">&lt;InactiveFontColor&gt;</td>
+                  <td class="innerdescdesccell">цвет шрифта</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>и</small> &lt;Success&gt;<br><small>в &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
+            <td class="hintcell">Задают цвет текста в окне протокола для информационных сообщений, сообщений об ошибке и об успешной операции.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>и</small> &lt;Modified&gt;<br><small>в &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
+            <td class="hintcell">Встроенный инструмент сравнения файлов: цвет для добавленных, удалённых и модифицированных строк.</td>
+          </tr>
+          
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>в &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
+            <td class="hintcell">Встроенный инструмент сравнения файлов: цвет для различающихся символов в бинарном режиме.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              Предположим, мы "вошли" в сжатый файл в активной панели и просматриваем его содержимое. Файлы с расширением, заданным в этом параметре, при нажатии <kbd>Enter</kbd> или двойном щелчке мыши будут автоматически распакованы из архива и выполнены в соответствии с файловыми ассоциациями (вместо показа окна свойств).<br>
+              <i>Пример:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Предупредить, если целевой путь длиннее максимальной длины для пути (некоторые программы не смогут получить доступ к файлу/каталогу с таким длинным именем). В Windows это значение (MAX_PATH) составляет 260 символов. По умолчанию <code>True</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              При сравнении даты и времени игнорировать разницу во времени ровно один час
+              (при использовании внутренних команд <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> или <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>).<br>
+              Это полезно при сравнении файлов и папок на разделах с NTFS и FAT32, поскольку <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">метки времени на томах с NTFS</a> меняются при переходе с летнего или на летнее время: т.е. файлы на NTFS идентичны файлам на разделе с FAT32, хотя мы явно видим один час разницы.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Разрешить, разница ровно в один час будет считаться как то же время</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Запретить (по умолчанию)</td>
+                </tr>
+              </table>
+              <i>Пример:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="hintcell">
+              Windows: если <code>True</code>, при копировании/перемещении файлов будут скопированы атрибуты исходного файла; если <code>False</code>, также будут скопированы атрибуты исходного файла и Double Coomander установит атрибут "архивный".<br>
+              Linux и другие: используйте параметр <span class="italic">Копировать атрибуты</span> в <a href="copymove.html">диалоговом окне копирования/перемещения</a>.<br>
+              По умолчанию <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyTime&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="hintcell">
+              Windows: если <code>True</code>, при копировании/перемещении файлов будут скопированы отметки времени (дата создания, дата изменения, дата последнего доступа) исходного файла, в противном случае будет скопирована только дата модификации и использоваться текущая дата для остальных.<br>
+              Linux и другие: используйте параметр <span class="italic">Копировать дату/время</span> в <a href="copymove.html">диалоговом окне копирования/перемещения</a>.<br>
+              По умолчанию <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyXattributes&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="hintcell">
+              Копировать расширенные атрибуты файловой системы при копировании/перемещении файлов или нет.<br>
+              Windows: Если <code>True</code>, также будут скопированы атрибуты сжатый и зашифрованный.<br>
+              Linux и другие Unix-подобные системы: Double Commander будет копировать расширенные атрибуты файловой системы (xattr, т.е. именованные атрибуты).<br>
+              По умолчанию <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
+            <td class="hintcell">
+              Параметр позволяет добавить несколько дополнительных пикселей по высоте для каждого элемента в файловых панелях.<br>Значение задаётся непосредственно в пикселях.<br>По умолчанию равно 2.<br>
+              <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>и</small> &lt;FolderPostfix&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
+            <td class="hintcell">
+              По умолчанию DC показывает квадратные скобки вокруг имён папок (это опциональный параметр в Список файлов&nbsp;&gt; Список файлов (дополнительно)), но мы можем использовать вместо них любые символы.<br>
+              Примечание: В XML некоторые специальные символы зарезервированы как часть разметки и мы не можем использовать их как есть. Существует пять предопределённых сущностей: <code>&lt;</code> должен быть записан как <code>&amp;lt;</code>, <code>&gt;</code> как <code>&amp;gt;</code>, <code>&amp;</code> как <code>&amp;amp;</code>, <code>'</code> как <code>&amp;apos;</code> и <code>"</code> как <code>&amp;quot;</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="hintcell">
+              Когда мы вручную с помощью мыши изменяем ширину колонки, по умолчанию DC применяет изменения для обеих панелей и сохраняет новое значение для последующих запусков.<br>
+              Если мы хотим отключить такое поведение и использовать изменения только в текущей сессии, то должны заменить <code>True</code> на <code>False</code>, т.е. использовать <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="hintcell">
+              Изменение вида панели заголовков колонок.<br>Значение по умолчанию зависит от ОС.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell"><b>tsLazarus</b>: Значение Lazarus по умолчанию.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell"><b>tsStandard</b>: Более контрастный вид, как у сетки Delphi.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell"><b>tsNative</b>: Попытаться установить вид, соответствующий текущей теме виджетов.</td>
+                </tr>
+              </table>
+              <i>Пример:</i> <code>&lt;TitleStyle&gt;2&lt;/TitleStyle&gt;</code>
             </td>
           </tr>
 
@@ -127,180 +324,6 @@
                 </tr>
               </table>
               <i>Пример:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>в &lt;Colors&gt;</small></div></td>
-            <td class="hintcell">
-              Мы можем настроить DC так, чтобы он рисовал рамку вокруг курсора. Параметр <code>&lt;gBorderFrameWidth&gt;</code> позволяет нам задать ширину линий.<br>
-              Чтобы включить курсор-рамку, мы должны перейти в Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Цвета&nbsp;&gt; Файловые панели и отметить параметр <i>Курсор-рамка</i>.<br>
-              <i>Пример:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>и</small> &lt;Success&gt;<br><small>в &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Задают цвет текста в окне протокола для информационных сообщений, сообщений об ошибке и об успешной операции.</td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>в &lt;Colors&gt;</small></div></td>
-            <td class="hintcell">
-              Изменение цвета <a href="help.html#iface_dir">панели текущего пути</a>:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Тег</th>
-                  <th class="innerdescheader">Файловая панель</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;ActiveColor&gt;</td>
-                  <td class="innerdescvaluecell" rowspan="2">активная</td>
-                  <td class="innerdescdesccell">цвет фона</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;ActiveFontColor&gt;</td>
-                  <td class="innerdescdesccell">цвет шрифта</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;InactiveColor&gt;</td>
-                  <td class="innerdescvaluecell" rowspan="2">неактивная</td>
-                  <td class="innerdescdesccell">цвет фона</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;InactiveFontColor&gt;</td>
-                  <td class="innerdescdesccell">цвет шрифта</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
-            <td class="hintcell">
-              Когда мы вручную с помощью мыши изменяем ширину колонки, по умолчанию DC применяет изменения для обеих панелей и сохраняет новое значение для последующих запусков.<br>
-              Если мы хотим отключить такое поведение и использовать изменения только в текущей сессии, то должны заменить <code>True</code> на <code>False</code>, т.е. использовать <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>в &lt;Layout&gt;</small></div></td>
-            <td class="hintcell">Только Windows: показать двоеточие после букв дисков в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.</td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>в &lt;Layout&gt;</small></div></td>
-            <td class="hintcell">Только Windows: использовать заглавные буквы в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.</td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
-            <td class="hintcell">
-              Изменение вида панели заголовков колонок.<br>Значение по умолчанию зависит от ОС.<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell"><b>tsLazarus</b>: Значение Lazarus по умолчанию.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell"><b>tsStandard</b>: Более контрастный вид, как у сетки Delphi.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell"><b>tsNative</b>: Попытаться установить вид, соответствующий текущей теме виджетов.</td>
-                </tr>
-              </table>
-              <i>Пример:</i> <code>&lt;TitleStyle&gt;2&lt;/TitleStyle&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
-            <td class="hintcell">
-              Параметр позволяет добавить несколько дополнительных пикселей по высоте для каждого элемента в файловых панелях.<br>Значение задаётся непосредственно в пикселях.<br>По умолчанию равно 2.<br>
-              <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>и</small> &lt;FolderPostfix&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
-            <td class="hintcell">
-              По умолчанию DC показывает квадратные скобки вокруг имён папок (это опциональный параметр в Список файлов&nbsp;&gt; Список файлов (дополнительно)), но мы можем использовать вместо них любые символы.<br>
-              Примечание: В XML некоторые специальные символы зарезервированы как часть разметки и мы не можем использовать их как есть. Существует пять предопределённых сущностей: <code>&lt;</code> должен быть записан как <code>&amp;lt;</code>, <code>&gt;</code> как <code>&amp;gt;</code>, <code>&amp;</code> как <code>&amp;amp;</code>, <code>'</code> как <code>&amp;apos;</code> и <code>"</code> как <code>&amp;quot;</code>.
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">Предупредить, если целевой путь длиннее максимальной длины для пути (некоторые программы не смогут получить доступ к файлу/каталогу с таким длинным именем). В Windows это значение (MAX_PATH) составляет 260 символов. По умолчанию <code>True</code>.</td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">
-              При сравнении даты и времени игнорировать разницу во времени ровно один час
-              (при использовании внутренних команд <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> или <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>).<br>
-              Это полезно при сравнении файлов и папок на разделах с NTFS и FAT32, поскольку <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">метки времени на томах с NTFS</a> меняются при переходе с летнего или на летнее время: т.е. файлы на NTFS идентичны файлам на разделе с FAT32, хотя мы явно видим один час разницы.<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Разрешить, разница ровно в один час будет считаться как то же время</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Запретить (по умолчанию)</td>
-                </tr>
-              </table>
-              <i>Пример:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
-            <td class="hintcell">
-              Предположим, мы "вошли" в сжатый файл в активной панели и просматриваем его содержимое. Файлы с расширением, заданным в этом параметре, при нажатии <kbd>Enter</kbd> или двойном щелчке мыши будут автоматически распакованы из архива и выполнены в соответствии с файловыми ассоциациями (вместо показа окна свойств).<br>
-              <i>Пример:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyXattributes&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
-            <td class="hintcell">Linux и другие Unix-подобные системы: копировать расширенные атрибуты файловой системы (т.е. именованные атрибуты) при копировании/перемещении файлов или нет. По умолчанию <code>True</code>.</td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<br><small>в &lt;AutoRefresh&gt;</small></div></td>
-            <td class="hintcell">
-              Возможность удалить просматриваемые каталоги.<br>"Просматриваемый каталог"&nbsp;&mdash; это каталог, на который Double Commander создаёт своего рода хук, поэтому может отслеживать любые изменения в нём.<br>Таким образом, он может обновить отображаемое содержимое файловой панели, если оно изменилось.<br>Этот параметр позволяет контролировать, как Double Commander будет реагировать на попытку удалить один из таких "просматриваемых каталогов" (даже в неактивной вкладке).<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">0</td>
-                  <td class="innerdescdesccell">Блокировать удаление просматриваемых каталогов.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">1</td>
-                  <td class="innerdescdesccell">Не мешать удалению просматриваемых каталогов (по умолчанию).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">2</td>
-                  <td class="innerdescdesccell">Отслеживать не каталог, а весь диск целиком: нет проблем с блокировкой открытых в DC каталогов, но может нагружать процессор.</td>
-                </tr>
-              </table>
-              <i>Пример:</i> <code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
             </td>
           </tr>
 
@@ -385,59 +408,17 @@
 
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<br><small>в &lt;Icons&gt;</small></div></td>
-            <td class="hintcell">Размер значков панели инструментов во внутреннем редакторе, просмотрщике и инструменте сравнения, допустимые значения: 16, 24 или 32.</td>
+            <td class="hintcell">Размер значков панели инструментов во встроенном редакторе, просмотрщике и инструменте сравнения, допустимые значения: 16, 24 или 32.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              Double Commander способен распознавать метаданные из <a href="https://ru.wikipedia.org/wiki/EXIF" target="_blank">EXIF</a>, которые могут быть в файлах изображений JPEG.<br>
-              Среди метаданных есть <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">флаг ориентации</a>, который может быть использован для просмотра изображения в том положении, в котором оно было сделано: портрет, пейзаж, перевёрнутое, зеркальное и т.д.<br>
-              Тег <code>ImageExifRotate</code> определяет, будет ли Double Commander учитывать эту информацию при просмотре изображения или нет.<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Использовать встроенный в файл изображения флаг ориентации (по умолчанию).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Игнорировать флаг ориентации.</td>
-                </tr>
-              </table>
-              <i>Пример:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
-            </td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>в &lt;Layout&gt;</small></div></td>
+            <td class="hintcell">Только Windows: показать двоеточие после букв дисков в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              Встроенный просмотрщик: задать максимальное количество символов в одной строке до принудительного переноса на новую.<br>
-              Диапазон значений от 80 до 16384, по умолчанию 1024.<br>
-              <i>Пример:</i> <code>&lt;MaxTextWidth&gt;1024&lt;/MaxTextWidth&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              Встроенный просмотрщик: задать ширину табуляции.<br>
-              Диапазон значений от 1 до 32, по умолчанию 8.<br>
-              <i>Пример:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>и</small> &lt;Modified&gt;<br><small>в &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
-            <td class="hintcell">Внутренний инструмент сравнения файлов: цвет для добавленных, удалённых и модифицированных строк.</td>
-          </tr>
-          
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>в &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
-            <td class="hintcell">Внутренний инструмент сравнения файлов: цвет для различающихся символов в бинарном режиме.</td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>в &lt;Layout&gt;</small></div></td>
+            <td class="hintcell">Только Windows: использовать заглавные буквы в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.</td>
           </tr>
 
           <tr>
@@ -474,11 +455,64 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathToLibrary&gt;<br><small>в &lt;Lua&gt;</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              <a name="luapathtolibrary"></a>Путь к библиотеке Lua (необходима для <a href="lua.html">использования скриптов Lua</a>).<br>
-              Путь может быть относительным к исполняемому файлу Double Commander.<br>
-              <i>Пример:</i> <code>&lt;PathToLibrary&gt;..\..\Other\dll\lua5.1.dll&lt;/PathToLibrary&gt;</code>
+              Встроенный просмотрщик: параметр позволяет добавить несколько дополнительных пикселей по высоте для каждой строки.<br>
+              Значение задаётся непосредственно в пикселях.<br>
+              По умолчанию 0.<br>
+              <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              Double Commander способен распознавать метаданные из <a href="https://ru.wikipedia.org/wiki/EXIF" target="_blank">EXIF</a>, которые могут быть в файлах изображений JPEG.<br>
+              Среди метаданных есть <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">флаг ориентации</a>, который может быть использован для просмотра изображения в том положении, в котором оно было сделано: портрет, пейзаж, перевёрнутое, зеркальное и т.д.<br>
+              Тег <code>ImageExifRotate</code> определяет, будет ли Double Commander учитывать эту информацию при просмотре изображения или нет.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Использовать встроенный в файл изображения флаг ориентации (по умолчанию).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Игнорировать флаг ориентации.</td>
+                </tr>
+              </table>
+              <i>Пример:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;LeftMargin&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              Встроенный просмотрщик: параметр позволяет добавить пространство между левой границей окна и границей текста.<br>
+              Значение задаётся непосредственно в пикселях.<br>
+              По умолчанию 4.<br>
+              <i>Пример:</i> <code>&lt;LeftMargin&gt;4&lt;/LeftMargin&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              Встроенный просмотрщик: задать максимальное количество символов в одной строке до принудительного переноса на новую.<br>
+              Диапазон значений от 80 до 16384, по умолчанию 1024.<br>
+              <i>Пример:</i> <code>&lt;MaxTextWidth&gt;1024&lt;/MaxTextWidth&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              Встроенный просмотрщик: задать ширину табуляции.<br>
+              Диапазон значений от 1 до 32, по умолчанию 8.<br>
+              <i>Пример:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
             </td>
           </tr>
         </table>

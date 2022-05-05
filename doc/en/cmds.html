@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.11. Internal Commands</h1>
+        <h1>2.13. Internal Commands</h1>
       </div>
 
       <div>
@@ -232,7 +232,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
               <div class="cmdname"><a name="cm_QuickView">cm_QuickView</a></div>
               <div class="shrtctkey">Ctrl+Q</div></td>
-            <td class="cmdhintcell">Content of selected item shown in opposite panel.<br>As we navigate to next items, displayed content is updated.</td>
+            <td class="cmdhintcell">Content of selected item shown in opposite panel (instead of a separate window).<br>As we navigate to next items, displayed content is updated.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SortByName" alt="cm_SortByName" src="../../pixmaps/dctheme/32x32/actions/cm_sortbyname.png">
@@ -344,7 +344,7 @@
                 </tr>
               </table>
               <br>
-              Example: "cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>This will sort the item in active by column according to size&nbsp;&mdash; larger files first.
+              Example: "cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>This will sort the item in active by column according to size&nbsp;&ndash; larger files first.
             </td>
           </tr>
           <tr>
@@ -755,7 +755,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenVirtualFileSystemList" alt="cm_OpenVirtualFileSystemList" src="../../pixmaps/dctheme/32x32/actions/cm_openvirtualfilesystemlist.png">
               <div class="cmdname"><a name="cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a></div></td>
-            <td class="cmdhintcell">Open according to WFX plugin.</td>
+            <td class="cmdhintcell"><a href="help.html#cm_OpenVirtualFileSystemList">Open VFS list</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FileProperties" alt="cm_FileProperties" src="../../pixmaps/dctheme/32x32/actions/cm_fileproperties.png">
@@ -2019,7 +2019,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_PanelsSplitterPerPos" alt="cm_PanelsSplitterPerPos" src="../../pixmaps/dctheme/32x32/actions/cm_panelssplitterperpos.png">
               <div class="cmdname"><a name="cm_PanelsSplitterPerPos">cm_PanelsSplitterPerPos</a></div></td>
-            <td class="cmdhintcell">Set the panels width, e.g. 50%&nbsp;&mdash; equal size.<br>
+            <td class="cmdhintcell">Set the panels width, e.g. 50%&nbsp;&ndash; equal size.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2321,7 +2321,10 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CompareContents" alt="cm_CompareContents" src="../../pixmaps/dctheme/32x32/actions/cm_comparecontents.png">
               <div class="cmdname"><a name="cm_CompareContents">cm_CompareContents</a></div></td>
-            <td class="cmdhintcell">Open <a href="help.html#cm_CompareContents">compare by contents</a> dialog</td>
+            <td class="cmdhintcell">
+              Open <a href="help.html#cm_CompareContents">compare by contents</a> dialog.<br>
+              If an external diff program is used, the "dir" parameter (without quotes) is available: in this case, the current directories of the left and right file panels will be passed to the program.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_DebugShowCommandParameters" alt="cm_DebugShowCommandParameters" src="../../pixmaps/dctheme/32x32/actions/cm_debugshowcommandparameters.png">

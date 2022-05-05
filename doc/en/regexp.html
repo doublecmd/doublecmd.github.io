@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.12. Syntax of Regular Expressions</h1>
+        <h1>2.14. Syntax of Regular Expressions</h1>
       </div>
 
       <div>
@@ -89,7 +89,7 @@
         <h2><a name="esc">3. Escape sequences</a></h2>
         <p>Characters may be specified using a escape sequences syntax much like that used in C and Perl: "\n" matches a newline, "\t" a tab, etc.</p>
         <p>More generally, "\xnn", where "nn" is a string of hexadecimal digits, matches the character whose ASCII value is "nn".</p>
-        <p>If you need wide (Unicode) character code, you can use "\x{nnnn}", where "nnnn"&nbsp;&mdash; one or more hexadecimal digits.</p>
+        <p>If you need wide (Unicode) character code, you can use "\x{nnnn}", where "nnnn"&nbsp;&ndash; one or more hexadecimal digits.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Escape sequences</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
@@ -335,7 +335,7 @@
 
       <div>
         <h2><a name="meta-dup">5.4. Metacharacters - iterators</a></h2>
-        <p>Any item of a regular expression may be followed by another type of metacharacters&nbsp;&mdash; iterators.</p>
+        <p>Any item of a regular expression may be followed by another type of metacharacters&nbsp;&ndash; iterators.</p>
         <p>Using these metacharacters you can specify the number of occurrences of the previous character, metacharacter or subexpression.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Iterators</th></tr>
@@ -456,7 +456,7 @@
         <p>The bracketing construct "( ... )" may also be used for define regular expression subexpressions.</p>
         <p>After search you can call any subexpression, also you can use subexpressions as masks.</p>
         <p>Subexpressions are numbered based on the left to right order of their opening parenthesis.</p>
-        <p>First subexpression has number 1, up to 90 subexpressions are supported (whole regular expression match has number 0&nbsp;&mdash; you can substitute it as "$0" or "$&amp;").</p>
+        <p>First subexpression has number 1, up to 90 subexpressions are supported (whole regular expression match has number 0&nbsp;&ndash; you can substitute it as "$0" or "$&amp;").</p>
         <p>Here are some examples:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Subexpressions</th></tr>

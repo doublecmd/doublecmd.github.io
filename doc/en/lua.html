@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.13. Lua Scripting</h1>
+        <h1>2.15. Lua Scripting</h1>
       </div>
 
       <div>
@@ -72,14 +72,14 @@
           The Wiki has a <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">page</a> dedicated to writing plugins.
           Limitations: only the following data types are supported</p>
         <ul>
-          <li><i>ft_numeric_32</i>&nbsp;&mdash; a 32-bit signed number;</li>
-          <li><i>ft_numeric_64</i>&nbsp;&mdash; a 64-bit signed number;</li>
-          <li><i>ft_numeric_floating</i>&nbsp;&mdash; a floating point number;</li>
-          <li><i>ft_boolean</i>&nbsp;&mdash; boolean type: <i>true</i> or <i>false</i>;</li>
-          <li><i>ft_multiplechoice</i>&nbsp;&mdash; a value allowing a limited number of choices;</li>
-          <li><i>ft_string</i>&nbsp;&mdash; a text string (use UTF-8);</li>
-          <li><i>ft_fulltext</i>&nbsp;&mdash; a full text (multiple text strings), used only for searching with plugins;</li>
-          <li><i>ft_datetime</i>&nbsp;&mdash; for date/time: a returned date will be converted to a formatted date and time string (value depends on your regional settings).</li>
+          <li><i>ft_numeric_32</i>&nbsp;&ndash; a 32-bit signed number;</li>
+          <li><i>ft_numeric_64</i>&nbsp;&ndash; a 64-bit signed number;</li>
+          <li><i>ft_numeric_floating</i>&nbsp;&ndash; a floating point number;</li>
+          <li><i>ft_boolean</i>&nbsp;&ndash; boolean type: <i>true</i> or <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i>&nbsp;&ndash; a value allowing a limited number of choices;</li>
+          <li><i>ft_string</i>&nbsp;&ndash; a text string (use UTF-8);</li>
+          <li><i>ft_fulltext</i>&nbsp;&ndash; a full text (multiple text strings), used only for searching with plugins;</li>
+          <li><i>ft_datetime</i>&nbsp;&ndash; for date/time: a returned date will be converted to a formatted date and time string (value depends on your regional settings).</li>
         </ul>
         <p>Note: When saving scripts, use UTF-8 encoding without BOM.</p>
         <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
@@ -89,7 +89,7 @@
       <div>
         <h2><a name="dllrequired">2. DLL required</a></h2>
         <p>In order to interpret Lua script file, we need to have a Lua DLL file (Double Commander supports versions 5.1 - 5.4) in the same folder as the executable of Double Commander or in system folder.</p>
-        <p>By default DC looks for a file with name <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix or GNU/Linux) or <code>liblua5.1.dylib</code> (Mac OS<sup>(<a title="Note about Mac OS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). We can change the file name in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter manually.</p>
+        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). We can change the file name in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter manually.</p>
         <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>.
            LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
@@ -424,8 +424,8 @@
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>
-              <p>Allows a script to get from DC the system path delimiter.</p>
-              <p>In Unix/Linux system will be a " / " and in Windows will be " \ "</p>
+              <p>The character used by the current operating system to separate directory names in the full file name.</p>
+              <p>In Unix/Linux system the directory separator will be "/" and in Windows it will be "\".</p>
             </td>
           </tr>
         </table>

@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.13. Скрипты Lua</h1>
+        <h1>2.15. Скрипты Lua</h1>
       </div>
 
       <div>
@@ -72,14 +72,14 @@
           В Вики есть <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">страница</a>, посвящённая написанию плагинов.
           Ограничения: поддерживаются только следующие типы данных</p>
         <ul>
-          <li><i>ft_numeric_32</i>&nbsp;&mdash; 32-битное целое число со знаком;</li>
-          <li><i>ft_numeric_64</i>&nbsp;&mdash; 64-битное целое число со знаком;</li>
-          <li><i>ft_numeric_floating</i>&nbsp;&mdash; число с плавающей запятой;</li>
-          <li><i>ft_boolean</i>&nbsp;&mdash; логический (булев) тип: <i>true</i> или <i>false</i>;</li>
-          <li><i>ft_multiplechoice</i>&nbsp;&mdash; значение, допускающее ограниченное количество вариантов выбора;</li>
-          <li><i>ft_string</i>&nbsp;&mdash; текстовая строка (используйте UTF-8);</li>
-          <li><i>ft_fulltext</i>&nbsp;&mdash; полный текст (многострочный текст), используется только для поиска с помощью плагинов;</li>
-          <li><i>ft_datetime</i>&nbsp;&mdash; для даты/времени: возвращаемая дата будет сконвертирована в отформатированную строку даты и времени (значение зависит от ваших региональных настроек).</li>
+          <li><i>ft_numeric_32</i>&nbsp;&ndash; 32-битное целое число со знаком;</li>
+          <li><i>ft_numeric_64</i>&nbsp;&ndash; 64-битное целое число со знаком;</li>
+          <li><i>ft_numeric_floating</i>&nbsp;&ndash; число с плавающей запятой;</li>
+          <li><i>ft_boolean</i>&nbsp;&ndash; логический (булев) тип: <i>true</i> или <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i>&nbsp;&ndash; значение, допускающее ограниченное количество вариантов выбора;</li>
+          <li><i>ft_string</i>&nbsp;&ndash; текстовая строка (используйте UTF-8);</li>
+          <li><i>ft_fulltext</i>&nbsp;&ndash; полный текст (многострочный текст), используется только для поиска с помощью плагинов;</li>
+          <li><i>ft_datetime</i>&nbsp;&ndash; для даты/времени: возвращаемая дата будет сконвертирована в отформатированную строку даты и времени (значение зависит от ваших региональных настроек).</li>
         </ul>
         <p>Примечание: При сохранении скриптов используйте кодировку UTF-8 без BOM.</p>
         <p>Более подробную информацию о языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">официальном веб-сайте Lua</a>.</p>
@@ -89,7 +89,7 @@
       <div>
         <h2><a name="dllrequired">2. Необходимая DLL</a></h2>
         <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua (Double Commander поддерживает версии 5.1 - 5.4), DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
-        <p>По умолчанию DC ищет файл с именем <code>lua5.1.dll</code> (Windows), <code>liblua5.1.so.0</code> (Unix или GNU/Linux) или <code>liblua5.1.dylib</code> (Mac OS<sup>(<a title="Примечание о поддержке Mac OS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). Мы можем вручную изменить имя файла в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
+        <p>По умолчанию DC ищет файл с именем <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix или GNU/Linux) или <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). Мы можем вручную изменить имя файла в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
         <p>Мы можем использовать DLL-файл <a href="https://luajit.org/" target="_blank">проекта LuaJIT</a>.
            LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
         <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать. Если используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
@@ -194,7 +194,7 @@
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"E:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
 
         <p>Для выполнения нашего скрипта мы можем создать кнопку на панели инструментов с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
-        <p>Предположим, наш скрипт <code>E:\scripts\lua\music.lua</code>, мы могли бы настроить эту кнопку следующим образом:</p>
+        <p>Предположим, наш скрипт <code>E:\scripts\lua\music.lua</code>, мы можем настроить эту кнопку следующим образом:</p>
         <p class="figure"><img class="largeimage" title="Вызов скрипта Lua кнопкой панели инструментов" alt="Вызов скрипта Lua кнопкой панели инструментов" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
 
         <p>Кроме того, для редактирования наших скриптов мы можем использовать встроенный редактор Double Commander.</p>
@@ -268,7 +268,7 @@
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
             <td class="hintcell">
               <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
-              <p>Находит следующее вхождение поиска, инициированного <var>FindFirst</var>, <var>Handle</var>&nbsp;&mdash; дескриптор поиска, возвращённый функцией <var>FindFirst</var>.</p>
+              <p>Находит следующее вхождение поиска, инициированного <var>FindFirst</var>, <var>Handle</var>&nbsp;&ndash; дескриптор поиска, возвращённый функцией <var>FindFirst</var>.</p>
               <p>В случае успеха функция вернёт <var>Result</var> не равный <code>nil</code> и таблицу <var>FindData</var>, содержащую информацию о найденном файле или каталоге.</p>
               <p><b><span class="uline">Замечание:</span> За последним вызовом <code>SysUtils.FindNext</code> всегда должен следовать вызов <code>SysUtils.FindClose</code> с тем же <var>Handle</var>. Несоблюдение этого приведёт к утечке памяти.</b></p>
             </td>
@@ -411,15 +411,15 @@
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMaskList(FileName, MaskList, Separator, MaskOptions)</p>
               <p>Возвращает <code>true</code>, если <var>FileName</var> совпадает с хотя бы одной из переданных масок <var>MaskList</var>, разделённых <var>Separator</var> (по умолчанию ";").</p>
-              <p><var>Separator</var> и <var>MaskOptions</var> (см. выше)&nbsp;&mdash; необязательные параметры.</p>
+              <p><var>Separator</var> и <var>MaskOptions</var> (см. выше)&nbsp;&ndash; необязательные параметры.</p>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>
-              <p>Позволяет получить от DC разделитель пути в системе.</p>
-              <p>В системах Unix/Linux это будет " / " и " \ " в Windows.</p>
+              <p>Символ, используемый в текущей операционной системе для разделения имён каталогов в полном имени файла.</p>
+              <p>В системах Unix/Linux разделителем каталогов будет "/" и "\" в Windows.</p>
             </td>
           </tr>
         </table>

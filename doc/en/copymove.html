@@ -24,7 +24,8 @@
         <dl>
           <dt>1. <a href="#confirmation">Copy/move dialog window</a></dt>
           <dt>2. <a href="#progress">Operation progress dialog</a></dt>
-          <dt>3. <a href="#aconfig">Additional configuration</a></dt>
+          <dt>3. <a href="#collisions">Name collisions</a></dt>
+          <dt>4. <a href="#aconfig">Additional settings</a></dt>
         </dl>
       </div>
 
@@ -32,43 +33,43 @@
         <h2><a name="confirmation">1. Copy/move dialog window</a></h2>
         <p>Confirmation window for copying or moving files with the ability to change some parameters. This windows for both operations differ in only a few parameters, so they will be described together.</p>
         <p class="figure"><img class="largeimage" title="Copying/moving files" alt="Copying/moving files" src="images/imgDC/copymove1.png" width="692" height="408"></p>
-        <p>Can be called with the <kbd>F5</kbd> (copy), <kbd>Shift+F5</kbd> (copy in the same directory) and <kbd>F6</kbd> (move) keys, with buttons on the function key buttons bar or with internal commands (<a href="cmds.html#cm_Copy">cm_Copy</a>, <a href="cmds.html#cm_CopySamePanel">cm_CopySamePanel</a> and <a href="cmds.html#cm_Rename">cm_Rename</a>). Also this dialog window appears when you drag and drop files (if <a href="configuration.html#ConfigMouseDD">Show confirmation dialog after drop</a> is enabled).</p>
-        <p>The window displays an editable field with the target directory and you can manually change the target path and file name. With <kbd>F5</kbd> or <kbd>F6</kbd> you can toggle the selection in the following order: base file name, file name, extension, path, all.</p>
-        <p>If no target directory is specified (<tt>cm_CopySamePanel</tt> or manual editing), the files will be copied to the source directory.</p>
+        <p>Can be called with the <kbd>F5</kbd> (copy), <kbd>Shift+F5</kbd> (copy in the same directory) and <kbd>F6</kbd> (move) keys, with buttons on the function key buttons bar or with internal commands (<a href="cmds.html#cm_Copy">cm_Copy</a>, <a href="cmds.html#cm_CopySamePanel">cm_CopySamePanel</a> and <a href="cmds.html#cm_Rename">cm_Rename</a>). Also this dialog window appears when we drag and drop files (if <a href="configuration.html#ConfigMouseDD">Show confirmation dialog after drop</a> is enabled).</p>
+        <p>The window displays an editable field with the target directory and a file mask (or a file name, if only one), we can manually change the target path and file name. With <kbd>F5</kbd> or <kbd>F6</kbd> we can toggle the selection in the following order: base file name, file name, extension, path, all. If the target directory is not specified (<tt>cm_CopySamePanel</tt> or manual editing), the files will be copied to the source directory.</p>
+        <p>File mask determines how files will be renamed when copying or moving (symbol "*" means match any number of characters, symbol "?" means any one character). For example, we can specify <code>*.*.bak</code>, to add an extension <code>.bak</code> to all copied files. Or, for example, use <code>????.*</code> and trim the names to the first four characters. Using <code>*.ext</code>, we can replace the extensions of all copied files with <code>ext</code>. If the mask is not applicable, the names will remain as is.</p>
         <p>Several buttons:</p>
         <ul>
-          <li><p><span class="italic">Start</span> and <span class="italic">Cancel</span>&nbsp;&mdash; start or cancel the operation.</p></li>
-          <li><p><span class="italic">Add To Queue</span>&nbsp;&mdash; adds a task to the queue of file operations. This is convenient if you have several tasks running at the same time: you can change the order of operations in the queue, stop or pause a task. The window with the list of file operations can be called in two ways: use the <span class="italic">Operations Viewer</span> item in the <span class="italic">Show</span> menu or <kbd>Alt+V</kbd> (internal command <tt>cm_OperationsViewer</tt>).</p></li>
-          <li><p><span class="italic">Options</span>&nbsp;&mdash; expands additional options.</p></li>
+          <li><p><span class="italic">Start</span> and <span class="italic">Cancel</span>&nbsp;&ndash; start or cancel the operation.</p></li>
+          <li><p><span class="italic">Add To Queue</span>&nbsp;&ndash; adds a task to the queue of file operations. This is convenient if we have several tasks running at the same time: we can change the order of operations in the queue, stop or pause a task. The window with the list of file operations can be called in two ways: use the <span class="italic">Operations Viewer</span> item in the <span class="italic">Show</span> menu or <kbd>Alt+V</kbd> (internal command <tt>cm_OperationsViewer</tt>).</p></li>
+          <li><p><span class="italic">Options</span>&nbsp;&ndash; expands additional options.</p></li>
         </ul>
         <p>The first group of options determine the action to be taken when resolving a name conflict or when it is impossible to set file properties:</p>
         <ul>
-          <li><p><span class="italic">When file exists</span>&nbsp;&mdash; If a file with the same name already exists in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Overwrite</span>, <span class="italic">Overwrite Older</span>, <span class="italic">Skip</span>.</p></li>
-          <li><p><span class="italic">When directory exists</span>&nbsp;&mdash; If a folder with the same name already exists in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Merge</span>, <span class="italic">Skip</span>.</p></li>
-          <li><p><span class="italic">When cannot set property</span>&nbsp;&mdash; What to do when cannot set file time, attributes, etc., for example, due to file system limitations in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Don't set anymore</span>, <span class="italic">Ignore errors</span>.</p></li>
+          <li><p><span class="italic">When file exists</span>&nbsp;&ndash; If a file with the same name already exists in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Overwrite</span>, <span class="italic">Overwrite Older</span>, <span class="italic">Skip</span>.</p></li>
+          <li><p><span class="italic">When directory exists</span>&nbsp;&ndash; If a folder with the same name already exists in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Merge</span>, <span class="italic">Skip</span>.</p></li>
+          <li><p><span class="italic">When cannot set property</span>&nbsp;&ndash; What to do when cannot set file time, attributes, etc., for example, due to file system limitations in the target directory. Actions: <span class="italic">Ask</span>, <span class="italic">Don't set anymore</span>, <span class="italic">Ignore errors</span>.</p></li>
         </ul>
-        <p><span class="italic">Ask</span> (by default) gives more solution options: skip, rename (manually one at a time or automatically) and other.</p>
-        <p>The next group is a filter, the ability to specify which files to copy or move (file masks, age and so on). Here you can see the selected template and:</p>
+        <p><span class="italic">Ask</span> (by default) provides more possible actions (see below).</p>
+        <p>The next group is a filter, the ability to specify which files to copy or move (file masks, age and so on). Here we can see the selected template and:</p>
         <ul>
           <li><p>The <span class="italic">Choose template</span> button (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="18" height="18">) opens a window with a list of saved templates and with the ability to add a new one.</p></li>
-          <li><p><span class="italic">Exclude empty directories</span>&nbsp;&mdash; If enabled, only non-empty directories will be copied or moved. Works only with templates.</p></li>
+          <li><p><span class="italic">Exclude empty directories</span>&nbsp;&ndash; If enabled, only non-empty directories will be copied or moved. Works only with templates.</p></li>
         </ul>
         <p>The list of the following parameters will vary depending on the type of file operation and operating system family.</p>
         <ul>
-          <li><p><span class="italic">Verify</span>&nbsp;&mdash; If enabled, Double Commander will compare the source file and the copied file in the target directory: a byte-by-byte comparison (Windows) or BLAKE2 checksums (Linux and others). Double Commander will try to minimize the disk cache effects. Not available in Mac OS.</p></li>
-          <li><p><span class="italic">Check free space</span>&nbsp;&mdash; Double Commander calculates the size of the selected files, so it can check if there is enough free space in the target directory.</p></li>
-          <li><p><span class="italic">Reserve space</span>&nbsp;&mdash; If enabled, Double Commander will use pre-allocation of disk space, this will reduce the chances of file fragmentation. Also this is a faster way to create files. In Windows, Double Commander always reserves space.</p></li>
-          <li><p><span class="italic">Follow links</span>&nbsp;&mdash; If enabled, Double Commander will consider symbolic links to folders as regular folders and copy their contents; instead of file links, the target  files of this links will be copied. In the third state (the square is filled with color or with a dash): the program will ask each time what it should do.</p></li>
-          <li><p><span class="italic">Correct links</span>&nbsp;&mdash; If enabled, Double Commander will check the links and, if necessary, correct their target path based on the target directory. If a relative path is specified, then the corrected path will also be written as relative.</p></li>
-          <li><p><span class="italic">Copy attributes</span>&nbsp;&mdash; If enabled, the attributes of the source file will be copied, otherwise, default values will be used: 666 (files) or 777 (folders). Also see description of <code>&lt;CopyXattributes&gt;</code> <a href="configxml.html">here</a>. For Windows: see description of <code>&lt;CopyAttributes&gt;</code> <a href="configxml.html">here</a>.</p></li>
-          <li><p><span class="italic">Drop readonly flag</span>&nbsp;&mdash; If enabled, Double Commander will add "w" attribute (Linux).</p></li>
-          <li><p><span class="italic">Copy date/time</span>&nbsp;&mdash; If enabled, the modification date of the source file will be copied, otherwise, the current date will be used. For Windows: see description of <code>&lt;CopyTime&gt;</code> <a href="configxml.html">here</a>.</p></li>
-          <li><p><span class="italic">Copy ownership</span>&nbsp;&mdash; If not enabled, the owner will be the user on whose behalf the program is launched.</p></li>
-          <li><p><span class="italic">Copy permissions</span>&nbsp;&mdash; allows to copy permissions specific to the NTFS file system, otherwise, the rights of the current user will be used (the user on whose behalf the program is launched). Windows only.</p></li>
-          <li><p><span class="italic">Copy on write</span>&nbsp;&mdash; Support for one of the features of the Btrfs filesystem: by default, Btrfs uses the copy-on-write (COW) principle for all local files. Not available in Windows.</p></li>
+          <li><p><span class="italic">Verify</span>&nbsp;&ndash; If enabled, Double Commander will compare the source file and the copied file in the target directory: a byte-by-byte comparison (Windows) or BLAKE2 checksums (Linux and others). Double Commander will try to minimize the disk cache effects. Not available in macOS.</p></li>
+          <li><p><span class="italic">Check free space</span>&nbsp;&ndash; Double Commander calculates the size of the selected files, so it can check if there is enough free space in the target directory.</p></li>
+          <li><p><span class="italic">Reserve space</span>&nbsp;&ndash; If enabled, Double Commander will use pre-allocation of disk space, this will reduce the chances of file fragmentation. Also this is a faster way to create files. In Windows, Double Commander always reserves space.</p></li>
+          <li><p><span class="italic">Follow links</span>&nbsp;&ndash; If enabled, Double Commander will consider symbolic links to folders as regular folders and copy their contents; instead of file links, the target  files of this links will be copied. In the third state (the square is filled with color or with a dash): the program will ask each time what it should do.</p></li>
+          <li><p><span class="italic">Correct links</span>&nbsp;&ndash; If enabled, Double Commander will check the links and, if necessary, correct their target path based on the target directory. If a relative path is specified, then the corrected path will also be written as relative.</p></li>
+          <li><p><span class="italic">Copy attributes</span>&nbsp;&ndash; If enabled, the attributes of the source file will be copied, otherwise, default values will be used: 666 (files) or 777 (folders). Also see description of <code>&lt;CopyXattributes&gt;</code> <a href="configxml.html">here</a>. For Windows: see description of <code>&lt;CopyAttributes&gt;</code> <a href="configxml.html">here</a>.</p></li>
+          <li><p><span class="italic">Drop readonly flag</span>&nbsp;&ndash; If enabled, Double Commander will add "w" attribute (Linux).</p></li>
+          <li><p><span class="italic">Copy date/time</span>&nbsp;&ndash; If enabled, the modification date of the source file will be copied, otherwise, the current date will be used. For Windows: see description of <code>&lt;CopyTime&gt;</code> <a href="configxml.html">here</a>.</p></li>
+          <li><p><span class="italic">Copy ownership</span>&nbsp;&ndash; If not enabled, the owner will be the user on whose behalf the program is launched.</p></li>
+          <li><p><span class="italic">Copy permissions</span>&nbsp;&ndash; allows to copy permissions specific to the NTFS file system, otherwise, the rights of the current user will be used (the user on whose behalf the program is launched). Windows only.</p></li>
+          <li><p><span class="italic">Copy on write</span>&nbsp;&ndash; Support for one of the features of the Btrfs filesystem: by default, Btrfs uses the copy-on-write (COW) principle for all local files. Not available in Windows.</p></li>
         </ul>
         <p>Note: When copying files from archives, only the <span class="italic">When file exists</span> parameter will be available. When copying files from file system plugins (WFX), several parameters will be available: <span class="italic">When file exists</span>, <span class="italic">Copy date/time</span> and <span class="italic">Work in background (separate connection)</span>. The last parameter prohibits the file operation progress window from blocking the main window of Double Commander.</p>
-        <p><span class="italic">Save these options as default</span>&nbsp;&mdash; will set the current values as defaults for the next copy/move operations.</p>
+        <p><span class="italic">Save these options as default</span>&nbsp;&ndash; will set the current values as defaults for the next copy/move operations.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -77,16 +78,50 @@
         <p>This dialog box shows the details of the progress of the operation: two progress bars (for the currently processed file and the general), progress in percentage (in the title), the total number of files and the number of processed files, the full name of the current file and the name in the target directory, size, speed and remaining time.</p>
         <p>Buttons:</p>
         <ul>
-          <li><p><span class="italic">Pause/Continue</span>&nbsp;&mdash; allows to pause or continue the operation.</p></li>
-          <li><p><span class="italic">Cancel</span>&nbsp;&mdash; will cancel the operation and close the dialog box.</p></li>
-          <li><p><span class="italic">To panel</span>&nbsp;&mdash; will minimize this dialog box to the <a href="configuration.html#ConfigOperations">operations panel</a>.</p></li>
-          <li><p><span class="italic">View all</span>&nbsp;&mdash; will call the <span class="italic">Operations Viewer</span> window.</p></li>
+          <li><p><span class="italic">Pause/Continue</span>&nbsp;&ndash; allows to pause or continue the operation.</p></li>
+          <li><p><span class="italic">Cancel</span>&nbsp;&ndash; will cancel the operation and close the dialog box.</p></li>
+          <li><p><span class="italic">To panel</span>&nbsp;&ndash; will minimize this dialog box to the <a href="configuration.html#ConfigOperations">operations panel</a>.</p></li>
+          <li><p><span class="italic">View all</span>&nbsp;&ndash; will call the <span class="italic">Operations Viewer</span> window.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="aconfig">3. Additional configuration</a></h2>
+        <h2><a name="collisions">3. Name collisions</a></h2>
+        <p>If a file with the name of the file being copied already exists in the target directory, Double Commander will provide several actions. The choice of the action to be used automatically (without user involvement) will not be saved for subsequent calls of the copy/move operation.</p>
+        <p>If there is a folder with the same name:</p>
+        <ul>
+          <li><p><span class="italic">Merge</span>&nbsp;&ndash; The contents of the folder will be copied to the folder of the same name in the target directory.</p></li>
+          <li><p><span class="italic">Merge All</span>&nbsp;&ndash; The same as the previous one will be used in subsequent name collisions automatically.</p></li>
+          <li><p><span class="italic">Skip</span>&nbsp;&ndash; Double Commander will not copy this folder.</p></li>
+          <li><p><span class="italic">Skip All</span>&nbsp;&ndash; The same as the previous one will be used in subsequent name collisions automatically.</p></li>
+        </ul>
+        <p>If there is a file with the same name:</p>
+        <ul>
+          <li><p><span class="italic">Overwrite</span>&nbsp;&ndash; The contents of the file in the target directory will be replaced by the contents of the file from the source directory.</p></li>
+          <li><p><span class="italic">Overwrite All</span>&nbsp;&ndash; The same as the previous one will be used in subsequent name collisions automatically.</p></li>
+          <li><p><span class="italic">Overwrite All Older</span>&nbsp;&ndash; Only files that are older by modification date will be automatically replaced.</p></li>
+          <li><p><span class="italic">Skip</span>&nbsp;&ndash; Double Commander will not copy this file.</p></li>
+          <li><p><span class="italic">Skip All</span>&nbsp;&ndash; The same as the previous one will be used in subsequent name collisions automatically.</p></li>
+          <li><p><span class="italic">Rename</span>&nbsp;&ndash; Double Commander will show a dialog box with an input field and we can change the file name from the source directory manually on the fly.</p></li>
+          <li><p><span class="italic">Resume</span>&nbsp;&ndash; If the target file is smaller than the source file or is empty, then the difference will be added to the end of the target file. It can be more convenient and faster, if, for example, downloading or copying was aborted due to a program crash and the source file was taken from another place.</p></li>
+          <li><p><span class="italic">Other</span>&nbsp;&ndash; menu with additional actions:</p>
+            <ul>
+              <li><p><span class="italic">Compare by content</span>&nbsp;&ndash; calls the <a href="help.html#cm_CompareContents">Compare by Contents</a> command.</p></li>
+              <li><p><span class="italic">Append</span>&nbsp;&ndash; The contents of the file will be appended to the end of the file in the target directory.</p></li>
+              <li><p><span class="italic">Overwrite All Smaller</span>&nbsp;&ndash; Only smaller files will be automatically replaced.</p></li>
+              <li><p><span class="italic">Overwrite All Larger</span>&nbsp;&ndash; Only larger files will be automatically replaced.</p></li>
+              <li><p><span class="italic">Auto-rename source files</span>&nbsp;&ndash; Double Commander will automatically rename the files that we copy using the template from the <a href="configuration.html#ConfigOperations">file operations settings</a>.</p></li>
+              <li><p><span class="italic">Auto-rename target files</span>&nbsp;&ndash; The same as the previous one, but the files that are located in the target directory will be renamed.</p></li>
+            </ul>
+          </li>
+        </ul>
+        <p>The <span class="italic">Cancel</span> button will abort the operation.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="aconfig">4. Additional settings</a></h2>
         <p>Additional options related to copy/move operations are presented on the <a href="configuration.html#ConfigOperations">File operations</a> settings page.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>

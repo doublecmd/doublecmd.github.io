@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Built-in file viewer</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="syncdirs.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.8. Built-in file viewer</h1>
+      </div>
+
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#intro">Introduction</a></dt>
+          <dt>2. <a href="#mainmenu">Main menu</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#mnu_file">"File"</a></dt>
+              <dt>2.2. <a href="#mnu_edit">"Edit"</a></dt>
+              <dt>2.3. <a href="#mnu_view">"View"</a></dt>
+              <dt>2.4. <a href="#mnu_enc">"Encoding"</a></dt>
+              <dt>2.5. <a href="#mnu_image">"Image"</a></dt>
+              <dt>2.6. <a href="#mnu_about">"About"</a></dt>
+            </dl>
+          </dd>
+          <dt>3. <a href="#toolbar">Toolbar</a></dt>
+          <dt>4. <a href="#statusbar">Status bar</a></dt>
+          <dt>5. <a href="#preview">Preview</a></dt>
+          <dt>6. <a href="#copymove">Copying/moving files</a></dt>
+          <dt>7. <a href="#asettings">Additional settings</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Introduction</a></h2>
+        <p>The built-in viewer is designed to view files of any size in text, hexadecimal or binary format and image files.</p>
+        <p class="figure"><img class="largeimage" title="Built-in file viewer" alt="Built-in file viewer" src="images/imgDC/viewer.png" width="792" height="432"></p>
+        <p>The selected text will be automatically copied to the clipboard.</p>
+        <p>By default, the viewer call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">settings</a>. A quick view mode (<kbd>Ctrl+Q</kbd>) is also available: instead of a separate window, the opposite (inactive) file panel will be used.</p>
+        <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, TIFF, XPM. In addition, if the required libraries are available (near the executable file of Double Commander or in the PATH):</p>
+        <ul>
+          <li><p>HEIF/HEIC and AVIF: <tt>libheif-1.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems)</p></li>
+          <li><p>SVG and SVGZ: <tt>libcairo-2.dll</tt>, <tt>librsvg-2-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (Windows) or <tt>libcairo.so.2</tt>, <tt>librsvg-2.so.2</tt> and <tt>libgobject-2.0.so.0</tt> (Linux and other Unix-like systems)</p></li>
+          <li><p>WebP: <tt>libwebp.so.n</tt>, where "n" is 7, 6 or 5 (Linux and other Unix-like systems)</p></li>
+        </ul>
+        <p>Double Commander supports the TurboJPEG library: it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images. If the following library file is available: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>).</p>
+        <p>The built-in viewer supports saving to the following image formats: BMP, ICO, JPEG (we can choose the quality from 1 to 100), PNG (Double Commander will use the same color depth as in the original image) and PNM (Double Commander will use binary formats, the color depth will be set automatically: 1, 8 or 24 bits per pixel).</p>
+        <p>Note: When modifying an image, we must save all changes with the <span class="italic">Save</span> or <span class="italic">Save As</span> commands: Double Commander does not check the status of the file (changed or not) when closing the viewer window or when switching to another file.</p>
+        <p>We can assign or change hotkeys for commands available in the viewer in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section (switch to the <span class="italic">Viewer</span> category). Hotkeys can be set separately for text mode and image viewing mode.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mainmenu">2. Main menu</a></h2>
+        <p>The appearance and content of the main menu depends on the viewing mode: text, image or <a href="configuration.html#ConfigPlugins">WLX plugin</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_file">2.1. "File"</a></h2>
+        <p>Items <span class="italic">Previous</span> and <span class="italic">Next</span> are used to load the previous or next file in the directory. The sort order in the file panel is used.</p>
+        <p>Items <span class="italic">Save</span> and <span class="italic">Save As...</span> are available only when viewing images.</p>
+        <p><span class="italic">Print...</span>&nbsp;&ndash; opens a system dialog for sending a file for printing. Printing is only available when viewed with plugins that support printing files.</p>
+        <p><span class="italic">Print setup...</span>&nbsp;&ndash; opens a dialog for setting the print borders (left, right, top and bottom page margins).</p>
+        <p><span class="italic">Reload</span>&nbsp;&ndash; Double Commander will forcibly reread the file without closing the viewer window. This is convenient if the file has been modified by an external program.</p>
+        <p><span class="italic">Auto Reload</span>&nbsp;&ndash; only for text mode: if enabled, Double Commander will monitor the file size and if it changes, reread the file and scroll its contents to the end. This is convenient for viewing constantly updated log files. This mode applies only to the current file and is disabled when switching to another file or when closing the viewer window.</p>
+        <p><span class="italic">Exit</span>&nbsp;&ndash; Close the viewer window.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_edit">2.2. "Edit"</a></h2>
+        <p>The menu contains commands for selecting and copying text, as well as commands for searching through the contents of the file being viewed: <span class="italic">Find</span>, <span class="italic">Find next</span> and <span class="italic">Find previous</span>.</p>
+        <p>Search options:</p>
+        <ul>
+          <li><p><span class="italic">Case sensitive</span>&nbsp;&ndash; indicates that uppercase should be distinguished from lowercase, e.g. "Fallout" and "fallout" would be different.</p></li>
+          <li><p><span class="italic">Hexadecimal</span>&nbsp;&ndash; searches for hexadecimal characters (case insensitive, with or without spaces between characters, for example, "C0 C1 C2" or "c0c1c2").</p></li>
+          <li><p><span class="italic">Regular expressions</span>&nbsp;&ndash; if enabled we can use <a href="regexp.html">regular expressions</a>.</p></li>
+          <li><p><span class="italic">Backwards</span>&nbsp;&ndash; switches the search direction: search from the end of the file instead of searching from the beginning.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_view">2.3. "View"</a></h2>
+        <p>This menu is for switching the viewing mode and contains several additional options.</p>
+        <p><span class="italic">Preview</span>&nbsp;&ndash; Show or hide the <a href="#preview">preview</a> panel.</p>
+        <p>The program automatically selects the appropriate file viewing mode, the following items allow to switch it forcibly:</p>
+        <ul>
+          <li><p><span class="italic">Show as Text</span>&nbsp;&ndash; Show file contents (or console command output, see <a href="configuration.html#ConfigAssociations">File associations</a>) as plain text. We can set the maximum number of characters to be displayed on one text line prior to wrap it up to the next one (1024 by default).</p></li>
+          <li><p><span class="italic">Show as Bin</span>&nbsp;&ndash; Show file contents as is. Non-printable characters will be displayed as dots, however, when copying text, control characters (line feed, carriage return, tabulation and so on) will be respected. A fixed line width of 80 characters is used.</p></li>
+          <li><p><span class="italic">Show as Hex</span>&nbsp;&ndash; The window will display three columns: offset from the beginning of the file (in bytes), 16 characters in hexadecimal representation and the same 16 characters in plain text. Non-printable characters will be displayed as dots. When selecting values in the second column, the corresponding symbols in the third column will be selected (and vice versa).</p></li>
+          <li><p><span class="italic">Show as Dec</span>&nbsp;&ndash; Like the previous, but bytes will be represented in decimal notation.</p></li>
+          <li><p><span class="italic">Show as Wrap text</span>&nbsp;&ndash; Like <span class="italic">Show as Text</span>, but with wrapping lines that do not fit in the window (by word boundaries).</p></li>
+          <li><p><span class="italic">Show as Book</span>&nbsp;&ndash; A special viewing mode: text will be displayed in multiple columns (like a book spread or a newspaper). We can set the font and size, text and background colors, and the number of columns (1, 2 or 3).</p></li>
+          <li><p><span class="italic">Graphics</span>&nbsp;&ndash; switches to image viewing. See the list of supported image formats at the <a href="#intro">beginning of the page</a>.</p></li>
+          <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Viewing with WLX plugins. If the selected file can be opened by several installed plugins, then repeated calls of this command will switch them in a circle.</p></li>
+        </ul>
+        <p>Plugins have priority over the <span class="italic">Graphics</span> mode.</p>
+        <p><span class="italic">Show text cursor</span>&nbsp;&ndash; enables the display of a blinking text cursor.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_enc">2.4. "Encoding"</a></h2>
+        <p>When viewing files in text modes: menu with a list of available text encodings, auto-detection is enabled by default.</p>
+        <p>When using plugins, this menu includes only three items:</p>
+        <ul>
+          <li><p><span class="italic">Auto-detect</span>&nbsp;&ndash; automatic encoding detection.</p></li>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; default system ANSI encoding (depends on user locale).</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; default system OEM (DOS) encoding (depends on user locale).</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_image">2.5. "Image"</a></h2>
+        <p>The <span class="italic">Image</span> menu will not be available when viewing GIF files.</p>
+        <p><span class="italic">Stretch</span>&nbsp;&ndash; resizes the image so it fills the viewer window (the aspect ratio will be saved automatically).</p>
+        <p><span class="italic">Stretch only large</span>&nbsp;&ndash; resizes the image only if it is larger than the current window size (the aspect ratio will be saved automatically).</p>
+        <p><span class="italic">Center</span>&nbsp;&ndash; The image will be displayed in the center of the viewer window instead of the upper left corner.</p>
+        <p>The <span class="italic">Rotate</span> submenu includes several similar actions:</p>
+        <ul>
+          <li><p>The first three commands rotate the image by a specified number of degrees around its center: <span class="italic">+ 90</span> (90 degrees to the right), <span class="italic">+ 180</span> and <span class="italic">- 90</span> (90 degrees to the left).</p></li>
+          <li><p><span class="italic">Mirror Horizontally</span>&nbsp;&ndash; reverses the image horizontally, that is, from left to right.</p></li>
+          <li><p><span class="italic">Mirror Vertically</span>&nbsp;&ndash; reverses the image vertically, that is, from top to bottom.</p></li>
+        </ul>
+        <p><span class="italic">Zoom In</span> and <span class="italic">Zoom Out</span>&nbsp;&ndash; commands to change the image scale.</p>
+        <p><span class="italic">Full Screen</span>&nbsp;&ndash; switches the window to full-screen mode (the contents of the window without the operating system's typical window-framing interface). This mode is available not only when viewing images, just use hotkeys (<kbd>Alt+Enter</kbd> by default).</p>
+        <p>The <span class="italic">Screenshot</span> submenu&nbsp;&ndash; creating a screenshot of the desktop, immediately or with a delay (3 or 5 seconds).</p>
+        <p>When using plugins, this menu includes only three items: <span class="italic">Stretch</span>, <span class="italic">Stretch only large</span> and <span class="italic">Center</span>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_about">2.6. "About"</a></h2>
+        <p>Just a viewer name.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbar">3. Toolbar</a></h2>
+        <p>Several commands of the internal viewer and additional tools, collected in the toolbar. Only when viewing images.</p>
+        <p class="figure"><img class="largeimage" title="Toolbar" alt="Toolbar" src="images/imgDC/viewertoolbar.png" width="834" height="33"></p>
+        <p><span class="italic">Reload current file</span>&nbsp;&ndash; Double Commander will forcibly reread the file without closing the viewer window. This is convenient if the file has been modified by an external program.</p>
+        <p>Buttons <span class="italic">Load Previous File</span> and <span class="italic">Load Next File</span> are used to load the previous or next file in the directory. The sort order in the file panel is used.</p>
+        <p><span class="italic">Copy File</span>&nbsp;&ndash; see <a href="#copymove">Copying/moving files</a>.</p>
+        <p><span class="italic">Move File</span>&nbsp;&ndash; see <a href="#copymove">Copying/moving files</a>.</p>
+        <p><span class="italic">Delete File</span>&nbsp;&ndash; will delete the file being viewed with a confirmation request.</p>
+        <p><span class="italic">Zoom In</span> and <span class="italic">Zoom Out</span>&nbsp;&ndash; commands to change the image scale.</p>
+        <p><span class="italic">Rotate -90 degrees</span>&nbsp;&ndash; rotates the image by 90 degrees to the left around its center.</p>
+        <p><span class="italic">Rotate +90 degrees</span>&nbsp;&ndash; rotates the image by 90 degrees to the right around its center.</p>
+        <p><span class="italic">Mirror</span>&nbsp;&ndash; The <span class="italic">Mirror Horizontally</span> command: reverses the image horizontally, that is, from left to right.</p>
+        <p>The next group is for GIF animation only:</p>
+        <ul>
+          <li><p><span class="italic">Pause/Play</span>&nbsp;&ndash; pauses animation playback.</p></li>
+          <li><p><span class="italic">Previous Frame</span> and <span class="italic">Next Frame</span>&nbsp;&ndash; switch animation frames back and forth.</p></li>
+          <li><p><span class="italic">Export Frame</span>&nbsp;&ndash; allows to save the current animation frame.</p></li>
+        </ul>
+        <p>The next group of buttons is related to selection:</p>
+        <ul>
+          <li><p><span class="italic">Highlight</span>&nbsp;&ndash; turns on the selection tool (rectangle).</p></li>
+          <li><p><span class="italic">Crop</span>&nbsp;&ndash; crop image by selection.</p></li>
+          <li><p><span class="italic">Red Eyes</span>&nbsp;&ndash; red-eye removal function.</p></li>
+        </ul>
+        <p>The next group of buttons is related to drawing:</p>
+        <ul>
+          <li><p><span class="italic">Paint</span>&nbsp;&ndash; enables drawing tools.</p></li>
+          <li><p><span class="italic">Undo</span>&nbsp;&ndash; cancels the last action.</p></li>
+          <li><p>Menu for selecting a drawing tool: <span class="italic">Pen</span>, <span class="italic">Rect</span> and <span class="italic">Ellipse</span>.</p></li>
+          <li><p><span class="italic">Width</span>&nbsp;&ndash; Menu for selecting the line width (from 1 to 25 pixels).</p></li>
+          <li><p><span class="italic">Color</span>&nbsp;&ndash; allows to set the color of the line.</p></li>
+        </ul>
+        <p><span class="italic">Full Screen</span>&nbsp;&ndash; switches the window to full-screen mode (the contents of the window without the operating system's typical window-framing interface) and back. This mode is available not only when viewing images, just use hotkeys (<kbd>Alt+Enter</kbd> by default).</p>
+        <p><span class="italic">Resize</span>&nbsp;&ndash; The image resizing tool allows to specify the width and height in pixels (the aspect ratio will be saved automatically).</p>
+        <p>When the window is expanded to full screen, an additional <span class="italic">Slide Show</span> button will become available: we can enable automatic loading the next image in the current directory and set the file display time (from 1 to 25 seconds).</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="statusbar">4. Status bar</a></h2>
+        <p>The appearance and content of the status bar depends on the viewing mode: text, image or WLX plugin.</p>
+        <p>At the beginning of the status bar, the number of the open file and the total number of files in the current directory are displayed.</p>
+        <p>Text: position in the file content (in bytes and percentages), file size and text encoding.</p>
+        <p class="figure"><img class="largeimage" title="Status bar: text" alt="Status bar: text" src="images/imgDC/viewerstatus1.png" width="642" height="24"></p>
+        <p>Image: current resolution (in pixels and percentages), real file resolution and selection size (when using the selection tool).</p>
+        <p class="figure"><img class="largeimage" title="Status bar: image" alt="Status bar: image" src="images/imgDC/viewerstatus2.png" width="642" height="24"></p>
+        <p>WLX plugin: plugin name and encoding.</p>
+        <p class="figure"><img class="largeimage" title="Status bar: WLX plugin" alt="Status bar: WLX plugin" src="images/imgDC/viewerstatus3.png" width="642" height="24"></p>
+        <p>At the ending of the status bar, the full name of the file being viewed is displayed.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="preview">5. Preview</a></h2>
+        <p>Panel in the left part of the window, catalog files are displayed as thumbnails (with the file name below the thumbnail). It looks like the thumbnail mode in the file panel.</p>
+        <p class="figure"><img class="largeimage" title="Preview" alt="Preview" src="images/imgDC/viewerpreview.png" width="720" height="418"></p>
+        <p>The sort order in the file panel is used. The file with which the viewer was launched will always be the first in the list.</p>
+        <p>The preview panel can be expanded to display a list of thumbnails in multiple columns.</p>
+        <p>Separate toolbar with several frequently used functions: <span class="italic">Reload current file</span>, <span class="italic">Load Previous File</span>, <span class="italic">Load Next File</span>, <span class="italic">Copy File</span>, <span class="italic">Delete File</span> and <span class="italic">Move File</span>, see description of  similar buttons <a href="#toolbar">above</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="copymove">6. Copying/moving files</a></h2>
+        <p>The viewer has the ability to copy or move the viewed file using hotkeys or buttons on the toolbar or on the preview panel (internal viewer commands <tt>cm_CopyFile</tt> and <tt>cm_MoveFile</tt>). We can specify up to 5 directories and switch between them:</p>
+        <p class="figure"><img class="largeimage" title="Copying/moving files" alt="Copying/moving files" src="images/imgDC/viewercopymove.png" width="322" height="234"></p>
+        <p>This is convenient if we need to put the viewed files into different directories or make an additional copy.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">7. Additional settings</a></h2>
+        <p>See the description of the Double Commander settings sections: <a href="configuration.html#ConfigToolsViewer">Tools&nbsp;&gt; Viewer</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="syncdirs.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -56,10 +56,10 @@
         <p>Line <span class="italic">Start in directory</span> specifies directory to start search, by default will be use the current directory of the active panel.</p>
         <p>Additional options for specifying file search locations:</p>
         <ul>
-          <li><p><span class="italic">Opened tabs</span>&nbsp;&mdash; only directories of opened tabs will be used.</p></li>
-          <li><p><span class="italic">Selected directories and files</span>&nbsp;&mdash; if enabled, the search will be conducted only among selected files and folders in the active panel.</p></li>
-          <li><p><span class="italic">Follow symlinks</span>&nbsp;&mdash; if a symbolic link to a directory is found, the target directory will be read and used, otherwise this symbolic link will be considered a regular file.</p></li>
-          <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&mdash; a list of subdirectories to be excluded from the search.</p></li>
+          <li><p><span class="italic">Opened tabs</span>&nbsp;&ndash; only directories of opened tabs will be used.</p></li>
+          <li><p><span class="italic">Selected directories and files</span>&nbsp;&ndash; if enabled, the search will be conducted only among selected files and folders in the active panel.</p></li>
+          <li><p><span class="italic">Follow symlinks</span>&nbsp;&ndash; if a symbolic link to a directory is found, the target directory will be read and used, otherwise this symbolic link will be considered a regular file.</p></li>
+          <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&ndash; a list of subdirectories to be excluded from the search.</p></li>
           <li><p><span class="italic">Search subdirectories</span> can have:</p>
           <ul>
             <li><p>current dir only,</p></li>
@@ -71,25 +71,25 @@
         <p>Line <span class="italic">File mask</span> sets the mask for the search.</p>
         <p>Additional options:</p>
         <ul>
-          <li><p><span class="italic">Search in archives</span>&nbsp;&mdash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>
-          <li><p><span class="italic">Search for part of file name</span>&nbsp;&mdash; should be disabled if we want to use exact file name.</p></li>
-          <li><p><span class="italic">Regular expression</span>&nbsp;&mdash; if enabled we can use <a href="regexp.html">regular expressions</a>.</p></li>
-          <li><p><span class="italic">Exclude files</span>&nbsp;&mdash; a list of file names to be excluded from the search.</p>
+          <li><p><span class="italic">Search in archives</span>&nbsp;&ndash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>
+          <li><p><span class="italic">Search for part of file name</span>&nbsp;&ndash; should be disabled if we want to use exact file name.</p></li>
+          <li><p><span class="italic">Regular expression</span>&nbsp;&ndash; if enabled we can use <a href="regexp.html">regular expressions</a>.</p></li>
+          <li><p><span class="italic">Exclude files</span>&nbsp;&ndash; a list of file names to be excluded from the search.</p>
         </ul>
         <p>Note: <span class="italic">File mask</span>, <span class="italic">Exclude files</span>, <span class="italic">Start in directory</span> and <span class="italic">Exclude subdirectories</span> allow to enter several values, separated with semicolon ";" without spaces. If we need to find a file with semicolon in the name, we have to enable regular expressions.</p>
         <p>If the <span class="italic">Find text in file</span> checkbox is enabled, the process will search for the specified text in the files. We can also replace this text with any other text, specified in the line <span class="italic">Replace by</span> by enabling the checkbox.</p>
         <p>Additional options:</p>
         <ul>
-          <li><p><span class="italic">Find files NOT containing the text</span>&nbsp;&mdash; displays files, that do not have the text specified in <span class="italic">Find text in file</span>.</p></li>
-          <li><p><span class="italic">Case sensitive</span>&nbsp;&mdash; indicates that uppercase should be distinguished from lowercase, e.g. "Fallout" and "fallout" would be different.</p></li>
-          <li><p><span class="italic">Hexadecimal</span>&nbsp;&mdash; searches for hexadecimal characters (case insensitive, with or without spaces between characters, for example, "C0&nbsp;C1&nbsp;C2" or "c0c1c2").</p></li>
-          <li><p><span class="italic">Office XML</span>&nbsp;&mdash; enables a search in Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS) files.</p></li>
+          <li><p><span class="italic">Find files NOT containing the text</span>&nbsp;&ndash; displays files, that do not have the text specified in <span class="italic">Find text in file</span>.</p></li>
+          <li><p><span class="italic">Case sensitive</span>&nbsp;&ndash; indicates that uppercase should be distinguished from lowercase, e.g. "Fallout" and "fallout" would be different.</p></li>
+          <li><p><span class="italic">Hexadecimal</span>&nbsp;&ndash; searches for hexadecimal characters (case insensitive, with or without spaces between characters, for example, "C0&nbsp;C1&nbsp;C2" or "c0c1c2").</p></li>
+          <li><p><span class="italic">Office XML</span>&nbsp;&ndash; enables a search in Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS) files.</p></li>
           <li><p>Also we can set encoding (UTF, ISO, KOI, DOS, ANSI etc.) and enable regular expressions.</p></li>
         </ul>
         <p>Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the input fields history.</p>
         <p>The <span class="italic">Start</span> button starts search, <span class="italic">Cancel</span> stops search and <span class="italic">Close</span> closes the Find files window.</p>
-        <p><span class="italic">New search</span>&nbsp;&mdash; clears the old results and allows to start a new search (also with new conditions).</p>
-        <p><span class="italic">Last search</span>&nbsp;&mdash; loads parameters from the previous search (in the current session, before closing Double Commander).</p>
+        <p><span class="italic">New search</span>&nbsp;&ndash; clears the old results and allows to start a new search (also with new conditions).</p>
+        <p><span class="italic">Last search</span>&nbsp;&ndash; loads parameters from the previous search (in the current session, before closing Double Commander).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -105,7 +105,7 @@
           <li><p>compare file hashes: BLAKE2b (x64) or BLAKE2s checksum will be used;</p></li>
           <li><p>compare file content (byte-by-byte comparison).</p></li>
         </ul>
-        <p>In the result will be shown file names, group number of matching files and file locations. Also after feed to listbox you can use special selection mode, where you can select only duplicates:
+        <p>In the result will be shown file names, group number of matching files and file locations. Also after feed to listbox we can use special selection mode, where we can select only duplicates:
           <span class="italic">Select a Group</span> and <span class="italic">Unselect a Group</span> in the <span class="italic">Mark</span> submenu (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -216,8 +216,8 @@
         <p>The DSX plugins interface allows to send them parameter values from the "Standard" and "Advanced" tabs, the exact list of passed values depends on the capabilities of a particular plugin.</p>
         <p>WDX plugins complement the search, their fields can be combined according to the following rules:</p>
         <ul>
-          <li><p><span class="italic">AND (all match)</span>&nbsp;&mdash; all conditions must match.</p></li>
-          <li><p><span class="italic">OR (any match)</span>&nbsp;&mdash; one match is enough.</p></li>
+          <li><p><span class="italic">AND (all match)</span>&nbsp;&ndash; all conditions must match.</p></li>
+          <li><p><span class="italic">OR (any match)</span>&nbsp;&ndash; one match is enough.</p></li>
         </ul>
         <p><span class="italic">Operator</span> and <span class="italic">Value</span> depend on the type of data returned by the plugin field: number, string, date, time or boolean type. For some numerical values, we can choose a unit of measurement (for example, for size or duration). The following compare operations are supported:</p>
         <table class="innercmddesc">
@@ -287,7 +287,7 @@
 
       <div>
         <h2><a name="templates">5. Tab "Load/Save"</a></h2>
-        <p>Tab <span class="italic">Load/Save</span>&nbsp;&mdash; allows to save search parameters so they can be used again later.</p>
+        <p>Tab <span class="italic">Load/Save</span>&nbsp;&ndash; allows to save search parameters so they can be used again later.</p>
         <p>Also, here we can see the templates created in the <a href="#ConfigColorFiles">Colors&nbsp;&gt; File types</a> settings section and in the <a href="help.html#cm_MarkPlus">Select a Group</a> command dialog.</p>
         <p>There is a field with a hint under the list of templates: for the selected template, the values of <span class="italic">File mask</span> and <span class="italic">Start in directory</span> (if it was saved) are displayed.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -297,10 +297,10 @@
         <h2><a name="results">6. Tab "Results"</a></h2>
         <p>This tab contains results of the search (just a list of full filenames) and has the following buttons:</p>
         <ul>
-          <li><p><span class="italic">View</span>&nbsp;&mdash; opens selected file in the viewer (<kbd>F3</kbd>).</p></li>
-          <li><p><span class="italic">Edit</span>&nbsp;&mdash; opens selected file in the editor (<kbd>F4</kbd>).</p></li>
-          <li><p><span class="italic">Go to file</span>&nbsp;&mdash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file.</p></li>
-          <li><p><span class="italic">Feed to listbox</span>&nbsp;&mdash; transfers a list of the found files in the active file panel.</p></li>
+          <li><p><span class="italic">View</span>&nbsp;&ndash; opens selected file in the viewer (<kbd>F3</kbd>).</p></li>
+          <li><p><span class="italic">Edit</span>&nbsp;&ndash; opens selected file in the editor (<kbd>F4</kbd>).</p></li>
+          <li><p><span class="italic">Go to file</span>&nbsp;&ndash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file.</p></li>
+          <li><p><span class="italic">Feed to listbox</span>&nbsp;&ndash; transfers a list of the found files in the active file panel.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -311,16 +311,16 @@
         <p class="figure"><img class="largeimage" title="Search: Additional configuration" alt="Search: Additional configuration" src="images/imgDC/findconfiguration.png" width="512" height="253"></p>
         <p>File search:</p>
         <ul>
-          <li><p><span class="italic">Search for part of file name</span>&nbsp;&mdash; If unchecked, Double Commander will search for the exact name match.</p></li>
-          <li><p><span class="italic">When launching file search, clear file mask filter</span>&nbsp;&mdash; If enabled, Double Commander will automatically clear the <span class="italic">File mask</span> field each time.</p></li>
-          <li><p><span class="italic">Current filters with "New search" button</span>&nbsp;&mdash; sets the state of the rest of the search parameters: Double Commander will keep them, reset to default state or ask.</p></li>
-          <li><p><span class="italic">Show menu bar in "Find files"</span>&nbsp;&mdash; This menu contains the commands of the find files dialog (also hotkeys are shown) and items for quick jump to this section of settings and to the <a href="configuration.html#ConfigHotKeys">hotkey settings</a>.</p></li>
-          <li><p><span class="italic">Default search template</span>&nbsp;&mdash; We can choose one of the previously saved search templates and Double Commander will use its parameters as default parameters each time when we open the find files dialog.</p></li>
+          <li><p><span class="italic">Search for part of file name</span>&nbsp;&ndash; If unchecked, Double Commander will search for the exact name match.</p></li>
+          <li><p><span class="italic">When launching file search, clear file mask filter</span>&nbsp;&ndash; If enabled, Double Commander will automatically clear the <span class="italic">File mask</span> field each time.</p></li>
+          <li><p><span class="italic">Current filters with "New search" button</span>&nbsp;&ndash; sets the state of the rest of the search parameters: Double Commander will keep them, reset to default state or ask.</p></li>
+          <li><p><span class="italic">Show menu bar in "Find files"</span>&nbsp;&ndash; This menu contains the commands of the find files dialog (also hotkeys are shown) and items for quick jump to this section of settings and to the <a href="configuration.html#ConfigHotKeys">hotkey settings</a>.</p></li>
+          <li><p><span class="italic">Default search template</span>&nbsp;&ndash; We can choose one of the previously saved search templates and Double Commander will use its parameters as default parameters each time when we open the find files dialog.</p></li>
         </ul>
         <p>Text search in files:</p>
         <ul>
-          <li><p><span class="italic">Use memory mapping for search text in files</span>&nbsp;&mdash; Copies the file into virtual memory before performing the search. It's faster, but needs a more powerful computer.</p></li>
-          <li><p><span class="italic">Use stream for search text in files</span>&nbsp;&mdash; Splits file into parts, then the search begins (slower, but fewer resources are required).</p></li>
+          <li><p><span class="italic">Use memory mapping for search text in files</span>&nbsp;&ndash; Copies the file into virtual memory before performing the search. It's faster, but needs a more powerful computer.</p></li>
+          <li><p><span class="italic">Use stream for search text in files</span>&nbsp;&ndash; Splits file into parts, then the search begins (slower, but fewer resources are required).</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>

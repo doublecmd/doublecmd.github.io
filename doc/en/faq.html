@@ -73,7 +73,7 @@
           <dd>
             <dl>
               <dt>5.1. <a href="#f3_compiz">Editor and browser windows appear in random positions, when Compiz is enabled.</a></dt>
-              <dt>5.2. <a href="#f3_font">Internal editor has a strange font&nbsp;&mdash; horizontal characters overwrite each other.</a></dt>
+              <dt>5.2. <a href="#f3_font">Internal editor has a strange font&nbsp;&ndash; horizontal characters overwrite each other.</a></dt>
               <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most.</a></dt>
               <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge.</a></dt>
               <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
@@ -113,7 +113,7 @@
         <br>
 
         <p class="bold"><a name="linux">Q: Is it a Total Commander for Linux?</a></p>
-        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and Mac OS<sup>(<a title="Note about Mac OS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, also Double Commander is available in the FreeBSD Ports collection.</p>
+        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, also Double Commander is available in the FreeBSD Ports collection.</p>
         <br>
 
         <p class="bold"><a name="wincmd">Q: What is the difference between this program and my favorite file manager (Total Commander)?</a></p>
@@ -127,14 +127,15 @@
 
         <p class="bold"><a name="link">Q: How can I contact the developers of Double Commander?</a></p>
         <p><span class="bold">A:</span> The project's <a href="https://doublecmd.h1n.ru/" target="_blank">official forum</a> or <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
-          Make sure you are using the latest version of the program and it's a good idea to check the development (alpha) version before reporting a bug or requesting a new feature.</p>
+          Make sure you are using the latest version of the program and it's a good idea to check the development (alpha) version before reporting a bug or requesting a new feature.
+          Also see <a title="Creating a new issue" href="https://github.com/doublecmd/doublecmd/issues/117" target="_blank">#117</a>.</p>
         <br>
 
         <p class="bold"><a name="pupd">Q: How to update the portable version without losing settings?</a></p>
         <p><span class="bold">A:</span> Upgrading is done by simply unpacking and replacing files, but you should pay attention to the following files:</p>
         <ul>
-          <li><tt>multiarc.ini</tt>&nbsp;&mdash; see <a href="multiarc.html">external archivers</a>;</li>
-          <li><tt>pixmaps.txt</tt>&nbsp;&mdash; see <a href="configuration.html#ConfigIcons">Configuration&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Only standard icons</a>.</li>
+          <li><tt>multiarc.ini</tt>&nbsp;&ndash; see <a href="multiarc.html">external archivers</a>;</li>
+          <li><tt>pixmaps.txt</tt>&nbsp;&ndash; see <a href="configuration.html#ConfigIcons">Configuration&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Only standard icons</a>.</li>
         </ul>
         <p>If you did not change these settings, then just agree with the replacement of files. Otherwise, compare with yours and copy the changes.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -143,7 +144,7 @@
       <div>
         <h2>2. Issues related to GNU/Linux</h2>
         <p class="bold"><a name="version">Q: Which version do I download?</a></p>
-        <p><span class="bold">A:</span> If you have KDE or LXQt&nbsp;&mdash; download a Qt-build; in other cases (Gnome, Xfce, LXDE) a build for GTK toolkit. But this is not strict rule.</p>
+        <p><span class="bold">A:</span> If you have KDE or LXQt&nbsp;&ndash; download a Qt-build; in other cases (Cinnamon, GNOME, LXDE, MATE or Xfce) a build for GTK toolkit. But this is not strict rule.</p>
         <br>
 
         <p class="bold"><a name="repo">Q: Where is the project repository?</a></p>
@@ -176,7 +177,7 @@
         <p class="bold"><a name="gvfs">Q: Can I get access to network resources like in Nautilus or Thunar?</a></p>
         <p><span class="bold">A:</span> Yes, DC can use Gvfs. Gvfs supports many protocols: NFS, SMB, FTP, SFTP, WebDAV, MTP, mobile phones (Windows, Android, Apple), media players and other.</p>
         <p>First, packages <tt>gvfs</tt> and <tt>gvfs-backends</tt> should be installed (also add <tt>gvfs-fuse</tt>, it can be useful).
-          Keep in mind that some distributions have not packages <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt>, 
+          Keep in mind that some distributions have not packages <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt>,
           because they are part of package <tt>gvfs</tt>, or it can be several packages with names <tt>gvfs-backends-*</tt> or <tt>gvfs-*</tt>.</p>
         <p>Now insert Gvfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>).</p>
         <p>For example, access to</p>
@@ -199,8 +200,8 @@
         <p class="bold"><a name="colorbuttons">Q: What are buttons <kbd>R</kbd> and <kbd>All</kbd> in the color settings?</a></p>
         <p><span class="bold">A:</span> They are as follows:</p>
         <ul>
-          <li><p><kbd>R</kbd>&nbsp;&mdash; restore color to the default.</p></li>
-          <li><p><kbd>All</kbd>&nbsp;&mdash; apply selected color to all columns.</p></li>
+          <li><p><kbd>R</kbd>&nbsp;&ndash; restore color to the default.</p></li>
+          <li><p><kbd>All</kbd>&nbsp;&ndash; apply selected color to all columns.</p></li>
         </ul>
         <br>
 
@@ -265,7 +266,7 @@
         <ul>
           <li>Configuration &gt; Options... &gt; Fonts &gt; Main font</li>
           <li>Configuration &gt; Options... &gt; Icons &gt; Icon size &gt; File panel</li>
-          <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (from &lt;FilesViews&gt;)</li>
+          <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (from <code>&lt;FilesViews&gt;</code>)</li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -326,7 +327,7 @@
         <pre class="CODE">(class=Doublecmd) &amp; (title=/)</pre>
         <br>
 
-        <p class="bold"><a name="f3_font">Q: Internal editor has a strange font&nbsp;&mdash; horizontal characters overwrite each other.</a></p>
+        <p class="bold"><a name="f3_font">Q: Internal editor has a strange font&nbsp;&ndash; horizontal characters overwrite each other.</a></p>
         <p><span class="bold">A:</span> You must use monospace fonts in the viewer and editor.</p>
         <br>
 
@@ -355,7 +356,7 @@
         <ul>
           <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Debian-based distributions or <tt>pcre2</tt> in Arch Linux.</p></li>
           <li><p>Windows: needs <tt>libpcre2-8.dll</tt> (by default, the Double Commander distribution contains this DLL).</p></li>
-          <li><p>Mac OS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
+          <li><p>macOS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <br>
 

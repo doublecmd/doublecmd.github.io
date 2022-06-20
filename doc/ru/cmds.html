@@ -16,7 +16,7 @@
 
     <div class="dchelpage">
       <div>
-        <h1>2.11. Внутренние команды</h1>
+        <h1>2.13. Внутренние команды</h1>
       </div>
 
       <div>
@@ -232,7 +232,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
               <div class="cmdname"><a name="cm_QuickView">cm_QuickView</a></div>
               <div class="shrtctkey">Ctrl+Q</div></td>
-            <td class="cmdhintcell">Быстрый просмотр, содержимое выбранного файла будет показано на противоположной панели.<br>При перемещении на следующий или предыдущий отображаемое содержимое обновится.</td>
+            <td class="cmdhintcell">Быстрый просмотр, содержимое выбранного файла будет показано на противоположной панели (вместо отдельного окна).<br>При перемещении на следующий или предыдущий отображаемое содержимое обновится.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SortByName" alt="cm_SortByName" src="../../pixmaps/dctheme/32x32/actions/cm_sortbyname.png">
@@ -344,7 +344,7 @@
                 </tr>
               </table>
               <br>
-              Пример: "cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>Эта команда отсортирует содержимое активной панели по колонке с размером&nbsp;&mdash; чем больше размер файла, тем выше он в списке.
+              Пример: "cm_UniversalSingleDirectSort: panel=active, column=size, order=descending"<br>Эта команда отсортирует содержимое активной панели по колонке с размером&nbsp;&ndash; чем больше размер файла, тем выше он в списке.
             </td>
           </tr>
           <tr>
@@ -755,7 +755,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenVirtualFileSystemList" alt="cm_OpenVirtualFileSystemList" src="../../pixmaps/dctheme/32x32/actions/cm_openvirtualfilesystemlist.png">
               <div class="cmdname"><a name="cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a></div></td>
-            <td class="cmdhintcell">Открыть список виртуальных файловых систем (список WFX-плагинов).</td>
+            <td class="cmdhintcell"><a href="help.html#cm_OpenVirtualFileSystemList">Открыть список VFS</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FileProperties" alt="cm_FileProperties" src="../../pixmaps/dctheme/32x32/actions/cm_fileproperties.png">
@@ -1635,9 +1635,9 @@
               <br>
               Примеры:<br>
               <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
-              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&mdash; папка "Paul Houde".<br><br>
+              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&ndash; папка "Paul Houde".<br><br>
               <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
-              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&mdash; в правой.<br><br>
+              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&ndash; в правой.<br><br>
               <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
               В активной панели будет открыт указанный сетевой путь.
             </td>
@@ -1658,17 +1658,17 @@
                   <td class="innerdescparamcell">search</td>
                   <td class="innerdescvaluecell">on/off/cycle</td>
                   <td class="innerdescdesccell">Определяет состояние панели быстрого поиска (внизу файловой панели):<br>
-                    - "on"&nbsp;&mdash; применяет указанные параметры поиска, панель быстрого поиска отображается<br>
-                    - "off"&nbsp;&mdash; закрывает быстрый поиск и скрывает панель<br>
-                    - "cycle"&nbsp;&mdash; используется для многократных вызовов команды подряд, чтобы перейти к следующему совпадающему пункту</td>
+                    - "on"&nbsp;&ndash; применяет указанные параметры поиска, панель быстрого поиска отображается<br>
+                    - "off"&nbsp;&ndash; закрывает быстрый поиск и скрывает панель<br>
+                    - "cycle"&nbsp;&ndash; используется для многократных вызовов команды подряд, чтобы перейти к следующему совпадающему пункту</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">direction</td>
                   <td class="innerdescvaluecell">first/last/next</td>
                   <td class="innerdescdesccell">Определяет направление быстрого поиска пункта, соответствующего критериям поиска:<br>
-                    - "first"&nbsp;&mdash; к первому найденному сверху пункту<br>
-                    - "last"&nbsp;&mdash; к последнему пункту<br>
-                    - "next"&nbsp;&mdash; к следующему после текущего найденного. Обратите внимание, что возможен "оборот" и возврат к текущему пункту, если следующий не найден.<br>
+                    - "first"&nbsp;&ndash; к первому найденному сверху пункту<br>
+                    - "last"&nbsp;&ndash; к последнему пункту<br>
+                    - "next"&nbsp;&ndash; к следующему после текущего найденного. Обратите внимание, что возможен "оборот" и возврат к текущему пункту, если следующий не найден.<br>
                     *Примечание: Этот параметр не имеет значения, когда "search=cycle".</td>
                 </tr>
                 <tr>
@@ -1724,9 +1724,9 @@
                   <td class="innerdescparamcell">filter</td>
                   <td class="innerdescvaluecell">on/off/toggle</td>
                   <td class="innerdescdesccell">
-                    - "on"&nbsp;&mdash; применяет фильтр, панель фильтра отображается внизу файловой панели<br>
-                    - "off"&nbsp;&mdash; удаляет фильтр и скрывает панель<br>
-                    - "toggle"&nbsp;&mdash; переключает два предыдущих состояния</td>
+                    - "on"&nbsp;&ndash; применяет фильтр, панель фильтра отображается внизу файловой панели<br>
+                    - "off"&nbsp;&ndash; удаляет фильтр и скрывает панель<br>
+                    - "toggle"&nbsp;&ndash; переключает два предыдущих состояния</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell">matchbeginning</td>
@@ -2018,7 +2018,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_PanelsSplitterPerPos" alt="cm_PanelsSplitterPerPos" src="../../pixmaps/dctheme/32x32/actions/cm_panelssplitterperpos.png">
               <div class="cmdname"><a name="cm_PanelsSplitterPerPos">cm_PanelsSplitterPerPos</a></div></td>
-            <td class="cmdhintcell">Установить ширину панелей, например, 50%&nbsp;&mdash; одинакового размера.<br>
+            <td class="cmdhintcell">Установить ширину панелей, например, 50%&nbsp;&ndash; одинакового размера.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2322,7 +2322,10 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CompareContents" alt="cm_CompareContents" src="../../pixmaps/dctheme/32x32/actions/cm_comparecontents.png">
               <div class="cmdname"><a name="cm_CompareContents">cm_CompareContents</a></div></td>
-            <td class="cmdhintcell">Открыть окно <a href="help.html#cm_CompareContents">сравнения по содержимому</a>.</td>
+            <td class="cmdhintcell">
+              Открыть окно <a href="help.html#cm_CompareContents">сравнения по содержимому</a>.<br>
+              Если используется внешняя программа сравнения, то доступен параметр "dir" (без кавычек): в этом случае программе будут переданы текущие каталоги левой и правой файловых панелей.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_DebugShowCommandParameters" alt="cm_DebugShowCommandParameters" src="../../pixmaps/dctheme/32x32/actions/cm_debugshowcommandparameters.png">

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Synchronize directories</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="multirename.html">Previous</a> | <a title="Next page" href="viewer.html">Next</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.7. Synchronize directories</h1>
+      </div>
+
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. <a href="#intro">Introduction</a></dt>
+          <dt>2. <a href="#window">Directory synchronization tool window</a></dt>
+          <dt>3. <a href="#commands">Commands</a></dt>
+          <dt>4. <a href="#asettings">Additional settings</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Introduction</a></h2>
+        <p>The directory synchronization tool scans the directories of the left and right file panels, displays differences in their contents and allows to make them the same.</p>
+        <p>We can synchronize two local directories or a local directory and a directory on a virtual file system (an open archive or a directory in a file system plugin).</p>
+        <p>By default, the synchronization tool compares files by name, size and modification date.</p>
+        <p>The method of deleting files (to trash (recycle bin) or permanently) depends on the state of the <a href="configuration.html#ConfigOperations">Delete to recycle bin (Shift key reverses this setting)</a> option.</p>
+        <p>Note: Empty directories will be ignored.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="window">2. Directory synchronization tool window</a></h2>
+        <p class="figure"><img class="largeimage" title="Directory synchronization tool" alt="Directory synchronization tool" src="images/imgDC/syncdirs.png" width="742" height="446"></p>
+        <p>In the top of the window there are fields with the current directories of the left and right file panels. We can change them manually or by using the button to choose a directory.</p>
+        <p>Between them there is a field for filtering files by mask (symbol "*" means match any number of characters, symbol "?" means any one character). Files that do not match the mask will be ignored. We may put multiple file types here using a semicolon ";" without spaces between them. Also we can use search templates (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">), including search with content plugins. The default value is "*" (all files).</p>
+        <p><span class="italic">Compare</span>&nbsp;&ndash; starts comparing the chosen directories. The progress of the compare operation is displayed in the status bar. If necessary, the operation can be interrupted with the <kbd>Esc</kbd> key.</p>
+        <p>Parameters:</p>
+        <ul>
+          <li><p><span class="italic">only selected (in main window)</span>&nbsp;&ndash; If enabled, only files and directories that have been selected in the file panel will be compared.</p></li>
+          <li><p><span class="italic">asymmetric</span>&nbsp;&ndash; This option is meant to create a backup: a copy of the contents of the left panel should be created in the right panel. Files that do not exist on the left side will be marked for deletion on the right side. Not available if a delete operation is not possible in the directory on the right (for example, it is an archive and its format does not support modification, or it is a CD/DVD).</p></li>
+          <li><p><span class="italic">Subdirs</span>&nbsp;&ndash; allows recursive file search: Double Commander will check the contents of all subdirectories.</p></li>
+          <li><p><span class="italic">by content</span>&nbsp;&ndash; If enabled, files with the same size and date will be compared by content (a byte-by-byte comparison). Not available if the second directory is in a virtual file system.</p></li>
+          <li><p><span class="italic">ignore date</span>&nbsp;&ndash; By default, Double Commander gives preference to a newer file and automatically selects the direction of copying, but if this option is enabled, files with the same size will be considered identical.</p></li>
+        </ul>
+        <p>After changing these options, we must run the comparison again.</p>
+        <p><span class="italic">Show:</span>&nbsp;&ndash; A group of buttons that enables or disables the display of various groups of files in the list:</p>
+        <ul>
+          <li><p><span class="italic">&gt;</span>&nbsp;&ndash; Show files to be copied or deleted on the left.</p></li>
+          <li><p><span class="italic">=</span>&nbsp;&ndash; Show files that are considered identical.</p></li>
+          <li><p><span class="italic">&#8800;</span>&nbsp;&ndash; Show non-identical files.</p></li>
+          <li><p><span class="italic">&lt;</span>&nbsp;&ndash; Show files to be copied or deleted on the right.</p></li>
+          <li><p><span class="italic">duplicates</span>&nbsp;&ndash; Show files that exist on both sides.</p></li>
+          <li><p><span class="italic">singles</span>&nbsp;&ndash; Show files that only exist on one side.</p></li>
+        </ul>
+        <p>Below is an area divided into three parts:</p>
+        <ul>
+          <li><p>File lists will be displayed on the left and right. Both parts contain columns "Name", "Size" and "Date", we can sort files by clicking on the headers.</p></li>
+          <li><p>The middle column displays the status of files or the scheduled actions.</p></li>
+        </ul>
+        <p>The status bar displays the overall result of the comparison.</p>
+        <p>After the comparison is finished, the synchronization tool will display the contents of the directories using several colors:</p>
+        <p class="figure"><img class="largeimage" title="Synchronization tool: comparison" alt="Synchronization tool: comparison" src="images/imgDC/syncdirscomp.png" width="742" height="446"></p>
+        <ul>
+          <li><p><span class="italic">Green</span>&nbsp;&ndash; Files selected for copying or deleting on the left.</p></li>
+          <li><p><span class="italic">Blue</span>&nbsp;&ndash; Files selected for copying or deleting on the right.</p></li>
+          <li><p><span class="italic">Red</span>&nbsp;&ndash; Files with the same names, but not identical.</p></li>
+          <li><p>For the rest of the files, the default text color will be used.</p></li>
+        </ul>
+        <p>Designations in the "&lt;=&gt;" column:</p>
+        <ul>
+          <li><img title="Unknown" alt="Unknown" src="images/imgDC/syncdirsstateu.png" width="14" height="14">&nbsp;&ndash; unknown;</li>
+          <li><img title="Identical" alt="Identical" src="images/imgDC/syncdirsstatee.png" width="14" height="14">&nbsp;&ndash; identical files;</li>
+          <li><img title="Non-identical" alt="Non-identical" src="images/imgDC/syncdirsstatene.png" width="14" height="14">&nbsp;&ndash; not-identical files;</li>
+          <li><img title="Copy to the right" alt="Copy to the right" src="images/imgDC/syncdirsstatecr.png" width="14" height="14">&nbsp;&ndash; files will be copied to the right;</li>
+          <li><img title="Copy to the left" alt="Copy to the left" src="images/imgDC/syncdirsstatecl.png" width="14" height="14">&nbsp;&ndash; files will be copied to the left;</li>
+          <li><img title="Delete on the left" alt="Delete on the left" src="images/imgDC/syncdirsstatedl.png" width="14" height="14">&nbsp;&ndash; files will be deleted on the left;</li>
+          <li><img title="Delete on the right" alt="Delete on the right" src="images/imgDC/syncdirsstatedr.png" width="14" height="14">&nbsp;&ndash; files will be deleted on the right;</li>
+          <li><img title="Delete both" alt="Delete both" src="images/imgDC/syncdirsstatedb.png" width="14" height="14">&nbsp;&ndash; files will be deleted on both sides;</li>
+          <li><img title="Do nothing" alt="Do nothing" src="images/imgDC/syncdirsstaten.png" width="14" height="14">&nbsp;&ndash; do nothing.</li>
+        </ul>
+        <p>Using the mouse or the <kbd>Space</kbd> key, we can uncheck the action and exclude files from the synchronization operation.</p>
+        <p>Double mouse clicking on a file name calls the <a href="help.html#cm_CompareContents">Compare by Contents</a> command.</p>
+        <p>Using the keyboard shortcut <kbd>Ctrl+C</kbd>, we can copy the contents of all columns to the clipboard.</p>
+        <p><span class="italic">Close</span>&nbsp;&ndash; closes the synchronization tool.</p>
+        <p><span class="italic">Synchronize</span>&nbsp;&ndash; opens a dialog window for confirming the synchronization, the window displays some details about the upcoming actions:</p>
+        <p class="figure"><img class="largeimage" title="Synchronization tool: confirmation" alt="Synchronization tool: confirmation" src="images/imgDC/syncdirsconfirm.png" width="318" height="242"></p>
+        <p>Here we can exclude the scheduled operations by type (copying or deleting) or direction.</p>
+        <p><span class="italic">Confirm overwrites</span>&nbsp;&ndash; In case of a name collision, Double Commander will use the same dialog box with a choice of actions (skip, rename and others) as for usual copying/moving files.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="commands">3. Commands</a></h2>
+        <p>Commands are applied to the file under the cursor or to selected files. All commands available in the synchronization tool have been added to the right mouse button menu. We can assign or change hotkeys for this commands in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section (switch to the <span class="italic">Synchronize Directories</span> category).</p>
+        <ul>
+          <li><p><span class="italic">Select for copying (default direction)</span>&nbsp;&ndash; Double Commander will recheck the files and try to select an action automatically.</p></li>
+          <li><p><span class="italic">Remove selection</span>&nbsp;&ndash; cancels the assigned action and excludes files from the synchronization process.</p></li>
+          <li><p><span class="italic">Select for copying -&gt; (left to right)</span>.</p></li>
+          <li><p><span class="italic">Select for copying &lt;- (right to left)</span>.</p></li>
+          <li><p><span class="italic">Reverse copy direction</span>.</p></li>
+          <li><p><span class="italic">View left</span> and <span class="italic">View right</span>&nbsp;&ndash; open the file under the cursor on the left or right side in the <a href="viewer.html">file viewer</a>.</p></li>
+          <li><p><span class="italic">Compare</span>&nbsp;&ndash; calls the <a href="help.html#cm_CompareContents">Compare by Contents</a> command for the files under the cursor.</p></li>
+          <li><p><span class="italic">Select for deleting &lt;- (left)</span>.</p></li>
+          <li><p><span class="italic">Select for deleting -&gt; (right)</span>.</p></li>
+          <li><p><span class="italic">Select for deleting &lt;-&gt; (both)</span>.</p></li>
+          <li><p><span class="italic">&lt;- Delete left</span>.</p></li>
+          <li><p><span class="italic">-&gt; Delete right</span>.</p></li>
+          <li><p><span class="italic">Delete on both sides</span>.</p></li>
+        </ul>
+        <p>The last three commands delete the selected files immediately, before the synchronization operation. In this case, Double Commander will show a confirmation request.</p>
+        <p>Note: The hotkeys for the commands <span class="italic">View left</span>, <span class="italic">View right</span> and <span class="italic">Compare</span> are set in the source code of Double Commander and cannot be changed.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">4. Additional settings</a></h2>
+        <p>There are <a href="configxml.html">several parameters</a> available that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file: <code>&lt;NtfsHourTimeDelay&gt;</code>, colors and other.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="multirename.html">Previous</a> | <a title="Next page" href="viewer.html">Next</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -12,7 +12,7 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="findfiles.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="findfiles.html">Previous</a> | <a title="Next page" href="syncdirs.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
@@ -51,10 +51,15 @@
           <dd>
             <dl>
               <dt>6.1. <a href="#case">Case</a></dt>
-              <dt>6.2. <a href="#singlesearchreplace">Search and replace single sequence</a></dt>
-              <dt>6.3. <a href="#multiplesearchandreplace">Multiple sequences replacement</a></dt>
-              <dt>6.4. <a href="#multiplepairs">Multiple pairs of search and replace</a></dt>
-              <dt>6.5. <a href="#searchreplaceregex">Using regular expressions</a></dt>
+              <dt>6.2. <a href="#searchreplace">Find and replace</a></dt>
+              <dd>
+                <dl>
+                  <dt>6.2.1. <a href="#singlesearchreplace">Search and replace single sequence</a></dt>
+                  <dt>6.2.2. <a href="#multiplesearchandreplace">Multiple sequences replacement</a></dt>
+                  <dt>6.2.3. <a href="#multiplepairs">Multiple pairs of search and replace</a></dt>
+                  <dt>6.2.4. <a href="#searchreplaceregex">Using regular expressions</a></dt>
+                </dl>
+              </dd>
             </dl>
           </dd>
           <dt>7. <a href="#actualaction">Actual renaming action</a></dt>
@@ -191,7 +196,7 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Other placeholders</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Placeholders</th><th class="categorydesccolumn">Description</th><th class="categorynamecolumn">Example</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">stands for the complete file name which include the whole path, path delimiters, extension, colon and period included</td><td class="hintcell"><code>[A]</code> =<br><i>Complete filename</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">stands for the complete file name which include the whole path, directory separators, extension, colon and period included</td><td class="hintcell"><code>[A]</code> =<br><i>Complete filename</i></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">range may be specified like previously [Ax], [Ax:y], [A-x:-y], etc...</td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Y]</div></td><td class="hintcell">the year of the file date expressed by its last 2 digits</td><td class="hintcell"><code>[Y]</code> = 19</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[YYYY]</div></td><td class="hintcell">the year expressed on 4 digits</td><td class="hintcell"><code>[YYYY]</code> = 2019</td></tr>
@@ -301,21 +306,27 @@
       </div>
 
       <div>
-        <h2><a name="singlesearchreplace">6.2. Search and replace single sequence</a></h2>
+        <h2><a name="searchreplace">6.2. Find and replace</a></h2>
+        <p>The string in the <b>Find</b> field will be replaced with the string in the <b>Replace</b> field. Several additional features are also available, see below. The search is NOT case sensitive!</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="singlesearchreplace">6.2.1. Search and replace single sequence</a></h2>
         <p>We may search for a single sequence of characters in the string and replace them by another one.</p>
         <p class="figure"><img class="largeimage" title="Simple search and replace" alt="Simple search and replace" src="images/imgDC/mulrensrchrpl.png" width="401" height="205"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="multiplesearchandreplace">6.3. Multiple sequences replacement</a></h2>
+        <h2><a name="multiplesearchandreplace">6.2.2. Multiple sequences replacement</a></h2>
         <p>But we may also replace different sequences by a single one, by placing the sequences between pipes like this example where 2020 will replace any occurence of 2017, 2018 or 2019:</p>
         <p class="figure"><img class="largeimage" title="Multiple replace" alt="Multiple replace" src="images/imgDC/mulrenrepl3for1.png" width="476" height="230"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="multiplepairs">6.4. Multiple pairs of search and replace</a></h2>
+        <h2><a name="multiplepairs">6.2.3. Multiple pairs of search and replace</a></h2>
         <p>We may also define more than one pair of sequences by placing them between pipes.</p>
         <p>Each sequence to search will have its replacement defined in the same position.</p>
         <p class="figure"><img class="largeimage" title="Multiple search and replace pairs" alt="Multiple search and replace pairs" src="images/imgDC/mulrenreplplace.png" width="497" height="263"></p>
@@ -323,8 +334,8 @@
       </div>
 
       <div>
-        <h2><a name="searchreplaceregex">6.5. Using regular expressions</a></h2>
-        <p>We also have the possibility to use <a href="regexp.html">regular expressions</a> for the search part of string as well as for its substitution.</p>
+        <h2><a name="searchreplaceregex">6.2.4. Using regular expressions</a></h2>
+        <p>We also have the possibility to use <a href="regexp.html">regular expressions</a> for the search part of string as well as for its substitution (<b>Use substitution</b> enables the use of <a href="regexp.html#meta-sub">subexpressions</a> in the <b>Replace</b> field).</p>
         <p class="figure"><img class="largeimage" title="Using regular expressions" alt="Using regular expressions" src="images/imgDC/mulrenregex.png" width="328" height="304"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -406,7 +417,7 @@
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="findfiles.html">Previous</a> | <a title="Next page" href="directoryhotlist.html">Next</a></div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="findfiles.html">Previous</a> | <a title="Next page" href="syncdirs.html">Next</a></div></div>
     <div class="checker">
       <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

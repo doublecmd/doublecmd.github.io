@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Синхронизация каталогов</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="multirename.html">Пред.</a> | <a title="Следующая страница" href="viewer.html">След.</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.7. Синхронизация каталогов</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. <a href="#intro">Введение</a></dt>
+          <dt>2. <a href="#window">Окно инструмента синхронизации каталогов</a></dt>
+          <dt>3. <a href="#commands">Команды</a></dt>
+          <dt>4. <a href="#asettings">Дополнительные настройки</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Введение</a></h2>
+        <p>Инструмент синхронизации каталогов сканирует каталоги левой и правой файловых панелей, отображает различия в их содержимом и позволяет сделать их одинаковыми.</p>
+        <p>Мы можем синхронизировать два локальных каталога или локальный каталог и каталог в виртуальной файловой системе (открытый архив или плагин файловой системы).</p>
+        <p>По умолчанию инструмент синхронизации сравнивает файлы по имени, размеру и дате модификации.</p>
+        <p>Способ удаления файлов (в корзину или навсегда) зависит от состояния опции <a href="configuration.html#ConfigOperations">Удаление в Корзину (с Shift - окончательно)</a>.</p>
+        <p>Примечание: Пустые каталоги будут проигнорированы.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="window">2. Окно инструмента синхронизации каталогов</a></h2>
+        <p class="figure"><img class="largeimage" title="Инструмент синхронизации каталогов" alt="Инструмент синхронизации каталогов" src="images/imgDC/syncdirs.png" width="742" height="446"></p>
+        <p>В верхней части окна расположены поля с текущими каталогами левой и правой файловых панелей. Мы можем изменить их вручную или с помощью кнопки выбора каталога.</p>
+        <p>Между ними расположено поле фильтра файлов по маске (звёздочка "*" обозначает любое количество символов, знак вопроса "?"&nbsp;&ndash; любой один символ). Файлы, которые не совпадают с маской, будут проигнорированы. Если типов файлов несколько, то они перечисляются через точку с запятой ";" без пробелов. Также мы можем использовать шаблоны поиска (<img title="Шаблон..." alt="Шаблон..." src="images/imgDC/btemplate.png" width="16" height="16">), в том числе поиска с информационными (контентными) плагинами. Значение по умолчанию "*" (все файлы).</p>
+        <p><span class="italic">Сравнить</span>&nbsp;&ndash; начинает сравнение выбранных каталогов. Прогресс операции сравнения отображается в строке состояния. Если это необходимо, операцию можно прервать клавишей <kbd>Esc</kbd>.</p>
+        <p>Параметры:</p>
+        <ul>
+          <li><p><span class="italic">Выделенные (в главном окне)</span>&nbsp;&ndash; Если отмечено, будут сравниваться только файлы и каталоги, которые были выделены в файловой панели.</p></li>
+          <li><p><span class="italic">асимметрично</span>&nbsp;&ndash; Эта опция подразумевает создание резервной копии: копия содержимого левой панели должна быть создана на правой панели. Файлы, которые не существуют на левой стороне, будут отмечены для удаления на правой стороне. Недоступно, если в каталоге справа невозможна операции удаления (например, это архив и его формат не поддерживает модификацию или это CD/DVD).</p></li>
+          <li><p><span class="italic">с подкаталогами</span>&nbsp;&ndash; разрешает рекурсивный поиск файлов: Double Commander проверит содержимое всех подкаталогов.</p></li>
+          <li><p><span class="italic">по содержимому</span>&nbsp;&ndash; Если отмечено, файлы с одинаковым размером и датой будут сравниваться по содержимому (побайтовое сравнение). Недоступно, если второй каталог в виртуальной файловой системе.</p></li>
+          <li><p><span class="italic">игнорировать дату</span>&nbsp;&ndash; По умолчанию Double Commander отдаёт предпочтение более новому файлу и автоматически выбирает направление копирования, но если этот параметр включен, файлы с одинаковым размером будут считаться идентичными.</p></li>
+        </ul>
+        <p>После изменения этих опций мы должны повторно запустить сравнение каталогов.</p>
+        <p><span class="italic">Показывать:</span>&nbsp;&ndash; Группа кнопок, которая включает или выключает отображение в списке различных групп файлов:</p>
+        <ul>
+          <li><p><span class="italic">&gt;</span>&nbsp;&ndash; Показать файлы, которые будут скопированы или удалены слева.</p></li>
+          <li><p><span class="italic">=</span>&nbsp;&ndash; Показать файлы, которые считаются идентичными.</p></li>
+          <li><p><span class="italic">&#8800;</span>&nbsp;&ndash; Показать неидентичные файлы.</p></li>
+          <li><p><span class="italic">&lt;</span>&nbsp;&ndash; Показать файлы, которые будут скопированы или удалены справа.</p></li>
+          <li><p><span class="italic">дубликаты</span>&nbsp;&ndash; Показать файлы, которые существуют на обеих сторонах.</p></li>
+          <li><p><span class="italic">уникальные</span>&nbsp;&ndash; Показать файлы, которые существуют только на одной стороне.</p></li>
+        </ul>
+        <p>Ниже располагается область, разделённая на три части:</p>
+        <ul>
+          <li><p>Слева и справа будут отображаться списки файлов. Обе части содержат колонки "Имя", "Размер" и "Дата", мы можем сортировать файлы щелчком по заголовкам.</p></li>
+          <li><p>В средней колонке отображается статус файлов или намеченные действия.</p></li>
+        </ul>
+        <p>В строке состояния отображается общий результат сравнения.</p>
+        <p>После завершения сравнения инструмент синхронизации отобразит содержимое каталогов, используя несколько цветов:</p>
+        <p class="figure"><img class="largeimage" title="Инструмент синхронизации: сравнение" alt="Инструмент синхронизации: сравнение" src="images/imgDC/syncdirscomp.png" width="742" height="446"></p>
+        <ul>
+          <li><p><span class="italic">Зелёный</span>&nbsp;&ndash; Файлы, выбранные для копирования или удаления слева.</p></li>
+          <li><p><span class="italic">Синий</span>&nbsp;&ndash; Файлы, выбранные для копирования или удаления справа.</p></li>
+          <li><p><span class="italic">Красный</span>&nbsp;&ndash; Файлы с одинаковыми именами, но не идентичные.</p></li>
+          <li><p>Для остальных файлов будет использоваться цвет текста по умолчанию.</p></li>
+        </ul>
+        <p>Обозначения в колонке "&lt;=&gt;":</p>
+        <ul>
+          <li><img title="Неизвестно" alt="Неизвестно" src="images/imgDC/syncdirsstateu.png" width="14" height="14">&nbsp;&ndash; неизвестно;</li>
+          <li><img title="Идентичные" alt="Идентичные" src="images/imgDC/syncdirsstatee.png" width="14" height="14">&nbsp;&ndash; идентичные файлы;</li>
+          <li><img title="Неидентичные" alt="Неидентичные" src="images/imgDC/syncdirsstatene.png" width="14" height="14">&nbsp;&ndash; неидентичные файлы;</li>
+          <li><img title="Копировать вправо" alt="Копировать вправо" src="images/imgDC/syncdirsstatecr.png" width="14" height="14">&nbsp;&ndash; файлы будут скопированы вправо;</li>
+          <li><img title="Копировать влево" alt="Копировать влево" src="images/imgDC/syncdirsstatecl.png" width="14" height="14">&nbsp;&ndash; файлы будут скопированы влево;</li>
+          <li><img title="Удалить слева" alt="Удалить слева" src="images/imgDC/syncdirsstatedl.png" width="14" height="14">&nbsp;&ndash; файлы будут удалены слева;</li>
+          <li><img title="Удалить справа" alt="Удалить справа" src="images/imgDC/syncdirsstatedr.png" width="14" height="14">&nbsp;&ndash; файлы будут удалены справа;</li>
+          <li><img title="Удалить оба" alt="Удалить оба" src="images/imgDC/syncdirsstatedb.png" width="14" height="14">&nbsp;&ndash; файлы будут удалены с обеих сторон;</li>
+          <li><img title="Ничего не делать" alt="Ничего не делать" src="images/imgDC/syncdirsstaten.png" width="14" height="14">&nbsp;&ndash; ничего не делать.</li>
+        </ul>
+        <p>С помощью мыши или клавиши <kbd>Пробел</kbd> можно снять отметку действия и исключить файлы из операции синхронизации.</p>
+        <p>Двойной щелчок мыши по имени файла вызывает команду <a href="help.html#cm_CompareContents">Сравнить по содержимому</a>.</p>
+        <p>Используя сочетание клавиш <kbd>Ctrl+C</kbd>, мы можем скопировать в буфер обмена содержимое всех колонок.</p>
+        <p><span class="italic">Закрыть</span>&nbsp;&ndash; закрывает инструмент синхронизации.</p>
+        <p><span class="italic">Синхронизировать</span>&nbsp;&ndash; открывает диалоговое окно для подтверждения синхронизации, в окне отображаются некоторые подробности о предстоящих действиях:</p>
+        <p class="figure"><img class="largeimage" title="Инструмент синхронизации: подтверждение" alt="Инструмент синхронизации: подтверждение" src="images/imgDC/syncdirsconfirm.png" width="431" height="242"></p>
+        <p>Здесь мы можем исключить намеченные операции по типу (копирование или удаление) или направлению.</p>
+        <p><span class="italic">Подтвердить замену</span>&nbsp;&ndash; В случае конфликта имён Double Commander будет использовать то же диалоговое окно с выбором действий (пропустить, переименовать и другие), что и при обычном копировании/перемещении файлов.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="commands">3. Команды</a></h2>
+        <p>Команды применяются к файлу под курсором или к выделенным файлам. Все команды, доступные в инструменте синхронизации, добавлены в меню правой клавиши мыши. Назначить или изменить горячие клавиши для этих команд можно в разделе настроек <a href="configuration.html#ConfigHotKeys">Клавиши&nbsp;&gt; Горячие клавиши</a> (переключитесь на категорию <span class="italic">Синхронизация каталогов</span>).</p>
+        <ul>
+          <li><p><span class="italic">Отметить для копирования (направление по умолчанию)</span>&nbsp;&ndash; Double Commander перепроверит файлы и попытается выбрать действие автоматически.</p></li>
+          <li><p><span class="italic">Снять метку копирования/удаления</span>&nbsp;&ndash; отменяет назначенное действие и исключает файлы из процесса синхронизации.</p></li>
+          <li><p><span class="italic">Отметить для копирования -&gt; (слева направо)</span>.</p></li>
+          <li><p><span class="italic">Отметить для копирования &lt;- (справа налево)</span>.</p></li>
+          <li><p><span class="italic">Поменять направление копирования</span>.</p></li>
+          <li><p><span class="italic">Внутренний просмотр слева</span> и <span class="italic">Внутренний просмотр справа</span>&nbsp;&ndash; открывают файл под курсором на левой или правой стороне в <a href="viewer.html">программе просмотра файлов</a>.</p></li>
+          <li><p><span class="italic">Сравнить</span>&nbsp;&ndash; вызывает команду <a href="help.html#cm_CompareContents">Сравнить по содержимому</a> для файлов под курсором.</p></li>
+          <li><p><span class="italic">Отметить для удаления &lt;- (слева)</span>.</p></li>
+          <li><p><span class="italic">Отметить для удаления -&gt; (справа)</span>.</p></li>
+          <li><p><span class="italic">Отметить для удаления &lt;-&gt; (оба)</span>.</p></li>
+          <li><p><span class="italic">&lt;- Удалить слева</span>.</p></li>
+          <li><p><span class="italic">-&gt; Удалить справа</span>.</p></li>
+          <li><p><span class="italic">Удалить с обеих сторон</span>.</p></li>
+        </ul>
+        <p>Последние три команды удаляют выделенные файлы сразу, до операции синхронизации. В этом случае Double Commander покажет запрос подтверждения.</p>
+        <p>Примечание: Горячие клавиши для команд <span class="italic">Внутренний просмотр слева</span>, <span class="italic">Внутренний просмотр справа</span> и <span class="italic">Сравнить</span> заданы в исходном коде Double Commander и не могут быть изменены.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">4. Дополнительные настройки</a></h2>
+        <p>Доступно <a href="configxml.html">несколько параметров</a>, которые можно изменить только вручную в файле конфигурации <tt>doublecmd.xml</tt>: <code>&lt;NtfsHourTimeDelay&gt;</code>, цвета и другое.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="multirename.html">Пред.</a> | <a title="Следующая страница" href="viewer.html">След.</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -12,7 +12,7 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="syncdirs.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
@@ -51,10 +51,15 @@
           <dd>
             <dl>
               <dt>6.1. <a href="#case">Регистр</a></dt>
-              <dt>6.2. <a href="#singlesearchreplace">Поиск и замена одной последовательности</a></dt>
-              <dt>6.3. <a href="#multiplesearchandreplace">Замена нескольких последовательностей</a></dt>
-              <dt>6.4. <a href="#multiplepairs">Несколько пар поиска и замены</a></dt>
-              <dt>6.5. <a href="#searchreplaceregex">Использование регулярных выражений</a></dt>
+              <dt>6.2. <a href="#searchreplace">Найти и заменить</a></dt>
+              <dd>
+                <dl>
+                  <dt>6.2.1. <a href="#singlesearchreplace">Поиск и замена одной последовательности</a></dt>
+                  <dt>6.2.2. <a href="#multiplesearchandreplace">Замена нескольких последовательностей</a></dt>
+                  <dt>6.2.3. <a href="#multiplepairs">Несколько пар поиска и замены</a></dt>
+                  <dt>6.2.4. <a href="#searchreplaceregex">Использование регулярных выражений</a></dt>
+                </dl>
+              </dd>
             </dl>
           </dd>
           <dt>7. <a href="#actualaction">Переименование файлов</a></dt>
@@ -177,7 +182,7 @@
         <br>
         <p>Просто чтобы убедиться, что мы поняли идею, ниже пример c маской для имени файла в виде <code>[N1,4]-[N5,2]-[N7,2]</code></p>
         <p>Мы видим, что колонка <b>Новое имя</b> была обновлена после предложенных замен.</p>
-        <p class="figure"><img class="largeimage" title="Образец переименования" alt="Образец переименования" src="images/imgDC/mulrensample1.png" width="382" height="284"></p>
+        <p class="figure"><img class="largeimage" title="Пример переименования" alt="Пример переименования" src="images/imgDC/mulrensample1.png" width="382" height="284"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -216,7 +221,7 @@
 
         <p>Ещё один пример, где мы использовали некоторые из перечисленных выше выражений, добавив маску</p>
         <p><code>[C] - [YYYY]-[MM]-[DD] @ [hh]-[nn]-[ss]</code></p>
-        <p class="figure"><img class="largeimage" title="Образец переименования" alt="Образец переименования" src="images/imgDC/mulrensample2.png" width="722" height="452"></p>
+        <p class="figure"><img class="largeimage" title="Пример переименования" alt="Пример переименования" src="images/imgDC/mulrensample2.png" width="722" height="452"></p>
 
         <p>Со временем, при частом использовании, мы будем набирать по памяти то, что нам нужно!</p>
         <p>В ожидании этого, к счастью, мы можем нажать кнопку под каждой маской и получить доступ к всплывающему меню, которое поможет нам получить нужный результат.</p>
@@ -226,7 +231,7 @@
 
       <div>
         <h2><a name="plugin">4.3. Использование плагинов</a></h2>
-        <p>Также мы можем использовать информационные (контентные) плагины, информация из выбранного поля будет использоваться как часть нового имени.</p> 
+        <p>Также мы можем использовать информационные (контентные) плагины, информация из выбранного поля будет использоваться как часть нового имени.</p>
         <p>В примере ниже мультимедийным плагином извлекаем продолжительность MP3-файла подкаста и в круглых скобках добавляем в имя файла:</p>
         <p class="figure"><img class="largeimage" title="Использование плагина" alt="Использование плагина" src="images/imgDC/mulrenplugin.png" width="674" height="570"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -297,21 +302,27 @@
       </div>
 
       <div>
-        <h2><a name="singlesearchreplace">6.2. Поиск и замена одной последовательности</a></h2>
+        <h2><a name="searchreplace">6.2. Найти и заменить</a></h2>
+        <p>Строка в поле <b>Найти</b> будет заменена на строку в поле <b>Заменить</b>. Также доступно несколько дополнительных функций, смотрите ниже. Поиск НЕ чувствителен к регистру!</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="singlesearchreplace">6.2.1. Поиск и замена одной последовательности</a></h2>
         <p>Мы можем искать в строке одну последовательность символов и заменять её другой.</p>
         <p class="figure"><img class="largeimage" title="Простой поиск и замена" alt="Простой поиск и замена" src="images/imgDC/mulrensrchrpl.png" width="401" height="205"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2><a name="multiplesearchandreplace">6.3. Замена нескольких последовательностей</a></h2>
+        <h2><a name="multiplesearchandreplace">6.2.2. Замена нескольких последовательностей</a></h2>
         <p>Но мы также можем заменить разные последовательности на одну, разделяя их вертикальной чертой, как в примере ниже, где 2017, 2018 или 2019 будут заменены на 2020:</p>
         <p class="figure"><img class="largeimage" title="Множественная замена" alt="Множественная замена" src="images/imgDC/mulrenrepl3for1.png" width="476" height="230"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2><a name="multiplepairs">6.4. Несколько пар поиска и замены</a></h2>
+        <h2><a name="multiplepairs">6.2.3. Несколько пар поиска и замены</a></h2>
         <p>Мы также можем задать более одной пары последовательностей, разделяя их вертикальной чертой.</p>
         <p>Каждая последовательность для поиска будет заменена на свою пару для замены (в той же позиции).</p>
         <p class="figure"><img class="largeimage" title="Множественный поиск и замена пар" alt="Множественный поиск и замена пар" src="images/imgDC/mulrenreplplace.png" width="497" height="263"></p>
@@ -319,8 +330,8 @@
       </div>
 
       <div>
-        <h2><a name="searchreplaceregex">6.5. Использование регулярных выражений</a></h2>
-        <p>Ещё у нас есть возможность использовать <a href="regexp.html">регулярные выражения</a> для поиска части строки, а также для замены.</p>
+        <h2><a name="searchreplaceregex">6.2.4. Использование регулярных выражений</a></h2>
+        <p>Ещё у нас есть возможность использовать <a href="regexp.html">регулярные выражения</a> для поиска части строки, а также для замены (<b>Подстановка</b> разрешает использование <a href="regexp.html#meta-sub">подвыражений</a> в поле <b>Заменить</b>).</p>
         <p class="figure"><img class="largeimage" title="Использование регулярных выражений" alt="Использование регулярных выражений" src="images/imgDC/mulrenregex.png" width="338" height="304"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -400,7 +411,7 @@
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="directoryhotlist.html">След.</a></div></div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="findfiles.html">Пред.</a> | <a title="Следующая страница" href="syncdirs.html">След.</a></div></div>
     <div class="checker">
       <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

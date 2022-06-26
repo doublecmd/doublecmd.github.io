@@ -94,8 +94,9 @@
           <dt><a name="plugins">7. Плагины</a></dt>
           <dd>
             <dl>
-              <dt>7.1. <a href="#ftps_reuse">ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></dt>
-              <dt>7.2. <a href="#ftp_openssl">ftp.wfx: Не работает с некоторыми серверами! После подключения получаю ошибки: "104,Connection reset by peer" и "CSOCK ERROR Connection reset by peer" или "10060,Connection timed out" и "CSOCK ERROR Connection timed out".</a></dt>
+              <dt>7.1. <a href="#not_valid">Что означает сообщение "Этот файл не является корректным плагином!"?</a></dt>
+              <dt>7.2. <a href="#ftps_reuse">ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></dt>
+              <dt>7.3. <a href="#ftp_openssl">ftp.wfx: Не работает с некоторыми серверами! После подключения получаю ошибки: "104,Connection reset by peer" и "CSOCK ERROR Connection reset by peer" или "10060,Connection timed out" и "CSOCK ERROR Connection timed out".</a></dt>
             </dl>
           </dd>
         </dl>
@@ -424,6 +425,19 @@
 
       <div>
         <h2>7. Плагины</h2>
+        <p class="bold"><a name="not_valid">В: Что означает сообщение "Этот файл не является корректным плагином!"?</a></p>
+        <p><span class="bold">О:</span> Обычно это означает проблему с зависимостями: не все необходимые библиотеки доступны в вашей системе. Как узнать названия библиотек:</p>
+        <ul>
+          <li>Windows: плагин FileInfo или PEViewer, такие утилиты, как DLL Export Viewer или Dependency Walker.</li>
+          <li>Linux: используйте терминал и команду <code>ldd pluginname | grep "not found"</code></li>
+        </ul>
+        <p>Если это WDX-плагин, написанный на Lua:</p>
+        <p>1. Недоступна библиотека Lua: смотрите <a href="lua.html#dllrequired">Необходимая DLL</a>.</p>
+        <p>2. Скрипту требуется дополнительный модуль: смотрите описание скрипта или свяжитесь с автором.</p>
+        <p>3. Ошибка в скрипте. Для отладки можно использовать Lua в терминале или продвинутый редактор кода/IDE (например, ZeroBrane Studio).<br>
+          Если вы используете <a href="lua.html#libraries">функции Double Commander</a>: создайте кнопку с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> и используйте доступные функции (<code>DC.LogWrite</code>, <code>Dialogs.MessageBox</code>, <code>Clipbrd.SetAsText</code> или сохраняйте результаты в файл).</p>
+        <br>
+
         <p class="bold"><a name="ftps_reuse">В: ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></p>
         <p><span class="bold">О:</span> Сервер требует поддержки повторного использования сеанса (session reuse) и <tt>ftp.wfx</tt> это поддерживает, но нужны библиотеки OpenSSL: поместите <tt>libeay32.dll</tt> и <tt>ssleay32.dll</tt> рядом с <tt>doublecmd.exe</tt> или в PATH.</p>
         <br>

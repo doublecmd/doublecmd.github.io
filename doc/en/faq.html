@@ -94,8 +94,9 @@
           <dt><a name="plugins">7. Plugins</a></dt>
           <dd>
             <dl>
-              <dt>7.1. <a href="#ftps_reuse">ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></dt>
-              <dt>7.2. <a href="#ftp_openssl">ftp.wfx: Does not work with some servers! After connecting, I get errors: "104,Connection reset by peer" and "CSOCK ERROR Connection reset by peer" or "10060,Connection timed out" and "CSOCK ERROR Connection timed out".</a></dt>
+              <dt>7.1. <a href="#not_valid">What does the message "This is not a valid plugin!" mean?</a></dt>
+              <dt>7.2. <a href="#ftps_reuse">ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></dt>
+              <dt>7.3. <a href="#ftp_openssl">ftp.wfx: Does not work with some servers! After connecting, I get errors: "104,Connection reset by peer" and "CSOCK ERROR Connection reset by peer" or "10060,Connection timed out" and "CSOCK ERROR Connection timed out".</a></dt>
             </dl>
           </dd>
         </dl>
@@ -424,6 +425,19 @@
 
       <div>
         <h2>7. Plugins</h2>
+        <p class="bold"><a name="not_valid">Q: What does the message "This is not a valid plugin!" mean?</a></p>
+        <p><span class="bold">A:</span> This usually means a problem with dependencies: not all required libraries are available in your system. How to find out the names of libraries:</p>
+        <ul>
+          <li>Windows: FileInfo or PEViewer plugin, utilities such as DLL Export Viewer or Dependency Walker.</li>
+          <li>Linux: use terminal and command <code>ldd pluginname | grep "not found"</code></li>
+        </ul>
+        <p>If this is a WDX plugin written in Lua:</p>
+        <p>1. The Lua library is not available: see <a href="lua.html#dllrequired">DLL required</a>.</p>
+        <p>2. The script requires an additional module: see the description of the script or contact the author.</p>
+        <p>3. Error in the script. For debugging, you can use Lua in a terminal or advanced code editor/IDE (for example, ZeroBrane Studio).<br>
+          If you use the <a href="lua.html#libraries">Double Commander functions</a>: create a button with internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> and use available functions (<code>DC.LogWrite</code>, <code>Dialogs.MessageBox</code>, <code>Clipbrd.SetAsText</code> or save the results to a file).</p>
+        <br>
+
         <p class="bold"><a name="ftps_reuse">Q: ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></p>
         <p><span class="bold">A:</span> This server requires session reuse support and <tt>ftp.wfx</tt> supports it, but the OpenSSL libraries are needed: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
         <br>

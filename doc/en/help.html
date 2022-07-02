@@ -93,7 +93,7 @@
         <p class="figure"><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="678" height="530"></p>
         <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager).</p>
         <p>Double Commander uses Total Commander plugin API, so under Windows you can use plugins from Total Commander (many of them are compatible with DC).</p>
-        <p>DC comes with several pre-installed plugins: <a href="multiarc.html#withplugin">several WCX (archiver) plugins</a> to work with archives as directories (virtual file system, VFS), WFX plugin for working with FTP, some content plugins (WDX). Version for Linux includes WFX plugin for working with network storage (SMB/CIFS), search plugin (DSX) and video player plugin (WLX). Version for Windows includes two WLX plugins: Windows Media Player and Explorer preview plugin. Other plugins can be installed manually.</p>
+        <p>DC is distributed with several pre-installed plugins: <a href="multiarc.html#withplugin">several packer plugins (WCX)</a> for working with archives as directories (virtual file system, VFS), file system plugin (WFX) for working with FTP, some content plugins (WDX). Version for Linux includes WFX plugin for working with network storage (SMB/CIFS), search plugin (DSX) and lister plugin (WLX) for viewing video. Version for Windows includes two WLX plugins: Windows Media Player and Explorer Preview plugin. Other plugins can be installed manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -116,6 +116,7 @@
         <p class="figure"><img class="largeimage" title="Hard link" alt="Hard link" src="images/imgDC/pic15.png" width="370" height="171"></p>
         <p><span class="italic">Link name</span>&nbsp;&ndash; here is the path to the link and its name. The name is the last word after the last path separator character in the line.</p>
         <p><span class="italic">Existing destination</span>&nbsp;&ndash; the object, on which the link is created.</p>
+
         <p><a name="cm_SymLink"><span class="bold">Create Symbolic Link...</span></a> (internal command <tt>cm_SymLink</tt>). All like the hard link above, but link is <a href="https://en.wikipedia.org/wiki/Symlink" target="_blank">symbolic</a>.</p>
 
         <p><span class="bold">Create Directory</span> (internal command <tt>cm_MakeDir</tt>)&nbsp;&ndash; creates a new subdirectory in the current directory. The file name (without extension) or directory name under the cursor will be offered, this is useful for creating multiple directories with similar names. You can also create several subdirectories in one operation, just separate the subdrectories with the directory separator (in Unix/Linux system it will be "/" and in Windows it will be "\"), for example, <code>directory1\directory2\directory3</code>.</p>
@@ -179,8 +180,8 @@
 
         <p>Items <a name="cm_FileSpliter"><span class="bold">Split file</span></a> and <a name="cm_FileLinker"><span class="bold">Combine files</span></a> (internal commands <tt>cm_FileSpliter</tt> and <tt>cm_FileLinker</tt>)</p>
         <p class="figure"><img class="largeimage" title="Split file" alt="Split file" src="images/imgDC/pic24.png" width="502" height="272"></p>
-        <p><span class="italic">Split the file to directory</span>&nbsp;&ndash; specifies destination folder for the split files.</p>
-        <p><span class="italic">File size</span>&nbsp;&ndash; select size of split parts. You can also enter your own value. Presets are:</p>
+        <p><span class="italic">Split the file to directory</span>&nbsp;&ndash; specifies destination folder for the split files. By default, the directory of the inactive file panel will be used.</p>
+        <p>The next group of parameters allows to select the size of the split parts or its number. You can enter your own value or use one of the presets:</p>
         <ul>
           <li><p>1457664 B - 3.5"&nbsp;&ndash; Floppy drive 3.5;</p></li>
           <li><p>98078 KB - ZIP 100 MB&nbsp;&ndash; ZIP drive;</p></li>
@@ -188,6 +189,8 @@
           <li><p>700 MB - CD 700 MB&nbsp;&ndash; CD drive size;</p></li>
           <li><p>4482 MB - DVD+R&nbsp;&ndash; DVD drive size.</p></li>
         </ul>
+        <p>If you use the <span class="italic">Number of parts</span> parameter, the size of the parts is always displayed in bytes.</p>
+        <p>If <span class="italic">Require a CRC32 verification file</span> is enabled, Double Commander will create a text file with the name of the source file and the extension ".crc", which contains the name of the source file, its size and checksum (the CRC32 algorithm is used). This is an easy way to check that the file is combineed correctly and its parts have not been changed during the move.</p>
         <p>On click OK button you get several files with the extension ".split" in the target directory. To combine the file again, select all ".split" parts and click <span class="bold">Combine files</span> (<tt>cm_FileLinker</tt>). You also need to specify the order of split parts to combine.</p>
         <p class="figure"><img class="largeimage" title="Combine files" alt="Combine files" src="images/imgDC/pic25.png" width="394" height="372"></p>
         <p>This function is very useful, if you have small drives and large files. It is possible to move the file parts.</p>
@@ -246,7 +249,7 @@
         </ul>
         <p>Please see the dedicated <a href="directoryhotlist.html">Directory Hotlist</a> help page about how to use and configure it.</p>
 
-        <p><span class="bold"><a name="cm_SyncDirs">Synchronize dirs...</a></span> (internal command <tt>cm_SyncDirs</tt>) open the directory synchronization tool: the directories of the left and right panel will be scanned, you will see the differences in their content and you can make them the same.</p>
+        <p><span class="bold"><a name="cm_SyncDirs">Synchronize dirs...</a></span> (internal command <tt>cm_SyncDirs</tt>) open the <a href="syncdirs.html">directory synchronization tool</a>: the directories of the left and right panel will be scanned, you will see the differences in their content and you can make them the same.</p>
         <p><span class="bold"><a name="cm_RunTerm">Run Terminal</a></span> (internal command <tt>cm_RunTerm</tt>) opens a terminal at the current directory (settings at <a href="configuration.html#ConfigTools">Tools</a>).</p>
         <p><span class="bold"><a name="cm_DoAnyCmCommand">Execute internal command</a></span> (internal command <tt>cm_DoAnyCmCommand</tt>) opens a window with a list of all internal commands and their description. Commands are grouped by category, quick filter and sorting are available: you can execute the selected command, copy its name, or open the <a href="cmds.html">Internal commands</a> page (some commands support parameters).</p>
         <p><span class="bold"><a name="cm_FlatView">Flat view</a></span> (internal command <tt>cm_FlatView</tt>) will scan all the directories of panel to show all content in one single panel.</p>

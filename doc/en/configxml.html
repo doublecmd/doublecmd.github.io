@@ -66,7 +66,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Description</th></tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Mode&gt;<br><small>from &lt;AutoRefresh&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Mode&gt;<br><small>from &lt;AutoRefresh&gt;</small></div></td>
             <td class="hintcell">
               The ability to delete watched directories.<br>A "watched directory" is a directory that Double Commander has a kind of hook on it so it can monitor any modification in it.<br>This way, it can refresh the displayable content of it if it's content changed.<br>This setting allows to control how Double Commander will react if we attempt to delete one of these "watched directory" currently displayed in a panel, even in a non-activated tab.<br>
               <table class="innercmddesc">
@@ -92,7 +92,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<br><small>from &lt;Behaviours&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<br><small>from &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">
               The right panel will be active when Double Commander starts.<br>
               <table class="innercmddesc">
@@ -114,7 +114,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>from &lt;Colors&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>from &lt;Colors&gt;</small></div></td>
             <td class="hintcell">
               We may configure DC so it will draw a rectangle around the active entry as we we cycle through them in a panel.<br>
               This <code>&lt;gBorderFrameWidth&gt;</code> setting allows us to configure the width of the lines used to draw a rectangle around the current active entry.<br>
@@ -124,7 +124,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>from &lt;Colors&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>from &lt;Colors&gt;</small></div></td>
             <td class="hintcell">
               Change colors of <a href="help.html#iface_dir">current directory bar</a>:<br>
               <table class="innercmddesc">
@@ -156,22 +156,22 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<br><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<br><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
             <td class="hintcell">Change text color of log window (info, error, success messages).</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
             <td class="hintcell">For the internal Differ tool, set colors for added, deleted and modified lines.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
             <td class="hintcell">For the internal Differ tool, set the color for differing characters in binary mode.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
                Suppose we've "entered" into a compressed file and browsing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<br>
               <i>Example:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
@@ -179,12 +179,12 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">Warn if target path is longer than maximum length for a path (some programs will not be able to access a file/directory with such a long name). In Windows this value (MAX_PATH) is defined as 260 characters. <code>True</code> by default.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
               Ignore time difference of exactly one hour between entries when comparing their date and time.<br>
               This takes place when using internal commands <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> or <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>.<br>
@@ -209,7 +209,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the attributes of the source file will be copied when copying/moving files; if <code>False</code>, the attributes of the source file will also be copied and Double Commander will set the "archive" attribute.<br>
               Linux and othes: use the <span class="italic">Copy attributes</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
@@ -218,7 +218,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyTime&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyTime&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the timestamps of the source file will be copied (creation date, modification date, last access date) when copying/moving files, otherwise, only the modification date will be copied and the current date will be used for others.<br>
               Linux and othes: use the <span class="italic">Copy date/time</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
@@ -227,7 +227,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CopyXattributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyXattributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Copy filesystem extended attributes when copying/moving files or not.<br>
               Windows: if <code>True</code>, compressed and encrypted attributes will also be copied.<br>
@@ -237,7 +237,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
               This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<br>The value is interpreted directly in pixels.<br>Default value is 2.<br>
               <i>Example:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
@@ -245,7 +245,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>and</small> &lt;FolderPostfix&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>and</small> &lt;FolderPostfix&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
               By default DC shows square brackets around directory names (it's optional parameter in Files views&nbsp;&gt; Files views extra), but we can use any symbols instead them.<br>
               Note: In XML some special symbols are reserved as part of markup and we can not use them as is. There are five predefined entities: <code>&lt;</code> should write as <code>&amp;lt;</code>, <code>&gt;</code> as <code>&amp;gt;</code>, <code>&amp;</code> as <code>&amp;amp;</code>, <code>'</code> as <code>&amp;apos;</code> and <code>"</code> as <code>&amp;quot;</code>.
@@ -253,7 +253,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
               When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<br>
               If we want to disable this behavior and use new value only in the current session, we must replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
@@ -261,7 +261,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
               Changes the look of tabstop headers bar.<br>Default value depends on your OS.<br>
               <table class="innercmddesc">
@@ -287,7 +287,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Quality&gt;<br><small>from many tags &lt;Fonts&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Quality&gt;<br><small>from many tags &lt;Fonts&gt;</small></div></td>
             <td class="hintcell">
               Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used. In other words, it determine the font quality.<br>
               There are many tags where it's applicable individually.<br>
@@ -330,7 +330,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<br><small>from &lt;Icons&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<br><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
               Windows only: this option will help to determine if the icons used for drives, folders or archives will be the default ones from the system or if it will be custom ones that we may set ourselves.<br>
               The <code>CustomIcons</code> option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences:<br>
@@ -388,7 +388,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;DiskAlpha&gt;<br><small>from &lt;Icons&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DiskAlpha&gt;<br><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">
               Option to set the transparency level of unmounted drive icons.<br>
               <table class="innercmddesc">
@@ -409,22 +409,22 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<br><small>from &lt;Icons&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<br><small>from &lt;Icons&gt;</small></div></td>
             <td class="hintcell">Size of toolbar icons in the internal editor, viewer and differ tool, supported values: 16, 24 or 32.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>from &lt;Layout&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>from &lt;Layout&gt;</small></div></td>
             <td class="hintcell">Windows only: show colon after letters of disks in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>from &lt;Layout&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>from &lt;Layout&gt;</small></div></td>
             <td class="hintcell">Windows only: use uppercase letters in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
             <td class="hintcell">
               Synchronize directories: save or not asymmetric mode by default.<br>
               <i>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
@@ -433,7 +433,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;Left&gt;, &lt;Right&gt; <small>and</small> &lt;Unknown&gt;<br><small>from &lt;SyncDirs&gt;&lt;Colors&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Left&gt;, &lt;Right&gt; <small>and</small> &lt;Unknown&gt;<br><small>from &lt;SyncDirs&gt;&lt;Colors&gt;</small></div></td>
             <td class="hintcell">Text colors in the directory synchronization tool:<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -457,7 +457,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, this setting allows to add some extra pixels to the height allowed for each line.<br>
               The value is interpreted directly in pixels.<br>
@@ -467,7 +467,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               Double Commander is able to recognize the metadata from <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">EXIF</a> structure that might be encoded into a JPG image file.<br>
               Inside that structure, there is an <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">orientation flag</a> that may be used to display the picture into the same orientation as it was taken like if was in portrait, landscape, upside-down, mirror, etc.<br>
@@ -491,7 +491,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;LeftMargin&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LeftMargin&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, this setting allows to add space between the left border of the window and the text border.<br>
               The value is interpreted directly in pixels.<br>
@@ -501,7 +501,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, configure the maximum number of characters to be displayed on one text line prior to wrap it up to the next one.<br>
               The valid range goes from 80 to 16384 and default value is 1024.<br>
@@ -510,7 +510,7 @@
           </tr>
 
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, set the width of tab stops to use.<br>
               The valid range goes from 1 to 32 and default value is 8.<br>

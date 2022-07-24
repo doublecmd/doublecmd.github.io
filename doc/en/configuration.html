@@ -565,7 +565,7 @@
         <p><span class="italic">Plugin filename style when adding a new plugin</span>&nbsp;&ndash; Here you can choose how the path will be set when adding plugins:</p>
         <ul>
           <li><p>With complete absolute path.</p></li>
-          <li><p>Path relative to %COMMANDER_PATH%.</p></li>
+          <li><p>Path relative to <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
           <li><p>Relative to the specified path.</p></li>
         </ul>
         <p>Also you can apply the chosen way to the already added plugins.</p>
@@ -573,7 +573,8 @@
         <p>There are several types of plugins:</p>
         <p><span class="italic">1. Packer plugins (WCX)</span></p>
         <p>Packer plugins are used to unpack specific types of files, usually archive formats. Some plugins also support creating new archives and modifying existing archives.<br>
-          There are plugins that allow to save a list of selected files or use batch processing: creating links,converting files, copying with specific conditions, etc.</p>
+          There are plugins that allow to save a list of selected files or use batch processing: creating links,converting files, copying with specific conditions, etc.<br>
+          Order matters: when choosing an appropriate plugin, Double Commander starts checking by extension from top to bottom. Use the <span class="italic">By extension/By plugin</span> button to switch list view and drag and drop.</p>
         <p><span class="italic">2. Content plugins (WDX)</span></p>
         <p>Content plugins are designed to get properties of a file or information about its content (for example, EXIF or ID3 tags). You can use this data in the file search or multi-rename tool, column set, tooltips.<br>
           Also Double Commander supports content plugins written in the Lua language (scripts are added in the same way as ordinary plugins). Examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).</p>
@@ -634,7 +635,7 @@
         <p>In this section you can choose how the path will be set when adding icons, commands and starting paths:</p>
         <ul>
           <li><p>With complete absolute path.</p></li>
-          <li><p>Path relative to %COMMANDER_PATH%.</p></li>
+          <li><p>Path relative to <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
           <li><p>Relative to the specified path.</p></li>
         </ul>
         <p>Also you can apply the chosen way to the already added paths.</p>
@@ -884,7 +885,7 @@
         <p>In the screenshot at the beginning of the section description, you can see an example of a tooltip with the <tt>textline.wdx</tt> plugin that shows the contents of the selected lines of a text file (in this case, the first, second and third lines), the <span class="italic">Combine DC and system tooltip, system first</span> mode is selected.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigAssociations">2.23. File associations</a></span> (internal command <tt>cm_FileAssoc</tt>)</p>
+        <p><span class="bold"><a name="ConfigAssociations">2.23. File associations</a></span></p>
         <p>This item opens the configuration file associations. All association sets are contained in the file <tt>extassoc.xml</tt>.</p>
         <p>Here you can customize file associations and set commands or scripts for some file types. Commands will be displayed in the context menu (internal command <tt>cm_ContextMenu</tt>) by right mouse clicking on a file in the panel.</p>
         <p class="figure"><img class="largeimage" title="File associations" alt="File associations" src="images/imgDC/pic48.png" width="612" height="548"></p>
@@ -926,6 +927,7 @@
           <li><p><tt>{!VIEWER}</tt>&nbsp;&ndash; call viewer (internal or external, depends on the configuration);</p></li>
           <li><p><tt>{!SHELL}</tt>&nbsp;&ndash; use a terminal to run the program.</p></li>
         </ul>
+        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command cm_Execute Script, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
         <ul>
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>
@@ -949,7 +951,7 @@
         <p>Below you can choose how the path will be set when adding icons, commands and starting paths:</p>
         <ul>
           <li><p>With complete absolute path.</p></li>
-          <li><p>Path relative to %COMMANDER_PATH%.</p></li>
+          <li><p>Path relative to <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
           <li><p>Relative to the specified path.</p></li>
         </ul>
         <p>Also you can apply the chosen way to the already added paths.</p>
@@ -963,7 +965,7 @@
         <p>In this section you can choose how the path will be set the path and target path:</p>
         <ul>
           <li><p>With complete absolute path.</p></li>
-          <li><p>Path relative to %COMMANDER_PATH%.</p></li>
+          <li><p>Path relative to <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
           <li><p>Relative to the specified path.</p></li>
         </ul>
         <p>Also you can apply the chosen way to the already added paths.</p>

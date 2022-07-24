@@ -487,7 +487,7 @@
         <p>We have three settings for that: ID, ID Position and ID Seek Range.</p>
         <p>We will instruct Double Commander where to search for specific ID's pattern to recognize an a type of archive and then use the configured commands specific to the recognized type of archive.</p>
         <p>Let's begin by a simple example. Here follows a snapshot of the beginning of a 7-Zip archived:</p>
-        <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="764" height="138"></p>
+        <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="608" height="122"></p>
         <p>By looking at other 7-Zip files, we see that the first six bytes are always the sequence 0x37 0x7A 0xBC 0xAF 0x27 0x1C.</p>
         <p>So we will take profit of that by configuring Double Commander that when it sees a file starting with that sequence to assume that the file is an 7-Zip archive.</p>
         <p>That's what we do with the following configuration:</p>
@@ -498,6 +498,7 @@
         <p><b>Note:</b> All above parameters can be defined with multiple values. We can use comma to separate those multiple values.</p>
         <p>In our example with 7-Zip archive, ID and ID Position (0, because in the beginning of file) will be enough.</p>
         <p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF 0x27 0x1C" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
+        <p>In most cases, there is no need to examine files in hexadecimal representation: the file signature can be found in the format specification or use existing lists, databases or utilities (for example, <a href="https://en.wikipedia.org/wiki/List_of_file_signatures" target="_blank">this Wikipedia page</a> or <a href="https://freedesktop.org/wiki/Software/shared-mime-info/" target="_blank">FreeDesktop.org MIME database</a>).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

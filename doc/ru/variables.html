@@ -37,6 +37,7 @@
           <dt>13. <a href="#interaction">Взаимодействие</a></dt>
           <dt>14. <a href="#miscellaneous">Прочие переменные</a></dt>
           <dt>15. <a href="#summaryall">Сводная таблица со всеми переменными</a></dt>
+          <dt>16. <a href="#envvariables">Переменные окружения</a></dt>
         </dl>
       </div>
 
@@ -62,7 +63,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Переменная</th><th class="categorydesccolumn">Что обозначает</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%p</div></td>
-            <td class="hintcell">Полное имя файла, путь+имя файла<br><code>Пример: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
+            <td class="hintcell">Полное имя файла, путь + имя файла<br><code>Пример: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%f</div></td>
@@ -315,7 +316,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%L</div></td>
-            <td class="hintcell">Файл со списком полных имён выделенных файлов (путь+имя файла)</td>
+            <td class="hintcell">Файл со списком полных имён выделенных файлов (путь + имя файла)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%F</div></td>
@@ -497,7 +498,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%/0</div></td><td class="hintcell">путь без разделителя каталогов в конце (по умолчанию)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%/1</div></td><td class="hintcell">путь с разделителем каталогов в конце</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%/</div></td><td class="hintcell">восстанавливает поведение по умолчанию (без разделителя каталогов в конце)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">файл со списком выделенных файлов с полными именами (путь+имя файла)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">файл со списком выделенных файлов с полными именами (путь + имя файла)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">файл со списком только имён выделенных файлов</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">файл со списком выделенных файлов с относительным путём</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">суффикс для %L, %F или %R: взять имена файлов в кавычки</td></tr>
@@ -516,8 +517,32 @@
       </div>
 
       <div>
-        <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
+        <h2><a name="envvariables">16. Переменные окружения</a></h2>
+        <p>Double Commander предоставляет несколько переменных окружения:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Переменные окружения</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Переменная</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_PATH%</div></td>
+            <td class="hintcell">Каталог, в котором расположен исполняемый файл Double Commander</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI%</div></td>
+            <td class="hintcell">Полное имя (путь + имя файла) основного файла конфигурации (<tt>doublecmd.xml</tt>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_DRIVE%</div></td>
+            <td class="hintcell">Диск, на котором расположена папка Double Commander:<br>- Windows: буква диска (с двоеточием);<br>- Unix-подобные системы: точка монтирования.</td>
+          </tr>
+        </table>
+        <p>Мы можем использовать переменные окружения в настройках Double Commander: в именах исполняемых файлов и значков на панели инструментов, именах плагинов, в избранных каталогах и т.д. Это удобный способ указать путь, если мы не хотим использовать абсолютные пути.</p>
+        <p>Дополнительно доступна переменная <code>%DC_CONFIG_PATH%</code>, которая возвращает каталог с файлами конфигурации Double Commander. Это не переменная окружения и она недоступна для дочерних процессов (приложений, запущенных из программы), но в остальном мы можем использовать <code>%DC_CONFIG_PATH%</code> аналогично переменным окружения, описанным выше.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
         <br>
+        <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="toolbar.html">Пред.</a> | <a title="Следующая страница" href="cmds.html">След.</a></div></div>

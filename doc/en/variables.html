@@ -37,6 +37,7 @@
           <dt>13. <a href="#interaction">Interaction</a></dt>
           <dt>14. <a href="#miscellaneous">Miscellaneous variables</a></dt>
           <dt>15. <a href="#summaryall">Summary table of all variables</a></dt>
+          <dt>16. <a href="#envvariables">Environment variables</a></dt>
         </dl>
       </div>
 
@@ -62,7 +63,7 @@
           <tr class="rowsubtitle"><th class="namecolumn">Variables</th><th class="categorydesccolumn">What it stands for</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%p</div></td>
-            <td class="hintcell">Complete filename, path+filename<br><code>Example: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
+            <td class="hintcell">Complete filename, path + file name<br><code>Example: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%f</div></td>
@@ -519,8 +520,32 @@
       </div>
 
       <div>
-        <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
+        <h2><a name="envvariables">16. Environment variables</a></h2>
+        <p>Double Commander provides several environment variables:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Environment variables</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Variable</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_PATH%</div></td>
+            <td class="hintcell">The directory where the Double Commander executable file is located</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI%</div></td>
+            <td class="hintcell">The full name (path + file name) of the main configuration file (<tt>doublecmd.xml</tt>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_DRIVE%</div></td>
+            <td class="hintcell">The disk where the Double Commander folder is located:<br>- Windows: drive letter (with colon);<br>- Unix-like systems: mount point.</td>
+          </tr>
+        </table>
+        <p>We can use environment variables in the Double Commander settings: in the names of executable files and icons on the toolbar, in the names of plugins, favorite directories, and so on. This is a convenient way to specify a path if we don't want to use absolute paths.</p>
+        <p>Additionally, the <code>%DC_CONFIG_PATH%</code> variable is available, which returns the directory with the Double Commander configuration files. This is not an environment variable and it is not available for child processes (applications launched from Double Commander), but otherwise we can use <code>%DC_CONFIG_PATH%</code> in the same way as the environment variables described above.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
         <br>
+        <p><small>Originally created by Rustem (dok_rust@bk.ru)</small></p>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="toolbar.html">Previous</a> | <a title="Next page" href="cmds.html">Next</a></div></div>

@@ -240,7 +240,7 @@
         <p>As you've seen previously, for historic and legacy reason, DC will return the result quoted.</p>
         <p>This was useful initially when there were spaces in filename and we wanted to pass filename as parameters and we wanted the whole thing to work.</p>
         <p>But as new variables were added, it was obvious that we needed a way to have unquoted result. Basic example is commonly when we want to concatenate a source filename, but just the filename with no extension, with a new specific extension we'll spcify ourself on the line.</p>
-        <p>So instead of adding new variables that would return the same thing but unquoted, we may still use the same variables for the same meaning but just have to set prior on the line of parameter something like %"0 to indicate to DC that from now on, to the end of the line we're evaulating, do not quote the result.</p>
+        <p>So instead of adding new variables that would return the same thing but unquoted, we may still use the same variables for the same meaning but just have to set prior on the line of parameter something like <code>%"0</code> to indicate to DC that from now on, to the end of the line we're evaulating, do not quote the result.</p>
         <p>Basically we'll have:</p>
         <dl>
           <dt><code>%"0</code> : from this position, resulting filename will be unquoted</dt>

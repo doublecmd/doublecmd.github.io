@@ -424,6 +424,29 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultTextEncoding&gt;<br><small>from &lt;Miscellaneous&gt;</small></div></td>
+            <td class="hintcell">
+              By default (NONE), the built-in file viewer and the built-in editor use automatic encoding detection, but you can specify one of the supported single-byte encodings as the default value.
+              The list of supported encodings can be viewed, for example, in the internal editor in the "Encoding" menu. Special values are also available:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">ANSI</td>
+                  <td class="innerdescdesccell">Default system ANSI encoding (depends on user locale).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">OEM</td>
+                  <td class="innerdescdesccell">Default system OEM (DOS) encoding (depends on user locale).</td>
+                </tr>
+              </table>
+              This parameter does not affect the automatic detection of multibyte encodings (UTF-8, UTF-16 and others).
+            </td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
             <td class="hintcell">
               Synchronize directories: save or not asymmetric mode by default.<br>
@@ -442,15 +465,15 @@
                 </tr>
                 <tr>
                   <td class="innerdescdesccell">&lt;Left&gt;</td>
-                  <td class="innerdescdesccell">files selected for copying or deleting on the left</td>
+                  <td class="innerdescdesccell">Files selected for copying or deleting on the left.</td>
                 </tr>
                 <tr>
                   <td class="innerdescdesccell">&lt;Right&gt;</td>
-                  <td class="innerdescdesccell">files selected for copying or deleting on the right</td>
+                  <td class="innerdescdesccell">Files selected for copying or deleting on the right.</td>
                 </tr>
                 <tr>
                   <td class="innerdescdesccell">&lt;Unknown&gt;</td>
-                  <td class="innerdescdesccell">files with the same names, but not identical</td>
+                  <td class="innerdescdesccell">Files with the same names, but not identical.</td>
                 </tr>
               </table>
             </td>

@@ -422,6 +422,29 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultTextEncoding&gt;<br><small>в &lt;Miscellaneous&gt;</small></div></td>
+            <td class="hintcell">
+              По умолчанию (NONE) встроенная программа просмотра файлов и встроенный редактор используют автоматическое определение кодировки, но вы можете указать одну из поддерживаемых однобайтовых кодировок как значение по умолчанию.
+              Список поддерживаемых кодировок можно посмотреть, например, во встроенном редакторе в меню "Кодировка". Также доступны специальные значения:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">ANSI</td>
+                  <td class="innerdescdesccell">Системная кодировка ANSI по умолчанию (зависит от локали).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">OEM</td>
+                  <td class="innerdescdesccell">Системная кодировка OEM (DOS) по умолчанию (зависит от локали).</td>
+                </tr>
+              </table>
+              Этот параметр не затрагивает автоматическое определение многобайтовых кодировок (UTF-8, UTF-16 и другие).
+            </td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
             <td class="hintcell">
               Синхронизация каталогов: сохранять или нет асимметричный режим по умолчанию.<br>
@@ -440,15 +463,15 @@
                 </tr>
                 <tr>
                   <td class="innerdescdesccell">&lt;Left&gt;</td>
-                  <td class="innerdescdesccell">файлы, выбранные для копирования или удаления слева</td>
+                  <td class="innerdescdesccell">Файлы, выбранные для копирования или удаления слева.</td>
                 </tr>
                 <tr>
                   <td class="innerdescdesccell">&lt;Right&gt;</td>
-                  <td class="innerdescdesccell">файлы, выбранные для копирования или удаления справа</td>
+                  <td class="innerdescdesccell">Файлы, выбранные для копирования или удаления справа.</td>
                 </tr>
                 <tr>
                   <td class="innerdescdesccell">&lt;Unknown&gt;</td>
-                  <td class="innerdescdesccell">файлы с одинаковыми именами, но не идентичные</td>
+                  <td class="innerdescdesccell">Файлы с одинаковыми именами, но не идентичные.</td>
                 </tr>
               </table>
             </td>

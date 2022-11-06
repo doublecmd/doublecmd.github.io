@@ -49,7 +49,7 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Параметры командной строки</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Параметр</th><th class="categorydesccolumn">Описание</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft"><var>каталог1 [каталог2]</var><br><i><small class="firstcolumnaleft">(без переключателей, просто путь)</small></i></div></td>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft"><var>каталог1 [каталог2]</var><br><i><small class="firstcolumnaleft">(без переключателей, просто путь)</small></i></div></td>
             <td class="hintcell">
               Если передан один путь, то он будет открыт в активной панели.<br>
               Если передано два пути, то первый будет открыт в левой панели, а второй&nbsp;&ndash; в правой.<br>
@@ -57,13 +57,13 @@
               Всегда указывайте полный путь.
             </td>
           </tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-C <i>or</i> --client</div></td><td class="hintcell">Если Double Commander уже запущен, этот параметр активизирует его и передаёт путь(и) из командной строки в эту копию программы.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-L <i>каталог</i></div></td><td class="hintcell">Устанавливает путь в левой панели.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-R <i>каталог</i></div></td><td class="hintcell">Устанавливает путь в правой панели.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Устанавливает активную панель при запуске программы:<ul><li><code>-P L</code> левую</li><li><code>-P R</code> правую</li></ul></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Открывает переданный каталог(и) в новой вкладке(ах).</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--config-dir=<i>каталог</i></div></td><td class="hintcell">Задаёт произвольный каталог с файлами конфигурации DC.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--servername=x</div></td>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-C <i>or</i> --client</div></td><td class="hintcell">Если Double Commander уже запущен, этот параметр активизирует его и передаёт путь(и) из командной строки в эту копию программы.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-L <i>каталог</i></div></td><td class="hintcell">Устанавливает путь в левой панели.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-R <i>каталог</i></div></td><td class="hintcell">Устанавливает путь в правой панели.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Устанавливает активную панель при запуске программы:<ul><li><code>-P L</code> левую</li><li><code>-P R</code> правую</li></ul></td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Открывает переданный каталог(и) в новой вкладке(ах).</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--config-dir=<i>каталог</i></div></td><td class="hintcell">Задаёт произвольный каталог с файлами конфигурации DC.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--servername=x</div></td>
             <td class="hintcell">
               Задаёт имя экземпляра (сервера) DC, которое потом может быть использовано для передачи параметров.<br>
               Если нет уже существующего экземпляра, то он будет создан.<br>
@@ -72,12 +72,13 @@
               Если какое-то число уже используется, то оно будет увеличено на 1, пока не будет найдено незанятое имя сервера.
             </td>
           </tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Запрещает заставку при запуске DC.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--debug-log=<i>файл</i></div></td>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Запрещает заставку при запуске DC.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--debug-log=<i>файл</i></div></td>
             <td class="hintcell">
               Запуск Double Commander с выводом отладочных сообщений в указанный файл.<br>
-              Примечание: Также используемый модуль (LazLogger) поддерживает переменную окружения <code>xxx_debuglog</code>, где <code>xxx</code>&nbsp;&ndash; имя файла программы без расширения:
-              в данном случае это будет <code>doublecmd_debuglog</code>. Если эта переменная окружения существует, будет использоваться файл, указанный в её значении.
+              Также используемый модуль (LazLogger) поддерживает переменную окружения <code>xxx_debuglog</code>, где <code>xxx</code>&nbsp;&ndash; имя файла программы без расширения:
+              в данном случае это будет <code>doublecmd_debuglog</code>. Если эта переменная окружения существует, будет использоваться файл, указанный в её значении.<br>
+              В Linux предпочтительнее использовать запуск в терминале и перенаправление вывода в файл (оба потока, stdout и stderr).
             </td>
           </tr>
         </table>

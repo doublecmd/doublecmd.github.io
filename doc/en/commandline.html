@@ -49,7 +49,7 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Command Line Parameters</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Parameter</th><th class="categorydesccolumn">Description</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft"><var>path1\sub1 [path2\sub2]</var><br><i><small class="firstcolumnaleft">(no switches, directly a path)</small></i></div></td>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft"><var>path1\sub1 [path2\sub2]</var><br><i><small class="firstcolumnaleft">(no switches, directly a path)</small></i></div></td>
             <td class="hintcell">
               If one path passed then load it into the active panel.<br>
               If two paths are passed then load first path into left panel and second in the right panel.<br>
@@ -57,13 +57,13 @@
               Always specify the full path name.
             </td>
           </tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-C <i>or</i> --client</div></td><td class="hintcell">If Double Commander is already running, activate it and pass the path(s) in the command line to that instance.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-L <i>directory</i></div></td><td class="hintcell">Set directory to show in the left panel.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-R <i>directory</i></div></td><td class="hintcell">Set directory to show in the right panel.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Sets the active panel when program starts:<ul><li><code>-P L</code> for left</li><li><code>-P R</code> right</li></ul></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Opens the passed directory(ies) in new tab(s).</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--config-dir=<i>path</i></div></td><td class="hintcell">Set custom directory path with DC configurations files.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--servername=x</div></td>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-C <i>or</i> --client</div></td><td class="hintcell">If Double Commander is already running, activate it and pass the path(s) in the command line to that instance.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-L <i>directory</i></div></td><td class="hintcell">Set directory to show in the left panel.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-R <i>directory</i></div></td><td class="hintcell">Set directory to show in the right panel.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Sets the active panel when program starts:<ul><li><code>-P L</code> for left</li><li><code>-P R</code> right</li></ul></td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Opens the passed directory(ies) in new tab(s).</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--config-dir=<i>path</i></div></td><td class="hintcell">Set custom directory path with DC configurations files.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--servername=x</div></td>
             <td class="hintcell">
               Sets the name of the instance (server) DC, which can then be used to pass parameters.<br>
               If there is no already existing instance, then create it.<br>
@@ -72,12 +72,13 @@
               If there is already some trailing number, then increase it by 1, until we found a servername that isn't busy yet, and then create instance with this servername.
             </td>
           </tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Disables the splash screen at startup DC.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">--debug-log=<i>file</i></div></td>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Disables the splash screen at startup DC.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--debug-log=<i>file</i></div></td>
             <td class="hintcell">
               Running Double Commander with sending the debug output to the specified file.<br>
-              Note: Also used module (Lazlogger) supports the environment variable <code>xxx_debuglog</code>, where <code>xxx</code> is the program file name without extension:
-              in this case, it will be <code>doublecmd_debuglog</code>. If this environment variable exists, the file specified in its value will be used.
+              Also used module (Lazlogger) supports the environment variable <code>xxx_debuglog</code>, where <code>xxx</code> is the program file name without extension:
+              in this case, it will be <code>doublecmd_debuglog</code>. If this environment variable exists, the file specified in its value will be used.<br>
+              In Linux, it is preferable to use running in a terminal and redirecting the output to a file (both streams, stdout and stderr).
             </td>
           </tr>
         </table>

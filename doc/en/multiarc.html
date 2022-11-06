@@ -68,17 +68,17 @@
         <p>Once "inside" the compressed file, we may do some minimal basic functions like viewing the file, copy it to the other panel and some limited function like that.</p>
         <p>The next following image shows us an example where we selected the compressed file "help.rar" and we simply press <kbd>Enter</kbd> in it just like it would be a directory:</p>
         <p class="figure"><img class="largeimage" title="View archive" alt="View archive" src="images/imgDC/archiveimg1.png" width="768" height="454"></p>
-        <p>After calling the view (<kbd>F3</kbd>) or edit (<kbd>F4</kbd>) command, Double Commander will extract the file under the cursor to the temporary directory of the operating system and open it. After closing the viewer, the temporary file will be deleted. The file opened in the editor can be repacked if it was changed (if the compressed file format and the packer plugin or external archiver support this feature).</p>
+        <p>After calling the view (<kbd>F3</kbd>) or edit (<kbd>F4</kbd>) command, Double Commander will extract the file under the cursor to the system directory for the temporary files and open it. After closing the viewer, the temporary file will be deleted. The file opened in the editor can be repacked if it was changed (if the compressed file format and the packer plugin or external archiver support this feature).</p>
         <p>When using a double-click or pressing <kbd>Enter</kbd>, Double Commander will show the properties window of the packed file:</p>
         <p class="figure"><img class="largeimage" title="Properties of packed file" alt="Properties of packed file" src="images/imgDC/archiveimg27.png" width="268" height="316"></p>
         <p>The <span class="italic">Packer</span> line displays the name of the packer plugin used or the name of the external archiver.</p>
         <p>Buttons:</p>
         <ul>
           <li><p><span class="italic">Close</span>&nbsp;&ndash; will close the properties window.</p></li>
-          <li><p><span class="italic">Unpack and execute</span>&nbsp;&ndash; Double Commander will extract the file under the cursor to the temporary directory of the operating system and call the default action from <a href="configuration.html#ConfigAssociations">internal</a> or system file associations.</p></li>
+          <li><p><span class="italic">Unpack and execute</span>&nbsp;&ndash; Double Commander will extract the file under the cursor to the system directory for the temporary files and call the default action from <a href="configuration.html#ConfigAssociations">internal</a> or system file associations.</p></li>
           <li><p><span class="italic">Unpack all and execute</span>&nbsp;&ndash; like the previous one, but the entire contents of the archive will be extracted first.</p></li>
         </ul>
-        <p>Also see <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>.</p>
+        <p>Double Commander allows to configure the automatic opening of file in the associated program directly, use <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>.</p>
         <p>When closing, Double Commander deletes all temporary files.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

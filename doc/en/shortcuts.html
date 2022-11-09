@@ -70,7 +70,8 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F3</div></td>
-            <td class="hintcell">1. On file: open file for view in internal viewer (multiple files are OK too)<br>2. On directory: open this directory</td>
+            <td class="hintcell">1. On file: open file for view in internal viewer (multiple files are OK too)<br>
+              2. On directory: open this directory</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F4</div></td>
@@ -252,7 +253,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+H</div></td>
-            <td class="hintcell">Invoke directory history drop down menu</td>
+            <td class="hintcell">Invoke directory history drop-down menu</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
@@ -410,11 +411,11 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
-            <td class="hintcell">New file (or open existing file) in internal editor</td>
+            <td class="hintcell">Create a new text file and open in the internal editor or open existing file</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
-            <td class="hintcell">Shows context menu for files and folders</td>
+            <td class="hintcell">Show context menu for files and folders</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F12</div></td>
@@ -596,7 +597,7 @@
 
       <div>
         <h2><a name="editor">4. Internal Editor</a></h2>
-        <p>Some hotkeys are not configurable.</p>
+        <p>Some hotkeys are not configurable!</p>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Internal Editor</th>
@@ -634,7 +635,7 @@
             <td class="hintcell">Delete from left by words</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Del:</div></td>
+            <td class="varcell"><div class="shortcutname">Del</div></td>
             <td class="hintcell">Delete from right</td>
           </tr>
           <tr>
@@ -654,7 +655,7 @@
             <td class="hintcell">Scroll content up page by page</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ins</div></td>
+            <td class="varcell"><div class="shortcutname">Insert</div></td>
             <td class="hintcell">Toggle insert/overwrite mode</td>
           </tr>
           <tr>
@@ -806,7 +807,7 @@
             <td class="hintcell">Delete text up to the end of the line.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Ins</div></td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Insert</div></td>
             <td class="hintcell">Copy</td>
           </tr>
           <tr>
@@ -846,19 +847,21 @@
             <td class="hintcell">Delete</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Shit+Ins</div></td>
+            <td class="varcell"><div class="shortcutname">Shit+Insert</div></td>
             <td class="hintcell">Paste</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Tab</div></td>
-            <td class="hintcell">1. Insert a Tab charater<br>2. If text is selected, add an indent for a line or block of text</td>
+            <td class="hintcell">1. Insert a Tab charater<br>
+              2. If <a href="configuration.html#ConfigToolsEditor">Tab indents blocks</a> is enabled and text is selected: add an indent for a line or block of text</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
-            <td class="hintcell">If text is selected, remove an indent for a line or block of text</td>
+            <td class="hintcell">If <a href="configuration.html#ConfigToolsEditor">Tab indents blocks</a> is enabled and text is selected: remove an indent for a line or block of text</td>
           </tr>
         </table>
-        <p>Internal editor supports multi-carets mode: <kbd>Alt+Shift+click</kbd> or <kbd>Alt+Shift+arrows</kbd> for column editing and <kbd>Ctrl+Shift+click</kbd> for multi-carets editing.</p>
+        <p>Inside an open document, you can paste a copy of the selected text anywhere in the document without using the clipboard: just select the text, move the mouse cursor to the desired position and press the mouse wheel.</p>
+        <p>Internal editor supports multi-carets mode: mouse selection with the <kbd>Alt</kbd> key, <kbd>Alt+Shift+click</kbd> or <kbd>Alt+Shift+arrows</kbd> for column editing and <kbd>Ctrl+Shift+click</kbd> for multi-carets editing.</p>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Text column selection hotkeys</th>
@@ -916,6 +919,7 @@
             <td class="hintcell">Column select page up</td>
           </tr>
         </table>
+        <p>Note: If the contents of more than one line are selected, the indent change commands do not work correctly, this is a limitation of the component used.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

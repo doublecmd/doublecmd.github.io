@@ -175,7 +175,7 @@
         <br>
 
         <p><span class="bold"><a name="ConfigToolsViewer">2.3.1. Tools&nbsp;&gt; Viewer</a></span></p>
-        <p>Almost all parameters and switches are available in the window of built-in viewer, there are only two groups of parameters in this section.</p>
+        <p>Almost all parameters and switches are available in the window of <a href="viewer.html">built-in viewer</a>, there are only two groups of parameters in this section.</p>
         <p class="figure"><img class="largeimage" title="Viewer" alt="Viewer" src="images/imgDC/pic50.png" width="578" height="328"></p>
         <p>The first group allows you to specify an external program for viewing files. Double Commander will automatically add the full filename as the last launch parameter each time the viewer is called.</p>
         <p>Additionally: <span class="italic">Execute in terminal</span> and <span class="italic">Keep terminal window open after executing program</span> can be useful if you are using a console program and/or if the program's terminal output is important (or just temporarily for debugging).</p>
@@ -240,7 +240,7 @@
         <p>Default values:</p>
         <ul>
           <li><p>Windows: <tt>cmd.exe</tt></p></li>
-          <li><p>macOS: <tt>/Applications/Utilities/Terminal.app</tt></p></li>
+          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>: <tt>/Applications/Utilities/Terminal.app</tt></p></li>
           <li><p>Linux and other Unix-like systems:</p>
             <ul>
               <li><p>For Debian and Debian-based distributions (antiX, Devuan, Ubuntu, Linux Mint and others), <tt>x-terminal-emulator</tt> will be used: this is a symbolic link to the terminal used in these systems by default.</p></li>
@@ -347,9 +347,14 @@
         <br>
 
         <p><span class="bold"><a name="ConfigMouse">2.7. Mouse</a></span></p>
-        <p><span class="italic">Selection by mouse</span>, <span class="italic">Mode</span>&nbsp;&ndash; ability to select and unselect files and folders with the mouse. Mode is set for <kbd>Left button</kbd> or <kbd>Right button</kbd> (a long press will call the context menu for files and folders).</p>
-        <p><span class="italic">By clicking on icon</span>&nbsp;&ndash; allows to select files with one mouse click on the icon. Selection by clicking on icon in thumbnail view works when you click on left part (25%) of image, so you can set cursor without selection by mouse clicking on right image part.</p>
-        <p><span class="italic">Scrolling</span>&nbsp;&ndash; ability to use mouse wheel to list files at panels.</p>
+        <p>The first group of parameters is <span class="italic">Selection</span>:</p>
+        <ul>
+          <li><p><span class="italic">Selection by mouse</span>&nbsp;&ndash; enables the ability to select and unselect files and folders with the mouse.</p></li>
+          <li><p><span class="italic">By clicking on icon</span>&nbsp;&ndash; allows to select files with one mouse click on their icons. Selection by clicking on icon in thumbnail view works when you click on left part (1/4 or 25%) of image.</p></li>
+          <li><p><span class="italic">Mode</span>&nbsp;&ndash; sets the left or right mouse button.</p></li>
+        </ul>
+        <p>See the <a href="help.html#select_files">Selecting files</a> subsection for details.</p>
+        <p><span class="italic">Scrolling</span>&nbsp;&ndash; the ability to use the mouse wheel to scroll the list of files in the panels.</p>
         <ul>
           <li><p><span class="italic">Line by line with cursor movement</span>&nbsp;&ndash; cursor will move up or down the panel before scrolling takes place.</p></li>
           <li><p><span class="italic">Line by line</span>&nbsp;&ndash; the cursor remains on the file and scrolling takes place immediately. Also you can specify the number of lines.</p></li>
@@ -365,10 +370,7 @@
         <br>
 
         <p><span class="bold"><a name="ConfigMouseDD">2.7.1. Mouse&nbsp;&gt; Drag &amp; drop</a></span></p>
-        <p>Double Commander supports the ability to drag and drop files using the mouse (that is, with the left mouse button pressed) to the windows of external applications (for example, a text or graphics editor or viewer), to the toolbar and copying/moving files between directories. If the action is possible, the "+" symbol will be displayed near the mouse cursor.</p>
-        <p>When dragging a file to an empty place on the toolbar, a button with an external command will be created, the passed file will be used as a command. Dragging a file to a button is only possible if it is a button with an external command: the command will launched and the file will be passed to it as a launch parameter.</p>
-        <p>For file copy or move (if the <kbd>Shift</kbd> key was held) operations, the following targets are possible: any folder in the active panel directory (the folder name will be highlighted with a frame), the opposite file panel or the directory of any open tab (just drop the files on the header of the desired tab). Use ".." to copy files to the parent directory. Double Commander can also copy files to an archive if adding files is supported.</p>
-        <p>Dragging using the right mouse button will show the menu with the following actions: <span class="italic">Copy</span>, <span class="italic">Move</span>, <span class="italic">Create link</span>, <span class="italic">Create symlink</span> and <span class="italic">Cancel</span>.</p>
+        <p>This section contains settings related to <a href="help.html#draganddrop">drag &amp; drop</a>.</p>
         <p><span class="italic">Show confirmation dialog after drop</span>&nbsp;&ndash; helps to avoid accidental errors when using drag and drop files inside the active file panel or between panels: Double Commander will show a confirmation dialog as for normal copying or moving files.</p>
         <p>The next feature is available in Windows only: you can drag and drop text selected in a web browser or word processor (for example, LibreOffice Writer or Microsoft Word) to the panel and save it. Here you can choose file format (RTF, HTML or plain text file), encoding and enable automatic name generation.</p>
         <br>
@@ -410,7 +412,7 @@
           <li><p>to sorted position.</p></li>
         </ul>
 
-        <p>The first parameter in the <span class="italic">Formatting</span> group is <span class="italic"><a name="dt_format">Date and time format</a></span>. You can choose one of the existing templates from the drop down list or set your own using date and time formatting characters.</p>
+        <p>The first parameter in the <span class="italic">Formatting</span> group is <span class="italic"><a name="dt_format">Date and time format</a></span>. You can choose one of the existing templates from the drop-down list or set your own using date and time formatting characters.</p>
         <p>Formatting characters are presented below (based on <a title="Free Pascal: Date and time format" href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html" target="_blank">Free Pascal documentation</a>). Some values depends on your regional settings!</p>
         <p>As example we will use 2021.01.24 09:06:02 (i.e. <tt>yyyy.mm.dd hh:mm:ss</tt>) and the USA region.</p>
         <table>
@@ -470,14 +472,14 @@
             The <span class="italic">Add</span> button will open the file attributes selection window, you can use it or enter them manually. For more information about file attributes and their use, see <a href="findfiles.html#attributes">here</a>.</p></li>
           <li><p><span class="italic">Use an independent attribute filter in mask input dialog each time</span>&nbsp;&ndash; If enabled, the attribute filter will be added to the <span class="italic">Select a Group</span> (<tt>cm_MarkPlus</tt>) and <span class="italic">Unselect a Group</span> (<tt>cm_MarkMinus</tt>) command dialogs.</p></li>
         </ul>
-        <p><span class="italic">When selecting files with &lt;SPACEBAR&gt;, move down to next file (as with &lt;INSERT&gt;)</span>&nbsp;&ndash; moves the cursor down on selection with SPACEBAR. Default keys are <kbd>Shift+Down</kbd> or <kbd>Shift+Up</kbd>.</p>
+        <p><span class="italic">When selecting files with &lt;SPACEBAR&gt;, move down to next file (as with &lt;INSERT&gt;)</span>&nbsp;&ndash; moves the cursor down on selection with the <kbd>Space</kbd> key. Default keys are <kbd>Shift+Down</kbd> or <kbd>Shift+Up</kbd>.</p>
         <p><span class="italic">Show square brackets around directories</span>&nbsp;&ndash; helps to visually distinguish directories from files when icons are disabled. Also you can use any symbols instead them, see description of <code>&lt;FolderPrefix&gt;</code> and <code>&lt;FolderPostfix&gt;</code> parameters <a href="configxml.html">here</a>.</p>
         <p><span class="italic"><a name="show_hidden">Show system and hidden files</a></span>&nbsp;&ndash; If enabled, Double Commander will show files and folders which have the "hidden" or "system" attribute (Windows) or the name with a dot character in the beginning (Linux and other Unix-like systems). This can also can be changed from the <a href="help.html#cm_ShowSysFiles">main menu</a>.</p>
         <p>The parameters <span class="italic">Load file list in separate thread</span> and <span class="italic">Load icons after file list</span> are designed to speed up the display of the list of files in the panel, i.e.the application window will hang less when opening large directories.</p>
         <p><span class="italic">Don't load file list until a tab is activated</span>&nbsp;&ndash; When launched, Double Commander will not load the list of files of inactive tabs that were opened in the previous session.</p>
         <p><span class="italic">Highlight new and updated files</span>&nbsp;&ndash; If enabled, the names of files that are currently being created or modified will flash.</p>
         <p><span class="italic">Enable inplace renaming when clicking twice on a name</span>&nbsp;&ndash; is an additional ability to rename the file using the left mouse click (it does not depend on the the chosen key for selection with the mouse), as in Windows Explorer. The <span class="italic">A double click is necessary to launch the action</span> option must be selected in the <a href="#ConfigMouse">mouse settings</a> section.</p>
-        <p><span class="italic">Enable changing to parent folder when double-clicking on empty part of file view</span>&nbsp;&ndash; is an additional feature to simplify directory navigation. But not applicable if you are using a columns set and the list of files in the current directory does not fit in the panel (i.e. you see a vertical scroll bar).</p>
+        <p><span class="italic">Enable changing to parent folder when double-clicking on empty part of file view</span>&nbsp;&ndash; is an additional feature to simplify directory navigation. But not applicable if you are using a column set and the list of files in the current directory does not fit in the panel (i.e. you see a vertical scroll bar).</p>
         <br>
 
         <p><span class="bold"><a name="ConfigViewBrief">2.8.2. Files views&nbsp;&gt; Brief</a></span></p>
@@ -512,7 +514,7 @@
         <p><span class="italic">Save as</span>&nbsp;&ndash; allows to save the selected column set (as is or with changes) with a new name.</p>
         <p><span class="italic">New</span>&nbsp;&ndash; creates a new column set based on the selected one. With the same name + current date and time.</p>
         <p><span class="italic">Rename</span>&nbsp;&ndash; will prompt to enter a new name.</p>
-        <p><span class="italic">Delete</span>&nbsp;&ndash; deletes selected columns set.</p>
+        <p><span class="italic">Delete</span>&nbsp;&ndash; deletes selected column set.</p>
         <p>Below is a table with columns of the selected set, here you can set the number, name, content, place and size of columns. The count of lines in the table is equal to the count of columns in the set. Adding a new column: use the <kbd>down arrow</kbd> key or right-click in the empty area near the table and select <span class="italic">Add column</span>.</p>
         <p>These are the parameters that determine the table for the column (click in the boxes to edit them):</p>
         <p class="figure"><img class="largeimage" title="Columns" alt="Columns" src="images/imgDC/pic37.png" width="612" height="46"></p>
@@ -765,8 +767,7 @@
         <br>
 
         <p><span class="bold"><a name="ConfigQuick">2.16. Quick search/filter</a></span></p>
-        <p>Quick search is used in searching for filenames in the panel, quick filter will hide all filenames that do not match the conditions. Double Commander supports pinyin (file <tt>pinyin.tbl</tt> will be used).</p>
-        <p>You can set the way of call the quick search/filter bar in the <a href="#ConfigKeys">Keys</a> section, or use the <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> and <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a> commands.</p>
+        <p>This section contains the settings of the <a href="help.html#cm_QuickSearch">quick search/filter</a> tool. Quick search is used in searching for filenames in the panel, quick filter will hide all filenames that do not match the conditions.</p>
         <p class="figure"><img class="largeimage" title="Quick search/filter" alt="Quick search/filter" src="images/imgDC/pic45.png" width="512" height="332"></p>
         <p>Exact name match:</p>
         <ul>
@@ -780,7 +781,7 @@
         <p>Options:</p>
         <ul>
           <li><p><span class="italic">Hide filter panel when not focused</span>&nbsp;&ndash; The quick search/filter panel will hide automatically as soon as you move the focus to the file panel.</p></li>
-          <li><p><span class="italic">Keep saving setting modifications for next session</span>&nbsp;&ndash; All parameters that have been changed in the panel will be saved for the next quick search/filter call.</p></li>
+          <li><p><span class="italic">Keep saving setting modifications for next session</span>&nbsp;&ndash; By default, all parameters that have been changed in the quick search panel will be kept in memory only until the program is closed, the option allows to change this behavior.</p></li>
         </ul>
         <br>
 
@@ -829,7 +830,7 @@
         </ul>
         <p><span class="italic">Show icons on buttons</span>&nbsp;&ndash; If enabled, Double Commander will show icons on the buttons of the dialog windows (<span class="italic">OK</span>, <span class="italic">Cancel</span>, <span class="italic">Start</span>, <span class="italic">Add To Queue</span> and so on).</p>
         <p><span class="italic">Show icons for actions in menus</span>&nbsp;&ndash; If enabled, Double Commander will show icons in the main menu.</p>
-        <p>In the last parameter, <span class="italic">Icon theme</span>, you can choose an icon set from the drop down menu. Double Commander does comes with one <span class="italic">DCTheme</span> icon theme, but you can create and add your own, see <a href="faq.html#theme">item 3.6</a> in the FAQ.</p>
+        <p>In the last parameter, <span class="italic">Icon theme</span>, you can choose an icon set from the drop-down menu. Double Commander does comes with one <span class="italic">DCTheme</span> icon theme, but you can create and add your own, see <a href="faq.html#theme">item 3.6</a> in the FAQ.</p>
         <p>Note: In Unix-like systems, Double Commander will primarily use the system icon theme, if some icons does not exist, it will use its own.</p>
         <br>
 
@@ -888,25 +889,25 @@
 
         <p><span class="bold"><a name="ConfigAssociations">2.23. File associations</a></span></p>
         <p>This item opens the configuration file associations. All association sets are contained in the file <tt>extassoc.xml</tt>.</p>
-        <p>Here you can customize file associations and set commands or scripts for some file types. Commands will be displayed in the context menu (internal command <tt>cm_ContextMenu</tt>) by right mouse clicking on a file in the panel.</p>
+        <p>Here you can customize file associations and set commands or scripts for chosen file types. Commands will be added to the <a href="help.html#cm_ContextMenu">context menu</a> of files. Double Commander also allows to simply set (or replace) icons for file types, without adding any actions.</p>
         <p class="figure"><img class="largeimage" title="File associations" alt="File associations" src="images/imgDC/pic48.png" width="612" height="548"></p>
         <p><span class="italic">File types</span>&nbsp;&ndash; contains a list of extensions. Each group can contain many file extensions, and such a group can be associated with various programs.</p>
         <p><span class="italic">Add</span>&nbsp;&ndash; adds a new group. You must enter a group name.</p>
         <p><span class="italic">Remove</span>&nbsp;&ndash; deletes a group.</p>
         <p><span class="italic">Rename</span>&nbsp;&ndash; allows to set a new name for the group.</p>
-        <p><span class="italic">Icon</span>&nbsp;&ndash; you can set the path to an icon for this group. Also you can use MIME-type icons: for example, if you want to use <tt>text-x-pascal.png</tt> from Double Commander icons theme (or from system theme in Linux and other Unix-like systems), just insert <code>text-x-pascal</code>.</p>
+        <p><span class="italic">Icon</span>&nbsp;&ndash; you can set the path to an icon for this group. Also you can use MIME-type icons: for example, if you want to use <tt>text-x-pascal.png</tt> from Double Commander icons theme (or from system theme in Linux and other Unix-like systems), just insert <code>text-x-pascal</code>. Double Commander supports frequently used image formats, additionally in Windows you can use icons from bunary executable files (*.exe, *.dll).</p>
         <p><span class="italic">Extensions</span>&nbsp;&ndash; here you can set the extensions (without dot) for the selected group. You can add multiple extensions using a vertical bar "|" (without spaces between them). Special values:</p>
         <ul>
           <li><p><tt>file</tt>&nbsp;&ndash; any file;</p></li>
           <li><p><tt>folder</tt>&nbsp;&ndash; any directory;</p></li>
           <li><p><tt>default</tt>&nbsp;&ndash; used when extension specific association does not exists.</p></li>
         </ul>
-        <p><span class="italic">Insert</span>&nbsp;&ndash; adds an extension above the selected one in the list.</p>
-        <p><span class="italic">Add</span>&nbsp;&ndash; adds an extension to the end of the list.</p>
+        <p><span class="italic">Insert</span>&nbsp;&ndash; adds a new extension to the current position in the list.</p>
+        <p><span class="italic">Add</span>&nbsp;&ndash; adds a new extension to the end of the list.</p>
         <p><span class="italic">Remove</span>&nbsp;&ndash; deletes an extension from the group.</p>
         <p><span class="italic">Actions</span>&nbsp;&ndash; here you can set commands for the group.</p>
-        <p><span class="italic">Insert</span>&nbsp;&ndash; adds an action above the selected one in the list.</p>
-        <p><span class="italic">Add</span>&nbsp;&ndash; adds an action to the end of the list.</p>
+        <p><span class="italic">Insert</span>&nbsp;&ndash; adds a new action to the current position in the list.</p>
+        <p><span class="italic">Add</span>&nbsp;&ndash; adds a new action to the end of the list.</p>
         <p><span class="italic">Remove</span>&nbsp;&ndash; deletes an action from the list.</p>
         <p><span class="italic">Up</span>, <span class="italic">Down</span>&nbsp;&ndash; moves the action. The actions (if more than one) can be reordered.</p>
         <p><span class="italic">Action name:</span>&nbsp;&ndash; sets type of action. Variants:</p>
@@ -920,13 +921,13 @@
           </li>
           <li><p>Other actions displayed in the file context menu (submenu "Actions").</p></li>
         </ul>
-        <p><span class="italic">Command</span>&nbsp;&ndash; any command from Desktop Environment, where you can set macro commands (right button). Macros are case sensitive!</p>
+        <p><span class="italic">Command</span>&nbsp;&ndash; any command from Desktop Environment, where you can set macro commands (macros are case sensitive!):</p>
         <ul>
           <li><p><tt>{!DC-EDITOR}</tt>&nbsp;&ndash; call internal editor;</p></li>
           <li><p><tt>{!DC-VIEWER}</tt>&nbsp;&ndash; call internal viewer;</p></li>
           <li><p><tt>{!EDITOR}</tt>&nbsp;&ndash; call editor (internal or external, depends on the configuration);</p></li>
           <li><p><tt>{!VIEWER}</tt>&nbsp;&ndash; call viewer (internal or external, depends on the configuration);</p></li>
-          <li><p><tt>{!SHELL}</tt>&nbsp;&ndash; use a terminal to run the program.</p></li>
+          <li><p><tt>{!SHELL}</tt>&nbsp;&ndash; run in terminal and stay open at the end.</p></li>
         </ul>
         <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command cm_Execute Script, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
@@ -934,7 +935,8 @@
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>
           <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; runs "command" in the system shell and feeds the output to the command above.</p></li>
         </ul>
-        <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory.</p>
+        <p>At a minimum, you must specify a file name, usually <code>%p</code>.</p>
+        <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins).</p>
         <p>An association sets example, called <tt>doublecmd.ext.example</tt>, is in the program directory.</p>
         <p>All available actions will be displayed in the "Actions" submenu in the context menu:</p>
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="460" height="288"></p>

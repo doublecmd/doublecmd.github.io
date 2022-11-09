@@ -119,7 +119,7 @@
           <tr class="rowcategorytitle"><th colspan="2">Библиотека DC</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
             <td class="hintcell">
               <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
               <p>Пишет сообщение в окно протокола.</p>
@@ -133,7 +133,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.CurrentPanel</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">DC.CurrentPanel</div></td>
             <td class="hintcell">
               <p class="definition">iPanel = DC.CurrentPanel()</p>
               <p>Получить активную панель: возвращает 0, если активна левая панель, или 1, если правая.</p>
@@ -142,7 +142,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
               <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
               <p>Вызывает внутреннюю команду Double Commander <var>Command</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
@@ -210,21 +210,21 @@
           <tr class="rowcategorytitle"><th colspan="2">Библиотека System</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.Sleep(Milliseconds)</p>
               <p>Приостанавливает выполнение скрипта на указанное количество миллисекунд (<var>Milliseconds</var>), выполнение сценария будет продолжено после истечения указанного времени.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.GetTickCount()</p>
               <p>Возвращает количество интервалов времени (тиков) с момента старта системы. Это полезно для измерения времени, но не следует делать каких-либо предположений относительно количества времени в интервале между тиками.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
             <td class="hintcell">
               <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
               <p>Проверяет, существует ли в файловой системе определённый файл.</p>
@@ -232,7 +232,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
             <td class="hintcell">
               <p class="definition">bFlagExists = SysUtils.DirectoryExists(Directory)</p>
               <p>Проверяет существование <var>Directory</var> в файловой системе и что это действительно каталог.</p>
@@ -240,7 +240,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
             <td class="hintcell">
               <p class="definition">Attr = SysUtils.FileGetAttr(FileName)</p>
               <p>Возвращает в <var>Attr</var> атрибуты файла <var>FileName</var>.</p>
@@ -248,7 +248,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
             <td class="hintcell">
               <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
               <p>Ищет файлы, совпадающие с <var>Path</var> (можно использовать маски).</p>
@@ -265,7 +265,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
             <td class="hintcell">
               <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
               <p>Находит следующее вхождение поиска, инициированного <var>FindFirst</var>, <var>Handle</var>&nbsp;&ndash; дескриптор поиска, возвращённый функцией <var>FindFirst</var>.</p>
@@ -274,7 +274,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindClose</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindClose</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.FindClose(Handle)</p>
               <p>Завершает серию вызовов <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code> и освобождает использованную память.</p>
@@ -282,7 +282,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
               <p>Создаёт цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
@@ -290,7 +290,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
               <p>Создаёт жёсткую ссылку <var>LinkName</var> на файл <var>Path</var>.</p>
@@ -298,7 +298,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateSymbolicLink(Path, LinkName)</p>
               <p>Создаёт символьную ссылку <var>LinkName</var> на файл <var>Path</var>.</p>
@@ -306,7 +306,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink</div></td>
             <td class="hintcell">
               <p class="definition">sTarget = SysUtils.ReadSymbolicLink(LinkName, Recursive)</p>
               <p>Читает имя файла, на который указывает символьная ссылка <var>LinkName</var>.</p>
@@ -315,7 +315,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
             <td class="hintcell">
               <p class="definition">sName = SysUtils.ExtractFileName(FileName)</p>
               <p>Возвращает имя файла из полного (имя+путь) имени файла.</p>
@@ -323,7 +323,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
             <td class="hintcell">
               <p class="definition">sPath = SysUtils.ExtractFilePath(FileName)</p>
               <p>Возвращает путь из полного имени файла (включая букву диска).</p>
@@ -331,7 +331,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
             <td class="hintcell">
               <p class="definition">sDir = SysUtils.ExtractFileDir(FileName)</p>
               <p>Возвращает только каталог из <var>FileName</var>, включая букву диска.</p>
@@ -339,7 +339,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
             <td class="hintcell">
               <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
               <p>Возвращает диск из полного имени файла.</p>
@@ -347,14 +347,14 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
             <td class="hintcell">
               <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
               <p>Возвращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
             <td class="hintcell">
               <p class="definition">sName = SysUtils.GetAbsolutePath(FileName, BaseDirectory)</p>
               <p>Возвращает абсолютный (полный) путь к файлу:</p>
@@ -365,7 +365,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
             <td class="hintcell">
               <p class="definition">sName = SysUtils.GetRelativePath(FileName, BaseDirectory)</p>
               <p>Возвращает имя файла относительно указанного каталога:</p>
@@ -377,7 +377,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMask(FileName, Mask, MaskOptions)</p>
               <p>Возвращает <code>true</code>, если <var>FileName</var> совпадает с переданной маской <var>Mask</var>.</p>
@@ -407,7 +407,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.MatchesMaskList</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMaskList</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMaskList(FileName, MaskList, Separator, MaskOptions)</p>
               <p>Возвращает <code>true</code>, если <var>FileName</var> совпадает с хотя бы одной из переданных масок <var>MaskList</var>, разделённых <var>Separator</var> (по умолчанию ";").</p>
@@ -415,7 +415,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>
               <p>Символ, используемый в текущей операционной системе для разделения имён каталогов в полном имени файла.</p>
@@ -429,36 +429,35 @@
       <div>
         <h2><a name="detailattr">3.2.1. Описание возвращаемого значения SysUtils.FileGetAttr</a></h2>
         <p><code>FileGetAttr</code> возвращает атрибуты <var>FileName</var> в виде ИЛИ-совокупности следующих констант:</p>
-
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, используемые в возвращаемом значении SysUtils.FileGetAttr</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
             <td class="hintcell">Файл только для чтения.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000002<br><small class="firstcolumnaleft">faHidden</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000002<br><small class="firstcolumnaleft">faHidden</small></div></td>
             <td class="hintcell">Скрытый файл.<br>В Unix/Linux это значит, что имя файла начинается с точки.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
             <td class="hintcell">Системный файл.<br>В Unix/Linux это может быть символьное или блочное физическое устройство, именованный канал (FIFO).</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
             <td class="hintcell">Метка тома (означает, что файл содержит идентификатор (ID) тома).<br>Только для DOS/Windows 9x на обычной файловой системе FAT (не VFAT или FAT32).</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
             <td class="hintcell">Каталог.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000020<br><small class="firstcolumnaleft">faArchive</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000020<br><small class="firstcolumnaleft">faArchive</small></div></td>
             <td class="hintcell">Архивный.<br>Не используется в Unix/Linux.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000400<br><small class="firstcolumnaleft">faSymLink</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000400<br><small class="firstcolumnaleft">faSymLink</small></div></td>
             <td class="hintcell">Символьная ссылка.</td>
           </tr>
           <tr>
@@ -542,28 +541,28 @@
           <tr class="rowcategorytitle"><th colspan="2">Библиотека Clipboard</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.Clear</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.Clear</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.Clear()</p>
               <p>Очищает содержимое буфера обмена.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
             <td class="hintcell">
               <p class="definition">StringVar = Clipbrd.GetAsText()</p>
               <p>Получает содержимое буфера обмена как строку <var>StringVar</var>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.SetAsText(StringVar)</p>
               <p>Помещает в буфер обмена строку текста <var>StringVar</var>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.SetAsHtml(Html)</p>
               <p>Добавляет в буфер обмена текст <var>Html</var> в формате HTML (формат буфера обмена <code>CF_HTML</code>).</p>
@@ -661,7 +660,7 @@
           <tr class="rowcategorytitle"><th colspan="2">Библиотека Dialogs</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
             <td class="hintcell">
               <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
               <p>Показывает окно сообщения, функция вернёт нажатую пользователем кнопку.</p>
@@ -675,7 +674,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
             <td class="hintcell">
               <p class="definition">bAck, sAnswer = Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
               <p>Показывает диалоговое окно с полем ввода текста.</p>
@@ -691,7 +690,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
               <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
               <p>Показывает диалоговое окно с возможностью выбора из списка элементов.</p>
@@ -917,7 +916,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr class="rowcategorytitle"><th colspan="2">Библиотека UTF-8</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
               <p>Поиск подстроки в строке, начиная с определённой позиции. Поиск чувствителен к регистру.</p>
@@ -926,7 +925,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
               <p>Копирует (извлекает) часть строки.</p>
@@ -935,28 +934,28 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Length(String)</p>
               <p>Возвращает количество символов в строке с учётом кодировки UTF-8.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.UpperCase(String)</p>
               <p>Возвращает строку, в которой все буквы в нижнем регистре (строчные) заменены на буквы в верхнем регистре (прописные или заглавные).</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.LowerCase(String)</p>
               <p>Возвращает строку, в которой все буквы в верхнем регистре (прописные или заглавные) заменены на буквы в нижнем регистре (строчные).</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
               <p>Конвертирует кодировку <var>String</var> из <var>FromEnc</var> в <var>ToEnc</var>.</p>
@@ -999,7 +998,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr class="rowcategorytitle"><th colspan="2">Библиотека OS</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.execute</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">
               <p class="definition">ResultCode = os.execute(Command)</p>
               <p>Выполнить <var>Command</var>, аналогично введённой в командной строке, будет возвращён код завершения.</p>
@@ -1012,14 +1011,14 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
               <p class="definition">TempFileName = os.tmpname()</p>
               <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.remove</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.remove</div></td>
             <td class="hintcell">
               <p class="definition">bResult, ErrorStr, ErrorNum = os.remove(FileName)</p>
               <p>Удалить файл с именем <var>FileName</var>.</p>
@@ -1033,7 +1032,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.rename</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.rename</div></td>
             <td class="hintcell">
               <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
               <p>Переименовать файл <var>OldName</var> в <var>NewName</var>.</p>
@@ -1047,10 +1046,10 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.getenv</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.getenv</div></td>
             <td class="hintcell">
               <p class="definition">Value = os.getenv(VariableName)</p>
-              <p>Получить в <var>Value</var> значение переменной окружения <var>VariableName</var>.<br>Если переменная не существует, то функция вернёт <code>nil</code>.</td>
+              <p>Получить в <var>Value</var> значение переменной окружения <var>VariableName</var>.<br>Если переменная не существует, то функция вернёт <code>nil</code>.</p></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>

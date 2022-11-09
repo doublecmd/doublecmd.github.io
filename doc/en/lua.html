@@ -121,7 +121,7 @@
           <tr class="rowcategorytitle"><th colspan="2">DC library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
             <td class="hintcell">
               <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
               <p>Write a message to the log window.</p>
@@ -135,7 +135,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.CurrentPanel</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">DC.CurrentPanel</div></td>
             <td class="hintcell">
               <p class="definition">iPanel = DC.CurrentPanel()</p>
               <p>Get active panel: returns 0 if left panel is active or 1 if right.</p>
@@ -144,7 +144,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
               <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
               <p>This allows the script to invoke internal commands of DC.</p>
@@ -214,21 +214,21 @@
           <tr class="rowcategorytitle"><th colspan="2">System library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.Sleep(Milliseconds)</p>
               <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<br>After the specified period has expired, script execution resumes.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.GetTickCount()</p>
               <p>Returns an increasing clock tick count. It is useful for time measurements, but no assumptions should be made as to the interval between the ticks.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
             <td class="hintcell">
               <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
               <p>Check whether a particular file exists in the filesystem.</p>
@@ -236,7 +236,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
             <td class="hintcell">
               <p class="definition">bFlagExists = SysUtils.DirectoryExists(Directory)</p>
               <p>Checks whether <var>Directory</var> exists in the filesystem and is actually a directory.</p>
@@ -244,7 +244,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
             <td class="hintcell">
               <p class="definition">Attr = SysUtils.FileGetAttr(FileName)</p>
               <p>Returns in <var>Attr</var> the attribute settings of file <var>FileName</var>.</p>
@@ -252,7 +252,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
             <td class="hintcell">
               <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
               <p>Looks for files that match the <var>Path</var>, generally with wildcards.</p>
@@ -269,7 +269,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
             <td class="hintcell">
               <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
               <p>Finds the next occurrence of a search sequence initiated by <var>FindFirst</var> by re-using the <var>Handle</var> returned previously.</p>
@@ -279,7 +279,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.FindClose</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindClose</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.FindClose(Handle)</p>
               <p>Ends a series of <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code> calls.</p>
@@ -288,7 +288,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
               <p>Create a chain of directories, <var>Directory</var> is the full path to directory.</p>
@@ -296,7 +296,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
               <p>Create the hard link <var>LinkName</var> to file <var>Path</var>.</p>
@@ -304,7 +304,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateSymbolicLink(Path, LinkName)</p>
               <p>Create the symbolic link <var>LinkName</var> to file or directory <var>Path</var>.</p>
@@ -312,7 +312,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink</div></td>
             <td class="hintcell">
               <p class="definition">sTarget = SysUtils.ReadSymbolicLink(LinkName, Recursive)</p>
               <p>Read destination of the symbolic link <var>LinkName</var>.</p>
@@ -321,7 +321,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
             <td class="hintcell">
               <p class="definition">sName = SysUtils.ExtractFileName(FileName)</p>
               <p>Extract the filename part from a full path filename.</p>
@@ -329,7 +329,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
             <td class="hintcell">
               <p class="definition">sPath = SysUtils.ExtractFilePath(FileName)</p>
               <p>Extract the path from a filename (including drive letter).</p>
@@ -337,7 +337,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
             <td class="hintcell">
               <p class="definition">sDir = SysUtils.ExtractFileDir(FileName)</p>
               <p>Extract only the directory part of <var>FileName</var>, including a drive letter.</p>
@@ -345,7 +345,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
             <td class="hintcell">
               <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
               <p>Extract the drive part from a filename.</p>
@@ -353,14 +353,14 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
             <td class="hintcell">
               <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
               <p>Return the extension from a filename (all characters after the last "." (dot), including the "." character).</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
             <td class="hintcell">
               <p class="definition">sName = SysUtils.GetAbsolutePath(FileName, BaseDirectory)</p>
               <p>Returns the absolute (full) path to the file:</p>
@@ -371,7 +371,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
             <td class="hintcell">
               <p class="definition">sName = SysUtils.GetRelativePath(FileName, BaseDirectory)</p>
               <p>Returns the filename relative to the specified directory:</p>
@@ -383,7 +383,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMask(FileName, Mask, MaskOptions)</p>
               <p>Returns <code>true</code> if <var>FileName</var> matches the passed mask <var>Mask</var>.</p>
@@ -413,7 +413,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.MatchesMaskList</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMaskList</div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.MatchesMaskList(FileName, MaskList, Separator, MaskOptions)</p>
               <p>Returns <code>true</code> if <var>FileName</var> matches at least one of passed masks <var>MaskList</var> separated by <var>Separator</var> (";" by default).</p>
@@ -421,7 +421,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>
               <p>The character used by the current operating system to separate directory names in the full file name.</p>
@@ -436,40 +436,39 @@
         <h2><a name="detailattr">3.2.1. Details on SysUtils.FileGetAttr returned value</a></h2>
         <p><code>FileGetAttr</code> returns the attribute settings of file <var>FileName</var>.</p>
         <p>The attribute is a <var>OR</var>-ed combination of the following constants:</p>
-
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Value</th><th class="categorydesccolumn">Signification</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
             <td class="hintcell">The file is read-only.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000002<br><small class="firstcolumnaleft">faHidden</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000002<br><small class="firstcolumnaleft">faHidden</small></div></td>
             <td class="hintcell">The file is hidden.<br>In Unix/Linux, this means that the filename starts with a dot.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
             <td class="hintcell">The file is a system file.<br>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
             <td class="hintcell">Volume Label.<br>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
             <td class="hintcell">File is a directory.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000020<br><small class="firstcolumnaleft">faArchive</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000020<br><small class="firstcolumnaleft">faArchive</small></div></td>
             <td class="hintcell">File is archived.<br>Not possible in Unix/Linux.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000400<br><small class="firstcolumnaleft">faSymLink</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000400<br><small class="firstcolumnaleft">faSymLink</small></div></td>
             <td class="hintcell">File is a symbolic link.</td>
           </tr>
           <tr>
-            <td colspan="2"><b>Note: In case of error, -1 is returned.</b>
+            <td colspan="2"><b>Note: In case of an error, -1 is returned.</b>
           </tr>
         </table>
         <p>See an example in the <a href="#exampleattr">next section</a>.</p>
@@ -550,28 +549,28 @@
           <tr class="rowcategorytitle"><th colspan="2">Clipboard library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.Clear</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.Clear</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.Clear()</p>
               <p>Clear the content of the clipboard.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
             <td class="hintcell">
               <p class="definition">StringVar = Clipbrd.GetAsText()</p>
               <p>Get the current text content of the clipboard to assigned it to <var>StringVar</var>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.SetAsText(StringVar)</p>
               <p>Store in the clipboard the text content of <var>StringVar</var>.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
             <td class="hintcell">
               <p class="definition">Clipbrd.SetAsHtml(Html)</p>
               <p>Adds html-formatted text <var>Html</var> to the clipboard (<code>CF_HTML</code> clipboard format).</p>
@@ -670,7 +669,7 @@
           <tr class="rowcategorytitle"><th colspan="2">Dialogs library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
             <td class="hintcell">
               <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
               <p>Will diplay a message box prompting a user to click a button which will be returned by the function.</p>
@@ -684,7 +683,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
             <td class="hintcell">
               <p class="definition">bAck, sAnswer = Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
               <p>Will display a requester box where user may enter a string value.</p>
@@ -700,7 +699,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
               <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
               <p>Displays a dialog box to allow the user to choose from a list of items.</p>
@@ -926,7 +925,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr class="rowcategorytitle"><th colspan="2">UTF-8 library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
               <p>Search for substring in a string, starting at a certain position. The search is case sensitive.</p>
@@ -935,7 +934,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
               <p>Copy part of a string.</p>
@@ -944,28 +943,28 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Length(String)</p>
               <p>Returns the number of UTF-8 characters in the string.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.UpperCase(String)</p>
               <p>Receives a string and returns a copy of this string with all lowercase letters changed to uppercase.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.LowerCase(String)</p>
               <p>Receives a string and returns a copy of this string with all uppercase letters changed to lowercase.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
               <p>Convert <var>String</var> encoding from <var>FromEnc</var> to <var>ToEnc</var>.</p>
@@ -1008,7 +1007,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr class="rowcategorytitle"><th colspan="2">OS library</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.execute</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">
               <p class="definition">ResultCode = os.execute(Command)</p>
               <p>Will execute <var>Command</var> as it would be typed on the command-line and return the result code of the operation.</p>
@@ -1021,14 +1020,14 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.tmpname</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
               <p class="definition">TempFileName = os.tmpname()</p>
               <p>Will return a filename to use as a temporary filename.</p>
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.remove</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.remove</div></td>
             <td class="hintcell">
               <p class="definition">bResult, ErrorStr, ErrorNum = os.remove(FileName)</p>
               <p>Will delete the file or the directory with the name <var>FileName</var>.</p>
@@ -1042,7 +1041,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.rename</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.rename</div></td>
             <td class="hintcell">
               <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
               <p>Will rename the file <var>OldName</var> with the new name <var>NewName</var>.</p>
@@ -1056,10 +1055,10 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">os.getenv</div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.getenv</div></td>
             <td class="hintcell">
               <p class="definition">Value = os.getenv(VariableName)</p>
-              <p>Will return the <var>Value</var> of the variable <var>VariableName</var> passed in parameter.<br>If no variable of that name exists, it will return <code>nil</code>.</td>
+              <p>Will return the <var>Value</var> of the variable <var>VariableName</var> passed in parameter.<br>If no variable of that name exists, it will return <code>nil</code>.</p></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

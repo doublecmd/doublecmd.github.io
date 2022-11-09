@@ -19,10 +19,10 @@
 Участники
 =========
 
-  Alexander Koblov aka Alexx2000
-  B4rr4cuda
-  cobines
-  Denis Bisson
+  Alexander Koblov aka Alexx2000 (alexx2000@mail.ru)
+  Denis Bisson (denis.bisson@denisbisson.org)
+  Dmitry Kolomiets aka B4rr4cuda (B4rr4cuda@rambler.ru)
+  Przemysław Nagay aka cobines (cobines@gmail.com)
   RedSkotina
   Rod J (rodmac_shiels@hotmail.com)
   Rustem Rakhimov (dok_rust@bk.ru)

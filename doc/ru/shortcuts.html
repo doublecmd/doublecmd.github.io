@@ -70,7 +70,8 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F3</div></td>
-            <td class="hintcell">1. На файле: открыть файл в просмотрщике (так же и несколько выделенных файлов)<br>2. На папке: открыть эту папку</td>
+            <td class="hintcell">1. На файле: открыть файл в просмотрщике (так же и несколько выделенных файлов)<br>
+              2. На папке: открыть эту папку</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F4</div></td>
@@ -410,7 +411,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
-            <td class="hintcell">Создать новый текстовый файл и открыть его в редакторе (или открыть существующий)</td>
+            <td class="hintcell">Создать новый текстовый файл и открыть его в редакторе или открыть существующий</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
@@ -467,7 +468,7 @@
               2. В режиме быстрого поиска "Только буква": быстрый поиск в текущей панели</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Правая клавиша мыши</div></td>
+            <td class="varcell"><div class="shortcutname">Правая кнопка мыши</div></td>
             <td>Показать контекстное меню с настраиваемым списком действий (из <a href="configuration.html#ConfigAssociations">файловых ассоциаций</a>)</td>
           </tr>
         </table>
@@ -595,7 +596,7 @@
 
       <div>
         <h2><a name="editor">4. Встроенный редактор</a></h2>
-        <p>Некоторые горячие клавиши ненастраиваемые.</p>
+        <p>Некоторые горячие клавиши ненастраиваемые!</p>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Встроенный редактор</th>
@@ -633,7 +634,7 @@
             <td class="hintcell">Удалить слева по словам</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Del:</div></td>
+            <td class="varcell"><div class="shortcutname">Del</div></td>
             <td class="hintcell">Удалить справа</td>
           </tr>
           <tr>
@@ -653,7 +654,7 @@
             <td class="hintcell">Прокрутить содержимое вверх постранично</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ins</div></td>
+            <td class="varcell"><div class="shortcutname">Insert</div></td>
             <td class="hintcell">Переключить режим вставка/перезапись</td>
           </tr>
           <tr>
@@ -805,7 +806,7 @@
             <td class="hintcell">Удалить текст до конца строки.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Ctrl+Ins</div></td>
+            <td class="varcell"><div class="shortcutname">Ctrl+Insert</div></td>
             <td class="hintcell">Копировать</td>
           </tr>
           <tr>
@@ -845,19 +846,21 @@
             <td class="hintcell">Удалить</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">Shit+Ins</div></td>
+            <td class="varcell"><div class="shortcutname">Shit+Insert</div></td>
             <td class="hintcell">Вставить</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Tab</div></td>
-            <td class="hintcell">1. Вставить символ Tab<br>2. Если текст выделен, добавить отступ для строки или блока текста</td>
+            <td class="hintcell">1. Вставить символ Tab<br>
+              2. Если включено <a href="configuration.html#ConfigToolsEditor">Tab меняет отступ блоков</a> и текст выделен: добавить отступ для строки или блока текста</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
-            <td class="hintcell">Если текст выделен, убрать отступ для строки или блока текста</td>
+            <td class="hintcell">Если включено <a href="configuration.html#ConfigToolsEditor">Tab меняет отступ блоков</a> и текст выделен: убрать отступ для строки или блока текста</td>
           </tr>
         </table>
-        <p>Встроенный редактор поддерживает режим мульти-кареток: <kbd>Alt+Shift+щелчок</kbd> или <kbd>Alt+Shift+стрелки</kbd> для редактирования колонкой и <kbd>Ctrl+Shift+щелчок</kbd> для редактирования с мульти-каретками.</p>
+        <p>Внутри открытого документа вы можете вставить копию выделенного текста в любое место документа без использования буфера обмена: просто выделите текст, перемесите курсор мыши к нужной позиции и нажмите колесо мыши.</p>
+        <p>Встроенный редактор поддерживает режим мульти-кареток: выделение мышью с клавишей <kbd>Alt</kbd>, <kbd>Alt+Shift+щелчок</kbd> или <kbd>Alt+Shift+стрелки</kbd> для редактирования колонкой и <kbd>Ctrl+Shift+щелчок</kbd> для редактирования с мульти-каретками.</p>
         <table>
           <tr class="rowcategorytitle">
             <th colspan="2">Клавиши выделения текста колонкой</th>
@@ -915,6 +918,7 @@
             <td class="hintcell">Выделить всю страницу сверху</td>
           </tr>
         </table>
+        <p>Примечание: Если выделено содержимое более одной строки, то команды изменения отступа работают некорректно, это ограничение используемого компонента.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 

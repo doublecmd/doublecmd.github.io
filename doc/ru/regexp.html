@@ -66,19 +66,19 @@
       <div>
         <h2><a name="compare">2. Простое сравнение</a></h2>
         <p>Любой символ совпадает с самим собой, если он не относится к специальным метасимволам, описанным чуть ниже.</p>
-        <p>Последовательность символов совпадает с такой же последовательностью во входной строке, так что шаблон "bluh" совпадет с подстрокой "bluh" во входной строке.</p>
-        <p>Если необходимо, чтобы метасимволы или <span class="bold">escape-последовательности</span> воспринимались как обычные символы, их нужно предварять символом "\" ("экранировать"), например, метасимвол "^" обычно совпадает с началом строк, однако, если записать его как "\^", то он будет совпадать с символом "^", "\\" совпадает с "\" и т.д.</p>
+        <p>Последовательность символов совпадает с такой же последовательностью во входной строке, так что шаблон <code>bluh</code> совпадет с подстрокой <code>bluh</code> во входной строке.</p>
+        <p>Если необходимо, чтобы метасимволы или <span class="bold">escape-последовательности</span> воспринимались как обычные символы, их нужно предварять символом <code>\</code> ("экранировать"), например, метасимвол <code>^</code> обычно совпадает с началом строк, однако, если записать его как <code>\^</code>, то он будет совпадать с символом <code>^</code>, <code>\\</code> совпадает с <code>\</code> и т.д.</p>
         <p>Примеры:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Примеры простого сравнения</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foobar</div></td>
-            <td class="hintcell">находит "foobar"</td>
+            <td class="hintcell">находит <code>foobar</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\^FooBarPtr</div></td>
-            <td class="hintcell">находит "^FooBarPtr"</td>
+            <td class="hintcell">находит <code>^FooBarPtr</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -86,43 +86,43 @@
 
       <div>
         <h2><a name="esc">3. Escape-последовательности</a></h2>
-        <p>Любой символ может быть определён с помощью escape-последовательности так же, как это делается в языках C или Perl: "\n" означает начало строки, "\t"&nbsp;&ndash; табуляцию и т.д.</p>
-        <p>"\xnn", где "nn"&nbsp;&ndash; это последовательность шестнадцатеричных цифр, означает символ с ASCII-кодом "nn".</p>
-        <p>Если необходимо определить двухбайтный (юникод) символ, используем формат "\x{nnnn}", где "nnnn"&nbsp;&ndash; одна или более шестнадцатеричных цифр.</p>
+        <p>Любой символ может быть определён с помощью escape-последовательности так же, как это делается в языках C или Perl: <code>\n</code> означает начало строки, <code>\t</code>&nbsp;&ndash; табуляцию и т.д.</p>
+        <p><code>\xnn</code>, где <code>nn</code>&nbsp;&ndash; это последовательность шестнадцатеричных цифр, означает символ с ASCII-кодом <code>nn</code>.</p>
+        <p>Если необходимо определить двухбайтный (юникод) символ, используем формат <code>\x{nnnn}</code>, где <code>nnnn</code>&nbsp;&ndash; одна или более шестнадцатеричных цифр.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Escape-последовательности</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\xnn</div></td>
-            <td class="hintcell">символ с шестнадцатеричным кодом "nn"</td>
+            <td class="hintcell">символ с шестнадцатеричным кодом <code>nn</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\x{nnnn}</div></td>
-            <td class="hintcell">символ с шестнадцатеричным кодом "nnnn" (один байт для обычного текста и два для юникода)</td>
+            <td class="hintcell">символ с шестнадцатеричным кодом <code>nnnn</code> (один байт для обычного текста и два для юникода)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\t</div></td>
-            <td class="hintcell">табуляция (HT/TAB), можно также \x09</td>
+            <td class="hintcell">табуляция (HT/TAB), можно также <code>\x09</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\n</div></td>
-            <td class="hintcell">новая строка (NL/LF), можно также \x0a</td>
+            <td class="hintcell">новая строка (NL/LF), можно также <code>\x0a</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\r</div></td>
-            <td class="hintcell">возврат каретки (CR), можно также \x0d</td>
+            <td class="hintcell">возврат каретки (CR), можно также <code>\x0d</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\f</div></td>
-            <td class="hintcell">перевод страницы (FF), можно также \x0c</td>
+            <td class="hintcell">перевод страницы (FF), можно также <code>\x0c</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\a</div></td>
-            <td class="hintcell">звонок (BEL), можно также \x07</td>
+            <td class="hintcell">звонок (BEL), можно также <code>\x07</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\e</div></td>
-            <td class="hintcell">escape (ESC), можно также \x1b</td>
+            <td class="hintcell">escape (ESC), можно также <code>\x1b</code></td>
           </tr>
         </table>
         <p>Примеры:</p>
@@ -131,11 +131,11 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foo\x20bar</div></td>
-            <td class="hintcell">находит "foo bar" (обратите внимание на пробел посередине)</td>
+            <td class="hintcell">находит <code>foo bar</code> (обратите внимание на пробел посередине)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\tfoobar</div></td>
-            <td class="hintcell">находит табуляцию и "foobar"</td>
+            <td class="hintcell">находит табуляцию и <code>foobar</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -143,41 +143,41 @@
 
       <div>
         <h2><a name="symbols">4. Наборы символов</a></h2>
-        <p>Вы можете определить набор, заключив символы в "[]". Набор будет совпадать с любым <span class="bold">одним</span> символов из перечисленных в нём.</p>
-        <p>Если первым символом набора (сразу после "[") идёт "^", то такой набор совпадает с любым символом <span class="bold">не</span> перечисленным в наборе.</p>
-        <p>Внутри набора символ "-" может быть использован для определения <span class="bold">диапазона</span> символов, например, "a-z" представляет все символы между "a" и "z", включительно.</p>
-        <p>Если необходимо включить в набор сам символ "-", поместите его в начало или конец набора или предварите символом "\".</p>
-        <p>Если вам необходимо поместить в набор сам символ "]", поместите его в самое начало или предварите "\".</p>
+        <p>Вы можете определить набор, заключив символы в <code>[]</code>. Набор будет совпадать с любым <span class="bold">одним</span> символов из перечисленных в нём.</p>
+        <p>Если первым символом набора (сразу после <code>[</code>) идёт <code>^</code>, то такой набор совпадает с любым символом <span class="bold">не</span> перечисленным в наборе.</p>
+        <p>Внутри набора символ <code>-</code> может быть использован для определения <span class="bold">диапазона</span> символов, например, <code>a-z</code> представляет все символы между <code>a</code> и <code>z</code>, включительно.</p>
+        <p>Если необходимо включить в набор сам символ <code>-</code>, поместите его в начало или конец набора или предварите символом <code>\</code>.</p>
+        <p>Если вам необходимо поместить в набор сам символ <code>]</code>, поместите его в самое начало или предварите <code>\</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Наборы символов</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[-az]</div></td>
-            <td class="hintcell">"a", "z" или "-"</td>
+            <td class="hintcell"><code>a</code>, <code>z</code> или <code>-</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[az-]</div></td>
-            <td class="hintcell">"a", "z" или "-"</td>
+            <td class="hintcell"><code>a</code>, <code>z</code> или <code>-</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[a\-z]</div></td>
-            <td class="hintcell">"a", "z" или "-"</td>
+            <td class="hintcell"><code>a</code>, <code>z</code> или <code>-</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[a-z]</div></td>
-            <td class="hintcell">любая из 26 строчных латинских букв от "a" до "z"</td>
+            <td class="hintcell">любая из 26 строчных латинских букв от <code>a</code> до <code>z</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\n-\x0D]</div></td>
-            <td class="hintcell">\x10, \x11, \x12 или \x13</td>
+            <td class="hintcell"><code>\x10</code>, <code>\x11</code>, <code>\x12</code> или <code>\x13</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\d-t]</div></td>
-            <td class="hintcell">цифра, "-" или "t"</td>
+            <td class="hintcell">цифра, <code>-</code> или <code>t</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[]-a]</div></td>
-            <td class="hintcell">символ из диапазона "]".."a"</td>
+            <td class="hintcell">символ из диапазона <code>]</code>..<code>a</code></td>
           </tr>
         </table>
         <p>Примеры:</p>
@@ -186,11 +186,11 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob[aeiou]r</div></td>
-            <td class="hintcell">находит "foobar", "foober" и т.д., но не "foobbr", "foobcr" и т.д.</td>
+            <td class="hintcell">находит <code>foobar</code>, <code>foober</code> и т.д., но не <code>foobbr</code>, <code>foobcr</code> и т.д.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob[^aeiou]r</div></td>
-            <td class="hintcell">находит "foobbr", "foobcr" и т.д., но не "foobar", "foober" и т.д.</td>
+            <td class="hintcell">находит <code>foobbr</code>, <code>foobcr</code> и т.д., но не <code>foobar</code>, <code>foober</code> и т.д.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -236,33 +236,33 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
-            <td class="hintcell">находит "foobar" только в начале строки</td>
+            <td class="hintcell">находит <code>foobar</code> только в начале строки</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
-            <td class="hintcell">находит "foobar" только в конце строки</td>
+            <td class="hintcell">находит <code>foobar</code> только в конце строки</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
-            <td class="hintcell">находит "foobar" только если это единственное слово в строке</td>
+            <td class="hintcell">находит <code>foobar</code> только если это единственное слово в строке</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob.r</div></td>
-            <td class="hintcell">находит "foobar", "foobbr", "foob1r" и т.д.</td>
+            <td class="hintcell">находит <code>foobar</code>, <code>foobbr</code>, <code>foob1r</code> и т.д.</td>
           </tr>
         </table>
 
-        <p>Метасимвол "^" по умолчанию совпадает только с началом входного текста, а метасимвол "$"&nbsp;&ndash; только с концом текста. Внутренние разделители строк, имеющиеся в тексте, не будут совпадать с "^" и "$".</p>
-        <p>Однако, если вам необходимо работать с текстом как с многострочным, чтобы "^" совпадал после каждого разделителя строки внутри текста, а "$"&nbsp;&ndash; перед каждым разделителем, то вы можете включить <a href="#modifiers">модификатор m</a>.</p>
-        <p>Метасимволы "\A" и "\Z" аналогичны "^" и "$", но на них не действует <a href="#modifiers">модификатор m</a>, т.е. они всегда совпадают только с началом и концом всего входного текста.</p>
-        <p>Метасимвол "." по умолчанию совпадает с любым символом, однако, если вы выключите <a href="#modifiers">модификатор s</a>, то "." не будет совпадать с разделителями строк.</p>
+        <p>Метасимвол <code>^</code> по умолчанию совпадает только с началом входного текста, а метасимвол <code>$</code>&nbsp;&ndash; только с концом текста. Внутренние разделители строк, имеющиеся в тексте, не будут совпадать с <code>^</code> и <code>$</code>.</p>
+        <p>Однако, если вам необходимо работать с текстом как с многострочным, чтобы <code>^</code> совпадал после каждого разделителя строки внутри текста, а <code>$</code>&nbsp;&ndash; перед каждым разделителем, то вы можете включить <a href="#modifiers">модификатор m</a>.</p>
+        <p>Метасимволы <code>\A</code> и <code>\Z</code> аналогичны <code>^</code> и <code>$</code>, но на них не действует <a href="#modifiers">модификатор m</a>, т.е. они всегда совпадают только с началом и концом всего входного текста.</p>
+        <p>Метасимвол <code>.</code> по умолчанию совпадает с любым символом, однако, если вы выключите <a href="#modifiers">модификатор s</a>, то <code>.</code> не будет совпадать с разделителями строк.</p>
         <p>TRegExpr интерпретирует разделители строк так, как это рекомендовано в технических стандартах юникода (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>):</p>
         <ul>
-          <li><p>"^" совпадает с началом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно следующей после \x0D\x0A, \x0A или \x0D (с поддержкой юникода: также \x2028, \x2029, \x0B, \x0C или \x85). Обратите внимание, что он не совпадает в промежутке внутри последовательности \x0D\x0A.</p></li>
-          <li><p>"$" совпадает с концом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно предшествующей \x0D\x0A, \x0A или \x0D (с поддержкой юникода: также \x2028, \x2029, \x0B, \x0C или \x85). Обратите внимание, что он не совпадает в промежутке внутри последовательности \x0D\x0A.</p></li>
-          <li><p>"." совпадает с любым символом, но если выключен <a href="#modifiers">модификатор s</a>, то "." не совпадает с \x0D\x0A, \x0A и \x0D (с поддержкой юникода: также с \x2028, \x2029, \x0B, \x0C и \x85).</p></li>
+          <li><p><code>^</code> совпадает с началом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно следующей после <code>\x0D\x0A</code>, <code>\x0A</code> или <code>\x0D</code> (с поддержкой юникода: также <code>\x2028</code>, <code>\x2029</code>, <code>\x0B</code>, <code>\x0C</code> или <code>\x85</code>). Обратите внимание, что он не совпадает в промежутке внутри последовательности <code>\x0D\x0A</code>.</p></li>
+          <li><p><code>$</code> совпадает с концом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно предшествующей <code>\x0D\x0A</code>, <code>\x0A</code> или <code>\x0D</code> (с поддержкой юникода: также <code>\x2028</code>, <code>\x2029</code>, <code>\x0B</code>, <code>\x0C</code> или <code>\x85</code>). Обратите внимание, что он не совпадает в промежутке внутри последовательности <code>\x0D\x0A</code>.</p></li>
+          <li><p><code>.</code> совпадает с любым символом, но если выключен <a href="#modifiers">модификатор s</a>, то <code>.</code> не совпадает с <code>\x0D\x0A</code>, <code>\x0A</code> и <code>\x0D</code> (с поддержкой юникода: также с <code>\x2028</code>, <code>\x2029</code>, <code>\x0B</code>, <code>\x0C</code> и <code>\x85</code>).</p></li>
         </ul>
-        <p>Обратите внимание, что "^.*$" (шаблон для пустой строки) не совпадает с пустой строкой вида \x0D\x0A, но совпадает с \x0A\x0D.</p>
+        <p>Обратите внимание, что <code>^.*$</code> (шаблон для пустой строки) не совпадает с пустой строкой вида <code>\x0D\x0A</code>, но совпадает с <code>\x0A\x0D</code>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -274,11 +274,11 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\w</div></td>
-            <td class="hintcell">буквенно-цифровой символ или "_", т.е. "[A-Za-z0-9_]"</td>
+            <td class="hintcell">буквенно-цифровой символ или <code>_</code>, т.е. <code>[A-Za-z0-9_]</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\W</div></td>
-            <td class="hintcell">не "\w"</td>
+            <td class="hintcell">не <code>\w</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\d</div></td>
@@ -286,29 +286,29 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\D</div></td>
-            <td class="hintcell">не "\d"</td>
+            <td class="hintcell">не <code>\d</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\s</div></td>
-            <td class="hintcell">любой "пробельный" символ (по умолчанию&nbsp;&ndash; "[ \t\n\r\f]")</td>
+            <td class="hintcell">любой "пробельный" символ (по умолчанию&nbsp;&ndash; <code>[ \t\n\r\f]</code>)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\S</div></td>
-            <td class="hintcell">не "\s"</td>
+            <td class="hintcell">не <code>\s</code></td>
           </tr>
         </table>
-        <p>Стандартные наборы "\w", "\d" и "\s" можно использовать и внутри <span class="bold">наборов символов</span>.</p>
+        <p>Стандартные наборы <code>\w</code>, <code>\d</code> и <code>\s</code> можно использовать и внутри <span class="bold">наборов символов</span>.</p>
         <p>Примеры:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Примеры со стандартными наборами</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob\dr</div></td>
-            <td class="hintcell">находит "foob1r", "foob6r" и т.д., но не "foobar", "foobbr" и т.д.</td>
+            <td class="hintcell">находит <code>foob1r</code>, <code>foob6r</code> и т.д., но не <code>foobar</code>, <code>foobbr</code> и т.д.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob[\w\s]r</div></td>
-            <td class="hintcell">находит "foobar", "foob r", "foobbr" и т.д., но не "foob=r" и т.д.</td>
+            <td class="hintcell">находит <code>foobar</code>, <code>foob r</code>, <code>foobbr</code> и т.д., но не <code>foob=r</code> и т.д.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -316,7 +316,7 @@
 
       <div>
         <h2><a name="meta-words">5.3. Метасимволы - границы слов</a></h2>
-        <p>Граница слова ("\b")&nbsp;&ndash; позиция между двумя символами, один из которых удовлетворяет "\w", а другой&nbsp;&ndash; "\W" (в любом порядке), при этом перед началом и после конца строки подразумевается "\W".</p>
+        <p>Граница слова (<code>\b</code>)&nbsp;&ndash; позиция между двумя символами, один из которых удовлетворяет <code>\w</code>, а другой&nbsp;&ndash; <code>\W</code> (в любом порядке), при этом перед началом и после конца строки подразумевается <code>\W</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Границы слов</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
@@ -341,57 +341,57 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">*</div></td>
-            <td class="hintcell">ноль или более раз ("жадный"), то же, что и "{0,}"</td>
+            <td class="hintcell">ноль или более раз ("жадный"), то же, что и <code>{0,}</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">+</div></td>
-            <td class="hintcell">один или более раз ("жадный"), то же, что и "{1,}"</td>
+            <td class="hintcell">один или более раз ("жадный"), то же, что и <code>{1,}</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">?</div></td>
-            <td class="hintcell">ноль или один раз ("жадный"), то же, что и "{0,1}"</td>
+            <td class="hintcell">ноль или один раз ("жадный"), то же, что и <code>{0,1}</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n}</div></td>
-            <td class="hintcell">точно "n" раз ("жадный")</td>
+            <td class="hintcell">точно <code>n</code> раз ("жадный")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,}</div></td>
-            <td class="hintcell">не менее "n" раз ("жадный")</td>
+            <td class="hintcell">не менее <code>n</code> раз ("жадный")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,m}</div></td>
-            <td class="hintcell">не менее "n", но не более "m" раз ("жадный")</td>
+            <td class="hintcell">не менее <code>n</code>, но не более <code>m</code> раз ("жадный")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">*?</div></td>
-            <td class="hintcell">ноль или более раз ("не жадный"), то же, что и "{0,}?"</td>
+            <td class="hintcell">ноль или более раз ("не жадный"), то же, что и <code>{0,}?</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">+?</div></td>
-            <td class="hintcell">один или более раз ("не жадный"), то же, что и "{1,}?"</td>
+            <td class="hintcell">один или более раз ("не жадный"), то же, что и <code>{1,}?</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">??</div></td>
-            <td class="hintcell">ноль или один раз ("не жадный"), то же, что и "{0,1}?"</td>
+            <td class="hintcell">ноль или один раз ("не жадный"), то же, что и <code>{0,1}?</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n}?</div></td>
-            <td class="hintcell">точно "n" раз ("не жадный")</td>
+            <td class="hintcell">точно <code>n</code> раз ("не жадный")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,}?</div></td>
-            <td class="hintcell">не менее "n" раз ("не жадный")</td>
+            <td class="hintcell">не менее <code>n</code> раз ("не жадный")</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">{n,m}?</div></td>
-            <td class="hintcell">не менее "n", но не более "m" раз ("не жадный")</td>
+            <td class="hintcell">не менее <code>n</code>, но не более <code>m</code> раз ("не жадный")</td>
           </tr>
         </table>
-        <p>Таким образом, "{n,m}" задаёт <span class="bold">минимум</span> "n" повторов и <span class="bold">максимум</span>&nbsp;&ndash; "m".</p>
-        <p>Повторитель "{n}" эквивалентен "{n,n}" и задаёт точно "n" повторов.</p>
-        <p>Повторитель "{n,}" задаёт минимум "n" повторов.</p>
-        <p>Теоретически величина параметров "n" и "m" не ограничена, но рекомендуется не задавать большие значения, поскольку в связи с рекурсивным характером работы обработка такого повторителя в некоторых ситуациях может потребовать существенных затрат времени и ОЗУ.</p>
+        <p>Таким образом, <code>{n,m}</code> задаёт <span class="bold">минимум</span> <code>n</code> повторов и <span class="bold">максимум</span>&nbsp;&ndash; <code>m</code>.</p>
+        <p>Повторитель <code>{n}</code> эквивалентен <code>{n,n}</code> и задаёт точно <code>n</code> повторов.</p>
+        <p>Повторитель <code>{n,}</code> задаёт минимум <code>n</code> повторов.</p>
+        <p>Теоретически величина параметров <code>n</code> и <code>m</code> не ограничена, но рекомендуется не задавать большие значения, поскольку в связи с рекурсивным характером работы обработка такого повторителя в некоторых ситуациях может потребовать существенных затрат времени и памяти.</p>
         <p>Если фигурные скобки встречаются в "неправильном" месте, где они не могут быть восприняты как повторитель, то они воспринимаются просто как символы.</p>
         <p>Несколько примеров:</p>
         <table>
@@ -399,52 +399,52 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob.*r</div></td>
-            <td class="hintcell">находит "foobar", "foobalkjdflkj9r" и "foobr"</td>
+            <td class="hintcell">находит <code>foobar</code>, <code>foobalkjdflkj9r</code> и <code>foobr</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob.+r</div></td>
-            <td class="hintcell">находит "foobar", "foobalkjdflkj9r", но не "foobr"</td>
+            <td class="hintcell">находит <code>foobar</code>, <code>foobalkjdflkj9r</code>, но не <code>foobr</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob.?r</div></td>
-            <td class="hintcell">находит "foobar", "foobbr" и "foobr", но не "foobalkj9r"</td>
+            <td class="hintcell">находит <code>foobar</code>, <code>foobbr</code> и <code>foobr</code>, но не <code>foobalkj9r</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">fooba{2}r</div></td>
-            <td class="hintcell">находит "foobaar"</td>
+            <td class="hintcell">находит <code>foobaar</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">fooba{2,}r</div></td>
-            <td class="hintcell">находит "foobaar", "foobaaar", "foobaaaar" и т.д.</td>
+            <td class="hintcell">находит <code>foobaar</code>, <code>foobaaar</code>, <code>foobaaaar</code> и т.д.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">fooba{2,3}r</div></td>
-            <td class="hintcell">находит "foobaar" или "foobaaar", но не "foobaaaar"</td>
+            <td class="hintcell">находит <code>foobaar</code> или <code>foobaaar</code>, но не <code>foobaaaar</code></td>
           </tr>
         </table>
         <p>Небольшое пояснение по поводу "жадности".</p>
         <p>"Жадные" варианты повторителей пытаются захватить как можно б<i>о</i>льшую часть входного текста, в то время как "не жадные"&nbsp;&ndash; как можно меньшую.</p>
-        <p>Например, "b+" как и "b*", применённые к входной строке "abbbbc", найдут "bbbb", в то время как "b+?" найдёт только "b", а "b*?"&nbsp;&ndash; вообще пустую строку; "b{2,3}?" найдёт "bb", в то время как "b{2,3}" найдёт "bbb".</p>
+        <p>Например, <code>b+</code> как и <code>b*</code>, применённые к входной строке <code>abbbbc</code>, найдут <code>bbbb</code>, в то время как <code>b+?</code> найдёт только <code>b</code>, а <code>b*?</code>&nbsp;&ndash; вообще пустую строку; <code>b{2,3}?</code> найдёт <code>bb</code>, в то время как <code>b{2,3}</code> найдёт <code>bbb</code>.</p>
         <p>Вы можете переключить все повторители в выражении в "не жадный" режим, воспользовавшись <a href="#modifiers">модификатором g</a>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2><a name="meta-vars">5.5. Метасимволы - варианты</a></h2>
-        <p>Вы можете определить набор <span class="bold">вариантов</span>, используя метасимвол "|" для их разделения, например "fee|fie|foe" найдёт или "fee", или "fie", или "foe" (так же, как "f(e|i|o)e").</p>
-        <p>В качестве первого варианта воспринимается всё от предыдущего метасимвола ("(", "[" или от начала выражения) до первого метасимвола "|", в качестве последнего&nbsp;&ndash; всё от последнего "|" до конца выражения или до ближайшего метасимвола ")".</p>
+        <p>Вы можете определить набор <span class="bold">вариантов</span>, используя метасимвол <code>|</code> для их разделения, например <code>fee|fie|foe</code> найдёт или <code>fee</code>, или <code>fie</code>, или <code>foe</code> (так же, как <code>f(e|i|o)e</code>).</p>
+        <p>В качестве первого варианта воспринимается всё от предыдущего метасимвола (<code>(</code>, <code>[</code> или от начала выражения) до первого метасимвола <code>|</code>, в качестве последнего&nbsp;&ndash; всё от последнего <code>|</code> до конца выражения или до ближайшего метасимвола <code>)</code>.</p>
         <p>Обычно, чтобы не запутаться, набор вариантов всегда заключают в круглые скобки, даже если без этого можно было бы обойтись.</p>
         <p>Варианты пробуются начиная с первого и попытки завершаются сразу же, как удастся подобрать такой, при котором совпадет вся последующая часть выражения.</p>
         <p>Это означает, что варианты не обязательно обеспечат "жадное" поведение.</p>
-        <p>Например, если применить выражение "foo|foot" ко входной строке "barefoot", то будет найдено "foo", т.к. это первый вариант, который позволил совпасть всему выражению.</p>
-        <p>Обратите внимание, что метасимвол "|" внутри наборов символов воспринимается как обычный символ, например, "[fee|fie|foe]" означает ровно то же самое что и "[feio|]".</p>
+        <p>Например, если применить выражение <code>foo|foot</code> ко входной строке <code>barefoot</code>, то будет найдено <code>foo</code>, т.к. это первый вариант, который позволил совпасть всему выражению.</p>
+        <p>Обратите внимание, что метасимвол <code>|</code> внутри наборов символов воспринимается как обычный символ, например, <code>[fee|fie|foe]</code> означает ровно то же самое что и <code>[feio|]</code>.</p>
         <p>Пример:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Пример вариантов</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foo(bar|foo)</div></td>
-            <td class="hintcell">находит "foobar" или "foofoo"</td>
+            <td class="hintcell">находит <code>foobar</code> или <code>foofoo</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -452,55 +452,55 @@
 
       <div>
         <h2><a name="meta-sub">5.6. Метасимволы - подвыражения</a></h2>
-        <p>Метасимволы "( ... )" могут также использоваться для определения подвыражений&nbsp;&ndash; по завершении поиска выражения вы можете обратиться к любому подвыражению, а также подставлять подвыражения как маску.</p>
+        <p>Метасимволы <code>( ... )</code> могут также использоваться для определения подвыражений&nbsp;&ndash; по завершении поиска выражения вы можете обратиться к любому подвыражению, а также подставлять подвыражения как маску.</p>
         <p>Подвыражения нумеруются слева направо, в порядке появления открывающих круглых скобок.</p>
-        <p>Первое подвыражение имеет номер 1, поддерживается до 90 подвыражений (выражение целиком&nbsp;&ndash; 0, к нему можно обращаться как "$0" или "$&amp;").</p>
+        <p>Первое подвыражение имеет номер 1, поддерживается до 90 подвыражений (выражение целиком&nbsp;&ndash; 0, к нему можно обращаться как <code>$0</code> или <code>$&amp;</code>).</p>
         <p>Примеры:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Подвыражения</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(foobar){8,10}</div></td>
-            <td class="hintcell">находит строку, содержащую 8, 9 или 10 копий "foobar"</td>
+            <td class="hintcell">находит строку, содержащую 8, 9 или 10 копий <code>foobar</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">foob([0-9]|a+)r</div></td>
-            <td class="hintcell">находит "foob0r", "foob1r", "foobar", "foobaar", "foobaar" и т.д.</td>
+            <td class="hintcell">находит <code>foob0r</code>, <code>foob1r</code>, <code>foobar</code>, <code>foobaar</code>, <code>foobaar</code> и т.д.</td>
           </tr>
         </table>
         <br>
         <p><span class="bold">Примечания о шаблонах "Заменить на":</span></p>
         <ul>
-          <li>Если вы хотите использовать в шаблоне символы "$" и "\" как есть, то экранируйте их символом "\".<br>
-              Пример: "1\$ \- это $2\\rub\\" вернёт "1$ - это &lt;подвыражение2&gt;\rub\".</li>
-          <li>Если вы хотите использовать цифры сразу после "$n", то должны взять "n" в фигурные скобки "{}".<br>
-              Например, "a$12bc" вернёт "a&lt;подвыражение12&gt;bc", но "a${1}2bc" вернёт "a&lt;подвыражение1&gt;2bc".</li>
+          <li>Если вы хотите использовать в шаблоне символы <code>$</code> и <code>\</code> как есть, то экранируйте их символом <code>\</code>.<br>
+              Пример: <code>1\$ \- это $2\\rub\\</code> вернёт <code>1$ - это &lt;подвыражение2&gt;\rub\</code>.</li>
+          <li>Если вы хотите использовать цифры сразу после <code>$n</code>, то должны взять <code>n</code> в фигурные скобки <code>{}</code>.<br>
+              Например, <code>a$12bc</code> вернёт <code>a&lt;подвыражение12&gt;bc</code>, но <code>a${1}2bc</code> вернёт <code>a&lt;подвыражение1&gt;2bc</code>.</li>
         </ul>
         <p>Пример:</p>
-        <p>Перевернём дату "21.01.2018" &gt; "2018.01.21":<br>
-             найти: (\d{2})\.(\d{2})\.(\d{4})<br>
-             заменить: $3.$2.$1</p>
+        <p>Перевернём дату <code>21.01.2018</code> &gt; <code>2018.01.21</code>:<br>
+             найти: <code>(\d{2})\.(\d{2})\.(\d{4})</code><br>
+             заменить: <code>$3.$2.$1</code></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2><a name="meta-back">5.7. Метасимволы - обратные ссылки</a></h2>
-        <p>Метасимволы от "\1" до "\9" интерпретируются как обратные ссылки. "\n" совпадает с ранее найденным подвыражением "n".</p>
+        <p>Метасимволы от <code>\1</code> до <code>\9</code> интерпретируются как обратные ссылки. <code>\n</code> совпадает с ранее найденным подвыражением <code>n</code>.</p>
         <p>Несколько примеров:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Примеры обратных ссылок</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(.)\1+</div></td>
-            <td class="hintcell">находит "aaaa" и "cc"</td>
+            <td class="hintcell">находит <code>aaaa</code> и <code>cc</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(.+)\1+</div></td>
-            <td class="hintcell">также находит "abab" и "123123"</td>
+            <td class="hintcell">также находит <code>abab</code> и <code>123123</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(['"]?)(\d+)\1</div></td>
-            <td class="hintcell">находит "13" (в двойных кавычках), или '4' (в одинарных кавычках) или 77 (без кавычек) и т.д.</td>
+            <td class="hintcell">находит <code>"13"</code> (в двойных кавычках), или <code>'4'</code> (в одинарных кавычках) или <code>77</code> (без кавычек) и т.д.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -508,14 +508,14 @@
 
       <div>
         <h2><a name="look">6. Утверждения (просмотр вперёд и назад)</a></h2>
-        <p>Просмотр вперёд: "foo(?=bar)" совпадает с "foo" только перед "bar", при этом "bar" не войдёт в найденный текст.</p>
-        <p>Негативный просмотр вперёд: "foo(?!bar)" совпадает с "foo" только если после "foo" не следует "bar".</p>
-        <p>Просмотр назад: "(?&lt;=foo)bar" совпадает с "bar" только после "foo", при этом "foo" не войдёт в найденный текст.</p>
-        <p>Негативный просмотр назад: "(?&lt;!foo)bar" совпадает с "bar" только если перед "bar" не располагается "foo".</p>
+        <p>Просмотр вперёд: <code>foo(?=bar)</code> совпадает с <code>foo</code> только перед <code>bar</code>, при этом <code>bar</code> не войдёт в найденный текст.</p>
+        <p>Негативный просмотр вперёд: <code>foo(?!bar)</code> совпадает с <code>foo</code> только если после <code>foo</code> не следует <code>bar</code>.</p>
+        <p>Просмотр назад: <code>(?&lt;=foo)bar</code> совпадает с <code>bar</code> только после <code>foo</code>, при этом <code>foo</code> не войдёт в найденный текст.</p>
+        <p>Негативный просмотр назад: <code>(?&lt;!foo)bar</code> совпадает с <code>bar</code> только если перед <code>bar</code> не располагается <code>foo</code>.</p>
         <p>Ограничения:</p>
         <ul>
-          <li><p>Скобки для просмотра вперёд должны быть в самом начале выражения. Не поддерживаются просмотр внутри альтернатив ("|") или групп.</p></li>
-         <li><p>Для просмотра назад "(?&lt;!foo)bar", выражение "foo" должно быть фиксированной длины. Допустимы повторы только с фиксированным числом "{n}" или "{n,n}". Разрешено использование классов символов, точки, "\b" и "\B". Не разрешены группы и альтернативы.</p></li>
+          <li><p>Скобки для просмотра вперёд должны быть в самом начале выражения. Не поддерживаются просмотр внутри альтернатив (<code>|</code>) или групп.</p></li>
+         <li><p>Для просмотра назад <code>(?&lt;!foo)bar</code>, выражение <code>foo</code> должно быть фиксированной длины. Допустимы повторы только с фиксированным числом <code>{n}</code> или <code>{n,n}</code>. Разрешено использование классов символов, точки, <code>\b</code> и <code>\B</code>. Не разрешены группы и альтернативы.</p></li>
           <li><p>Для остальных трёх типов просмотра, выражение в скобках может быть сколь угодно сложным.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -523,18 +523,18 @@
 
       <div>
         <h2><a name="noncapt">7. Не захватываемые группы</a></h2>
-        <p>Синтаксис: "(?:выражение)".</p>
+        <p>Синтаксис: <code>(?:выражение)</code>.</p>
         <p>Такие группы (подвыражения) не имеют номера и их нельзя указать в ссылке на группу. Не захватываемые группы используют, когда нужно упростить регулярное выражение за счёт группировки, но без необходимости сохранить захваченную часть строки. Использование групп без обратной связи позволяет ускорить выполнение выражения.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Не захватываемые группы</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(https?|ftp)://([^/\r\n]+)</div></td>
-            <td class="hintcell">в "https://doublecmd.sourceforge.io" захватит подвыражения "https" и "doublecmd.sourceforge.io"</td>
+            <td class="hintcell">в <code>https://doublecmd.sourceforge.io</code> захватит подвыражения <code>https</code> и <code>doublecmd.sourceforge.io</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(?:https?|ftp)://([^/\r\n]+)</div></td>
-            <td class="hintcell">в "https://doublecmd.sourceforge.io" захватит только "doublecmd.sourceforge.io"</td>
+            <td class="hintcell">в <code>https://doublecmd.sourceforge.io</code> захватит только <code>doublecmd.sourceforge.io</code></td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -542,15 +542,15 @@
 
       <div>
         <h2><a name="agroups">8. Атомарные группы</a></h2>
-        <p>Синтаксис: "(?&gt;выражение|выражение|...)".</p>
+        <p>Синтаксис: <code>(?&gt;выражение|выражение|...)</code>.</p>
         <p>Атомарные группы&nbsp;&ndash; это специальный случай не захватывающих групп: такая группировка запрещает возвращаться назад по строке, если часть шаблона уже найдена. Атомарная группа выполняется быстрее, полезно при оптимизации групп со множеством различных вариантов.</p>
-        <p>Например, "a(bc|b)c" совпадает с "abcc" и "abc", "a(?&gt;bc|b)c" совпадает с "abcc", но не с "abc", потому что запрещено возвращаться назад и попытаться захватить группу как "b".</p>
+        <p>Например, <code>a(bc|b)c</code> совпадает с <code>abcc</code> и <code>abc</code>, <code>a(?&gt;bc|b)c</code> совпадает с <code>abcc</code>, но не с <code>abc</code>, потому что запрещено возвращаться назад и попытаться захватить группу как <code>b</code>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2><a name="unicode">9. Категории юникода</a></h2>
-        <p>В стандарте юникода есть именованные категории символов. Категория обозначается одной буквой, и ёще одна добавляется, чтобы указать подкатегорию. Например "L"&nbsp;&ndash; это любая буква, "Lu"&nbsp;&ndash; буква в верхнем регистре, "Ll"&nbsp;&ndash; в нижнем.</p>
+        <p>В стандарте юникода есть именованные категории символов. Категория обозначается одной буквой, и ёще одна добавляется, чтобы указать подкатегорию. Например <code>L</code>&nbsp;&ndash; это любая буква, <code>Lu</code>&nbsp;&ndash; буква в верхнем регистре, <code>Ll</code>&nbsp;&ndash; в нижнем.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Категории юникода</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Категория</th><th class="categorydesccolumn">Описание</th></tr>
@@ -598,32 +598,32 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">Co</div></td><td class="hintcell">Для частного использования</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Cn</div></td><td class="hintcell">Не определён</td></tr>
         </table>
-        <p>Метасимвол "\p"&nbsp;&ndash; это один символ указанной категории юникода. Синтаксис: "\pL" или "\p{L}" если категория обозначается одним символом, "\p{Lu}" для 2-символьных категорий.</p>
-        <p>Метасимвол "\P"&nbsp;&ndash; это символ не из категорий юникода.</p>
+        <p>Метасимвол <code>\p</code>&nbsp;&ndash; это один символ указанной категории юникода. Синтаксис: <code>\pL</code> или <code>\p{L}</code> если категория обозначается одним символом, <code>\p{Lu}</code> для 2-символьных категорий.</p>
+        <p>Метасимвол <code>\P</code>&nbsp;&ndash; это символ не из категорий юникода.</p>
         <p>Эти метасимволы также поддерживаются внутри пользовательских наборов символов.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
         <h2><a name="modifiers">10. Модификаторы</a></h2>
-        <p>Синтаксис для одного модификатора: "(?i)" чтобы включить и "(?-i)" чтобы выключить. Для большого числа модификаторов используется синтаксис "(?msgxr-imsgxr)".</p>
-        <p>Модификаторы служат для изменения режимов работы регулярных выражений. Модификатор влияет только на ту часть регулярного выражения, которая следует за оператором "(?imsgxr-imsgxr)".</p>
+        <p>Синтаксис для одного модификатора: <code>(?i)</code> чтобы включить и <code>(?-i)</code> чтобы выключить. Для большого числа модификаторов используется синтаксис <code>(?msgxr-imsgxr)</code>.</p>
+        <p>Модификаторы служат для изменения режимов работы регулярных выражений. Модификатор влияет только на ту часть регулярного выражения, которая следует за оператором <code>(?imsgxr-imsgxr)</code>.</p>
         <p>Любой модификатор может располагаться внутри регулярного выражения. Если модификатор расположен внутри подвыражения, то он действует только на это подвыражение.</p>
         <dl>
           <dt><tt>i</tt></dt>
           <dd>Регистронезависимый режим (используются установленные в вашей системе языковые настройки).</dd>
           <dt><tt>m</tt></dt>
-          <dd>Воспринимать входной текст как многострочный, при этом метасимволы "^" и "$" будут совпадать не только в начале и конце текста в целом, но и в начале и в конце всех имеющихся в тексте строк (см. также <a href="#meta-line">Разделители строк</a>).</dd>
+          <dd>Воспринимать входной текст как многострочный, при этом метасимволы <code>^</code> и <code>$</code> будут совпадать не только в начале и конце текста в целом, но и в начале и в конце всех имеющихся в тексте строк (см. также <a href="#meta-line">Разделители строк</a>).</dd>
           <dt><tt>s</tt></dt>
-          <dd>Воспринимать входной текст как одну строку. При этом метасимвол "." совпадает с любым символом, если же этот модификатор выключен, то он не совпадает с разделителями строк (см. также <a href="#meta-line">Разделители строк</a>). По умолчанию включено.</dd>
+          <dd>Воспринимать входной текст как одну строку. При этом метасимвол <code>.</code> совпадает с любым символом, если же этот модификатор выключен, то он не совпадает с разделителями строк (см. также <a href="#meta-line">Разделители строк</a>). По умолчанию включено.</dd>
           <dt><tt>g</tt></dt>
-          <dd>Нестандартный модификатор. Выключая его, вы переключаете все повторители в "не жадный" режим (по умолчанию этот модификатор включен). Т.е. если его отключить, то все "+" работают как "+?", "*" как "*?" и т.д.</dd>
+          <dd>Нестандартный модификатор. Выключая его, вы переключаете все повторители в "не жадный" режим (по умолчанию этот модификатор включен). Т.е. если его отключить, то все <code>+</code> работают как <code>+?</code>, <code>*</code> как <code>*?</code> и т.д.</dd>
           <dt><tt>x</tt></dt>
           <dd>Позволяет форматировать шаблон, чтобы обеспечить более лёгкую читаемость (см. описание ниже).</dd>
           <dt><tt>r</tt></dt>
-          <dd>Нестандартный модификатор. Если включен, то диапазон "а-я" включает в себя также букву "ё", "А-Я" включает "Ё", а "а-Я" включает весь русский алфавит. По умолчанию включен.</dd>
+          <dd>Нестандартный модификатор. Если включен, то диапазон <code>а-я</code> включает в себя также букву <code>ё</code>, <code>А-Я</code> включает <code>Ё</code>, а <code>а-Я</code> включает весь русский алфавит. По умолчанию включен.</dd>
           <dt><tt>#</tt></dt>
-          <dd><tt>(?#text)</tt>: Комментарий "text" просто игнорируется. Обратите внимание, что в комментарии такого вида невозможно использовать символ ")", поскольку он воспринимается как конец комментария.</dd>
+          <dd><tt>(?#text)</tt>: Комментарий <code>text</code> просто игнорируется. Обратите внимание, что в комментарии такого вида невозможно использовать символ <code>)</code>, поскольку он воспринимается как конец комментария.</dd>
         </dl>
         <p>Несколько примеров:</p>
         <table>
@@ -631,31 +631,31 @@
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(?i)Saint-Petersburg</div></td>
-            <td class="hintcell">находит "Saint-petersburg" и "Saint-Petersburg"</td>
+            <td class="hintcell">находит <code>Saint-petersburg</code> и <code>Saint-Petersburg</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(?i)Saint-(?-i)Petersburg</div></td>
-            <td class="hintcell">находит "Saint-Petersburg", но не "Saint-petersburg"</td>
+            <td class="hintcell">находит <code>Saint-Petersburg</code>, но не <code>Saint-petersburg</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">(?i)(Saint-)?Petersburg</div></td>
-            <td class="hintcell">находит "Saint-petersburg" и "saint-petersburg"</td>
+            <td class="hintcell">находит <code>Saint-petersburg</code> и <code>saint-petersburg</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">((?i)Saint-)?Petersburg</div></td>
-            <td class="hintcell">находит "saint-Petersburg", но не "saint-petersburg"</td>
+            <td class="hintcell">находит <code>saint-Petersburg</code>, но не <code>saint-petersburg</code></td>
           </tr>
         </table>
         <br>
-        <p>Модификатор "x" заставляет игнорировать пробелы, табуляции и разделители строк, что позволяет форматировать текст выражения.</p>
-        <p>Кроме того, если встречается символ "#", то все последующие символы до конца строки воспринимаются как комментарий, например:</p>
+        <p>Модификатор <code>x</code> заставляет игнорировать пробелы, табуляции и разделители строк, что позволяет форматировать текст выражения.</p>
+        <p>Кроме того, если встречается символ <code>#</code>, то все последующие символы до конца строки воспринимаются как комментарий, например:</p>
         <pre class="code">
 (
   (abc) # комментарий 1
     |   # Вы можете использовать пробелы для форматирования выражения - TRegExpr игнорирует их
   (efg) # комментарий 2
 )</pre>
-        <p>Естественно, это означает, что если вам нужно вставить в выражение пробел, табуляцию, разделитель строки или "#", то в расширенном ("x") режиме это можно сделать предваряя их "\" или используя escape-последовательность "\xnn" (внутри наборов символов все эти символы воспринимаются как обычно).</p>
+        <p>Естественно, это означает, что если вам нужно вставить в выражение пробел, табуляцию, разделитель строки или <code>#</code>, то в расширенном (<code>x</code>) режиме это можно сделать предваряя их <code>\</code> или используя escape-последовательность <code>\xnn</code> (внутри наборов символов все эти символы воспринимаются как обычно).</p>
         <p>В совокупности эти возможности значительно улучшают читаемость регулярных выражений.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
         <br>

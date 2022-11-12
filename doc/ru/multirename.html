@@ -109,7 +109,7 @@
         <h2><a name="interface">2. Интерфейс</a></h2>
         <p>Это приведёт нас к диалоговому окну инструмента группового переименования:</p>
         <p class="figure"><img class="largeimage" title="Интерфейс" alt="Интерфейс" src="images/imgDC/mulrengeneral.png" width="724" height="456"></p>
-        <p>В верхней части мы видим таблицу с файлами, выделенными на исходной панели, по одному файлу на строку.</p>
+        <p>В верхней части мы видим таблицу с файлами, выделенными на исходной панели, по одному файлу на строку. Мы можем переупорядочить список файлов, используя перетаскивание мышью или клавиши <kbd>Shift+стрелки</kbd>.</p>
         <p>Таблица содержит три колонки:</p>
        <table>
           <tr class="rowcategorytitle"><th colspan="2">Таблица предварительного просмотра имён файлов</th></tr>
@@ -194,7 +194,7 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Другие выражения</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Выражения</th><th class="categorydesccolumn">Описание</th><th class="categorynamecolumn">Пример</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">обозначает полное имя файла: полный путь, разделители пути и расширение, включая двоеточие и точку</td><td class="hintcell"><code>[A]</code> =<br><i>Полное имя файла</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">обозначает полное имя файла: полный путь, разделители пути и расширение, включая двоеточие и точку</td><td class="hintcell"><code>[A]</code> = <i>Полное имя файла</i></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">диапазон, аналогично [N] и [E]: [Ax], [Ax:y], [A-x:-y] и т.д.</td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Y]</div></td><td class="hintcell">год даты файла, две последние цифры</td><td class="hintcell"><code>[Y]</code> = 19</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[YYYY]</div></td><td class="hintcell">четыре цифры года</td><td class="hintcell"><code>[YYYY]</code> = 2019</td></tr>
@@ -212,11 +212,11 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">[nn]</div></td><td class="hintcell">минуты двумя цифрами (с добавлением лидирующего нуля, если необходимо)</td><td class="hintcell"><code>[nn]</code> = 02</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[s]</div></td><td class="hintcell">секунды времени файла</td><td class="hintcell"><code>[s]</code> = 7</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[ss]</div></td><td class="hintcell">секунды двумя цифрами (с добавлением лидирующего нуля, если необходимо)</td><td class="hintcell"><code>[ss]</code> = 07</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">GUID на лету в виде:<br>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</td><td class="hintcell"><code>[G]</code> =<br><i>16-байтный GUID</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">GUID на лету в виде:<br>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</td><td class="hintcell"><code>[G]</code> = <i>16-байтный GUID</i></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">имя каталога на уровне x, считая от начала пути</td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">имя каталога на уровне x, считая с конца пути</td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">добавляет счётчик с параметрами из группы "Счётчик"</td><td class="hintcell"><code>[C]</code> = <i>Номер</i></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">[V:запрос]</div></td><td class="hintcell">пользовательская переменная, значение будет запрошено в начале процесса переименования</td><td class="hintcell"><code>[V:Guest]</code> = <i>Запросить<br> значение Guest</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">добавляет счётчик с параметрами из группы "Счётчик" (отрицательные числа также поддерживаются)</td><td class="hintcell"><code>[C]</code> = <i>число по порядку, с заданным интервалом</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[V:запрос]</div></td><td class="hintcell">пользовательская переменная, значение будет запрошено в начале процесса переименования</td><td class="hintcell"><code>[V:Guest]</code> = <i>Запросить значение Guest</i></td></tr>
         </table>
 
         <p>Ещё один пример, где мы использовали некоторые из перечисленных выше выражений, добавив маску</p>

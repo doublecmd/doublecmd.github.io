@@ -379,7 +379,8 @@
         <p>(DC поддерживает оба формата.)</p>
         <p><span class="uline"><i>Как создать или изменить:</i></span></p>
         <p>Используйте UniHighlighter Editor или HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">скачать</a>). Обе программы были написаны для Windows, но вы можете использовать Wine. HglEditor сохранит HGL-файл в новом формате.<br>
-          Также доступны два архива с различными схемами подсветки синтаксиса.</p>
+          Также доступны два архива с различными схемами подсветки синтаксиса.<br>
+          В разделе <a href="configuration.html#ConfigToolsEditorHL">Инструменты&nbsp;&gt; Редактор&nbsp;&gt; Подсветка</a> вы можете можете изменить используемые цвета текста и фона и стиль шрифта.<span class="versionref"><sup>(Альфа-версия)</sup></span></p>
         <p><span class="uline"><i>Как добавить:</i></span></p>
         <p>1) Портативная версия<br>
           Скопируйте (или переместите) HGL-файл(ы) в папку "highlighters" рядом с <tt>doublecmd.exe</tt> и перезапустите DC.</p>
@@ -428,10 +429,10 @@
       <div>
         <h2>7. Плагины</h2>
         <p class="bold"><a name="not_valid">В: Что означает сообщение "Этот файл не является корректным плагином!"?</a></p>
-        <p><span class="bold">О:</span> Обычно это означает проблему с зависимостями: не все необходимые библиотеки доступны в вашей системе. Как узнать названия библиотек:</p>
+        <p><span class="bold">О:</span> Обычно это означает проблему с зависимостями: не все необходимые библиотеки доступны в вашей системе. Если в описании плагина отстутствуют подробности, не удалось связаться с автором или найти решение с помощью поисковых систем, то попробуйте следующее:</p>
         <ul>
           <li>Windows: плагин FileInfo или PEViewer, такие утилиты, как DLL Export Viewer или Dependency Walker.</li>
-          <li>Linux: используйте терминал и команду <code>ldd pluginname | grep "not found"</code></li>
+          <li>Linux: используйте терминал и команду <tt>ldd</tt> (самый простой способ, <code>ldd pluginname | grep "not found"</code>), GNU Binutils или плагин AnyELF.</li>
         </ul>
         <p>Если это WDX-плагин, написанный на Lua:</p>
         <p>1. Недоступна библиотека Lua: смотрите <a href="lua.html#dllrequired">Необходимая DLL</a>.</p>

@@ -48,13 +48,15 @@
         <p class="figure"><img class="largeimage" title="Built-in file viewer" alt="Built-in file viewer" src="images/imgDC/viewer.png" width="792" height="432"></p>
         <p>The selected text will be automatically copied to the clipboard.</p>
         <p>By default, the viewer call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">settings</a>. A quick view mode (<kbd>Ctrl+Q</kbd>) is also available: instead of a separate window, the opposite (inactive) file panel will be used.</p>
-        <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, TIFF, XPM. In addition, if the required libraries are available (near the executable file of Double Commander or in the PATH):</p>
+        <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, SVG/SVGZ<span class="versionref"><sup>(Alpha version)</sup></span>, TIFF, XPM. In addition, if the required libraries are available:</p>
         <ul>
-          <li><p>HEIF/HEIC and AVIF: <tt>libheif-1.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems)</p></li>
-          <li><p>SVG and SVGZ: <tt>libcairo-2.dll</tt>, <tt>librsvg-2-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (Windows) or <tt>libcairo.so.2</tt>, <tt>librsvg-2.so.2</tt> and <tt>libgobject-2.0.so.0</tt> (Linux and other Unix-like systems)</p></li>
-          <li><p>WebP: <tt>libwebp.so.n</tt>, where "n" is 7, 6 or 5 (Linux and other Unix-like systems)</p></li>
+          <li><p>HEIF/HEIC and AVIF: <tt>libheif-1.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems).</p></li>
+          <li><p>WebP: <tt>libwebp.so.n</tt>, where "n" is 7, 6 or 5 (Linux and other Unix-like systems).</p></li>
+          <li><p>SVG/SVGZ: <tt>librsvg-2-2.dll</tt>, <tt>libcairo-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (Windows) or <tt>librsvg-2.so.2</tt>, <tt>libcairo.so.2</tt> and <tt>libgobject-2.0.so.0</tt> (Linux and other Unix-like systems). If these files are available, Double Commander will use the librsvg library instead of the built-in Image32 graphics library.<span class="versionref"><sup>(Alpha version)</sup></span></p></li>
+          <li><p>Double Commander supports the TurboJPEG library, it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>).</p></li>
         </ul>
-        <p>Double Commander supports the TurboJPEG library: it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images. If the following library file is available: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>).</p>
+        <p>Note: In Windows, libraries must be located near the Double Commander executable file or in the PATH.</p>
+        <p>Double Commander supports Windows Imaging Component (Windows Vista and newer)<span class="versionref"><sup>(Alpha version)</sup></span>: the Windows Imaging Component (WIC) provides an extensible framework for working with images. WIC includes several built-in codecs (BMP, DDS, GIF, ICO, JPEG, JPEG, XR, PNG and TIFF), additionally available external codecs for free and proprietary RAW image formats, HEIF/HEIC, WebP. Double Commander will skip codecs for BMP, GIF, ICO, JPEG, PNG and TIFF, because these formats are already supported.</p>
         <p>The built-in viewer supports saving to the following image formats: BMP, ICO, JPEG (we can choose the quality from 1 to 100), PNG (Double Commander will use the same color depth as in the original image) and PNM (Double Commander will use binary formats, the color depth will be set automatically: 1, 8 or 24 bits per pixel).</p>
         <p>Note: When modifying an image, we must save all changes with the <span class="italic">Save</span> or <span class="italic">Save As</span> commands: Double Commander does not check the status of the file (changed or not) when closing the viewer window or when switching to another file.</p>
         <p>We can assign or change hotkeys for commands available in the viewer in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section (switch to the <span class="italic">Viewer</span> category). Hotkeys can be set separately for text mode and image viewing mode.</p>
@@ -102,12 +104,13 @@
           <li><p><span class="italic">Show as Bin</span>&nbsp;&ndash; Show file contents as is. Non-printable characters will be displayed as dots, however, when copying text, control characters (line feed, carriage return, tabulation and so on) will be respected. A fixed line width of 80 characters is used.</p></li>
           <li><p><span class="italic">Show as Hex</span>&nbsp;&ndash; The window will display three columns: offset from the beginning of the file (in bytes), 16 characters in hexadecimal representation and the same 16 characters in plain text. Non-printable characters will be displayed as dots. When selecting values in the second column, the corresponding symbols in the third column will be selected (and vice versa).</p></li>
           <li><p><span class="italic">Show as Dec</span>&nbsp;&ndash; Like the previous, but bytes will be represented in decimal notation.</p></li>
-          <li><p><span class="italic">Show as Wrap text</span>&nbsp;&ndash; Like <span class="italic">Show as Text</span>, but with wrapping lines that do not fit in the window (by word boundaries).</p></li>
           <li><p><span class="italic">Show as Book</span>&nbsp;&ndash; A special viewing mode: text will be displayed in multiple columns (like a book spread or a newspaper). We can set the font and size, text and background colors, and the number of columns (1, 2 or 3).</p></li>
           <li><p><span class="italic">Graphics</span>&nbsp;&ndash; switches to image viewing. See the list of supported image formats at the <a href="#intro">beginning of the page</a>.</p></li>
           <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Viewing with WLX plugins. If the selected file can be opened by several installed plugins, then repeated calls of this command will switch them in a circle.</p></li>
+          <li><p><span class="italic">Office XML (text only)</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; The viewer will show text from XML-based office documents: Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS). Without text formatting, but preserving paragraphs.</p></li>
         </ul>
-        <p>Plugins have priority over the <span class="italic">Graphics</span> mode.</p>
+        <p>Plugins have priority over the <span class="italic">Graphics</span> and <span class="italic">Office XML (text only)</span> modes.</p>
+        <p><span class="italic">Wrap text</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; enables or disables wrapping lines that do not fit in the window (by word boundaries).</p>
         <p><span class="italic">Show text cursor</span>&nbsp;&ndash; enables the display of a blinking text cursor.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -130,6 +133,7 @@
         <p><span class="italic">Stretch</span>&nbsp;&ndash; resizes the image so it fills the viewer window (the aspect ratio will be saved automatically).</p>
         <p><span class="italic">Stretch only large</span>&nbsp;&ndash; resizes the image only if it is larger than the current window size (the aspect ratio will be saved automatically).</p>
         <p><span class="italic">Center</span>&nbsp;&ndash; The image will be displayed in the center of the viewer window instead of the upper left corner.</p>
+        <p><span class="italic">Show transparency</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; enables the use of a checkerboard pattern as a background for transparent parts of the image.</p>
         <p>The <span class="italic">Rotate</span> submenu includes several similar actions:</p>
         <ul>
           <li><p>The first three commands rotate the image by a specified number of degrees around its center: <span class="italic">+ 90</span> (90 degrees to the right), <span class="italic">+ 180</span> and <span class="italic">- 90</span> (90 degrees to the left).</p></li>
@@ -182,8 +186,8 @@
           <li><p><span class="italic">Width</span>&nbsp;&ndash; Menu for selecting the line width (from 1 to 25 pixels).</p></li>
           <li><p><span class="italic">Color</span>&nbsp;&ndash; allows to set the color of the line.</p></li>
         </ul>
-        <p><span class="italic">Full Screen</span>&nbsp;&ndash; switches the window to full-screen mode (the contents of the window without the operating system's typical window-framing interface) and back. This mode is available not only when viewing images, just use hotkeys (<kbd>Alt+Enter</kbd> by default).</p>
         <p><span class="italic">Resize</span>&nbsp;&ndash; The image resizing tool allows to specify the width and height in pixels (the aspect ratio will be saved automatically).</p>
+        <p><span class="italic">Full Screen</span>&nbsp;&ndash; switches the window to full-screen mode (the contents of the window without the operating system's typical window-framing interface) and back. This mode is available not only when viewing images, just use hotkeys (<kbd>Alt+Enter</kbd> by default).</p>
         <p>When the window is expanded to full screen, an additional <span class="italic">Slide Show</span> button will become available: we can enable automatic loading the next image in the current directory and set the file display time (from 1 to 25 seconds).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

@@ -475,6 +475,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">the complete file name, including path</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%f</div></td><td class="hintcell">just the file name, with its extension</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%d</div></td><td class="hintcell">just the path</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%z</div></td><td class="hintcell">last directory in path</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%o</div></td><td class="hintcell">just the file name without its extension</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%e</div></td><td class="hintcell">just the file extension without the dot</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%v</div></td><td class="hintcell">the relative file name referenced to current active directory</td></tr>
@@ -496,6 +497,11 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dt</div></td><td class="hintcell">the path of the inactive (target) panel</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dl</div></td><td class="hintcell">the path of the left panel, no matter which one is active</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dr</div></td><td class="hintcell">the path of the right panel, no matter which one is active</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Z</div></td><td class="hintcell">default, the last directory name of path of the active (source) panel</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zs</div></td><td class="hintcell">specifically, the last directory name of path of the active (source) panel</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zt</div></td><td class="hintcell">the last directory name of path of the inactive (target) panel</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zl</div></td><td class="hintcell">the last directory name of path of the left panel, no matter which one is active</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zr</div></td><td class="hintcell">the last directory name of path of the right panel, no matter which one is active</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%"0</div></td><td class="hintcell">from this place, resulting file name will be unquoted</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%"1</div></td><td class="hintcell">from this place, resulting file name will be quoted</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%"</div></td><td class="hintcell">also accepted from resulting file name to be back quoted</td></tr>
@@ -513,9 +519,9 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td><td class="hintcell">will show a message box with the text specified between brackets</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%[message;default_val]</div></td><td class="hintcell">will prompt user to enter a value with he suggested value for it</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%%</div></td><td class="hintcell">will be replaced simply by a single % sign</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%?</div></td><td class="hintcell">will show command line about to be executed</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%#</div></td><td class="hintcell">from this position, the # sign will be treated as the %</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">#%</div></td><td class="hintcell">from previous mentioned state, will make % to be treated as the variable prefix</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%?</div></td><td class="hintcell">will show command line about to be executed</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

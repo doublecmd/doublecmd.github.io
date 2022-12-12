@@ -1035,6 +1035,11 @@
               <div class="cmdname"><a name="cm_NetworkDisconnect">cm_NetworkDisconnect</a></div></td>
             <td class="cmdhintcell">На данный момент не используется, но может быть использована в будущем.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyNetNamesToClip" alt="cm_CopyNetNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copynetnamestoclip.png">
+              <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdhintcell">Только Windows: копировать в буфер имена с UNC-путём.</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -1090,6 +1095,50 @@
                 <tr>
                   <td class="innerdescvaluecell"><i>{paramX}</i></td>
                   <td class="innerdescvaluecell">параметр командной строки #X</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadList" alt="cm_LoadList" src="../../pixmaps/dctheme/32x32/actions/cm_loadlist.png">
+              <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdhintcell">Загрузить список файлов/папок из указанного текстового файла.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">filename</td>
+                  <td class="innerdescvaluecell">имя файла</td>
+                  <td class="innerdescdesccell">полный путь к файлу со списком</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="6">side</td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">загрузить список в левую панель</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">загрузить список в правую панель</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">active</td>
+                  <td class="innerdescdesccell">загрузить список в активную панель</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">загрузить список в неактивную панель</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(пусто)</i></td>
+                  <td class="innerdescdesccell">загрузить список в текущую активную панель</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
+                  <td class="innerdescdesccell">загрузить список в текущую активную панель</td>
                 </tr>
               </table>
             </td>
@@ -1596,7 +1645,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
               <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели. Также смотрите <kbd>Shift+F6</kbd> <a href="shortcuts.html#main_window">здесь</a>.</td>
+            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели. Также смотрите <kbd>F2</kbd> и <kbd>Shift+F6</kbd> <a href="shortcuts.html#main_window">здесь</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
@@ -2424,6 +2473,16 @@
               <div class="cmdname"><a name="cm_PrevTab">cm_PrevTab</a></div>
               <div class="shrtctkey">Ctrl+Shift+Tab</div></td>
             <td class="cmdhintcell">Перейти на <a href="help.html#cm_PrevTab">предыдущую вкладку</a>.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabLeft" alt="cm_MoveTabLeft" src="../../pixmaps/dctheme/32x32/actions/cm_movetableft.png">
+              <div class="cmdname"><a name="cm_MoveTabLeft">cm_MoveTabLeft</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdhintcell">Переместить текущую вкладку влево.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabRight" alt="cm_MoveTabRight" src="../../pixmaps/dctheme/32x32/actions/cm_movetabright.png">
+              <div class="cmdname"><a name="cm_MoveTabRight">cm_MoveTabRight</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdhintcell">Переместить текущую вкладку вправо.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameTab" alt="cm_RenameTab" src="../../pixmaps/dctheme/32x32/actions/cm_renametab.png">

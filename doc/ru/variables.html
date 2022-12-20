@@ -467,11 +467,12 @@
         <h2><a name="summaryall">15. Сводная таблица со всеми переменными</a></h2>
         <p>В этом разделе нет ничего нового, однако для удобства все переменные сведены в одну таблицу.</p>
         <table>
-          <tr class="rowcategorytitle"><th colspan="2">Различные переменные</th></tr>
+          <tr class="rowcategorytitle"><th colspan="2">Сводная таблица</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Описание</th></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">полное, включая путь, имя файла</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%f</div></td><td class="hintcell">имя файла, с расширением</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%d</div></td><td class="hintcell">путь</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%z</div></td><td class="hintcell">последняя папка в пути</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%o</div></td><td class="hintcell">имя файла без расширения</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%e</div></td><td class="hintcell">расширение файла без точки</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%v</div></td><td class="hintcell">имя файла с путём, относительным к каталогу активной панели</td></tr>
@@ -493,6 +494,11 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dt</div></td><td class="hintcell">путь неактивной (целевой) панели</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dl</div></td><td class="hintcell">путь левой панели, независимо от того, какая активна</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%Dr</div></td><td class="hintcell">путь правой панели, независимо от того, какая активна</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Z</div></td><td class="hintcell">по умолчанию имя последней папки в пути активной (исходной) панели</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zs</div></td><td class="hintcell">имя последней папки в пути активной (исходной) панели</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zt</div></td><td class="hintcell">имя последней папки в пути неактивной (целевой) панели</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zl</div></td><td class="hintcell">имя последней папки в пути левой панели, независимо от того, какая активна</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zr</div></td><td class="hintcell">имя последней папки в пути правой панели, независимо от того, какая активна</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%"0</div></td><td class="hintcell">с этого места не расставлять кавычки автоматически</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%"1</div></td><td class="hintcell">с этого места автоматически расставлять кавычки</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%"</div></td><td class="hintcell">восстанавливает поведение по умолчанию (автоматически расставлять кавычки)</td></tr>
@@ -510,9 +516,9 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%[сообщение]</div></td><td class="hintcell">показать окно сообщения с текстом из квадратных скобок</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%[запрос;значение]</div></td><td class="hintcell">показать окно запроса ввода параметра с его значением по умолчанию</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%%</div></td><td class="hintcell">будет заменено на символ %</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%?</div></td><td class="hintcell">показать командную строку перед выполнением</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%#</div></td><td class="hintcell">с этой позиции символ # будет обрабатываться как символ %</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">#%</div></td><td class="hintcell">отмена предыдущего поведения, символ % будет обрабатываться как префикс переменной</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%?</div></td><td class="hintcell">показать командную строку перед выполнением</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>

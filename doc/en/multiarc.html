@@ -52,6 +52,7 @@
               <dt>4.12. <a href="#configids">Configuring the "ID's"</a></dt>
             </dl>
           </dd>
+          <dt>5. <a href="#openassociation">Opening an archive file in an associated application</a></dt>
         </dl>
       </div>
 
@@ -91,6 +92,7 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Packer plugin from a fresh install (.WCX)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Plugin filename</th><th class="categorydesccolumn">Archive type supported</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">base64.wcx<span class="versionref"><sup>(Alpha version)</sup></span></div></td><td class="hintcell">.b64</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">cpio.wcx<sup>*</sup></div></td><td class="hintcell">.cpio</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">deb.wcx<sup>*</sup></div></td><td class="hintcell">.deb</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">rpm.wcx</div></td><td class="hintcell">.rpm</td></tr>
@@ -365,7 +367,7 @@
           <li><b>%LQA</b>&nbsp;&ndash; Filename of the file list of names of files to be processed by the external archiver, the "A" requesting ANSI encoding.</li>
         </ul>
         <p>So this command will be invoke when we'll select an archive to extract the whole content, just one file, etc.</p>
-        <p>We may not realize at first but when we'll "enter in" the archive like it would be a directory and we would press <kbd>F3</kbd> to view the content of a file inside the archive, this "Extract" action will took place in background. The selected file will be extracted using that pattern into a temporary location and then that's this temporary file that we will look at with the <kbd>F3</kbd> invoken viewer.</p>
+        <p>We may not realize at first but when we'll "enter in" the archive like it would be a directory and we would press <kbd>F3</kbd> to view the content of a file inside the archive, this "Extract" action will took place in background. The selected file will be extracted using that pattern into the system directory for the temporary files and then that's this temporary file that we will look at with the <kbd>F3</kbd> invoken viewer.</p>
         <p>This will be use when we use the internal command <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -474,7 +476,6 @@
         <p>To create a self-extracted, please note that the procedure is the same as usual as when creating the compressed file, like using internal command <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>, but in the requester that appear, we'll check the option "Create self extracting archive".</p>
         <p class="figure"><img class="largeimage" title="Create self extracting archive" alt="Create self extracting archive" src="images/imgDC/archiveimg22.png" width="540" height="297"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <br>
       </div>
 
       <div>
@@ -500,6 +501,17 @@
         <p>In our example with 7-Zip archive, ID and ID Position (0, because in the beginning of file) will be enough.</p>
         <p>So when we invoke internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>, Double Commander will scan content of the file and it recognize the "0x37 0x7A 0xBC 0xAF 0x27 0x1C" pattern at offset 0 in the file, it will process it as it is our configured 7Z type of file and then use the associated configured commands and parameters for listing, extract, etc.</p>
         <p>In most cases, there is no need to examine files in hexadecimal representation: the file signature can be found in the format specification or use existing lists, databases or utilities (for example, <a href="https://en.wikipedia.org/wiki/List_of_file_signatures" target="_blank">this Wikipedia page</a> or <a href="https://freedesktop.org/wiki/Software/shared-mime-info/" target="_blank">FreeDesktop.org MIME database</a>).</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="openassociation">5. Opening an archive file in an associated application</a></h2>
+        <p>By default, files whose extensions are specified in the settings of WCX plugins and external archivers are opened as folders. To open them in an associated application, we can use the "Open" item in the context menu of the file, but in this case only system file associations will be used.</p>
+        <p>To use the <kbd>Enter</kbd> key or double-click, we have to change the settings.</p>
+        <p>If a WCX plugin is used, then we must open the plugin settings, select the extension and enable the "Show as normal files (hide packer icon)" flag.</p>
+        <p>If an external archiver is used to unpack files, then we must specify a non-existent file extension and fill in the fields for using ID. For example, CHM documents: "chm2" instead of "chm", signature "49 54 53 46" and offset 0.</p>
+        <p>Now, if necessary, we can use <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> and <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a>.
+        <p>For such files, Double Commander will use the associated icon instead of the generic archive icon.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

@@ -1036,6 +1036,11 @@
               <div class="cmdname"><a name="cm_NetworkDisconnect">cm_NetworkDisconnect</a></div></td>
             <td class="cmdhintcell">Nothing for the moment, but might be used in the future with network related stuff.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyNetNamesToClip" alt="cm_CopyNetNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copynetnamestoclip.png">
+              <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a><span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdhintcell">Windows only: copy names with UNC path.</td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -1091,6 +1096,50 @@
                 <tr>
                   <td class="innerdescvaluecell"><i>{paramX}</i></td>
                   <td class="innerdescvaluecell">command line parameter #X</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadList" alt="cm_LoadList" src="../../pixmaps/dctheme/32x32/actions/cm_loadlist.png">
+              <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a><span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdhintcell">Load list of files/folders from the specified text file.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">filename</td>
+                  <td class="innerdescvaluecell">file name</td>
+                  <td class="innerdescdesccell">full path to file with list</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="6">side</td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">load list into left panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">load list into right panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">active</td>
+                  <td class="innerdescdesccell">load list into active panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">load list into inactive panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(nothing)</i></td>
+                  <td class="innerdescdesccell">load list into active panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(absent)</i></td>
+                  <td class="innerdescdesccell">load list into active panel</td>
                 </tr>
               </table>
             </td>
@@ -1597,7 +1646,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
               <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">User may type directly the directory he wants see in the selected panel. Also see <kbd>Shift+F6</kbd> <a href="shortcuts.html#main_window">here</a>.</td>
+            <td class="cmdhintcell">User may type directly the directory he wants see in the selected panel. Also see <kbd>F2</kbd> and <kbd>Shift+F6</kbd> <a href="shortcuts.html#main_window">here</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
@@ -2423,6 +2472,16 @@
               <div class="cmdname"><a name="cm_PrevTab">cm_PrevTab</a></div>
               <div class="shrtctkey">Ctrl+Shift+Tab</div></td>
             <td class="cmdhintcell">Change to <a href="help.html#cm_PrevTab">previous tab</a>.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabLeft" alt="cm_MoveTabLeft" src="../../pixmaps/dctheme/32x32/actions/cm_movetableft.png">
+              <div class="cmdname"><a name="cm_MoveTabLeft">cm_MoveTabLeft</a><span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdhintcell">Move current tab to the left.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabRight" alt="cm_MoveTabRight" src="../../pixmaps/dctheme/32x32/actions/cm_movetabright.png">
+              <div class="cmdname"><a name="cm_MoveTabRight">cm_MoveTabRight</a><span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdhintcell">Move current tab to the right.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameTab" alt="cm_RenameTab" src="../../pixmaps/dctheme/32x32/actions/cm_renametab.png">

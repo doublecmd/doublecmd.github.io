@@ -172,6 +172,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Editor&gt;</small></div></td>
+            <td class="hintcell">Internal editor and differ tool: if nothing is selected, the search and replace dialog will use the word under the cursor (<code>True</code>) or text from the search history (<code>False</code>). <code>True</code> by default.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
                Suppose we've "entered" into a compressed file and browsing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<br>
@@ -238,6 +243,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">For the internal viewer, enables (<code>True</code>) or disables automatic copying of the selected text to the clipboard. <code>True</code> by default.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
               This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<br>The value is interpreted directly in pixels.<br>Default value is 2.<br>
@@ -259,6 +269,12 @@
               When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<br>
               If we want to disable this behavior and use new value only in the current session, we must replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
             </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="hintcell">If the columns view is set and there are no selected files, the status bar displays the file name under the cursor (<code>True</code>) or the number of files (<code>False</code>, by default).<br>
+              If <code>True</code>, the status bar will also show the number of files when the cursor is on the ".." item. For links, target objects will additionally be displayed.</td>
           </tr>
 
           <tr>
@@ -487,6 +503,19 @@
               The value is interpreted directly in pixels.<br>
               Default value is 0.<br>
               <i>Example:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor1&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">For the internal viewer, sets the background color of the window when viewing images.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor2&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              If <a href="viewer.html#mnu_image">Image&nbsp;&gt; Show transparency</a> is enabled, the internal viewer indicates transparency using a checkerboard pattern as background and <code>ImageBackColor2</code> defines the color of the squares.<br>
+              If not set, the viewer will automatically calculate the value: for a dark background, light squares will be used and vice versa.
             </td>
           </tr>
 

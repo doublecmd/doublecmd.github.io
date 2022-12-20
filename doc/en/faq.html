@@ -379,7 +379,8 @@
         <p>(DC supports both formats.)</p>
         <p><span class="uline"><i>How to create or edit:</i></span></p>
         <p>Use UniHighlighter Editor or HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">download</a>). Both programs were written for Windows, but you can use Wine. HglEditor will save HGL-file in the new format.<br>
-          Two packs of various highlighters are also available.</p>
+          Two packs of various highlighters are also available.<br>
+          In the <a href="configuration.html#ConfigToolsEditorHL">Tools&nbsp;&gt; Editor&nbsp;&gt; Highlighters</a> section, you can change the text and background colors and font style.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p><span class="uline"><i>How to add:</i></span></p>
         <p>1) Portable version<br>
           Copy (or move) your HGL-file(s) to the "highlighters" folder near <tt>doublecmd.exe</tt> and restart DC.</p>
@@ -428,10 +429,10 @@
       <div>
         <h2>7. Plugins</h2>
         <p class="bold"><a name="not_valid">Q: What does the message "This is not a valid plugin!" mean?</a></p>
-        <p><span class="bold">A:</span> This usually means a problem with dependencies: not all required libraries are available in your system. How to find out the names of libraries:</p>
+        <p><span class="bold">A:</span> This usually means a problem with dependencies: not all required libraries are available in your system. If there are no details in the description of the plugin, could not contact the author or find a solution using search engines, then try the following:</p>
         <ul>
           <li>Windows: FileInfo or PEViewer plugin, utilities such as DLL Export Viewer or Dependency Walker.</li>
-          <li>Linux: use terminal and command <code>ldd pluginname | grep "not found"</code></li>
+          <li>Linux: use terminal and command <tt>ldd</tt> (the easiest way, <code>ldd pluginname | grep "not found"</code>), GNU Binutils or AnyELF plugin.</li>
         </ul>
         <p>If this is a WDX plugin written in Lua:</p>
         <p>1. The Lua library is not available: see <a href="lua.html#dllrequired">DLL required</a>.</p>

@@ -171,6 +171,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<span class="versionref"><sup>(Альфа-версия)</sup></span><br><small>в &lt;Editor&gt;</small></div></td>
+            <td class="hintcell">Встроенный редактор и инструмент сравнения: если ничего не выделено, в диалоге поиска и замены будет использоваться слово под курсором (<code>True</code>) или текст из истории поиска (<code>False</code>). По умолчанию <code>True</code>.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
               Предположим, мы "вошли" в сжатый файл в активной панели и просматриваем его содержимое. Файлы с расширением, заданным в этом параметре, при нажатии <kbd>Enter</kbd> или двойном щелчке мыши будут автоматически распакованы из архива и выполнены в соответствии с файловыми ассоциациями (вместо показа окна свойств).<br>
@@ -236,6 +241,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<span class="versionref"><sup>(Альфа-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">Встроенный просмотрщик: включает (<code>True</code>) или выключает (<code>False</code>) автоматическое копирование выделенного текста в буфер обмена. По умолчанию <code>True</code>.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
               Параметр позволяет добавить несколько дополнительных пикселей по высоте для каждого элемента в файловых панелях.<br>Значение задаётся непосредственно в пикселях.<br>По умолчанию равно 2.<br>
@@ -257,6 +267,12 @@
               Когда мы вручную с помощью мыши изменяем ширину колонки, по умолчанию DC применяет изменения для обеих панелей и сохраняет новое значение для последующих запусков.<br>
               Если мы хотим отключить такое поведение и использовать изменения только в текущей сессии, то должны заменить <code>True</code> на <code>False</code>, т.е. использовать <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
             </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<span class="versionref"><sup>(Альфа-версия)</sup></span><br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="hintcell">Если выбран подробный вид и нет выделенных файлов, то в строке состояния отображается имя файла под курсором (<code>True</code>) или количество файлов (<code>False</code>, по умолчанию).<br>
+              Если <code>True</code>, строка состояния также будет показывать количество файлов, когда курсор находится на пункте "..". Для ссылок дополнительно будут отображаться целевые объекты.</td>
           </tr>
 
           <tr>
@@ -485,6 +501,19 @@
               Значение задаётся непосредственно в пикселях.<br>
               По умолчанию 0.<br>
               <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor1&gt;<span class="versionref"><sup>(Альфа-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">Встроенный просмотрщик: задаёт цвет фона окна при просмотре изображений.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor2&gt;<span class="versionref"><sup>(Альфа-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              Если отмечено <a href="viewer.html#mnu_image">Изображение&nbsp;&gt; Показывать прозрачность</a>, программа просмотра отображает прозрачность используя фон в виде шахматной доски и <code>ImageBackColor2</code> определяет цвет клеток.<br>
+              Если не задано, просмотрщик автоматически рассчитает значение: для тёмного фона будут использоваться светлые клетки и наоборот.
             </td>
           </tr>
 

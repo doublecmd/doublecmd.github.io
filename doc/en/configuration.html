@@ -43,7 +43,7 @@
                 </dl>
               </dd>
               <dt>2.4. <a href="#ConfigFonts">Fonts</a></dt>
-              <dt>2.5. Colors:</dt>
+              <dt>2.5. <a href="#ConfigColor">Colors</a></dt>
               <dd>
                 <dl>
                   <dt>2.5.1. <a href="#ConfigColorPanels">File panels</a></dt>
@@ -137,6 +137,7 @@
         <p>The main files are:</p>
         <ul>
           <li><p><tt>doublecmd.xml</tt>&nbsp;&ndash; all the main program settings;</p></li>
+          <li><p><tt>doublecmd.cfg</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; settings that are applied before initialization of all program components and loading <tt>doublecmd.xml</tt>;</p></li>
           <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; file extension association configuration;</p></li>
           <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; maps file extensions to MIME-types icon names;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&ndash; external archivers;</p></li>
@@ -196,6 +197,7 @@
         <p><span class="italic">Tab indents blocks</span>&nbsp;&ndash; If enabled, <kbd>Tab</kbd> and <kbd>Shift+Tab</kbd> act as block indent, unindent when text is selected.</p>
         <p><span class="italic">Smart Tabs</span>&nbsp;&ndash; When the <kbd>Tab</kbd> key is used, caret will go to the next non-space character of the previous line.</p>
         <p><span class="italic">Tab width</span>&nbsp;&ndash; The width of the tab character (in number of characters). If <span class="italic">Use spaces instead tab characters</span> is enabled, then the <kbd>Tab</kbd> key will insert the specified number of space characters. This setting does not apply if the <span class="italic">Smart Tabs</span> option is enable.</p>
+        <p><span class="italic">Block indent</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; sets the number of characters by which the indent will increase or decrease when using the corresponding commands.</p>
         <p><span class="italic">Right margin</span>&nbsp;&ndash; Line length marker, thin vertical line at the given position: lines will not be truncated with a forced line break, it is just a visual hint. Useful in cases where there is a recommendation to limit the length of strings (for example, 80 or 120 characters).</p>
         <br>
 
@@ -256,6 +258,15 @@
         <p>You can select fonts for the editor (<kbd>F4</kbd>), viewer (<kbd>F3</kbd>), file panels (<span class="italic">Main Font</span>) and other elements of the Double Commander interface, and also their size. The bottom line for each allows you to see how the display of the selected font looks. One important note: the fonts for the editor and viewer must be <span class="red">MONOSPACE</span>. The figure below illustrates a proportionally spaced font in the window above (notice the strange spacing) and a monospace font in the window below which appears correctly spaced. Also, with some proportional fonts the characters may overwrite each other and look quite strange.</p>
         <p class="figure"><img class="largeimage" title="Font Differences" alt="Font Differences" src="images/imgDC/pic29.png" width="576" height="360"></p>
         <p>Normal (proportional) font above, monospaced below.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p><span class="italic">Dark mode</span>&nbsp;&ndash; enables or disables dark mode support (only Windows 10 1809 and newer):</p>
+        <ul>
+          <li><p><span class="italic">Auto</span>&nbsp;&ndash; system settings will be used.</p></li>
+          <li><p><span class="italic">Enabled</span>&nbsp;&ndash; enable forcibly.</p></li>
+          <li><p><span class="italic">Disabled</span>&nbsp;&ndash; disable forcibly.</p></li>
+        </ul>
         <br>
 
         <p><span class="bold"><a name="ConfigColorPanels">2.5.1. Colors&nbsp;&gt; File panels</a></span></p>
@@ -787,14 +798,15 @@
 
         <p><span class="bold"><a name="ConfigMisc">2.17. Miscellaneous</a></span></p>
         <p>This section contains parameters for which there was no suitable place in other sections of the settings:</p>
-        <p class="figure"><img class="largeimage" title="Miscellaneous" alt="Miscellaneous" src="images/imgDC/pic46.png" width="542" height="483"></p>
+        <p class="figure"><img class="largeimage" title="Miscellaneous" alt="Miscellaneous" src="images/imgDC/pic46.png" width="542" height="487"></p>
+        <p><span class="italic">Show splash screen</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; If enabled, before displaying the main window, Double Commander will show a splash screen containing the program icon and version, compilation date, and the version of Lazarus, FPC, and operating system.</p>
         <p><span class="italic">Show warning messages ("OK" button only)</span>&nbsp;&ndash; shows warning messages if enabled. (For example, if Double Commander cannot set some property or attribute of a file due to file system restrictions in the target directory.)</p>
         <p><span class="italic">Always go to the root of a drive when changing drives</span>&nbsp;&ndash; If unchecked, Double Commander will go to the last open directory on this drive (in this case, you can go to the root directory of the drive by pressing its button twice).</p>
         <p><span class="italic">Show current directory in the main window title bar</span>&nbsp;&ndash; If enabled, Double Commander will display the name of the current folder and the active panel path in the main window title bar.</p>
         <p><span class="italic">Thumbnails</span>&nbsp;&ndash; Here you can enable to save cache of thumbnails of images and set their size. The thumbnail cache directory can be found in the <a href="#ConfigDC">Configuration</a> section. Double Commander uses PNG or JPEG (only for *.bmp, *.jpg and *.jpeg) formats. The thumbnail name is the MD5 sum of the full name of the source file. The full name of the source file, its size and modification date will be added to the file.</p>
         <p>The <span class="italic">Remove thumbnails for no longer existing files</span> button will help to remove obsolete thumbnails.</p>
         <p><span class="italic">File comments (descript.ion)</span>&nbsp;&ndash; Here you can set the default encoding for existing file comments (OEM, ANSI or UTF-8) and the encoding for new files (UTF-8 BOM, UTF-16 LE or UTF-16 BE).</p>
-        <p>The next group of parameters is used for import from Total Commander and export <a href="directoryhotlist.html#exportimporttc">Directory Hotlist</a> and <a href="toolbar.html">toolbar</a>: <span class="italic">TC executable</span>, <span class="italic">Configuration file</span> and <span class="italic">Toolbar output path</span> </p>
+        <p>The next group of parameters is used for import from Total Commander and export <a href="directoryhotlist.html#exportimporttc">Directory Hotlist</a> and <a href="toolbar.html">toolbar</a>: the path and name of the Total Commander executable file and the main configuration file, as well as the directory where the toolbar files are located.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigRefresh">2.18. Auto refresh</a></span></p>
@@ -929,7 +941,7 @@
           <li><p><tt>{!VIEWER}</tt>&nbsp;&ndash; call viewer (internal or external, depends on the configuration);</p></li>
           <li><p><tt>{!SHELL}</tt>&nbsp;&ndash; run in terminal and stay open at the end.</p></li>
         </ul>
-        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command cm_Execute Script, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
+        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
         <ul>
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>
@@ -937,7 +949,6 @@
         </ul>
         <p>At a minimum, you must specify a file name, usually <code>%p</code>.</p>
         <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins).</p>
-        <p>An association sets example, called <tt>doublecmd.ext.example</tt>, is in the program directory.</p>
         <p>All available actions will be displayed in the "Actions" submenu in the context menu:</p>
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="460" height="288"></p>
         <br>

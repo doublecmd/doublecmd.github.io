@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Pre-installed plugins</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configxml.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.18. Pre-installed plugins</h1>
+      </div>
+
+      <div>
+        <h2>Content</h2>
+        <dl>
+          <dt>1. Packer plugins (WCX)</dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#base64.wcx">Base64</a><span class="versionref"><sup>(Alpha version)</sup></span></dt>
+              <dt>1.2. <a href="#cpio.wcx">CPIO</a></dt>
+              <dt>1.3. <a href="#deb.wcx">DEB</a></dt>
+              <dt>1.4. <a href="#rpm.wcx">RPM</a></dt>
+              <dt>1.5. <a href="#sevenzip.wcx">SevenZip</a></dt>
+              <dt>1.6. <a href="#unrar.wcx">UnRAR</a></dt>
+              <dt>1.7. <a href="#zip.wcx">Zip</a></dt>
+            </dl>
+          </dd>
+          <dt>2. Content plugins (WDX)</dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#bexif">Built-in Exif plugin</a></dt>
+              <dt>2.2. <a href="#audioinfo.wdx">AudioInfo</a></dt>
+              <dt>2.3. <a href="#deb_wdx.wdx">DEB</a></dt>
+              <dt>2.4. <a href="#rpm_wdx.wdx">RPM</a></dt>
+              <dt>2.5. <a href="#lscripts">Lua scripts</a></dt>
+            </dl>
+          </dd>
+          <dt>3. File system plugins (WFX)</dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#ftp.wfx">FTP</a></dt>
+              <dt>3.2. <a href="#samba.wfx">Samba</a></dt>
+            </dl>
+          </dd>
+          <dt>4. Lister plugins (WLX)</dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#macpreview.wlx">MacPreview</a><span class="versionref"><sup>(Alpha version)</sup></span></dt>
+              <dt>4.2. <a href="#preview.wlx">Explorer Preview</a></dt>
+              <dt>4.3. <a href="#richview.wlx">Rich Text Format</a><span class="versionref"><sup>(Alpha version)</sup></span></dt>
+              <dt>4.4. <a href="#wlxmplayer.wlx">WlxMplayer</a></dt>
+              <dt>4.5. <a href="#wmp.wlx">Windows Media Player</a></dt>
+            </dl>
+          </dd>
+          <dt>5. Search plugin (DSX)</dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#dsxlocate.dsx">DSXLocate</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="wcx">1. Packer plugins (WCX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="base64.wcx">Base64</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>The Base64 plugin provides the ability to encode and decode files according to the Base64 scheme, this is one of the standards for encoding binary data using printable ASCII characters.</p>
+        <br>
+
+        <p><span class="bold"><a name="cpio.wcx">CPIO</a></span></p>
+        <p>Packer plugin for unpacking CPIO archives.</p>
+        <br>
+
+        <p><span class="bold"><a name="deb.wcx">DEB</a></span></p>
+        <p>Packer plugin for unpacking the package files of the dpkg package management system (Debian and distributions based on it).</p>
+        <p>Linux and other Unix-like OS (in Windows, Double Commander uses the <a href="#sevenzip.wcx">SevenZip</a> plugin for this format).</p>
+        <br>
+
+        <p><span class="bold"><a name="rpm.wcx">RPM</a></span></p>
+        <p>Packer plugin for unpacking the package files of the Red Hat package management system (Red Hat Linux, SUSE Linux and others).</p>
+        <br>
+
+        <p><span class="bold"><a name="sevenzip.wcx">SevenZip</a></span></p>
+        <p>Packer plugin for working with .7z, .arj, .cab, .cpio, .cramfs, .deb, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar and .z files. We can also add other file types that are supported by 7-Zip.</p>
+        <p>Note: Some formats are read-only, meaning only content viewing, unpacking, and testing are available.</p>
+        <p>Windows only.</p>
+        <br>
+
+        <p><span class="bold"><a name="unrar.wcx">UnRAR</a></span></p>
+        <p>Packer plugin for unpacking RAR archives.</p>
+        <p>For using this plugin we need the <a href="https://www.rarlab.com/" target="_blank">UnRAR</a> library, the plugin will use <tt>unrar.dll</tt> (Windows), <tt>libunrar.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libunrar.so</tt> or <tt>libunrar.so.5</tt> (Linux and other Unix-like OS).</p>
+        <p>The distributions of Double Commander for Windows and the portable versions for Linux contain the necessary library, in other cases, we can use the usual ways to get libraries in the operating system (for example, package <tt>libunrar5</tt> in Debian/Ubuntu or <tt>libunrar</tt> in Arch Linux). Otherwise, we can try to find a suitable variant on <a href="https://www.rarlab.com/rar_add.htm" target="_blank">this</a> page (the file must be copied to the system directory or the directory where the Double Commander executable file is located).</p>
+        <p>The plugin also supports the ability to pack files into a RAR archive, to do this, we need to specify the path to <tt>WinRAR.exe</tt> (Windows) or the <tt>rar</tt> command line utility (in other cases) in the plugin settings.</p>
+        <br>
+
+        <p><span class="bold"><a name="zip.wcx">Zip</a></span></p>
+        <p>Packer plugin for working with .bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .tzst, .xz, .zip, .zipx and .zst archives. Also this plugin can open files based on ZIP (EPUB, Office Open XML, OpenDocument format, CRX, XPI and others).</p>
+        <p>Requires additional compressor libraries:</p>
+        <ul>
+          <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libbz2.so.1</tt> (Linux and other Unix-like OS).</p></li>
+          <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>liblzma.so.5</tt> (Linux and other Unix-like OS).</p></li>
+          <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libzstd.so.1</tt> (Linux and other Unix-like OS).</p></li>
+        </ul>
+        <p>The distributions of Double Commander for Windows contain all necessary libraries and these libraries are usually installed by default in Linux for desktop/workstations.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wdx">2. Content plugins (WDX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="bexif">Built-in Exif plugin</a></span></p>
+        <p>The program has a built-in Exif content plugin to get some data that can be stored in the metadata of JPEG files: date, pixel dimensions, image orientation and camera information.</p>
+        <p>JPEG images only.</p>
+        <br>
+
+        <p><span class="bold"><a name="audioinfo.wdx">AudioInfo</a></span></p>
+        <p>This content plugin shows information about audio files, technical (duration, bitrate, number of channels and so on) and metadata (title, artist and other).</p>
+        <p>The following types of metadata are supported: ID3v1 (1.0, 1.1), ID3v2 (2.2, 2.3, 2.4), APE (1.0, 2.0), Vorbis comment.</p>
+        <br>
+
+        <p><span class="bold"><a name="deb_wdx.wdx">DEB</a></span></p>
+        <p>This content plugin shows information about the package files of the dpkg package management system (Debian and distributions based on it): package name, version, description, dependencies and other.</p>
+        <br>
+
+        <p><span class="bold"><a name="rpm_wdx.wdx">RPM</a></span></p>
+        <p>This content plugin shows information about the package files of the Red Hat package management system (Red Hat Linux, SUSE Linux and others): package name, version, description and other.</p>
+        <br>
+
+        <p><span class="bold"><a name="lscripts">Lua scripts</a></span></p>
+        <p>The <tt>plugins/wdx/scripts</tt> directory contains several examples of content plugins written in Lua (see the <a href="lua.html">Lua scripting</a> help page for details).</p>
+        <p>These plugins are not added in the program settings.</p>
+        <ul>
+          <li><p><tt>descriptionwdx.lua</tt>&nbsp;&ndash; reads file descriptions from <tt>descript.ion</tt>.</p></li>
+          <li><p><tt>fulltextodtwdx.lua</tt>&nbsp;&ndash; finds text in OpenDocument Text files (ODT). Requires <tt>odt2txt</tt>.</p></li>
+          <li><p><tt>simplewdx.lua</tt>&nbsp;&ndash; simple example with several fields.</p></li>
+          <li><p><tt>textlinewdx.lua</tt>&nbsp;&ndash; returns the first lines of plain text files (.txt, .ini) one by one, from the first to the fifth.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wfx">3. File system plugins (WFX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="ftp.wfx">FTP</a></span></p>
+        <p>This is a file system plugin for working with the following network protocols: FTP, FTPS, FTPES, SFTP and SSH+SCP. The plugin also supports working with proxy servers (HTTP, SOCKS 4 or SOCKS 5).</p>
+        <p>Requires additional libraries:</p>
+        <p>1) SSL and TLS protocols</p>
+        <p>The security package Microsoft Unified Security Protocol Provider (Windows only) or the <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> cryptographic library. In the second case, the FTP plugin will use <tt>ssleay32.dll</tt> and <tt>libeay32.dll</tt> (Windows), <tt>libssl.dylib</tt> and <tt>libcrypto.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) or <tt>libssl.so</tt> and <tt>libcrypto.so</tt> (Linux and other Unix-like OS).</p>
+        <p>2) SSH protocol</p>
+        <p>The <a href="https://libssh2.org/" target="_blank">libssh</a> library: the FTP plugin will use <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) or <tt>libssh2.so.1</tt> (Linux and other Unix-like OS).</p>
+        <p>The distributions of Double Commander for Windows contain this library, in other cases, we can use the usual ways to get libraries in the operating system (for example, package <tt>libssh2-1</tt> in Debian/Ubuntu or <tt>libssh2</tt> in Arch Linux).</p>
+        <br>
+
+        <p><span class="bold"><a name="samba.wfx">Samba</a></span></p>
+        <p>This is a file system plugin for working with network directories (SMB/CIFS).</p>
+        <p>Linux only.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wlx">4. Lister plugins (WLX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="macpreview.wlx">MacPreview</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>Universal (office document formats, images, video and audio files, and more) plugin using <a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>, as in Finder.</p>
+        <p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup> only.</p>
+        <br>
+
+        <p><span class="bold"><a name="preview.wlx">Explorer Preview</a></span></p>
+        <p>Plugin for the display of rich preview. The IPreviewHandler interface supports many formats (depends on the version of the operating system and installed applications), by default, only HTML files are added to the detect string.</p>
+        <p>Note: Preview handlers may not display all the information contained in the file.</p>
+        <p>Windows only.</p>
+        <br>
+
+        <p><span class="bold"><a name="richview.wlx">Rich Text Format</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>Plugin for viewing RTF files.</p>
+        <p>Windows only.</p>
+        <br>
+
+        <p><span class="bold"><a name="wlxmplayer.wlx">WlxMplayer</a></span></p>
+        <p>Plugin for viewing video files. Requires <tt>mplayer</tt>.</p>
+        <p>Linux only.</p>
+        <br>
+
+        <p><span class="bold"><a name="wmp.wlx">Windows Media Player</a></span></p>
+        <p>Plugin for playing audio and video files. This plugin uses the IWMPPlayer4 interface (ActiveX), requires Windows Media Player 9 or later.</p>
+        <p>Windows only.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dsx">5. Search plugin (DSX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="dsxlocate.dsx">DSXLocate</a></span></p>
+        <p>This plugin uses <tt>locate</tt> and its file database for searching. We can search by file name, part of it or by mask (symbol "*" means match any number of characters).</p>
+        <p>Linux and other Unix-like OS.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="configxml.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

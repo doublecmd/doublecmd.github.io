@@ -67,7 +67,9 @@
 
       <div>
         <h2><a name="preface">1. Introduction</a></h2>
-        <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.</p>
+        <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.
+          Script parameters must be passed as is, without escaping (without quotes or "\"), for this we need to use the <a href="variables.html#quotation">%"0</a> variable: for example, <code>%"0%p0</code> for the file under cursor instead of <code>%p0</code>, <code>%"0%D</code> for the current directory instead of <code>%D</code> and so on.
+          To get a list of all selected files we can use <a href="variables.html#listoffiles">%LU</a> or internal commands <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a> or <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</p>
         <p>It is also possible to write content plugins using Lua script, examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).
           The Wiki has a <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">page</a> dedicated to writing plugins.
           Limitations: only the following data types are supported</p>
@@ -88,8 +90,8 @@
 
       <div>
         <h2><a name="dllrequired">2. DLL required</a></h2>
-        <p>In order to interpret Lua script file, we need to have a Lua DLL file (Double Commander supports versions 5.1 - 5.4) in the same folder as the executable of Double Commander or in system folder.</p>
-        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). We can change the file name in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter manually.</p>
+        <p>In order to interpret Lua script file, we need to have a Lua DLL file, Double Commander supports versions 5.1 - 5.4.</p>
+        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) in its directory and in the system directory. We can change the file name (and path) in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter.</p>
         <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>.
            LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
@@ -579,7 +581,7 @@
               <p>For example we may have this:</p>
               <ul>
                 <li><code>Clipbrd.SetAsText("Welcome to Double Commander!")</code></li>
-                <li><code>Clipbrd.SetAsHtml("Welcome to &lt;B&gt;Double Commander&lt;/b&gt;!")</code></li>
+                <li><code>Clipbrd.SetAsHtml("Welcome to &lt;b&gt;Double Commander&lt;/b&gt;!")</code></li>
               </ul>
               <p>If we switch to Notepad attempting to paste something, it will paste in plain text the message we copied with <code>Clipbrd.SetAsText</code>. But if we switch to Microsoft Word and paste something, it will paste the second one, the one with <b>Double Commander</b> in bold since the Microsoft Word recognize and support that clipboard content type.</p>
             </td>
@@ -970,9 +972,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Convert <var>String</var> encoding from <var>FromEnc</var> to <var>ToEnc</var>.</p>
               <p>List of supported encoding values:</p>
               <ul>
-                <li>Default system encoding (depends on user locale): "default".</li>
-                <li>Default ANSI (Windows) encoding (depends on user locale): "ansi".</li>
-                <li>Default OEM (DOS) encoding (depends on user locale): "oem".</li>
+                <li>Default system encoding (depends on the system locale): "default".</li>
+                <li>Default ANSI (Windows) encoding (depends on the system locale): "ansi".</li>
+                <li>Default OEM (DOS) encoding (depends on the system locale): "oem".</li>
                 <li>Unicode: "utf8", "utf8bom", "ucs2le", "ucs2be".</li>
                 <li>ANSI (Windows): "cp1250", "cp1251", "cp1252", "cp1253", "cp1254", "cp1255", "cp1256", "cp1257", "cp1258".</li>
                 <li>OEM (DOS): "cp437", "cp850", "cp852", "cp866", "cp874", "cp932", "cp936", "cp949", "cp950".</li>
@@ -981,17 +983,17 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               </ul>
               The meaning of special encodings (examples).
               <br><br>
-              In the Windows with Russian locale:
+              In Windows (English or Russian):
               <ul>
-              <li>"default" - cp1251</li>
-              <li>"ansi" - cp1251</li>
-              <li>"oem" - cp866</li>
+              <li>"default" - cp1252 or cp1251</li>
+              <li>"ansi" - cp1252 or cp1251</li>
+              <li>"oem" - cp850 or cp866</li>
               </ul>
-              In the Linux with Russian locale:
+              In Linux (English or Russian):
               <ul>
               <li>"default" - utf8</li>
-              <li>"ansi" - cp1251</li>
-              <li>"oem" - cp866</li>
+              <li>"ansi" - cp1252 or cp1251</li>
+              <li>"oem" - cp850 or cp866</li>
               </ul>
             </td>
           </tr>
@@ -1061,13 +1063,13 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Will return the <var>Value</var> of the variable <var>VariableName</var> passed in parameter.<br>If no variable of that name exists, it will return <code>nil</code>.</p></td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">os.setenv<span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.setenv</div></td>
             <td class="hintcell">
               <p class="definition">os.setenv(VariableName, Value)</p>
               <p>Add or change the <var>VariableName</var> environment variable. In case of an error, the function returns -1.</p></td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">os.unsetenv<span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.unsetenv</div></td>
             <td class="hintcell">
               <p class="definition">os.unsetenv(VariableName)</p>
               <p>Remove the <var>VariableName</var> environment variable. In case of an error, the function returns -1.</p></td>

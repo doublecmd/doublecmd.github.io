@@ -15,6 +15,8 @@ Keeping reference pointing "findfiles.html" will always be true...
 ...which would not be the case if we would have point to something like "sec2_5_findfiles.html" for example.
 Keep the section numbers for the text inside page and NEVER INSIDE A LINK.
 
+- If you want to add a link to the FAQ, do not use the question number, because it may be changed in the future.
+
 
 Contributors
 ============

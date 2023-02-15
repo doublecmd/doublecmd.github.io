@@ -46,14 +46,14 @@
         <h2><a name="intro">1. Introduction</a></h2>
         <p>The built-in viewer is designed to view files of any size in text, hexadecimal or binary format and image files.</p>
         <p class="figure"><img class="largeimage" title="Built-in file viewer" alt="Built-in file viewer" src="images/imgDC/viewer.png" width="792" height="432"></p>
-        <p>The selected text will be automatically copied to the clipboard.</p>
+        <p>The selected text will be automatically copied to the clipboard, to disable we can use the <a href="configxml.html">&lt;AutoCopy&gt;</a><span class="versionref"><sup>(Alpha version)</sup></span> parameter.</p>
         <p>By default, the viewer call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">settings</a>. A quick view mode (<kbd>Ctrl+Q</kbd>) is also available: instead of a separate window, the opposite (inactive) file panel will be used.</p>
         <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, SVG/SVGZ<span class="versionref"><sup>(Alpha version)</sup></span>, TIFF, XPM. In addition, if the required libraries are available:</p>
         <ul>
           <li><p>HEIF/HEIC and AVIF: <tt>libheif-1.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems).</p></li>
           <li><p>WebP: <tt>libwebp.so.n</tt>, where "n" is 7, 6 or 5 (Linux and other Unix-like systems).</p></li>
           <li><p>SVG/SVGZ: <tt>librsvg-2-2.dll</tt>, <tt>libcairo-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (Windows) or <tt>librsvg-2.so.2</tt>, <tt>libcairo.so.2</tt> and <tt>libgobject-2.0.so.0</tt> (Linux and other Unix-like systems). If these files are available, Double Commander will use the librsvg library instead of the built-in Image32 graphics library.<span class="versionref"><sup>(Alpha version)</sup></span></p></li>
-          <li><p>Double Commander supports the TurboJPEG library, it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>).</p></li>
+          <li><p>Double Commander supports the TurboJPEG library, it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>).</p></li>
         </ul>
         <p>Note: In Windows, libraries must be located near the Double Commander executable file or in the PATH.</p>
         <p>Double Commander supports Windows Imaging Component (Windows Vista and newer)<span class="versionref"><sup>(Alpha version)</sup></span>: the Windows Imaging Component (WIC) provides an extensible framework for working with images. WIC includes several built-in codecs (BMP, DDS, GIF, ICO, JPEG, JPEG, XR, PNG and TIFF), additionally available external codecs for free and proprietary RAW image formats, HEIF/HEIC, WebP. Double Commander will skip codecs for BMP, GIF, ICO, JPEG, PNG and TIFF, because these formats are already supported.</p>
@@ -108,8 +108,9 @@
           <li><p><span class="italic">Graphics</span>&nbsp;&ndash; switches to image viewing. See the list of supported image formats at the <a href="#intro">beginning of the page</a>.</p></li>
           <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Viewing with WLX plugins. If the selected file can be opened by several installed plugins, then repeated calls of this command will switch them in a circle.</p></li>
           <li><p><span class="italic">Office XML (text only)</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; The viewer will show text from XML-based office documents: Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS). Without text formatting, but preserving paragraphs.</p></li>
+          <li><p><span class="italic">Code</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same rules and lists of extensions will be used as for the built-in editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). Also see description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
         </ul>
-        <p>Plugins have priority over the <span class="italic">Graphics</span> and <span class="italic">Office XML (text only)</span> modes.</p>
+        <p>Plugins have priority over other supported view modes.</p>
         <p><span class="italic">Wrap text</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; enables or disables wrapping lines that do not fit in the window (by word boundaries).</p>
         <p><span class="italic">Show text cursor</span>&nbsp;&ndash; enables the display of a blinking text cursor.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -121,8 +122,8 @@
         <p>When using plugins, this menu includes only three items:</p>
         <ul>
           <li><p><span class="italic">Auto-detect</span>&nbsp;&ndash; automatic encoding detection.</p></li>
-          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; default system ANSI encoding (depends on user locale).</p></li>
-          <li><p><span class="italic">OEM</span>&nbsp;&ndash; default system OEM (DOS) encoding (depends on user locale).</p></li>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; default system ANSI encoding (depends on the system locale).</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; default system OEM (DOS) encoding (depends on the system locale).</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

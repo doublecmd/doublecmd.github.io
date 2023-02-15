@@ -540,13 +540,44 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_View" alt="cm_View" src="../../pixmaps/dctheme/32x32/actions/cm_view.png">
               <div class="cmdname"><a name="cm_View">cm_View</a></div>
               <div class="shrtctkey">F3</div></td>
-            <td class="cmdhintcell">Открыть файл в <a href="viewer.html">программе просмотра</a>.</td>
+            <td class="cmdhintcell">Открыть файл в <a href="viewer.html">программе просмотра</a>.<br>
+              <br>
+              Команда поддерживает один параметр, позволяющий принудительно выбрать режим просмотра<span class="versionref"><sup>(Альфа-версия)</sup></span> (в этом случае плагины будут проигнорированы, но вы сможете переключить режим позже в окне программы просмотра).
+              Описание режимов смотрите на <a href="viewer.html#mnu_view">этой странице</a>.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">mode</td>
+                  <td class="innerdescvaluecell">text</td>
+                  <td class="innerdescdesccell">Показать как текст</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">bin</td>
+                  <td class="innerdescdesccell">Показать в двоичном виде</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">hex</td>
+                  <td class="innerdescdesccell">Показать в шестнадцатеричном виде</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">dec</td>
+                  <td class="innerdescdesccell">Показать в десятеричном виде</td>
+                </tr>
+              </table>
+              <br>
+              Примечание: Этот параметр будет работать, если нет выделенных файлов или выделен только один файл.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Edit" alt="cm_Edit" src="../../pixmaps/dctheme/32x32/actions/cm_edit.png">
               <div class="cmdname"><a name="cm_Edit">cm_Edit</a></div>
               <div class="shrtctkey">F4</div></td>
-            <td class="cmdhintcell">Открыть файл во встроенном редакторе.</td>
+            <td class="cmdhintcell">Открыть файл в редакторе (встроенном или внешнем, см. <a href="configuration.html#ConfigToolsEditor">Инструменты&nbsp;&gt; Редактор</a>).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_EditNew" alt="cm_EditNew" src="../../pixmaps/dctheme/32x32/actions/cm_editnew.png">
@@ -1012,7 +1043,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPlugin" alt="cm_AddPlugin" src="../../pixmaps/dctheme/32x32/actions/cm_addplugin.png">
               <div class="cmdname"><a name="cm_AddPlugin">cm_AddPlugin</a></div></td>
             <td class="cmdhintcell">Добавить плагин: Double Commander предложит указать файл плагина, автоматически определит его тип (WCX, WDX, WFX, WLX или DSX), откроет нужный раздел настроек и добавит его в список.<br>
-              Имя файла может быть указано как параметр.
+              Имя файла плагина может быть передано как параметр.
             </td>
           </tr>
         </table>
@@ -1028,12 +1059,12 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_NetworkConnect" alt="cm_NetworkConnect" src="../../pixmaps/dctheme/32x32/actions/cm_networkconnect.png">
               <div class="cmdname"><a name="cm_NetworkConnect">cm_NetworkConnect</a></div></td>
-            <td class="cmdhintcell">На данный момент не используется, но может быть использована в будущем.</td>
+            <td class="cmdhintcell"><a href="help.html#mnu_net">Соединиться с сервером</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_NetworkDisconnect" alt="cm_NetworkDisconnect" src="../../pixmaps/dctheme/32x32/actions/cm_networkdisconnect.png">
               <div class="cmdname"><a name="cm_NetworkDisconnect">cm_NetworkDisconnect</a></div></td>
-            <td class="cmdhintcell">На данный момент не используется, но может быть использована в будущем.</td>
+            <td class="cmdhintcell"><a href="help.html#mnu_net">Разорвать соединение</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyNetNamesToClip" alt="cm_CopyNetNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copynetnamestoclip.png">
@@ -1070,7 +1101,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ExecuteScript" alt="cm_ExecuteScript" src="../../pixmaps/dctheme/32x32/actions/cm_executescript.png">
               <div class="cmdname"><a name="cm_ExecuteScript">cm_ExecuteScript</a></div></td>
-            <td class="cmdhintcell">Выполнить скрипт Lua (библиотека Lua должна быть добавлена/установлена), смотрите <a href="lua.html">также</a>.<br>
+            <td class="cmdhintcell">Выполнить скрипт Lua (библиотека Lua должна быть добавлена/установлена), подробнее смотрите <a href="lua.html">здесь</a>.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -1243,6 +1274,7 @@
                   <td class="innerdescdesccell">примечание: это значит "attr=", без правильного значения.<br>будет фильтроваться всё, независимо от параметра "Маска атрибута по умолчанию"</td>
                 </tr>
               </table>
+              <br>
               <b>Примечание1:</b> Если команда используется без каких-либо параметров, необходимо будет ввести свой фильтр, а состояние остальных опций будет то же, что и в предыдущем вызове в текущей сессии.<br>
               <b>Примечание2:</b> При использовании фильтра в стиле Windows, фильтром <i>*.*</i> будут выбраны файла без расширения, в отличие от стиля DC.<br>
               <b>Примечание3:</b> При указании параметра "mask", можно также использовать предопределённый тип (шаблон), просто поставьте перед его именем символ "&gt;", например, "<i>mask=&gt;Pascal files</i>".<br>
@@ -1690,7 +1722,9 @@
               <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
               Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&ndash; в правой.<br><br>
               <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              В активной панели будет открыт указанный сетевой путь.
+              В активной панели будет открыт указанный сетевой путь.<br><br>
+              <i>cm_ChangeDir wfx://FTP</i><br>
+              В активной панели будет открыт указанный WFX-плагин
             </td>
           </tr>
           <tr>
@@ -2007,7 +2041,8 @@
           <tr class="rowsubtitle"><th class="namecolumn">Команда</th><th class="cmdcolumndesc">Описание</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_HelpIndex" alt="cm_HelpIndex" src="../../pixmaps/dctheme/32x32/actions/cm_helpindex.png">
-              <div class="cmdname"><a name="cm_HelpIndex">cm_HelpIndex</a></div></td>
+              <div class="cmdname"><a name="cm_HelpIndex">cm_HelpIndex</a></div>
+              <div class="shrtctkey">F1</div></td>
             <td class="cmdhintcell">Открыть начальную страницу <a href="index.html">справки</a> Double Commander.</td>
           </tr>
           <tr>
@@ -2022,8 +2057,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_About" alt="cm_About" src="../../pixmaps/dctheme/32x32/actions/cm_about.png">
-              <div class="cmdname"><a name="cm_About">cm_About</a></div>
-              <div class="shrtctkey">F1</div></td>
+              <div class="cmdname"><a name="cm_About">cm_About</a></div></td>
             <td class="cmdhintcell">Показать окно с информацией о программе.</td>
           </tr>
         </table>

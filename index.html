@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      var userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
+
+      var userLang = userLangs[0].substring(0, 2);
+
+      if (userLang == "ru")
+      {
+        window.location.replace("doc/ru/index.html");
+      }
+      else
+      {
+        window.location.replace("doc/en/index.html");
+      }
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url='doc/en/index.html'" />
+    </noscript>
+  </head>
+</html>

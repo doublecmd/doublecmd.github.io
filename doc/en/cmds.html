@@ -540,13 +540,44 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_View" alt="cm_View" src="../../pixmaps/dctheme/32x32/actions/cm_view.png">
               <div class="cmdname"><a name="cm_View">cm_View</a></div>
               <div class="shrtctkey">F3</div></td>
-            <td class="cmdhintcell">Open file in the <a href="viewer.html">viewer program</a>.</td>
+            <td class="cmdhintcell">Open file in the <a href="viewer.html">viewer program</a>.<br>
+              <br>
+              The command supports one parameter that allows to force a viewing mode<span class="versionref"><sup>(Alpha version)</sup></span> (in this case, plugins will be ignored, but you can switch the mode later in the viewer window).
+              See the description of the modes on <a href="viewer.html#mnu_view">this page</a>.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">mode</td>
+                  <td class="innerdescvaluecell">text</td>
+                  <td class="innerdescdesccell">Show as Text</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">bin</td>
+                  <td class="innerdescdesccell">Show as Bin</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">hex</td>
+                  <td class="innerdescdesccell">Show as Hex</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">dec</td>
+                  <td class="innerdescdesccell">Show as Dec</td>
+                </tr>
+              </table>
+              <br>
+              Note: This parameter will work if there are no selected files or only one file is selected.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Edit" alt="cm_Edit" src="../../pixmaps/dctheme/32x32/actions/cm_edit.png">
               <div class="cmdname"><a name="cm_Edit">cm_Edit</a></div>
               <div class="shrtctkey">F4</div></td>
-            <td class="cmdhintcell">Open file in internal editor.</td>
+            <td class="cmdhintcell">Open file in editor (internal or external, see <a href="configuration.html#ConfigToolsEditor">Tools&nbsp;&gt; Editor</a>).</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_EditNew" alt="cm_EditNew" src="../../pixmaps/dctheme/32x32/actions/cm_editnew.png">
@@ -1013,7 +1044,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPlugin" alt="cm_AddPlugin" src="../../pixmaps/dctheme/32x32/actions/cm_addplugin.png">
               <div class="cmdname"><a name="cm_AddPlugin">cm_AddPlugin</a></div></td>
             <td class="cmdhintcell">Add plugin: Double Commander will prompt you to select a plugin file, automatically detect its type (WCX, WDX, WFX, WLX or DSX), open the required settings section and add it to the list.<br>
-              The file name can be specified as a parameter.
+              The plugin filename can be passed as a parameter.
             </td>
           </tr>
         </table>
@@ -1029,12 +1060,12 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_NetworkConnect" alt="cm_NetworkConnect" src="../../pixmaps/dctheme/32x32/actions/cm_networkconnect.png">
               <div class="cmdname"><a name="cm_NetworkConnect">cm_NetworkConnect</a></div></td>
-            <td class="cmdhintcell">Nothing for the moment, but might be used in the future with network related stuff.</td>
+            <td class="cmdhintcell"><a href="help.html#mnu_net">Network connect</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_NetworkDisconnect" alt="cm_NetworkDisconnect" src="../../pixmaps/dctheme/32x32/actions/cm_networkdisconnect.png">
               <div class="cmdname"><a name="cm_NetworkDisconnect">cm_NetworkDisconnect</a></div></td>
-            <td class="cmdhintcell">Nothing for the moment, but might be used in the future with network related stuff.</td>
+            <td class="cmdhintcell"><a href="help.html#mnu_net">Network disconnect</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyNetNamesToClip" alt="cm_CopyNetNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copynetnamestoclip.png">
@@ -1071,7 +1102,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ExecuteScript" alt="cm_ExecuteScript" src="../../pixmaps/dctheme/32x32/actions/cm_executescript.png">
               <div class="cmdname"><a name="cm_ExecuteScript">cm_ExecuteScript</a></div></td>
-            <td class="cmdhintcell">Execute Lua script file (requires Lua .DLL installed), see <a href="lua.html">also</a>.<br>
+            <td class="cmdhintcell">Execute Lua script file (requires Lua .DLL installed), see details <a href="lua.html">here</a>.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -1244,6 +1275,7 @@
                   <td class="innerdescdesccell">note: this means "attr=" with no right value.<br>filter everything, no matter the configured "Default attribute mask"</td>
                 </tr>
               </table>
+              <br>
               <b>Note1:</b> So if command is used without any parameters, user will be prompt to enter its filter and other options will be the same ones as the last time their were specified in the current session foreach file view.<br>
               <b>Note2:</b> When using filtering like Windows as oppose of DC legacy, file with no extension will be selected with filter <i>*.*</i><br>
               <b>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<i>mask=&gt;Pascal files</i>".<br>
@@ -1691,7 +1723,9 @@
               <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
               No matter where is the current active panel, the left one will show content of "Working" folder and the right panel will show the one of "Euler".<br><br>
               <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              This is the DC legacy way of working, the active panel will switch to show content of the network mentioned path.
+              The active panel will switch to show content of the network mentioned path.<br><br>
+              <i>cm_ChangeDir wfx://FTP</i><br>
+              The mentioned WFX plugin will be opened in the active panel.
             </td>
           </tr>
           <tr>
@@ -2008,7 +2042,8 @@
           <tr class="rowsubtitle"><th class="namecolumn">Name</th><th class="cmdcolumndesc">Description</th></tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_HelpIndex" alt="cm_HelpIndex" src="../../pixmaps/dctheme/32x32/actions/cm_helpindex.png">
-              <div class="cmdname"><a name="cm_HelpIndex">cm_HelpIndex</a></div></td>
+              <div class="cmdname"><a name="cm_HelpIndex">cm_HelpIndex</a></div>
+              <div class="shrtctkey">F1</div></td>
             <td class="cmdhintcell">Open Double Commander <a href="index.html">help</a> index page.</td>
           </tr>
           <tr>
@@ -2023,8 +2058,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_About" alt="cm_About" src="../../pixmaps/dctheme/32x32/actions/cm_about.png">
-              <div class="cmdname"><a name="cm_About">cm_About</a></div>
-              <div class="shrtctkey">F1</div></td>
+              <div class="cmdname"><a name="cm_About">cm_About</a></div></td>
             <td class="cmdhintcell">Show program "About" information.</td>
           </tr>
         </table>

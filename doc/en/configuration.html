@@ -139,6 +139,7 @@
           <li><p><tt>doublecmd.xml</tt>&nbsp;&ndash; all the main program settings;</p></li>
           <li><p><tt>doublecmd.cfg</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; settings that are applied before initialization of all program components and loading <tt>doublecmd.xml</tt>;</p></li>
           <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; file extension association configuration;</p></li>
+          <li><p><tt>favoritetabs.xml</tt>&nbsp;&ndash; favorite tabs;</p></li>
           <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; maps file extensions to MIME-types icon names;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&ndash; external archivers;</p></li>
           <li><p><tt>shortcuts.scf</tt>&nbsp;&ndash; keyboard layout settings;</p></li>
@@ -151,7 +152,8 @@
 
       <div>
         <h2><a name="settings">2. Configuration</a></h2>
-        <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
+        <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file. A filter by parameter name is available at the bottom of the window: the program will display only those sections that contain a matching parameter.<span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>To open the corresponding section in the program help, you can use the <span class="italic">Help</span> button or the <kbd>F1</kbd> key.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>Double Commander has several <a href="cmds.html#catconfiguration">internal commands</a> to open the configuration dialog and quickly jump to the desired section.</p>
         <p>Double Commander supports importing/exporting some settings: directory hotlist, favorite tabs, external archivers, toolbar (main and middle), tooltips. Also, the list of hotkeys can be saved to a new file and you can switch between them.</p>
         <p>Note: To the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">: the popup menu contains lists of variables (including environment variables) and some additional functions, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
@@ -242,7 +244,7 @@
         <p>Default values:</p>
         <ul>
           <li><p>Windows: <tt>cmd.exe</tt></p></li>
-          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>: <tt>/Applications/Utilities/Terminal.app</tt></p></li>
+          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>: <tt>/Applications/Utilities/Terminal.app</tt></p></li>
           <li><p>Linux and other Unix-like systems:</p>
             <ul>
               <li><p>For Debian and Debian-based distributions (antiX, Devuan, Ubuntu, Linux Mint and others), <tt>x-terminal-emulator</tt> will be used: this is a symbolic link to the terminal used in these systems by default.</p></li>
@@ -258,6 +260,16 @@
         <p>You can select fonts for the editor (<kbd>F4</kbd>), viewer (<kbd>F3</kbd>), file panels (<span class="italic">Main Font</span>) and other elements of the Double Commander interface, and also their size. The bottom line for each allows you to see how the display of the selected font looks. One important note: the fonts for the editor and viewer must be <span class="red">MONOSPACE</span>. The figure below illustrates a proportionally spaced font in the window above (notice the strange spacing) and a monospace font in the window below which appears correctly spaced. Also, with some proportional fonts the characters may overwrite each other and look quite strange.</p>
         <p class="figure"><img class="largeimage" title="Font Differences" alt="Font Differences" src="images/imgDC/pic29.png" width="576" height="360"></p>
         <p>Normal (proportional) font above, monospaced below.</p>
+        <p>Also you can use <kbd>Ctrl</kbd>+mouse wheel to change the font size, this function works for the following interface elements or part of Double Commander:</p>
+        <ul>
+          <li><p>file list in left and right panels;</p></li>
+          <li><p>current directory (address) bar;</p></li>
+          <li><p>function key buttons bar;</p></li>
+          <li><p>TreeView menu;</p></li>
+          <li><p>search results in find files dialog;</p></li>
+          <li><p>internal editor;</p></li>
+          <li><p>internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p></li>
+        </ul>
         <br>
 
         <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
@@ -272,13 +284,13 @@
         <p><span class="bold"><a name="ConfigColorPanels">2.5.1. Colors&nbsp;&gt; File panels</a></span></p>
         <p>This section contains settings for the appearance of file panels:</p>
         <p class="figure"><img class="largeimage" title="Color settings" alt="Color settings" src="images/imgDC/pic30.png" width="804" height="459"></p>
-        <p>The color settings here are global settings for both file panels. These settings can be overridden by creating a customised column style which can have its own color settings, and more, for each tab in the panel! See <a href="#ConfigColumns">Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns</a> for details on how to do this. You must adjust the current style of the columns (<span class="italic">Default</span> by default) or create your own style and apply it for any tab.</p>
+        <p>The color settings here are global settings for both file panels. These settings can be overridden by creating a customised column style which can have its own color settings, and more, for each tab in the panel! See <a href="#ConfigColumns">Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns</a> for details on how to do this. You should adjust the current style of the columns (<span class="italic">Default</span> by default) or create your own style and apply it for any tab.</p>
         <p>Here you can choose colors that will be used to process the file panels: <span class="italic">Text Color</span>, <span class="italic">Background</span>, <span class="italic">Background 2</span>, <span class="italic">Mark Color</span>, <span class="italic">Cursor Color</span>, <span class="italic">Cursor Text</span>, <span class="italic">Inactive Cursor Color</span>, <span class="italic">Inactive Mark Color</span>, and also <span class="italic">Cursor border</span> (if you are not using a frame cursor). With the two background options you can make an alternating stripe in the panels, as in some screenshots.</p>
         <p><span class="italic">Use Inverted Selection</span>&nbsp;&ndash; inverts colors of marked text and marked text under cursor.</p>
         <p><span class="italic">Use Inactive Sel Color</span>&nbsp;&ndash; enables the display of the cursor also in the inactive panel.</p>
         <p><span class="italic">Use Frame Cursor</span>&nbsp;&ndash; Double Commander will use a frame instead of a solid rectangle.</p>
         <p><span class="italic">Allow Overcolor</span> enables the ability to use a color other than the default color for file names (see section <a href="#ConfigColorFiles">Colors&nbsp;&gt; File types</a>).</p>
-        <p>Also here you can decrease the brightness of the inactive panel and change the colors of the drive free space indicator.</p>
+        <p>Also here you can decrease the brightness of the inactive panel and change the appearance of the drive free space indicator. Double Commander can display a gradient (from green to red) or simple monochrome indicator, for a monochrome indicator you can choose the color and background. <span class="italic">Indicator Threshold Color</span><span class="versionref"><sup>(Alpha version)</sup></span> will be used if the free disk space is less than 10%. The indicator example is clickable, so you can see how it will look.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>There is a preview area at the bottom of the window, so you can see all the changes at once.</p>
         <p>The <span class="italic">Reset to DC default</span> button will reset all parameters to their default values.</p>
         <br>
@@ -489,7 +501,7 @@
         <p>The parameters <span class="italic">Load file list in separate thread</span> and <span class="italic">Load icons after file list</span> are designed to speed up the display of the list of files in the panel, i.e.the application window will hang less when opening large directories.</p>
         <p><span class="italic">Don't load file list until a tab is activated</span>&nbsp;&ndash; When launched, Double Commander will not load the list of files of inactive tabs that were opened in the previous session.</p>
         <p><span class="italic">Highlight new and updated files</span>&nbsp;&ndash; If enabled, the names of files that are currently being created or modified will flash.</p>
-        <p><span class="italic">Enable inplace renaming when clicking twice on a name</span>&nbsp;&ndash; is an additional ability to rename the file using the left mouse click (it does not depend on the the chosen key for selection with the mouse), as in Windows Explorer. The <span class="italic">A double click is necessary to launch the action</span> option must be selected in the <a href="#ConfigMouse">mouse settings</a> section.</p>
+        <p><span class="italic">Enable inplace renaming when clicking twice on a name</span>&nbsp;&ndash; is an additional ability to rename the file using the left mouse click (it does not depend on the the chosen key for selection with the mouse), as in Windows Explorer. After clicking, the mouse cursor must stay still for at least one second. In the <a href="#ConfigMouse">mouse settings</a> section, double click for files and folders or just files should be selected.</p>
         <p><span class="italic">Enable changing to parent folder when double-clicking on empty part of file view</span>&nbsp;&ndash; is an additional feature to simplify directory navigation. But not applicable if you are using a column set and the list of files in the current directory does not fit in the panel (i.e. you see a vertical scroll bar).</p>
         <br>
 
@@ -508,6 +520,7 @@
         <p>The screenshots below illustrate this subtle grid effect. The screenshot on the left has the vertical and horizontal lines enabled and the screenshot on the right does not.</p>
         <p class="figure"><img class="largeimage" title="with and without lines" alt="with and without lines" src="images/imgDC/pic35.png" width="690" height="128"></p>
         <p><span class="italic">Auto fill columns</span>&nbsp;&ndash; If enabled, when resizing the window (or if free space exists), Double Commander will resize the column, which selected in the next option <span class="italic">Auto size column:</span> (first or last). The horizontal scrollbar will not be available.</p>
+        <p><span class="italic">Column titles alignment like values</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; If enabled, Double Commander will align the column header the same as the content (instead of left-aligned).</p>
         <p>If the content of the column is larger than its width:</p>
         <ul>
           <li><p><span class="italic">Cut text to column width</span>&nbsp;&ndash; Sometimes column text can overlap into other columns. This option truncates any extra text at the column boundary.</p></li>
@@ -803,7 +816,7 @@
         <p><span class="italic">Show warning messages ("OK" button only)</span>&nbsp;&ndash; shows warning messages if enabled. (For example, if Double Commander cannot set some property or attribute of a file due to file system restrictions in the target directory.)</p>
         <p><span class="italic">Always go to the root of a drive when changing drives</span>&nbsp;&ndash; If unchecked, Double Commander will go to the last open directory on this drive (in this case, you can go to the root directory of the drive by pressing its button twice).</p>
         <p><span class="italic">Show current directory in the main window title bar</span>&nbsp;&ndash; If enabled, Double Commander will display the name of the current folder and the active panel path in the main window title bar.</p>
-        <p><span class="italic">Thumbnails</span>&nbsp;&ndash; Here you can enable to save cache of thumbnails of images and set their size. The thumbnail cache directory can be found in the <a href="#ConfigDC">Configuration</a> section. Double Commander uses PNG or JPEG (only for *.bmp, *.jpg and *.jpeg) formats. The thumbnail name is the MD5 sum of the full name of the source file. The full name of the source file, its size and modification date will be added to the file.</p>
+        <p><span class="italic">Thumbnails</span>&nbsp;&ndash; Here you can enable to save cache of thumbnails of images and set their size. The thumbnail cache directory can be found in the <a href="#ConfigDC">Configuration</a> section. Double Commander uses PNG or JPEG (only for .bmp, .jpg and .jpeg) formats. The thumbnail name is the MD5 sum of the full name of the source file. The full name of the source file, its size and modification date will be added to the file.</p>
         <p>The <span class="italic">Remove thumbnails for no longer existing files</span> button will help to remove obsolete thumbnails.</p>
         <p><span class="italic">File comments (descript.ion)</span>&nbsp;&ndash; Here you can set the default encoding for existing file comments (OEM, ANSI or UTF-8) and the encoding for new files (UTF-8 BOM, UTF-16 LE or UTF-16 BE).</p>
         <p>The next group of parameters is used for import from Total Commander and export <a href="directoryhotlist.html#exportimporttc">Directory Hotlist</a> and <a href="toolbar.html">toolbar</a>: the path and name of the Total Commander executable file and the main configuration file, as well as the directory where the toolbar files are located.</p>
@@ -816,6 +829,10 @@
           <li><p>When files are created, deleted or renamed.</p></li>
           <li><p>When size, date or attributes change.</p></li>
         </ul>
+        <p>If it possible, Double Commander makes the appropriate change to the list of files, otherwise it completely rereads the list of files. If there are a large number of changes (if more than a quarter of the files are affected or the total number of changes exceeds 100), the list of files will be reread completely.</p>
+        <p>Note: This function may not work inside mounted network directories.</p>
+        <p>If both options are disabled, Double Commander will not watch changes made by third-party applications, and after changes made in the program in the file system, it will reread the entire list of files.</p>
+        <p>In virtual file systems (WFX plugins, GVfs), Double Commander rereads the entire list of files when you create, delete, or rename a file.</p>
         <p>Also you can disable auto-refresh:</p>
         <ul>
           <li><p>When Double Commander window is in the background or minimized.</p></li>
@@ -828,7 +845,7 @@
         <ul>
           <li><p><span class="italic">All associated + EXE/LNK (slow)</span>&nbsp;&ndash; Same as <span class="italic">All</span>, but additionally extracts icons from .exe files and shortcuts.</p></li>
           <li><p><span class="italic">All</span>&nbsp;&ndash; Icons for all file types associated with any program will be displayed (from system settings and Double Commander <a href="#ConfigAssociations">file associations</a>). Also DC will show the folder icon specified in the <tt>desktop.ini</tt> (Windows) and <tt>.directory</tt> (Linux) files.</p></li>
-          <li><p><span class="italic">Only standard icons</span>&nbsp;&ndash; The icons for the file types listed in the <tt>pixmaps.txt</tt> file will be displayed. New file extensions are added similarly to existing ones and you should add the selected icon to the <tt>pixmaps/dctheme/XXxXX/mimetypes</tt> directories (the best way is to add icons to your DC theme, see <a href="faq.html#theme">item 3.6</a> in the FAQ).</p></li>
+          <li><p><span class="italic">Only standard icons</span>&nbsp;&ndash; Only the icons listed in the <tt>pixmaps.txt</tt> file and the icons from the file association settings will be displayed. In this case, you can use icons only from the Double Commander icon theme (see directories <tt>pixmaps/dctheme/XxX/mimetypes</tt> in the program folder) or specify the full (with path) file name. Creating an icon theme is described in the <a href="faq.html#theme">FAQ</a>.</p></li>
           <li><p><span class="italic">No icons</span>.</p></li>
         </ul>
         <p><span class="italic">Show overlay icons, e.g. for links</span>&nbsp;&ndash; If enabled, Double Commander will show overlay icons such as arrows for .lnk files and links.</p>
@@ -842,7 +859,7 @@
         </ul>
         <p><span class="italic">Show icons on buttons</span>&nbsp;&ndash; If enabled, Double Commander will show icons on the buttons of the dialog windows (<span class="italic">OK</span>, <span class="italic">Cancel</span>, <span class="italic">Start</span>, <span class="italic">Add To Queue</span> and so on).</p>
         <p><span class="italic">Show icons for actions in menus</span>&nbsp;&ndash; If enabled, Double Commander will show icons in the main menu.</p>
-        <p>In the last parameter, <span class="italic">Icon theme</span>, you can choose an icon set from the drop-down menu. Double Commander does comes with one <span class="italic">DCTheme</span> icon theme, but you can create and add your own, see <a href="faq.html#theme">item 3.6</a> in the FAQ.</p>
+        <p>In the last parameter, <span class="italic">Icon theme</span>, you can choose an icon set from the drop-down menu. Double Commander does comes with one <span class="italic">DCTheme</span> icon theme, but you can create and add your own, see the <a href="faq.html#theme">FAQ</a> for details.</p> 
         <p>Note: In Unix-like systems, Double Commander will primarily use the system icon theme, if some icons does not exist, it will use its own.</p>
         <br>
 
@@ -904,10 +921,10 @@
         <p>Here you can customize file associations and set commands or scripts for chosen file types. Commands will be added to the <a href="help.html#cm_ContextMenu">context menu</a> of files. Double Commander also allows to simply set (or replace) icons for file types, without adding any actions.</p>
         <p class="figure"><img class="largeimage" title="File associations" alt="File associations" src="images/imgDC/pic48.png" width="612" height="548"></p>
         <p><span class="italic">File types</span>&nbsp;&ndash; contains a list of extensions. Each group can contain many file extensions, and such a group can be associated with various programs.</p>
-        <p><span class="italic">Add</span>&nbsp;&ndash; adds a new group. You must enter a group name.</p>
+        <p><span class="italic">Add</span>&nbsp;&ndash; adds a new group. You should enter a group name.</p>
         <p><span class="italic">Remove</span>&nbsp;&ndash; deletes a group.</p>
         <p><span class="italic">Rename</span>&nbsp;&ndash; allows to set a new name for the group.</p>
-        <p><span class="italic">Icon</span>&nbsp;&ndash; you can set the path to an icon for this group. Also you can use MIME-type icons: for example, if you want to use <tt>text-x-pascal.png</tt> from Double Commander icons theme (or from system theme in Linux and other Unix-like systems), just insert <code>text-x-pascal</code>. Double Commander supports frequently used image formats, additionally in Windows you can use icons from bunary executable files (*.exe, *.dll).</p>
+        <p><span class="italic">Icon</span>&nbsp;&ndash; you can set the path to an icon for this group. Also you can use MIME-type icons: for example, if you want to use <tt>text-x-pascal.png</tt> from Double Commander icons theme (or from system theme in Linux and other Unix-like systems), just insert <code>text-x-pascal</code>. Double Commander supports frequently used image formats, additionally in Windows you can use icons from bunary executable files (.exe, .dll).</p>
         <p><span class="italic">Extensions</span>&nbsp;&ndash; here you can set the extensions (without dot) for the selected group. You can add multiple extensions using a vertical bar "|" (without spaces between them). Special values:</p>
         <ul>
           <li><p><tt>file</tt>&nbsp;&ndash; any file;</p></li>
@@ -933,7 +950,7 @@
           </li>
           <li><p>Other actions displayed in the file context menu (submenu "Actions").</p></li>
         </ul>
-        <p><span class="italic">Command</span>&nbsp;&ndash; any command from Desktop Environment, where you can set macro commands (macros are case sensitive!):</p>
+        <p><span class="italic">Command</span>&nbsp;&ndash; any command from Desktop Environment. Several macros are also available (names are case sensitive!):</p>
         <ul>
           <li><p><tt>{!DC-EDITOR}</tt>&nbsp;&ndash; call internal editor;</p></li>
           <li><p><tt>{!DC-VIEWER}</tt>&nbsp;&ndash; call internal viewer;</p></li>
@@ -947,7 +964,7 @@
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>
           <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; runs "command" in the system shell and feeds the output to the command above.</p></li>
         </ul>
-        <p>At a minimum, you must specify a file name, usually <code>%p</code>.</p>
+        <p>At a minimum, you must specify a file name, usually <code>%p</code> or <code>%p0</code> for the file under cursor.</p>
         <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins).</p>
         <p>All available actions will be displayed in the "Actions" submenu in the context menu:</p>
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="460" height="288"></p>
@@ -957,6 +974,7 @@
         <p><span class="italic">Offer to add selection to file association when not included already</span>&nbsp;&ndash; When accessing file association, offer to add current selected file if not already included in a configured file type. This is a quick way to add an "Open with" action: Double Commander will prompt you to specify a type name and an executable file, everything else will be done automatically.</p>
         <p><span class="italic">Extended context menu</span>&nbsp;&ndash; allows to add some items to the "Actions" submenu:</p>
         <ul>
+          <li><p>Default context actions (View/Edit).<span class="versionref"><sup>(Alpha version)</sup></span></p></li>
           <li><p>Execute via shell.</p></li>
           <li><p>Execute via terminal and close.</p></li>
           <li><p>Execute via terminal and stay open.</p></li>

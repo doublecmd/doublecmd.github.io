@@ -29,9 +29,8 @@
               <dt>1.2. <a href="#whatsnew">Что нового в этой версии?</a></dt>
               <dt>1.3. <a href="#linux">Это версия Total Commander для Linux, да?</a></dt>
               <dt>1.4. <a href="#wincmd">В чём отличия этой программы от моего любимого Total Commander?</a></dt>
-              <dt>1.5. <a href="#opsys">У меня 64-битная ОС. Могу я скачать Double Commander, оптимизированный под мою систему?</a></dt>
-              <dt>1.6. <a href="#link">Как можно связаться с разработчиками Double Commander?</a></dt>
-              <dt>1.7. <a href="#pupd">Как обновить портативную версию и не потерять настройки?</a></dt>
+              <dt>1.5. <a href="#link">Как можно связаться с разработчиками Double Commander?</a></dt>
+              <dt>1.6. <a href="#pupd">Как обновить портативную версию и не потерять настройки?</a></dt>
             </dl>
           </dd>
           <dt><a name="tux">2. Вопросы, связанные с GNU/Linux</a></dt>
@@ -41,6 +40,7 @@
               <dt>2.2. <a href="#repo">Есть ли у проекта репозиторий?</a></dt>
               <dt>2.3. <a href="#plugs">Плагины от Total Commander не работают?!</a></dt>
               <dt>2.4. <a href="#gvfs">Могу ли я получить доступ к сетевым ресурсам как в Nautilus или Thunar?</a></dt>
+              <dt>2.5. <a href="#tray">При шелчке по значку в трее вместо восстановления окна отображается меню с пунктами "Восстановить" и "Выход" (только GTK2).</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">3. Настройка интерфейса</a></dt>
@@ -89,6 +89,7 @@
               <dt>6.2. <a href="#fv_svg">Возможно ли добавить поддержку миниатюр SVG в просмотр эскизов?</a></dt>
               <dt>6.3. <a href="#fn_ext">Хочу видеть в колонке "Имя" имена файлов с расширением, я могу это сделать?</a></dt>
               <dt>6.4. <a href="#folder_sort">Возможно ли сортировать папки щелчком по заголовку колонки ("Дата", "Размер" и т.д.)?</a></dt>
+              <dt>6.5. <a href="#slinkt">Как посмотреть целевые объекты символьных ссылок?</a></dt>
             </dl>
           </dd>
           <dt><a name="plugins">7. Плагины</a></dt>
@@ -114,16 +115,12 @@
         <br>
 
         <p class="bold"><a name="linux">В: Это версия Total Commander для Linux, да?</a></p>
-        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK и Qt (зависит от Lazarus, поэтому на данный момент GTK2 и Qt5) и macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, также Double Commander доступен в портах FreeBSD.</p>
+        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK и Qt (зависит от Lazarus, поэтому на данный момент GTK2 и Qt5) и macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>, также Double Commander доступен в портах FreeBSD.</p>
         <br>
 
         <p class="bold"><a name="wincmd">В: В чём отличия этой программы от моего любимого Total Commander?</a></p>
         <p><span class="bold">О:</span> Цель проекта&nbsp;&ndash; создать программу, приближенную к TC по интерфейсу, максимально совместимую с ним по плагинам и конфигурационным файлам.
           При этом Double Commander обладает рядом существенных преимуществ: он абсолютно бесплатен для использования, кроссплатформенный (работает под разными операционными системами), и имеет открытый исходный код.</p>
-        <br>
-
-        <p class="bold"><a name="opsys">В: У меня 64-битная ОС. Могу я скачать Double Commander, оптимизированный под мою систему?</a></p>
-        <p><span class="bold">О:</span> Да, сборки для x64 есть под все поддерживаемые платформы.</p>
         <br>
 
         <p class="bold"><a name="link">В: Как можно связаться с разработчиками Double Commander?</a></p>
@@ -166,8 +163,7 @@
             </p>
           </li>
         </ul>
-        <p>Вы можете скачать установочные пакеты (DEB, RPM) без добавления репозитория в систему.<br>
-          Также доступна портативная версия (скомпилированные двоичные файлы, упакованные XZ, для запуска используйте <tt>doublecmd.sh</tt>) или вы можете скачать исходный код и собрать DC самостоятельно.</p>
+        <p>Также доступны портативные версии (подробнее <a href="help.html#usage">здесь</a>).</p>
         <br>
 
         <p class="bold"><a name="plugs">В: Плагины от Total Commander не работают?!</a></p>
@@ -178,18 +174,22 @@
         <br>
 
         <p class="bold"><a name="gvfs">В: Могу ли я получить доступ к сетевым ресурсам как в Nautilus или Thunar?</a></p>
-        <p><span class="bold">О:</span> Да, DC может использовать Gvfs. Gvfs поддерживает множество протоколов: NFS, SMB, FTP, SFTP, WebDAV, MTP, мобильные телефоны (Windows, Android, Apple), плееры и другое.</p>
-        <p>Во-первых, должны быть установлены пакеты <tt>gvfs</tt> и <tt>gvfs-backends</tt> (также добавьте <tt>gvfs-fuse</tt>, это может быть полезно).
+        <p><span class="bold">О:</span> Да, DC может использовать GVfs. GVfs поддерживает множество протоколов: NFS, SMB, FTP, SFTP, WebDAV, MTP, мобильные телефоны (Windows, Android, Apple), плееры и другое.</p>
+        <p>Во-первых, должны быть установлены пакеты <tt>gvfs</tt>, <tt>gvfs-backends</tt> и <tt>gvfs-fuse</tt>.
           Имейте в виду, что в некоторых дистрибутивах нет пакетов <tt>gvfs-backends</tt> и <tt>gvfs-fuse</tt>,
           потому что они часть пакета <tt>gvfs</tt>, или же может быть несколько пакетов с именами <tt>gvfs-backends-*</tt> или <tt>gvfs-*</tt>.</p>
-        <p>Теперь вставьте путь Gvfs в строку адреса: для редактирования щёлкните правой кнопкой мыши по панели текущего адреса (или вызовите внутреннюю команду <tt>cm_EditPath</tt>).</p>
+        <p>Теперь вставьте путь GVfs в строку адреса: для редактирования щёлкните правой кнопкой мыши по панели текущего адреса (или вызовите внутреннюю команду <tt>cm_EditPath</tt>).</p>
         <p>Например, доступ к</p>
         <ul>
           <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
           <li>SMB: <code>smb://servername/sharename/</code></li>
           <li>WebDAV: <code>davs://servername</code></li>
         </ul>
-        <p>Для доступа к FTP (и SSH+SCP тоже) и SMB вы можете использовать WFX-плагины <tt>ftp</tt> и <tt>samba</tt>.</p>
+        <p>Для доступа к FTP (и SSH+SCP тоже) и SMB вы можете использовать WFX-плагины <a href="plugins.html#ftp.wfx">FTP</a> и <a href="plugins.html#samba.wfx">Samba</a>.</p>
+        <br>
+
+        <p class="bold"><a name="tray">В: При шелчке по значку в трее вместо восстановления окна отображается меню с пунктами "Восстановить" и "Выход" (только GTK2).</a></p>
+        <p><span class="bold">О:</span> Добавьте библиотеку общей поддержки системного трея: например, пакет <tt>libappindicator1</tt> в Debian/Ubuntu или <tt>libappindicator-gtk2</tt> в Arch Linux.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -231,7 +231,7 @@
         <p><span class="uline"><i>Примечания:</i></span><br>
           1. Не используйте замену значков по умолчанию! Ваши значки будут заменены после обновления DC.<br>
           2. Если вы хотите оставить некоторые существующие значки, то просто удалите их в "mydctheme" и DC будет использовать их из темы по умолчанию.<br>
-          3. Некоторые нестандартные размеры значков (такие как 40x40, 60x60 и так далее) используются для HiDPI мониторов.<br>
+          3. Некоторые нестандартные размеры значков (такие как 40x40, 60x60 и так далее) используются для HiDPI мониторов.<br>
           4. Также смотрите <a href="configxml.html">&lt;CustomIcons&gt;</a>.</p>
         <p><span class="uline"><i>Как установить:</i></span></p>
         <p>1. Портативная версия<br>
@@ -357,9 +357,9 @@
         <p class="bold"><a name="f34_regutf8">В: Как я могу использовать регулярные выражения для поиска в UTF-8?</a></p>
         <p><span class="bold">О:</span> Возможность была добавлена в версии 1.0.0. Необходима библиотека PCRE2 с поддержкой 8-битной кодировки и включенной поддержкой Юникода (обычно включено по умолчанию):</p>
         <ul>
-          <li><p>Linux: необходим файл <tt>libpcre2-8.so.0</tt>. Например, пакет <tt>libpcre2-8-0</tt> в Debian и построенных на нём дистрибутивах или <tt>pcre2</tt> в Arch Linux.</p></li>
+          <li><p>Linux: необходим файл <tt>libpcre2-8.so.0</tt>. Например, пакет <tt>libpcre2-8-0</tt> в Debian/Ubuntu или <tt>pcre2</tt> в Arch Linux.</p></li>
           <li><p>Windows: необходим файл <tt>libpcre2-8.dll</tt> (по умолчанию дистрибутив Double Commander содежит эту DLL).</p></li>
-          <li><p>macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>: необходим файл <tt>libpcre2-8.dylib</tt>.</p></li>
+          <li><p>macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>: необходим файл <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <br>
 
@@ -368,7 +368,7 @@
         <p>1. <i>SynEdit</i> со встроенными правилами подсветки синтаксиса. Если хотите изменить любую схему, вы должны изменить исходный код DC или Lazarus.
           Но вы можете легко изменить используемые цвета и списки расширений файлов: откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt; Инструменты&nbsp;&gt; Редактор&nbsp;&gt; Подсветка. Не забывайте сохранять изменения для каждого типа файлов.<br>
           Все настройки сохраняются в файле <tt>highlighters.xml</tt>.</p>
-        <p>2. <i>SynUniHighlighter</i> для пользовательских схем подсветки синтаксиса (*.hgl) и вы можете попробовать найти или создать эти файлы самостоятельно (смотрите ниже).</p>
+        <p>2. <i>SynUniHighlighter</i> для пользовательских схем подсветки синтаксиса (.hgl) и вы можете попробовать найти или создать эти файлы самостоятельно (смотрите ниже).</p>
         <p>Это обычные XML-файлы, вы можете открыть их в текстовом редакторе и прочитать/отредактировать. В начале файлов расположен тег <code>&lt;General&gt;</code> (внутри <code>&lt;Info&gt;</code>):</p>
         <p>1) Старый формат: теги <code>&lt;General&gt;</code><br>
           -&nbsp;<code>&lt;Name&gt;</code>: имя для меню <i>Подсветка синтаксиса</i>;<br>
@@ -423,6 +423,11 @@
         <p class="bold"><a name="folder_sort">В: Возможно ли сортировать папки щелчком по заголовку колонки ("Дата", "Размер" и т.д.)?</a></p>
         <p><span class="bold">О:</span> Да, вы можете включить эту функцию: откройте "Настройки" в главном меню&nbsp;&gt; Параметры...&nbsp;&gt;
           Список файлов&nbsp;&gt; Сортировка&nbsp;&gt; Сортировка каталогов и используйте "сортировать как файлы и показывать первыми" или "сортировать как файлы".</p>
+        <br>
+
+        <p class="bold"><a name="slinkt">В: Как посмотреть целевые объекты символьных ссылок?</a></p>
+        <p><span class="bold">О:</span> Помимо диалога свойств файла вы можете использовать <code>GETFILELINKTO</code> в <a href="configuration.html#ConfigColumns">наборе колонок</a> или <a href="configuration.html#ConfigTooltips">всплывающей подсказке</a>. В последнем случае вы должны создать шаблон поиска и указать <code>l+</code> в атрибутах.<br>
+          Также вы можете <a href="lua.html">использовать Lua</a> и писать в окно протокола.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -442,7 +447,7 @@
         <br>
 
         <p class="bold"><a name="ftps_reuse">В: ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></p>
-        <p><span class="bold">О:</span> Сервер требует поддержки повторного использования сеанса (session reuse) и <tt>ftp.wfx</tt> это поддерживает, но нужны библиотеки OpenSSL: поместите <tt>libeay32.dll</tt> и <tt>ssleay32.dll</tt> рядом с <tt>doublecmd.exe</tt> или в PATH.</p>
+        <p><span class="bold">О:</span> Сервер требует поддержки повторного использования сеанса (session reuse) и плагин FTP это поддерживает, но нужны библиотеки OpenSSL: поместите <tt>libeay32.dll</tt> и <tt>ssleay32.dll</tt> рядом с <tt>doublecmd.exe</tt> или в PATH.</p>
         <br>
 
         <p class="bold"><a name="ftp_openssl">В: ftp.wfx: Не работает с некоторыми серверами! После подключения получаю ошибки: "104,Connection reset by peer" и "CSOCK ERROR Connection reset by peer" или "10060,Connection timed out" и "CSOCK ERROR Connection timed out".</a></p>

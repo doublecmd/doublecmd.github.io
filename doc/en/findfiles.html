@@ -56,10 +56,10 @@
         <p>Line <span class="italic">Start in directory</span> specifies directory to start search, by default will be use the current directory of the active panel.</p>
         <p>Additional options for specifying file search locations:</p>
         <ul>
-          <li><p><span class="italic">Opened tabs</span>&nbsp;&ndash; only directories of opened tabs will be used.</p></li>
+          <li><p><span class="italic">Opened tabs</span>&nbsp;&ndash; only directories of opened tabs will be used (tabs of active and inactive panels).</p></li>
           <li><p><span class="italic">Selected directories and files</span>&nbsp;&ndash; if enabled, the search will be conducted only among selected files and folders in the active panel.</p></li>
           <li><p><span class="italic">Follow symlinks</span>&nbsp;&ndash; if a symbolic link to a directory is found, the target directory will be read and used, otherwise this symbolic link will be considered a regular file.</p></li>
-          <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&ndash; a list of subdirectories to be excluded from the search.</p></li>
+          <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&ndash; a list of directories to be excluded from the search, here we can specify folder names and relative or absolute<span class="versionref"><sup>(Alpha version)</sup></span> paths.</p></li>
           <li><p><span class="italic">Search subdirectories</span> can have:</p>
           <ul>
             <li><p>current dir only,</p></li>
@@ -68,15 +68,15 @@
           </ul>
           <p>This setting controls the depth of the search in the filesystem tree. If set to "current dir only", the search will only be conducted in the directory specified in "Start in directory" (not in any subdirs).</p></li>
         </ul>
-        <p>Line <span class="italic">File mask</span> sets the mask for the search.</p>
+        <p>Line <span class="italic">File mask</span> sets the mask for the search. Or we can just specify the file name or part of it.</p>
         <p>Additional options:</p>
         <ul>
           <li><p><span class="italic">Search in archives</span>&nbsp;&ndash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>
           <li><p><span class="italic">Search for part of file name</span>&nbsp;&ndash; should be disabled if we want to use exact file name.</p></li>
           <li><p><span class="italic">Regular expression</span>&nbsp;&ndash; if enabled we can use <a href="regexp.html">regular expressions</a>.</p></li>
-          <li><p><span class="italic">Exclude files</span>&nbsp;&ndash; a list of file names to be excluded from the search.</p>
+          <li><p><span class="italic">Exclude files</span>&nbsp;&ndash; a list of file names to be excluded from the search. Masks are also supported.</p>
         </ul>
-        <p>Note: <span class="italic">File mask</span>, <span class="italic">Exclude files</span>, <span class="italic">Start in directory</span> and <span class="italic">Exclude subdirectories</span> allow to enter several values, separated with semicolon ";" without spaces. If we need to find a file with semicolon in the name, we have to enable regular expressions.</p>
+        <p>Note: <span class="italic">File mask</span>, <span class="italic">Exclude files</span>, <span class="italic">Start in directory</span> and <span class="italic">Exclude subdirectories</span> allow to enter several values, separated with semicolon ";" without spaces. If we need to find a file with semicolon in the name, we can use regular expressions.</p>
         <p>If the <span class="italic">Find text in file</span> checkbox is enabled, the process will search for the specified text in the files. We can also replace this text with any other text, specified in the line <span class="italic">Replace by</span> by enabling the checkbox.</p>
         <p>Additional options:</p>
         <ul>
@@ -86,10 +86,21 @@
           <li><p><span class="italic">Office XML</span>&nbsp;&ndash; enables a search in Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS) files.</p></li>
           <li><p>Also we can set encoding (UTF, ISO, KOI, DOS, ANSI etc.) and enable regular expressions.</p></li>
         </ul>
-        <p>Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the input fields history.</p>
+        <p>Note about text encoding: We can set the text encoding or use one of the special values:</p>
+        <ul>
+          <li><p><span class="italic">Default</span>&nbsp;&ndash; depends on the operating system and the selected system locale:</p>
+          <ul>
+            <li><p>Windows: default system ANSI encoding.</p></li>
+            <li><p>Linux and other Unix-like OS: default system text encoding, modern systems usually use UTF-8.</p></li>
+          </ul>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; default system ANSI encoding (depends on the system locale).</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; default system OEM (DOS) encoding (depends on the system locale).</p></li>
+        </ul>
+        <p>The <span class="italic">Encoding</span> button (<img title="Encoding" alt="Encoding" src="images/imgDC/bencoding.png" width="16" height="16">) allows to specify more than one encoding.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>The <span class="italic">Start</span> button starts search, <span class="italic">Cancel</span> stops search and <span class="italic">Close</span> closes the Find files window.</p>
         <p><span class="italic">New search</span>&nbsp;&ndash; clears the old results and allows to start a new search (also with new conditions).</p>
         <p><span class="italic">Last search</span>&nbsp;&ndash; loads parameters from the previous search (in the current session, before closing Double Commander).</p>
+        <p>Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the input fields history.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -299,9 +310,19 @@
         <ul>
           <li><p><span class="italic">View</span>&nbsp;&ndash; opens selected file in the viewer (<kbd>F3</kbd>).</p></li>
           <li><p><span class="italic">Edit</span>&nbsp;&ndash; opens selected file in the editor (<kbd>F4</kbd>).</p></li>
-          <li><p><span class="italic">Go to file</span>&nbsp;&ndash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file.</p></li>
+          <li><p><span class="italic">Go to file</span>&nbsp;&ndash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file (<kbd>Enter</kbd> or double click).</p></li>
           <li><p><span class="italic">Feed to listbox</span>&nbsp;&ndash; transfers a list of the found files in the active file panel.</p></li>
         </ul>
+        <p>The context menu is also available:</p>
+        <ul>
+          <li><p><span class="italic">Open In New Tab(s)</span>&nbsp;&ndash; like the <span class="italic">Go to file</span> command, but the selected file will be opened in the background tab (several selected files will be opened in separate background tabs).</p></li>
+          <li><p><span class="italic">Show In Viewer</span>.</p></li>
+          <li><p><span class="italic">Show In Editor</span>.</p></li>
+          <li><p><span class="italic">Remove from list</span> (or <kbd>Del</kbd>)&nbsp;&ndash; allows to remove unsuitable results from the list (the file system will not be affected).</p></li>
+          <li><p><span class="italic">Show all found items</span>&nbsp;&ndash; cancels the action of the previous command.</p></li>
+        </ul>
+        <p>To select several files, use the mouse and the <kbd>Ctrl</kbd> and <kbd>Shift</kbd> keys or <kbd>Shift</kbd> and arrows.</p>
+        <p>The <kbd>left arrow</kbd> and <kbd>right arrow</kbd> keys switch the focus between the list of search result and the <span class="italic">New search</span> button.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

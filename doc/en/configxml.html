@@ -12,7 +12,7 @@
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
       <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> | <a title="Next page" href="plugins.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
@@ -58,8 +58,10 @@
         <br>
         <p><b>WARNING:</b> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <tt>doublecmd.xml</tt> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
         <br>
+        <p><b>About color format</b>: We can set color as hex number using format <code>$BBGGRR</code>. For example, if we want to use the indigo color <code>#4B0082</code>, we would write <code>$82004B</code>.</p>
+        <br>
         <p>The following table gives us these rare specific settings that we need to manually edit the file if we need to change them.</p>
-        <p><b>About color format</b>: We can set color as hex number using format $BBGGRR (for example, if we want to use blue color, we would write <code>$FF0000</code>).</p>
+        <br>
 
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Setting required to be changed manually if necessary</th></tr>
@@ -115,11 +117,16 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Behaviours&gt;</small></div></td>
+            <td class="hintcell">Confirm closing Double Commander (<code>True</code>) or not (<code>False</code>). <code>False</code> by default.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>from &lt;Colors&gt;</small></div></td>
             <td class="hintcell">
               We may configure DC so it will draw a rectangle around the active entry as we we cycle through them in a panel.<br>
               This <code>&lt;gBorderFrameWidth&gt;</code> setting allows us to configure the width of the lines used to draw a rectangle around the current active entry.<br>
-              To view that rectangle, we must go in Configuration&nbsp;&gt; Options...&nbsp;&gt; Colors&nbsp;&gt; File panels and check the option <i>Use frame cursor</i>.<br>
+              To view that rectangle, we should go in Configuration&nbsp;&gt; Options...&nbsp;&gt; Colors&nbsp;&gt; File panels and check the option <i>Use frame cursor</i>.<br>
               <i>Example:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
             </td>
           </tr>
@@ -243,11 +250,6 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">For the internal viewer, enables (<code>True</code>) or disables automatic copying of the selected text to the clipboard. <code>True</code> by default.</td>
-          </tr>
-
-          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
               This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels.<br>The value is interpreted directly in pixels.<br>Default value is 2.<br>
@@ -267,7 +269,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
               When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<br>
-              If we want to disable this behavior and use new value only in the current session, we must replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
+              If we want to disable this behavior and use new value only in the current session, we should replace <code>True</code> with <code>False</code>, i.e. use <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
             </td>
           </tr>
 
@@ -464,6 +466,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SystemItemProperties&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Miscellaneous&gt;</small></div></td>
+            <td class="hintcell">Linux/FreeBSD: the <code>True</code> value allows to use the file properties dialog window of the file manager, which is specified as the default program in the desktop environment settings (if it possible), otherwise, Double Commander will use its own <a href="help.html#cm_FileProperties">properties window</a>. <code>False</code> by default.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
             <td class="hintcell">
               Synchronize directories: save or not asymmetric mode by default.<br>
@@ -494,6 +501,11 @@
                 </tr>
               </table>
             </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">For the internal viewer, enables (<code>True</code>) or disables (<code>False</code>) automatic copying of the selected text to the clipboard. <code>True</code> by default.</td>
           </tr>
 
           <tr>
@@ -546,7 +558,7 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;LeftMargin&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
-              For the internal viewer, this setting allows to add space between the left border of the window and the text border.<br>
+              For the internal viewer, this option allows to add space between the left border of the window and the text border.<br>
               The value is interpreted directly in pixels.<br>
               Default value is 4.<br>
               <i>Example:</i> <code>&lt;LeftMargin&gt;4&lt;/LeftMargin&gt;</code>
@@ -563,6 +575,15 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SynEditMask&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              For the internal viewer, this option allows to manage the list of file extensions for code view mode (of course, within the available list).
+              We can specify file masks (separated by semicolons ";" without spaces) that will automatically open in this mode instead of plain text, or the name of a search template to exclude. We can also disable automatic opening of files in this mode by setting an empty string.
+              The default value is "*".
+            </td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, set the width of tab stops to use.<br>
@@ -575,7 +596,7 @@
         <br>
       </div>
     </div>
-    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="commandline.html">Previous</a> | <a title="Next page" href="plugins.html">Next</a></div></div>
     <div class="checker">
       <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>

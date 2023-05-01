@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - Предустановленные плагины</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="configxml.html">Пред.</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.18. Предустановленные плагины</h1>
+      </div>
+
+      <div>
+        <h2>Содержание</h2>
+        <dl>
+          <dt>1. Архиваторные плагины (WCX)</dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#base64.wcx">Base64</a><span class="versionref"><sup>(Альфа-версия)</sup></span></dt>
+              <dt>1.2. <a href="#cpio.wcx">CPIO</a></dt>
+              <dt>1.3. <a href="#deb.wcx">DEB</a></dt>
+              <dt>1.4. <a href="#rpm.wcx">RPM</a></dt>
+              <dt>1.5. <a href="#sevenzip.wcx">SevenZip</a></dt>
+              <dt>1.6. <a href="#unrar.wcx">UnRAR</a></dt>
+              <dt>1.7. <a href="#zip.wcx">Zip</a></dt>
+            </dl>
+          </dd>
+          <dt>2. Информационные (или контентные) плагины (WDX)</dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#bexif">Встроенный плагин Exif</a></dt>
+              <dt>2.2. <a href="#audioinfo.wdx">AudioInfo</a></dt>
+              <dt>2.3. <a href="#deb_wdx.wdx">DEB</a></dt>
+              <dt>2.4..<a href="#rpm_wdx.wdx">RPM</a></dt>
+              <dt>2.5. <a href="#lscripts">Скрипты Lua</a></dt>
+            </dl>
+          </dd>
+          <dt>3. Плагины файловой системы (WFX)</dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#ftp.wfx">FTP</a></dt>
+              <dt>3.2. <a href="#samba.wfx">Samba</a></dt>
+            </dl>
+          </dd>
+          <dt>4. Плагины встроенной программы просмотра (WLX)</dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#macpreview.wlx">MacPreview</a><span class="versionref"><sup>(Альфа-версия)</sup></span></dt>
+              <dt>4.2. <a href="#preview.wlx">Explorer Preview</a></dt>
+              <dt>4.3. <a href="#richview.wlx">Rich Text Format</a><span class="versionref"><sup>(Альфа-версия)</sup></span></dt>
+              <dt>4.4. <a href="#wlxmplayer.wlx">WlxMplayer</a></dt>
+              <dt>4.5. <a href="#wmp.wlx">Windows Media Player</a></dt>
+            </dl>
+          </dd>
+          <dt>5. Плагины поиска (DSX)</dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#dsxlocate.dsx">DSXLocate</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="wcx">1. Архиваторные плагины (WCX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="base64.wcx">Base64</a></span><span class="versionref"><sup>(Альфа-версия)</sup></span></p>
+        <p>Плагин Base64 предоставляет возможность кодировать и декодировать файлы по схеме Base64, это один из стандартов кодирования двоичных данных при помощи печатных символов ASCII.</p>
+        <br>
+
+        <p><span class="bold"><a name="cpio.wcx">CPIO</a></span></p>
+        <p>Архиваторный плагин для распаковки архивов CPIO.</p>
+        <br>
+
+        <p><span class="bold"><a name="deb.wcx">DEB</a></span></p>
+        <p>Архиваторный плагин для распаковки файлов пакетов системы управления пакетами dpkg (Debian и дистрибутивы, основанные на нём).</p>
+        <p>Linux и другие Unix-подобные ОС (в Windows для этого формата Double Commander использует плагин <a href="#sevenzip.wcx">SevenZip</a>).</p>
+        <br>
+
+        <p><span class="bold"><a name="rpm.wcx">RPM</a></span></p>
+        <p>Архиваторный плагин для распаковки файлов пакетов системы управления пакетами Red Hat (Red Hat Linux, SUSE Linux и другие).</p>
+        <br>
+
+        <p><span class="bold"><a name="sevenzip.wcx">SevenZip</a></span></p>
+        <p>Архиваторный плагин для работы с файлами .7z, .arj, .cab, .cpio, .cramfs, .deb, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar и .z. Также мы можем добавить другие типы файлов, которые поддерживаются 7-Zip.</p>
+        <p>Примечание: Для некоторых форматов поддерживается только чтение, то есть доступны только просмотр содержимого, распаковка и тестирование.</p>
+        <p>Только Windows.</p>
+        <br>
+
+        <p><span class="bold"><a name="unrar.wcx">UnRAR</a></span></p>
+        <p>Архиваторный плагин для распаковки архивов RAR.</p>
+        <p>Для использования этого плагина нам необходима библиотека <a href="https://www.rarlab.com/" target="_blank">UnRAR</a>, плагин будет использовать <tt>unrar.dll</tt> (Windows), <tt>libunrar.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libunrar.so</tt> или <tt>libunrar.so.5</tt> (Linux и другие Unix-подобные ОС).</p>
+        <p>Дистрибутивы Double Commander для Windows и портативная версия для Linux содержат необходимую библиотеку, в иных случаях мы можем использовать обычные способы получения библиотек в операционной системе (например, пакет <tt>libunrar5</tt> в Debian/Ubuntu или <tt>libunrar</tt> в Arch Linux). В противном случае мы можем попробовать найти подходящий вариант на <a href="https://www.rarlab.com/rar_add.htm" target="_blank">этой</a> странице (файл должен быть скопирован в системный каталог или каталог, в котором расположен исполняемый файл Double Commander).</p>
+        <p>Плагин также поддерживает возможность упаковать файлы в архив RAR, для этого нам нужно указать путь к <tt>WinRAR.exe</tt> (Windows) или к утилите командной строки <tt>rar</tt> (в иных случаях) в настройках плагина.</p>
+        <br>
+
+        <p><span class="bold"><a name="zip.wcx">Zip</a></span></p>
+        <p>Архиваторный плагин для работы с архивами .bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .tzst, .xz, .zip, .zipx и .zst. Также этот плагин может открыть файлы, основанные на ZIP (EPUB, Office Open XML, формат OpenDocument, CRX, XPI и другие).</p>
+        <p>Требуются дополнительные библиотеки сжатия:</p>
+        <ul>
+          <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libbz2.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
+          <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>liblzma.so.5</tt> (Linux и другие Unix-подобные ОС).</p></li>
+          <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libzstd.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
+        </ul>
+        <p>Дистрибутивы Double Commander для Windows содержат все необходимые библиотеки и эти библиотеки обычно установлены по умолчанию в Linux для настольных компьютеров/рабочих станций.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wdx">2. Информационные (или контентные) плагины (WDX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="bexif">Встроенный плагин Exif</a></span></p>
+        <p>В программу встроен информационный плагин Exif для получения некоторых данных, которые могут храниться в метаданных файлов JPEG: дата, размеры в пикселях, ориентация изображения и информация о камере.</p>
+        <p>Только изображения JPEG.</p>
+        <br>
+
+        <p><span class="bold"><a name="audioinfo.wdx">AudioInfo</a></span></p>
+        <p>Этот контентный плагин показывает информацию об аудиофайлах, техническую (продолжительность, битрейт, количество каналов и так далее) и метаданные (название, исполнитель и другое).</p>
+        <p>Поддерживаются следующие типы метаданных: ID3v1 (1.0, 1.1), ID3v2 (2.2, 2.3, 2.4), APE (1.0, 2.0), комментарии Vorbis.</p>
+        <br>
+
+        <p><span class="bold"><a name="deb_wdx.wdx">DEB</a></span></p>
+        <p>Этот контентный плагин показывает информацию о файлах пакетов системы управления пакетами dpkg (Debian и дистрибутивы, основанные на нём): имя пакета, версия, описание, зависимости и другое.</p>
+        <br>
+
+        <p><span class="bold"><a name="rpm_wdx.wdx">RPM</a></span></p>
+        <p>Этот контентный плагин показывает информацию о файлах пакетов системы управления пакетами Red Hat (Red Hat Linux, SUSE Linux и другие): имя пакета, версия, описание и другое.</p>
+        <br>
+
+        <p><span class="bold"><a name="lscripts">Скрипты Lua</a></span></p>
+        <p>Каталог <tt>plugins/wdx/scripts</tt> содержит несколько примеров информационных плагинов, написанных на Lua (подробнее смотрите на странице справки <a href="lua.html">Скрипты Lua</a>).</p>
+        <p>Эти плагины не добавлены в настройках программы.</p>
+        <ul>
+          <li><p><tt>descriptionwdx.lua</tt>&nbsp;&ndash; читает описание файлов из <tt>descript.ion</tt>.</p></li>
+          <li><p><tt>fulltextodtwdx.lua</tt>&nbsp;&ndash; ищет текст в файлах OpenDocument Text (ODT). Требуется <tt>odt2txt</tt>.</p></li>
+          <li><p><tt>simplewdx.lua</tt>&nbsp;&ndash; простой пример с несколькими полями.</p></li>
+          <li><p><tt>textlinewdx.lua</tt>&nbsp;&ndash; возвращает первые строки обычных текстовых файлов (.txt, .ini) по одной, с первой по пятую.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wfx">3. Плагины файловой системы (WFX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="ftp.wfx">FTP</a></span></p>
+        <p>Это плагин файловой системы для работы со следующими сетевыми протоколами: FTP, FTPS, FTPES, SFTP и SSH+SCP. Плагин также поддерживает работу с прокси-серверами (HTTP, SOCKS 4 или SOCKS 5).</p>
+        <p>Требуются дополнительные библиотеки:</p>
+        <p>1) Протоколы SSL и TLS</p>
+        <p>Пакет безопасности Microsoft Unified Security Protocol Provider (только Windows) или криптографическая библиотека <a href="https://www.openssl.org/" target="_blank">OpenSSL</a>. Во втором случае плагин FTP будет использовать <tt>ssleay32.dll</tt> и <tt>libeay32.dll</tt> (Windows), <tt>libssl.dylib</tt> и <tt>libcrypto.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) или <tt>libssl.so</tt> и <tt>libcrypto.so</tt> (Linux и другие Unix-подобные ОС).</p>
+        <p>2) Протокол SSH</p>
+        <p>Библиотека <a href="https://libssh2.org/" target="_blank">libssh</a>: плагин FTP будет использовать <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) или <tt>libssh2.so.1</tt> (Linux и другие Unix-подобные ОС).</p>
+        <p>Дистрибутивы Double Commander для Windows содержат эту библиотеку, в иных случаях мы можем использовать обычные способы получения библиотек в операционной системе (например, пакет <tt>libssh2-1</tt> в Debian/Ubuntu или <tt>libssh2</tt> в Arch Linux).</p>
+        <br>
+
+        <p><span class="bold"><a name="samba.wfx">Samba</a></span></p>
+        <p>Это плагин файловой системы для работы с сетевыми каталогами (SMB/CIFS).</p>
+        <p>Только Linux.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wlx">4. Плагины встроенной программы просмотра (WLX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="macpreview.wlx">MacPreview</a></span><span class="versionref"><sup>(Альфа-версия)</sup></span></p>
+        <p>Универсальный (форматы офисных документов, изображения, видеофайлы, аудиофайлы и другое) плагин, использующий <a href="https://ru.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>, как в Finder.</p>
+        <p>Только macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>.</p>
+        <br>
+
+        <p><span class="bold"><a name="preview.wlx">Explorer Preview</a></span></p>
+        <p>Плагин для отображения расширенного предварительного просмотра. Интерфейс IPreviewHandler поддерживает множество форматов (зависит от версии операционной системы и установленных приложений), по умолчанию в детект-строку добавлены только файлы HTML.</p>
+        <p>Примечание: Обработчики предварительного просмотра могут отображать не всю информацию, содержащуюся в файле.</p>
+        <p>Только Windows.</p>
+        <br>
+
+        <p><span class="bold"><a name="richview.wlx">Rich Text Format</a></span><span class="versionref"><sup>(Альфа-версия)</sup></span></p>
+        <p>Плагин для просмотра файлов RTF.</p>
+        <p>Только Windows.</p>
+        <br>
+
+        <p><span class="bold"><a name="wlxmplayer.wlx">WlxMplayer</a></span></p>
+        <p>Плагин просмотра видео файлов. Требуется <tt>mplayer</tt>.</p>
+        <p>Только Linux.</p>
+        <br>
+
+        <p><span class="bold"><a name="wmp.wlx">Windows Media Player</a></span></p>
+        <p>Плагин для воспроизведения аудио- и видеофайлов. Этот плагин использует интерфейс IWMPPlayer4 (ActiveX), требуется Windows Media Player 9 или более поздней версии.</p>
+        <p>Только Windows.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dsx">5. Плагины поиска (DSX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="dsxlocate.dsx">DSXLocate</a></span></p>
+        <p>Этот плагин использует <tt>locate</tt> и её базу данных файлов для поиска. Мы можем использовать поиск по имени файла, его части или маске (звёздочка "*" обозначает любое количество символов).</p>
+        <p>Linux и другие Unix-подобные ОС.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="configxml.html">Пред.</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

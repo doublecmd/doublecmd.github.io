@@ -82,19 +82,18 @@
           <li><p>The <a href="https://sourceforge.net/p/doublecmd/wiki/Download/" target="_blank">releases</a> page on SourceForge.</p></li>
           <li><p>Double Commander is available in the repositories of many Linux distributions and in the FreeBSD Ports collection.</p></li>
           <li><p>Double Commander has its own <a href="faq.html#repo">repository</a> for several Linux distributions (the official repositories of Linux distributions do not always contain the current (latest) version of the program).</p></li>
-          <li><p>And you can build Double Commander yourself.</p></li>
+          <li><p>And you can <a href="https://github.com/doublecmd/doublecmd/wiki/Development" target="_blank">build</a> Double Commander yourself.</p></li>
         </ul>
         <p><a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">Version archive</a> is also available.</p>
-        <p>First, you must choose which operating system (Windows, Linux, macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, FreeBSD), whether 32 or 64 bit and then you may select the version to download.</p>
+        <p>First, you must choose which operating system (Windows, Linux, macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), processor architecture and then you may select the version to download.</p>
         <p>For Windows there is an executable file <tt>.exe</tt> (Inno Setup) or <tt>.msi</tt> and an archive <tt>.zip</tt> (which is the so-called portable version).</p>
-        <p>For Linux there are versions based on GTK toolkit and based on Qt. Also portable version is available (compiled binaries packed with XZ, use <tt>doublecmd.sh</tt> to launch).</p>
+        <p>For Linux there are versions based on GTK toolkit and based on Qt. Also portable versions are available (compiled binaries packed with XZ, use <tt>doublecmd.sh</tt> to launch).</p>
         <p>Note: The features of the update of the portable version are described in the <a href="faq.html#pupd">FAQ</a>.</p>
         <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages. The language can be changed in the menu via <a href="configuration.html#ConfigLang">Configuration&nbsp;&gt; Options...&nbsp;&gt; Language</a>.</p>
         <p>Double Commander determines and uses the current system theme. It looks like this (Ubuntu, three themes and two icon sets):</p>
         <p class="figure"><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="690" height="500"></p>
         <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager). Double Commander also supports dark mode in Windows (Windows 10 1809 and newer).<span class="versionref"><sup>(Alpha version)</sup></span></p>
-        <p>Double Commander uses Total Commander plugin API, so under Windows you can use plugins from Total Commander (many of them are compatible with DC). See the description of the types of plugins in the <a href="configuration.html#ConfigPlugins">Plugins</a> settings section.</p>
-        <p>DC is distributed with several pre-installed plugins: <a href="multiarc.html#withplugin">several</a> packer plugins (WCX) for working with archives as directories (virtual file system, VFS), file system plugin (WFX) for working with FTP, some content plugins (WDX). The program has a built-in Exif content plugin to get some data that can be stored in the metadata of JPEG files: date, pixel dimensions, image orientation and camera information. Version for Linux includes WFX plugin for working with network storage (SMB/CIFS), search plugin (DSX) and lister plugin (WLX) for viewing video. Version for Windows includes three WLX plugins: Windows Media Player, Explorer Preview and plugin for viewing RTF<span class="versionref"><sup>(Alpha version)</sup></span>. Version for macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup> includes the universal WLX plugin MacPreview.<span class="versionref"><sup>(Alpha version)</sup></span> Other plugins can be installed manually.</p>
+        <p>Double Commander uses Total Commander plugin API, so under Windows you can use plugins from Total Commander (many of them are compatible with DC). See the description of the types of plugins in the <a href="configuration.html#ConfigPlugins">Plugins</a> settings section. DC is distributed with several <a href="plugins.html">pre-installed plugins</a>, other plugins can be installed manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -123,7 +122,7 @@
 
         <p><span class="bold">Create Directory</span> (internal command <tt>cm_MakeDir</tt>)&nbsp;&ndash; creates a new subdirectory in the current directory. The file name (without extension) or directory name under the cursor will be offered, this is useful for creating multiple directories with similar names. You can also create several subdirectories in one operation, just separate the subdrectories with the directory separator (in Unix/Linux system it will be "/" and in Windows it will be "\").</p>
         <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="144"></p>
-        <p>If <span class="italic">Extended syntax</span><span class="versionref"><sup>(Alpha version)</sup></span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time, inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
+        <p>If <span class="italic">Extended syntax</span><span class="versionref"><sup>(Alpha version)</sup></span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
 
         <p><span class="bold">Create Shortcut</span> (Windows only)&nbsp;&ndash; Double Commander creates a shortcut (Microsoft Windows .lnk file) to the file under the cursor, and places it in a folder, open on the adjacent panel.</p>
 
@@ -135,7 +134,7 @@
           <img class="largeimage" title="Show file properties: Attributes" alt="Show file properties" src="images/imgDC/pic17.png" width="360" height="406">
           <img class="largeimage" title="Show file properties: Plugins" alt="Show file properties" src="images/imgDC/pic18.png" width="360" height="406">
         </p>
-        <p>which indicates the file or folder name, size, write and last access time, and also owner and group. On the "Attributes" tab you can change the access to the file (if you have the rights to do so). The "Plugins" tab is optional and is only available if you have a suitable content plugin (in this case it was <tt>deb.wdx</tt>).</p>
+        <p>which indicates the file or folder name, size, write and last access time, and also owner and group. On the "Attributes" tab you can change the access to the file (if you have the rights to do so). The "Plugins" tab is optional and is only available if you have a suitable content plugin (in this case it was <a href="plugins.html#deb_wdx.wdx">DEB</a>). Also see description of <a href="configxml.html">&lt;SystemItemProperties&gt;</a>.</p>
 
         <p>Using item <a name="cm_EditComment"><span class="bold">Edit comment...</span></a> (internal command <tt>cm_EditComment</tt>) you can create or change file comments, which stored in a file <tt>descript.ion</tt>. Supports UTF, ISO, KOI and ANSI encodings.</p>
         <p>Comments only work with normal files on the local file system, but not on remote or virtual file systems (e.g. on FTP server, in archive, etc.).</p>
@@ -261,6 +260,7 @@
         <ul>
           <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; used to access files deleted to trash.</p></li>
           <li><p><tt>Network</tt>&nbsp;&ndash; used to access shared network resources (Windows only).</p></li>
+          <li><p><tt>Linux</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
         </ul>
         <p><span class="bold"><a name="cm_Exchange">Swap Panels</a></span> (internal command <tt>cm_Exchange</tt>) swaps left and right file panels with all opened tabs.</p>
         <p><span class="bold">Target = Source</span> (internal command <tt>cm_TargetEqualSource</tt>) opens the same directory in the inactive file panel.</p>
@@ -271,7 +271,12 @@
       <div>
         <h2><a name="mnu_net">2.1.4. "Network"</a></h2>
         <p><span class="bold">Network Connect</span>&nbsp;&ndash; will open a list of added file system plugins (WFX plugins), as the <a href="#cm_OpenVirtualFileSystemList">Open VFS List</a> command in the "Commands" menu.</p>
-        <p><span class="bold">Network Disconnect</span>&nbsp;&ndash; will close the active network connection.</p>
+        <p><span class="bold">Network Disconnect</span>&nbsp;&ndash; will close the active network connection. Double Commander will close one of the following connections (in descending order of priority):</p>
+        <ul>
+          <li><p>opened in the active panel;</p></li>
+          <li><p>opened in the inactive panel;</p></li>
+          <li><p>last created.</p></li>
+        </ul>
         <p>The next items are for Windows only.</p>
         <p><span class="bold">Map Network Drive</span> and <span class="bold">Disconnect Network Drive</span>&nbsp;&ndash; will call the Windows system dialogs to connect and disconnect network drives.</p>
         <p><span class="bold">Copy names with UNC path</span>&nbsp;&ndash; will copy the full file name on the network to the clipboard: server name, share name, and relative file path.</p>
@@ -409,9 +414,9 @@
       <div>
         <h2><a name="iface_dir">2.6. Current directory bar</a></h2>
         <p class="figure"><img class="largeimage" title="Current directory bar" alt="Current directory bar" src="images/imgDC/pic7.png" width="372" height="21"></p>
-        <p>Displays the name of the current directory. A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories.</p>
+        <p>Displays the name of the current directory. A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories:</p>
         <p class="figure"><img class="largeimage" title="Directories history" alt="Directories history" src="images/imgDC/pic8.png" width="372" height="164"></p>
-        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually (environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory).</p>
+        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually (environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory). A double click or middle mouse click drop down a directory hotlist.</p>
         <p>It is now also possible to click on parts of the directory bar to quickly navigate back in the directory structure. Very handy if you want to go to a parent directory back many levels. This is known as a "breadcrumb" navigation feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -439,18 +444,18 @@
         <p><span class="italic">Thumbnails</span>&nbsp;&ndash; files shown as small images. If possible, in more than one column. You can change the size of the thumbnails in the <a href="configuration.html#ConfigMisc">Miscellaneous</a> settings section.</p>
         <p class="figure"><img class="largeimage" title="Brief view / Thumbnails" alt="Brief view / Thumbnails" src="images/imgDC/pic56.png" width="786" height="307"></p>
         <p>Double Commander can use the capabilities of the operating system to create thumbnails or create them itself. You can choose to allow the thumbnail cache to be saved to disk, or to keep it in memory only until the program is closed (see <a href="configuration.html#ConfigMisc">Miscellaneous</a>).</p>
-        <p>The methods of creating thumbnails and the supported file formats depend on the family of the operating system used.</p>
+        <p>The methods of creating thumbnails and the supported file formats depend on the family of the operating system.</p>
         <ul>
           <li><p>Windows: Double Commander uses the capabilities of the operating system (as in Windows Explorer), WLX plugins with thumbnail creation support and supplements the list with image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>.</p></li>
-          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>: Double Commander uses the capabilities of the operating system (<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>) and supplements the list with image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>. The program also supports the OpenDocument format (*.odt, *.ods, *.odp, *.odg) and will try to create thumbnails (if files contains "Thumbnails/thumbnail.png") before using the Quick Look API.</p></li>
+          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>: Double Commander uses the capabilities of the operating system (<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>) and supplements the list with image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>. The program also supports the OpenDocument format (.odt, .ods, .odp, .odg) and will try to create thumbnails (if files contains "Thumbnails/thumbnail.png") before using the Quick Look API.</p></li>
           <li>
             <p>Linux and other Unix-like systems: Double Commander creates thumbnails for the following formats:</p>
             <ul>
               <li><p>image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>;</p></li>
               <li><p>XCF image format (if ImageMagick library is available);</p></li>
-              <li><p>some popular video formats (if FFmpegthumbnailer library is available): *.avi, *.flv, *.mkv, *.mov, *.mp4, *.mpeg, *.mpg, *.vob, *.webm, *.wmv;</p></li>
+              <li><p>some popular video formats (if FFmpegthumbnailer library is available): .avi, .flv, .mkv, .mov, .mp4, .mpeg, .mpg, .vob, .webm, .wmv;</p></li>
               <li><p>embedded cover art of MP3 files;</p></li>
-              <li><p>OpenDocument format (if files contains "Thumbnails/thumbnail.png"): *.odt, *.ods, *.odp, *.odg.</p></li>
+              <li><p>OpenDocument format (if files contains "Thumbnails/thumbnail.png"): .odt, .ods, .odp, .odg.</p></li>
             </ul>
           </li>
         </ul>
@@ -469,7 +474,7 @@
           <li><p><span class="italic">Right button</span>&nbsp;&ndash; The left button works the same way, the right button allows to select files by clicking on the file name. A slightly longer hold of the right button will call the context menu of files. To select several consecutive files, you can hold down the right mouse button and move the mouse cursor over the list of files. To deselect all selected files, you can use the appropriate internal command (see below).</p></li>
         </ul>
         <p>You can use a mouse click with modifier keys: <kbd>Ctrl</kbd> (select the next file, anywhere in the list) and <kbd>Shift</kbd> (add several consecutive files to selection). To select several consecutive files, you can hold down <kbd>Shift</kbd> and use the up and down keys.</p>
-        <p>It is also possible to select files by clicking on their icons, you can enable this function in the <a href="configuration.html#ConfigMouse">Mouse</a> settings section. At the same time Double Commander will move the cursor to the selected file, as when using a mouse click with the <kbd>Ctrl</kbd> key. This way in thumbnail view works when you click on left part (1/4 or 25%) of image, so you can set cursor without selection by mouse clicking on right image part.</p>
+        <p>It is also possible to select files by clicking on their icons, you can enable this function in the <a href="configuration.html#ConfigMouse">Mouse</a> settings section. At the same time Double Commander will move the cursor to the selected file, as when using a mouse click with the <kbd>Ctrl</kbd> key. This way in thumbnail view works when you click on left part (1/4 or 25%) of image, so you can set cursor without selection by mouse clicking on right image part. This function is convenient to use to deselect a large number of files: click on the icon of any selected file and then on its name.</p>
         <p>You can completely disable selection with the mouse: the left button will only set the cursor, the right button will call the context menu.</p>
         <p>Special <a href="cmds.html#catmark">commands</a> are available for selecting and deselecting files, which allow to use different conditions: by name or part of the name, file type, attributes and more. Some of them have been added to the <a href="#mnu_select">Mark</a> menu, you can <a href="configuration.html#ConfigHotKeys">assign hotkeys</a> or add buttons to the <a href="toolbar.html">toolbar</a>. Or open a window with a list and description of all internal commands (internal command <tt>cm_DoAnyCmCommand</tt>, <kbd>Shift+F12</kbd> by default) and go to the <span class="italic">Mark</span> category.</p>
         <br>
@@ -485,15 +490,15 @@
         <br>
 
         <p><a name="cm_ContextMenu"><span class="bold">Context menu</span></a></p>
-        <p>The appearance and contents of the context menu of files (the right mouse button menu) depend on the family of the operating system used. In Windows Double Commander uses the system context menu (as in Windows Explorer) with the "Actions" submenu (see below), in other operating systems Double Commander creates its own context menu with typical actions. If you prefer to use the right mouse button selection mode, then a slightly longer hold of the right button will be required to call this menu. You can use the internal command <a href="cmds.html#cm_ContextMenu">cm_ContextMenu</a> to call the context menu (<kbd>Shift+F10</kbd> by default).</p>
+        <p>The appearance and contents of the context menu of files (the right mouse button menu) depend on the family of the operating system. In Windows Double Commander uses the system context menu (as in Windows Explorer) with the "Actions" submenu (see below), in other operating systems Double Commander creates its own context menu with typical actions. If you prefer to use the right mouse button selection mode, then a slightly longer hold of the right button will be required to call this menu. You can use the internal command <a href="cmds.html#cm_ContextMenu">cm_ContextMenu</a> to call the context menu (<kbd>Shift+F10</kbd> by default).</p>
         <p>Context menu of Double Commander in Linux and other Unix-like systems:</p>
         <ul>
           <li><p><span class="italic">Open</span>&nbsp;&ndash; Open the file under the cursor in the default program (system file associations will be used).</p></li>
-          <li><p>The <span class="italic">Actions</span> submenu&nbsp;&ndash; contains all the actions added to the <a href="configuration.html#ConfigAssociations">file association</a> for files with the file extension under the cursor. This submenu always contains items for calling the viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>) and you can add a few <a href="configuration.html#ConfigAssocEx">additional actions</a>.</p></li>
-          <li><p>The <span class="italic">Open with</span> submenu&nbsp;&ndash; contains a list of applications suitable for opening a file. To get the list in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>, Double Commander uses the Launch Services API, in other systems the program follows the <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">Desktop Menu</a> specification.<br>
-            The additional item <span class="italic">Other...</span> (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>) will open the application selection window: you can choose an application from a list of all available applications or manually specify the command line to open the file. Also here you can save an additional system association for the file type, add a new one or change the default application (Double Commander will use the <tt>~/.config/mimeapps.list</tt> file (see <a href="https://specifications.freedesktop.org/mime-apps-spec/latest" target="_blank">Association between MIME types and applications</a>).</p></li>
+          <li><p>The <span class="italic">Actions</span> submenu&nbsp;&ndash; contains all the actions added to the <a href="configuration.html#ConfigAssociations">file association</a> for files with the file extension under the cursor. Also you can add a few <a href="configuration.html#ConfigAssocEx">additional actions</a>.</p></li>
+          <li><p>The <span class="italic">Open with</span> submenu&nbsp;&ndash; contains a list of applications suitable for opening a file. To get the list in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>, Double Commander uses the Launch Services API, in other systems the program follows the <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">Desktop Menu</a> specification.<br>
+            The additional item <span class="italic">Other...</span> (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) will open the application selection window: you can choose an application from a list of all available applications or manually specify the command line to open the file. Also here you can save an additional system association for the file type, add a new one or change the default application (Double Commander will use the <tt>~/.config/mimeapps.list</tt> file (see <a href="https://specifications.freedesktop.org/mime-apps-spec/latest" target="_blank">Association between MIME types and applications</a>).</p></li>
 
-          <li><p><span class="italic">Services</span>&nbsp;&ndash; system services (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup> only).</p></li>
+          <li><p><span class="italic">Services</span>&nbsp;&ndash; system services (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup> only).</p></li>
           <li><p><span class="italic">Pack here...</span>&nbsp;&ndash; calls the <a href="#cm_PackFiles">command to pack</a> the selected file(s), the current directory will be used as the target directory.</p></li>
           <li><p><span class="italic">Extract here...</span>&nbsp;&ndash; calls the <a href="#cm_ExtractFiles">command to unpack</a> the selected file, the current directory will be used as the target directory. This item will be added only if the file extension is specified in the settings of archiver plugins or external archivers.</p></li>
           <li><p>Calling basic file operations: <span class="italic">Move</span> (<kbd>F6</kbd>), <span class="italic">Copy</span> (<kbd>F5</kbd>), <span class="italic">Delete</span> (<kbd>F8</kbd>), <span class="italic">Rename</span> (<kbd>F2</kbd>).</p></li>
@@ -505,7 +510,7 @@
           <li><p><span class="italic">Refresh</span>&nbsp;&ndash; the command to reread the contents of the directory in the panel.</p></li>
           <li><p>The <span class="italic">Sort by</span> submenu&nbsp;&ndash; contains commands for switching the sorting method: by name, file extension, size, modification date or attributes. Also added the <span class="italic">Reverse Order</span> command which switches the sorting direction.</p></li>
           <li><p><span class="italic">Paste</span>&nbsp;&ndash; used to copy and move files using the clipboard.</p></li>
-          <li><p>The <span class="italic">New</span> submenu&nbsp;&ndash; contains commands for creating a directory (<kbd>F7</kbd>) and a text file (<kbd>Shift+F4</kbd>). Also this submenu contains templates for new files, if the system directory with templates exists and is not empty (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>).</p></li>
+          <li><p>The <span class="italic">New</span> submenu&nbsp;&ndash; contains commands for creating a directory (<kbd>F7</kbd>) and a text file (<kbd>Shift+F4</kbd>). Also this submenu contains templates for new files, if the system directory with templates exists and is not empty (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>).</p></li>
           <li><p><span class="italic">Show file properties</span>&nbsp;&ndash; Show the <a href="#cm_FileProperties">properties window</a> of the current directory.</p></li>
         </ul>
         <p>Context menu inside an open archive or a file system plugin (WFX) is always the same and does not depend on the operating system:</p>
@@ -551,6 +556,7 @@
         <p class="figure"><img class="largeimage" title="Command line" alt="Command line" src="images/imgDC/pic12.png" width="738" height="29"></p>
         <p>Use to enter commands manually. Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). The button on the right with an arrow opens the history of the entered commands. Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history.</p>
         <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. Environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory. If you use a path with the file name, Double Commander will place the cursor on this file.</p>
+        <p>Several <a href="cmds.html#catcommandline">internal commands</a> are available for working with the command line.</p>
         <p>Right mouse click will show the usual input box menu that contains standard commands <span class="italic">Cut</span>, <span class="italic">Copy</span>, <span class="italic">Paste</span>, <span class="italic">Delete</span>, <span class="italic">Select All</span> and submenu <span class="italic">Insert Unicode Control Character</span>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

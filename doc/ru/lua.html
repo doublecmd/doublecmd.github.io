@@ -67,7 +67,9 @@
 
       <div>
         <h2><a name="preface">1. Введение</a></h2>
-        <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
+        <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.
+          Параметры скриптов должны передаваться как есть, без экранирования (без кавычек или "\"), для этого необходимо использовать переменную <a href="variables.html#quotation">%"0</a>: например, <code>%"0%p0</code> для файла под курсором вместо <code>%p0</code>, <code>%"0%D</code> для текущего каталога вместо <code>%D</code> и так далее.
+          Для получения списка всех выделенных файлов мы можем использовать <a href="variables.html#listoffiles">%LU</a> или внутренние команды <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a> или <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</p>
         <p>Также на языке Lua можно писать информационные плагины, примеры можно найти в папке программы (<tt>plugins/wdx/scripts</tt>).
           В Вики есть <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">страница</a>, посвящённая написанию плагинов.
           Ограничения: поддерживаются только следующие типы данных</p>
@@ -88,8 +90,8 @@
 
       <div>
         <h2><a name="dllrequired">2. Необходимая DLL</a></h2>
-        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua (Double Commander поддерживает версии 5.1 - 5.4), DLL-файл должен лежать рядом с исполняемым файлом Double Commander или в системной папке.</p>
-        <p>По умолчанию DC ищет файл с именем <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix или GNU/Linux) или <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#Mac_OS_X" target="_blank">*</a>)</sup>). Мы можем вручную изменить имя файла в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
+        <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua, Double Commander поддерживает версии 5.1 - 5.4.</p>
+        <p>По умолчанию DC ищет файл с именем <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix или GNU/Linux) или <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) в своём каталоге и в системном. Мы можем изменить имя файла (и путь) в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
         <p>Мы можем использовать DLL-файл <a href="https://luajit.org/" target="_blank">проекта LuaJIT</a>.
            LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
         <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать. Если используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
@@ -961,9 +963,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Конвертирует кодировку <var>String</var> из <var>FromEnc</var> в <var>ToEnc</var>.</p>
               <p>Список поддерживаемых значений кодировок:</p>
               <ul>
-                <li>Системная кодировка по умолчанию (зависит от локали): "default".</li>
-                <li>Кодировка ANSI (Windows) по умолчанию (зависит от локали): "ansi".</li>
-                <li>Кодировка OEM (DOS) по умолчанию (зависит от локали): "oem".</li>
+                <li>Системная кодировка по умолчанию (зависит от языковых стандартов системы): "default".</li>
+                <li>Кодировка ANSI (Windows) по умолчанию (зависит от языковых стандартов системы): "ansi".</li>
+                <li>Кодировка OEM (DOS) по умолчанию (зависит от языковых стандартов системы): "oem".</li>
                 <li>Юникод: "utf8", "utf8bom", "ucs2le", "ucs2be".</li>
                 <li>ANSI (Windows): "cp1250", "cp1251", "cp1252", "cp1253", "cp1254", "cp1255", "cp1256", "cp1257", "cp1258".</li>
                 <li>OEM (DOS): "cp437", "cp850", "cp852", "cp866", "cp874", "cp932", "cp936", "cp949", "cp950".</li>
@@ -972,17 +974,17 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               </ul>
               Специальные значения кодировок (примеры).
               <br><br>
-              В Windows с русской локалью:
+              В Windows (английкий или русский языки):
               <ul>
-              <li>"default" - cp1251</li>
-              <li>"ansi" - cp1251</li>
-              <li>"oem" - cp866</li>
+              <li>"default" - cp1252 или cp1251</li>
+              <li>"ansi" - cp1252 или cp1251</li>
+              <li>"oem" - cp850 или cp866</li>
               </ul>
-               В Linux с русской локалью:
+              В Linux (английкий или русский языки):
               <ul>
               <li>"default" - utf8</li>
-              <li>"ansi" - cp1251</li>
-              <li>"oem" - cp866</li>
+              <li>"ansi" - cp1252 или cp1251</li>
+              <li>"oem" - cp850 или cp866</li>
               </ul>
             </td>
           </tr>
@@ -1052,13 +1054,13 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Получить в <var>Value</var> значение переменной окружения <var>VariableName</var>.<br>Если переменная не существует, то функция вернёт <code>nil</code>.</p></td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">os.setenv<span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.setenv</div></td>
             <td class="hintcell">
               <p class="definition">os.setenv(VariableName, Value)</p>
               <p>Добавить или изменить переменную окружения <var>VariableName</var>. В случае ошибки функция возвращает -1.</p></td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">os.unsetenv<span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">os.unsetenv</div></td>
             <td class="hintcell">
               <p class="definition">os.unsetenv(VariableName)</p>
               <p>Удалить переменную окружения <var>VariableName</var>. В случае ошибки функция возвращает -1.</p></td>

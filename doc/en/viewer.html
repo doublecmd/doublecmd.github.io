@@ -57,7 +57,7 @@
         </ul>
         <p>Note: In Windows, libraries must be located near the Double Commander executable file or in the PATH.</p>
         <p>Double Commander supports Windows Imaging Component (Windows Vista and newer)<span class="versionref"><sup>(Alpha version)</sup></span>: the Windows Imaging Component (WIC) provides an extensible framework for working with images. WIC includes several built-in codecs (BMP, DDS, GIF, ICO, JPEG, JPEG, XR, PNG and TIFF), additionally available external codecs for free and proprietary RAW image formats, HEIF/HEIC, WebP. Double Commander will skip codecs for BMP, GIF, ICO, JPEG, PNG and TIFF, because these formats are already supported.</p>
-        <p>The built-in viewer supports saving to the following image formats: BMP, ICO, JPEG (we can choose the quality from 1 to 100), PNG (Double Commander will use the same color depth as in the original image) and PNM (Double Commander will use binary formats, the color depth will be set automatically: 1, 8 or 24 bits per pixel).</p>
+        <p>The built-in viewer supports saving to the following image formats: BMP, ICO, JPEG (we can choose the quality from 1 to 100; 80 by default, see <a href="configxml.html">&lt;JpegQuality&gt;</a>), PNG (Double Commander will use the same color depth as in the original image) and PNM (Double Commander will use binary formats, the color depth will be set automatically: 1, 8 or 24 bits per pixel).</p>
         <p>Note: When modifying an image, we must save all changes with the <span class="italic">Save</span> or <span class="italic">Save As</span> commands: Double Commander does not check the status of the file (changed or not) when closing the viewer window or when switching to another file.</p>
         <p>We can assign or change hotkeys for commands available in the viewer in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section (switch to the <span class="italic">Viewer</span> category). Hotkeys can be set separately for text mode and image viewing mode.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -76,7 +76,7 @@
         <p><span class="italic">Print...</span>&nbsp;&ndash; opens a system dialog for sending a file for printing. Printing is only available when viewed with plugins that support printing files.</p>
         <p><span class="italic">Print setup...</span>&nbsp;&ndash; opens a dialog for setting the print borders (left, right, top and bottom page margins).</p>
         <p><span class="italic">Reload</span>&nbsp;&ndash; Double Commander will forcibly reread the file without closing the viewer window. This is convenient if the file has been modified by an external program.</p>
-        <p><span class="italic">Auto Reload</span>&nbsp;&ndash; only for text mode: if enabled, Double Commander will monitor the file size and if it changes, reread the file and scroll its contents to the end. This is convenient for viewing constantly updated log files. This mode applies only to the current file and is disabled when switching to another file or when closing the viewer window.</p>
+        <p><span class="italic">Auto Reload</span>&nbsp;&ndash; only for text mode: if enabled, Double Commander will check the file size every 2 seconds and if it changes, reread the file and scroll its contents to the end. This is convenient for viewing constantly updated log files. This mode applies only to the current file and is disabled when switching to another file or when closing the viewer window. If enabled, Double Commander will show an asterisk "*" in the status bar before the file name.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p><span class="italic">Exit</span>&nbsp;&ndash; Close the viewer window.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -108,7 +108,7 @@
           <li><p><span class="italic">Graphics</span>&nbsp;&ndash; switches to image viewing. See the list of supported image formats at the <a href="#intro">beginning of the page</a>.</p></li>
           <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Viewing with WLX plugins. If the selected file can be opened by several installed plugins, then repeated calls of this command will switch them in a circle.</p></li>
           <li><p><span class="italic">Office XML (text only)</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; The viewer will show text from XML-based office documents: Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS). Without text formatting, but preserving paragraphs.</p></li>
-          <li><p><span class="italic">Code</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same rules and lists of extensions will be used as for the built-in editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). Also see description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
+          <li><p><span class="italic">Code</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same rules and lists of extensions will be used as for the built-in text editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). Also see description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
         </ul>
         <p>Plugins have priority over other supported view modes.</p>
         <p><span class="italic">Wrap text</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; enables or disables wrapping lines that do not fit in the window (by word boundaries).</p>
@@ -227,7 +227,7 @@
 
       <div>
         <h2><a name="asettings">7. Additional settings</a></h2>
-        <p>See the description of the Double Commander settings sections: <a href="configuration.html#ConfigToolsViewer">Tools&nbsp;&gt; Viewer</a>.</p>
+        <p>See the description of the Double Commander settings sections: <a href="configuration.html#ConfigToolsViewer">Tools&nbsp;&gt; Viewer</a>. There are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

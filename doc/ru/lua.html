@@ -59,7 +59,8 @@
                 </dl>
               </dd>
               <dt>3.5. <a href="#libraryutf8">Библиотека UTF-8</a></dt>
-              <dt>3.6. <a href="#libraryos">Библиотека OS</a></dt>
+              <dt>3.6. <a href="#librarychar">Библиотека Char</a><span class="versionref"><sup>(Альфа-версия)</sup></span></dt>
+              <dt>3.7. <a href="#libraryos">Библиотека OS</a></dt>
             </dl>
           </dd>
         </dl>
@@ -85,6 +86,7 @@
         </ul>
         <p>Примечание: При сохранении скриптов используйте кодировку UTF-8 без BOM.</p>
         <p>Более подробную информацию о языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">официальном веб-сайте Lua</a>.</p>
+        <p>Примечание: Функция Lua <code>io.open</code> использует стандартную функцию C <code>fopen</code>: в текстовом режиме эта функция может преобразовывать тип окончания строк (CRLF, LF или CR) при чтении и записи, что может привести к неожиданному результату. Если вам попадаются файлы с разным типом окончания строк или вы пишете кроссплатформенный скрипт, это необходимо учитывать или может быть практичнее отдать предпочтение бинарному режиму.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -109,6 +111,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Clipboard</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Различные функции для работы с буфером обмена</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Dialogs</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Взаимодействие с пользователем</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">UTF-8</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">Строковые функции для работы с UTF-8</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarychar">Библиотека Char</a></div></td><td class="hintcell">Char</td><td class="hintcell">Получение информации о символах</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS</a></div></td><td class="hintcell">OS</td><td class="hintcell">Функции, связанные с операционной системой</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -927,6 +930,20 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Next<span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="hintcell">
+              <p class="definition">LazUtf8.Next(String)</p>
+              <p>Функция-итератор, которая при каждом вызове возвращает следующий символ в строке <var>String</var> и позицию начала этого символа (в байтах).</p>
+              <p>Пример:</p>
+<pre>
+<span class="luacmt">-- Выведем пары значений в виде "позиция : символ"</span>
+<span class="luakyw">for</span> iPos, sChar <span class="luakyw">in</span> LazUtf8.Next<span class="luasbl">(</span>String<span class="luasbl">)</span> <span class="luakyw">do</span>
+  DC.LogWrite<span class="luasbl">(</span>iPos .. <span class="luastr">" : "</span> .. sChar<span class="luasbl">)</span>
+<span class="luakyw">end</span>
+</pre>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
@@ -993,7 +1010,101 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
       </div>
 
       <div>
-        <h2><a name="libraryos">3.6. Библиотека OS</a></h2>
+        <h2><a name="librarychar">3.7. Библиотека Char</a><span class="versionref"><sup>(Альфа-версия)</sup></span></h2>
+        <p>Эта библиотека содержит функции для проверки принадлежности символа к определённой категории юникода, а также для получения категории символа.</p>
+        <p>Список доступных функций:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека Char</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.GetUnicodeCategory</div></td>
+            <td class="hintcell">
+              <p class="definition">iResult = Char.GetUnicodeCategory(sVar)</p>
+              <p>Возвращает категорию юникода символа <code>sVar</code>, одно из следующих значений:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">Значение</th><th class="innerdescheader">Описание</th></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Буква:</td></tr>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">Буква в верхнем регистре (Lu)</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">Буква в нижнем регистре (Ll)</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">Заглавная буква (Lt)</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">Модификатор (Lm)</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">Прочие буквы (Lo)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Отметки:</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">Символ нулевой ширины, указывающий на изменение базового символа (Mn)</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">Символ ненулевой ширины, указывающий на изменение базового символа (Mc)</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">Вложенный символ (Me)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Цифра:</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">Десятичная цифра (Nd)</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">Цифра, обозначаемая буквами (Nl)</td></tr>
+                <tr><td class="innerdescvaluecell">10</td><td class="innerdescdesccell">Прочие цифры (No)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Знак пунктуации:</td></tr>
+                <tr><td class="innerdescvaluecell">11</td><td class="innerdescdesccell">Соединитель (Pc)</td></tr>
+                <tr><td class="innerdescvaluecell">12</td><td class="innerdescdesccell">Тире (Pd)</td></tr>
+                <tr><td class="innerdescvaluecell">13</td><td class="innerdescdesccell">Открывающий знак пунктуации (скобки) (Ps)</td></tr>
+                <tr><td class="innerdescvaluecell">14</td><td class="innerdescdesccell">Закрывающий знак пунктуации (скобки) (Pe)</td></tr>
+                <tr><td class="innerdescvaluecell">15</td><td class="innerdescdesccell">Знак открывающей кавычки (Pi)</td></tr>
+                <tr><td class="innerdescvaluecell">16</td><td class="innerdescdesccell">Знак закрывающей кавычки (Pf)</td></tr>
+                <tr><td class="innerdescvaluecell">17</td><td class="innerdescdesccell">Прочие знаки пунктуации (Po)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Символ:</td></tr>
+                <tr><td class="innerdescvaluecell">18</td><td class="innerdescdesccell">Математический символ (Sm)</td></tr>
+                <tr><td class="innerdescvaluecell">19</td><td class="innerdescdesccell">Денежная единица (Sc)</td></tr>
+                <tr><td class="innerdescvaluecell">20</td><td class="innerdescdesccell">Модификатор (Sk)</td></tr>
+                <tr><td class="innerdescvaluecell">21</td><td class="innerdescdesccell">Прочие символы (So)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Разделитель:</td></tr>
+                <tr><td class="innerdescvaluecell">22</td><td class="innerdescdesccell">Пробел (Zs)</td></tr>
+                <tr><td class="innerdescvaluecell">23</td><td class="innerdescdesccell">Разделитель строк (Zl)</td></tr>
+                <tr><td class="innerdescvaluecell">24</td><td class="innerdescdesccell">Разделитель параграфов (Zp)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Прочее:</td></tr>
+                <tr><td class="innerdescvaluecell">25</td><td class="innerdescdesccell">Управляющий символ (Cc)</td></tr>
+                <tr><td class="innerdescvaluecell">26</td><td class="innerdescdesccell">Символ форматирования (Cf)</td></tr>
+                <tr><td class="innerdescvaluecell">27</td><td class="innerdescdesccell">Символ-заместитель (суррогат) (Cs)</td></tr>
+                <tr><td class="innerdescvaluecell">28</td><td class="innerdescdesccell">Для частного использования (Co)</td></tr>
+                <tr><td class="innerdescvaluecell">29</td><td class="innerdescdesccell">Не определён (Cn)</td></tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsDigit</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsDigit(sVar)</p>
+              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Nd</i>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetter</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLetter(sVar)</p>
+              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> или <i>Lo</i>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetterOrDigit</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLetterOrDigit(sVar)</p>
+              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> <i>Lo</i>, <i>Nd</i> или <i>Nl</i>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLower</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLower(sVar)</p>
+              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Ll</i>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsUpper</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsUpper(sVar)</p>
+              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Lu</i>.</p>
+            </td>
+          </tr>
+        </table>
+        <p>Также эти функции поддерживают работу с двумя параметрами: вместо одного символа мы можем указать строку и позицию символа в этой строке.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libraryos">3.7. Библиотека OS</a></h2>
         <p>Эта библиотека содержит функции, связанные с операционной системой, в которой запущен Double Commander.</p>
         <p>Список доступных функций:</p>
         <table>
@@ -1038,6 +1149,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             <td class="hintcell">
               <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
               <p>Переименовать файл <var>OldName</var> в <var>NewName</var>.</p>
+              <p><b><span class="uline">Примечание:</span> Если файл с именем <var>NewName</var> уже существует, он будет заменён!</b></p>
               <p>Если удалось, функция вернёт <code>true</code>.</p>
               <p>Если не удалось, функция вернёт:</p>
               <ol>

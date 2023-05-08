@@ -50,8 +50,7 @@
 
       <div>
         <h2><a name="preface">1. Введение</a></h2>
-        <p>Регулярные выражения&nbsp;&ndash; это широко используемый способ описания шаблонов для поиска текста и проверки соответствия текста шаблону.</p>
-        <p>Специальные <span class="bold">метасимволы</span> позволяют определять, например, что мы ищем подстроку в начале входной строки или <span class="bold">n</span> повторений определённого символа.</p>
+        <p>Регулярные выражения&nbsp;&ndash; это широко используемый способ описания шаблонов для поиска текста и проверки соответствия текста шаблону. Специальные символы (<span class="bold">метасимволы</span>) позволяют указать, например, что мы ищем подстроку в начале входной строки или <span class="bold">n</span> повторений определённого символа или группы символов.</p>
         <p>Double Commander поддерживает регулярные выражения в следующих функциях:</p>
         <ul>
           <li><a href="findfiles.html">Поиск файлов</a> (поиск по именам файлов или содержимому)</li>
@@ -65,9 +64,9 @@
 
       <div>
         <h2><a name="compare">2. Простое сравнение</a></h2>
-        <p>Любой символ совпадает с самим собой, если он не относится к специальным метасимволам, описанным чуть ниже.</p>
+        <p>Любой символ совпадает с самим собой, если он не относится к метасимволам, описанным чуть ниже.</p>
         <p>Последовательность символов совпадает с такой же последовательностью во входной строке, так что шаблон <code>bluh</code> совпадет с подстрокой <code>bluh</code> во входной строке.</p>
-        <p>Если необходимо, чтобы метасимволы или <span class="bold">escape-последовательности</span> воспринимались как обычные символы, их нужно предварять символом <code>\</code> ("экранировать"), например, метасимвол <code>^</code> обычно совпадает с началом строк, однако, если записать его как <code>\^</code>, то он будет совпадать с символом <code>^</code>, <code>\\</code> совпадает с <code>\</code> и т.д.</p>
+        <p>Если необходимо, чтобы метасимволы или экранированные последовательности (<span class="bold">escape-последовательности</span> или управляющие последовательности) воспринимались как обычные символы, их нужно предварять символом <code>\</code> ("экранировать"), например, метасимвол <code>^</code> обычно совпадает с началом строк, однако, если записать его как <code>\^</code>, то он будет совпадать с символом <code>^</code>, <code>\\</code> совпадает с <code>\</code> и т.д.</p>
         <p>Примеры:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Примеры простого сравнения</th></tr>
@@ -86,9 +85,9 @@
 
       <div>
         <h2><a name="esc">3. Escape-последовательности</a></h2>
-        <p>Любой символ может быть определён с помощью escape-последовательности так же, как это делается в языках C или Perl: <code>\n</code> означает начало строки, <code>\t</code>&nbsp;&ndash; табуляцию и т.д.</p>
+        <p>Любой символ может быть задан с помощью escape-последовательности (экранированная или управляющая последовательность) так же, как это делается в языках C или Perl: <code>\n</code> означает начало строки, <code>\t</code>&nbsp;&ndash; табуляцию и т.д.</p>
         <p><code>\xnn</code>, где <code>nn</code>&nbsp;&ndash; это последовательность шестнадцатеричных цифр, означает символ с ASCII-кодом <code>nn</code>.</p>
-        <p>Если необходимо определить двухбайтный (юникод) символ, используем формат <code>\x{nnnn}</code>, где <code>nnnn</code>&nbsp;&ndash; одна или более шестнадцатеричных цифр.</p>
+        <p>Если необходимо указать двухбайтный (юникод) символ, используем формат <code>\x{nnnn}</code>, где <code>nnnn</code>&nbsp;&ndash; одна или более шестнадцатеричных цифр.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Escape-последовательности</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
@@ -143,7 +142,7 @@
 
       <div>
         <h2><a name="symbols">4. Наборы символов</a></h2>
-        <p>Вы можете определить набор, заключив символы в <code>[]</code>. Набор будет совпадать с любым <span class="bold">одним</span> символов из перечисленных в нём.</p>
+        <p>Вы можете задать набор, заключив символы в <code>[]</code>. Набор будет совпадать с любым <span class="bold">одним</span> символов из перечисленных в нём.</p>
         <p>Если первым символом набора (сразу после <code>[</code>) идёт <code>^</code>, то такой набор совпадает с любым символом <span class="bold">не</span> перечисленным в наборе.</p>
         <p>Внутри набора символ <code>-</code> может быть использован для определения <span class="bold">диапазона</span> символов, например, <code>a-z</code> представляет все символы между <code>a</code> и <code>z</code>, включительно.</p>
         <p>Если необходимо включить в набор сам символ <code>-</code>, поместите его в начало или конец набора или предварите символом <code>\</code>.</p>
@@ -335,7 +334,7 @@
       <div>
         <h2><a name="meta-dup">5.4. Метасимволы - повторения</a></h2>
         <p>После любого элемента регулярного выражения может следовать очень важный тип метасимвола&nbsp;&ndash; повторитель (квантификатор).</p>
-        <p>Используя их, вы можете определить число допустимых повторений предшествующего символа, метасимвола или подвыражения.</p>
+        <p>Используя их, вы можете указать число допустимых повторений предшествующего символа, метасимвола или подвыражения.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Повторители</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
@@ -431,7 +430,7 @@
 
       <div>
         <h2><a name="meta-vars">5.5. Метасимволы - варианты</a></h2>
-        <p>Вы можете определить набор <span class="bold">вариантов</span>, используя метасимвол <code>|</code> для их разделения, например <code>fee|fie|foe</code> найдёт или <code>fee</code>, или <code>fie</code>, или <code>foe</code> (так же, как <code>f(e|i|o)e</code>).</p>
+        <p>Вы можете указать набор <span class="bold">вариантов</span>, используя метасимвол <code>|</code> для их разделения, например <code>fee|fie|foe</code> найдёт или <code>fee</code>, или <code>fie</code>, или <code>foe</code> (так же, как <code>f(e|i|o)e</code>).</p>
         <p>В качестве первого варианта воспринимается всё от предыдущего метасимвола (<code>(</code>, <code>[</code> или от начала выражения) до первого метасимвола <code>|</code>, в качестве последнего&nbsp;&ndash; всё от последнего <code>|</code> до конца выражения или до ближайшего метасимвола <code>)</code>.</p>
         <p>Обычно, чтобы не запутаться, набор вариантов всегда заключают в круглые скобки, даже если без этого можно было бы обойтись.</p>
         <p>Варианты пробуются начиная с первого и попытки завершаются сразу же, как удастся подобрать такой, при котором совпадет вся последующая часть выражения.</p>
@@ -452,7 +451,7 @@
 
       <div>
         <h2><a name="meta-sub">5.6. Метасимволы - подвыражения</a></h2>
-        <p>Метасимволы <code>( ... )</code> могут также использоваться для определения подвыражений&nbsp;&ndash; по завершении поиска выражения вы можете обратиться к любому подвыражению, а также подставлять подвыражения как маску.</p>
+        <p>Метасимволы <code>( ... )</code> могут также использоваться для указания подвыражений&nbsp;&ndash; по завершении поиска выражения вы можете обратиться к любому подвыражению, а также подставлять подвыражения как маску.</p>
         <p>Подвыражения нумеруются слева направо, в порядке появления открывающих круглых скобок.</p>
         <p>Первое подвыражение имеет номер 1, поддерживается до 90 подвыражений (выражение целиком&nbsp;&ndash; 0, к нему можно обращаться как <code>$0</code> или <code>$&amp;</code>).</p>
         <p>Примеры:</p>
@@ -571,12 +570,6 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">Nl</div></td><td class="hintcell">Цифра, обозначаемая буквами</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">No</div></td><td class="hintcell">Прочие цифры</td></tr>
           <tr><td colspan="2"></td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">S</div></td><td class="hintcell">Символ</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">Sm</div></td><td class="hintcell">Математический символ</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">Sc</div></td><td class="hintcell">Денежная единица</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">Sk</div></td><td class="hintcell">Модификатор</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">So</div></td><td class="hintcell">Прочие символы</td></tr>
-          <tr><td colspan="2"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">Знак пунктуации</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Pc</div></td><td class="hintcell">Соединитель</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Pd</div></td><td class="hintcell">Тире</td></tr>
@@ -585,6 +578,12 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">Pi</div></td><td class="hintcell">Знак открывающей кавычки</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Pf</div></td><td class="hintcell">Знак закрывающей кавычки</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Po</div></td><td class="hintcell">Прочие знаки пунктуации</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">S</div></td><td class="hintcell">Символ</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sm</div></td><td class="hintcell">Математический символ</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sc</div></td><td class="hintcell">Денежная единица</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sk</div></td><td class="hintcell">Модификатор</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">So</div></td><td class="hintcell">Прочие символы</td></tr>
           <tr><td colspan="2"></td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Z</div></td><td class="hintcell">Разделитель</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Zs</div></td><td class="hintcell">Пробел</td></tr>

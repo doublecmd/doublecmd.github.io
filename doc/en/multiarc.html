@@ -276,7 +276,7 @@
 
       <div>
         <h2><a name="standardexample">4.5.4. Example with standard syntax</a></h2>
-        <p>So the beauty of the thing here is to use the avaliable expressions from the previous table to write the "Listing format" string that will configure Double Commander for that external archiver so it will be able to get the content of the archive concerning directory and filenames, filesize, attributes, file dates, etc.</p>
+        <p>So the beauty of the thing here is to use the available expressions from the previous table to write the "Listing format" string that will configure Double Commander for that external archiver so it will be able to get the content of the archive concerning directory and filenames, filesize, attributes, file dates, etc.</p>
         <p>First guess for us to help to generate that line would be to write in Notepad for example a line of text for one file we've done manually previously and write below that expression from the previous table that would fit.</p>
         <p>Here is an example of that:</p>
         <p class="figure"><img class="largeimage" title="Listing format: example with standard syntax" alt="Listing format: example with standard syntax" src="images/imgDC/archiveimg10.png" width="818" height="150"></p>
@@ -422,7 +422,7 @@
 
       <div>
         <h2><a name="actionextractnpath">4.10. Configuring the "Extract without path" action</a></h2>
-        <p>By default when invoking the internal command <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> to unpack an archive, if the files inside it are arranged with a certain directory structure, then archiver will recreate the same struture while extracting the files.</p>
+        <p>By default when invoking the internal command <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> to unpack an archive, if the files inside it are arranged with a certain directory structure, then archiver will recreate the same structure while extracting the files.</p>
         <p>But, when supported by the archiver, it's sometimes pertinent to extract all the files in the same location without re-creating the directory structure.</p>
         <p>So this is where the action "Extract without path" is used when configured.</p>
         <p>For example with "rar.exe", the command like to do that will be written this way:</p>
@@ -481,7 +481,7 @@
         <p>That's what we do with the following configuration:</p>
         <p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="130" height="121"></p>
         <p>We must write ID as a 2-digit hex numbers delimited with spaces.</p>
-        <p>ID Position (optional) is a position of ID in archive. If not present, ID will be searched in the beginning of archive. We can define the positions with "-" sign: in this case the positions will be calculated from the end of file. Special value &lt;SeekID&gt; determinated search ID if not found by numeric values of ID Position. Seek in range "0 .. size of file" or "0 .. ID Seek Range". Values can be writed as decimal (12345) or heximal (0x3039). For negative values use notation 0xFFFFFFFF (-1).</p>
+        <p>ID Position (optional) is a position of ID in archive. If not present, ID will be searched in the beginning of archive. We can define the positions with "-" sign: in this case the positions will be calculated from the end of file. Special value &lt;SeekID&gt; determinated search ID if not found by numeric values of ID Position. Seek in range "0 .. size of file" or "0 .. ID Seek Range". Values can be writed as decimal (12345) or hexadecimal (0x3039). For negative values use notation 0xFFFFFFFF (-1).</p>
         <p>ID Seek Range (optional) is a count of bytes where ID seek if defined &lt;SeekID&gt;. By default it's 1 MB.</p>
         <p><b>Note:</b> All above parameters can be defined with multiple values. We can use comma to separate those multiple values.</p>
         <p>In our example with 7-Zip archive, ID and ID Position (0, because in the beginning of file) will be enough.</p>

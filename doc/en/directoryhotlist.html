@@ -53,16 +53,15 @@
           <dt>3. <a href="#expert">"Expert" functions</a></dt>
           <dd>
             <dl>
-              <dt>3.1. <a href="#backup">Backup the Directory Hotlist</a></dt>
-              <dt>3.2. <a href="#restore">Restore a backup of a Directory Hotlist</a></dt>
-              <dt>3.3. <a href="#exportimportsimple">Exporting/Importing a Directory Hotlist (or part of it)</a></dt>
-              <dt>3.4. <a href="#exportimporttc">Exporting/Importing to/from Total Commander</a></dt>
-              <dt>3.5. <a href="#scanpresence">Scan the Directory Hotlist to find missing directories</a></dt>
-              <dt>3.6. <a href="#addingmanyatthetime">Adding more than one directory, at the time, to the Hotlist</a></dt>
-              <dt>3.7. <a href="#notthetarget">No switch on inactive frame even if target is configured</a></dt>
-              <dt>3.8. <a href="#directconfig">Directly configure an entry from popup menu</a></dt>
-              <dt>3.9. <a href="#showpopup">Show complete path in popup menu</a></dt>
-              <dt>3.10. <a href="#smartenv">Keep only environment variables that look like a directory</a></dt>
+              <dt>3.1. <a href="#backup">Backup and restore from a backup</a></dt>
+              <dt>3.2. <a href="#exportimportsimple">Exporting/Importing a Directory Hotlist (or part of it)</a></dt>
+              <dt>3.3. <a href="#exportimporttc">Exporting/Importing to/from Total Commander</a></dt>
+              <dt>3.4. <a href="#scanpresence">Scan the Directory Hotlist to find missing directories</a></dt>
+              <dt>3.5. <a href="#addingmanyatthetime">Adding more than one directory, at the time, to the Hotlist</a></dt>
+              <dt>3.6. <a href="#notthetarget">No switch on inactive frame even if target is configured</a></dt>
+              <dt>3.7. <a href="#directconfig">Directly configure an entry from popup menu</a></dt>
+              <dt>3.8. <a href="#showpopup">Show complete path in popup menu</a></dt>
+              <dt>3.9. <a href="#smartenv">Keep only environment variables that look like a directory</a></dt>
             </dl>
           </dd>
 
@@ -113,8 +112,9 @@
         <h2><a name="otheraccess">2.2. Another way to access the Directory Hotlist</a></h2>
         <ul>
           <li><p>You may click the button with a star on it on top right of the active file panel.</p></li>
-          <li><p>You may also set a toolbar button associated with the internal command <a href="cmds.html#cm_DirHotList">cm_DirHotList</a>.</p></li>
-          <li><p>You may double click on the title bar of the active frame to make it popup, which is the one the author of these lines prefers.</p></li>
+          <li><p>You may add a toolbar button associated with the internal command <a href="cmds.html#cm_DirHotList">cm_DirHotList</a>.</p></li>
+          <li><p>You may <a href="configuration.html#ConfigHotKeys">set a hotkey</a> for the <tt>cm_DirHotList</tt> command (<kbd>Ctrl+D</kbd> by default).</p></li>
+          <li><p>You may use double click or middle mouse click on the current directory bar of the active tab.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -280,29 +280,18 @@
       </div>
 
       <div>
-        <h2><a name="backup">3.1. Backup the Directory Hotlist</a></h2>
+        <h2><a name="backup">3.1. Backup and restore from a backup</a></h2>
         <p>As your Directory Hotlist grows in quantity of directory shortcuts, you may want to backup it "just in case" an accident happens to don't lose these valuable links.</p>
-        <p>To do that, on right of configuration screen you have a button named "<b>Backup</b>".</p>
-        <p>Press on it and in the menu select "<b>Save a backup of the current Directory Hotlist</b>".</p>
-        <p>It will then save the current list into a file into a "Backup" folder present into the Double Commander defined config directory.</p>
-        <p>The filename will include the current date and time.</p>
-        <p>Please also note the extension of the file which is ".hotlist".</p>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>
-      </div>
-
-      <div>
-        <h2><a name="restore">3.2. Restoring backup of a Directory Hotlist</a></h2>
-        <p>Similar as above, you click on the same button named "<b>Backup</b>".</p>
-        <p>In the submenu select "<b>Restore a backup of Directory Hotlist</b>".</p>
-        <p>From the file requester that will appear, select the backup you want to restore.</p>
+        <p>To do that, on right of configuration screen you have a button named "<b>Backup</b>". Press on it and in the menu select "<b>Save a backup of the current Directory Hotlist</b>".</p>
+        <p>It will then save the current list into a file into a "Backup" folder present into the Double Commander defined config directory. The filename will include the current date and time. Please also note the extension of the file which is ".hotlist".</p>
+        <p>To restore, select "<b>Restore a backup of Directory Hotlist</b>" in the same menu. From the file requester that will appear, select the backup you want to restore.</p>
         <p>When you restore a backup, it will first erase the current Directory Hotlist and then add the ones from the backup file.</p>
-        <p>If you just want to restore just certain entries from the backup file, you may do "<b>Import</b>" and point the backup file.</p>
-        <p>Double Commander will then prompt you to indicate which entries from the backup file you want to restore.</p>
+        <p>If you just want to restore just certain entries from the backup file, you may do "<b>Import</b>" and point the backup file. Double Commander will then prompt you to indicate which entries from the backup file you want to restore.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="exportimportsimple">3.3. Exporting/Importing a Directory Hotlist (or part of it)</a></h2>
+        <h2><a name="exportimportsimple">3.2. Exporting/Importing a Directory Hotlist (or part of it)</a></h2>
         <p>If you have more than a computer, or if you have a fellow accessing the same servers as you, you may want to be able to export your Directory Hotlist, or part of it, so on the other computer you'll have the same directory shortcuts without having to enter them one by one.</p>
         <p>To do that, first click the button "<b>Export</b>" and then select "<b>...to a Directory Hotlist file (.hotlist)</b>".</p>
         <p>It will then prompt you to enter the filename and file location of the export file you want to create.</p>
@@ -319,7 +308,7 @@
       </div>
 
       <div>
-        <h2><a name="exportimporttc">3.4. Exporting/Importing to/from Total Commander</a></h2>
+        <h2><a name="exportimporttc">3.3. Exporting/Importing to/from Total Commander</a></h2>
         <p>Double Commander may also export/import Directory Hotlist to/from the one of Total Commander.</p>
         <p>Let's suppose you want to import some entries from Total Commander, here is what to do.</p>
         <p>From the Directory Hotlist configuration screen, click the "<b>Import...</b>" button and select "<b>...from "wincmd.ini" of TC</b>".</p>
@@ -348,7 +337,7 @@
       </div>
 
       <div>
-        <h2><a name="scanpresence">3.5. Scan the Directory Hotlist to find missing directories</a></h2>
+        <h2><a name="scanpresence">3.4. Scan the Directory Hotlist to find missing directories</a></h2>
         <p>With time, it might happen you Directory Hotlist would have entries pointing to directory that would not exist anymore.</p>
         <p>To find these entries, in the Directory Hotlist configuration screen, click the button labeled "<b>Miscellaneous</b>".</p>
         <p>Then select "<b>Scan all hotdir's path to validate the ones that actually exist</b>".</p>
@@ -370,7 +359,7 @@
       </div>
 
       <div>
-        <h2><a name="addingmanyatthetime">3.6. Adding more than one directory at the time to Directory Hotlist</a></h2>
+        <h2><a name="addingmanyatthetime">3.5. Adding more than one directory at the time to Directory Hotlist</a></h2>
         <p>When setuping your Directory Hotlist for a new situation, it might happen you would like to add many directories at once to the Directory Hotlist.</p>
         <p>There are two ways you can do that.</p>
         <p><b>First method: directly from the main frame with the selection</b></p>
@@ -388,7 +377,7 @@
       </div>
 
       <div>
-        <h2><a name="notthetarget">3.7. No switch on inactive frame even if target is configured</a></h2>
+        <h2><a name="notthetarget">3.6. No switch on inactive frame even if target is configured</a></h2>
         <p>That one is almost an hidden feature.</p>
         <p>As presented in <a href="#settarget">point 2.7 of this page</a>, you might have configured the Directory Hotlist entry to also switch the directory of the inactive frame to switch to a specified target directory.</p>
         <p>But sometimes, it might be desirable to don't have the target folder to switch but only the main active frame.</p>
@@ -398,7 +387,7 @@
       </div>
 
       <div>
-        <h2><a name="directconfig">3.8. Directly configure an entry from popup menu</a></h2>
+        <h2><a name="directconfig">3.7. Directly configure an entry from popup menu</a></h2>
         <p>That one also is almost an hidden feature.</p>
         <p>As you are in browsing in the Directory Hotlist popup menu, it happen you see a typo you wish to correct or something that is not organize the way you want.</p>
         <p>Certainly you can then click lower to go in the configuration, search in the tree where it was, and then proceed to your correction.</p>
@@ -410,7 +399,7 @@
       </div>
 
       <div>
-        <h2><a name="showpopup">3.9. Show complete path in popup menu</a></h2>
+        <h2><a name="showpopup">3.8. Show complete path in popup menu</a></h2>
         <p>In the Directory Hotlist configuration screen there is a checkbox called "<b>In popup, show[path also]</b>".</p>
         <p>This option, when checked, will instruct Double Commander to show directly in the popup entry the complete path where the shortcut is pointing.</p>
         <p>So you'll see not only the hotdir name you gave, but it will show also the full path where it will jump if you click.</p>
@@ -422,7 +411,7 @@
       </div>
 
       <div>
-        <h2><a name="smartenv">3.10. Keep only environment variables that look like a directory</a></h2>
+        <h2><a name="smartenv">3.9. Keep only environment variables that look like a directory</a></h2>
         <p>In the "Special Dirs" section of the Directory Hotlist popup menu, you'll see you can have environment variables.</p>
         <p>It's not necessary ALL the variables that are in fact a directory.</p>
         <p>In the Directory Hotlist Configuration, you may check the option "<b>Show only valid %env_var%</b>".</p>

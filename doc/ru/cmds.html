@@ -1275,7 +1275,7 @@
                 </tr>
               </table>
               <br>
-              <b>Примечание1:</b> Если команда используется без каких-либо параметров, необходимо будет ввести свой фильтр, а состояние остальных опций будет то же, что и в предыдущем вызове в текущей сессии.<br>
+              <b>Примечание1:</b> Если команда используется без каких-либо параметров, необходимо будет задать свой фильтр, а состояние остальных опций будет то же, что и в предыдущем вызове в текущей сессии.<br>
               <b>Примечание2:</b> При использовании фильтра в стиле Windows, фильтром <i>*.*</i> будут выбраны файла без расширения, в отличие от стиля DC.<br>
               <b>Примечание3:</b> При указании параметра "mask", можно также использовать предопределённый тип (шаблон), просто поставьте перед его именем символ "&gt;", например, "<i>mask=&gt;Pascal files</i>".<br>
               <b>Примечание4:</b> При использовании "<i>ignoreaccents=TRUE</i>", лигатуры, такие как "<i>&oelig;</i>", например, будут восприняты как последовательность "<i>oe</i>". Например, "<i>c&oelig;ur</i>" будет соответствовать "<i>coeur</i>".<br>
@@ -1460,6 +1460,14 @@
               <div class="cmdname"><a name="cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a></div></td>
             <td class="cmdhintcell">Загрузить выделение из буфера обмена.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFileDetailsToFile" alt="cm_SaveFileDetailsToFile" src="../../pixmaps/dctheme/32x32/actions/cm_savefiledetailstofile.png">
+              <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdhintcell">Сохранить содержимое всех колонок выделенных файлов/папок в файл.<br>
+              Вы можете указать имя файла в первом параметре.<br>
+              Если параметр не используется, то Double Commander предложит указать имя файла.</td>
+          </tr>
+
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -2048,7 +2056,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Keyboard" alt="cm_Keyboard" src="../../pixmaps/dctheme/32x32/actions/cm_keyboard.png">
               <div class="cmdname"><a name="cm_Keyboard">cm_Keyboard</a></div></td>
-            <td class="cmdhintcell">Открыть страницу справки с <a href="shortcuts.html">клавиатурными сочетаниями</a>.<br><b>Примечание</b>: Это просто HTML-файл, поэтому, если вы измените сочетание клавиш по умолчанию, помните, что файл справки не отображает фактическое, используемое в приложении в настоящее время, сочетание.</td>
+            <td class="cmdhintcell">Открыть <a href="shortcuts.html">страницу справки</a> c клавиатурными сочетаниями Double Commander, используемыми по умолчанию.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_VisitHomePage" alt="cm_VisitHomePage" src="../../pixmaps/dctheme/32x32/actions/cm_visithomepage.png">
@@ -2402,7 +2410,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SyncDirs" alt="cm_SyncDirs" src="../../pixmaps/dctheme/32x32/actions/cm_syncdirs.png">
               <div class="cmdname"><a name="cm_SyncDirs">cm_SyncDirs</a></div></td>
-            <td class="cmdhintcell">Открыть инструмент синхронизации каталогов для сканирования папок левой и правой панелей, чтобы в конечном итоге увидеть разницу в содержимом и сделать их одинаковыми.</td>
+            <td class="cmdhintcell">Открыть <a href="syncdirs.html">инструмент синхронизации каталогов</a> для сканирования папок левой и правой панелей, чтобы в конечном итоге увидеть разницу в содержимом и сделать их одинаковыми.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CompareContents" alt="cm_CompareContents" src="../../pixmaps/dctheme/32x32/actions/cm_comparecontents.png">

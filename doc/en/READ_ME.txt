@@ -17,6 +17,10 @@ Keep the section numbers for the text inside page and NEVER INSIDE A LINK.
 
 - If you want to add a link to the FAQ, do not use the question number, because it may be changed in the future.
 
+- If you want to add a description of a feature that is currently only available in the alpha version (development version), then add a special label:
+  <span class="versionref"><sup>(Alpha version)</sup></span>
+Don't forget to delete after release.
+
 
 Contributors
 ============

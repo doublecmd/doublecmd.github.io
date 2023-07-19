@@ -95,6 +95,10 @@
           </tr>
 
           <tr>
+            <td colspan="2"></td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<br><small>from &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">
               The right panel will be active when Double Commander starts.<br>
@@ -119,6 +123,10 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">Confirm closing Double Commander (<code>True</code>) or not (<code>False</code>). <code>False</code> by default.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -165,7 +173,11 @@
 
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<br><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Change text color of log window (info, error, success messages).</td>
+            <td class="hintcell">Change text color of log window (info, error, success messages). Also, these colors are used in the window with the result of <a href="help.html#cm_CheckSumVerify">verifying checksums</a>.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -179,8 +191,16 @@
           </tr>
 
           <tr>
+            <td colspan="2"></td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Editor&gt;</small></div></td>
             <td class="hintcell">Internal editor and differ tool: if nothing is selected, the search and replace dialog will use the word under the cursor (<code>True</code>) or text from the search history (<code>False</code>). <code>True</code> by default.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -225,7 +245,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the attributes of the source file will be copied when copying/moving files; if <code>False</code>, the attributes of the source file will also be copied and Double Commander will set the "archive" attribute.<br>
-              Linux and othes: use the <span class="italic">Copy attributes</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
+              Linux and others: use the <span class="italic">Copy attributes</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
               <code>True</code> by default.
             </td>
           </tr>
@@ -234,7 +254,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyTime&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the timestamps of the source file will be copied (creation date, modification date, last access date) when copying/moving files, otherwise, only the modification date will be copied and the current date will be used for others.<br>
-              Linux and othes: use the <span class="italic">Copy date/time</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
+              Linux and others: use the <span class="italic">Copy date/time</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
               <code>True</code> by default.
             </td>
           </tr>
@@ -247,6 +267,10 @@
               Linux and other Unix-like systems: if <code>True</code>, Double Commander will copy filesystem extended attributes (xattr, i.e. the named attributes).<br>
               <code>True</code> by default.
             </td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -306,6 +330,10 @@
           </tr>
 
           <tr>
+            <td colspan="2"></td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;Quality&gt;<br><small>from many tags &lt;Fonts&gt;</small></div></td>
             <td class="hintcell">
               Determine what type of <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">font rasterization</a> that will be used. In other words, it determine the font quality.<br>
@@ -346,6 +374,10 @@
               </table>
               <i>Example:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
             </td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -433,6 +465,10 @@
           </tr>
 
           <tr>
+            <td colspan="2"></td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>from &lt;Layout&gt;</small></div></td>
             <td class="hintcell">Windows only: show colon after letters of disks in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
           </tr>
@@ -440,6 +476,10 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>from &lt;Layout&gt;</small></div></td>
             <td class="hintcell">Windows only: use uppercase letters in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -471,11 +511,25 @@
           </tr>
 
           <tr>
+            <td colspan="2"></td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
             <td class="hintcell">
               Synchronize directories: save or not asymmetric mode by default.<br>
-              <i>If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
-              or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).</i>
+              If we want to save state of mode then <code>&lt;Asymmetric Save="True"&gt;</code>
+              or <code>&lt;Asymmetric Save="False"&gt;</code> otherwise (by default).
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
+            <td class="hintcell">
+              Synchronize directories: by default, the program saves the last used file mask as the default mask for the next run of the synchronization tool (if it is not a search template),
+              to disable this behavior, we can replace <code>True</code> with <code>False</code><br>
+              <code>&lt;FileMask Save="False"&gt;</code><br>
+              and DC will suggest the value of &lt;FileMask&gt; every time by default ("*" by default, i.e. all files).
             </td>
           </tr>
 
@@ -501,6 +555,10 @@
                 </tr>
               </table>
             </td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
           </tr>
 
           <tr>
@@ -553,6 +611,11 @@
               </table>
               <i>Example:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
             </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;JpegQuality&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">For the internal viewer, the quality value that Double Commander will use by default when saving to JPEG format (the commands <span class="italic">Save</span> and <span class="italic">Save As...</span>). 80 by default.</td>
           </tr>
 
           <tr>

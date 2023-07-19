@@ -54,6 +54,14 @@
               <dt>2.6. <a href="#iface_dir">Current directory bar</a></dt>
               <dt>2.7. <a href="#iface_columns">Tabstop headers bar</a></dt>
               <dt>2.8. <a href="#iface_files">File Panels</a></dt>
+              <dd>
+                <dl>
+                  <dt>&#8226; <a href="#select_files">Selecting files</a></dt>
+                  <dt>&#8226; <a href="#draganddrop">Drag &amp; drop</a></dt>
+                  <dt>&#8226; <a href="#cm_ContextMenu">Context menu</a></dt>
+                  <dt>&#8226; <a href="#cm_QuickSearch">Quick search/filter</a></dt>
+                </dl>
+              </dd>
               <dt>2.9. <a href="#iface_status">Status bar</a></dt>
               <dt>2.10. <a href="#iface_path">Command line</a></dt>
               <dt>2.11. <a href="#iface_console">Terminal window</a></dt>
@@ -112,7 +120,7 @@
         <h2><a name="mnu_file">2.1.1. "Files"</a></h2>
         <p>This menu contains almost all the actions that can be made on files. Please consider all the items:</p>
 
-        <p><a name="cm_SymLink"><span class="bold">Create Symbolic Link...</span></a> (internal command <tt>cm_SymLink</tt>). With this item, Double Commander creates a <a href="https://en.wikipedia.org/wiki/Symlink" target="_blank">symbolic link</a> to the file under the cursor, and places it in a folder, open on the adjacent panel.</p>
+        <p><a name="cm_SymLink"><span class="bold">Create Symbolic Link...</span></a> (internal command <tt>cm_SymLink</tt>). With this item, Double Commander creates a <a href="https://en.wikipedia.org/wiki/Symlink" target="_blank">symbolic link</a> to the file under the cursor and places it in the folder opened in the opposite panel.</p>
         <p class="figure"><img class="largeimage" title="Symbolic link" alt="Symbolic link" src="images/imgDC/pic15.png" width="370" height="188"></p>
         <p><span class="italic">Link name</span>&nbsp;&ndash; here is the path to the link and its name. The name is the last word after the last directory separator character in the line.</p>
         <p><span class="italic">Destination that the link will point to</span>&nbsp;&ndash; the object, on which the link is created.</p>
@@ -124,7 +132,7 @@
         <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="144"></p>
         <p>If <span class="italic">Extended syntax</span><span class="versionref"><sup>(Alpha version)</sup></span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
 
-        <p><span class="bold">Create Shortcut</span> (Windows only)&nbsp;&ndash; Double Commander creates a shortcut (Microsoft Windows .lnk file) to the file under the cursor, and places it in a folder, open on the adjacent panel.</p>
+        <p><span class="bold">Create Shortcut</span> (Windows only)&nbsp;&ndash; Double Commander creates a shortcut (Microsoft Windows .lnk file) to the file under the cursor and places it in the folder opened in the opposite panel.</p>
 
         <p><span class="bold">Change Attributes...</span> (internal command <tt>cm_SetFileProperties</tt>)&nbsp;&ndash; allows to change timestamps and attributes (Windows) or file permissions (Linux and other Unix-like systems), including subfolders or not.</p>
 
@@ -136,8 +144,8 @@
         </p>
         <p>which indicates the file or folder name, size, write and last access time, and also owner and group. On the "Attributes" tab you can change the access to the file (if you have the rights to do so). The "Plugins" tab is optional and is only available if you have a suitable content plugin (in this case it was <a href="plugins.html#deb_wdx.wdx">DEB</a>). Also see description of <a href="configxml.html">&lt;SystemItemProperties&gt;</a>.</p>
 
-        <p>Using item <a name="cm_EditComment"><span class="bold">Edit comment...</span></a> (internal command <tt>cm_EditComment</tt>) you can create or change file comments, which stored in a file <tt>descript.ion</tt>. Supports UTF, ISO, KOI and ANSI encodings.</p>
-        <p>Comments only work with normal files on the local file system, but not on remote or virtual file systems (e.g. on FTP server, in archive, etc.).</p>
+        <p>Using item <a name="cm_EditComment"><span class="bold">Edit comment...</span></a> (internal command <tt>cm_EditComment</tt>) you can create or change file comments, which stored in a file <tt>descript.ion</tt>. Supports UTF, ISO, KOI and ANSI encodings. In the <a href="configuration.html#ConfigMisc">Miscellaneous</a> settings section you can set the default text encoding.</p>
+        <p>Comments only work with normal files on the local file system, but not on remote or virtual file systems (e.g. on FTP server, in archive, etc.). In order for Double Commander to take into account the contents of <tt>descript.ion</tt> when copying or moving files, make sure that <span class="italic">Process comments with files/folders</span> is enabled in the <a href="configuration.html#ConfigOperations">File operations</a> settings section.</p>
 
         <p><a name="cm_CalculateSpace"><span class="bold">Calculate Occupied Space</span></a> (internal command <tt>cm_CalculateSpace</tt>) item calculates the size of selected objects in rounded units and in bytes.</p>
         <p class="figure"><img class="largeimage" title="Calculate size" alt="Calculate size" src="images/imgDC/pic19.png" width="293" height="103"></p>
@@ -193,10 +201,10 @@
           <li><p>4482 MB - DVD+R&nbsp;&ndash; DVD drive size.</p></li>
         </ul>
         <p>If you use the <span class="italic">Number of parts</span> parameter, the size of the parts is always displayed in bytes.</p>
-        <p>If <span class="italic">Require a CRC32 verification file</span> is enabled, Double Commander will create a text file with the name of the source file and the extension ".crc", which contains the name of the source file, its size and checksum (the CRC32 algorithm is used). This is an easy way to check that the file is combineed correctly and its parts have not been changed during the move.</p>
-        <p>On click OK button you get several files with the extension ".split" in the target directory. To combine the file again, select all ".split" parts and click <span class="bold">Combine files</span> (<tt>cm_FileLinker</tt>). You also need to specify the order of split parts to combine.</p>
+        <p>If <span class="italic">Require a CRC32 verification file</span> is enabled, Double Commander will create a text file with the name of the source file and the extension ".crc", which contains the name of the source file, its size and checksum (the CRC32 algorithm is used). This is an easy way to check that the file is combined correctly and its parts have not been changed during the move. If this file is not available, Double Commander will show a warning, but this will not prevent you from getting the original file (however, in this case, the program will not be able to add the original file extension).</p>
+        <p>On click OK button you get several files in the target directory. As a file extension, Double Commander uses sequential numbering of three or more (if it is needed) digits. To combine the file again, select all parts and click <span class="bold">Combine files</span> (<tt>cm_FileLinker</tt>). You also need to specify the order of split parts to combine.</p>
         <p class="figure"><img class="largeimage" title="Combine files" alt="Combine files" src="images/imgDC/pic25.png" width="394" height="372"></p>
-        <p>This function is very useful, if you have small drives and large files. It is possible to move the file parts.</p>
+        <p>This function is very useful, if you have small drives and large files. It is possible to move the file parts. Keep in mind, this tool does not create any specific container or archive, but simply splits the file, so parts of the file can be safely glued together in other ways.</p>
 
         <p>Item <a name="cm_CheckSumCalc"><span class="bold">Calculate check sum...</span></a> (internal command <tt>cm_CheckSumCalc</tt>) is used to calculate the <a href="https://en.wikipedia.org/wiki/Checksum" target="_blank">checksum</a> to check files integrity. The following checksums are available:
           BLAKE2 (BLAKE2s, BLAKE2sp, BLAKE2b, BLAKE2bp), BLAKE3, CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV, SHA,
@@ -258,10 +266,12 @@
         <p><span class="bold"><a name="cm_FlatView">Flat view</a></span> (internal command <tt>cm_FlatView</tt>) will scan all the directories of panel to show all content in one single panel.</p>
         <p><span class="bold"><a name="cm_OpenVirtualFileSystemList">Open VFS List</a></span> (internal command <tt>cm_OpenVirtualFileSystemList</tt>) will open a list of added file system plugins (WFX plugins) that use their own file systems or provide access to other file systems and devices (local or remote). As well as virtual folders:</p>
         <ul>
-          <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; used to access files deleted to trash.</p></li>
-          <li><p><tt>Network</tt>&nbsp;&ndash; used to access shared network resources (Windows only).</p></li>
+          <li><p><tt>Computer</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; contains a list of normal disks with a drive letter and devices that do not have a drive letter (for example, USB devices that are connected via the MTP protocol, i.e. smartphones, tablets or players). Windows only.</p></li>
           <li><p><tt>Linux</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
+          <li><p><tt>Network</tt>&nbsp;&ndash; used to access shared network resources (Windows only).</p></li>
+          <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; used to access files deleted to trash.</p></li>
         </ul>
+        <p>(The list is sorted alphabetically and depends on the language settings of the system and the program.)</p>
         <p><span class="bold"><a name="cm_Exchange">Swap Panels</a></span> (internal command <tt>cm_Exchange</tt>) swaps left and right file panels with all opened tabs.</p>
         <p><span class="bold">Target = Source</span> (internal command <tt>cm_TargetEqualSource</tt>) opens the same directory in the inactive file panel.</p>
         <p><span class="bold">Show Occupied Space</span> calculates and shows the total size of all files in the sub-folders of the current directory. The &lt;DIR&gt; text in the Size column of the active panel is replaced with the total size.</p>
@@ -463,6 +473,7 @@
         <p>Double Commander can display file icons to the left of their names (enabled by default), which show file types and associations (system or <a href="configuration.html#ConfigAssociations">internal</a>) with programs. DC uses icons from its own icon theme and/or according to system settings (see the <a href="configuration.html#ConfigIcons">Icons</a> settings section).</p>
         <p>The program also allows to specify file types whose names should be a different color, see the <a href="configuration.html#ConfigColorFiles">Colors&nbsp;&gt; File types</a> settings section for more details.</p>
         <p>The current file will be surrounded by a fine rectangle, with or without color fill, the names of the selected files will be displayed in red. You can change the colors used and appearance of the cursor in the <a href="configuration.html#ConfigColorPanels">Colors&nbsp;&gt; File panels</a> settings section.</p>
+        <p>Double Commander can show a tooltip when the mouse cursor is hovering over a file, see the <a href="configuration.html#ConfigTooltips">Tooltips</a> settings section for details.</p>
         <br>
 
         <p><a name="select_files"><span class="bold">Selecting files</span></a></p>
@@ -527,7 +538,7 @@
         <p>When using the quick search/filter tool, its panel is displayed at the bottom of the file panel. Quick search is used to search through the current contents of the file panel: the cursor will be moved to the nearest matching file and when using the <kbd>up arrow</kbd> and <kbd>down arrow</kbd> keys, the program will move the cursor in a circle only over files whose names match the conditions. Quick filter will hide all file names that do not match the conditions (to reset the filter, use the <kbd>Esc</kbd> key or the "X" button).</p>
         <p>Double Commander supports pinyin (the <tt>pinyin.tbl</tt> file in the program directory will be used).</p>
         <p>You can set the way of call the quick search/filter panel in the <a href="configuration.html#ConfigKeys">Keys</a> settings section, or use the <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> and <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a> commands.</p>
-        <p>All parameters that have been changed in the quick search panel will be kept for the next quick search/filter call. You can change the default values in the <a href="configuration.html#ConfigQuick">Quick search/filter</a> settings section.</p>
+        <p>All parameters that have been changed in the quick search panel will be kept for the next quick search/filter call (before closing the program), you can change it and the default values in the <a href="configuration.html#ConfigQuick">Quick search/filter</a> settings section.</p>
         <p class="figure"><img class="largeimage" title="Quick search/filter panel" alt="Quick search/filter panel" src="images/imgDC/pic57.png" width="418" height="29"></p>
         <ul>
           <li><p><span class="italic">Filter</span>&nbsp;&ndash; search/filter switch;</p></li>
@@ -555,7 +566,9 @@
         <h2><a name="iface_path">2.10. Command line</a></h2>
         <p class="figure"><img class="largeimage" title="Command line" alt="Command line" src="images/imgDC/pic12.png" width="738" height="29"></p>
         <p>Use to enter commands manually. Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). The button on the right with an arrow opens the history of the entered commands. Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history.</p>
-        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. Environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory. If you use a path with the file name, Double Commander will place the cursor on this file.</p>
+        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. If you use a path with the file name, Double Commander will place the cursor on this file.</p>
+        <p>In Windows, you can change the drive by simply specifying the drive letter and a colon: <code>c:</code>, <code>d:</code> and so on.</p>
+        <p>Environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory.</p>
         <p>Several <a href="cmds.html#catcommandline">internal commands</a> are available for working with the command line.</p>
         <p>Right mouse click will show the usual input box menu that contains standard commands <span class="italic">Cut</span>, <span class="italic">Copy</span>, <span class="italic">Paste</span>, <span class="italic">Delete</span>, <span class="italic">Select All</span> and submenu <span class="italic">Insert Unicode Control Character</span>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

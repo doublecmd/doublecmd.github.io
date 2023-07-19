@@ -59,7 +59,8 @@
                 </dl>
               </dd>
               <dt>3.5. <a href="#libraryutf8">UTF-8 library</a></dt>
-              <dt>3.6. <a href="#libraryos">OS library</a></dt>
+              <dt>3.6. <a href="#librarychar">Char library</a><span class="versionref"><sup>(Alpha version)</sup></span></dt>
+              <dt>3.7. <a href="#libraryos">OS library</a></dt>
             </dl>
           </dd>
         </dl>
@@ -85,6 +86,7 @@
         </ul>
         <p>Note: When saving scripts, use UTF-8 encoding without BOM.</p>
         <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
+        <p>Note: Lua function <code>io.open</code> uses the standard C function <code>fopen</code>: in text mode, this function can convert the type of line endings (CRLF, LF or CR) when reading and writing and it can lead to unexpected results. If you come across files with different types of line endings or if you are writing a cross-platform script, this must be taken into account or it may be more practical to give preference to the binary mode.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -110,6 +112,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Clipboard library</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Provides external clipboard functionality</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Dialogs library</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interacts with user</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">UTF-8 library</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">UTF-8 string functions</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarychar">Char library</a></div></td><td class="hintcell">Char</td><td class="hintcell">Getting information about characters</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS library</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -259,7 +262,7 @@
               <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
               <p>Looks for files that match the <var>Path</var>, generally with wildcards.</p>
               <p>If no file is found, <var>Handle</var> will be <code>nil</code>.</p>
-              <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurences of the same pattern.</p>
+              <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurrences of the same pattern.</p>
               <p>The <var>FindData</var> table contains information about the file or directory found.</p>
               <p>The field of the <var>FindData</var> table are:</p>
               <ul>
@@ -455,7 +458,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
-            <td class="hintcell">Volume Label.<br>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
+            <td class="hintcell">Volume Label.<br>Only for DOS/Windows on a plain FAT (not VFAT or FAT32) filesystem.</td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
@@ -596,7 +599,7 @@
         <p>It's a relative long script but it's good to put together a few functions we've seen above.</p>
         <p>It assumes our active panel is currently into a directory with many source text files.</p>
         <p>It also assumes we currently have in clipboard a single word and that it will receive as a single parameter the current active folder.</p>
-        <p>The script will scan the file in that current level of directory and will read the content of them one by one to detect text line that containts the word that was in clipboard.</p>
+        <p>The script will scan the file in that current level of directory and will read the content of them one by one to detect text line that contains the word that was in clipboard.</p>
         <p>Then, the filenames of the files that contain at least one line with that word will be place into the clipboard.</p>
         <p>Then, the script will use the internal command <a href="cmds.html#cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a> and the files that have the words will then be selected.</p>
         <p>Also, at the end, we put back in our clipboard the original word that needed to be searched.</p>
@@ -674,7 +677,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
             <td class="hintcell">
               <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
-              <p>Will diplay a message box prompting a user to click a button which will be returned by the function.</p>
+              <p>Will display a message box prompting a user to click a button which will be returned by the function.</p>
               <p>Here is the description of each field:</p>
               <ul>
                 <li><var>Message</var> : The message inside the box.</li>
@@ -936,6 +939,20 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Next<span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="hintcell">
+              <p class="definition">LazUtf8.Next(String)</p>
+              <p>An iterator function that, each time it is called, returns the next character in the <var>String</var> and the position of the beginning of this character (in bytes).</p>
+              <p>Example:</p>
+<pre>
+<span class="luacmt">-- Print pairs of values in the form "position : character"</span>
+<span class="luakyw">for</span> iPos, sChar <span class="luakyw">in</span> LazUtf8.Next<span class="luasbl">(</span>String<span class="luasbl">)</span> <span class="luakyw">do</span>
+  DC.LogWrite<span class="luasbl">(</span>iPos .. <span class="luastr">" : "</span> .. sChar<span class="luasbl">)</span>
+<span class="luakyw">end</span>
+</pre>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
             <td class="hintcell">
               <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
@@ -1002,7 +1019,101 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
       </div>
 
       <div>
-        <h2><a name="libraryos">3.6. OS library</a></h2>
+        <h2><a name="librarychar">3.6. Char library</a><span class="versionref"><sup>(Alpha version)</sup></span></h2>
+        <p>This library contains functions for checking whether a character belongs to a particular Unicode category, as well as getting the category of a character.</p>
+        <p>List of available functions in this library:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Char library</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Function name</th><th class="categorydesccolumn">Description</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.GetUnicodeCategory</div></td>
+            <td class="hintcell">
+              <p class="definition">iResult = Char.GetUnicodeCategory(sVar)</p>
+              <p>Returns the Unicode category of a character <code>sVar</code>, one of the following values:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">Value</th><th class="innerdescheader">Description</th>
+                <tr><td colspan="2">&nbsp;&nbsp;Letter:</td></tr>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">Uppercase Letter (Lu)</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">Lowercase Letter (Ll)</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">Titlecase Letter (Lt)</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">Modifier Letter (Lm)</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">Other Letter (Lo)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Mark:</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">Non-Spacing Mark (Mn)</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">Spacing Combining Mark (Mc)</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">Enclosing Mark (Me)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Number:</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">Decimal Digit Number (Nd)</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">Letter Number (Nl)</td></tr>
+                <tr><td class="innerdescvaluecell">10</td><td class="innerdescdesccell">Other Number (No)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Punctuation:</td></tr>
+                <tr><td class="innerdescvaluecell">11</td><td class="innerdescdesccell">Connector Punctuation (Pc)</td></tr>
+                <tr><td class="innerdescvaluecell">12</td><td class="innerdescdesccell">Dash Punctuation (Pd)</td></tr>
+                <tr><td class="innerdescvaluecell">13</td><td class="innerdescdesccell">Open Punctuation (Ps)</td></tr>
+                <tr><td class="innerdescvaluecell">14</td><td class="innerdescdesccell">Close Punctuation (Pe)</td></tr>
+                <tr><td class="innerdescvaluecell">15</td><td class="innerdescdesccell">Initial Punctuation (Pi)</td></tr>
+                <tr><td class="innerdescvaluecell">16</td><td class="innerdescdesccell">Final Punctuation (Pf)</td></tr>
+                <tr><td class="innerdescvaluecell">17</td><td class="innerdescdesccell">Other Punctuation (Po)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Symbol:</td></tr>
+                <tr><td class="innerdescvaluecell">18</td><td class="innerdescdesccell">Math Symbol (Sm)</td></tr>
+                <tr><td class="innerdescvaluecell">19</td><td class="innerdescdesccell">Currency Symbol (Sc)</td></tr>
+                <tr><td class="innerdescvaluecell">20</td><td class="innerdescdesccell">Modifier Symbol (Sk)</td></tr>
+                <tr><td class="innerdescvaluecell">21</td><td class="innerdescdesccell">Other Symbol (So)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Separator:</td></tr>
+                <tr><td class="innerdescvaluecell">22</td><td class="innerdescdesccell">Space Separator (Zs)</td></tr>
+                <tr><td class="innerdescvaluecell">23</td><td class="innerdescdesccell">Line Separator (Zl)</td></tr>
+                <tr><td class="innerdescvaluecell">24</td><td class="innerdescdesccell">Paragraph Separator (Zp)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Other:</td></tr>
+                <tr><td class="innerdescvaluecell">25</td><td class="innerdescdesccell">Control (Cc)</td></tr>
+                <tr><td class="innerdescvaluecell">26</td><td class="innerdescdesccell">Format (Cf)</td></tr>
+                <tr><td class="innerdescvaluecell">27</td><td class="innerdescdesccell">Surrogate (Cs)</td></tr>
+                <tr><td class="innerdescvaluecell">28</td><td class="innerdescdesccell">Private Use (Co)</td></tr>
+                <tr><td class="innerdescvaluecell">29</td><td class="innerdescdesccell">Unassigned (Cn)</td></tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsDigit</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsDigit(sVar)</p>
+              <p>Returns <code>true</code> if the <var>sVar</var> character is in the <i>Nd</i> category.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetter</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLetter(sVar)</p>
+              <p>Returns <code>true</code> if the <var>sVar</var> character is in the category <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> or <i>Lo</i>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetterOrDigit</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLetterOrDigit(sVar)</p>
+              <p>Returns <code>true</code> if the <var>sVar</var> character is in the category <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> <i>Lo</i>, <i>Nd</i> или <i>Nl</i>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLower</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLower(sVar)</p>
+              <p>Returns <code>true</code> if the <var>sVar</var> character is in the <i>Ll</i> category.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Char.IsUpper</div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsUpper(sVar)</p>
+              <p>Returns <code>true</code> if the <var>sVar</var> character is in the <i>Lu</i> category.</p>
+            </td>
+          </tr>
+        </table>
+        <p>Also, these functions support working with two parameters: instead of a single character, we can specify a string and the position of the character in this string.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libraryos">3.7. OS library</a></h2>
         <p>This library contains functions related with the operating system where Double Commander is running.</p>
         <p>Here is the list of available functions in this library:</p>
         <table>
@@ -1015,7 +1126,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <p>Will execute <var>Command</var> as it would be typed on the command-line and return the result code of the operation.</p>
               <p>The <var>Command</var> could either be:</p>
               <ul>
-                <li>A terminal commmand like <code>os.execute("dir &gt; all.txt")</code></li>
+                <li>A terminal command like <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>An executable like <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
                 <li>An executable with parameters:<br><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin &gt; md5.txt")</code></li>
               </ul>
@@ -1047,6 +1158,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             <td class="hintcell">
               <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
               <p>Will rename the file <var>OldName</var> with the new name <var>NewName</var>.</p>
+              <p><b><span class="uline">Note:</span> If a file named <var>NewName</var> already exists, it will be replaced!</b></p>
               <p>If it works, function returns <code>true</code>.</p>
               <p>If it fails, function returns three things:</p>
               <ol>

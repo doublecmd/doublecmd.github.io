@@ -100,7 +100,7 @@
         <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages. The language can be changed in the menu via <a href="configuration.html#ConfigLang">Configuration&nbsp;&gt; Options...&nbsp;&gt; Language</a>.</p>
         <p>Double Commander determines and uses the current system theme. It looks like this (Ubuntu, three themes and two icon sets):</p>
         <p class="figure"><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="690" height="500"></p>
-        <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager). Double Commander also supports dark mode in Windows (Windows 10 1809 and newer).<span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager). Double Commander also supports dark mode in Windows (Windows 10 1809 and newer).<span class="versionref"><sup>(Beta version)</sup></span></p>
         <p>Double Commander uses Total Commander plugin API, so under Windows you can use plugins from Total Commander (many of them are compatible with DC). See the description of the types of plugins in the <a href="configuration.html#ConfigPlugins">Plugins</a> settings section. DC is distributed with several <a href="plugins.html">pre-installed plugins</a>, other plugins can be installed manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -130,7 +130,7 @@
 
         <p><span class="bold">Create Directory</span> (internal command <tt>cm_MakeDir</tt>)&nbsp;&ndash; creates a new subdirectory in the current directory. The file name (without extension) or directory name under the cursor will be offered, this is useful for creating multiple directories with similar names. You can also create several subdirectories in one operation, just separate the subdrectories with the directory separator (in Unix/Linux system it will be "/" and in Windows it will be "\").</p>
         <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="144"></p>
-        <p>If <span class="italic">Extended syntax</span><span class="versionref"><sup>(Alpha version)</sup></span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
+        <p>If <span class="italic">Extended syntax</span><span class="versionref"><sup>(Beta version)</sup></span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
 
         <p><span class="bold">Create Shortcut</span> (Windows only)&nbsp;&ndash; Double Commander creates a shortcut (Microsoft Windows .lnk file) to the file under the cursor and places it in the folder opened in the opposite panel.</p>
 
@@ -183,7 +183,7 @@
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
         <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.
           The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
-        <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract<span class="versionref"><sup>(Alpha version)</sup></span>: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
+        <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract<span class="versionref"><sup>(Beta version)</sup></span>: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
         <p><span class="italic">Unpack path names if stored with files</span>&nbsp;&ndash; If checked, the directory structure in the archive will be kept. Otherwise, all files will be extracted without re-creating the directory structure.</p>
         <p>Checkbox <span class="italic">Overwrite existing files</span> disables confirmation of overwriting existing files.</p>
 
@@ -266,8 +266,8 @@
         <p><span class="bold"><a name="cm_FlatView">Flat view</a></span> (internal command <tt>cm_FlatView</tt>) will scan all the directories of panel to show all content in one single panel.</p>
         <p><span class="bold"><a name="cm_OpenVirtualFileSystemList">Open VFS List</a></span> (internal command <tt>cm_OpenVirtualFileSystemList</tt>) will open a list of added file system plugins (WFX plugins) that use their own file systems or provide access to other file systems and devices (local or remote). As well as virtual folders:</p>
         <ul>
-          <li><p><tt>Computer</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; contains a list of normal disks with a drive letter and devices that do not have a drive letter (for example, USB devices that are connected via the MTP protocol, i.e. smartphones, tablets or players). Windows only.</p></li>
-          <li><p><tt>Linux</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
+          <li><p><tt>Computer</tt><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; contains a list of normal disks with a drive letter and devices that do not have a drive letter (for example, USB devices that are connected via the MTP protocol, i.e. smartphones, tablets or players). Windows only.</p></li>
+          <li><p><tt>Linux</tt><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
           <li><p><tt>Network</tt>&nbsp;&ndash; used to access shared network resources (Windows only).</p></li>
           <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; used to access files deleted to trash.</p></li>
         </ul>
@@ -416,7 +416,7 @@
       <div>
         <h2><a name="iface_tabs">2.5. Tabs bar</a></h2>
         <p class="figure"><img class="largeimage" title="Tabs bar" alt="Tabs bar" src="images/imgDC/pic6.png" width="228" height="28"></p>
-        <p>Display tabs. Click on tabs with left mouse or you can use the keyboard to navigate tabs (<kbd>Ctrl+Tab</kbd> and <kbd>Ctrl+Shift+Tab</kbd> by default). To change the order of the tabs, use drag &amp; drop or the <tt>cm_MoveTabLeft</tt> and <tt>cm_MoveTabRight</tt> commands<span class="versionref"><sup>(Alpha version)</sup></span>.</p>
+        <p>Display tabs. Click on tabs with left mouse or you can use the keyboard to navigate tabs (<kbd>Ctrl+Tab</kbd> and <kbd>Ctrl+Shift+Tab</kbd> by default). To change the order of the tabs, use drag &amp; drop or the <tt>cm_MoveTabLeft</tt> and <tt>cm_MoveTabRight</tt> commands<span class="versionref"><sup>(Beta version)</sup></span>.</p>
         <p>You can protect tabs from closing or changing the directory, the available tab states are described in the <a href="#mnu_tabs">"Tabs"</a> subsection. Locked tabs are marked with an asterisk (if <a href="configuration.html#5_1_12_1_zvezda">Show locked tabs with an asterisk *</a> is enabled).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

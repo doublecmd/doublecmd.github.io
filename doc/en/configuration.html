@@ -137,7 +137,7 @@
         <p>The main files are:</p>
         <ul>
           <li><p><tt>doublecmd.xml</tt>&nbsp;&ndash; all the main program settings;</p></li>
-          <li><p><tt>doublecmd.cfg</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; settings that are applied before initialization of all program components and loading <tt>doublecmd.xml</tt>;</p></li>
+          <li><p><tt>doublecmd.cfg</tt><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; settings that are applied before initialization of all program components and loading <tt>doublecmd.xml</tt>;</p></li>
           <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; file extension association configuration;</p></li>
           <li><p><tt>favoritetabs.xml</tt>&nbsp;&ndash; favorite tabs;</p></li>
           <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; maps file extensions to MIME-types icon names;</p></li>
@@ -147,13 +147,13 @@
           <li><p><tt>history.xml</tt>&nbsp;&ndash; command line and directory history, search and replace, etc.;</p></li>
           <li><p>few others...&nbsp;&ndash; etc...</p></li>
         </ul>
-        <p>The configuration version in <tt>doublecmd.xml</tt> defines the data storage format: if it has changed in the new version of the program (for example, new parameters have been added or existing ones have changed), then at the first start Double Commander will update the configuration files. The upgrade process will back up the previous version of <tt>doublecmd.xml</tt>.<span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>The configuration version in <tt>doublecmd.xml</tt> defines the data storage format: if it has changed in the new version of the program (for example, new parameters have been added or existing ones have changed), then at the first start Double Commander will update the configuration files. The upgrade process will back up the previous version of <tt>doublecmd.xml</tt>.<span class="versionref"><sup>(Beta version)</sup></span></p>
       </div>
 
       <div>
         <h2><a name="settings">2. Configuration</a></h2>
-        <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file. A filter by parameter name is available at the bottom of the window: the program will display only those sections that contain a matching parameter.<span class="versionref"><sup>(Alpha version)</sup></span></p>
-        <p>To open the corresponding section in the program help, you can use the <span class="italic">Help</span> button or the <kbd>F1</kbd> key.<span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file. A filter by parameter name is available at the bottom of the window: the program will display only those sections that contain a matching parameter.<span class="versionref"><sup>(Beta version)</sup></span></p>
+        <p>To open the corresponding section in the program help, you can use the <span class="italic">Help</span> button or the <kbd>F1</kbd> key.<span class="versionref"><sup>(Beta version)</sup></span></p>
         <p>Double Commander has several <a href="cmds.html#catconfiguration">internal commands</a> to open the configuration dialog and quickly jump to the desired section.</p>
         <p>Double Commander supports importing/exporting some settings: directory hotlist, favorite tabs, external archivers, toolbar (main and middle), tooltips. Also, the list of hotkeys can be saved to a new file and you can switch between them.</p>
         <p>Note: To the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">: the popup menu contains lists of variables (including environment variables) and some additional functions, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
@@ -200,7 +200,7 @@
         <p><span class="italic">Tab indents blocks</span>&nbsp;&ndash; If enabled, <kbd>Tab</kbd> and <kbd>Shift+Tab</kbd> act as block indent, unindent when text is selected.</p>
         <p><span class="italic">Smart Tabs</span>&nbsp;&ndash; When the <kbd>Tab</kbd> key is used, caret will go to the next non-space character of the previous line.</p>
         <p><span class="italic">Tab width</span>&nbsp;&ndash; The width of the tab character (in number of characters). If <span class="italic">Use spaces instead tab characters</span> is enabled, then the <kbd>Tab</kbd> key will insert the specified number of space characters. This setting does not apply if the <span class="italic">Smart Tabs</span> option is enable.</p>
-        <p><span class="italic">Block indent</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; sets the number of characters by which the indent will increase or decrease when using the corresponding commands.</p>
+        <p><span class="italic">Block indent</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; sets the number of characters by which the indent will increase or decrease when using the corresponding commands.</p>
         <p><span class="italic">Right margin</span>&nbsp;&ndash; Line length marker, thin vertical line at the given position: lines will not be truncated with a forced line break, it is just a visual hint. Useful in cases where there is a recommendation to limit the length of strings (for example, 80 or 120 characters).</p>
         <br>
 
@@ -273,7 +273,7 @@
         </ul>
         <br>
 
-        <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span><span class="versionref"><sup>(Beta version)</sup></span></p>
         <p><span class="italic">Dark mode</span>&nbsp;&ndash; enables or disables dark mode support (only Windows 10 1809 and newer):</p>
         <ul>
           <li><p><span class="italic">Auto</span>&nbsp;&ndash; system settings will be used.</p></li>
@@ -291,7 +291,7 @@
         <p><span class="italic">Use Inactive Sel Color</span>&nbsp;&ndash; enables the display of the cursor also in the inactive panel.</p>
         <p><span class="italic">Use Frame Cursor</span>&nbsp;&ndash; Double Commander will use a frame instead of a solid rectangle.</p>
         <p><span class="italic">Allow Overcolor</span> enables the ability to use a color other than the default color for file names (see section <a href="#ConfigColorFiles">Colors&nbsp;&gt; File types</a>).</p>
-        <p>Also here you can decrease the brightness of the inactive panel and change the appearance of the drive free space indicator. Double Commander can display a gradient (from green to red) or simple monochrome indicator, for a monochrome indicator you can choose the color and background. <span class="italic">Indicator Threshold Color</span><span class="versionref"><sup>(Alpha version)</sup></span> will be used if the free disk space is less than 10%. The indicator example is clickable, so you can see how it will look.<span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p>Also here you can decrease the brightness of the inactive panel and change the appearance of the drive free space indicator. Double Commander can display a gradient (from green to red) or simple monochrome indicator, for a monochrome indicator you can choose the color and background. <span class="italic">Indicator Threshold Color</span><span class="versionref"><sup>(Beta version)</sup></span> will be used if the free disk space is less than 10%. The indicator example is clickable, so you can see how it will look.<span class="versionref"><sup>(Beta version)</sup></span></p>
         <p>There is a preview area at the bottom of the window, so you can see all the changes at once.</p>
         <p>The <span class="italic">Reset to DC default</span> button will reset all parameters to their default values.</p>
         <br>
@@ -527,7 +527,7 @@
         <p>The screenshots below illustrate this subtle grid effect. The screenshot on the left has the vertical and horizontal lines enabled and the screenshot on the right does not.</p>
         <p class="figure"><img class="largeimage" title="with and without lines" alt="with and without lines" src="images/imgDC/pic35.png" width="690" height="128"></p>
         <p><span class="italic">Auto fill columns</span>&nbsp;&ndash; If enabled, when resizing the window (or if free space exists), Double Commander will resize the column, which selected in the next option <span class="italic">Auto size column:</span> (first or last). The horizontal scrollbar will not be available.</p>
-        <p><span class="italic">Column titles alignment like values</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; If enabled, Double Commander will align the column header the same as the content (instead of left-aligned).</p>
+        <p><span class="italic">Column titles alignment like values</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; If enabled, Double Commander will align the column header the same as the content (instead of left-aligned).</p>
         <p>If the content of the column is larger than its width:</p>
         <ul>
           <li><p><span class="italic">Cut text to column width</span>&nbsp;&ndash; Sometimes column text can overlap into other columns. This option truncates any extra text at the column boundary.</p></li>
@@ -830,7 +830,7 @@
         <p><span class="bold"><a name="ConfigMisc">2.17. Miscellaneous</a></span></p>
         <p>This section contains parameters for which there was no suitable place in other sections of the settings:</p>
         <p class="figure"><img class="largeimage" title="Miscellaneous" alt="Miscellaneous" src="images/imgDC/pic46.png" width="578" height="486"></p>
-        <p><span class="italic">Show splash screen</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; If enabled, before displaying the main window, Double Commander will show a splash screen containing the program icon and version, compilation date, and the version of Lazarus, FPC, and operating system.</p>
+        <p><span class="italic">Show splash screen</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; If enabled, before displaying the main window, Double Commander will show a splash screen containing the program icon and version, compilation date, and the version of Lazarus, FPC, and operating system.</p>
         <p><span class="italic">Show warning messages ("OK" button only)</span>&nbsp;&ndash; shows warning messages if enabled. (For example, if Double Commander cannot set some property or attribute of a file due to file system restrictions in the target directory.)</p>
         <p><span class="italic">Always go to the root of a drive when changing drives</span>&nbsp;&ndash; If unchecked, Double Commander will go to the last open directory on this drive (in this case, you can go to the root directory of the drive by pressing its button twice).</p>
         <p><span class="italic">Show current directory in the main window title bar</span>&nbsp;&ndash; If enabled, Double Commander will display the name of the current folder and the active panel path in the main window title bar.</p>
@@ -1004,7 +1004,7 @@
         <p><span class="italic">Offer to add selection to file association when not included already</span>&nbsp;&ndash; When accessing file association, offer to add current selected file if not already included in a configured file type. This is a quick way to add an "Open with" action: Double Commander will prompt you to specify a type name and an executable file, everything else will be done automatically.</p>
         <p><span class="italic">Extended context menu</span>&nbsp;&ndash; allows to add some items to the "Actions" submenu:</p>
         <ul>
-          <li><p><span class="italic">Default context actions (View/Edit)</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; Commands for opening a file in the viewer and editor. Built-in tools or external applications will be used (depending on the settings), internal file associations will be ignored.</p></li>
+          <li><p><span class="italic">Default context actions (View/Edit)</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; Commands for opening a file in the viewer and editor. Built-in tools or external applications will be used (depending on the settings), internal file associations will be ignored.</p></li>
           <li><p>Run using macros <tt>{!SHELL}</tt>, <tt>{!TERMANDCLOSE}</tt> and <tt>{!TERMSTAYOPEN}</tt> (see details <a href="#ConfigAssociations">here</a>):</p>
             <ul>
               <li><p><span class="italic">Execute via shell</span></p></li>

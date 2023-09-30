@@ -304,9 +304,37 @@
         <p>В строке <span class="italic">Атрибуты</span> вы можете указать атрибуты файлов, с помощью которых также будут распознаваться различные их типы (недоступно при использовании шаблона поиска). Атрибуты файла задаются следующими шаблонами:</p>
         <ul>
           <li><p>Windows: [<code>d</code> или <code>l</code>]<code>rahs</code>[<code>c</code> или <code>e</code>]<code>tp</code></p></li>
-          <li><p>Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code>, <code>r</code> или <code>s</code>]<code>rwxrwxrwx</code></p></li>
+          <li><p>Unix/Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code> или <code>s</code>]<code>rwxrwxrwx</code></p></li>
         </ul>
-        <p>Описание значений смотрите <a href="findfiles.html#attributes">здесь</a>. Если атрибут не должен быть установлен, его нужно заменить символом "-", ненужные следует скрыть: звёздочка "*" обозначает любое количество символов, знак вопроса "?"&nbsp;&ndash; любой один символ. Например, с <code>?r*</code> (Windows) или <code>?r-*</code> (Linux) будут найдены все файлы и папки только для чтения.</p>
+        <p>т.е. шаблон должен соответствовать текстовой строке атрибутов в списке файлов. Описание значений:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Windows</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Атрибут</th><th class="categorydesccolumn">Что обозначает</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">архивный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">сжатый (сжатие NTFS)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">каталог</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">зашифрованный (шифрование EFS)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">скрытый</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">символьная ссылка</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">разрежённый</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">только для чтения</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">системный</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">временный</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Атрибуты в Unix/Linux (типы файлов)</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Типы файлов</th><th class="categorydesccolumn">Что обозначает</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">блочное физическое устройство</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">символьное физическое устройство</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">каталог</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">именованный канал (или буфер FIFO)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">символьная ссылка</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">сокет (socket)/доменное гнездо</td></tr>
+        </table>
+        <br>
+        <p>Вторая часть шаблона для Unix/Linux отображает права доступа: чтение (r), запись (w), выполнение (x). Значения сгруппированы по три в следующем порядке: пользователь (владелец), группа пользователя, все остальные.</p>
+        <p>Если атрибут не должен быть установлен, его нужно заменить символом "-", ненужные следует скрыть: звёздочка "*" обозначает любое количество символов, знак вопроса "?"&nbsp;&ndash; любой один символ. Например, с <code>?r*</code> (Windows) или <code>?r-*</code> (Linux) будут найдены все файлы и папки только для чтения.</p>
         <p>Вы можете использовать цвет из списка или указать свой с помощью кнопки "&gt;&gt;".</p>
         <p>Не забывайте нажимать на кнопку "Применить" после внесения изменений в список или в свойства.</p>
         <p>Правила применяются строго в обратном порядке: правило, находящееся выше в списке, будет перекрывать любое правило ниже.</p>
@@ -568,7 +596,7 @@
           <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&ndash; дата создания файла или каталога (не работает в Linux/BSD, ограничение POSIX).</p></li>
           <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&ndash; дата последнего доступа файла или каталога.</p></li>
           <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&ndash; дата изменения статуса файла или каталога.</p></li>
-          <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; атрибуты файла или каталога. Вы можете выбрать строковое или числовое (восьмеричное) значение. В Windows восьмеричное значение можно использовать, если в файловой панели отображаются Unix-атрибуты (например, с плагином FTP).</p></li>
+          <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; атрибуты файла или каталога. Вы можете выбрать строковое или числовое (восьмеричное) значение. В Windows восьмеричное значение можно использовать, если в файловой панели отображаются Unix-атрибуты (например, с плагином FTP). Подробное описание строкового значения смотрите <a href="#ConfigColorFiles">здесь</a>.</p></li>
           <li><p><tt>GETFILEPATH</tt>&nbsp;&ndash; путь к каталогу, в котором находится файл или папка. Обычно используется при просмотре результата поиска файлов.</p></li>
           <li><p><tt>GETFILEGROUP</tt>&nbsp;&ndash; группа владельца файла.</p></li>
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; владелец файла.</p></li>

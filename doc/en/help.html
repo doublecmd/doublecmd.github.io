@@ -202,9 +202,9 @@
         </ul>
         <p>If you use the <span class="italic">Number of parts</span> parameter, the size of the parts is always displayed in bytes.</p>
         <p>If <span class="italic">Require a CRC32 verification file</span> is enabled, Double Commander will create a text file with the name of the source file and the extension ".crc", which contains the name of the source file, its size and checksum (the CRC32 algorithm is used). This is an easy way to check that the file is combined correctly and its parts have not been changed during the move. If this file is not available, Double Commander will show a warning, but this will not prevent you from getting the original file (however, in this case, the program will not be able to add the original file extension).</p>
-        <p>On click OK button you get several files in the target directory. As a file extension, Double Commander uses sequential numbering of three or more (if it is needed) digits. To combine the file again, select all parts and click <span class="bold">Combine files</span> (<tt>cm_FileLinker</tt>). You also need to specify the order of split parts to combine.</p>
+        <p>On click OK button you get several files in the target directory. As a file extension, Double Commander uses sequential numbering of three or more (if it is needed) digits. To combine the file again, select the first part and click <span class="bold">Combine files</span> (<tt>cm_FileLinker</tt>). Or select all parts, you can also specify the order of split parts to combine.</p>
         <p class="figure"><img class="largeimage" title="Combine files" alt="Combine files" src="images/imgDC/pic25.png" width="394" height="372"></p>
-        <p>This function is very useful, if you have small drives and large files. It is possible to move the file parts. Keep in mind, this tool does not create any specific container or archive, but simply splits the file, so parts of the file can be safely glued together in other ways.</p>
+        <p>This function is very useful, if you have small drives and large files. It is possible to move the file parts. Keep in mind, this tool does not create any specific container or archive, but just splits or glues the file, so parts of the file can be obtained and safely glued together by other programs.</p>
 
         <p>Item <a name="cm_CheckSumCalc"><span class="bold">Calculate check sum...</span></a> (internal command <tt>cm_CheckSumCalc</tt>) is used to calculate the <a href="https://en.wikipedia.org/wiki/Checksum" target="_blank">checksum</a> to check files integrity. The following checksums are available:
           BLAKE2 (BLAKE2s, BLAKE2sp, BLAKE2b, BLAKE2bp), BLAKE3, CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV, SHA,
@@ -321,11 +321,13 @@
 
       <div>
         <h2><a name="mnu_fav">2.1.6. "Favorites"</a></h2>
-        <p>This menu contains a list of your saved <a href="configuration.html#ConfigFavoriteTabs">Favorite Tabs</a> and some commands for working with them.</p>
+        <p>This menu contains a list of your saved Favorite Tabs and some commands for working with them.</p>
+        <p>Favorite Tabs are saved sets of tabs that grouped according to criteria convenient for you (work, projects, hobbies, and so on), they allow to open all the necessary directories in tabs at once.</p>
         <p><span class="bold">Save current tabs to a New Favorite Tabs</span> (internal command <tt>cm_SaveFavoriteTabs</tt>)&nbsp;&ndash; will save in the set of Favorite Tabs the current opened tabs.</p>
         <p><span class="bold">Resave on the last Favorite Tabs loaded</span> (internal command <tt>cm_ResaveFavoriteTabs</tt>)&nbsp;&ndash; will resave the current tabs configuration over the last loaded Favorites Tabs entry.</p>
         <p><span class="bold">Reload the last Favorite Tabs loaded</span> (internal command <tt>cm_ReloadFavoriteTabs</tt>)&nbsp;&ndash; reload again the last Favorite Tabs setup that was loaded, i.e. this command is used to restore a saved set "as is".</p>
-        <p>The next item <span class="bold">Configuration of Favorite Tabs</span> is for quick jump to the <a href="configuration.html#ConfigFavoriteTabs">Favorite Tabs settings section</a>.</p>
+        <p>The next item <span class="bold">Configuration of Favorite Tabs</span> is for quick jump to the <a href="configuration.html#ConfigFavoriteTabs">Favorite Tabs</a> settings section.</p>
+        <p>To unload the last loaded Favorite Tabs, use the <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> command with <code>setup=""</code> (add a button to the toolbar or a hotkey). The currently open tabs will not be affected, this command will just unload the name of the used set of Favorite Tabs from memory and Double Commander will continue to work as usual.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -388,7 +390,8 @@
       <div>
         <h2><a name="iface_drive_pane">2.3. Drives button bar</a></h2>
         <p class="figure"><img title="Drives button bar" alt="Drives button bar" src="images/imgDC/pic3.png" width="472" height="25"></p>
-        <p>The Drives button bar helps you to change the drive quickly with one mouse click. Right click shows the context menu that contains operations such as mount/unmount, format, etc. (depends on the OS and drive type).</p>
+        <p>The Drives button bar helps you to change the drive quickly with one mouse click. Middle mouse (mouse wheel) click will open the disk in a new tab in the active panel.</p>
+        <p>Right click shows the context menu that contains operations such as mount/unmount, format, etc. (depends on the OS and drive type).</p>
         <p>The last button is <a href="#cm_OpenVirtualFileSystemList">Open VFS list</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -508,7 +511,6 @@
           <li><p>The <span class="italic">Actions</span> submenu&nbsp;&ndash; contains all the actions added to the <a href="configuration.html#ConfigAssociations">file association</a> for files with the file extension under the cursor. Also you can add a few <a href="configuration.html#ConfigAssocEx">additional actions</a>.</p></li>
           <li><p>The <span class="italic">Open with</span> submenu&nbsp;&ndash; contains a list of applications suitable for opening a file. To get the list in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>, Double Commander uses the Launch Services API, in other systems the program follows the <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">Desktop Menu</a> specification.<br>
             The additional item <span class="italic">Other...</span> (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) will open the application selection window: you can choose an application from a list of all available applications or manually specify the command line to open the file. Also here you can save an additional system association for the file type, add a new one or change the default application (Double Commander will use the <tt>~/.config/mimeapps.list</tt> file (see <a href="https://specifications.freedesktop.org/mime-apps-spec/latest" target="_blank">Association between MIME types and applications</a>).</p></li>
-
           <li><p><span class="italic">Services</span>&nbsp;&ndash; system services (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup> only).</p></li>
           <li><p><span class="italic">Pack here...</span>&nbsp;&ndash; calls the <a href="#cm_PackFiles">command to pack</a> the selected file(s), the current directory will be used as the target directory.</p></li>
           <li><p><span class="italic">Extract here...</span>&nbsp;&ndash; calls the <a href="#cm_ExtractFiles">command to unpack</a> the selected file, the current directory will be used as the target directory. This item will be added only if the file extension is specified in the settings of archiver plugins or external archivers.</p></li>

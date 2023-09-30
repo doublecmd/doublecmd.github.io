@@ -50,6 +50,7 @@
               <dt>4.10. <a href="#actionextractnpath">Configuring the "Extract without path" action</a></dt>
               <dt>4.11. <a href="#actionselfextract">Configuring the "Create self extracting archive" action</a></dt>
               <dt>4.12. <a href="#configids">Configuring the "ID's"</a></dt>
+              <dt>4.13. <a href="#other">Menu of the "Other" button</a></dt>
             </dl>
           </dd>
           <dt>5. <a href="#openassociation">Opening an archive file in an associated application</a></dt>
@@ -206,6 +207,7 @@
         </ul>
         <p>So all this is to invoke the external archiver with proper parameters.</p>
         <p>This will be use when we use the internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
+        <p>A few words about the "Use archive name without extension as list" option: This option is intended for archives that can contain only one file and the filename is equal to the archive name without extension (Bzip2, XZ and others). Such compressed files usually do not contain the name of the original file.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -491,11 +493,24 @@
       </div>
 
       <div>
+        <h2><a name="other">4.13. Menu of the "Other" button</a></h2>
+        <p>This menu contains several additional functions:</p>
+        <ul>
+          <li><p><span class="italic">Auto Configure</span>&nbsp;&ndash; Double Commander will check all executable files of archivers: if a file is found, the program will automatically add its full path and enable the archiver, otherwise the archiver will be disabled.</p></li>
+          <li><p><span class="italic">Discard modifications</span>&nbsp;&ndash; resets all unsaved settings changes.</p></li>
+          <li><p><span class="italic">Sort archivers</span>&nbsp;&ndash; sorts the list of archivers alphabetically.</p></li>
+          <li><p><span class="italic">Disable all</span> and <span class="italic">Enable all</span>&nbsp;&ndash; enable or disable all archivers.</p></li>
+          <li><p><span class="italic">Export...</span> and <span class="italic">Import...</span>&nbsp;&ndash; allow us to export and import archiver settings (all archivers or part of them).</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
         <h2><a name="openassociation">5. Opening an archive file in an associated application</a></h2>
         <p>By default, files whose extensions are specified in the settings of WCX plugins and external archivers are opened as folders. To open them in an associated application, we can use the "Open" item in the context menu of the file, but in this case only system file associations will be used.</p>
         <p>To use the <kbd>Enter</kbd> key or double-click, we have to change the settings.</p>
-        <p>If a WCX plugin is used, then we must open the plugin settings, select the extension and enable the "Show as normal files (hide packer icon)" flag.</p>
-        <p>If an external archiver is used to unpack files, then we must specify a non-existent file extension and fill in the fields for using ID. For example, CHM documents: "chm2" instead of "chm", signature "49 54 53 46" and offset 0.</p>
+        <p>If a WCX plugin is used, then we can open the plugin settings, select the extension and enable the "Show as normal files (hide packer icon)" flag.</p>
+        <p>If an external archiver is used to unpack files, then we can specify a non-existent file extension and fill in the fields for using ID. For example, CHM documents: "chm2" instead of "chm", signature "49 54 53 46" and offset 0.</p>
         <p>Now, if necessary, we can use <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> and <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a>.
         <p>For such files, Double Commander will use the associated icon instead of the generic archive icon.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

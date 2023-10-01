@@ -23,9 +23,10 @@
         <h2>Content</h2>
         <dl>
           <dt>1. <a href="#confirmation">Copy/move dialog window</a></dt>
-          <dt>2. <a href="#progress">Operation progress dialog</a></dt>
-          <dt>3. <a href="#collisions">Name collisions</a></dt>
-          <dt>4. <a href="#aconfig">Additional settings</a></dt>
+          <dt>2. <a href="#clipboard">Using the clipboard</a></dt>
+          <dt>3. <a href="#progress">Operation progress dialog</a></dt>
+          <dt>4. <a href="#collisions">Name collisions</a></dt>
+          <dt>5. <a href="#aconfig">Additional settings</a></dt>
         </dl>
       </div>
 
@@ -56,8 +57,8 @@
         </ul>
         <p>The list of the following parameters will vary depending on the type of file operation and operating system family.</p>
         <ul>
-          <li><p><span class="italic">Verify</span>&nbsp;&ndash; If enabled, Double Commander will compare the source file and the copied file in the target directory: a byte-by-byte comparison (Windows) or BLAKE2 checksums (Linux and others). Double Commander will try to minimize the disk cache effects. Not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>.</p></li>
-          <li><p><span class="italic">Check free space</span>&nbsp;&ndash; Double Commander calculates the size of the selected files, so it can check if there is enough free space in the target directory.</p></li>
+          <li><p><span class="italic">Verify</span>&nbsp;&ndash; If enabled, Double Commander will compare the source file and the copied file in the target directory: a byte-by-byte comparison (Windows) or BLAKE2 checksums (Linux and others). Double Commander will try to minimize the disk cache effects; if the file system does not support direct access to the file (for example, tmpfs), the program will report the verification failure. Keep in mind, this function significantly reduces the speed of the operation. Not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>.</p></li>
+          <li><p><span class="italic">Check free space</span>&nbsp;&ndash; Before copying the file, Double Commander will check if there is enough free disk space in the target directory.</p></li>
           <li><p><span class="italic">Reserve space</span>&nbsp;&ndash; If enabled, Double Commander will use pre-allocation of disk space, this will reduce the chances of file fragmentation. Also this is a faster way to create files. In Windows, Double Commander always reserves space.</p></li>
           <li><p><span class="italic">Follow links</span>&nbsp;&ndash; If enabled, Double Commander will consider symbolic links to folders as regular folders and copy their contents; instead of file links, the target  files of this links will be copied. The indeterminate checkbox state (three-state): the program will ask each time what it should do.</p></li>
           <li><p><span class="italic">Correct links</span>&nbsp;&ndash; If enabled, Double Commander will check the links and, if necessary, correct their target path based on the target directory. If a relative path is specified, then the corrected path will also be written as relative.</p></li>
@@ -74,7 +75,15 @@
       </div>
 
       <div>
-        <h2><a name="progress">2. Operation progress dialog</a></h2>
+        <h2><a name="clipboard">2. Using the clipboard</a></h2>
+        <p>An additional way to copy or move files: we can use the <span class="italic">Copy</span> and <span class="italic">Paste</span> or <span class="italic">Cut</span> and <span class="italic">Paste</span> commands using the keyboard (<kbd>Ctrl+C</kbd>/<kbd>Ctrl+V</kbd> or <kbd>Ctrl+X</kbd>/<kbd>Ctrl+V</kbd> by default) or the corresponding items in the <a href="help.html#cm_ContextMenu">context menu</a>.</p>
+        <p>In this case, the operation will start without a confirmation dialog. Double Commander will use the operation settings saved as the default settings, except for the <span class="italic">Verify</span> parameter (see description above).</p>
+        <p>If a file is copied and pasted into the active panel (in the same directory), duplicate files will be created with automatic renaming using the template from the <a href="configuration.html#ConfigOperations">file operations settings</a>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="progress">3. Operation progress dialog</a></h2>
         <p>This dialog box shows the details of the progress of the operation: two progress bars (for the currently processed file and the general), progress in percentage (in the title), the total number of files and the number of processed files, the full name of the current file and the name in the target directory, size, speed and remaining time.</p>
         <p>Buttons:</p>
         <ul>
@@ -87,7 +96,7 @@
       </div>
 
       <div>
-        <h2><a name="collisions">3. Name collisions</a></h2>
+        <h2><a name="collisions">4. Name collisions</a></h2>
         <p>If a file with the name of the file being copied already exists in the target directory, Double Commander will provide several actions. The choice of the action to be used automatically (without user involvement) will not be saved for subsequent calls of the copy/move operation.</p>
         <p>If there is a folder with the same name:</p>
         <ul>
@@ -121,7 +130,7 @@
       </div>
 
       <div>
-        <h2><a name="aconfig">4. Additional settings</a></h2>
+        <h2><a name="aconfig">5. Additional settings</a></h2>
         <p>Additional options related to copy/move operations are presented on the <a href="configuration.html#ConfigOperations">File operations</a> settings page.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>

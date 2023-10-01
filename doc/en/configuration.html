@@ -304,9 +304,37 @@
         <p>In line <span class="italic">Category attributes</span> you can put file attributes, and DC will match any files which have matching attributes (not available if using a search template). File attributes are specified by the following templates:</p>
         <ul>
           <li><p>Windows: [<code>d</code> or <code>l</code>]<code>rahs</code>[<code>c</code> or <code>e</code>]<code>tp</code></p></li>
-          <li><p>Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code>, <code>r</code> or <code>s</code>]<code>rwxrwxrwx</code></p></li>
+          <li><p>Unix/Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code> or <code>s</code>]<code>rwxrwxrwx</code></p></li>
         </ul>
-        <p>See the description of this values <a href="findfiles.html#attributes">here</a>. If attribute should not be set, it must be replaced with the "-" symbol, unnecessary attributes should be hidden: symbol "*" means match any number of characters, symbol "?" means any one character. For example, <code>?r*</code> (Windows) or <code>?r-*</code> (Linux) will find all read-only files and folders.</p>
+        <p>i.e. the template must match the attribute text string in the file list. Description of values:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Attributes in Windows</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Attribute letter</th><th class="categorydesccolumn">What it stands for</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">archive</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">compressed (NTFS compression)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">encrypted (EFS encryption)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">hidden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">sparse</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">read only</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">system</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">temporary</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Attributes in Unix/Linux (File Types)</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">File Types letters</th><th class="categorydesccolumn">What it stands for</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">fifo</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">socket</td></tr>
+        </table>
+        <br>
+        <p>The second part of the Unix/Linux template displays permissions: read (r), write (w), execute (x). The values are grouped in groups of three in the following order: user (owner), user's group, all others.</p>
+        <p>If attribute should not be set, it must be replaced with the "-" symbol, unnecessary attributes should be hidden: symbol "*" means match any number of characters, symbol "?" means any one character. For example, <code>?r*</code> (Windows) or <code>?r-*</code> (Linux) will find all read-only files and folders.</p>
         <p>You can use a color from the list or specify yours using the "&gt;&gt;" button.</p>
         <p>Do not forget to click "Apply" button after customization.</p>
         <p>Rules are applied strictly in reverse order: a rule higher in the list will overlap any rule below.</p>
@@ -568,7 +596,7 @@
           <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&ndash; file or directory creation date (does not work in Linux/BSD, POSIX limitation).</p></li>
           <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&ndash; file or directory last access date.</p></li>
           <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&ndash; file or directory status change date.</p></li>
-          <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; file or directory attributes. You can choose a string or numeric (octal) value. In Windows, an octal value can be used if Unix attributes are displayed in the file panel (for example, with the FTP plugin).</p></li>
+          <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; file or directory attributes. You can choose a string or numeric (octal) value. In Windows, an octal value can be used if Unix attributes are displayed in the file panel (for example, with the FTP plugin). For a detailed description of the string value, see <a href="#ConfigColorFiles">here</a>.</p></li>
           <li><p><tt>GETFILEPATH</tt>&nbsp;&ndash; path to the current item. Uses: usually, for search results.</p></li>
           <li><p><tt>GETFILEGROUP</tt>&nbsp;&ndash; displays the group of the file.</p></li>
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; displays the owner of the file.</p></li>

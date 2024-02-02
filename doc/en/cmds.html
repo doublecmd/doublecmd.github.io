@@ -233,7 +233,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickView" alt="cm_QuickView" src="../../pixmaps/dctheme/32x32/actions/cm_quickview.png">
               <div class="cmdname"><a name="cm_QuickView">cm_QuickView</a></div>
               <div class="shrtctkey">Ctrl+Q</div></td>
-            <td class="cmdhintcell">Content of selected item shown in opposite panel (instead of a separate window).<br>As we navigate to next items, displayed content is updated.</td>
+            <td class="cmdhintcell">Content of selected item shown in opposite panel (instead of a separate window).<br>See details <a href="viewer.html">here</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SortByName" alt="cm_SortByName" src="../../pixmaps/dctheme/32x32/actions/cm_sortbyname.png">
@@ -338,7 +338,7 @@
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(absent)</i></td>
-                  <td class="innerdescdesccell">will sort with descending order</td>
+                  <td class="innerdescdesccell">will sort with ascending order</td>
                 </tr>
                 <tr>
                   <td colspan="3">Note: If any of these three parameters are not defined or are defined incorrectly; the default values for these parameters will be: panel=active, column=name and order=ascending.</td>
@@ -1134,7 +1134,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadList" alt="cm_LoadList" src="../../pixmaps/dctheme/32x32/actions/cm_loadlist.png">
               <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a><span class="versionref"><sup>(Beta version)</sup></span></div></td>
-            <td class="cmdhintcell">Load list of files/folders from the specified text file (plain text file containing full file names, one per line).<br>
+            <td class="cmdhintcell">Load list of files/folders from the specified text file (plain text file containing full file names, one per line). Use UTF-8 without BOM.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -1281,7 +1281,7 @@
               <b>Note3:</b> When specifying the "mask" parameter, please note you may also use predefined selection type simply by preceding the name of it with symbol "&gt;" like "<i>mask=&gt;Pascal files</i>".<br>
               <b>Note4:</b> When using filtering parameter "<i>ignoreaccents=TRUE</i>", the ligatured characters like "<i>&oelig;</i>" for example will be evaluated as the sequence "<i>oe</i>". So for example "<i>c&oelig;ur</i>" will match "<i>coeur</i>".<br>
               <b>Note5:</b> The fact to use parameters like "casesensitive" for example will not affect the subsequent usage the cm_MarkPlus with no parameters which will use the default same parameters of last time it was prompting the user.<br>
-              <b>Note6:</b> Regarding the "attr" possible parameter values, see the "The <a href="findfiles.html#attributes">Searching for files with specific attributes</a>." section in the "Find files" help file. The way to specify the filter regarding the attributes is the same.<br>
+              <b>Note6:</b> Regarding the "attr" possible parameter values, see the "<a href="findfiles.html#attributes">Searching for files with specific attributes</a>." section in the "Find files" help file. The way to specify the filter regarding the attributes is the same.<br>
               <b>Example1:</b> "cm_MarkPlus mask=*.pas;*.dfm;*.dpr;*.inc casesensitive=false" This will select all the files matching the given filter mask (which is basically common Delphi source file extensions) and ignoring the case of the letters.<br>
               <b>Example2:</b> "cm_MarkPlus mask=*ecole*.docx ignoreaccents=true" This will select all the files matching the given filter mask (which is basically Microsoft Word document with the word "ecole" in them) ignoring the accents. This means it will select file with "école" and "ecole" in them since accent are ignored.
             </td>
@@ -1652,7 +1652,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TargetEqualSource" alt="cm_TargetEqualSource" src="../../pixmaps/dctheme/32x32/actions/cm_targetequalsource.png">
               <div class="cmdname"><a name="cm_TargetEqualSource">cm_TargetEqualSource</a></div>
               <div class="shrtctkey">Alt+Z</div></td>
-            <td class="cmdhintcell">Show same directory in opposite panel.</td>
+            <td class="cmdhintcell">Open the directory of the active panel in the opposite panel.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_TransferLeft" alt="cm_TransferLeft" src="../../pixmaps/dctheme/32x32/actions/cm_transferleft.png">

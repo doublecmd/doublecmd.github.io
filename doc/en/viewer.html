@@ -38,7 +38,8 @@
           <dt>4. <a href="#statusbar">Status bar</a></dt>
           <dt>5. <a href="#preview">Preview</a></dt>
           <dt>6. <a href="#copymove">Copying/moving files</a></dt>
-          <dt>7. <a href="#asettings">Additional settings</a></dt>
+          <dt>7. <a href="#quick">Quick view</a></dt>
+          <dt>8. <a href="#asettings">Additional settings</a></dt>
         </dl>
       </div>
 
@@ -47,7 +48,7 @@
         <p>The built-in viewer is designed to view files of any size in text, hexadecimal or binary format and image files.</p>
         <p class="figure"><img class="largeimage" title="Built-in file viewer" alt="Built-in file viewer" src="images/imgDC/viewer.png" width="792" height="432"></p>
         <p>The selected text will be automatically copied to the clipboard, to disable we can use the <a href="configxml.html">&lt;AutoCopy&gt;</a><span class="versionref"><sup>(Beta version)</sup></span> parameter.</p>
-        <p>By default, the viewer call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">settings</a>. A quick view mode (<kbd>Ctrl+Q</kbd>) is also available: instead of a separate window, the opposite (inactive) file panel will be used.</p>
+        <p>By default, the viewer call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">settings</a>.</p>
         <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, SVG/SVGZ<span class="versionref"><sup>(Beta version)</sup></span>, TIFF, XPM. In addition, if the required libraries are available:</p>
         <ul>
           <li><p>HEIF/HEIC and AVIF: <tt>libheif-1.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems).</p></li>
@@ -108,7 +109,7 @@
           <li><p><span class="italic">Graphics</span>&nbsp;&ndash; switches to image viewing. See the list of supported image formats at the <a href="#intro">beginning of the page</a>.</p></li>
           <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Viewing with WLX plugins. If the selected file can be opened by several installed plugins, then repeated calls of this command will switch them in a circle.</p></li>
           <li><p><span class="italic">Office XML (text only)</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; The viewer will show text from XML-based office documents: Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS). Without text formatting, but preserving paragraphs.</p></li>
-          <li><p><span class="italic">Code</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same rules and lists of extensions will be used as for the built-in text editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). Also see description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
+          <li><p><span class="italic">Code</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same highlighting rules and lists of extensions will be used as for the built-in text editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). Also see description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
         </ul>
         <p>Plugins have priority over other supported view modes.</p>
         <p><span class="italic">Wrap text</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; enables or disables wrapping lines that do not fit in the window (by word boundaries).</p>
@@ -226,7 +227,17 @@
       </div>
 
       <div>
-        <h2><a name="asettings">7. Additional settings</a></h2>
+        <h2><a name="quick">7. Quick view</a></h2>
+        <p>Additional file viewing mode (<kbd>Ctrl+Q</kbd> by default): instead of a separate window, the contents of the file under the cursor will be shown in the opposite (inactive) file panel. As we navigate to next items, displayed content is updated, this allows to view the contents of files simply by moving the cursor in the file panel.</p>
+        <p>Quick view can be disabled by pressing <kbd>Ctrl+Q</kbd> again, also it will be disabled when switching any panel (active or inactive) to another tab.</p>
+        <p>"View" actions added in the <a href="configuration.html#ConfigAssociations">file association</a> settings are ignored.</p>
+        <p>Not all viewer commands can work in this mode, for example, commands to load the previous or next file in the directory (<kbd>P</kbd> and <kbd>N</kbd> by default).</p>
+        <p>Some interface elements may be hidden (for example, when viewing images in the "Graphics" mode, Double Commander will hide the toolbar). There is no general rule or recommendation for plugins, the decision is made by the plugin author.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">8. Additional settings</a></h2>
         <p>See the description of the Double Commander settings sections: <a href="configuration.html#ConfigToolsViewer">Tools&nbsp;&gt; Viewer</a>. There are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>

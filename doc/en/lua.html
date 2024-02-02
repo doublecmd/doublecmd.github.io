@@ -68,25 +68,38 @@
 
       <div>
         <h2><a name="preface">1. Introduction</a></h2>
-        <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.
-          Script parameters must be passed as is, without escaping (without quotes or "\"), for this we need to use the <a href="variables.html#quotation">%"0</a> variable: for example, <code>%"0%p0</code> for the file under cursor instead of <code>%p0</code>, <code>%"0%D</code> for the current directory instead of <code>%D</code> and so on.
-          To get a list of all selected files we can use <a href="variables.html#listoffiles">%LU</a> or internal commands <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a> or <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</p>
+        <p>Detailed information about the Lua scripting programming language can be found on the <a href="https://www.lua.org/" target="_blank">Lua website</a>.</p>
+        <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.<br>
+          Script parameters must be passed as is, without escaping (without quotes or "\"), for this we need to use the <a href="variables.html#quotation">%"0</a> variable: for example, <code>%"0%p0</code> for the file under cursor instead of <code>%p0</code> or <code>%"0%D</code> for the current directory instead of <code>%D</code>. Otherwise, if Double Commander automatically adds quotes, they will be passed as part of the parameter and you will have to take them into account.<br>
+          To get a list of all selected files we can use <a href="variables.html#listoffiles">variables</a> (<code>%LU</code>, <code>%FU</code> or <code>%RU</code>) or internal commands (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Beta version)</sup></span>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>).
+          We can use, for example, <code>%p</code>: in this case, Double Commander will pass the names of all selected files in one line, separating the names with a space.</p>
         <p>It is also possible to write content plugins using Lua script, examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).
           The Wiki has a <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">page</a> dedicated to writing plugins.
           Limitations: only the following data types are supported</p>
         <ul>
-          <li><i>ft_numeric_32</i>&nbsp;&ndash; a 32-bit signed number;</li>
-          <li><i>ft_numeric_64</i>&nbsp;&ndash; a 64-bit signed number;</li>
-          <li><i>ft_numeric_floating</i>&nbsp;&ndash; a floating point number;</li>
-          <li><i>ft_boolean</i>&nbsp;&ndash; boolean type: <i>true</i> or <i>false</i>;</li>
-          <li><i>ft_multiplechoice</i>&nbsp;&ndash; a value allowing a limited number of choices;</li>
-          <li><i>ft_string</i>&nbsp;&ndash; a text string (use UTF-8);</li>
-          <li><i>ft_fulltext</i>&nbsp;&ndash; a full text (multiple text strings), used only for searching with plugins;</li>
-          <li><i>ft_datetime</i>&nbsp;&ndash; for date/time: a returned date will be converted to a formatted date and time string (value depends on your regional settings).</li>
+          <li><i>ft_numeric_32</i> (1)&nbsp;&ndash; a 32-bit signed number;</li>
+          <li><i>ft_numeric_64</i> (2)&nbsp;&ndash; a 64-bit signed number;</li>
+          <li><i>ft_numeric_floating</i> (3)&nbsp;&ndash; a floating point number;</li>
+          <li><i>ft_boolean</i> (6)&nbsp;&ndash; boolean type: <i>true</i> or <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i> (7)&nbsp;&ndash; a value allowing a limited number of choices;</li>
+          <li><i>ft_string</i> (8)&nbsp;&ndash; a text string;</li>
+          <li><i>ft_fulltext</i> (9)&nbsp;&ndash; a full text (multiple text strings), used only for searching with plugins ;</li>
+          <li><i>ft_datetime</i> (10)&nbsp;&ndash; for date/time: a returned date will be converted to a formatted date and time string (value depends on your regional settings).<br>
+            The date must be in Windows format, but Lua and the functions that Double Commander provides for searching files use Unix time format. To convert we can use the formula:<br>
+            =&nbsp;UnixTime&nbsp;*&nbsp;10000000&nbsp;+&nbsp;116444736000000000<br>
+            This is a large number, so you will need a 64-bit version of Double Commander or Lua 5.3+.</li>
         </ul>
-        <p>Note: When saving scripts, use UTF-8 encoding without BOM.</p>
-        <p>More informations on Lua script programming language are available on the web on <a href="https://www.lua.org/" target="_blank">this link</a>.</p>
+        <p>The list above contains the names from the header files, in Lua scripts we must use the numeric values which are specified in parentheses.</p>
+        <p>Note: For the <a href="help.html#cm_FileProperties">file properties</a> dialog, the <code>ContentGetValue</code> function is called with the <code>CONTENT_DELAYIFSLOW</code> flag (the fourth parameter, the value is 1), this avoids the delay in opening the window: if data retrieval is slow, we can exclude this data by simply adding a flag value check and returning <code>nil</code> for such fields or plugin.</p>
+        <p>Note: If the plugin needs to return an empty string, it will be faster to pass <code>nil</code> instead of <code>""</code>.</p>
         <p>Note: Lua function <code>io.open</code> uses the standard C function <code>fopen</code>: in text mode, this function can convert the type of line endings (CRLF, LF or CR) when reading and writing and it can lead to unexpected results. If you come across files with different types of line endings or if you are writing a cross-platform script, this must be taken into account or it may be more practical to give preference to the binary mode.</p>
+        <br>
+
+        <p><span class="bold">About text encoding</span></p>
+        <p>All additional functions described below accept string parameters in UTF-8 encoding and return strings in this encoding (except for the <a href="#libraryutf8">LazUtf8.ConvertEncoding</a> function).</p>
+        <p>Some functions from the standard Lua libraries have been replaced with functions from Double Commander or Free Pascal/Lazarus (or new ones have been written), this provides UTF-8 support.</p>
+        <p>When writing plugins, we should also use UTF-8 for text data (<i>ft_multiplechoice</i>, <i>ft_string</i> and <i>ft_fulltext</i>).</p>
+        <p>When saving scripts, use UTF-8 encoding without BOM.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -113,7 +126,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Dialogs library</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interacts with user</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">UTF-8 library</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">UTF-8 string functions</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarychar">Char library</a></div></td><td class="hintcell">Char</td><td class="hintcell">Getting information about characters</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS library</a></div></td><td class="hintcell">OS</td><td class="hintcell">Functions related with the operating system</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS library</a></div></td><td class="hintcell">os</td><td class="hintcell">Functions related with the operating system</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -128,12 +141,12 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
             <td class="hintcell">
-              <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
+              <p class="definition">DC.LogWrite(sMessage, iMsgType, bForce, bLogFile)</p>
               <p>Write a message to the log window.</p>
               <p>Here is the description of each field:</p>
               <ul>
-                <li><var>Message</var> : The message text.</li>
-                <li><var>MsgType</var> : The message type: 0 - information, 1 - success, 2 - error.</li>
+                <li><var>sMessage</var> : The message text.</li>
+                <li><var>iMsgType</var> : The message type: 0 - information, 1 - success, 2 - error.</li>
                 <li><var>bForce</var> : A boolean, when true, will show the log window if invisible.</li>
                 <li><var>bLogFile</var> : A boolean, when true, will write the message also in the log file.</li>
               </ul>
@@ -151,9 +164,9 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
-              <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
+              <p class="definition">DC.ExecuteCommand(sCommand, Param1, Param2,...,ParamX)</p>
               <p>This allows the script to invoke internal commands of DC.</p>
-              <p>The <var>Command</var> is holding the actual internal command name.</p>
+              <p>The <var>sCommand</var> is holding the actual internal command name.</p>
               <p>We may provide as many <var>Param...</var> as command may support.</p>
             </td>
           </tr>
@@ -221,8 +234,8 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
-              <p class="definition">SysUtils.Sleep(Milliseconds)</p>
-              <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<br>After the specified period has expired, script execution resumes.</p>
+              <p class="definition">SysUtils.Sleep(iMilliseconds)</p>
+              <p>Suspends the execution of the script for the specified number of <var>iMilliseconds</var>.<br>After the specified period has expired, script execution resumes.</p>
             </td>
           </tr>
           <tr>
@@ -235,32 +248,32 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
             <td class="hintcell">
-              <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
+              <p class="definition">bExists = SysUtils.FileExists(sFileName)</p>
               <p>Check whether a particular file exists in the filesystem.</p>
-              <p>Returns in <var>bFlagExists</var> the value <code>true</code> if file with name <var>FileName</var> exists on the disk, or <code>false</code> otherwise.</p>
+              <p>Returns in <var>bExists</var> the value <code>true</code> if file with name <var>sFileName</var> exists on the disk, or <code>false</code> otherwise.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
             <td class="hintcell">
-              <p class="definition">bFlagExists = SysUtils.DirectoryExists(Directory)</p>
-              <p>Checks whether <var>Directory</var> exists in the filesystem and is actually a directory.</p>
-              <p>If this is the case, the function returns in <var>bFlagExists</var> the value <code>true</code> otherwise <code>false</code> is returned.</p>
+              <p class="definition">bExists = SysUtils.DirectoryExists(sDirectory)</p>
+              <p>Checks whether <var>sDirectory</var> exists in the filesystem and is actually a directory.</p>
+              <p>If this is the case, the function returns in <var>bExists</var> the value <code>true</code> otherwise <code>false</code> is returned.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
             <td class="hintcell">
-              <p class="definition">Attr = SysUtils.FileGetAttr(FileName)</p>
-              <p>Returns in <var>Attr</var> the attribute settings of file <var>FileName</var>.</p>
+              <p class="definition">iAttr = SysUtils.FileGetAttr(sFileName)</p>
+              <p>Returns in <var>iAttr</var> the attribute settings of file <var>sFileName</var>.</p>
               <p>See the detail explanations of the returned value <a href="#detailattr">here</a>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
             <td class="hintcell">
-              <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
-              <p>Looks for files that match the <var>Path</var>, generally with wildcards.</p>
+              <p class="definition">Handle, FindData = SysUtils.FindFirst(sPath)</p>
+              <p>Looks for files that match the <var>sPath</var>, generally with wildcards.</p>
               <p>If no file is found, <var>Handle</var> will be <code>nil</code>.</p>
               <p>When at least one item is found, the returned <var>Handle</var> may be used in subsequent <code>SysUtils.FindNext</code> to find other occurrences of the same pattern.</p>
               <p>The <var>FindData</var> table contains information about the file or directory found.</p>
@@ -277,7 +290,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
             <td class="hintcell">
               <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
-              <p>Finds the next occurrence of a search sequence initiated by <var>FindFirst</var> by re-using the <var>Handle</var> returned previously.</p>
+              <p>Finds the next occurrence of a search sequence initiated by <code >FindFirst</code> by re-using the <var>Handle</var> returned previously.</p>
               <p>Returned <var>Result</var> will be non-nil if a file or directory is found and will be <code>nil</code> otherwise.</p>
               <p>The same notes mentioned for <code>SysUtils.FindFirst</code> applied here.</p>
               <p><b><span class="uline">Remark:</span> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory leaks.</b></p>
@@ -295,48 +308,55 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
-              <p>Create a chain of directories, <var>Directory</var> is the full path to directory.</p>
-              <p>Returns <code>true</code> if <var>Directory</var> already exist or was created successfully. If it failed to create any of the parts, <code>false</code> is returned.</p>
+              <p class="definition">bResult = SysUtils.CreateDirectory(sDirectory)</p>
+              <p>Create a chain of directories, <var>sDirectory</var> is the full path to directory.</p>
+              <p>Returns <code>true</code> if <var>sDirectory</var> already exist or was created successfully. If it failed to create any of the parts, <code>false</code> is returned.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
-              <p>Create the hard link <var>LinkName</var> to file <var>Path</var>.</p>
+              <p class="definition">bResult = SysUtils.CreateHardLink(sFileName, sLinkName)</p>
+              <p>Create the hard link <var>sLinkName</var> to file <var>sFileName</var>.</p>
               <p>Returns <code>true</code> if successful, <code>false</code> otherwise.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateSymbolicLink(Path, LinkName)</p>
-              <p>Create the symbolic link <var>LinkName</var> to file or directory <var>Path</var>.</p>
+              <p class="definition">bResult = SysUtils.CreateSymbolicLink(sFileName, sLinkName)</p>
+              <p>Create the symbolic link <var>sLinkName</var> to file or directory <var>sFileName</var>.</p>
               <p>Returns <code>true</code> if successful, <code>false</code> otherwise.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink</div></td>
             <td class="hintcell">
-              <p class="definition">sTarget = SysUtils.ReadSymbolicLink(LinkName, Recursive)</p>
-              <p>Read destination of the symbolic link <var>LinkName</var>.</p>
-              <p>If <var>Recursive</var> is <code>true</code> and the link points to a link then it's resolved recursively until a valid file name that is not a link is found.</p>
-              <p>Returns the path where the symbolic link <var>LinkName</var> is pointing to or an empty string when the link is invalid or the file it points to does not exist and <var>Recursive</var> is <code>true</code>.</p>
+              <p class="definition">sTarget = SysUtils.ReadSymbolicLink(sLinkName, bRecursive)</p>
+              <p>Read destination of the symbolic link <var>sLinkName</var>.</p>
+              <p>If <var>bRecursive</var> is <code>true</code> and the link points to a link then it's resolved recursively until a valid file name that is not a link is found.</p>
+              <p>Returns the path where the symbolic link <var>sLinkName</var> is pointing to or an empty string when the link is invalid or the file it points to does not exist and <var>bRecursive</var> is <code>true</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
             <td class="hintcell">
-              <p class="definition">sName = SysUtils.ExtractFileName(FileName)</p>
+              <p class="definition">sName = SysUtils.ExtractFileName(sFileName)</p>
               <p>Extract the filename part from a full path filename.</p>
               <p>The filename consists of all characters after the last directory separator character ("/" or "\") or drive letter.</p>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
+            <td class="hintcell">
+              <p class="definition">sExt = SysUtils.ExtractFileExt(sFileName)</p>
+              <p>Return the extension from a filename (all characters after the last "." (dot), including the "." character).</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
             <td class="hintcell">
-              <p class="definition">sPath = SysUtils.ExtractFilePath(FileName)</p>
+              <p class="definition">sPath = SysUtils.ExtractFilePath(sFileName)</p>
               <p>Extract the path from a filename (including drive letter).</p>
               <p>The path consists of all characters before the last directory separator character ("/" or "\"), including the directory separator itself.</p>
             </td>
@@ -344,55 +364,48 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
             <td class="hintcell">
-              <p class="definition">sDir = SysUtils.ExtractFileDir(FileName)</p>
-              <p>Extract only the directory part of <var>FileName</var>, including a drive letter.</p>
+              <p class="definition">sDir = SysUtils.ExtractFileDir(sFileName)</p>
+              <p>Extract only the directory part of <var>sFileName</var>, including a drive letter.</p>
               <p>The directory name has NO ending directory separator, in difference with <code>SysUtils.ExtractFilePath</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
             <td class="hintcell">
-              <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
+              <p class="definition">sDrive = SysUtils.ExtractFileDrive(sFileName)</p>
               <p>Extract the drive part from a filename.</p>
               <p>Note that some operating systems do not support drive letters.</p>
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
-            <td class="hintcell">
-              <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
-              <p>Return the extension from a filename (all characters after the last "." (dot), including the "." character).</p>
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
             <td class="hintcell">
-              <p class="definition">sName = SysUtils.GetAbsolutePath(FileName, BaseDirectory)</p>
+              <p class="definition">sName = SysUtils.GetAbsolutePath(sFileName, sBaseDirectory)</p>
               <p>Returns the absolute (full) path to the file:</p>
               <ul>
-                <li><var>FileName</var> : The filename with a relative path.</li>
-                <li><var>BaseDirectory</var> : The directory that was used as the base directory for <var>FileName</var>.</li>
+                <li><var>sFileName</var> : The filename with a relative path.</li>
+                <li><var>sBaseDirectory</var> : The directory that was used as the base directory for <var>sFileName</var>.</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
             <td class="hintcell">
-              <p class="definition">sName = SysUtils.GetRelativePath(FileName, BaseDirectory)</p>
+              <p class="definition">sName = SysUtils.GetRelativePath(sFileName, sBaseDirectory)</p>
               <p>Returns the filename relative to the specified directory:</p>
                <ul>
-                <li><var>FileName</var> : The full (absolute) filename.</li>
-                <li><var>BaseDirectory</var> : The directory that will be used as the base directory <var>FileName</var>.</li>
+                <li><var>sFileName</var> : The full (absolute) filename.</li>
+                <li><var>sBaseDirectory</var> : The directory that will be used as the base directory <var>sFileName</var>.</li>
               </ul>
-              <p>If <var>FileName</var> and <var>BaseDirectory</var> contain the same value, the function will return an empty string ("").</p>
+              <p>If <var>sFileName</var> and <var>sBaseDirectory</var> contain the same value, the function will return an empty string ("").</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.MatchesMask(FileName, Mask, MaskOptions)</p>
-              <p>Returns <code>true</code> if <var>FileName</var> matches the passed mask <var>Mask</var>.</p>
-              <p><var>MaskOptions</var> (optional parameter, 0 by default) is set as the sum of the following values:</p>
+              <p class="definition">bResult = SysUtils.MatchesMask(sFileName, sMask, iMaskOptions)</p>
+              <p>Returns <code>true</code> if <var>sFileName</var> matches the passed mask <var>sMask</var>.</p>
+              <p><var>iMaskOptions</var> (optional parameter, 0 by default) is set as the sum of the following values:</p>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Value</th>
@@ -420,9 +433,9 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMaskList</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.MatchesMaskList(FileName, MaskList, Separator, MaskOptions)</p>
-              <p>Returns <code>true</code> if <var>FileName</var> matches at least one of passed masks <var>MaskList</var> separated by <var>Separator</var> (";" by default).</p>
-              <p><var>Separator</var> and <var>MaskOptions</var> (see above) are optional parameters.</p>
+              <p class="definition">bResult = SysUtils.MatchesMaskList(sFileName, sMaskList, sSeparator, iMaskOptions)</p>
+              <p>Returns <code>true</code> if <var>sFileName</var> matches at least one of passed masks <var>sMaskList</var> separated by <var>sSeparator</var> (";" by default).</p>
+              <p><var>sSeparator</var> and <var>iMaskOptions</var> (see above) are optional parameters.</p>
             </td>
           </tr>
           <tr>
@@ -439,7 +452,7 @@
 
       <div>
         <h2><a name="detailattr">3.2.1. Details on SysUtils.FileGetAttr returned value</a></h2>
-        <p><code>FileGetAttr</code> returns the attribute settings of file <var>FileName</var>.</p>
+        <p><code>FileGetAttr</code> returns the attribute settings of file <var>sFileName</var>.</p>
         <p>The attribute is a <var>OR</var>-ed combination of the following constants:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
@@ -454,7 +467,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
-            <td class="hintcell">The file is a system file.<br>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
+            <td class="hintcell">The file is a system file.<br>In Unix/Linux, this means that the file is a character or block device, a named pipe (FIFO).</td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
@@ -486,12 +499,12 @@
         <p>When the parameter is detected to be a directory, it will open a new tab in the active panel and switch to it.</p>
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
-<span class="luakyw">local</span> myfileattr
+<span class="luakyw">local</span> iAttr
 
 <span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- We got at least one parameter?</span>
-  myfileattr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
-  <span class="luakyw">if</span> myfileattr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
-    <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+  iAttr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
+  <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
+    <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
       <span class="luacmt">-- bit 4 is set? So it's a directory.</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
@@ -503,7 +516,7 @@
         <p>When using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, it will will be the first parameter passed after the script filename.</p>
         <p>So in our example, we may program a sample toolbar button like the following:</p>
         <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="560" height="290"></p>
-        <p>In this example, the parameter <var>%"0%p</var> will be passed to the script. This will represent, unquoted, the filename of the item currently selected in the active panel at the moment we press the toolbar button.</p>
+        <p>In this example, the parameter <code>%"0%p</code> will be passed to the script. This will represent, unquoted, the filename of the item currently selected in the active panel at the moment we press the toolbar button.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -517,11 +530,11 @@
 
 <span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">2</span> then <span class="luacmt">-- We got our 2 parameters?</span>
   <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
-  <span class="luakyw">local</span> OutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+  <span class="luakyw">local</span> hOutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
 
-  OutputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>output<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
+  hOutputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>output<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
 
-  <span class="luakyw">local</span> Handle<span class="luasbl">,</span>FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
   <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
     <span class="luakyw">repeat</span>
       io.<span class="luafct">write</span><span class="luasbl">(</span>FindData.Name <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
@@ -532,7 +545,7 @@
     <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
 
     <span class="mark">SysUtils.FindClose</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
-    io<span class="luasbl">.</span>close<span class="luasbl">(</span>OutputFile<span class="luasbl">)</span>
+    io<span class="luasbl">.</span>close<span class="luasbl">(</span>hOutputFile<span class="luasbl">)</span>
   <span class="luakyw">end</span>
 <span class="luakyw">end</span></pre>
         <p>In the above example, we need to pass two parameters to our script:</p>
@@ -542,7 +555,7 @@
         </ol>
         <p>So it's easy to configure a toolbar button using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> and pass the parameter to accomplish all this.</p>
         <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="560" height="262"></p>
-        <p>In this example, the parameter <var>%"0%Ds</var> will be passed to the script as the first parameter. This will represent, unquoted, the directory displayed by the active panel.</p>
+        <p>In this example, the parameter <code>%"0%Ds</code> will be passed to the script as the first parameter. This will represent, unquoted, the directory displayed by the active panel.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -563,22 +576,22 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
             <td class="hintcell">
-              <p class="definition">StringVar = Clipbrd.GetAsText()</p>
-              <p>Get the current text content of the clipboard to assigned it to <var>StringVar</var>.</p>
+              <p class="definition">sVar = Clipbrd.GetAsText()</p>
+              <p>Get the current text content of the clipboard to assigned it to <var>sVar</var>. If the clipboard does not contain text, the function returns an empty string.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
             <td class="hintcell">
-              <p class="definition">Clipbrd.SetAsText(StringVar)</p>
-              <p>Store in the clipboard the text content of <var>StringVar</var>.</p>
+              <p class="definition">Clipbrd.SetAsText(sVar)</p>
+              <p>Store in the clipboard the text content of <var>sVar</var>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
             <td class="hintcell">
-              <p class="definition">Clipbrd.SetAsHtml(Html)</p>
-              <p>Adds html-formatted text <var>Html</var> to the clipboard (<code>CF_HTML</code> clipboard format).</p>
+              <p class="definition">Clipbrd.SetAsHtml(sHtml)</p>
+              <p>Adds html-formatted text <var>sHtml</var> to the clipboard (<code>CF_HTML</code> clipboard format).</p>
               <p>This contents will be inserted in applications which support this clipboard format, like MS Word, LO Writer, etc.</p>
               <p>It's correct to store data with both <code>Clipbrd.SetAsText</code> and <code>Clipbrd.SetAsHtml</code>. When we'll paste, the application will use the best one that it supports.</p>
               <p>For example we may have this:</p>
@@ -606,11 +619,11 @@
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
 <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
-<span class="luakyw">local</span> myfileattr
+<span class="luakyw">local</span> iAttr
 <span class="luakyw">local</span> bFound <span class="luasbl">=</span> false
 <span class="luakyw">local</span> sCompleteFilename <span class="luasbl">=</span> <span class="luastr">""</span>
-<span class="luakyw">local</span> InputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
-<span class="luakyw">local</span> line <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> hInputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+<span class="luakyw">local</span> sLine <span class="luasbl">=</span> <span class="luastr">""</span>
 <span class="luakyw">local</span> iPosS
 <span class="luakyw">local</span> iPosE
 <span class="luakyw">local</span> sFileToSelect <span class="luasbl">=</span> <span class="luastr">""</span>
@@ -622,23 +635,23 @@
   DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_MarkUnmarkAll"</span><span class="luasbl">)</span> <span class="luacmt">-- Make sure nothing is selected.</span>
 
   <span class="luacmt">-- Let's scan one by one all the files of our directory.</span>
-  <span class="luakyw">local</span> Handle<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils.FindFirst(params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindFirst(params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
   <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
     <span class="luakyw">repeat</span>
       sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name
-      myfileattr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
-      <span class="luakyw">if</span> myfileattr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
+      iAttr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
+      <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
         <span class="luacmt">-- We need file, not directory!</span>
-        <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+        <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
 
           <span class="luacmt">-- Let's now read the file line by line until the the end OR a found.</span>
-          InputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
+          hInputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
           bFound <span class="luasbl">=</span> false
 
           <span class="luakyw">while</span> bFound <span class="luasbl">==</span> false <span class="luakyw">do</span>
-            line <span class="luasbl">=</span> InputFile<span class="luasbl">:</span><span class="luafct">read</span><span class="luasbl">()</span>
-            <span class="luakyw">if</span> line <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
-            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string<span class="luasbl">.</span>find<span class="luasbl">(</span>line, sSearchString<span class="luasbl">)</span>
+            sLine <span class="luasbl">=</span> hInputFile<span class="luasbl">:</span><span class="luafct">read</span><span class="luasbl">()</span>
+            <span class="luakyw">if</span> sLine <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
+            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string<span class="luasbl">.</span>find<span class="luasbl">(</span>sLine, sSearchString<span class="luasbl">)</span>
             <span class="luakyw">if</span> iPosS <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> bFound <span class="luasbl">=</span> true <span class="luakyw">end</span>
           <span class="luakyw">end</span>
 
@@ -646,7 +659,7 @@
             sFileToSelect <span class="luasbl">=</span> sFileToSelect <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name <span class="luasbl">..</span> <span class="luastr">"\n"</span>
           <span class="luakyw">end</span>
 
-          io<span class="luasbl">.</span>close<span class="luasbl">(</span>InputFile<span class="luasbl">)</span>
+          io<span class="luasbl">.</span>close<span class="luasbl">(</span>hInputFile<span class="luasbl">)</span>
         <span class="luakyw">end</span>
       <span class="luakyw">end</span>
       Result<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils<span class="luasbl">.</span>FindNext<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
@@ -676,29 +689,29 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
             <td class="hintcell">
-              <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
+              <p class="definition">iButton = Dialogs.MessageBox(sMessage, sTitle, iFlags)</p>
               <p>Will display a message box prompting a user to click a button which will be returned by the function.</p>
               <p>Here is the description of each field:</p>
               <ul>
-                <li><var>Message</var> : The message inside the box.</li>
-                <li><var>Title</var> : The text displayed as the title of the box.</li>
-                <li><var>ButFlags</var> : OR'ed value of constants to determine the buttons that will be displayed, the style of window and default button selected for the answer. See the following table the <a href="#dlgbuts">buttons displayed</a>, <a href="#dlgstyle">style of window</a> or <a href="#dlgdefbut">default button</a>.</li>
-                <li><var>ButPressed</var> : Returned value indicating the button user pressed (see <a href="#msgreturn">this table</a>).</li>
+                <li><var>sMessage</var> : The message inside the box.</li>
+                <li><var>sTitle</var> : The text displayed as the title of the box.</li>
+                <li><var>iFlags</var> : OR'ed value of constants to determine the buttons that will be displayed, the style of window and default button selected for the answer. See the following table the <a href="#dlgbuts">buttons displayed</a>, <a href="#dlgstyle">style of window</a> or <a href="#dlgdefbut">default button</a>.</li>
+                <li><var>iButton</var> : Returned value indicating the button user pressed (see <a href="#msgreturn">this table</a>).</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
             <td class="hintcell">
-              <p class="definition">bAck, sAnswer = Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
+              <p class="definition">bResult, sAnswer = Dialogs.InputQuery(sTitle, sMessage, bMask, sDefault)</p>
               <p>Will display a requester box where user may enter a string value.</p>
               <p>Here is the description of each field:</p>
               <ul>
-                <li><var>Title</var> : The text displayed as the title of the box.</li>
-                <li><var>Msg</var> : The message inside the box.</li>
+                <li><var>sTitle</var> : The text displayed as the title of the box.</li>
+                <li><var>sMessage</var> : The message inside the box.</li>
                 <li><var>bMask</var> : A boolean, when true, will display "stars" to hide characters.</li>
                 <li><var>sDefault</var> : The default suggested text that user may type over if necessary.</li>
-                <li><var>bAck</var> : Returned boolean indicating if user effectively enter something or not.</li>
+                <li><var>bResult</var> : Returned boolean indicating if user effectively enter something or not.</li>
                 <li><var>sAnswer</var> : Returned string when user entered something and then clicked ok.</li>
               </ul>
             </td>
@@ -706,15 +719,15 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
-              <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
+              <p class="definition">sItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
               <p>Displays a dialog box to allow the user to choose from a list of items.</p>
               <p>Here is the description of each field:</p>
               <ul>
-                <li><var>Title</var> : The text displayed as the title of the dialog.</li>
-                <li><var>Msg</var> : The message inside the dialog.</li>
-                <li><var>Items</var> : A Lua table, each element of the table must be a string.</li>
+                <li><var>sTitle</var> : The text displayed as the title of the dialog.</li>
+                <li><var>sMessage</var> : The message inside the dialog.</li>
+                <li><var>aItems</var> : A Lua table, each element of the table must be a string.</li>
                 <li><var>sDefault</var> : The default selected item in the list.</li>
-                <li><var>sAnswer</var> : Returned the selected item as a string or <code>nil</code> if the dialog is dismissed.</li>
+                <li><var>sItem</var> : Returned the selected item as a string or <code>nil</code> if the dialog is dismissed.</li>
               </ul>
             </td>
           </tr>
@@ -899,10 +912,10 @@ mrIgnore <span class="luasbl">=</span> <span class="luanum">0x0005</span>
 mrYes <span class="luasbl">=</span> <span class="luanum">0x0006</span>
 mrNo <span class="luasbl">=</span> <span class="luanum">0x0007</span>
 
-ButFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_ICONQUESTION <span class="luasbl">+</span> MB_DEFBUTTON2
-ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Do you want to quit?"</span><span class="luasbl">,</span> <span class="luastr">"Question"</span><span class="luasbl">,</span> ButFlags<span class="luasbl">)</span>
+iFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_ICONQUESTION <span class="luasbl">+</span> MB_DEFBUTTON2
+iButton <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Do you want to quit?"</span><span class="luasbl">,</span> <span class="luastr">"Question"</span><span class="luasbl">,</span> iFlags<span class="luasbl">)</span>
 
-<span class="luakyw">if</span> ButPressed <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
+<span class="luakyw">if</span> iButton <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
   DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="362" height="120"></p>
@@ -913,9 +926,9 @@ ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</
         <h2><a name="querysample">3.4.6. Example of usage of the Dialogs.InputQuery</a></h2>
         <p>Here is a little script using <code>Dialogs.InputQuery</code> and the resulting window that will be displayed:</p>
         <pre>
-bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
+bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
 
-<span class="luakyw">if</span> bAck <span class="luasbl">==</span> true then
+<span class="luakyw">if</span> bResult <span class="luasbl">==</span> true then
   Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="364" height="112"></p>
@@ -932,7 +945,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
+              <p class="definition">iResult = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
               <p>Search for substring in a string, starting at a certain position. The search is case sensitive.</p>
               <p>Returns the position of the first occurrence of the substring <var>SearchText</var> in the string <var>SourceText</var>, starting the search at position <var>Offset</var> (default 1).</p>
               <p>If <var>SearchText</var> does not occur in <var>SourceText</var> after the given <var>Offset</var>, zero is returned.</p>
@@ -955,37 +968,37 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
+              <p class="definition">sResult = LazUtf8.Copy(String, iIndex, iCount)</p>
               <p>Copy part of a string.</p>
-              <p>Copy returns a string which is a copy if the <var>Count</var> characters in <var>Source</var>, starting at position <var>Index</var>.</p>
-              <p>If <var>Count</var> is larger than the length of the string <var>Source</var>, the result is truncated. If <var>Index</var> is larger than the length of the string <var>Source</var>, then an empty string is returned.</p>
+              <p>Copy returns a string which is a copy if the <var>iCount</var> characters in <var>String</var>, starting at position <var>iIndex</var>.</p>
+              <p>If <var>iCount</var> is larger than the length of the string <var>String</var>, the result is truncated. If <var>iIndex</var> is larger than the length of the string <var>String</var>, then an empty string is returned.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.Length(String)</p>
+              <p class="definition">iResult = LazUtf8.Length(String)</p>
               <p>Returns the number of UTF-8 characters in the string.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.UpperCase(String)</p>
+              <p class="definition">sResult = LazUtf8.UpperCase(String)</p>
               <p>Receives a string and returns a copy of this string with all lowercase letters changed to uppercase.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.LowerCase(String)</p>
+              <p class="definition">sResult = LazUtf8.LowerCase(String)</p>
               <p>Receives a string and returns a copy of this string with all uppercase letters changed to lowercase.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
+              <p class="definition">sResult = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
               <p>Convert <var>String</var> encoding from <var>FromEnc</var> to <var>ToEnc</var>.</p>
               <p>List of supported encoding values:</p>
               <ul>
@@ -1028,8 +1041,8 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.GetUnicodeCategory</div></td>
             <td class="hintcell">
-              <p class="definition">iResult = Char.GetUnicodeCategory(sVar)</p>
-              <p>Returns the Unicode category of a character <code>sVar</code>, one of the following values:</p>
+              <p class="definition">iResult = Char.GetUnicodeCategory(Character)</p>
+              <p>Returns the Unicode category of a character <code>Character</code>, one of the following values:</p>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc"><th class="innerdescheader">Value</th><th class="innerdescheader">Description</th>
                 <tr><td colspan="2">&nbsp;&nbsp;Letter:</td></tr>
@@ -1075,36 +1088,36 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsDigit</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsDigit(sVar)</p>
-              <p>Returns <code>true</code> if the <var>sVar</var> character is in the <i>Nd</i> category.</p>
+              <p class="definition">bResult = Char.IsDigit(Character)</p>
+              <p>Returns <code>true</code> if the <var>Character</var> character is in the <i>Nd</i> category.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetter</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsLetter(sVar)</p>
-              <p>Returns <code>true</code> if the <var>sVar</var> character is in the category <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> or <i>Lo</i>.</p>
+              <p class="definition">bResult = Char.IsLetter(Character)</p>
+              <p>Returns <code>true</code> if the <var>Character</var> character is in the category <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> or <i>Lo</i>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetterOrDigit</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsLetterOrDigit(sVar)</p>
-              <p>Returns <code>true</code> if the <var>sVar</var> character is in the category <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> <i>Lo</i>, <i>Nd</i> или <i>Nl</i>.</p>
+              <p class="definition">bResult = Char.IsLetterOrDigit(Character)</p>
+              <p>Returns <code>true</code> if the <var>Character</var> character is in the category <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> <i>Lo</i>, <i>Nd</i> или <i>Nl</i>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLower</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsLower(sVar)</p>
-              <p>Returns <code>true</code> if the <var>sVar</var> character is in the <i>Ll</i> category.</p>
+              <p class="definition">bResult = Char.IsLower(Character)</p>
+              <p>Returns <code>true</code> if the <var>Character</var> character is in the <i>Ll</i> category.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsUpper</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsUpper(sVar)</p>
-              <p>Returns <code>true</code> if the <var>sVar</var> character is in the <i>Lu</i> category.</p>
+              <p class="definition">bResult = Char.IsUpper(Character)</p>
+              <p>Returns <code>true</code> if the <var>Character</var> character is in the <i>Lu</i> category.</p>
             </td>
           </tr>
         </table>
@@ -1122,9 +1135,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">
-              <p class="definition">ResultCode = os.execute(Command)</p>
-              <p>Will execute <var>Command</var> as it would be typed on the command-line and return the result code of the operation.</p>
-              <p>The <var>Command</var> could either be:</p>
+              <p class="definition">iResultCode = os.execute(sCommand)</p>
+              <p>Will execute <var>sCommand</var> as it would be typed on the command-line and return the result code of the operation.</p>
+              <p>The <var>sCommand</var> could either be:</p>
               <ul>
                 <li>A terminal command like <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>An executable like <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
@@ -1135,36 +1148,36 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
-              <p class="definition">TempFileName = os.tmpname()</p>
-              <p>Will return a filename to use as a temporary filename.</p>
+              <p class="definition">sTempFileName = os.tmpname()</p>
+              <p>Will return a filename to use as a temporary filename (in the system directory for the temporary files).<br>If the function could not create a unique name, it will return an empty string.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.remove</div></td>
             <td class="hintcell">
-              <p class="definition">bResult, ErrorStr, ErrorNum = os.remove(FileName)</p>
-              <p>Will delete the file or the directory with the name <var>FileName</var>.</p>
+              <p class="definition">bResult, sError, iError = os.remove(sFileName)</p>
+              <p>Will delete the file or the directory with the name <var>sFileName</var>.</p>
               <p>If it works, function returns <code>true</code>.</p>
               <p>If it fails, function returns three things:</p>
               <ol>
                 <li><code>nil</code> to indicate it failed</li>
-                <li><var>ErrorStr</var> for the error message description</li>
-                <li><var>ErrorNum</var> for the error code number</li>
+                <li><var>sError</var> for the error message description</li>
+                <li><var>iError</var> for the error code number</li>
               </ol>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.rename</div></td>
             <td class="hintcell">
-              <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
-              <p>Will rename the file <var>OldName</var> with the new name <var>NewName</var>.</p>
-              <p><b><span class="uline">Note:</span> If a file named <var>NewName</var> already exists, it will be replaced!</b></p>
+              <p class="definition">bResult, sError, iError = os.rename(sOldName, sNewName)</p>
+              <p>Will rename the file <var>sOldName</var> with the new name <var>sNewName</var>.</p>
+              <p><b><span class="uline">Note:</span> If a file named <var>sNewName</var> already exists, it will be replaced!</b></p>
               <p>If it works, function returns <code>true</code>.</p>
               <p>If it fails, function returns three things:</p>
               <ol>
                 <li><code>nil</code> to indicate it failed</li>
-                <li><var>ErrorStr</var> for the error message description</li>
-                <li><var>ErrorNum</var> for the error code number</li>
+                <li><var>sError</var> for the error message description</li>
+                <li><var>iError</var> for the error code number</li>
               </ol>
             </td>
           </tr>

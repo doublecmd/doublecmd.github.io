@@ -43,13 +43,14 @@
 
       <div>
         <h2><a name="quickpres">1. Quick presentation</a></h2>
-        <p>Variable will help us to when configurating <a href="toolbar.html">toolbar buttons</a> or setting <a href="configuration.html#ConfigAssociations">file association</a> action.</p>
+        <p>Variable will help us to when configurating <a href="toolbar.html">toolbar buttons</a> or setting <a href="configuration.html#ConfigAssociations">file association</a> actions and <a href="configuration.html#ConfigHotKeys">hotkey</a> actions.</p>
         <p>We will basically use them when it's time to provide a parameter to command based on the current selected file(s), directory where we are and other things like that related with the context of what we're displaying in the panels.</p>
         <p>Here is an easy example. The person configured a button to launch IrfanView with the variable <code>%p</code> has the parameter.</p>
+        <p class="image"><img title="Example of variable" alt="Example of variable" src="images/imgDC/variablesample.png" width="560" height="201"></p>
         <p>When the person will click that button, it will launch IrfanView with the variable <code>%p</code> be substituted by the current selected file in the active panel.</p>
         <p>That's what <b>variables</b> described in this page are all about.</p>
         <p>As you will see, most of them are beginning with the percent sign <code>%</code>.</p>
-        <p class="image"><img title="Example of variable" alt="Example of variable" src="images/imgDC/variablesample.png" width="560" height="201"></p>
+        <p>Note: Variables and suffixes are case sensitive!</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -311,7 +312,7 @@
       <div>
         <h2><a name="listoffiles">9. List of files</a></h2>
         <p>Some application will accept a single file name as a parameter and assumed this file is a text file containing a list of file names.</p>
-        <p>DC proposes us variables that will create a temporary text file with the list of all specified selected items and the file name of the temporary created file will we substituted to the variable.</p>
+        <p>Double Commander proposes us variables that will create a temporary text file (in the system directory for the temporary files) with the list of all specified selected items and the file name of the temporary created file will we substituted to the variable.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">List of files variable</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
@@ -329,6 +330,7 @@
           </tr>
         </table>
         <p>Double Commander will use the ANSI system encoding in Windows or the default system encoding in Unix-like systems (in GNU/Linux distributions it is usually UTF-8).</p>
+        <p>When closing, Double Commander deletes all such temporary files.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -529,7 +531,8 @@
 
       <div>
         <h2><a name="envvariables">16. Environment variables</a></h2>
-        <p>Double Commander provides several environment variables:</p>
+        <p>We can use environment variables in the Double Commander settings: in the names of executable files and icons on the toolbar, in the names of plugins, favorite directories, and so on. This is a convenient way to specify a path if we don't want to use absolute paths.</p>
+        <p>Double Commander supports system environment variables and provides several of its own environment variables:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Environment variables</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variable</th><th class="categorydesccolumn">Description</th></tr>
@@ -548,6 +551,8 @@
         </table>
         <p>We can use environment variables in the Double Commander settings: in the names of executable files and icons on the toolbar, in the names of plugins, favorite directories, and so on. This is a convenient way to specify a path if we don't want to use absolute paths.</p>
         <p>Additionally, the <code>%DC_CONFIG_PATH%</code> variable is available, which returns the directory with the Double Commander configuration files. This is not an environment variable and it is not available for child processes (applications launched from Double Commander), but otherwise we can use <code>%DC_CONFIG_PATH%</code> in the same way as the environment variables described above.</p>
+        <p>In Windows, we can additionally use pseudo environment variables in the format <code>%$Name%</code>, which correspond to standard Windows system folders (to get the values, Double Commander uses the <tt>SHGetSpecialFolderPath</tt> and <tt>SHGetKnownFolderPath</tt> functions from the Windows API). These are not normal environment variables and are not available for child processes, but otherwise we can use them in a similar way to environment variables. All these variables are collected in the path selection assistant menu: to the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
+        <p>All these variables have been added to the <a href="directoryhotlist.html">Directory Hotlist</a> menu (the <span class="italic">Special Dirs</span> submenu).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

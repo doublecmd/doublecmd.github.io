@@ -230,9 +230,9 @@
       <div>
         <h2><a name="mnu_select">2.1.2. "Mark"</a></h2>
         <p>There are some commands in this group with which you can select files in different ways.</p>
-        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions.</p>
+        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). For example, select all files that have the <tt>.txt</tt> extension:</p>
         <p class="figure"><img class="largeimage" title="Select a group" alt="Select a group" src="images/imgDC/pic27.png" width="333" height="332"></p>
-        <p>E.g. select all files that have the extension <tt>.txt</tt>. Also there is a drop-down list with masks history.</p>
+        <p>Also there is a drop-down list with masks history.</p>
         <p>Third and fourth items <span class="bold"><a name="cm_MarkMarkAll">Select All</a></span> (internal command <tt>cm_MarkMarkAll</tt>) and <span class="bold"><a name="cm_MarkUnmarkAll">Unselect All</a></span> (internal command <tt>cm_MarkUnmarkAll</tt>). They make it possible to select or unselect all items from the panel quickly.</p>
         <p>Fifth item is <span class="bold"><a name="cm_MarkInvert">Invert Selection</a></span> (internal command <tt>cm_MarkInvert</tt>). It makes currently selected files unselected and vice versa.</p>
         <p>Sixth and seventh items <span class="bold"><a name="cm_MarkCurrentExtension">Select All with the Same Extension</a></span> (internal command <tt>cm_MarkCurrentExtension</tt>) and <span class="bold"><a name="cm_UnmarkCurrentExtension">Unselect All with the Same Extension</a></span> (internal command <tt>cm_UnmarkCurrentExtension</tt>). These functions help to select and unselect files with the same extension as the file under the cursor.</p>
@@ -335,7 +335,7 @@
         <h2><a name="mnu_view">2.1.7. "Show"</a></h2>
         <p>Manages the displayed contents of the file panels.</p>
         <p>The first three items allow to switch the view of the file list: <span class="bold">Brief view</span> (internal command <tt><a name="cm_BriefView">cm_BriefView</a></tt>), <span class="bold">Full</span> (internal command <tt><a name="cm_ColumnsView">cm_ColumnsView</a></tt>) and <span class="bold">Thumbnails</span> (internal command <tt><a name="cm_ThumbnailsView">cm_ThumbnailsView</a></tt>). See <a href="#iface_files">below</a> for details.</p>
-        <p><span class="bold">Quick View Panel</span> (internal command <tt>cm_QuickView</tt>)&nbsp;&ndash; opens file in viewer program, but content of selected item shown in opposite panel (instead of a separate window). In this case, the viewer specified in the <a href="configuration.html#ConfigAssociations">file association</a> settings will be ignored. As we navigate to next items, displayed content is updated, this allows to view the contents of files simply by moving the cursor in the file panel.</p>
+        <p><span class="bold">Quick View Panel</span> (internal command <tt>cm_QuickView</tt>)&nbsp;&ndash; opens file in viewer program, but content of selected item shown in opposite panel (instead of a separate window). See more details <a href="viewer.html">here</a>.</p>
         <p><span class="bold">Tree View Panel</span> (internal command <tt>cm_TreeView</tt>)&nbsp;&ndash; shows the directory tree for the active file panel. Internal command <tt>cm_FocusTreeView</tt> switches focus between current file list and tree (shortcut <kbd>Shift+Tab</kbd> by default).</p>
         <p>The next five items:
           <span class="bold"><a name="sort_by">Sort by Name</a></span> (internal command <tt><a name="cm_SortByName">cm_SortByName</a></tt>),
@@ -400,7 +400,7 @@
         <h2><a name="iface_drive_btn">2.4. Drives list</a></h2>
         <p class="figure"><img class="largeimage" title="Drives list" alt="Drives list" src="images/imgDC/pic4.png" width="472" height="24"></p>
         <p>Helps to change drive, also contains additional information (size, free space) and navigation buttons&nbsp;&ndash; <tt>&laquo;&nbsp;* \ .. ~ &lt;&nbsp;&raquo;</tt>.</p>
-        <p>Internal commands are <tt><a name="cm_LeftOpenDrives">cm_LeftOpenDrives</a></tt> for left panel and <tt><a name="cm_RightOpenDrives">cm_RightOpenDrives</a></tt>&nbsp;&ndash; for right panel. Default shortcuts: <kbd>Alt+F1</kbd> and <kbd>Alt+F2</kbd>, but they won't work in most Linux Desktop Environments, just replace them.</p>
+        <p>Internal commands are <tt><a name="cm_LeftOpenDrives">cm_LeftOpenDrives</a></tt> for left panel and <tt><a name="cm_RightOpenDrives">cm_RightOpenDrives</a></tt>&nbsp;&ndash; for right panel. Default shortcuts: <kbd>Alt+F1</kbd> and <kbd>Alt+F2</kbd>, but they won't work in most Linux Desktop Environments (just open the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot keys</a> settings section and replace them).</p>
         <p class="figure"><img class="largeimage" title="Drives list" alt="Drives list" src="images/imgDC/pic5.png" width="292" height="152"></p>
         <p>Internal command <tt>cm_SrcOpenDrives</tt> will show this menu for active panel.</p>
         <p>Additional navigation buttons:</p>
@@ -427,9 +427,11 @@
       <div>
         <h2><a name="iface_dir">2.6. Current directory bar</a></h2>
         <p class="figure"><img class="largeimage" title="Current directory bar" alt="Current directory bar" src="images/imgDC/pic7.png" width="372" height="21"></p>
-        <p>Displays the name of the current directory. A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories:</p>
+        <p>Displays the directory opened in the file panel.</p>
+        <p>A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories:</p>
         <p class="figure"><img class="largeimage" title="Directories history" alt="Directories history" src="images/imgDC/pic8.png" width="372" height="164"></p>
-        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually (environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory). A double click or middle mouse click drop down a directory hotlist.</p>
+        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually. You can use the keyboard instead of the mouse, just set a hotkey for the <a href="cmds.html#cm_EditPath">cm_EditPath</a> command. Environment variables are supported, in Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
+        <p>A double click or middle mouse click drop down a directory hotlist.</p>
         <p>It is now also possible to click on parts of the directory bar to quickly navigate back in the directory structure. Very handy if you want to go to a parent directory back many levels. This is known as a "breadcrumb" navigation feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -567,11 +569,14 @@
       <div>
         <h2><a name="iface_path">2.10. Command line</a></h2>
         <p class="figure"><img class="largeimage" title="Command line" alt="Command line" src="images/imgDC/pic12.png" width="738" height="29"></p>
-        <p>Use to enter commands manually. Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). The button on the right with an arrow opens the history of the entered commands. Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history.</p>
-        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. If you use a path with the file name, Double Commander will place the cursor on this file.</p>
+        <p>Use to enter commands manually, you can quickly run or open a file in the current directory or in the PATH (with additional parameters if necessary).</p>
+        <p>Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). The button on the right with an arrow opens the history of the entered commands. Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history.</p>
+        <p>Several <a href="cmds.html#catcommandline">internal commands</a> are available for working with the command line, also see the typing options in the <a href="configuration.html#ConfigKeys">Keys</a> settings section.</p>
+        <p>If the command line is hidden in the <a href="configuration.html#ConfigLayout">settings</a>, you can still use it. In this case, the command line will be automatically hidden after the command is run. You can hide it using the <kbd>Esc</kbd> key (if the input field is empty) or just move the cursor to the file panel (or switch the focus in another way).</p>
+        <p>Environment variables are supported, in Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
+        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. If you use a path with the file name, Double Commander will change directory and place the cursor on this file. If you specify only a file name, Double Commander will place the cursor on this file in the current directory.</p>
+        <p>You can use slash: <code>cd \</code> to go to the root of the current drive (Windows) and <code>cd /</code> to go to the root of the file system (Linux and other Unix-like systems).</p>
         <p>In Windows, you can change the drive by simply specifying the drive letter and a colon: <code>c:</code>, <code>d:</code> and so on.</p>
-        <p>Environment variables are supported, in Unix-like operating systems also you can use the tilde symbol "~" to indicate the current user's home directory.</p>
-        <p>Several <a href="cmds.html#catcommandline">internal commands</a> are available for working with the command line.</p>
         <p>Right mouse click will show the usual input box menu that contains standard commands <span class="italic">Cut</span>, <span class="italic">Copy</span>, <span class="italic">Paste</span>, <span class="italic">Delete</span>, <span class="italic">Select All</span> and submenu <span class="italic">Insert Unicode Control Character</span>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

@@ -612,17 +612,17 @@
         <p>Any of these modifiers may be embedded within the regular expression itself. If modifier is inlined into subexpression, then it effects only into this subexpression.</p>
         <dl>
           <dt><tt>i</tt></dt>
-          <dd>Do case-insensitive pattern matching (using installed in your system locale settings).</dd>
+          <dd>Do case-insensitive pattern matching (using installed in your system locale settings). Disabled by default.</dd>
           <dt><tt>m</tt></dt>
-          <dd>Treat string as multiple lines. That is, change <code>^</code> and <code>$</code> from matching at only the very start or end of the string to the start or end of any line anywhere within the string, see also <a href="#meta-line">Line separators</a>.</dd>
+          <dd>Treat string as multiple lines. That is, change <code>^</code> and <code>$</code> from matching at only the very start or end of the string to the start or end of any line anywhere within the string, see also <a href="#meta-line">Line separators</a>. Disabled by default.</dd>
           <dt><tt>s</tt></dt>
           <dd>Treat string as single line. That is, change <code>.</code> to match any character whatsoever, even a line separator (see also <a href="#meta-line">Line separators</a>), which it normally would not match. Enabled by default.</dd>
           <dt><tt>g</tt></dt>
           <dd>Non standard modifier. Switching it Off you'll switch all following operators into non-greedy mode (by default this modifier is On). So, if modifier <code>g</code> is Off then <code>+</code> works as <code>+?</code>, <code>*</code> as <code>*?</code> and so on.</dd>
           <dt><tt>x</tt></dt>
-          <dd>Extend your pattern's legibility by permitting whitespace and comments (see explanation below).</dd>
+          <dd>Extend your pattern's legibility by permitting whitespace and comments (see explanation below). Disabled by default.</dd>
           <dt><tt>r</tt></dt>
-          <dd>Non-standard modifier. If is set then range <code>а-я</code> additional include Russian letter <code>ё</code>, <code>А-Я</code> additional include <code>Ё</code>, and <code>а-Я</code> include all Russian alphabet (by default this modifier is On).</dd>
+          <dd>Non-standard modifier. If is set then range <code>а-я</code> additional include Russian letter <code>ё</code>, <code>А-Я</code> additional include <code>Ё</code>, and <code>а-Я</code> include all Russian alphabet. Enabled by default.</dd>
           <dt><tt>#</tt></dt>
           <dd><tt>(?#text)</tt>: A comment, the <code>text</code> is ignored. Note that TRegExpr closes the comment as soon as it sees a <code>)</code>, so there is no way to put a literal <code>)</code> in the comment.</dd>
         </dl>

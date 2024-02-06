@@ -68,25 +68,38 @@
 
       <div>
         <h2><a name="preface">1. Введение</a></h2>
-        <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.
-          Параметры скриптов должны передаваться как есть, без экранирования (без кавычек или "\"), для этого необходимо использовать переменную <a href="variables.html#quotation">%"0</a>: например, <code>%"0%p0</code> для файла под курсором вместо <code>%p0</code>, <code>%"0%D</code> для текущего каталога вместо <code>%D</code> и так далее.
-          Для получения списка всех выделенных файлов мы можем использовать <a href="variables.html#listoffiles">%LU</a> или внутренние команды <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a> или <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</p>
+        <p>Подробную информацию о скриптовом языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">веб-сайте Lua</a>.</p>
+        <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.<br>
+          Параметры скриптов должны передаваться как есть, без экранирования (без кавычек или "\"), для этого необходимо использовать переменную <a href="variables.html#quotation">%"0</a>: например, <code>%"0%p0</code> для файла под курсором вместо <code>%p0</code> или <code>%"0%D</code> для текущего каталога вместо <code>%D</code>. В противном случае, если Double Commander автоматически добавит кавычки, они будут переданы как часть параметра и вам придётся их учитывать.<br>
+          Для получения списка всех выделенных файлов мы можем использовать <a href="variables.html#listoffiles">переменные</a> (<code>%LU</code>, <code>%FU</code> или <code>%RU</code>) или внутренние команды (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Бета-версия)</sup></span>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> или <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>).
+          Мы можем использовать, например, <code>%p</code>: в этом случае Double Commander передаст имена всех выделенных файлов одной строкой, разделяя имена пробелом.</p>
         <p>Также на языке Lua можно писать информационные плагины, примеры можно найти в папке программы (<tt>plugins/wdx/scripts</tt>).
           В Вики есть <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">страница</a>, посвящённая написанию плагинов.
           Ограничения: поддерживаются только следующие типы данных</p>
         <ul>
-          <li><i>ft_numeric_32</i>&nbsp;&ndash; 32-битное целое число со знаком;</li>
-          <li><i>ft_numeric_64</i>&nbsp;&ndash; 64-битное целое число со знаком;</li>
-          <li><i>ft_numeric_floating</i>&nbsp;&ndash; число с плавающей запятой;</li>
-          <li><i>ft_boolean</i>&nbsp;&ndash; логический (булев) тип: <i>true</i> или <i>false</i>;</li>
-          <li><i>ft_multiplechoice</i>&nbsp;&ndash; значение, допускающее ограниченное количество вариантов выбора;</li>
-          <li><i>ft_string</i>&nbsp;&ndash; текстовая строка (используйте UTF-8);</li>
-          <li><i>ft_fulltext</i>&nbsp;&ndash; полный текст (многострочный текст), используется только для поиска с помощью плагинов;</li>
-          <li><i>ft_datetime</i>&nbsp;&ndash; для даты/времени: возвращаемая дата будет сконвертирована в отформатированную строку даты и времени (значение зависит от ваших региональных настроек).</li>
+          <li><i>ft_numeric_32</i> (1)&nbsp;&ndash; 32-битное целое число со знаком;</li>
+          <li><i>ft_numeric_64</i> (2)&nbsp;&ndash; 64-битное целое число со знаком;</li>
+          <li><i>ft_numeric_floating</i> (3)&nbsp;&ndash; число с плавающей запятой;</li>
+          <li><i>ft_boolean</i> (6)&nbsp;&ndash; логический (булев) тип: <i>true</i> или <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i> (7)&nbsp;&ndash; значение, допускающее ограниченное количество вариантов выбора;</li>
+          <li><i>ft_string</i> (8)&nbsp;&ndash; текстовая строка;</li>
+          <li><i>ft_fulltext</i> (9)&nbsp;&ndash; полный текст (многострочный текст), используется только для поиска с помощью плагинов;</li>
+          <li><i>ft_datetime</i> (10)&nbsp;&ndash; для даты/времени: возвращаемая дата будет сконвертирована в отформатированную строку даты и времени (значение зависит от ваших региональных настроек).<br>
+            Дата должна быть в формате Windows, но в Lua и в функциях, которые Double Commander предоставляет для поиска файлов, используется время в формате Unix. Для конвертации мы можем использовать формулу:<br>
+            =&nbsp;UnixTime&nbsp;*&nbsp;10000000&nbsp;+&nbsp;116444736000000000<br>
+            Это большое число, поэтому потребуется 64-битная версия Double Commander или Lua 5.3+.</li>
         </ul>
-        <p>Примечание: При сохранении скриптов используйте кодировку UTF-8 без BOM.</p>
-        <p>Более подробную информацию о языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">официальном веб-сайте Lua</a>.</p>
+        <p>Список выше содержит имена из заголовочных файлов, в скриптах Lua мы должны использовать цифровые значения, которые указаны в скобках.</p>
+        <p>Примечание: Для диалога <a href="help.html#cm_FileProperties">свойств файла</a> функция <code>ContentGetValue</code> вызывается с флагом <code>CONTENT_DELAYIFSLOW</code> (четвёртый параметр, значение равно 1), это позволяет избежать задержки открытия окна: если получение данных медленное, мы можем эти данные исключить, просто добавляем проверку значения флага и возвращаем <code>nil</code> для таких полей или плагина.</p>
+        <p>Примечание: Если плагин должен вернуть пустую строку, то более быстрым будет передать <code>nil</code> вместо <code>""</code>.</p>
         <p>Примечание: Функция Lua <code>io.open</code> использует стандартную функцию C <code>fopen</code>: в текстовом режиме эта функция может преобразовывать тип окончания строк (CRLF, LF или CR) при чтении и записи, что может привести к неожиданному результату. Если вам попадаются файлы с разным типом окончания строк или вы пишете кроссплатформенный скрипт, это необходимо учитывать или может быть практичнее отдать предпочтение бинарному режиму.</p>
+        <br>
+
+        <p><span class="bold">О кодировке текста</span></p>
+        <p>Все дополнительные функции, описанные ниже, принимают строковые параметры в кодировке UTF-8 и возвращают строки в этой кодировке (за исключением функции <a href="#libraryutf8">LazUtf8.ConvertEncoding</a>).</p>
+        <p>Часть функций из стандартных библиотек Lua заменены на функции из Double Commander или Free Pascal/Lazarus (или написаны новые), это обеспечивает поддержку UTF-8.</p>
+        <p>При написании плагинов мы также должны использовать UTF-8 для текстовых данных (<i>ft_multiplechoice</i>, <i>ft_string</i> и <i>ft_fulltext</i>).</p>
+        <p>При сохранении скриптов используйте кодировку UTF-8 без BOM.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -111,8 +124,8 @@
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Clipboard</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Различные функции для работы с буфером обмена</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Dialogs</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Взаимодействие с пользователем</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">UTF-8</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">Строковые функции для работы с UTF-8</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarychar">Библиотека Char</a></div></td><td class="hintcell">Char</td><td class="hintcell">Получение информации о символах</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS</a></div></td><td class="hintcell">OS</td><td class="hintcell">Функции, связанные с операционной системой</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarychar">Char</a></div></td><td class="hintcell">Char</td><td class="hintcell">Получение информации о символах</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">OS</a></div></td><td class="hintcell">os</td><td class="hintcell">Функции, связанные с операционной системой</td></tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -126,12 +139,12 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">DC.LogWrite</div></td>
             <td class="hintcell">
-              <p class="definition">DC.LogWrite(Message, MsgType, bForce, bLogFile)</p>
+              <p class="definition">DC.LogWrite(sMessage, iMsgType, bForce, bLogFile)</p>
               <p>Пишет сообщение в окно протокола.</p>
               <p>Описание:</p>
               <ul>
-                <li><var>Message</var> : Текст сообщения.</li>
-                <li><var>MsgType</var> : Тип сообщения: 0 - информационное, 1 - успешная операция, 2 - ошибка.</li>
+                <li><var>sMessage</var> : Текст сообщения.</li>
+                <li><var>iMsgType</var> : Тип сообщения: 0 - информационное, 1 - успешная операция, 2 - ошибка.</li>
                 <li><var>bForce</var> : Логическое (булево) значение, если <code>true</code>, то показать окно протокола (если оно скрыто).</li>
                 <li><var>bLogFile</var> : Логическое (булево) значение, если <code>true</code>, то сообщение будет записано и в файл протокола.</li>
               </ul>
@@ -149,8 +162,8 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
-              <p class="definition">DC.ExecuteCommand(Command, Param1, Param2,...,ParamX)</p>
-              <p>Вызывает внутреннюю команду Double Commander <var>Command</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
+              <p class="definition">DC.ExecuteCommand(sCommand, Param1, Param2,...,ParamX)</p>
+              <p>Вызывает внутреннюю команду Double Commander <var>sCommand</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
               <p>Мы можем подставить столько <var>Param...</var>, сколько поддерживает команда <var>Command</var>.</p>
             </td>
           </tr>
@@ -217,8 +230,8 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
-              <p class="definition">SysUtils.Sleep(Milliseconds)</p>
-              <p>Приостанавливает выполнение скрипта на указанное количество миллисекунд (<var>Milliseconds</var>), выполнение сценария будет продолжено после истечения указанного времени.</p>
+              <p class="definition">SysUtils.Sleep(iMilliseconds)</p>
+              <p>Приостанавливает выполнение скрипта на указанное количество миллисекунд (<var>iMilliseconds</var>), выполнение сценария будет продолжено после истечения указанного времени.</p>
             </td>
           </tr>
           <tr>
@@ -231,32 +244,32 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileExists</div></td>
             <td class="hintcell">
-              <p class="definition">bFlagExists = SysUtils.FileExists(FileName)</p>
+              <p class="definition">bExists = SysUtils.FileExists(sFileName)</p>
               <p>Проверяет, существует ли в файловой системе определённый файл.</p>
-              <p><var>FileExists</var> возвращает <code>true</code>, если файл с именем <var>FileName</var> существует на диске, и <code>false</code> в противном случае.</p>
+              <p><code>FileExists</code> возвращает <code>true</code>, если файл с именем <var>sFileName</var> существует на диске, и <code>false</code> в противном случае.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.DirectoryExists</div></td>
             <td class="hintcell">
-              <p class="definition">bFlagExists = SysUtils.DirectoryExists(Directory)</p>
-              <p>Проверяет существование <var>Directory</var> в файловой системе и что это действительно каталог.</p>
+              <p class="definition">bExists = SysUtils.DirectoryExists(sDirectory)</p>
+              <p>Проверяет существование <var>sDirectory</var> в файловой системе и что это действительно каталог.</p>
               <p>Если это так, то функция возвращает <code>true</code>, иначе возвращает <code>false</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FileGetAttr</div></td>
             <td class="hintcell">
-              <p class="definition">Attr = SysUtils.FileGetAttr(FileName)</p>
-              <p>Возвращает в <var>Attr</var> атрибуты файла <var>FileName</var>.</p>
+              <p class="definition">iAttr = SysUtils.FileGetAttr(sFileName)</p>
+              <p>Возвращает в <var>iAttr</var> атрибуты файла <var>sFileName</var>.</p>
               <p>Подробное описание возвращаемого значения смотрите <a href="#detailattr">здесь</a>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindFirst</div></td>
             <td class="hintcell">
-              <p class="definition">Handle, FindData = SysUtils.FindFirst(Path)</p>
-              <p>Ищет файлы, совпадающие с <var>Path</var> (можно использовать маски).</p>
+              <p class="definition">Handle, FindData = SysUtils.FindFirst(sPath)</p>
+              <p>Ищет файлы, совпадающие с <var>sPath</var> (можно использовать маски).</p>
               <p>Если файл не найден, <var>Handle</var> будет равно <code>nil</code>.</p>
               <p>В случае успеха функция вернёт дескриптор поиска <var>Handle</var> для последующих вызовов <code>SysUtils.FindNext</code> и поиска других совпадений с паттерном.</p>
               <p>Таблица <var>FindData</var> содержит информацию о найденном файле или каталоге.</p>
@@ -273,7 +286,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.FindNext</div></td>
             <td class="hintcell">
               <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
-              <p>Находит следующее вхождение поиска, инициированного <var>FindFirst</var>, <var>Handle</var>&nbsp;&ndash; дескриптор поиска, возвращённый функцией <var>FindFirst</var>.</p>
+              <p>Находит следующее вхождение поиска, инициированного <code>FindFirst</code>, <var>Handle</var>&nbsp;&ndash; дескриптор поиска, возвращённый функцией <code>FindFirst</code>.</p>
               <p>В случае успеха функция вернёт <var>Result</var> не равный <code>nil</code> и таблицу <var>FindData</var>, содержащую информацию о найденном файле или каталоге.</p>
               <p><b><span class="uline">Замечание:</span> За последним вызовом <code>SysUtils.FindNext</code> всегда должен следовать вызов <code>SysUtils.FindClose</code> с тем же <var>Handle</var>. Несоблюдение этого приведёт к утечке памяти.</b></p>
             </td>
@@ -289,48 +302,55 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateDirectory</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateDirectory(Directory)</p>
-              <p>Создаёт цепочку каталогов, <var>Directory</var> - полный путь каталога.</p>
-              <p>Возвращает <code>true</code>, если <var>Directory</var> уже существует или был успешно создан, или <code>false</code>, если не удалось создать какую-либо часть пути.</p>
+              <p class="definition">bResult = SysUtils.CreateDirectory(sDirectory)</p>
+              <p>Создаёт цепочку каталогов, <var>sDirectory</var> - полный путь каталога.</p>
+              <p>Возвращает <code>true</code>, если <var>sDirectory</var> уже существует или был успешно создан, или <code>false</code>, если не удалось создать какую-либо часть пути.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateHardLink</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateHardLink(Path, LinkName)</p>
-              <p>Создаёт жёсткую ссылку <var>LinkName</var> на файл <var>Path</var>.</p>
+              <p class="definition">bResult = SysUtils.CreateHardLink(sFileName, sLinkName)</p>
+              <p>Создаёт жёсткую ссылку <var>sLinkName</var> на файл <var>sFileName</var>.</p>
               <p>Возвращает <code>true</code> в случае успеха, иначе возвращает <code>false</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.CreateSymbolicLink</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.CreateSymbolicLink(Path, LinkName)</p>
-              <p>Создаёт символьную ссылку <var>LinkName</var> на файл <var>Path</var>.</p>
+              <p class="definition">bResult = SysUtils.CreateSymbolicLink(sFileName, sLinkName)</p>
+              <p>Создаёт символьную ссылку <var>sLinkName</var> на файл <var>sFileName</var>.</p>
               <p>Возвращает <code>true</code> в случае успеха, иначе возвращает <code>false</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ReadSymbolicLink</div></td>
             <td class="hintcell">
-              <p class="definition">sTarget = SysUtils.ReadSymbolicLink(LinkName, Recursive)</p>
-              <p>Читает имя файла, на который указывает символьная ссылка <var>LinkName</var>.</p>
-              <p>Если <var>Recursive</var> равно <code>true</code> и ссылка указывает на ссылку, то она разрешается рекурсивно до тех пор, пока не будет найдено допустимое имя файла, не являющееся ссылкой.</p>
-              <p>Возвращает путь, на который указывает символьная ссылка <var>LinkName</var>, или пустую строку, если ссылка недействительна или файл, на который она указывает, не существует и значение <var>Recursive</var> равно <code>true</code>.</p>
+              <p class="definition">sTarget = SysUtils.ReadSymbolicLink(sLinkName, bRecursive)</p>
+              <p>Читает имя файла, на который указывает символьная ссылка <var>sLinkName</var>.</p>
+              <p>Если <var>bRecursive</var> равно <code>true</code> и ссылка указывает на ссылку, то она разрешается рекурсивно до тех пор, пока не будет найдено допустимое имя файла, не являющееся ссылкой.</p>
+              <p>Возвращает путь, на который указывает символьная ссылка <var>sLinkName</var>, или пустую строку, если ссылка недействительна или файл, на который она указывает, не существует и значение <var>bRecursive</var> равно <code>true</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileName</div></td>
             <td class="hintcell">
-              <p class="definition">sName = SysUtils.ExtractFileName(FileName)</p>
+              <p class="definition">sName = SysUtils.ExtractFileName(sFileName)</p>
               <p>Возвращает имя файла из полного (имя+путь) имени файла.</p>
               <p>Имя файла содержит все символы после последнего символа разделителя каталогов ("/" или "\") или буквы диска.</p>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
+            <td class="hintcell">
+              <p class="definition">sExt = SysUtils.ExtractFileExt(sFileName)</p>
+              <p>Возвращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFilePath</div></td>
             <td class="hintcell">
-              <p class="definition">sPath = SysUtils.ExtractFilePath(FileName)</p>
+              <p class="definition">sPath = SysUtils.ExtractFilePath(sFileName)</p>
               <p>Возвращает путь из полного имени файла (включая букву диска).</p>
               <p>Путь содержит все символы до последнего символа разделителя каталогов ("/" или "\"), включая сам разделитель каталогов.</p>
             </td>
@@ -338,55 +358,48 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDir</div></td>
             <td class="hintcell">
-              <p class="definition">sDir = SysUtils.ExtractFileDir(FileName)</p>
-              <p>Возвращает только каталог из <var>FileName</var>, включая букву диска.</p>
+              <p class="definition">sDir = SysUtils.ExtractFileDir(sFileName)</p>
+              <p>Возвращает только каталог из <var>sFileName</var>, включая букву диска.</p>
               <p>Результат НЕ содержит разделитель каталогов в конце, в отличие от <code>SysUtils.ExtractFilePath</code>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileDrive</div></td>
             <td class="hintcell">
-              <p class="definition">sDrive = SysUtils.ExtractFileDrive(FileName)</p>
+              <p class="definition">sDrive = SysUtils.ExtractFileDrive(sFileName)</p>
               <p>Возвращает диск из полного имени файла.</p>
               <p>Обратите внимание, некоторые операционные системы не поддерживают буквы дисков.</p>
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.ExtractFileExt</div></td>
-            <td class="hintcell">
-              <p class="definition">sExt = SysUtils.ExtractFileExt(FileName)</p>
-              <p>Возвращает расширение файла (все символы после последней точки, включая сам символ ".").</p>
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetAbsolutePath</div></td>
             <td class="hintcell">
-              <p class="definition">sName = SysUtils.GetAbsolutePath(FileName, BaseDirectory)</p>
+              <p class="definition">sName = SysUtils.GetAbsolutePath(sFileName, sBaseDirectory)</p>
               <p>Возвращает абсолютный (полный) путь к файлу:</p>
               <ul>
-                <li><var>FileName</var> : Имя файла с относительным путём.</li>
-                <li><var>BaseDirectory</var> : Каталог, который использовался как базовый каталог для <var>FileName</var>.</li>
+                <li><var>sFileName</var> : Имя файла с относительным путём.</li>
+                <li><var>sBaseDirectory</var> : Каталог, который использовался как базовый каталог для <var>sFileName</var>.</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetRelativePath</div></td>
             <td class="hintcell">
-              <p class="definition">sName = SysUtils.GetRelativePath(FileName, BaseDirectory)</p>
+              <p class="definition">sName = SysUtils.GetRelativePath(sFileName, sBaseDirectory)</p>
               <p>Возвращает имя файла относительно указанного каталога:</p>
               <ul>
-                <li><var>FileName</var> : Полное (абсолютное) имя файла.</li>
-                <li><var>BaseDirectory</var> : Каталог, который будет использоваться как базовый каталог для <var>FileName</var>.</li>
+                <li><var>sFileName</var> : Полное (абсолютное) имя файла.</li>
+                <li><var>sBaseDirectory</var> : Каталог, который будет использоваться как базовый каталог для <var>sFileName</var>.</li>
               </ul>
-              <p>Если <var>FileName</var> и <var>BaseDirectory</var> содержат одно и то же значение, функция вернёт пустую строку ("").</p>
+              <p>Если <var>sFileName</var> и <var>sBaseDirectory</var> содержат одно и то же значение, функция вернёт пустую строку ("").</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMask</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.MatchesMask(FileName, Mask, MaskOptions)</p>
-              <p>Возвращает <code>true</code>, если <var>FileName</var> совпадает с переданной маской <var>Mask</var>.</p>
-              <p><var>MaskOptions</var> (необязательный параметр, по умолчанию 0) задаётся как сумма следующих значений:</p>
+              <p class="definition">bResult = SysUtils.MatchesMask(sFileName, sMask, iMaskOptions)</p>
+              <p>Возвращает <code>true</code>, если <var>sFileName</var> совпадает с переданной маской <var>sMask</var>.</p>
+              <p><var>iMaskOptions</var> (необязательный параметр, по умолчанию 0) задаётся как сумма следующих значений:</p>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Значение</th>
@@ -414,9 +427,9 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.MatchesMaskList</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = SysUtils.MatchesMaskList(FileName, MaskList, Separator, MaskOptions)</p>
-              <p>Возвращает <code>true</code>, если <var>FileName</var> совпадает с хотя бы одной из переданных масок <var>MaskList</var>, разделённых <var>Separator</var> (по умолчанию ";").</p>
-              <p><var>Separator</var> и <var>MaskOptions</var> (см. выше)&nbsp;&ndash; необязательные параметры.</p>
+              <p class="definition">bResult = SysUtils.MatchesMaskList(sFileName, sMaskList, sSeparator, iMaskOptions)</p>
+              <p>Возвращает <code>true</code>, если <var>sFileName</var> совпадает с хотя бы одной из переданных масок <var>sMaskList</var>, разделённых <var>sSeparator</var> (по умолчанию ";").</p>
+              <p><var>sSeparator</var> и <var>iMaskOptions</var> (см. выше)&nbsp;&ndash; необязательные параметры.</p>
             </td>
           </tr>
           <tr>
@@ -433,7 +446,7 @@
 
       <div>
         <h2><a name="detailattr">3.2.1. Описание возвращаемого значения SysUtils.FileGetAttr</a></h2>
-        <p><code>FileGetAttr</code> возвращает атрибуты <var>FileName</var> в виде ИЛИ-совокупности следующих констант:</p>
+        <p><code>FileGetAttr</code> возвращает атрибуты <var>sFileName</var> в виде ИЛИ-совокупности следующих констант:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, используемые в возвращаемом значении SysUtils.FileGetAttr</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Значение</th><th class="categorydesccolumn">Описание</th></tr>
@@ -479,12 +492,12 @@
         <p>Если параметр окажется каталогом, то скрипт откроет его в новой вкладке активной панели и переключится на неё.</p>
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
-<span class="luakyw">local</span> myfileattr
+<span class="luakyw">local</span> iAttr
 
 <span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- Мы получили один параметр?</span>
-  myfileattr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
-  <span class="luakyw">if</span> myfileattr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Получили значение атрибута?</span>
-    <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+  iAttr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
+  <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Получили значение атрибута?</span>
+    <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
       <span class="luacmt">-- 0x00000010 присутствует? Тогда это каталог.</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
@@ -496,7 +509,7 @@
         <p>При использовании внутренней команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> это будет первый параметр, переданный после имени файла скрипта.</p>
         <p>Итак, в нашем примере мы можем создать на панели инструментов кнопку, как показано ниже:</p>
         <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="560" height="290"></p>
-        <p>В этом примере скрипту будет передан параметр <var>%"0%p</var>: имя выделенного в активной панели файла или папки, без кавычек.</p>
+        <p>В этом примере скрипту будет передан параметр <code>%"0%p</code>: имя выделенного в активной панели файла или папки, без кавычек.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -510,11 +523,11 @@
 
 <span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">2</span> then <span class="luacmt">-- У нас есть два параметра?</span>
   <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
-  <span class="luakyw">local</span> OutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+  <span class="luakyw">local</span> hOutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
 
-  OutputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>output<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
+  hOutputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>output<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
 
-  <span class="luakyw">local</span> Handle<span class="luasbl">,</span>FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
   <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
     <span class="luakyw">repeat</span>
       io.<span class="luafct">write</span><span class="luasbl">(</span>FindData.Name <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
@@ -525,7 +538,7 @@
     <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
 
     <span class="mark">SysUtils.FindClose</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
-    io<span class="luasbl">.</span>close<span class="luasbl">(</span>OutputFile<span class="luasbl">)</span>
+    io<span class="luasbl">.</span>close<span class="luasbl">(</span>hOutputFile<span class="luasbl">)</span>
   <span class="luakyw">end</span>
 <span class="luakyw">end</span></pre>
         <p>В приведённом выше примере нам нужно передать скрипту два параметра:</p>
@@ -535,7 +548,7 @@
         </ol>
         <p>Настраиваем кнопку на панели инструментов с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> и передаём параметрами всё необходимое:</p>
         <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="560" height="262"></p>
-        <p>В этом примере скрипту в качестве первого параметра будет передано <var>%"0%Ds</var>: имя каталога активной панели, без кавычек.</p>
+        <p>В этом примере скрипту в качестве первого параметра будет передано <code>%"0%Ds</code>: имя каталога активной панели, без кавычек.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -555,22 +568,22 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.GetAsText</div></td>
             <td class="hintcell">
-              <p class="definition">StringVar = Clipbrd.GetAsText()</p>
-              <p>Получает содержимое буфера обмена как строку <var>StringVar</var>.</p>
+              <p class="definition">sVar = Clipbrd.GetAsText()</p>
+              <p>Получает содержимое буфера обмена как строку <var>sVar</var>. Если буфер обмена не содержит текст, то функция вернёт пустую строку.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsText</div></td>
             <td class="hintcell">
-              <p class="definition">Clipbrd.SetAsText(StringVar)</p>
-              <p>Помещает в буфер обмена строку текста <var>StringVar</var>.</p>
+              <p class="definition">Clipbrd.SetAsText(sVar)</p>
+              <p>Помещает в буфер обмена строку текста <var>sVar</var>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Clipbrd.SetAsHtml</div></td>
             <td class="hintcell">
-              <p class="definition">Clipbrd.SetAsHtml(Html)</p>
-              <p>Добавляет в буфер обмена текст <var>Html</var> в формате HTML (формат буфера обмена <code>CF_HTML</code>).</p>
+              <p class="definition">Clipbrd.SetAsHtml(sHtml)</p>
+              <p>Добавляет в буфер обмена текст <var>sHtml</var> в формате HTML (формат буфера обмена <code>CF_HTML</code>).</p>
               <p>Содержимое может быть вставлено в приложения, поддерживающие этот формат буфера обмена, такие как MS Word, LO Writer и другие.</p>
               <p>Правильным будет сохранять данные с помощью и <code>Clipbrd.SetAsText</code>, и <code>Clipbrd.SetAsHtml</code>: приложение будет использовать тот формат, который поддерживает.</p>
               <p>Например, у нас может быть следующее:</p>
@@ -598,11 +611,11 @@
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
 <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
-<span class="luakyw">local</span> myfileattr
+<span class="luakyw">local</span> iAttr
 <span class="luakyw">local</span> bFound <span class="luasbl">=</span> false
 <span class="luakyw">local</span> sCompleteFilename <span class="luasbl">=</span> <span class="luastr">""</span>
-<span class="luakyw">local</span> InputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
-<span class="luakyw">local</span> line <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> hInputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+<span class="luakyw">local</span> sLine <span class="luasbl">=</span> <span class="luastr">""</span>
 <span class="luakyw">local</span> iPosS
 <span class="luakyw">local</span> iPosE
 <span class="luakyw">local</span> sFileToSelect <span class="luasbl">=</span> <span class="luastr">""</span>
@@ -614,23 +627,23 @@
   DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_MarkUnmarkAll"</span><span class="luasbl">)</span> <span class="luacmt">-- Убедимся, что ничего не выделено.</span>
 
   <span class="luacmt">-- Начинаем сканировать все файлы нашего каталога один за другим.</span>
-  <span class="luakyw">local</span> Handle<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils.FindFirst(params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindFirst(params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
   <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
     <span class="luakyw">repeat</span>
       sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name
-      myfileattr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
-      <span class="luakyw">if</span> myfileattr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Получили значение атрибута?</span>
+      iAttr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
+      <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Получили значение атрибута?</span>
         <span class="luacmt">-- Нам нужен файл, не каталог!</span>
-        <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+        <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
 
           <span class="luacmt">-- Начинаем читать файл построчно, до конца файла ИЛИ до совпадения.</span>
-          InputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
+          hInputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
           bFound <span class="luasbl">=</span> false
 
           <span class="luakyw">while</span> bFound <span class="luasbl">==</span> false <span class="luakyw">do</span>
-            line <span class="luasbl">=</span> InputFile<span class="luasbl">:</span><span class="luafct">read</span><span class="luasbl">()</span>
-            <span class="luakyw">if</span> line <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
-            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string<span class="luasbl">.</span>find<span class="luasbl">(</span>line, sSearchString<span class="luasbl">)</span>
+            sLine <span class="luasbl">=</span> hInputFile<span class="luasbl">:</span><span class="luafct">read</span><span class="luasbl">()</span>
+            <span class="luakyw">if</span> sLine <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
+            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string<span class="luasbl">.</span>find<span class="luasbl">(</span>sLine, sSearchString<span class="luasbl">)</span>
             <span class="luakyw">if</span> iPosS <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> bFound <span class="luasbl">=</span> true <span class="luakyw">end</span>
           <span class="luakyw">end</span>
 
@@ -638,7 +651,7 @@
             sFileToSelect <span class="luasbl">=</span> sFileToSelect <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name <span class="luasbl">..</span> <span class="luastr">"\n"</span>
           <span class="luakyw">end</span>
 
-          io<span class="luasbl">.</span>close<span class="luasbl">(</span>InputFile<span class="luasbl">)</span>
+          io<span class="luasbl">.</span>close<span class="luasbl">(</span>hInputFile<span class="luasbl">)</span>
         <span class="luakyw">end</span>
       <span class="luakyw">end</span>
       Result<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils<span class="luasbl">.</span>FindNext<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
@@ -667,29 +680,29 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.MessageBox</div></td>
             <td class="hintcell">
-              <p class="definition">ButPressed = Dialogs.MessageBox(Message, Title, ButFlags)</p>
+              <p class="definition">iButton = Dialogs.MessageBox(sMessage, sTitle, iFlags)</p>
               <p>Показывает окно сообщения, функция вернёт нажатую пользователем кнопку.</p>
               <p>Описание:</p>
               <ul>
-                <li><var>Message</var> : Сообщение окна.</li>
-                <li><var>Title</var> : Текст в заголовке окна.</li>
-                <li><var>ButFlags</var> : Сумма констант, задающих отображаемые кнопки, стиль окна и кнопку по умолчанию. Смотрите ниже таблицы с <a href="#dlgbuts">кнопками</a>, <a href="#dlgstyle">стилями</a> и <a href="#dlgdefbut">кнопкой по умолчанию</a>.</li>
-                <li><var>ButPressed</var> : Возвращаемое значение, указывающее нажатую кнопку (смотрите <a href="#msgreturn">эту таблицу</a>).</li>
+                <li><var>sMessage</var> : Сообщение окна.</li>
+                <li><var>sTitle</var> : Текст в заголовке окна.</li>
+                <li><var>iFlags</var> : Сумма констант, задающих отображаемые кнопки, стиль окна и кнопку по умолчанию. Смотрите ниже таблицы с <a href="#dlgbuts">кнопками</a>, <a href="#dlgstyle">стилями</a> и <a href="#dlgdefbut">кнопкой по умолчанию</a>.</li>
+                <li><var>iButton</var> : Возвращаемое значение, указывающее нажатую кнопку (смотрите <a href="#msgreturn">эту таблицу</a>).</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputQuery</div></td>
             <td class="hintcell">
-              <p class="definition">bAck, sAnswer = Dialogs.InputQuery(Title, Msg, bMask, sDefault)</p>
+              <p class="definition">bResult, sAnswer = Dialogs.InputQuery(sTitle, sMessage, bMask, sDefault)</p>
               <p>Показывает диалоговое окно с полем ввода текста.</p>
               <p>Описание:</p>
               <ul>
-                <li><var>Title</var> : Текст в заголовке окна.</li>
-                <li><var>Msg</var> : Сообщение окна.</li>
+                <li><var>sTitle</var> : Текст в заголовке окна.</li>
+                <li><var>sMessage</var> : Сообщение окна.</li>
                 <li><var>bMask</var> : Логическое (булево) значение, если <code>true</code>, то вводимый текст будет скрываться "звёздочками".</li>
                 <li><var>sDefault</var> : Текст, который будет отображаться в строке ввода при появлении окна.</li>
-                <li><var>bAck</var> : Возвращаемое логическое (булево) значение, указывающее, ввёл ли что-то пользователь или нет.</li>
+                <li><var>bResult</var> : Возвращаемое логическое (булево) значение, указывающее, ввёл ли что-то пользователь или нет.</li>
                 <li><var>sAnswer</var> : Возвращаемая строка, если пользователь что-то ввёл, а затем нажал ОК.</li>
               </ul>
             </td>
@@ -697,15 +710,15 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
-              <p class="definition">sAnswer = Dialogs.InputListBox(Title, Msg, Items, sDefault)</p>
+              <p class="definition">sItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
               <p>Показывает диалоговое окно с возможностью выбора из списка элементов.</p>
               <p>Описание:</p>
               <ul>
-                <li><var>Title</var> : Текст в заголовке окна.</li>
-                <li><var>Msg</var> : Сообщение окна.</li>
-                <li><var>Items</var> : Таблица Lua, каждый элемент таблицы должен быть строкой.</li>
+                <li><var>sTitle</var> : Текст в заголовке окна.</li>
+                <li><var>sMessage</var> : Сообщение окна.</li>
+                <li><var>aItems</var> : Таблица Lua, каждый элемент таблицы должен быть строкой.</li>
                 <li><var>sDefault</var> : Пункт списка, выделенный по умолчанию.</li>
-                <li><var>sAnswer</var> : Возвращаемая строка с выбранным пунктом или <code>nil</code> в случае отмены.</li>
+                <li><var>sItem</var> : Возвращаемая строка с выбранным пунктом или <code>nil</code> в случае отмены.</li>
               </ul>
             </td>
           </tr>
@@ -890,10 +903,10 @@ mrIgnore <span class="luasbl">=</span> <span class="luanum">0x0005</span>
 mrYes <span class="luasbl">=</span> <span class="luanum">0x0006</span>
 mrNo <span class="luasbl">=</span> <span class="luanum">0x0007</span>
 
-ButFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_ICONQUESTION <span class="luasbl">+</span> MB_DEFBUTTON2
-ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Хотите завершить?"</span><span class="luasbl">,</span> <span class="luastr">"Вопрос"</span><span class="luasbl">,</span> ButFlags<span class="luasbl">)</span>
+iFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_ICONQUESTION <span class="luasbl">+</span> MB_DEFBUTTON2
+iButton <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Хотите завершить?"</span><span class="luasbl">,</span> <span class="luastr">"Вопрос"</span><span class="luasbl">,</span> iFlags<span class="luasbl">)</span>
 
-<span class="luakyw">if</span> ButPressed <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
+<span class="luakyw">if</span> iButton <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
   DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Пример использования Dialogs.MessageBox" alt="Пример использования Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="362" height="120"></p>
@@ -904,9 +917,9 @@ ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</
         <h2><a name="querysample">3.4.6. Пример использования Dialogs.InputQuery</a></h2>
         <p>Маленький скрипт, использующий <code>Dialogs.InputQuery</code>:</p>
         <pre>
-bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Идентификация"</span><span class="luasbl">,</span> <span class="luastr">"Введите ваше имя:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"Иван"</span><span class="luasbl">)</span>
+bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Идентификация"</span><span class="luasbl">,</span> <span class="luastr">"Введите ваше имя:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"Иван"</span><span class="luasbl">)</span>
 
-<span class="luakyw">if</span> bAck <span class="luasbl">==</span> true then
+<span class="luakyw">if</span> bResult <span class="luasbl">==</span> true then
   Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Привет, "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Добро пожаловать!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Пример использования Dialogs.InputQuery" alt="Пример использования Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="364" height="112"></p>
@@ -923,7 +936,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Pos</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
+              <p class="definition">iResult = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
               <p>Поиск подстроки в строке, начиная с определённой позиции. Поиск чувствителен к регистру.</p>
               <p>Возвращает позицию первого вхождения подстроки <var>SearchText</var> в строке <var>SourceText</var>, поиск начинается с позиции <var>Offset</var> (по умолчанию 1).</p>
               <p>Если в <var>SourceText</var> не найдено совпадение с <var>SearchText</var> после заданного <var>Offset</var>, то функция возвращает ноль.</p>
@@ -946,37 +959,37 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Copy</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.Copy(Source, Index, Count)</p>
+              <p class="definition">sResult = LazUtf8.Copy(String, iIndex, iCount)</p>
               <p>Копирует (извлекает) часть строки.</p>
-              <p>Функция возвращает <var>Count</var> символов из строки <var>Source</var>, начиная с позиции <var>Index</var>.</p>
-              <p>Если <var>Count</var> больше длины строки <var>Source</var>, то результат усекается. Если <var>Index</var> больше длины строки <var>Source</var>, то возвращается пустая строка.</p>
+              <p>Функция возвращает <var>iCount</var> символов из строки <var>String</var>, начиная с позиции <var>iIndex</var>.</p>
+              <p>Если <var>iCount</var> больше длины строки <var>String</var>, то результат усекается. Если <var>iIndex</var> больше длины строки <var>String</var>, то возвращается пустая строка.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Length</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.Length(String)</p>
+              <p class="definition">iResult = LazUtf8.Length(String)</p>
               <p>Возвращает количество символов в строке с учётом кодировки UTF-8.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.UpperCase</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.UpperCase(String)</p>
+              <p class="definition">sResult = LazUtf8.UpperCase(String)</p>
               <p>Возвращает строку, в которой все буквы в нижнем регистре (строчные) заменены на буквы в верхнем регистре (прописные или заглавные).</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.LowerCase</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.LowerCase(String)</p>
+              <p class="definition">sResult = LazUtf8.LowerCase(String)</p>
               <p>Возвращает строку, в которой все буквы в верхнем регистре (прописные или заглавные) заменены на буквы в нижнем регистре (строчные).</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.ConvertEncoding</div></td>
             <td class="hintcell">
-              <p class="definition">Result = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
+              <p class="definition">sResult = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
               <p>Конвертирует кодировку <var>String</var> из <var>FromEnc</var> в <var>ToEnc</var>.</p>
               <p>Список поддерживаемых значений кодировок:</p>
               <ul>
@@ -1010,7 +1023,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
       </div>
 
       <div>
-        <h2><a name="librarychar">3.7. Библиотека Char</a><span class="versionref"><sup>(Бета-версия)</sup></span></h2>
+        <h2><a name="librarychar">3.6. Библиотека Char</a><span class="versionref"><sup>(Бета-версия)</sup></span></h2>
         <p>Эта библиотека содержит функции для проверки принадлежности символа к определённой категории юникода, а также для получения категории символа.</p>
         <p>Список доступных функций:</p>
         <table>
@@ -1019,8 +1032,8 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.GetUnicodeCategory</div></td>
             <td class="hintcell">
-              <p class="definition">iResult = Char.GetUnicodeCategory(sVar)</p>
-              <p>Возвращает категорию юникода символа <code>sVar</code>, одно из следующих значений:</p>
+              <p class="definition">iResult = Char.GetUnicodeCategory(Character)</p>
+              <p>Возвращает категорию юникода символа <code>Character</code>, одно из следующих значений:</p>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc"><th class="innerdescheader">Значение</th><th class="innerdescheader">Описание</th></tr>
                 <tr><td colspan="2">&nbsp;&nbsp;Буква:</td></tr>
@@ -1066,36 +1079,36 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsDigit</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsDigit(sVar)</p>
-              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Nd</i>.</p>
+              <p class="definition">bResult = Char.IsDigit(Character)</p>
+              <p>Возвращает <code>true</code>, если символ <var>Character</var> входит в категорию <i>Nd</i>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetter</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsLetter(sVar)</p>
-              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> или <i>Lo</i>.</p>
+              <p class="definition">bResult = Char.IsLetter(Character)</p>
+              <p>Возвращает <code>true</code>, если символ <var>Character</var> входит в категорию <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> или <i>Lo</i>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLetterOrDigit</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsLetterOrDigit(sVar)</p>
-              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> <i>Lo</i>, <i>Nd</i> или <i>Nl</i>.</p>
+              <p class="definition">bResult = Char.IsLetterOrDigit(Character)</p>
+              <p>Возвращает <code>true</code>, если символ <var>Character</var> входит в категорию <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> <i>Lo</i>, <i>Nd</i> или <i>Nl</i>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsLower</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsLower(sVar)</p>
-              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Ll</i>.</p>
+              <p class="definition">bResult = Char.IsLower(Character)</p>
+              <p>Возвращает <code>true</code>, если символ <var>Character</var> входит в категорию <i>Ll</i>.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Char.IsUpper</div></td>
             <td class="hintcell">
-              <p class="definition">bResult = Char.IsUpper(sVar)</p>
-              <p>Возвращает <code>true</code>, если символ <var>sVar</var> входит в категорию <i>Lu</i>.</p>
+              <p class="definition">bResult = Char.IsUpper(Character)</p>
+              <p>Возвращает <code>true</code>, если символ <var>Character</var> входит в категорию <i>Lu</i>.</p>
             </td>
           </tr>
         </table>
@@ -1113,9 +1126,9 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.execute</div></td>
             <td class="hintcell">
-              <p class="definition">ResultCode = os.execute(Command)</p>
-              <p>Выполнить <var>Command</var>, аналогично введённой в командной строке, будет возвращён код завершения.</p>
-              <p><var>Command</var> может быть:</p>
+              <p class="definition">iResultCode = os.execute(sCommand)</p>
+              <p>Выполнить <var>sCommand</var>, аналогично введённой в командной строке, будет возвращён код завершения.</p>
+              <p><var>sCommand</var> может быть:</p>
               <ul>
                 <li>Команда терминала, например, <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>Исполняемый файл, например, <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
@@ -1126,36 +1139,36 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.tmpname</div></td>
             <td class="hintcell">
-              <p class="definition">TempFileName = os.tmpname()</p>
-              <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла.</p>
+              <p class="definition">sTempFileName = os.tmpname()</p>
+              <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла (в системном каталоге для временных файлов).<br>Если функции не удалось создать уникальное имя, то она вернёт пустую строку.</p>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.remove</div></td>
             <td class="hintcell">
-              <p class="definition">bResult, ErrorStr, ErrorNum = os.remove(FileName)</p>
-              <p>Удалить файл с именем <var>FileName</var>.</p>
+              <p class="definition">bResult, sError, iError = os.remove(sFileName)</p>
+              <p>Удалить файл с именем <var>sFileName</var>.</p>
               <p>Если удалось, функция вернёт <code>true</code>.</p>
               <p>Если не удалось, функция вернёт:</p>
               <ol>
                 <li><code>nil</code> как индикатор неудачи</li>
-                <li><var>ErrorStr</var> с описанием ошибки</li>
-                <li><var>ErrorNum</var> в виде кода ошибки (число)</li>
+                <li><var>sError</var> с описанием ошибки</li>
+                <li><var>iError</var> в виде кода ошибки (число)</li>
               </ol>
             </td>
           </tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">os.rename</div></td>
             <td class="hintcell">
-              <p class="definition">bResult, ErrorStr, ErrorNum = os.rename(OldName, NewName)</p>
-              <p>Переименовать файл <var>OldName</var> в <var>NewName</var>.</p>
-              <p><b><span class="uline">Примечание:</span> Если файл с именем <var>NewName</var> уже существует, он будет заменён!</b></p>
+              <p class="definition">bResult, sError, iError = os.rename(sOldName, sNewName)</p>
+              <p>Переименовать файл <var>sOldName</var> в <var>sNewName</var>.</p>
+              <p><b><span class="uline">Примечание:</span> Если файл с именем <var>sNewName</var> уже существует, он будет заменён!</b></p>
               <p>Если удалось, функция вернёт <code>true</code>.</p>
               <p>Если не удалось, функция вернёт:</p>
               <ol>
                 <li><code>nil</code> как индикатор неудачи</li>
-                <li><var>ErrorStr</var> с описанием ошибки</li>
-                <li><var>ErrorNum</var> в виде кода ошибки (число)</li>
+                <li><var>sError</var> с описанием ошибки</li>
+                <li><var>iError</var> в виде кода ошибки (число)</li>
               </ol>
             </td>
           </tr>

@@ -325,10 +325,10 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Attributes in Unix/Linux (File Types)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">File Types letters</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block device</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character device</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">fifo</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">named pipe (FIFO)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">socket</td></tr>
         </table>
@@ -337,12 +337,12 @@
         <p>If attribute should not be set, it must be replaced with the "-" symbol, unnecessary attributes should be hidden: symbol "*" means match any number of characters, symbol "?" means any one character. For example, <code>?r*</code> (Windows) or <code>?r-*</code> (Linux) will find all read-only files and folders.</p>
         <p>You can use a color from the list or specify yours using the "&gt;&gt;" button.</p>
         <p>Do not forget to click "Apply" button after customization.</p>
-        <p>Rules are applied strictly in reverse order: a rule higher in the list will overlap any rule below.</p>
+        <p>Double Commander checks the list from top to bottom until the first match: a rule higher in the list will overlap any rule below.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigKeys">2.6. Keys</a></span></p>
         <p class="figure"><img class="largeimage" title="Keys" alt="Keys" src="images/imgDC/pic60.png" width="578" height="168"></p>
-        <p>Here you can set the action on pressing some keys in the active file panel: <span class="italic">Letters</span>, <span class="italic">Alt+Letters</span>, <span class="italic">Ctrl+Alt+Letters</span>. You can choose one of the following actions: do nothing, set focus to command line and enter command, run quick search or quick filter.</p>
+        <p>Here you can set the action on pressing some keys in the active file panel: <span class="italic">Letters</span>, <span class="italic">Alt+Letters</span>, <span class="italic">Ctrl+Alt+Letters</span>. You can choose one of the following actions: do nothing, set focus to command line and enter command, run <p><a href="help.html#cm_QuickSearch">quick search or quick filter</a>.</p>
         <p><span class="italic">Left, Right arrows change directory (Lynx-like movement)</span>&nbsp;&ndash; <kbd>right arrow</kbd> opens directory or runs a program under cursor, <kbd>left arrow</kbd> opens parent directory.</p>
         <br>
 
@@ -469,7 +469,7 @@
 
         <p>The first parameter in the <span class="italic">Formatting</span> group is <span class="italic"><a name="dt_format">Date and time format</a></span>. You can choose one of the existing templates from the drop-down list or set your own using date and time formatting characters.</p>
         <p>Formatting characters are presented below (based on <a title="Free Pascal: Date and time format" href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html" target="_blank">Free Pascal documentation</a>). Some values depends on your regional settings!</p>
-        <p>As example we will use 2021.01.24 09:06:02 (i.e. <tt>yyyy.mm.dd hh:mm:ss</tt>) and the USA region.</p>
+        <p>As example we will use 2021.01.24 09:06:02 (i.e. <code>yyyy.mm.dd hh:mm:ss</code>) and the USA region.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="3">Possible characters</th></tr>
           <tr class="rowsubtitle"><th class="smallname">Characters</th><th class="categorydesccolumn">Description</th><th class="categorynamecolumn">Example</th></tr>
@@ -641,7 +641,7 @@
         <p>Content plugins are designed to get properties of a file or information about its content (for example, EXIF or ID3 tags). You can use this data in the file search or multi-rename tool, column set, tooltips.<br>
           Also Double Commander supports content plugins written in the Lua language (scripts are added in the same way as ordinary plugins). Examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).</p>
         <p><span class="italic">3. File system plugins (WFX)</span></p>
-        <p>File system plugins uses their own file systems or provides access to other file systems and devices (local or remote). For example, FTP servers, Samba,mobile devises. Also it can be lists of files, running processes and services, or the Windows registry.</p>
+        <p>File system plugins uses their own file systems or provides access to other file systems and devices (local or remote). For example, FTP servers, network directories, mobile devises. Also it can be lists of files, running processes and services, or the Windows registry.</p>
         <p><span class="italic">4. Lister plugins (WLX)</span></p>
         <p>The built-in viewer displays plain text files, some image formats and console commands output, plugins allow to expand this list: electronic documents and databases, audio and video files, font files, content of archives, detailed information about some files, source code files with syntax highlighting.<br>
           Order matters: when choosing an appropriate plugin, Double Commander starts checking from top to bottom.</p>
@@ -649,7 +649,7 @@
         <p>Search plugins are Double Commander's own plugin type, these plugins use console programs to find files (for example, Locate, Everything or Recoll). The DSX plugins interface allows to send them <a href="findfiles.html">search parameter values</a> from the "Standard" and "Advanced" tabs. </p>
         <p>Buttons:</p>
         <ul>
-          <li><p><span class="italic">Add</span>&nbsp;&ndash; opens the file selection dialog. Alternatively, you can use the internal <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a> command.</p></li>
+          <li><p><span class="italic">Add</span>&nbsp;&ndash; opens the file selection dialog. Alternatively, you can use the internal command <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a>.</p></li>
           <li><p><span class="italic">Disable</span>&nbsp;&ndash; allows to temporarily disable the selected plugin.</p></li>
           <li><p><span class="italic">Remove</span>&nbsp;&ndash; removes the selected plugin from the list (but not plugin file!).</p></li>
           <li><p>
@@ -769,7 +769,6 @@
         <br>
 
         <p><span class="bold"><a name="ConfigFavoriteTabs">2.13.1. Folder tabs&nbsp;&gt; Favorite Tabs</a></span></p>
-        <p>Favorite Tabs are saved sets of tabs that grouped according to criteria convenient for you (work, projects, hobbies, and so on), they allow to open all the necessary directories in tabs at once.</p>
         <p>The list of saved tab sets is available in the <a href="help.html#mnu_fav">"Favorites"</a> menu and in the popup menu called by the <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> command.</p>
         <p>In this section you can manage them: change order, names, delete unnecessary, sort or group in a submenu.</p>
         <p class="figure"><img class="largeimage" title="Favorite Tabs" alt="Favorite Tabs" src="images/imgDC/pic73.png" width="578" height="440"></p>
@@ -934,7 +933,7 @@
         <p>This section contains the settings for tooltips when the mouse cursor is hovering over a file.</p>
         <p class="figure"><img class="largeimage" title="Tooltips" alt="Tooltips" src="images/imgDC/pic47.png" width="726" height="416"></p>
         <p><span class="italic">Show tooltip for files in the file panel</span>&nbsp;&ndash; enables the ability to use tooltips.</p>
-        <p><span class="italic">File types</span>&nbsp;&ndash; contains a list of file groups.</p>
+        <p><span class="italic">File types</span>&nbsp;&ndash; contains a list of file groups. Double Commander checks the list from top to bottom until the first match: a file group higher in the list will overlap any file group below.</p>
         <p>Buttons:</p>
         <ul>
           <li><p><span class="italic">Apply</span>&nbsp;&ndash; will save the settings for the selected file type.</p></li>
@@ -961,11 +960,12 @@
           <li><p>Show DC tooltip only.</p></li>
           <li><p>Show system tooltip only.</p></li>
         </ul>
-        <p>If you have not added your own tooltips for the specified file types, then the DC tooltip will contain only the file name. The content of the system tooltip depends on the operating system:</p>
+        <p>The content of the system tooltip depends on the operating system:</p>
         <ul>
           <li><p>Windows: File name and the same as in Windows Explorer. If it was not possible to obtain information, then Double Commander will show the same as in Linux and other Unix-like systems.</p></li>
           <li><p>Linux and other Unix-like systems: File name, modification date and size.</p></li>
         </ul>
+        <p>The first line of the tooltip always contains the file name, and if you did not specify anything in the <span class="italic">Category hint</span> field, then the DC tooltip will contain only the file name.</p>
         <p><span class="italic">Tooltip hiding delay</span>&nbsp;&ndash; sets the duration of displaying the tooltip: system default, 1 sec, 2 sec, 3 sec, 5 sec, 10 sec, 30 sec, 1 min and never hide (the tooltip will be hidden when you move the mouse cursor to another file or outside the file panel).</p>
         <p>In the screenshot at the beginning of the section description, you can see an example of a tooltip with the <tt>textline.wdx</tt> plugin that shows the contents of the selected lines of a text file (in this case, the first, second and third lines), the <span class="italic">Combine DC and system tooltip, system first</span> mode is selected.</p>
         <br>

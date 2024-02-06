@@ -159,6 +159,7 @@
         <p>In this example, the folder name is "doc" but the name given to the entry is "Documentation"</p>
         <p>This is also how you will see it in the Directory Hotlist popup menu.</p>
         <p class="figure"><img class="largeimage" title="Customization" alt="Customization" src="images/imgDC/dirhotpersonalize.png" width="764" height="464"></p>
+        <p>The ampersand character "&amp;" in a name has a special meaning, we can use it to quickly select a directory in the menu using the keyboard, just add an ampersand in front of one of the letters. To use this symbol as is, we must double it ("&amp;&amp;").</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -195,8 +196,9 @@
         <p>Here is a complete summary of what you'll find there:</p>
         <ul>
           <li><b>Use Double Commander special path</b>&nbsp;&ndash; To point directly to the executable path, the configuration path, etc.</li>
-          <li><b>Use Windows special folder (TC)</b>&nbsp;&ndash; For Microsoft Windows flavor, will allow to point windows-related path, compatible with TC variable name.</li>
-          <li><b>Use other Windows special folder</b>&nbsp;&ndash; Same as above but new one, not present in TC.</li>
+          <li><b>Use Windows special folder (TC)</b>&nbsp;&ndash; Windows only: contains a list of <a href="variables.html#envvariables">pseudo environment variables</a>.<br>
+            Note: This list corresponds to the list of variables supported in Total Commander and is also used for import from Total Commander and export Directory Hotlist (see <a href="#exportimporttc">below</a>) and <a href="toolbar.html">toolbar</a>.</li>
+          <li><b>Use other Windows special folder</b>&nbsp;&ndash; Additional pseudo environment variables.</li>
           <li><b>Use environment variable</b>&nbsp;&ndash; Certainly some values are not really valid and useful there but for the ones that might be, let's use them!</li>
           <li><b>Use hotdir path</b>&nbsp;&ndash; This is pure versatility: you may add a Directory Hotlist... from the Directory Hotlist!</li>
           <li><b>Make relative to...</b>&nbsp;&ndash; Same thing for each of the above BUT instead of straight ADDING the path, it will make the current written one relative to the one you select.</li>

@@ -53,11 +53,11 @@
         <h2><a name="standard">2. Tab "Standard"</a></h2>
         <p>On this tab we can search for files by name and their content.</p>
         <p class="figure"><img class="largeimage" title="Search: Standard" alt="Search: Standard" src="images/imgDC/findstandard.png" width="786" height="436"></p>
-        <p>Line <span class="italic">Start in directory</span> specifies directory to start search, by default will be use the current directory of the active panel.</p>
+        <p>The <span class="italic">Start in directory</span> field specifies the directory to start the search, by default will be use the current directory of the active panel.</p>
         <p>Additional options for specifying file search locations:</p>
         <ul>
           <li><p><span class="italic">Opened tabs</span>&nbsp;&ndash; only directories of opened tabs will be used (tabs of active and inactive panels).</p></li>
-          <li><p><span class="italic">Selected directories and files</span>&nbsp;&ndash; if enabled, the search will be conducted only among selected files and folders in the active panel.</p></li>
+          <li><p><span class="italic">Selected directories and files</span>&nbsp;&ndash; if enabled, the search will be conducted only among selected files and folders in the active panel. If there are selected files/folders in the file panel, this option will be enabled automatically.</p></li>
           <li><p><span class="italic">Follow symlinks</span>&nbsp;&ndash; if a symbolic link to a directory is found, the target directory will be read and used, otherwise this symbolic link will be considered a regular file.</p></li>
           <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&ndash; a list of directories to be excluded from the search, here we can specify folder names and relative or absolute<span class="versionref"><sup>(Beta version)</sup></span> paths.</p></li>
           <li><p><span class="italic">Search subdirectories</span> can have:</p>
@@ -66,9 +66,9 @@
             <li><p>select number of levels (from 1 to 100),</p></li>
             <li><p>all (unlimited depth).</p></li>
           </ul>
-          <p>This setting controls the depth of the search in the filesystem tree. If set to "current dir only", the search will only be conducted in the directory specified in "Start in directory" (not in any subdirs).</p></li>
+          <p>This setting controls the depth of the search in the filesystem tree. If set to "current dir only", the search will only be conducted in the directory specified in the "Start in directory" field (not in any subdirectories).</p></li>
         </ul>
-        <p>Line <span class="italic">File mask</span> sets the mask for the search. Or we can just specify the file name or part of it.</p>
+        <p>The <span class="italic">File mask</span> field sets the mask for the search. Or we can just specify the file name or part of it.</p>
         <p>Additional options:</p>
         <ul>
           <li><p><span class="italic">Search in archives</span>&nbsp;&ndash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>
@@ -77,7 +77,7 @@
           <li><p><span class="italic">Exclude files</span>&nbsp;&ndash; a list of file names to be excluded from the search. Masks are also supported.</p>
         </ul>
         <p>Note: <span class="italic">File mask</span>, <span class="italic">Exclude files</span>, <span class="italic">Start in directory</span> and <span class="italic">Exclude subdirectories</span> allow to enter several values, separated with semicolon ";" without spaces. If we need to find a file with semicolon in the name, we can use regular expressions.</p>
-        <p>If the <span class="italic">Find text in file</span> checkbox is enabled, the process will search for the specified text in the files. We can also replace this text with any other text, specified in the line <span class="italic">Replace by</span> by enabling the checkbox.</p>
+        <p>If the <span class="italic">Find text in file</span> checkbox is enabled, the process will search for the specified text in the files. We can also replace this text with any other text, specified in the <span class="italic">Replace by</span> field by enabling the checkbox.</p>
         <p>Additional options:</p>
         <ul>
           <li><p><span class="italic">Find files NOT containing the text</span>&nbsp;&ndash; displays files, that do not have the text specified in <span class="italic">Find text in file</span>.</p></li>
@@ -100,7 +100,7 @@
         <p>The <span class="italic">Start</span> button starts search, <span class="italic">Cancel</span> stops search and <span class="italic">Close</span> closes the Find files window.</p>
         <p><span class="italic">New search</span>&nbsp;&ndash; clears the old results and allows to start a new search (also with new conditions).</p>
         <p><span class="italic">Last search</span>&nbsp;&ndash; loads parameters from the previous search (in the current session, before closing Double Commander).</p>
-        <p>Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the input fields history.</p>
+        <p>If history saving is <a href="configuration.html#ConfigDC">enabled</a>, then we can use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history of input fields.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -163,12 +163,12 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Attributes in Unix/Linux (File Types)</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">File Types letters</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block device</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character device</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">fifo</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">named pipe (FIFO)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">regular</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">regular file</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">socket</td></tr>
         </table>
         <br>
@@ -321,14 +321,14 @@
           <li><p><span class="italic">Remove from list</span> (or <kbd>Del</kbd>)&nbsp;&ndash; allows to remove unsuitable results from the list (the file system will not be affected).</p></li>
           <li><p><span class="italic">Show all found items</span>&nbsp;&ndash; cancels the action of the previous command.</p></li>
         </ul>
-        <p>To select several files, use the mouse and the <kbd>Ctrl</kbd> and <kbd>Shift</kbd> keys or <kbd>Shift</kbd> and arrows.</p>
+        <p>To select several files, we can use the mouse and the <kbd>Ctrl</kbd> and <kbd>Shift</kbd> keys or <kbd>Shift</kbd> and arrows.</p>
         <p>The <kbd>left arrow</kbd> and <kbd>right arrow</kbd> keys switch the focus between the list of search result and the <span class="italic">New search</span> button.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2><a name="configuration">7. Additional configuration</a></h2>
-        <p>Additional parameters associated with the search tool are presented on the <span class="italic">File operations</span>&nbsp;&gt; <span class="italic">File search</span> settings page.</p>
+        <p>Additional parameters associated with the search tool are presented on the <span class="italic">File operations</span>&nbsp;&gt; <span class="italic">File search</span> settings section.</p>
         <p class="figure"><img class="largeimage" title="Search: Additional configuration" alt="Search: Additional configuration" src="images/imgDC/findconfiguration.png" width="512" height="253"></p>
         <p>File search:</p>
         <ul>

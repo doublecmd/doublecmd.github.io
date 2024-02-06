@@ -92,7 +92,8 @@
         <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images/imgDC/toolbarconfig2.png" width="200" height="72"></p>
         <p>As we're getting familiar with the toolbar, we'll also probably right click directly on a button from the toolbar to not only open the toolbar editor but beeing ready to immediately edit the associated action of the toolbar button we've right clicked on.</p>
         <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images/imgDC/toolbarconfig3.png" width="618" height="254"></p>
-        <p>Also, the context menu allows to delete the selected button, cut or copy to the clipboard or insert a button from the clipboard.</p>
+        <p>In addition, the context menu allows to delete the selected button, cut or copy to the clipboard or insert a button from the clipboard.</p>
+        <p>We can also change the order of the toolbar elements without opening the settings window: Double Commander supports dragging buttons with the mouse while holding down the <kbd>Shift</kbd> key.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -109,7 +110,7 @@
         <h2><a name="catinternal">5.2. Description of elements - Internal Command</a></h2>
         <p>The internal commands are related with actions made directly by Double Commander that doesn't need to call an external application.</p>
         <p>The commands are extremely varied. Please see <a href="cmds.html">this page</a> which is dedicated to described all the internal commands.</p>
-        <p>For example if we want a toolbar button to allow to launch a search, we'll just select the "cm_Search" command from the drop box of command.</p>
+        <p>For example if we want a toolbar button to allow to launch a search, we'll just select the <tt>cm_Search</tt> command from the drop box of command.</p>
         <p>As we see in the following image, we may select a custom icon for it but generally just choosing the command from the drop box of command is enough and command already have an internal associated icon.</p>
         <p>The tooltip is also there to allow us to write an easy to remember little words to remember us the task of the button as we move cursor over.</p>
         <p>Here is an example with that <a href="cmds.html#cm_Search">cm_Search</a> command:</p>
@@ -124,7 +125,8 @@
         <h2><a name="catexternal">5.3. Description of elements - External Command</a></h2>
         <p>The external commands are related with actions that require to call external program.</p>
         <p>For the external commands we have the possibility to set a few more settings that will allow us to configure precisely the command we want to launch, in which directory we want to launch it and what we want to provide as parameters, if necessary, to the commands.</p>
-        <p>Regarding the parameters, we may select user variables that will be substituted by their actual value based on the current selected file of the active panel and so on. See the dedicated page of the possible variable to use as parameter under <a href="variables.html">this link</a>.</p>
+        <p>The "Command" field is for the executable file only (as is, without quotes): we can specify the file name or the file name with the full path, we can also use <a href="variables.html#envvariables">environment variables</a>.</p>
+        <p>Regarding the parameters, we may select user variables that will be substituted by their actual value based on the current selected file of the active panel and so on. See the dedicated page of the possible variable to use as parameter under <a href="variables.html">this link</a> (please note the use of <a href="variables.html#quotation">quotation marks</a>). To run a command in the terminal, we can use the variables <a href="variables.html#executeterm">%t0 and %t1</a>.</p>
         <p>In the following example, we've set a toolbar button to launch the application GIMP and the <code>%p</code> as parameter means that when we click the button to launch GIMP, the complete filename of the current selected file in the active panel will be passed as parameter, since that's what <code>%p</code> stands for.</p>
         <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="611" height="230"></p>
         <p>If we do not need to explicitly specify the working directory, then we can leave the "Start Path" field empty, in this case, the working directory will be the current directory of the active file panel.</p>

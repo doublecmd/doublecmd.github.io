@@ -59,7 +59,7 @@
                 </dl>
               </dd>
               <dt>3.5. <a href="#libraryutf8">UTF-8 library</a></dt>
-              <dt>3.6. <a href="#librarychar">Char library</a><span class="versionref"><sup>(Beta version)</sup></span></dt>
+              <dt>3.6. <a href="#librarychar">Char library</a></dt>
               <dt>3.7. <a href="#libraryos">OS library</a></dt>
             </dl>
           </dd>
@@ -71,7 +71,7 @@
         <p>Detailed information about the Lua scripting programming language can be found on the <a href="https://www.lua.org/" target="_blank">Lua website</a>.</p>
         <p>Double Commander can execute Lua scripts via <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> command.<br>
           Script parameters must be passed as is, without escaping (without quotes or "\"), for this we need to use the <a href="variables.html#quotation">%"0</a> variable: for example, <code>%"0%p0</code> for the file under cursor instead of <code>%p0</code> or <code>%"0%D</code> for the current directory instead of <code>%D</code>. Otherwise, if Double Commander automatically adds quotes, they will be passed as part of the parameter and you will have to take them into account.<br>
-          To get a list of all selected files we can use <a href="variables.html#listoffiles">variables</a> (<code>%LU</code>, <code>%FU</code> or <code>%RU</code>) or internal commands (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Beta version)</sup></span>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>).
+          To get a list of all selected files we can use <a href="variables.html#listoffiles">variables</a> (<code>%LU</code>, <code>%FU</code> or <code>%RU</code>) or internal commands (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>).
           We can use, for example, <code>%p</code>: in this case, Double Commander will pass the names of all selected files in one line, separating the names with a space.</p>
         <p>It is also possible to write content plugins using Lua script, examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).
           The Wiki has a <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">page</a> dedicated to writing plugins.
@@ -106,7 +106,7 @@
       <div>
         <h2><a name="dllrequired">2. DLL required</a></h2>
         <p>In order to interpret Lua script file, we need to have a Lua DLL file, Double Commander supports versions 5.1 - 5.4.</p>
-        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) in its directory and in the system directory. We can change the file name (and path) in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter.</p>
+        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS) in its directory and in the system directory. We can change the file name (and path) in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter.</p>
         <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>.
            LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
@@ -439,6 +439,13 @@
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetTempName</div></td>
+            <td class="hintcell">
+              <p class="definition">sTempFileName = SysUtils.GetTempName()</p>
+              <p>Will return a filename to use as a temporary filename (in the system directory for the temporary files), similar to the <a href="#libraryos">os.tmpname</a> function, but the file will be created in a subdirectory that is automatically deleted when Double Commander is closed.<br>If the function could not create a unique name, it will return an empty string.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>
@@ -719,7 +726,7 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
-              <p class="definition">sItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
+              <p class="definition">sItem, iItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
               <p>Displays a dialog box to allow the user to choose from a list of items.</p>
               <p>Here is the description of each field:</p>
               <ul>
@@ -728,6 +735,7 @@
                 <li><var>aItems</var> : A Lua table, each element of the table must be a string.</li>
                 <li><var>sDefault</var> : The default selected item in the list.</li>
                 <li><var>sItem</var> : Returned the selected item as a string or <code>nil</code> if the dialog is dismissed.</li>
+                <li><var>iItem</var> : Index of the selected item (counting from one, as is customary in Lua tables).</li>
               </ul>
             </td>
           </tr>
@@ -952,7 +960,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Next<span class="versionref"><sup>(Beta version)</sup></span></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Next</div></td>
             <td class="hintcell">
               <p class="definition">LazUtf8.Next(String)</p>
               <p>An iterator function that, each time it is called, returns the next character in the <var>String</var> and the position of the beginning of this character (in bytes).</p>
@@ -1027,12 +1035,19 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               </ul>
             </td>
           </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.DetectEncoding</div></td>
+            <td class="hintcell">
+              <p class="definition">sEnc = LazUtf8.DetectEncoding(String)</p>
+              <p>Returns the value of encoding of the transmitted text.<br>The list of supported encodings is similar to those used in the <code>LazUtf8.ConvertEncoding</code> function.</p>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="librarychar">3.6. Char library</a><span class="versionref"><sup>(Beta version)</sup></span></h2>
+        <h2><a name="librarychar">3.6. Char library</a></h2>
         <p>This library contains functions for checking whether a character belongs to a particular Unicode category, as well as getting the category of a character.</p>
         <p>List of available functions in this library:</p>
         <table>

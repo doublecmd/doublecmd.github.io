@@ -37,8 +37,7 @@
             <dl>
               <dt>11.1. <a href="#hotkeys">Keys&nbsp;&gt; Hot Keys</a></dt>
               <dt>11.2. <a href="#favtabs">Favorite Tabs</a></dt>
-              <dt>11.3. <a href="#archivers">Archivers</a></dt>
-              <dt>11.4. <a href="#dirhotlist">Directory Hotlist</a></dt>
+              <dt>11.3. <a href="#dirhotlist">Directory Hotlist</a></dt>
             </dl>
           </dd>
         </dl>
@@ -74,12 +73,20 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F3</div></td>
-            <td class="hintcell">1. On file: open file for view in internal viewer (multiple files are OK too)<br>
+            <td class="hintcell">1. On file: open file for view in <a href="viewer.html">internal viewer</a> (multiple files are OK too)<br>
               2. On directory: open this directory</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Open only the file under the cursor in internal viewer (if more than one file is selected)</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">F4</div></td>
-            <td class="hintcell">Open file in editor</td>
+            <td class="hintcell">Open file in editor, see details <a href="cmds.html#cm_Edit">here</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">Create a new text file and open in the internal editor or open existing file</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F5</div></td>
@@ -349,6 +356,10 @@
             <td class="hintcell">Change directory to home</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+A</div></td>
+            <td class="hintcell">Show a menu with a list of all open tabs</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
             <td class="hintcell">Copy full names of selected items to clipboard</td>
           </tr>
@@ -404,10 +415,6 @@
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
             <td class="hintcell">Set focus to command line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
-            <td class="hintcell">Create a new text file and open in the internal editor or open existing file</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
@@ -832,8 +839,16 @@
             <td class="hintcell">Copy selected text to clipboard</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Go to the specified line (only in code view mode)</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
             <td class="hintcell">Print</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Undo (only in image viewing mode)</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">1</div></td>
@@ -849,7 +864,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">4</div></td>
-            <td class="hintcell">Show as wrapped text</td>
+            <td class="hintcell">Show as dec</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">5</div></td>
@@ -862,6 +877,14 @@
           <tr>
             <td class="varcell"><div class="shortcutname">7</div></td>
             <td class="hintcell">Show using plugin</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">8</div></td>
+            <td class="hintcell">Office XML (DOCX and XLSX, ODT and ODS), text only</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">9</div></td>
+            <td class="hintcell">Show in code view mode</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">A</div></td>
@@ -880,12 +903,28 @@
             <td class="hintcell">Change encoding: UTF-8</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">N</div></td>
+            <td class="varcell"><div class="shortcutname">C</div></td>
+            <td class="hintcell">Image: place in the center of the window</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F</div></td>
+            <td class="hintcell">Image: stretch image</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">L</div></td>
+            <td class="hintcell">Image: stretch only large</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">N, Alt+ &#8594;</div></td>
             <td class="hintcell">Next file in multiple files</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">P</div></td>
+            <td class="varcell"><div class="shortcutname">P, Alt+ &#8592;</div></td>
             <td class="hintcell">Previous file in multiple files</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">W</div></td>
+            <td class="hintcell">Wrap/unwrap text</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Num +</div></td>
@@ -1243,6 +1282,18 @@
             <th class="categorydesccolumn">Action</th>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
+            <td class="hintcell">Find text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Find next</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Find previous</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Alt+Home</div></td>
             <td class="hintcell">First difference</td>
           </tr>
@@ -1271,6 +1322,10 @@
             <td class="hintcell">Close</td>
           </tr>
           <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Go to the specified line</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
             <td class="hintcell">Reload files</td>
           </tr>
@@ -1282,6 +1337,7 @@
         <h2><a name="options">11. Configuration</a></h2>
         <p>In the configuration pages, some of them have many possible actions to be done during the configuration, that some shorcut keys are present to help us to quickly do what needs to be done.</p>
         <p>These ones are not reconfigurable but at least there are present by default and the following table will list them.</p>
+        <p>The <kbd>F1</kbd> key will open the corresponding section of the Double Commander help.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>
@@ -1340,23 +1396,7 @@
       </div>
 
       <div>
-        <h2><a name="archivers">11.3. Archivers</a></h2>
-        <br>
-        <table>
-          <tr class="rowcategorytitle">
-            <th colspan="2">Archivers</th>
-          </tr>
-          <tr class="rowsubtitle">
-            <th class="namecolumn">Key</th>
-            <th class="categorydesccolumn">Action</th>
-          </tr>
-          <tr><td class="varcell"><div class="shortcutname">F1</div></td><td class="hintcell">Open the <a href="multiarc.html">Archive handling</a> help page</td></tr>
-        </table>
-        <p class="navback"><a href="#topofpage">(back to top)</a></p>
-      </div>
-
-      <div>
-        <h2><a name="dirhotlist">11.4. Directory Hotlist</a></h2>
+        <h2><a name="dirhotlist">11.3. Directory Hotlist</a></h2>
         <p>To help us to configure our <a href="directoryhotlist.html">directory hotlist</a>, we have plenty of shortcut keys.</p>
         <p>This allows us to remain with the focus in the bottom three boxes to enter our names and path, and still being able to move into the hotlist tree without quitting the text box.</p>
         <table>

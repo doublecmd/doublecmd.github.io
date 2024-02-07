@@ -56,9 +56,8 @@
         <p><span class="uline">Так что, как правило, нам не придётся вручную редактировать содержимое файла конфигурации.</span></p>
         <p>Но есть несколько параметров, которые могут быть изменены только ручным редактированием <tt>doublecmd.xml</tt>.</p>
         <br>
-        <p><b>ПРЕДУПРЕЖДЕНИЕ:</b> Мы не будем редактировать файл пока Double Commander запущен! Не только потому, что в любом случае значения из него будут прочитаны только при запуске приложения, но и потому, что после закрытия DC наши изменения будут перезаписаны значениями текущей сессии. Если нужно изменить файл <tt>doublecmd.xml</tt> вручную, мы должны убедиться, что закрыли Double Commander, затем отредактировать файл и запустить приложение.</p>
-        <br>
-        <p><b>О формате цвета:</b> Мы можем использовать код цвета в шестнадцатеричном виде в формате <code>$BBGGRR</code>. Например, если хотим использовать цвет индиго <code>#4B0082</code>, то запишем <code>$82004B</code>.</p>
+        <p><b>ПРЕДУПРЕЖДЕНИЕ:</b> Мы не будем редактировать файл пока Double Commander запущен! Не только потому, что в любом случае значения из него будут прочитаны только при запуске приложения, но и потому, что после закрытия DC наши изменения будут перезаписаны значениями текущей сессии. Если нужно изменить файл <tt>doublecmd.xml</tt> вручную, мы должны убедиться, что закрыли Double Commander, затем отредактировать файл и запустить приложение.<br>
+          Есть альтернативное решение, подробнее смотрите <a href="configuration.html#ConfigDC">здесь</a> (но для применения изменений некоторых параметров всё равно может потребоваться перезапустить приложение).</p>
         <br>
         <p>Таблица ниже содержит описание параметров, изменение которых возможно только вручную.</p>
         <br>
@@ -121,7 +120,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Behaviours&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<br><small>в &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">Подтверждать закрытие Double Commander (<code>True</code>) или нет (<code>False</code>). По умолчанию <code>False</code>.</td>
           </tr>
 
@@ -139,62 +138,11 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>в &lt;Colors&gt;</small></div></td>
-            <td class="hintcell">
-              Изменение цвета <a href="help.html#iface_dir">панели текущего пути</a>:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Тег</th>
-                  <th class="innerdescheader">Файловая панель</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;ActiveColor&gt;</td>
-                  <td class="innerdescvaluecell" rowspan="2">активная</td>
-                  <td class="innerdescdesccell">цвет фона</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;ActiveFontColor&gt;</td>
-                  <td class="innerdescdesccell">цвет шрифта</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;InactiveColor&gt;</td>
-                  <td class="innerdescvaluecell" rowspan="2">неактивная</td>
-                  <td class="innerdescdesccell">цвет фона</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;InactiveFontColor&gt;</td>
-                  <td class="innerdescdesccell">цвет шрифта</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>и</small> &lt;Success&gt;<br><small>в &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Задают цвет текста в окне протокола для информационных сообщений, сообщений об ошибке и об успешных операциях. Также эти цвета используются в окне с результатом <a href="help.html#cm_CheckSumVerify">проверки контрольных сумм</a>.</td>
-          </tr>
-
-          <tr>
             <td colspan="2"></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>и</small> &lt;Modified&gt;<br><small>в &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
-            <td class="hintcell">Встроенный инструмент сравнения файлов: цвет для добавленных, удалённых и модифицированных строк.</td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>в &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
-            <td class="hintcell">Встроенный инструмент сравнения файлов: цвет для различающихся символов в бинарном режиме.</td>
-          </tr>
-
-          <tr>
-            <td colspan="2"></td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Editor&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<br><small>в &lt;Editor&gt;</small></div></td>
             <td class="hintcell">Встроенный редактор и инструмент сравнения: если ничего не выделено, в диалоге поиска и замены будет использоваться слово под курсором (<code>True</code>) или текст из истории поиска (<code>False</code>). По умолчанию <code>True</code>.</td>
           </tr>
 
@@ -296,7 +244,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">Если выбран подробный вид и нет выделенных файлов, то в строке состояния отображается имя файла под курсором (<code>True</code>) или количество файлов (<code>False</code>, по умолчанию).<br>
               Если <code>True</code>, строка состояния также будет показывать количество файлов, когда курсор находится на пункте "..". Для ссылок дополнительно будут отображаться целевые объекты.</td>
           </tr>
@@ -481,30 +429,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultTextEncoding&gt;<br><small>в &lt;Miscellaneous&gt;</small></div></td>
-            <td class="hintcell">
-              По умолчанию (NONE) встроенная программа просмотра файлов и встроенный редактор используют автоматическое определение кодировки, но вы можете указать одну из поддерживаемых однобайтовых кодировок как значение по умолчанию.
-              Список поддерживаемых кодировок можно посмотреть, например, во встроенном редакторе в меню "Кодировка". Также доступны специальные значения:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">ANSI</td>
-                  <td class="innerdescdesccell">Системная кодировка ANSI по умолчанию (зависит от локали).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">OEM</td>
-                  <td class="innerdescdesccell">Системная кодировка OEM (DOS) по умолчанию (зависит от локали).</td>
-                </tr>
-              </table>
-              Этот параметр не затрагивает автоматическое определение многобайтовых кодировок (UTF-8, UTF-16 и другие).
-            </td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SystemItemProperties&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Miscellaneous&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SystemItemProperties&gt;<br><small>в &lt;Miscellaneous&gt;</small></div></td>
             <td class="hintcell">Linux/FreeBSD: значение <code>True</code> позволяет использовать диалоговое окно свойств файла файлового менеджера, который указан как программа по умолчанию в настройках среды рабочего стола (если это возможно), иначе Double Commander будет использовать собственное <a href="help.html#cm_FileProperties">окно свойств</a>. По умолчанию <code>False</code>.</td>
           </tr>
 
@@ -522,7 +447,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
             <td class="hintcell">
               Синхронизация каталогов: по умолчанию программа сохраняет последнюю использованную маску файлов как маску по умолчанию для следующего запуска инструмента синхронизации (если это не шаблон поиска),
               чтобы запретить такое поведение, мы можем заменить <code>True</code> на <code>False</code><br>
@@ -532,27 +457,8 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Left&gt;, &lt;Right&gt; <small>и</small> &lt;Unknown&gt;<br><small>в &lt;SyncDirs&gt;&lt;Colors&gt;</small></div></td>
-            <td class="hintcell">Цвет текста в инструменте синхронизации каталогов:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Тег</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;Left&gt;</td>
-                  <td class="innerdescdesccell">Файлы, выбранные для копирования или удаления слева.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;Right&gt;</td>
-                  <td class="innerdescdesccell">Файлы, выбранные для копирования или удаления справа.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;Unknown&gt;</td>
-                  <td class="innerdescdesccell">Файлы с одинаковыми именами, но не идентичные.</td>
-                </tr>
-              </table>
-            </td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DateTimeFormat&gt;<br><small>в &lt;SyncDirs&gt;</small></div></td>
+            <td class="hintcell">Параметр позволяет указать предпочитаемый формат даты и времени в <a href="syncdirs.html">инструменте синхронизации каталогов</a>. Символы форматирования даты и времени описаны <a href="configuration.html#dt_format">здесь</a>.<br>Значение по умолчанию <code>yyyy.mm.dd hh:nn:ss</code>.</td>
           </tr>
 
           <tr>
@@ -560,7 +466,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">Встроенный просмотрщик: включает (<code>True</code>) или выключает (<code>False</code>) автоматическое копирование выделенного текста в буфер обмена. По умолчанию <code>True</code>.</td>
           </tr>
 
@@ -571,19 +477,6 @@
               Значение задаётся непосредственно в пикселях.<br>
               По умолчанию 0.<br>
               <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor1&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">Встроенный просмотрщик: задаёт цвет фона окна при просмотре изображений.</td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor2&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              Если отмечено <a href="viewer.html#mnu_image">Изображение&nbsp;&gt; Показывать прозрачность</a>, программа просмотра отображает прозрачность используя фон в виде шахматной доски и <code>ImageBackColor2</code> определяет цвет клеток.<br>
-              Если не задано, просмотрщик автоматически рассчитает значение: для тёмного фона будут использоваться светлые клетки и наоборот.
             </td>
           </tr>
 
@@ -612,7 +505,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;JpegQuality&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;JpegQuality&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">Встроенный просмотрщик: значение качества, которое Double Commander будет использовать по умолчанию при сохранении в формат JPEG (команды <span class="italic">Сохранить</span> и <span class="italic">Сохранить как...</span>). По умолчанию 80.</td>
           </tr>
 
@@ -636,7 +529,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SynEditMask&gt;<span class="versionref"><sup>(Бета-версия)</sup></span><br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SynEditMask&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               Встроенный просмотрщик: параметр позволяет управлять списком расширений файлов для режима просмотра кода (конечно, в пределах доступного списка).
               Мы можем указать маски файлов (через точку с запятой ";" без пробелов), которые автоматически будут открываться в этом режиме вместо обычного текста, или имя шаблона поиска для исключения. Также мы можем отключить автоматическое открытие файлов в этом режиме, задав пустую строку.

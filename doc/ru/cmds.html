@@ -542,7 +542,7 @@
               <div class="shrtctkey">F3</div></td>
             <td class="cmdhintcell">Открыть файл в <a href="viewer.html">программе просмотра</a>.<br>
               <br>
-              Команда поддерживает один параметр, позволяющий принудительно выбрать режим просмотра<span class="versionref"><sup>(Бета-версия)</sup></span> (в этом случае плагины будут проигнорированы, но вы сможете переключить режим позже в окне программы просмотра).
+              Команда поддерживает один параметр, позволяющий принудительно выбрать режим просмотра (в этом случае плагины будут проигнорированы, но вы сможете переключить режим позже в окне программы просмотра).
               Описание режимов смотрите на <a href="viewer.html#mnu_view">этой странице</a>.<br>
               <br>
               <table class="innercmddesc">
@@ -554,19 +554,19 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">mode</td>
                   <td class="innerdescvaluecell">text</td>
-                  <td class="innerdescdesccell">Показать как текст</td>
+                  <td class="innerdescdesccell">показать как текст</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">bin</td>
-                  <td class="innerdescdesccell">Показать в двоичном виде</td>
+                  <td class="innerdescdesccell">показать в двоичном виде</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">hex</td>
-                  <td class="innerdescdesccell">Показать в шестнадцатеричном виде</td>
+                  <td class="innerdescdesccell">показать в шестнадцатеричном виде</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">dec</td>
-                  <td class="innerdescdesccell">Показать в десятеричном виде</td>
+                  <td class="innerdescdesccell">показать в десятеричном виде</td>
                 </tr>
               </table>
               <br>
@@ -1042,9 +1042,20 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPlugin" alt="cm_AddPlugin" src="../../pixmaps/dctheme/32x32/actions/cm_addplugin.png">
               <div class="cmdname"><a name="cm_AddPlugin">cm_AddPlugin</a></div></td>
-            <td class="cmdhintcell">Добавить плагин: Double Commander предложит указать файл плагина, автоматически определит его тип (WCX, WDX, WFX, WLX или DSX), откроет нужный раздел настроек и добавит его в список.<br>
-              Имя файла плагина может быть передано как параметр.
-            </td>
+            <td class="cmdhintcell">Эта команда упрощает добавление плагинов, поддерживаются два способа:<br>
+              1) Выберите файл плагина и Double Commander автоматически определит его тип (WCX, WDX, WFX, WLX или DSX), откроет нужный раздел настроек и добавит его в список.<br>
+              2) Выберите архив, который содержит плагин и специальный файл <tt>pluginst.inf</tt> (файл плагина и <tt>pluginst.inf</tt> должны быть расположены в корне архива):
+              содержимое архива будет извлечено в соответствующий каталог, плагин будет добавлен в настройки и Double Commander откроет соответствующий раздел настроек. Если включено хранение настроек в профиле пользователя, то Double Commander будет использовать папку "plugins" в каталоге пользователя:
+              <ul>
+                <li>Windows XP: <i>C:\Documents and Settings\&lt;Имя пользователя&gt;\Local Settings\doublecmd\plugins</i></li>
+                <li>Windows Vista/7+: <i>C:\Users\&lt;Имя пользователя&gt;\AppData\Local\doublecmd\plugins</i></li>
+                <li>Unix-подобные ОС: <i>/home/&lt;Имя пользователя&gt;/.local/share/doublecmd/plugins</i></li>
+              </ul>
+              В портативной версии Double Commander будет использовать папку "plugins" в каталоге программы.<br>
+              <br>
+              Примечание: Первый способ добавления плагинов требует предварительно разместить файлы в подходящем месте, однако в этом случае Double Commander сообщит об ошибке, если не удалось загрузить плагин (например, если в операционной системе отсутствуют необходимые библиотеки).<br>
+              <br>
+              Имя файла может быть передано как параметр.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -1068,7 +1079,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyNetNamesToClip" alt="cm_CopyNetNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copynetnamestoclip.png">
-              <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a><span class="versionref"><sup>(Бета-версия)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Только Windows: копировать в буфер имена с UNC-путём.</td>
           </tr>
         </table>
@@ -1132,7 +1143,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadList" alt="cm_LoadList" src="../../pixmaps/dctheme/32x32/actions/cm_loadlist.png">
-              <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a><span class="versionref"><sup>(Бета-версия)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a></div></td>
             <td class="cmdhintcell">Загрузить список файлов/папок из указанного текстового файла (обычный текстовый файл, содержащий полные имена файлов, по одному на строку). Используйте UTF-8 без BOM.<br>
               <br>
               <table class="innercmddesc">
@@ -1462,7 +1473,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFileDetailsToFile" alt="cm_SaveFileDetailsToFile" src="../../pixmaps/dctheme/32x32/actions/cm_savefiledetailstofile.png">
-              <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Бета-версия)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a></div></td>
             <td class="cmdhintcell">Сохранить содержимое всех колонок выделенных файлов/папок в файл.<br>
               Вы можете указать имя файла в первом параметре.<br>
               Если параметр не используется, то Double Commander предложит указать имя файла.</td>
@@ -1506,17 +1517,38 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyFullNamesToClip" alt="cm_CopyFullNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copyfullnamestoclip.png">
               <div class="cmdname"><a name="cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a></div>
               <div class="shrtctkey">Ctrl+Shift+C</div></td>
-            <td class="cmdhintcell">Копировать в буфер обмена <a href="help.html#cm_CopyFullNamesToClip">полные имена</a> файлов/папок.</td>
+            <td class="cmdhintcell">Копировать в буфер обмена <a href="help.html#cm_CopyFullNamesToClip">полные имена</a> файлов/папок.<br>
+              Доступен один параметр, мы можем указать предпочтительный разделитель каталогов:<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">separator</td>
+                  <td class="innerdescvaluecell"><i>разделитель каталогов</i></td>
+                  <td class="innerdescdesccell">использовать "/" или "\" (без кавычек)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescdesccell">использовать системное значение: в системах Unix/Linux это будет "/" и "\" в Windows</td>
+                </tr>
+              </table>
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyPathOfFilesToClip" alt="cm_CopyPathOfFilesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copypathoffilestoclip.png">
               <div class="cmdname"><a name="cm_CopyPathOfFilesToClip">cm_CopyPathOfFilesToClip</a></div></td>
-            <td class="cmdhintcell">Копировать полные пути выделенных файлов/папок, включая разделитель каталогов в конце для папок.</td>
+            <td class="cmdhintcell">Копировать полные пути выделенных файлов/папок, включая разделитель каталогов в конце для папок.<br>
+              Доступен один параметр, мы можем указать предпочтительный разделитель каталогов, смотрите описание <a href="#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyPathNoSepOfFilesToClip" alt="cm_CopyPathNoSepOfFilesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copypathnosepoffilestoclip.png">
               <div class="longcmdname"><a name="cm_CopyPathNoSepOfFilesToClip">cm_CopyPathNoSepOfFilesToClip</a></div></td>
-            <td class="cmdhintcell">Копировать полные пути выделенных файлов/папок без разделителя каталогов в конце для папок.</td>
+            <td class="cmdhintcell">Копировать полные пути выделенных файлов/папок без разделителя каталогов в конце для папок.<br>
+              Доступен один параметр, мы можем указать предпочтительный разделитель каталогов, смотрите описание <a href="#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyFileDetailsToClip" alt="cm_CopyFileDetailsToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copyfiledetailstoclip.png">
@@ -2518,12 +2550,12 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabLeft" alt="cm_MoveTabLeft" src="../../pixmaps/dctheme/32x32/actions/cm_movetableft.png">
-              <div class="cmdname"><a name="cm_MoveTabLeft">cm_MoveTabLeft</a><span class="versionref"><sup>(Бета-версия)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_MoveTabLeft">cm_MoveTabLeft</a></div></td>
             <td class="cmdhintcell">Переместить текущую вкладку влево.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabRight" alt="cm_MoveTabRight" src="../../pixmaps/dctheme/32x32/actions/cm_movetabright.png">
-              <div class="cmdname"><a name="cm_MoveTabRight">cm_MoveTabRight</a><span class="versionref"><sup>(Бета-версия)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_MoveTabRight">cm_MoveTabRight</a></div></td>
             <td class="cmdhintcell">Переместить текущую вкладку вправо.</td>
           </tr>
           <tr>
@@ -3147,6 +3179,42 @@
               </table>
               <br>
               Пример: "cm_ActivateTabByIndex side=right index=1" переключит фокус на правую панель и активирует первую вкладку.
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowTabsList" alt="cm_ShowTabsList" src="../../pixmaps/dctheme/32x32/actions/cm_showtabslist.png">
+              <div class="cmdname"><a name="cm_ShowTabsList">cm_ShowTabsList</a></div>
+              <div class="shrtctkey">Ctrl+Shift+A</div></td>
+            <td class="cmdhintcell">Показать меню со списком всех открытых вкладок.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">side</td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">вкладки левой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">вкладки правой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">вкладки неактивной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
+                  <td class="innerdescdesccell">вкладки активной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescdesccell">вкладки активной панели</td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>

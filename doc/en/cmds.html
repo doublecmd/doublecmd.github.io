@@ -542,7 +542,7 @@
               <div class="shrtctkey">F3</div></td>
             <td class="cmdhintcell">Open file in the <a href="viewer.html">viewer program</a>.<br>
               <br>
-              The command supports one parameter that allows to force a viewing mode<span class="versionref"><sup>(Beta version)</sup></span> (in this case, plugins will be ignored, but you can switch the mode later in the viewer window).
+              The command supports one parameter that allows to force a viewing mode (in this case, plugins will be ignored, but you can switch the mode later in the viewer window).
               See the description of the modes on <a href="viewer.html#mnu_view">this page</a>.<br>
               <br>
               <table class="innercmddesc">
@@ -554,19 +554,19 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="4">mode</td>
                   <td class="innerdescvaluecell">text</td>
-                  <td class="innerdescdesccell">Show as Text</td>
+                  <td class="innerdescdesccell">show as Text</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">bin</td>
-                  <td class="innerdescdesccell">Show as Bin</td>
+                  <td class="innerdescdesccell">show as Bin</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">hex</td>
-                  <td class="innerdescdesccell">Show as Hex</td>
+                  <td class="innerdescdesccell">show as Hex</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">dec</td>
-                  <td class="innerdescdesccell">Show as Dec</td>
+                  <td class="innerdescdesccell">show as Dec</td>
                 </tr>
               </table>
               <br>
@@ -1043,8 +1043,20 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddPlugin" alt="cm_AddPlugin" src="../../pixmaps/dctheme/32x32/actions/cm_addplugin.png">
               <div class="cmdname"><a name="cm_AddPlugin">cm_AddPlugin</a></div></td>
-            <td class="cmdhintcell">Add plugin: Double Commander will prompt you to select a plugin file, automatically detect its type (WCX, WDX, WFX, WLX or DSX), open the required settings section and add it to the list.<br>
-              The plugin filename can be passed as a parameter.
+            <td class="cmdhintcell">This command makes it easy to add plugins, two ways are supported:<br>
+              1) Select a plugin file and Double Commander will automatically detect its type (WCX, WDX, WFX, WLX or DSX), open the required settings section and add it to the list.<br>
+              2) Select the archive that contains the plugin and a special file <tt>pluginst.inf</tt> (the plugin file and <tt>pluginst.inf</tt> must be located in the root of the archive):
+              the content of the archive will be extracted to the appropriate directory, the plugin will be added to the settings and Double Commander will open the corresponding settings section. If settings are stored in the user profile, Double Commander will use the "plugins" folder in the user's directory:
+              <ul>
+                <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\plugins</i></li>
+                <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\plugins</i></li>
+                <li>Unix-like OS: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/plugins</i></li>
+              </ul>
+              In the portable version, Double Commander will use the "plugins" folder in the program directory.<br>
+              <br>
+              Note: The first method of adding plugins requires to first place the files in a suitable location, however, in this case, Double Commander will report an error if the plugin could not be loaded (for example, if the operating systems does not contain the necessary libraries).<br>
+              <br>
+              Filename can be passed as a parameter.
             </td>
           </tr>
         </table>
@@ -1069,7 +1081,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyNetNamesToClip" alt="cm_CopyNetNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copynetnamestoclip.png">
-              <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a><span class="versionref"><sup>(Beta version)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Windows only: copy names with UNC path.</td>
           </tr>
         </table>
@@ -1133,7 +1145,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadList" alt="cm_LoadList" src="../../pixmaps/dctheme/32x32/actions/cm_loadlist.png">
-              <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a><span class="versionref"><sup>(Beta version)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_LoadList">cm_LoadList</a></div></td>
             <td class="cmdhintcell">Load list of files/folders from the specified text file (plain text file containing full file names, one per line). Use UTF-8 without BOM.<br>
               <br>
               <table class="innercmddesc">
@@ -1463,7 +1475,7 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFileDetailsToFile" alt="cm_SaveFileDetailsToFile" src="../../pixmaps/dctheme/32x32/actions/cm_savefiledetailstofile.png">
-              <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Beta version)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a></div></td>
             <td class="cmdhintcell">Save all shown columns of selected items to file.<br>
               You may specify the output filename into the first parameter.<br>
               If no parameter is supplied, Double Commander will prompt user to enter one.</td>
@@ -1506,17 +1518,38 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyFullNamesToClip" alt="cm_CopyFullNamesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copyfullnamestoclip.png">
               <div class="cmdname"><a name="cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a></div>
               <div class="shrtctkey">Ctrl+Shift+C</div></td>
-            <td class="cmdhintcell">Copy item <a href="help.html#cm_CopyFullNamesToClip">full names</a> to clipboard.</td>
+            <td class="cmdhintcell">Copy item <a href="help.html#cm_CopyFullNamesToClip">full names</a> to clipboard.<br>
+              One parameter is available, we can specify the preferred directory separator:<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">separator</td>
+                  <td class="innerdescvaluecell"><i>directory separator</i></td>
+                  <td class="innerdescdesccell">use "/" or "\" (without quotes)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
+                  <td class="innerdescdesccell">use the system value: in Unix/Linux system it will be "/" and in Windows it will be "\"</td>
+                </tr>
+              </table>
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyPathOfFilesToClip" alt="cm_CopyPathOfFilesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copypathoffilestoclip.png">
               <div class="cmdname"><a name="cm_CopyPathOfFilesToClip">cm_CopyPathOfFilesToClip</a></div></td>
-            <td class="cmdhintcell">Will copy the full path of the current selected items including an ending directory separator.</td>
+            <td class="cmdhintcell">Will copy the full path of the current selected items including an ending directory separator.<br>
+              One parameter is available, we can specify the preferred directory separator, see the description of <a href="#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyPathNoSepOfFilesToClip" alt="cm_CopyPathNoSepOfFilesToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copypathnosepoffilestoclip.png">
               <div class="longcmdname"><a name="cm_CopyPathNoSepOfFilesToClip">cm_CopyPathNoSepOfFilesToClip</a></div></td>
-            <td class="cmdhintcell">Will copy the full path of the current selected items excluding an ending directory separator.</td>
+            <td class="cmdhintcell">Will copy the full path of the current selected items excluding an ending directory separator.<br>
+              One parameter is available, we can specify the preferred directory separator, see the description of <a href="#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CopyFileDetailsToClip" alt="cm_CopyFileDetailsToClip" src="../../pixmaps/dctheme/32x32/actions/cm_copyfiledetailstoclip.png">
@@ -2516,12 +2549,12 @@
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabLeft" alt="cm_MoveTabLeft" src="../../pixmaps/dctheme/32x32/actions/cm_movetableft.png">
-              <div class="cmdname"><a name="cm_MoveTabLeft">cm_MoveTabLeft</a><span class="versionref"><sup>(Beta version)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_MoveTabLeft">cm_MoveTabLeft</a></div></td>
             <td class="cmdhintcell">Move current tab to the left.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MoveTabRight" alt="cm_MoveTabRight" src="../../pixmaps/dctheme/32x32/actions/cm_movetabright.png">
-              <div class="cmdname"><a name="cm_MoveTabRight">cm_MoveTabRight</a><span class="versionref"><sup>(Beta version)</sup></span></div></td>
+              <div class="cmdname"><a name="cm_MoveTabRight">cm_MoveTabRight</a></div></td>
             <td class="cmdhintcell">Move current tab to the right.</td>
           </tr>
           <tr>
@@ -3145,6 +3178,42 @@
               </table>
               <br>
               Example: "cm_ActivateTabByIndex side=right index=1" will activate the 1st tab in the rigth panel and will switch focus on it.
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ShowTabsList" alt="cm_ShowTabsList" src="../../pixmaps/dctheme/32x32/actions/cm_showtabslist.png">
+              <div class="cmdname"><a name="cm_ShowTabsList">cm_ShowTabsList</a></div>
+              <div class="shrtctkey">Ctrl+Shift+A</div></td>
+            <td class="cmdhintcell">Show a menu with a list of all open tabs.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">side</td>
+                  <td class="innerdescvaluecell">left</td>
+                  <td class="innerdescdesccell">tabs of the left panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">right</td>
+                  <td class="innerdescdesccell">tabs of the right panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">inactive</td>
+                  <td class="innerdescdesccell">tabs of the inactive panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell"><i>(absent)</i></td>
+                  <td class="innerdescdesccell">tabs of the active panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
+                  <td class="innerdescdesccell">tabs of the active panel</td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>

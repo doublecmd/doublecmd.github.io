@@ -29,9 +29,10 @@
               <dt>2.1. <a href="#mnu_file">"File"</a></dt>
               <dt>2.2. <a href="#mnu_edit">"Edit"</a></dt>
               <dt>2.3. <a href="#mnu_view">"View"</a></dt>
-              <dt>2.4. <a href="#mnu_enc">"Encoding"</a></dt>
-              <dt>2.5. <a href="#mnu_image">"Image"</a></dt>
-              <dt>2.6. <a href="#mnu_about">"About"</a></dt>
+              <dt>2.4. <a href="#mnu_plug">"Plugins"</a></dt>
+              <dt>2.5. <a href="#mnu_enc">"Encoding"</a></dt>
+              <dt>2.6. <a href="#mnu_image">"Image"</a></dt>
+              <dt>2.7. <a href="#mnu_about">"About"</a></dt>
             </dl>
           </dd>
           <dt>3. <a href="#toolbar">Toolbar</a></dt>
@@ -47,17 +48,17 @@
         <h2><a name="intro">1. Introduction</a></h2>
         <p>The built-in viewer is designed to view files of any size in text, hexadecimal or binary format and image files.</p>
         <p class="figure"><img class="largeimage" title="Built-in file viewer" alt="Built-in file viewer" src="images/imgDC/viewer.png" width="792" height="432"></p>
-        <p>The selected text will be automatically copied to the clipboard, to disable we can use the <a href="configxml.html">&lt;AutoCopy&gt;</a><span class="versionref"><sup>(Beta version)</sup></span> parameter.</p>
-        <p>By default, the viewer call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">settings</a>.</p>
-        <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, SVG/SVGZ<span class="versionref"><sup>(Beta version)</sup></span>, TIFF, XPM. In addition, if the required libraries are available:</p>
+        <p>The selected text will be automatically copied to the clipboard, to disable we can use the <a href="configxml.html">&lt;AutoCopy&gt;</a> parameter.</p>
+        <p>By default, the viewer (internal command <tt>cm_View</tt>) call is assigned to the <kbd>F3</kbd> key, we can change this in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section. If several files are selected, the first selected file will be opened and we can switch these files using the <span class="italic">Previous file</span> and <span class="italic">Next file</span> commands (otherwise, these commands will load files in the current directory).</p>
+        <p>Supported image formats: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM and PPM), PSD, SVG/SVGZ, TIFF, XPM. In addition, if the required libraries are available:</p>
         <ul>
-          <li><p>HEIF/HEIC and AVIF: <tt>libheif-1.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems).</p></li>
+          <li><p>HEIF/HEIC and AVIF: <tt>libheif.dll</tt> (Windows) or <tt>libheif.so.1</tt> (Linux and other Unix-like systems).</p></li>
           <li><p>WebP: <tt>libwebp.so.n</tt>, where "n" is 7, 6 or 5 (Linux and other Unix-like systems).</p></li>
-          <li><p>SVG/SVGZ: <tt>librsvg-2-2.dll</tt>, <tt>libcairo-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (Windows) or <tt>librsvg-2.so.2</tt>, <tt>libcairo.so.2</tt> and <tt>libgobject-2.0.so.0</tt> (Linux and other Unix-like systems). If these files are available, Double Commander will use the librsvg library instead of the built-in Image32 graphics library.<span class="versionref"><sup>(Beta version)</sup></span></p></li>
-          <li><p>Double Commander supports the TurboJPEG library, it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>).</p></li>
+          <li><p>SVG/SVGZ: <tt>librsvg-2-2.dll</tt>, <tt>libcairo-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (Windows) or <tt>librsvg-2.so.2</tt>, <tt>libcairo.so.2</tt> and <tt>libgobject-2.0.so.0</tt> (Linux and other Unix-like systems). If these files are available, Double Commander will use the librsvg library instead of the built-in Image32 graphics library.</p></li>
+          <li><p>Double Commander supports the TurboJPEG library, it is a JPEG codec that uses SIMD instructions to accelerate the decoding and encoding of images: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux and other Unix-like systems) or <tt>libturbojpeg.dylib</tt> (macOS).</p></li>
         </ul>
         <p>Note: In Windows, libraries must be located near the Double Commander executable file or in the PATH.</p>
-        <p>Double Commander supports Windows Imaging Component (Windows Vista and newer)<span class="versionref"><sup>(Beta version)</sup></span>: the Windows Imaging Component (WIC) provides an extensible framework for working with images. WIC includes several built-in codecs (BMP, DDS, GIF, ICO, JPEG, JPEG XR, PNG and TIFF), additionally available external codecs for free and proprietary RAW image formats, HEIF/HEIC, WebP. Double Commander will skip codecs for BMP, GIF, ICO, JPEG, PNG and TIFF, because these formats are already supported.</p>
+        <p>Double Commander supports Windows Imaging Component (Windows Vista and newer): the Windows Imaging Component (WIC) provides an extensible framework for working with images. WIC includes several built-in codecs (BMP, DDS, GIF, ICO, JPEG, JPEG XR, PNG and TIFF), additionally available external codecs for free and proprietary RAW image formats, HEIF/HEIC, WebP. Double Commander will skip codecs for BMP, GIF, ICO, JPEG, PNG and TIFF, because these formats are already supported.</p>
         <p>The built-in viewer supports saving to the following image formats: BMP, ICO, JPEG (we can choose the quality from 1 to 100; 80 by default, see <a href="configxml.html">&lt;JpegQuality&gt;</a>), PNG (Double Commander will use the same color depth as in the original image) and PNM (Double Commander will use binary formats, the color depth will be set automatically: 1, 8 or 24 bits per pixel).</p>
         <p>Note: When modifying an image, we must save all changes with the <span class="italic">Save</span> or <span class="italic">Save As</span> commands: Double Commander does not check the status of the file (changed or not) when closing the viewer window or when switching to another file.</p>
         <p>We can assign or change hotkeys for commands available in the viewer in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section (switch to the <span class="italic">Viewer</span> category). Hotkeys can be set separately for text mode and image viewing mode.</p>
@@ -72,12 +73,12 @@
 
       <div>
         <h2><a name="mnu_file">2.1. "File"</a></h2>
-        <p>Items <span class="italic">Previous</span> and <span class="italic">Next</span> are used to load the previous or next file in the directory. The sort order in the file panel is used.</p>
+        <p>Items <span class="italic">Previous</span> and <span class="italic">Next</span> are used to load the previous or next file in the directory. If several files are selected, the commands will load these files. The sort order in the file panel is used.</p>
         <p>Items <span class="italic">Save</span> and <span class="italic">Save As...</span> are available only when viewing images.</p>
         <p><span class="italic">Print...</span>&nbsp;&ndash; opens a system dialog for sending a file for printing. Printing is only available when viewed with plugins that support printing files.</p>
         <p><span class="italic">Print setup...</span>&nbsp;&ndash; opens a dialog for setting the print borders (left, right, top and bottom page margins).</p>
         <p><span class="italic">Reload</span>&nbsp;&ndash; Double Commander will forcibly reread the file without closing the viewer window. This is convenient if the file has been modified by an external program.</p>
-        <p><span class="italic">Auto Reload</span>&nbsp;&ndash; only for text mode: if enabled, Double Commander will check the file size every 2 seconds and if it changes, reread the file and scroll its contents to the end. This is convenient for viewing constantly updated log files. This mode applies only to the current file and is disabled when switching to another file or when closing the viewer window. If enabled, Double Commander will show an asterisk "*" in the status bar before the file name.<span class="versionref"><sup>(Beta version)</sup></span></p>
+        <p><span class="italic">Auto Reload</span>&nbsp;&ndash; only for text mode: if enabled, Double Commander will check the file size every 2 seconds and if it changes, reread the file and scroll its contents to the end. This is convenient for viewing constantly updated log files. This mode applies only to the current file and is disabled when switching to another file or when closing the viewer window. If enabled, Double Commander will show an asterisk "*" in the status bar before the file name.</p>
         <p><span class="italic">Exit</span>&nbsp;&ndash; Close the viewer window.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -108,17 +109,24 @@
           <li><p><span class="italic">Show as Book</span>&nbsp;&ndash; A special viewing mode: text will be displayed in multiple columns (like a book spread or a newspaper). We can set the font and size, text and background colors, and the number of columns (1, 2 or 3).</p></li>
           <li><p><span class="italic">Graphics</span>&nbsp;&ndash; switches to image viewing. See the list of supported image formats at the <a href="#intro">beginning of the page</a>.</p></li>
           <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Viewing with WLX plugins. If the selected file can be opened by several installed plugins, then repeated calls of this command will switch them in a circle.</p></li>
-          <li><p><span class="italic">Office XML (text only)</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; The viewer will show text from XML-based office documents: Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS). Without text formatting, but preserving paragraphs.</p></li>
-          <li><p><span class="italic">Code</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same highlighting rules and lists of extensions will be used as for the built-in text editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). Also see description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
+          <li><p><span class="italic">Office XML (text only)</span>&nbsp;&ndash; The viewer will show text from XML-based office documents: Microsoft Office (DOCX, XLSX) and OpenOffice/LibreOffice (ODT, ODS). Without text formatting, but preserving paragraphs.</p></li>
+          <li><p><span class="italic">Code</span>&nbsp;&ndash; The viewer will show the selected file in code view mode: with syntax highlighting and line numbers. The same highlighting rules and lists of extensions will be used as for the built-in text editor (see more details <a href="configuration.html#ConfigToolsEditorHL">here</a>). In this mode, the viewer uses the <a href="configuration.html#ConfigToolsEditor">settings of the built-in editor</a>, also see the description of <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
         </ul>
         <p>Plugins have priority over other supported view modes.</p>
-        <p><span class="italic">Wrap text</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; enables or disables wrapping lines that do not fit in the window (by word boundaries).</p>
+        <p><span class="italic">Wrap text</span>&nbsp;&ndash; enables or disables wrapping lines that do not fit in the window (by word boundaries).</p>
         <p><span class="italic">Show text cursor</span>&nbsp;&ndash; enables the display of a blinking text cursor.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="mnu_enc">2.4. "Encoding"</a></h2>
+        <h2><a name="mnu_plug">2.4. "Plugins"</a></h2>
+        <p>The menu contains a list of all added and enabled WLX plugins. The first part of the menu will contain plugins that are suitable for the current file (Double Commander checks the detection string), all others will be listed in the second part.</p>
+        <p>Without sorting, the same order is used in which the plugins were added in the corresponding settings section.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_enc">2.5. "Encoding"</a></h2>
         <p>When viewing files in text modes: menu with a list of available text encodings, auto-detection is enabled by default.</p>
         <p>When using plugins, this menu includes only three items:</p>
         <ul>
@@ -130,12 +138,12 @@
       </div>
 
       <div>
-        <h2><a name="mnu_image">2.5. "Image"</a></h2>
+        <h2><a name="mnu_image">2.6. "Image"</a></h2>
         <p>The <span class="italic">Image</span> menu will not be available when viewing GIF files.</p>
         <p><span class="italic">Stretch</span>&nbsp;&ndash; resizes the image so it fills the viewer window (the aspect ratio will be saved automatically).</p>
         <p><span class="italic">Stretch only large</span>&nbsp;&ndash; resizes the image only if it is larger than the current window size (the aspect ratio will be saved automatically).</p>
         <p><span class="italic">Center</span>&nbsp;&ndash; The image will be displayed in the center of the viewer window instead of the upper left corner.</p>
-        <p><span class="italic">Show transparency</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; enables the use of a checkerboard pattern as a background for transparent parts of the image.</p>
+        <p><span class="italic">Show transparency</span>&nbsp;&ndash; enables the use of a checkerboard pattern as a background for transparent parts of the image.</p>
         <p>The <span class="italic">Rotate</span> submenu includes several similar actions:</p>
         <ul>
           <li><p>The first three commands rotate the image by a specified number of degrees around its center: <span class="italic">+ 90</span> (90 degrees to the right), <span class="italic">+ 180</span> and <span class="italic">- 90</span> (90 degrees to the left).</p></li>
@@ -150,7 +158,7 @@
       </div>
 
       <div>
-        <h2><a name="mnu_about">2.6. "About"</a></h2>
+        <h2><a name="mnu_about">2.7. "About"</a></h2>
         <p>Just a viewer name.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -214,7 +222,7 @@
         <p class="figure"><img class="largeimage" title="Preview" alt="Preview" src="images/imgDC/viewerpreview.png" width="720" height="418"></p>
         <p>The sort order in the file panel is used. The file with which the viewer was launched will always be the first in the list.</p>
         <p>The preview panel can be expanded to display a list of thumbnails in multiple columns.</p>
-        <p>Separate toolbar with several frequently used functions: <span class="italic">Reload current file</span>, <span class="italic">Load Previous File</span>, <span class="italic">Load Next File</span>, <span class="italic">Copy File</span>, <span class="italic">Delete File</span> and <span class="italic">Move File</span>, see description of  similar buttons <a href="#toolbar">above</a>.</p>
+        <p>Separate toolbar with several frequently used functions: <span class="italic">Reload current file</span>, <span class="italic">Load Previous File</span>, <span class="italic">Load Next File</span>, <span class="italic">Copy File</span>, <span class="italic">Delete File</span> and <span class="italic">Move File</span>, see description of similar buttons <a href="#toolbar">above</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -230,15 +238,22 @@
         <h2><a name="quick">7. Quick view</a></h2>
         <p>Additional file viewing mode (<kbd>Ctrl+Q</kbd> by default): instead of a separate window, the contents of the file under the cursor will be shown in the opposite (inactive) file panel. As we navigate to next items, displayed content is updated, this allows to view the contents of files simply by moving the cursor in the file panel.</p>
         <p>Quick view can be disabled by pressing <kbd>Ctrl+Q</kbd> again, also it will be disabled when switching any panel (active or inactive) to another tab.</p>
-        <p>"View" actions added in the <a href="configuration.html#ConfigAssociations">file association</a> settings are ignored.</p>
+        <p>"View" actions added in the <a href="configuration.html#ConfigAssociations">file association</a> settings are ignored, except for applications that are launched with the <tt>{!DC-VIEWER}</tt> macro.</p>
         <p>Not all viewer commands can work in this mode, for example, commands to load the previous or next file in the directory (<kbd>P</kbd> and <kbd>N</kbd> by default).</p>
+        <p>Right-click on the status bar brings up a menu that contains several submenus (depending on the current mode):</p>
+        <ul>
+          <li><p>"Plugins" mode: "View", "Plugins", "Encoding" and "Image";</p></li>
+          <li><p>"Graphics" mode: "View", "Plugins" and "Image";</p></li>
+          <li><p>other modes: "View", "Plugins" and "Encoding".</p></li>
+        </ul>
+        <p>(See description above.)</p>
         <p>Some interface elements may be hidden (for example, when viewing images in the "Graphics" mode, Double Commander will hide the toolbar). There is no general rule or recommendation for plugins, the decision is made by the plugin author.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2><a name="asettings">8. Additional settings</a></h2>
-        <p>See the description of the Double Commander settings sections: <a href="configuration.html#ConfigToolsViewer">Tools&nbsp;&gt; Viewer</a>. There are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
+        <p>See the description of the Double Commander settings sections: <a href="configuration.html#ConfigToolsViewer">Tools&nbsp;&gt; Viewer</a> and <a href="configuration.html#ConfigColor">Colors</a> (the <span class="italic">Viewer</span> category). There are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

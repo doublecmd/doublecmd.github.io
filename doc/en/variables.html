@@ -537,21 +537,32 @@
           <tr class="rowcategorytitle"><th colspan="2">Environment variables</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Variable</th><th class="categorydesccolumn">Description</th></tr>
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_EXE%</div></td>
+            <td class="hintcell">The full name (path + file name) of the Double Commander executable file (symbolic link will be replaced with a real file)</td>
+          </tr>
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_PATH%</div></td>
             <td class="hintcell">The directory where the Double Commander executable file is located</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_DRIVE%</div></td>
+            <td class="hintcell">The disk where the Double Commander folder is located:<br>- Windows: drive letter (with colon);<br>- Unix-like systems: mount point.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI%</div></td>
             <td class="hintcell">The full name (path + file name) of the main configuration file (<tt>doublecmd.xml</tt>)</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_DRIVE%</div></td>
-            <td class="hintcell">The disk where the Double Commander folder is located:<br>- Windows: drive letter (with colon);<br>- Unix-like systems: mount point.</td>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI_PATH%</div></td>
+            <td class="hintcell">The directory where the Double Commander configuration files are located</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%DC_CONFIG_PATH%</div></td>
+            <td class="hintcell">The directory where the Double Commander configuration files are located</td>
           </tr>
         </table>
-        <p>We can use environment variables in the Double Commander settings: in the names of executable files and icons on the toolbar, in the names of plugins, favorite directories, and so on. This is a convenient way to specify a path if we don't want to use absolute paths.</p>
-        <p>Additionally, the <code>%DC_CONFIG_PATH%</code> variable is available, which returns the directory with the Double Commander configuration files. This is not an environment variable and it is not available for child processes (applications launched from Double Commander), but otherwise we can use <code>%DC_CONFIG_PATH%</code> in the same way as the environment variables described above.</p>
-        <p>In Windows, we can additionally use pseudo environment variables in the format <code>%$Name%</code>, which correspond to standard Windows system folders (to get the values, Double Commander uses the <tt>SHGetSpecialFolderPath</tt> and <tt>SHGetKnownFolderPath</tt> functions from the Windows API). These are not normal environment variables and are not available for child processes, but otherwise we can use them in a similar way to environment variables. All these variables are collected in the path selection assistant menu: to the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
+        <p>The variable names <code>%COMMANDER_PATH%</code> and <code>%DC_CONFIG_PATH%</code> are not case sensitive and we can use the percent symbol <code>%</code> regardless of the operating system family (for backward compatibility, this is convenient for a cross-platform application). However, in Unix-like systems, environment variable names are case-sensitive and are traditionally written in upper case, so using the traditional spelling can be a good habit.</p>
+        <p>In Windows, we can additionally use pseudo environment variables in the format <code>%$Name%</code>, which correspond to standard Windows system folders (to get the values, Double Commander uses the <tt>SHGetSpecialFolderPath</tt> and <tt>SHGetKnownFolderPath</tt> functions from the Windows API). These are not normal environment variables and are not available for child processes (applications launched from Double Commander), but otherwise we can use them in a similar way to environment variables. All these variables are collected in the path selection assistant menu: to the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
         <p>All these variables have been added to the <a href="directoryhotlist.html">Directory Hotlist</a> menu (the <span class="italic">Special Dirs</span> submenu).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

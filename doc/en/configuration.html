@@ -137,23 +137,25 @@
         <p>The main files are:</p>
         <ul>
           <li><p><tt>doublecmd.xml</tt>&nbsp;&ndash; all the main program settings;</p></li>
-          <li><p><tt>doublecmd.cfg</tt><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; settings that are applied before initialization of all program components and loading <tt>doublecmd.xml</tt>;</p></li>
+          <li><p><tt>doublecmd.cfg</tt>&nbsp;&ndash; settings that are applied before initialization of all program components and loading <tt>doublecmd.xml</tt>;</p></li>
           <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; file extension association configuration;</p></li>
           <li><p><tt>favoritetabs.xml</tt>&nbsp;&ndash; favorite tabs;</p></li>
           <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; maps file extensions to MIME-types icon names;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&ndash; external archivers;</p></li>
           <li><p><tt>shortcuts.scf</tt>&nbsp;&ndash; keyboard layout settings;</p></li>
-          <li><p><tt>highlighters.xml</tt>&nbsp;&ndash; editor color settings;</p></li>
+          <li><p><tt>colors.json</tt>&nbsp;&ndash; all color settings, Double Commander stores color values in the "Light" and "Dark" profiles and selects the profile automatically depending on the current theme (light or dark theme);</p></li>
+          <li><p><tt>tabs.xml</tt>&nbsp;&ndash; list of opened tabs;</p></li>
           <li><p><tt>history.xml</tt>&nbsp;&ndash; command line and directory history, search and replace, etc.;</p></li>
           <li><p>few others...&nbsp;&ndash; etc...</p></li>
         </ul>
-        <p>The configuration version in <tt>doublecmd.xml</tt> defines the data storage format: if it has changed in the new version of the program (for example, new parameters have been added or existing ones have changed), then at the first start Double Commander will update the configuration files. The upgrade process will back up the previous version of <tt>doublecmd.xml</tt>.<span class="versionref"><sup>(Beta version)</sup></span></p>
+        <p>The files are generated automatically, except for <tt>multiarc.ini</tt> and <tt>pixmaps.txt</tt>: they are included in the distribution of Double Commander (in the "default" folder) and are copied to the directory of configuration files when the program is first launched.</p>
+        <p>The configuration version in <tt>doublecmd.xml</tt> defines the data storage format: if it has changed in the new version of the program (for example, new parameters have been added or existing ones have changed), then at the first start Double Commander will update the configuration files. The upgrade process will back up the previous version of <tt>doublecmd.xml</tt>.</p>
       </div>
 
       <div>
         <h2><a name="settings">2. Configuration</a></h2>
-        <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file. A filter by parameter name is available at the bottom of the window: the program will display only those sections that contain a matching parameter.<span class="versionref"><sup>(Beta version)</sup></span></p>
-        <p>To open the corresponding section in the program help, you can use the <span class="italic">Help</span> button or the <kbd>F1</kbd> key.<span class="versionref"><sup>(Beta version)</sup></span></p>
+        <p>The "Options" window allows to set almost all of the options in Double Commander, but there are <a href="configxml.html">several parameters</a> that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file. A filter by parameter name is available at the bottom of the window: the program will display only those sections that contain a matching parameter.</p>
+        <p>To open the corresponding section in the program help, you can use the <span class="italic">Help</span> button or the <kbd>F1</kbd> key.</p>
         <p>Double Commander has several <a href="cmds.html#catconfiguration">internal commands</a> to open the configuration dialog and quickly jump to the desired section.</p>
         <p>Double Commander supports importing/exporting some settings: directory hotlist, favorite tabs, external archivers, toolbar (main and middle), tooltips. Also, the list of hotkeys can be saved to a new file and you can switch between them.</p>
         <p>Note: To the right of the file or directory choose buttons is the button <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">: the popup menu contains lists of variables (including environment variables) and some additional functions, see description <a href="directoryhotlist.html#helperpath">here</a>.</p>
@@ -179,11 +181,12 @@
         <br>
 
         <p><span class="bold"><a name="ConfigToolsViewer">2.3.1. Tools&nbsp;&gt; Viewer</a></span></p>
-        <p>Almost all parameters and switches are available in the window of <a href="viewer.html">built-in viewer</a>, there are only two groups of parameters in this section.</p>
-        <p class="figure"><img class="largeimage" title="Viewer" alt="Viewer" src="images/imgDC/pic50.png" width="578" height="328"></p>
+        <p>There are two groups of parameters in this section:</p>
+        <p class="figure"><img class="largeimage" title="Viewer" alt="Viewer" src="images/imgDC/pic50.png" width="578" height="274"></p>
         <p>The first group allows you to specify an external program for viewing files. Double Commander will automatically add the full filename as the last launch parameter each time the viewer is called.</p>
         <p>Additionally: <span class="italic">Execute in terminal</span> and <span class="italic">Keep terminal window open after executing program</span> can be useful if you are using a console program and/or if the program's terminal output is important (or just temporarily for debugging).</p>
-        <p>The next group of parameters, <span class="italic">Viewer Book Mode</span>, is associated with a special text viewing mode: you can set the font color, background color and the number of columns of text (like a book spread or a newspaper).</p>
+        <p>The next group of parameters is <span class="italic">Internal viewer options</span>, however almost all parameters and switches are available in the window of <a href="viewer.html">built-in viewer</a>.</p>
+        <p><span class="italic">Number of columns in book viewer</span>&nbsp;&ndash; see description of this mode <a href="viewer.html#mnu_view">here</a>.</p>
         <p>There are also <a href="configxml.html">several parameters</a> available that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
         <br>
 
@@ -199,8 +202,9 @@
         <p><span class="italic">Use spaces instead tab characters</span>&nbsp;&ndash; Converts tab characters to a specified number of space characters (when entering).</p>
         <p><span class="italic">Tab indents blocks</span>&nbsp;&ndash; If enabled, <kbd>Tab</kbd> and <kbd>Shift+Tab</kbd> act as block indent, unindent when text is selected.</p>
         <p><span class="italic">Smart Tabs</span>&nbsp;&ndash; When the <kbd>Tab</kbd> key is used, caret will go to the next non-space character of the previous line.</p>
+        <p><span class="italic">Group Undo</span>&nbsp;&ndash; If enabled, all continuous changes of the same type will be processed in one call to the undo or redo command, instead of undoing/redoing each individual text change.</p>
         <p><span class="italic">Tab width</span>&nbsp;&ndash; The width of the tab character (in number of characters). If <span class="italic">Use spaces instead tab characters</span> is enabled, then the <kbd>Tab</kbd> key will insert the specified number of space characters. This setting does not apply if the <span class="italic">Smart Tabs</span> option is enable.</p>
-        <p><span class="italic">Block indent</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; sets the number of characters by which the indent will increase or decrease when using the corresponding commands.</p>
+        <p><span class="italic">Block indent</span>&nbsp;&ndash; sets the number of characters by which the indent will increase or decrease when using the corresponding commands.</p>
         <p><span class="italic">Right margin</span>&nbsp;&ndash; Line length marker, thin vertical line at the given position: lines will not be truncated with a forced line break, it is just a visual hint. Useful in cases where there is a recommendation to limit the length of strings (for example, 80 or 120 characters).</p>
         <br>
 
@@ -216,7 +220,7 @@
         <p>You can change the text and background colors and font style (underline, bold, italic and strike out) used for keywords, strings, numbers, operators, and so on. For the default text, only the text and background colors are available.</p>
         <p><span class="italic">Text-mark</span> is used to add a border around the element: you can choose the color, the type of border and the type of line.</p>
         <p><span class="italic">Use (and edit) global scheme settings</span> and <span class="italic">Use local scheme settings</span> are for default text only: you can change the colors for all file types at once, or only for some.</p>
-        <p>All settings are saved in the <tt>highlighters.xml</tt> file.</p>
+        <p>All settings are saved in the <tt>colors.json</tt> file.</p>
         <p>Note: Possible ways to change (fix or improve) parsing of files (syntactic analysis), keyword lists, and so on:</p>
         <ul>
           <li>suggest changes to the Lazarus project (the best way);</li>
@@ -245,7 +249,7 @@
         <p>Default values:</p>
         <ul>
           <li><p>Windows: <tt>cmd.exe</tt></p></li>
-          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>: <tt>/Applications/Utilities/Terminal.app</tt></p></li>
+          <li><p>macOS: Double Commander will automatically detect the program specified in the system settings.</p></li>
           <li><p>Linux and other Unix-like systems:</p>
             <ul>
               <li><p>For Debian and Debian-based distributions (antiX, Devuan, Ubuntu, Linux Mint and others), <tt>x-terminal-emulator</tt> will be used: this is a symbolic link to the terminal used in these systems by default.</p></li>
@@ -273,13 +277,34 @@
         </ul>
         <br>
 
-        <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span><span class="versionref"><sup>(Beta version)</sup></span></p>
-        <p><span class="italic">Dark mode</span>&nbsp;&ndash; enables or disables dark mode support (only Windows 10 1809 and newer):</p>
+        <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span></p>
+        <p>This section contains color settings that are not included in other settings sections. The parameters are grouped by category.</p>
+        <p class="figure"><img class="largeimage" title="Colors: Dark mode" alt="Colors: Dark mode" src="images/imgDC/pic59.png" width="578" height="155"></p>
+        <p>1. <span class="italic">Dark mode</span>&nbsp;&ndash; enables or disables dark mode support (only Windows 10 1809 and newer). State:</p>
         <ul>
           <li><p><span class="italic">Auto</span>&nbsp;&ndash; system settings will be used.</p></li>
           <li><p><span class="italic">Enabled</span>&nbsp;&ndash; enable forcibly.</p></li>
           <li><p><span class="italic">Disabled</span>&nbsp;&ndash; disable forcibly.</p></li>
         </ul>
+         <p>2. <span class="italic">Viewer</span>&nbsp;&ndash; color settings that are used by the built-in <a href="viewer.html">file viewer</a> (see description of viewing modes <a href="viewer.html#mnu_view">here</a>):</p>
+        <p><span class="italic">Book Mode</span>&nbsp;&ndash; for the "Book" viewing mode, you can set the text color and background color.</p>
+        <p><span class="italic">Image Mode</span>:</p>
+        <ul>
+          <li><p><span class="italic">Background 1:</span>&nbsp;&ndash; sets the background color of the window when viewing images.</p></li>
+          <li><p><span class="italic">Background 2:</span>&nbsp;&ndash; if <a href="viewer.html#mnu_image">Show transparency</a> is enabled, the internal viewer indicates transparency using a checkerboard pattern as background and <span class="italic">Background 2</span> defines the color of the squares. If not set, the viewer will automatically calculate the value: for a dark background, light squares will be used and vice versa.</p></li>
+        </ul>
+        <p>3. <span class="italic">Differ</span>&nbsp;&ndash; for the internal <a href="help.html#cm_CompareContents">Differ tool</a>: you can change the colors for added, deleted and modified lines, and the color for different characters in binary mode.</p>
+        <p>4. <span class="italic">Log</span>&nbsp;&ndash; options that set the text colors in the log window for informational messages, error messages, and messages about successful operations. Also, these colors are used in the window with the result of <a href="help.html#cm_CheckSumVerify">verifying checksums</a>.</p>
+        <p>5. <span class="italic">Synchronize Directories</span>&nbsp;&ndash; for the internal <a href="syncdirs.html">directory synchronization</a> tool:</p>
+        <ul>
+          <li><p><span class="italic">Left:</span>&nbsp;&ndash; files selected for copying or deleting on the left.</p></li>
+          <li><p><span class="italic">Right:</span>&nbsp;&ndash; files selected for copying or deleting on the right.</p></li>
+          <li><p><span class="italic">Unknown:</span>&nbsp;&ndash; files with the same names, but not identical.</p></li>
+        </ul>
+        <p>6. <span class="italic">Drive Free Space Indicator</span>&nbsp;&ndash; here you can change the appearance of the drive free space indicator:</p>
+        <p class="figure"><img class="largeimage" title="Colors: Free Space Indicator" alt="Colors: Free Space Indicator" src="images/imgDC/pic81.png" width="578" height="196"></p>
+        <p>Double Commander can display a gradient (from green to red) or simple monochrome indicator, in the second case you can choose the color and background. <span class="italic">Indicator Threshold Color</span> will be used if the free disk space is less than 10%.</p>
+        <p>The indicator example is clickable, so you can see how it will look.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigColorPanels">2.5.1. Colors&nbsp;&gt; File panels</a></span></p>
@@ -291,9 +316,12 @@
         <p><span class="italic">Use Inactive Sel Color</span>&nbsp;&ndash; enables the display of the cursor also in the inactive panel.</p>
         <p><span class="italic">Use Frame Cursor</span>&nbsp;&ndash; Double Commander will use a frame instead of a solid rectangle.</p>
         <p><span class="italic">Allow Overcolor</span> enables the ability to use a color other than the default color for file names (see section <a href="#ConfigColorFiles">Colors&nbsp;&gt; File types</a>).</p>
-        <p>Also here you can decrease the brightness of the inactive panel and change the appearance of the drive free space indicator. Double Commander can display a gradient (from green to red) or simple monochrome indicator, for a monochrome indicator you can choose the color and background. <span class="italic">Indicator Threshold Color</span><span class="versionref"><sup>(Beta version)</sup></span> will be used if the free disk space is less than 10%. The indicator example is clickable, so you can see how it will look.<span class="versionref"><sup>(Beta version)</sup></span></p>
+        <p>In the <span class="italic">Current Path</span> parameter group, you can change the text color and background color of the <a href="help.html#iface_dir">current directory bar</a> for the active and inactive file panel.</p>
+        <p>Also here you can decrease the brightness of the inactive panel.</p>
         <p>There is a preview area at the bottom of the window, so you can see all the changes at once.</p>
         <p>The <span class="italic">Reset to DC default</span> button will reset all parameters to their default values.</p>
+        <p>The grid color can also be changed, but only manually. You need to close the application, open the <a href="#config_files">colors.json</a> file and replace the value of the <code>GridLine</code> key in the <code>FilePanel</code> object. (Don't forget that the colors in <tt>colors.json</tt> are stored in two profiles: "Light" for light themes and "Dark" for dark themes.)<br>
+          About color format: Double Commander stores color values in the <code>$BBGGRR</code> format as a decimal number. For example, if you want to use the indigo color <code>#4B0082</code> (<code>$RRGGBB</code>), then do the rearrangement, you will get <code>82004B</code> and now you need to convert this hexadecimal number to decimal. Or you can temporarily add a color for some type of file (see below), find it in <tt>colors.json</tt> by name or mask, copy the value and delete.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigColorFiles">2.5.2. Colors&nbsp;&gt; File types</a></span></p>
@@ -335,7 +363,7 @@
         <br>
         <p>The second part of the Unix/Linux template displays permissions: read (r), write (w), execute (x). The values are grouped in groups of three in the following order: user (owner), user's group, all others.</p>
         <p>If attribute should not be set, it must be replaced with the "-" symbol, unnecessary attributes should be hidden: symbol "*" means match any number of characters, symbol "?" means any one character. For example, <code>?r*</code> (Windows) or <code>?r-*</code> (Linux) will find all read-only files and folders.</p>
-        <p>You can use a color from the list or specify yours using the "&gt;&gt;" button.</p>
+        <p>You can use a color from the list or specify yours using the ".." button.</p>
         <p>Do not forget to click "Apply" button after customization.</p>
         <p>Double Commander checks the list from top to bottom until the first match: a rule higher in the list will overlap any rule below.</p>
         <br>
@@ -493,12 +521,15 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">nn</div></td><td class="hintcell">minute (leading zero)</td><td class="hintcell">06</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">second</td><td class="hintcell">2</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">ss</div></td><td class="hintcell">second (leading zero)</td><td class="hintcell">02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">milliseconds *</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">milliseconds (leading zero) *</td><td class="hintcell">001</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">short time format</td><td class="hintcell">9:06</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">tt</div></td><td class="hintcell">long time format</td><td class="hintcell">9:06:02</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">am/pm</div></td><td class="hintcell">use 12 hour clock and display am and pm accordingly (also <tt>AM/PM</tt>, <tt>a/m</tt> or <tt>A/M</tt>); for example, <code>t&nbsp;AM/PM</code></td><td class="hintcell">9:06 am</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">insert date separator</td><td class="hintcell">/</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">insert time separator</td><td class="hintcell">:</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">"text"</div></td><td class="hintcell">literal text; for example, <code>yyyy "AD"</code></td><td class="hintcell">2021 AD</td></tr>
+          <tr><td class="hintcell" colspan="3">* Windows only</td></tr>
         </table>
 
         <p>The next parameters sets the file size format:</p>
@@ -554,8 +585,9 @@
         </ul>
         <p>The screenshots below illustrate this subtle grid effect. The screenshot on the left has the vertical and horizontal lines enabled and the screenshot on the right does not.</p>
         <p class="figure"><img class="largeimage" title="with and without lines" alt="with and without lines" src="images/imgDC/pic35.png" width="690" height="128"></p>
+        <p>It is possible to change the color of the lines, see more details <a href="#ConfigColorPanels">here</a>.</p>
         <p><span class="italic">Auto fill columns</span>&nbsp;&ndash; If enabled, when resizing the window (or if free space exists), Double Commander will resize the column, which selected in the next option <span class="italic">Auto size column:</span> (first or last). The horizontal scrollbar will not be available.</p>
-        <p><span class="italic">Column titles alignment like values</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; If enabled, Double Commander will align the column header the same as the content (instead of left-aligned).</p>
+        <p><span class="italic">Column titles alignment like values</span>&nbsp;&ndash; If enabled, Double Commander will align the column header the same as the content (instead of left-aligned).</p>
         <p>If the content of the column is larger than its width:</p>
         <ul>
           <li><p><span class="italic">Cut text to column width</span>&nbsp;&ndash; Sometimes column text can overlap into other columns. This option truncates any extra text at the column boundary.</p></li>
@@ -593,7 +625,7 @@
           <li><p><tt>GETFILEEXT</tt>&nbsp;&ndash; file extension (from the dot to the end, e.g. <tt>txt</tt>).</p></li>
           <li><p><tt>GETFILESIZE</tt>&nbsp;&ndash; file or directory size. By default, the appearance will depend on the option chosen in the <a href="#ConfigView">Files views</a> section, but all possible size formats are also available.</p></li>
           <li><p><tt>GETFILETIME</tt>&nbsp;&ndash; file or directory modification date. The appearance will depend on the option chosen in the <a href="#ConfigView">Files views</a> section.</p></li>
-          <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&ndash; file or directory creation date (does not work in Linux/BSD, POSIX limitation).</p></li>
+          <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&ndash; file or directory creation date.</p></li>
           <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&ndash; file or directory last access date.</p></li>
           <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&ndash; file or directory status change date.</p></li>
           <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; file or directory attributes. You can choose a string or numeric (octal) value. In Windows, an octal value can be used if Unix attributes are displayed in the file panel (for example, with the FTP plugin). For a detailed description of the string value, see <a href="#ConfigColorFiles">here</a>.</p></li>
@@ -649,7 +681,7 @@
         <p>Search plugins are Double Commander's own plugin type, these plugins use console programs to find files (for example, Locate, Everything or Recoll). The DSX plugins interface allows to send them <a href="findfiles.html">search parameter values</a> from the "Standard" and "Advanced" tabs. </p>
         <p>Buttons:</p>
         <ul>
-          <li><p><span class="italic">Add</span>&nbsp;&ndash; opens the file selection dialog. Alternatively, you can use the internal command <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a>.</p></li>
+          <li><p><span class="italic">Add</span>&nbsp;&ndash; opens the file selection dialog. Alternatively, you can use the internal command <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a> (also plugins can be installed automatically).</p></li>
           <li><p><span class="italic">Disable</span>&nbsp;&ndash; allows to temporarily disable the selected plugin.</p></li>
           <li><p><span class="italic">Remove</span>&nbsp;&ndash; removes the selected plugin from the list (but not plugin file!).</p></li>
           <li><p>
@@ -689,7 +721,7 @@
 
         <p><span class="bold"><a name="ConfigTreeMenuColor">2.10.3. Layout&nbsp;&gt; Tree View Menu Colors</a></span></p>
         <p>Here you can customize the appearance of the menu to your preference, a preview will show all changes before saving.</p>
-        <p class="figure"><img class="largeimage" title="Tree View Menu Colors" alt="Tree View Menu Colors" src="images/imgDC/pic69.png" width="688" height="465"></p>
+        <p class="figure"><img class="largeimage" title="Tree View Menu Colors" alt="Tree View Menu Colors" src="images/imgDC/pic69.png" width="688" height="457"></p>
         <br>
 
         <p><span class="bold"><a name="ConfigToolbar">2.11. Toolbar</a></span> and <span class="bold">Toolbar&nbsp;&gt; Toolbar Middle</span></p>
@@ -786,7 +818,7 @@
           <li><p><span class="italic">When restoring tab, existing tabs to keep:</span>&nbsp;&ndash; i.e. the Favorite Tabs will be added to the already open tabs.</p></li>
         </ul>
         <p>The following values are available for each parameter: <span class="italic">Left</span>, <span class="italic">Right</span>, <span class="italic">Active</span>, <span class="italic">Inactive</span>, <span class="italic">Both</span> or <span class="italic">None</span>.</p>
-        <p><span class="italic">Keep saving dir history with Favorite Tabs</span>&nbsp;&ndash; enables or disables saving the history of each tab.</p>
+        <p><span class="italic">Keep saving dir history with Favorite Tabs</span>&nbsp;&ndash; enables or disables saving the history of visited directories for each tab.</p>
       <p>Also you can apply these parameters separately for each tabs set.</p>
         <p><span class="italic">Default position in menu when saving a new Favorite Tabs</span>&nbsp;&ndash; determines the order of adding a new set:</p>
         <ul>
@@ -808,14 +840,14 @@
         <br>
 
         <p><span class="bold"><a name="ConfigDC">2.15. Configuration</a></span></p>
-        <p class="figure"><img class="largeimage" title="Configuration" alt="Configuration" src="images/imgDC/pic75.png" width="712" height="566"></p>
+        <p class="figure"><img class="largeimage" title="Configuration" alt="Configuration" src="images/imgDC/pic75.png" width="712" height="562"></p>
         <p><span class="italic">Location of configuration files</span>&nbsp;&ndash; Here you can choose where to store all configuration files (also you can see the full path here):</p>
         <ul>
-          <li><p>Program directory (portable version).</p></li>
+          <li><p>The "settings" folder in the program directory (portable version).</p></li>
           <li><p>User home directory.</p></li>
         </ul>
-        <p>As an indicator, Double Commander uses an empty <tt>doublecmd.inf</tt> file in the program directory:
-          if the file exists, Double Commander will load configuration files from the program directory and save them here, otherwise Double Commander will use the current user's folder.
+        <p>As an indicator, Double Commander uses an empty <tt>doublecmd.inf</tt> file in the "settings" folder in the program directory:
+          if the file exists, Double Commander will load configuration files from the "settings" folder and save them here, otherwise Double Commander will use the current user's folder.
           You can manually add the <tt>doublecmd.inf</tt> file and get a portable version, or delete it by switching the storage method to the user's folder.</p>
         <p>If you launch Double Commander with the <a href="commandline.html">--config-dir</a> parameter, then DC will just write <span class="italic">Set on command line</span> and show the full path to the configuration files.</p>
         <p>To quickly navigate to the directory with configuration files, you can use the <span class="italic">Special Dirs</span> submenu in the <a href="directoryhotlist.html">Directory Hotlist</a> menu or use the <a href="variables.html#envvariables">%DC_CONFIG_PATH%</a> variable.</p>
@@ -856,11 +888,16 @@
 
         <p><span class="bold"><a name="ConfigMisc">2.17. Miscellaneous</a></span></p>
         <p>This section contains parameters for which there was no suitable place in other sections of the settings:</p>
-        <p class="figure"><img class="largeimage" title="Miscellaneous" alt="Miscellaneous" src="images/imgDC/pic46.png" width="578" height="486"></p>
-        <p><span class="italic">Show splash screen</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; If enabled, before displaying the main window, Double Commander will show a splash screen containing the program icon and version, compilation date, and the version of Lazarus, FPC, and operating system.</p>
+        <p class="figure"><img class="largeimage" title="Miscellaneous" alt="Miscellaneous" src="images/imgDC/pic46.png" width="578" height="514"></p>
+        <p><span class="italic">Show splash screen</span>&nbsp;&ndash; If enabled, before displaying the main window, Double Commander will show a splash screen containing the program icon and version, compilation date, and the version of Lazarus, FPC, and operating system.</p>
         <p><span class="italic">Show warning messages ("OK" button only)</span>&nbsp;&ndash; shows warning messages if enabled. (For example, if Double Commander cannot set some property or attribute of a file due to file system restrictions in the target directory.)</p>
         <p><span class="italic">Always go to the root of a drive when changing drives</span>&nbsp;&ndash; If unchecked, Double Commander will go to the last open directory on this drive (in this case, you can go to the root directory of the drive by pressing its button twice).</p>
         <p><span class="italic">Show current directory in the main window title bar</span>&nbsp;&ndash; If enabled, Double Commander will display the name of the current folder and the active panel path in the main window title bar.</p>
+        <p><span class="italic">Default single-byte text encoding:</span>&nbsp;&ndash; By default (NONE), the built-in file viewer and the built-in editor use automatic encoding detection, but you can specify one of the supported single-byte encodings as the default value. This parameter does not affect the automatic detection of multibyte encodings (UTF-8, UTF-16 and others). Special values are also available:</p>
+        <ul>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; default system ANSI encoding (depends on the system locale).</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; default system OEM (DOS) encoding (depends on the system locale).</p></li>
+        </ul>
         <p><span class="italic">Thumbnails</span>&nbsp;&ndash; Here you can enable to save cache of thumbnails of images and set their size. The thumbnail cache directory can be found in the <a href="#ConfigDC">Configuration</a> section. Double Commander uses PNG or JPEG (only for .bmp, .jpg and .jpeg) formats. The thumbnail name is the MD5 sum of the full name of the source file. The full name of the source file, its size and modification date will be added to the file.</p>
         <p>The <span class="italic">Remove thumbnails for no longer existing files</span> button will help to remove obsolete thumbnails.</p>
         <p><span class="italic">File comments (descript.ion)</span>&nbsp;&ndash; Here you can set the default encoding for existing <a href="help.html#cm_EditComment">file comments</a> (OEM, ANSI or UTF-8) and the encoding for new files (UTF-8 BOM, UTF-16 LE or UTF-16 BE).</p>
@@ -1014,7 +1051,8 @@
           <li><p><tt>{!TERMSTAYOPEN}</tt>&nbsp;&ndash; run in terminal and stay open at the end;</p></li>
           <li><p><tt>{!TERMANDCLOSE}</tt>&nbsp;&ndash; run in terminal and request to close it at the end.</p></li>
         </ul>
-          <p><tt>{!TERMSTAYOPEN}</tt> and <tt>{!TERMANDCLOSE}</tt> have been added for unification and the ability to use the variables <a href="variables.html#executeterm">%t0 and %t1</a>, <tt>{!SHELL}</tt> has been kept for backwards compatibility.</p>
+        <p>"View" actions with the <tt>{!DC-VIEWER}</tt> macro will be taken into account for <a href="viewer.html#quick">quick viewing</a>, other macros and commands will be ignored.</p>
+        <p><tt>{!TERMSTAYOPEN}</tt> and <tt>{!TERMANDCLOSE}</tt> have been added for unification and the ability to use the variables <a href="variables.html#executeterm">%t0 and %t1</a>, <tt>{!SHELL}</tt> has been kept for backwards compatibility.</p>
         <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
         <ul>
@@ -1028,11 +1066,11 @@
         <br>
 
         <p><span class="bold"><a name="ConfigAssocEx">2.23.1. File associations&nbsp;&gt; File associations extra</a></span></p>
-        <p class="figure"><img class="largeimage" title="File associations extra" alt="File associations extra" src="images/imgDC/pic79.png" width="578" height="343"></p>
+        <p class="figure"><img class="largeimage" title="File associations extra" alt="File associations extra" src="images/imgDC/pic79.png" width="578" height="366"></p>
         <p><span class="italic">Offer to add selection to file association when not included already</span>&nbsp;&ndash; When accessing file association, offer to add current selected file if not already included in a configured file type. This is a quick way to add an "Open with" action: Double Commander will prompt you to specify a type name and an executable file, everything else will be done automatically.</p>
         <p><span class="italic">Extended context menu</span>&nbsp;&ndash; allows to add some items to the "Actions" submenu:</p>
         <ul>
-          <li><p><span class="italic">Default context actions (View/Edit)</span><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; Commands for opening a file in the viewer and editor. Built-in tools or external applications will be used (depending on the settings), internal file associations will be ignored.</p></li>
+          <li><p><span class="italic">Default context actions (View/Edit)</span>&nbsp;&ndash; Commands for opening a file in the viewer and editor. Built-in tools or external applications will be used (depending on the settings), internal file associations will be ignored.</p></li>
           <li><p>Run using macros <tt>{!SHELL}</tt>, <tt>{!TERMANDCLOSE}</tt> and <tt>{!TERMSTAYOPEN}</tt> (see details <a href="#ConfigAssociations">here</a>):</p>
             <ul>
               <li><p><span class="italic">Execute via shell</span></p></li>

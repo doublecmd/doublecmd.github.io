@@ -59,7 +59,7 @@
                 </dl>
               </dd>
               <dt>3.5. <a href="#libraryutf8">Библиотека UTF-8</a></dt>
-              <dt>3.6. <a href="#librarychar">Библиотека Char</a><span class="versionref"><sup>(Бета-версия)</sup></span></dt>
+              <dt>3.6. <a href="#librarychar">Библиотека Char</a></dt>
               <dt>3.7. <a href="#libraryos">Библиотека OS</a></dt>
             </dl>
           </dd>
@@ -71,7 +71,7 @@
         <p>Подробную информацию о скриптовом языке программирования Lua можно найти на <a href="https://www.lua.org/" target="_blank">веб-сайте Lua</a>.</p>
         <p>Double Commander может выполнять скрипты Lua с помощью команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.<br>
           Параметры скриптов должны передаваться как есть, без экранирования (без кавычек или "\"), для этого необходимо использовать переменную <a href="variables.html#quotation">%"0</a>: например, <code>%"0%p0</code> для файла под курсором вместо <code>%p0</code> или <code>%"0%D</code> для текущего каталога вместо <code>%D</code>. В противном случае, если Double Commander автоматически добавит кавычки, они будут переданы как часть параметра и вам придётся их учитывать.<br>
-          Для получения списка всех выделенных файлов мы можем использовать <a href="variables.html#listoffiles">переменные</a> (<code>%LU</code>, <code>%FU</code> или <code>%RU</code>) или внутренние команды (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a><span class="versionref"><sup>(Бета-версия)</sup></span>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> или <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>).
+          Для получения списка всех выделенных файлов мы можем использовать <a href="variables.html#listoffiles">переменные</a> (<code>%LU</code>, <code>%FU</code> или <code>%RU</code>) или внутренние команды (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> или <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>).
           Мы можем использовать, например, <code>%p</code>: в этом случае Double Commander передаст имена всех выделенных файлов одной строкой, разделяя имена пробелом.</p>
         <p>Также на языке Lua можно писать информационные плагины, примеры можно найти в папке программы (<tt>plugins/wdx/scripts</tt>).
           В Вики есть <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">страница</a>, посвящённая написанию плагинов.
@@ -106,7 +106,7 @@
       <div>
         <h2><a name="dllrequired">2. Необходимая DLL</a></h2>
         <p>Чтобы использовать скрипты Lua, нам требуется интерпретатор Lua, Double Commander поддерживает версии 5.1 - 5.4.</p>
-        <p>По умолчанию DC ищет файл с именем <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix или GNU/Linux) или <tt>liblua5.1.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) в своём каталоге и в системном. Мы можем изменить имя файла (и путь) в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
+        <p>По умолчанию DC ищет файл с именем <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix или GNU/Linux) или <tt>liblua5.1.dylib</tt> (macOS) в своём каталоге и в системном. Мы можем изменить имя файла (и путь) в параметре <a href="configuration.html#luapathtolibrary">Библиотека Lua</a>.</p>
         <p>Мы можем использовать DLL-файл <a href="https://luajit.org/" target="_blank">проекта LuaJIT</a>.
            LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
         <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать. Если используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
@@ -433,6 +433,13 @@
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.GetTempName</div></td>
+            <td class="hintcell">
+              <p class="definition">sTempFileName = SysUtils.GetTempName()</p>
+              <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла (в системном каталоге для временных файлов), подобно функции <a href="#libraryos">os.tmpname</a>, но файл будет создан в подкаталоге, который автоматически удаляется при закрытии Double Commander.<br>Если функции не удалось создать уникальное имя, то она вернёт пустую строку.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">SysUtils.PathDelim</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.PathDelim</p>
@@ -710,7 +717,7 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Dialogs.InputListBox</div></td>
             <td class="hintcell">
-              <p class="definition">sItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
+              <p class="definition">sItem, iItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
               <p>Показывает диалоговое окно с возможностью выбора из списка элементов.</p>
               <p>Описание:</p>
               <ul>
@@ -719,6 +726,7 @@
                 <li><var>aItems</var> : Таблица Lua, каждый элемент таблицы должен быть строкой.</li>
                 <li><var>sDefault</var> : Пункт списка, выделенный по умолчанию.</li>
                 <li><var>sItem</var> : Возвращаемая строка с выбранным пунктом или <code>nil</code> в случае отмены.</li>
+                <li><var>iItem</var> : Индекс выделенного пункта (отсчёт от единицы, как принято в таблицах Lua).</li>
               </ul>
             </td>
           </tr>
@@ -943,7 +951,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Next<span class="versionref"><sup>(Бета-версия)</sup></span></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.Next</div></td>
             <td class="hintcell">
               <p class="definition">LazUtf8.Next(String)</p>
               <p>Функция-итератор, которая при каждом вызове возвращает следующий символ в строке <var>String</var> и позицию начала этого символа (в байтах).</p>
@@ -1018,12 +1026,19 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               </ul>
             </td>
           </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">LazUtf8.DetectEncoding</div></td>
+            <td class="hintcell">
+              <p class="definition">sEnc = LazUtf8.DetectEncoding(String)</p>
+              <p>Возвращает значение кодировки переданного текста.<br>Список поддерживаемых кодировок аналогичен тем, которые используются в функции <code>LazUtf8.ConvertEncoding</code>.</p>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
       <div>
-        <h2><a name="librarychar">3.6. Библиотека Char</a><span class="versionref"><sup>(Бета-версия)</sup></span></h2>
+        <h2><a name="librarychar">3.6. Библиотека Char</a></h2>
         <p>Эта библиотека содержит функции для проверки принадлежности символа к определённой категории юникода, а также для получения категории символа.</p>
         <p>Список доступных функций:</p>
         <table>

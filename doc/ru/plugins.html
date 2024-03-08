@@ -25,7 +25,7 @@
           <dt>1. Архиваторные плагины (WCX)</dt>
           <dd>
             <dl>
-              <dt>1.1. <a href="#base64.wcx">Base64</a><span class="versionref"><sup>(Бета-версия)</sup></span></dt>
+              <dt>1.1. <a href="#base64.wcx">Base64</a></dt>
               <dt>1.2. <a href="#cpio.wcx">CPIO</a></dt>
               <dt>1.3. <a href="#deb.wcx">DEB</a></dt>
               <dt>1.4. <a href="#rpm.wcx">RPM</a></dt>
@@ -54,9 +54,9 @@
           <dt>4. Плагины встроенной программы просмотра (WLX)</dt>
           <dd>
             <dl>
-              <dt>4.1. <a href="#macpreview.wlx">MacPreview</a><span class="versionref"><sup>(Бета-версия)</sup></span></dt>
+              <dt>4.1. <a href="#macpreview.wlx">MacPreview</a></dt>
               <dt>4.2. <a href="#preview.wlx">Explorer Preview</a></dt>
-              <dt>4.3. <a href="#richview.wlx">Rich Text Format</a><span class="versionref"><sup>(Бета-версия)</sup></span></dt>
+              <dt>4.3. <a href="#richview.wlx">Rich Text Format</a></dt>
               <dt>4.4. <a href="#wlxmplayer.wlx">WlxMplayer</a></dt>
               <dt>4.5. <a href="#wmp.wlx">Windows Media Player</a></dt>
             </dl>
@@ -74,7 +74,7 @@
         <h2><a name="wcx">1. Архиваторные плагины (WCX)</a></h2>
         <br>
 
-        <p><span class="bold"><a name="base64.wcx">Base64</a></span><span class="versionref"><sup>(Бета-версия)</sup></span></p>
+        <p><span class="bold"><a name="base64.wcx">Base64</a></span></p>
         <p>Плагин Base64 предоставляет возможность кодировать и декодировать файлы по схеме Base64, это один из стандартов кодирования двоичных данных при помощи печатных символов ASCII.</p>
         <br>
 
@@ -99,18 +99,18 @@
 
         <p><span class="bold"><a name="unrar.wcx">UnRAR</a></span></p>
         <p>Архиваторный плагин для распаковки архивов RAR.</p>
-        <p>Для использования этого плагина нам необходима библиотека <a href="https://www.rarlab.com/" target="_blank">UnRAR</a>, плагин будет использовать <tt>unrar.dll</tt> (Windows), <tt>libunrar.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libunrar.so</tt> или <tt>libunrar.so.5</tt> (Linux и другие Unix-подобные ОС).</p>
+        <p>Для использования этого плагина нам необходима библиотека <a href="https://www.rarlab.com/" target="_blank">UnRAR</a>, плагин будет использовать <tt>unrar.dll</tt> (Windows), <tt>libunrar.dylib</tt> (macOS), <tt>libunrar.so</tt> или <tt>libunrar.so.5</tt> (Linux и другие Unix-подобные ОС).</p>
         <p>Дистрибутивы Double Commander для Windows и портативная версия для Linux содержат необходимую библиотеку, в иных случаях мы можем использовать обычные способы получения библиотек в операционной системе (например, пакет <tt>libunrar5</tt> в Debian/Ubuntu или <tt>libunrar</tt> в Arch Linux). В противном случае мы можем попробовать найти подходящий вариант на <a href="https://www.rarlab.com/rar_add.htm" target="_blank">этой</a> странице (файл должен быть скопирован в системный каталог или каталог, в котором расположен исполняемый файл Double Commander).</p>
-        <p>Плагин также поддерживает возможность упаковать файлы в архив RAR, для этого нам нужно указать путь к <tt>WinRAR.exe</tt> (Windows) или к утилите командной строки <tt>rar</tt> (в иных случаях) в настройках плагина.</p>
+        <p>Плагин также поддерживает возможность упаковать файлы в архив RAR, для этого нам нужно указать путь к <tt>WinRAR.exe</tt> (только Windows) или к утилите командной строки <tt>rar</tt> в настройках плагина.</p>
         <br>
 
         <p><span class="bold"><a name="zip.wcx">Zip</a></span></p>
         <p>Архиваторный плагин для работы с архивами .bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .tzst, .xz, .zip, .zipx и .zst. Также этот плагин может открыть файлы, основанные на ZIP (EPUB, Office Open XML, формат OpenDocument, CRX, XPI и другие).</p>
         <p>Требуются дополнительные библиотеки сжатия:</p>
         <ul>
-          <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libbz2.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
-          <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>liblzma.so.5</tt> (Linux и другие Unix-подобные ОС).</p></li>
-          <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), <tt>libzstd.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
+          <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS), <tt>libbz2.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
+          <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS), <tt>liblzma.so.5</tt> (Linux и другие Unix-подобные ОС).</p></li>
+          <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS), <tt>libzstd.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
         </ul>
         <p>Дистрибутивы Double Commander для Windows содержат все необходимые библиотеки и эти библиотеки обычно установлены по умолчанию в Linux для настольных компьютеров/рабочих станций.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -158,10 +158,15 @@
         <p>Это плагин файловой системы для работы со следующими сетевыми протоколами: FTP, FTPS, FTPES, SFTP и SSH+SCP. Плагин также поддерживает работу с прокси-серверами (HTTP, SOCKS 4 или SOCKS 5).</p>
         <p>Требуются дополнительные библиотеки:</p>
         <p>1) Протоколы SSL и TLS</p>
-        <p>Пакет безопасности Microsoft Unified Security Protocol Provider (только Windows) или криптографическая библиотека <a href="https://www.openssl.org/" target="_blank">OpenSSL</a>. Во втором случае плагин FTP будет использовать <tt>ssleay32.dll</tt> и <tt>libeay32.dll</tt> (Windows), <tt>libssl.dylib</tt> и <tt>libcrypto.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) или <tt>libssl.so</tt> и <tt>libcrypto.so</tt> (Linux и другие Unix-подобные ОС).</p>
+        <ul>
+          <li><p>Криптографическая библиотека <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> (3.1, 3.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1): плагин FTP будет использовать <tt>ssleay32.dll</tt> и <tt>libeay32.dll</tt> (Windows), <tt>libssl.dylib</tt> и <tt>libcrypto.dylib</tt> (macOS) или <tt>libssl.so.N</tt> и <tt>libcrypto.so.N</tt> (Linux и другие Unix-подобные ОС), где "N"&nbsp;&ndash; номер версии. Имена библиотек нередко включают номер версии, плагин содержит список распространённых имён и нужный файл будет найден в системе автоматически.<br>
+            Скомпилированные бинарные файлы OpenSSL для Windows можно найти <a href="https://wiki.openssl.org/index.php/Binaries" target="_blank">здесь</a>, в остальных случаях мы можем использовать менеджер пакетов операционной системы (например, пакет <tt>libssl3</tt> или <tt>libssl1.1</tt> в Debian/Ubuntu, <tt>openssl</tt> в Arch Linux, <tt>openssl</tt> в macOS (Homebrew)).</p></li>
+          <li><p>В качестве альтернативы в Linux плагин может использовать библиотеку <a href="https://www.gnutls.org/" target="_blank">GnuTLS</a> (<tt>libgnutls.so.N</tt>, где "N"&nbsp;&ndash; номер версии).</p></li>
+        </ul>
         <p>2) Протокол SSH</p>
-        <p>Библиотека <a href="https://libssh2.org/" target="_blank">libssh</a>: плагин FTP будет использовать <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) или <tt>libssh2.so.1</tt> (Linux и другие Unix-подобные ОС).</p>
-        <p>Дистрибутивы Double Commander для Windows содержат эту библиотеку, в иных случаях мы можем использовать обычные способы получения библиотек в операционной системе (например, пакет <tt>libssh2-1</tt> в Debian/Ubuntu или <tt>libssh2</tt> в Arch Linux).</p>
+        <p>Библиотека <a href="https://libssh2.org/" target="_blank">libssh</a>: плагин FTP будет использовать <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS) или <tt>libssh2.so.1</tt> (Linux и другие Unix-подобные ОС).</p>
+        <p>Дистрибутивы Double Commander для Windows содержат эту библиотеку, в иных случаях мы можем использовать обычные способы получения библиотек в операционной системе (например, пакет <tt>libssh2-1</tt> в Debian/Ubuntu, <tt>libssh2</tt> в Arch Linux, <tt>libssh2</tt> в macOS (Homebrew)).</p>
+        <p>Плагин позволяет использовать агент SSH-аутентификации (например, ssh-agent из набора утилит OpenSSH, Pageant из PuTTY).</p>
         <br>
 
         <p><span class="bold"><a name="samba.wfx">Samba</a></span></p>
@@ -174,9 +179,9 @@
         <h2><a name="wlx">4. Плагины встроенной программы просмотра (WLX)</a></h2>
         <br>
 
-        <p><span class="bold"><a name="macpreview.wlx">MacPreview</a></span><span class="versionref"><sup>(Бета-версия)</sup></span></p>
+        <p><span class="bold"><a name="macpreview.wlx">MacPreview</a></span></p>
         <p>Универсальный (форматы офисных документов, изображения, видеофайлы, аудиофайлы и другое) плагин, использующий <a href="https://ru.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>, как в Finder.</p>
-        <p>Только macOS<sup>(<a title="Примечание о поддержке macOS" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>.</p>
+        <p>Только macOS.</p>
         <br>
 
         <p><span class="bold"><a name="preview.wlx">Explorer Preview</a></span></p>
@@ -185,7 +190,7 @@
         <p>Только Windows.</p>
         <br>
 
-        <p><span class="bold"><a name="richview.wlx">Rich Text Format</a></span><span class="versionref"><sup>(Бета-версия)</sup></span></p>
+        <p><span class="bold"><a name="richview.wlx">Rich Text Format</a></span></p>
         <p>Плагин для просмотра файлов RTF.</p>
         <p>Только Windows.</p>
         <br>

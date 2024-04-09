@@ -56,9 +56,8 @@
         <p><span class="uline">So generally, we don't have to manually edit the content of the configuration file</span>.</p>
         <p>But there are some very rare specific settings that required to be edited manually from the configuration file if we want to tweak the application.</p>
         <br>
-        <p><b>WARNING:</b> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <tt>doublecmd.xml</tt> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.</p>
-        <br>
-        <p><b>About color format</b>: We can set color as hex number using format <code>$BBGGRR</code>. For example, if we want to use the indigo color <code>#4B0082</code>, we would write <code>$82004B</code>.</p>
+        <p><b>WARNING:</b> We will not edit that file WHILE Double Commander is running! Not only because anyway their values are read only when we're starting the application, but also because if we edited the file while DC is running, when we'll close the application the values we would have wrote will be overwritten by the application re-saving its current context for next session. If we need to edit the <tt>doublecmd.xml</tt> file, we need to make sure we close Double Commander, then we edit file, and then we re-launch the application.<br>
+          There is an alternative solution, see more details <a href="configuration.html#ConfigDC">here</a> (but to apply changes to some options, you may still need to restart the application).</p>
         <br>
         <p>The following table gives us these rare specific settings that we need to manually edit the file if we need to change them.</p>
         <br>
@@ -121,7 +120,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Behaviours&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<br><small>from &lt;Behaviours&gt;</small></div></td>
             <td class="hintcell">Confirm closing Double Commander (<code>True</code>) or not (<code>False</code>). <code>False</code> by default.</td>
           </tr>
 
@@ -140,62 +139,11 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;PathLabel&gt;<br><small>from &lt;Colors&gt;</small></div></td>
-            <td class="hintcell">
-              Change colors of <a href="help.html#iface_dir">current directory bar</a>:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Tag</th>
-                  <th class="innerdescheader">File panel</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;ActiveColor&gt;</td>
-                  <td class="innerdescvaluecell" rowspan="2">active</td>
-                  <td class="innerdescdesccell">background color</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;ActiveFontColor&gt;</td>
-                  <td class="innerdescdesccell">font color</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;InactiveColor&gt;</td>
-                  <td class="innerdescvaluecell" rowspan="2">inactive</td>
-                  <td class="innerdescdesccell">background color</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;InactiveFontColor&gt;</td>
-                  <td class="innerdescdesccell">font color</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Info&gt;, &lt;Error&gt; <small>and</small> &lt;Success&gt;<br><small>from &lt;Colors&gt;&lt;LogWindow&gt;</small></div></td>
-            <td class="hintcell">Change text color of log window (info, error, success messages). Also, these colors are used in the window with the result of <a href="help.html#cm_CheckSumVerify">verifying checksums</a>.</td>
-          </tr>
-
-          <tr>
             <td colspan="2"></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Added&gt;, &lt;Deleted&gt; <small>and</small> &lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;</small></div></td>
-            <td class="hintcell">For the internal Differ tool, set colors for added, deleted and modified lines.</td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Modified&gt;<br><small>from &lt;Differ&gt;&lt;Colors&gt;&lt;Binary&gt;</small></div></td>
-            <td class="hintcell">For the internal Differ tool, set the color for differing characters in binary mode.</td>
-          </tr>
-
-          <tr>
-            <td colspan="2"></td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Editor&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<br><small>from &lt;Editor&gt;</small></div></td>
             <td class="hintcell">Internal editor and differ tool: if nothing is selected, the search and replace dialog will use the word under the cursor (<code>True</code>) or text from the search history (<code>False</code>). <code>True</code> by default.</td>
           </tr>
 
@@ -245,7 +193,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the attributes of the source file will be copied when copying/moving files; if <code>False</code>, the attributes of the source file will also be copied and Double Commander will set the "archive" attribute.<br>
-              Linux and others: use the <span class="italic">Copy attributes</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
+              Linux and others: use the <span class="italic">Copy attributes</span> option in the <a href="copymove.html">copy/move dialog window</a>.<br>
               <code>True</code> by default.
             </td>
           </tr>
@@ -254,7 +202,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyTime&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the timestamps of the source file will be copied (creation date, modification date, last access date) when copying/moving files, otherwise, only the modification date will be copied and the current date will be used for others.<br>
-              Linux and others: use the <span class="italic">Copy date/time</span> parameter in the <a href="copymove.html">copy/move dialog window</a>.<br>
+              Linux and others: use the <span class="italic">Copy date/time</span> option in the <a href="copymove.html">copy/move dialog window</a>.<br>
               <code>True</code> by default.
             </td>
           </tr>
@@ -290,6 +238,15 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;RenameConfirmMouse&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
+            <td class="hintcell">
+              This option changes the mouse click action when renaming a file under the cursor: if <code>True</code>, the mouse click outside the name input field will confirm renaming the file (as in Windows Explorer), otherwise, the mouse click will work the same as the <kbd>Esc</kbd> key.<br>
+              <code>False</code> by default.<br>
+              In both cases, we can still use the button to the right of the input field to confirm the operation.
+            </td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">
               When we manually change the column width with the mouse help, by default DC changes it for both panels and saves a new value for the next launches.<br>
@@ -298,7 +255,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<br><small>from &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
             <td class="hintcell">If the columns view is set and there are no selected files, the status bar displays the file name under the cursor (<code>True</code>) or the number of files (<code>False</code>, by default).<br>
               If <code>True</code>, the status bar will also show the number of files when the cursor is on the ".." item. For links, target objects will additionally be displayed.</td>
           </tr>
@@ -483,30 +440,17 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultTextEncoding&gt;<br><small>from &lt;Miscellaneous&gt;</small></div></td>
-            <td class="hintcell">
-              By default (NONE), the built-in file viewer and the built-in editor use automatic encoding detection, but you can specify one of the supported single-byte encodings as the default value.
-              The list of supported encodings can be viewed, for example, in the internal editor in the "Encoding" menu. Special values are also available:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">ANSI</td>
-                  <td class="innerdescdesccell">Default system ANSI encoding (depends on user locale).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">OEM</td>
-                  <td class="innerdescdesccell">Default system OEM (DOS) encoding (depends on user locale).</td>
-                </tr>
-              </table>
-              This parameter does not affect the automatic detection of multibyte encodings (UTF-8, UTF-16 and others).
-            </td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DecimalSeparator&gt;<br><small>from &lt;Miscellaneous&gt;</small></div></td>
+            <td class="hintcell">The option allows to specify the preferred decimal separator character (i.e. separator for integer and fractional parts of a number) instead of the value from your regional settings. We can specify any character from the ASCII table with a code from U+0000 to U+007F (the use of printable characters is implied, i.e. from U+0020 to U+007E).</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SystemItemProperties&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Miscellaneous&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DoubleClickEditPath&gt;<br><small>from &lt;Miscellaneous&gt;</small></div></td>
+            <td class="hintcell">The option allows to choose the action of double-clicking on the the <a href="help.html#iface_dir">current directory bar</a>: show directory hotlist (<code>False</code>, by default) or edit current path (<code>True</code>).</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SystemItemProperties&gt;<br><small>from &lt;Miscellaneous&gt;</small></div></td>
             <td class="hintcell">Linux/FreeBSD: the <code>True</code> value allows to use the file properties dialog window of the file manager, which is specified as the default program in the desktop environment settings (if it possible), otherwise, Double Commander will use its own <a href="help.html#cm_FileProperties">properties window</a>. <code>False</code> by default.</td>
           </tr>
 
@@ -524,7 +468,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
             <td class="hintcell">
               Synchronize directories: by default, the program saves the last used file mask as the default mask for the next run of the synchronization tool (if it is not a search template),
               to disable this behavior, we can replace <code>True</code> with <code>False</code><br>
@@ -534,27 +478,8 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Left&gt;, &lt;Right&gt; <small>and</small> &lt;Unknown&gt;<br><small>from &lt;SyncDirs&gt;&lt;Colors&gt;</small></div></td>
-            <td class="hintcell">Text colors in the directory synchronization tool:<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Tag</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;Left&gt;</td>
-                  <td class="innerdescdesccell">Files selected for copying or deleting on the left.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;Right&gt;</td>
-                  <td class="innerdescdesccell">Files selected for copying or deleting on the right.</td>
-                </tr>
-                <tr>
-                  <td class="innerdescdesccell">&lt;Unknown&gt;</td>
-                  <td class="innerdescdesccell">Files with the same names, but not identical.</td>
-                </tr>
-              </table>
-            </td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DateTimeFormat&gt;<br><small>from &lt;SyncDirs&gt;</small></div></td>
+            <td class="hintcell">This setting allows to specify the preferred date and time format in the <a href="syncdirs.html">directory synchronization tool</a>. Date and time formatting symbols are described <a href="configuration.html#dt_format">here</a>.<br>Default value is <code>yyyy.mm.dd hh:nn:ss</code>.</td>
           </tr>
 
           <tr>
@@ -562,7 +487,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">For the internal viewer, enables (<code>True</code>) or disables (<code>False</code>) automatic copying of the selected text to the clipboard. <code>True</code> by default.</td>
           </tr>
 
@@ -573,19 +498,6 @@
               The value is interpreted directly in pixels.<br>
               Default value is 0.<br>
               <i>Example:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor1&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">For the internal viewer, sets the background color of the window when viewing images.</td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageBackColor2&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
-            <td class="hintcell">
-              If <a href="viewer.html#mnu_image">Image&nbsp;&gt; Show transparency</a> is enabled, the internal viewer indicates transparency using a checkerboard pattern as background and <code>ImageBackColor2</code> defines the color of the squares.<br>
-              If not set, the viewer will automatically calculate the value: for a dark background, light squares will be used and vice versa.
             </td>
           </tr>
 
@@ -614,7 +526,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;JpegQuality&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;JpegQuality&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">For the internal viewer, the quality value that Double Commander will use by default when saving to JPEG format (the commands <span class="italic">Save</span> and <span class="italic">Save As...</span>). 80 by default.</td>
           </tr>
 
@@ -629,6 +541,14 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;MaxCodeSize&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="hintcell">
+              For the internal viewer, limits the maximum file size for automatic choice of the code viewing mode (displaying text with syntax highlighting requires more resources than displaying plain text). The option value is ignored when we force the code viewing mode in the viewer window.<br>
+              The size is specified in megabytes, the default value is 128.
+            </td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, configure the maximum number of characters to be displayed on one text line prior to wrap it up to the next one.<br>
@@ -638,7 +558,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SynEditMask&gt;<span class="versionref"><sup>(Beta version)</sup></span><br><small>from &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SynEditMask&gt;<br><small>from &lt;Viewer&gt;</small></div></td>
             <td class="hintcell">
               For the internal viewer, this option allows to manage the list of file extensions for code view mode (of course, within the available list).
               We can specify file masks (separated by semicolons ";" without spaces) that will automatically open in this mode instead of plain text, or the name of a search template to exclude. We can also disable automatic opening of files in this mode by setting an empty string.

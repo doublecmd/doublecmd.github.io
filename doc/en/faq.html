@@ -30,7 +30,6 @@
               <dt>1.3. <a href="#linux">Is it a Total Commander for Linux?</a></dt>
               <dt>1.4. <a href="#wincmd">What is the difference between this program and my favorite file manager (Total Commander)?</a></dt>
               <dt>1.5. <a href="#link">How can I contact the developers of Double Commander?</a></dt>
-              <dt>1.6. <a href="#pupd">How to update the portable version without losing settings?</a></dt>
             </dl>
           </dd>
           <dt><a name="tux">2. Issues related to GNU/Linux</a></dt>
@@ -67,6 +66,8 @@
               <dt>4.6. <a href="#context_menu_edit">How to customise the context menu, for example, add the item "Open With"?</a></dt>
               <dt>4.7. <a href="#auto_extract">How to automatically unpack and run file from an open archive? It is inconvenient to use the "Unpack and execute" button in the properties window of the packed file every time.</a></dt>
               <dt>4.8. <a href="#descript_ion">Can the comments (via the descript.ion file) be copied/moved when a file is copied/moved from one directory to another?</a></dt>
+              <dt>4.9. <a href="#set_property">In some cases I see warning "Can not set [attributes, date/time, owner/group or permissions] for xxx" when I copy or move files, I want that DC use action "skip"/"skip all" by default. How I can do it?</a></dt>
+              <dt>4.10. <a href="#admin_shares">Why doesn't the program show a list of admin shares?</a></dt>
             </dl>
           </dd>
           <dt><a name="viewer">5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
@@ -77,19 +78,19 @@
               <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most.</a></dt>
               <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge.</a></dt>
               <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
-              <dt>5.6. <a href="#f3_svg">Is it possible to add SVG support in the viewer?</a></dt>
-              <dt>5.7. <a href="#f34_regutf8">How can I use regular expressions to search in UTF-8?</a></dt>
-              <dt>5.8. <a href="#f4_syntax">How to change the syntax highlighting scheme in the internal editor or add new ones?</a></dt>
+              <dt>5.6. <a href="#f34_regutf8">How can I use regular expressions to search in UTF-8?</a></dt>
+              <dt>5.7. <a href="#f4_syntax">How to change the syntax highlighting scheme in the internal editor or add new ones?</a></dt>
+              <dt>5.8. <a href="#f4_open">How to open a specific file from a manually specified location in the built-in viewer?</a></dt>
             </dl>
           </dd>
           <dt><a name="fv">6. Issues related to the file panels</a></dt>
           <dd>
             <dl>
               <dt>6.1. <a href="#fv_datetime">I didn't find a suitable date format for file panels in the list! How to add my own?</a></dt>
-              <dt>6.2. <a href="#fv_svg">Is it possible to add SVG thumbnails support in thumbnails view?</a></dt>
-              <dt>6.3. <a href="#fn_ext">I want to see the filenames in the "Name" column with extensions, can I do it?</a></dt>
-              <dt>6.4. <a href="#folder_sort">Is it possible to sort folders by clicking on column header ("Date", "Size" and so on)?</a></dt>
-              <dt>6.5. <a href="#slinkt">How to see the target objects of symbolic links?</a></dt>
+              <dt>6.2. <a href="#fn_ext">I want to see the filenames in the "Name" column with extensions, can I do it?</a></dt>
+              <dt>6.3. <a href="#folder_sort">Is it possible to sort folders by clicking on column header ("Date", "Size" and so on)?</a></dt>
+              <dt>6.4. <a href="#slinkt">How to see the target objects of symbolic links?</a></dt>
+              <dt>6.5. <a href="#parent">How to hide the ".." item for the parent directory in the file list?</a></dt>
             </dl>
           </dd>
           <dt><a name="plugins">7. Plugins</a></dt>
@@ -115,7 +116,7 @@
         <br>
 
         <p class="bold"><a name="linux">Q: Is it a Total Commander for Linux?</a></p>
-        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>, also Double Commander is available in the FreeBSD Ports collection.</p>
+        <p><span class="bold">A:</span> No, this is another program from other developers. It now supports Windows, GNU/Linux operating systems with toolkits GTK and Qt (depends on Lazarus, so at the moment, GTK2 and Qt5) and macOS, also Double Commander is available in the FreeBSD Ports collection.</p>
         <br>
 
         <p class="bold"><a name="wincmd">Q: What is the difference between this program and my favorite file manager (Total Commander)?</a></p>
@@ -127,22 +128,13 @@
         <p><span class="bold">A:</span> The project's <a href="https://doublecmd.h1n.ru/" target="_blank">official forum</a> or <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
           Make sure you are using the latest version of the program and it's a good idea to check the development (alpha) version before reporting a bug or requesting a new feature.
           Also see <a title="Creating a new issue" href="https://github.com/doublecmd/doublecmd/issues/117" target="_blank">#117</a>.</p>
-        <br>
-
-        <p class="bold"><a name="pupd">Q: How to update the portable version without losing settings?</a></p>
-        <p><span class="bold">A:</span> Upgrading is done by simply unpacking and replacing files, but you should pay attention to the following files:</p>
-        <ul>
-          <li><tt>multiarc.ini</tt>&nbsp;&ndash; see <a href="multiarc.html">external archivers</a>;</li>
-          <li><tt>pixmaps.txt</tt>&nbsp;&ndash; see <a href="configuration.html#ConfigIcons">Configuration&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Only standard icons</a>.</li>
-        </ul>
-        <p>If you did not change these settings, then just agree with the replacement of files. Otherwise, compare with yours and copy the changes.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2>2. Issues related to GNU/Linux</h2>
         <p class="bold"><a name="version">Q: Which version do I download?</a></p>
-        <p><span class="bold">A:</span> If you have KDE or LXQt&nbsp;&ndash; download a Qt-build; in other cases (Cinnamon, GNOME, LXDE, MATE or Xfce) a build for GTK toolkit. But this is not strict rule.</p>
+        <p><span class="bold">A:</span> If you have KDE, LXQt or Fly&nbsp;&ndash; download a Qt-build; in other cases (Cinnamon, GNOME, LXDE, MATE or Xfce) a build for GTK toolkit. But this is not strict rule.</p>
         <br>
 
         <p class="bold"><a name="repo">Q: Where is the project repository?</a></p>
@@ -318,8 +310,16 @@
         <p><span class="bold">A:</span> See description of <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>.</p>
         <br>
 
-        <p class="bold"><a name="descript_ion">Q: can the comments (via the descript.ion file) be copied/moved when a file is copied/moved from one directory to another?</a></p>
+        <p class="bold"><a name="descript_ion">Q: Can the comments (via the descript.ion file) be copied/moved when a file is copied/moved from one directory to another?</a></p>
         <p><span class="bold">A:</span> Yes, it is possible: go to Configurations&nbsp;&gt; Options&nbsp;&gt; File operations and enable "Process comments with files/folders".</p>
+        <br>
+
+        <p class="bold"><a name="set_property">Q: In some cases I see warning "Can not set [attributes, date/time, owner/group or permissions] for xxx" when I copy or move files, I want that DC use action "skip"/"skip all" by default. How I can do it?</a></p>
+        <p><span class="bold">A:</span> Run a copy or move operation and change the value of the <a href="copymove.html#confirmation">When cannot set property</a> option to "Ignore". The "Save these options as default" button will allow to use this value for subsequent operations.</p>
+        <br>
+
+        <p class="bold"><a name="admin_shares">Q: Why doesn't the program show a list of admin shares?</a></p>
+        <p><span class="bold">A:</span> Administrative shares are hidden network shares, make sure that you have enabled the display of hidden files and folders (use the <a href="configuration.html#ConfigViewEx">program settings</a> or the corresponding item in the <a href="help.html#mnu_view">Show</a> menu).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -340,19 +340,11 @@
         <br>
 
         <p class="bold"><a name="f3_hscroll">Q: On some text files lines go beyond the window's edge.</a></p>
-        <p><span class="bold">A:</span> Use "Show as Wrap text" option in the viewer (in the "View" menu). Internal editor does not support wrap lines.</p>
+        <p><span class="bold">A:</span> Enable "Wrap text" option in the viewer (in the "View" menu). Internal editor does not support wrap lines.</p>
         <br>
 
         <p class="bold"><a name="f4_colmode">Q: Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></p>
         <p><span class="bold">A:</span> Internal editor supports column and line selection modes and multi-carets, see keyboard shortcuts <a href="shortcuts.html#editor">here</a>.</p>
-        <br>
-
-        <p class="bold"><a name="f3_svg">Q: Is it possible to add SVG support in the viewer?</a></p>
-        <p><span class="bold">A:</span> Supported via librsvg:</p>
-        <ul>
-          <li><p>Linux: install package <tt>librsvg</tt>.</p></li>
-          <li><p>Windows: needs <tt>libcairo-2.dll</tt>, <tt>librsvg-2-2.dll</tt> and <tt>libgobject-2.0-0.dll</tt> (+ all dependencies), for example, you can take DLLs from GIMP. You should copy this DLLs to Double Commander folder or in PATH.</p></li>
-        </ul>
         <br>
 
         <p class="bold"><a name="f34_regutf8">Q: How can I use regular expressions to search in UTF-8?</a></p>
@@ -360,15 +352,14 @@
         <ul>
           <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Ubuntu or <tt>pcre2</tt> in Arch Linux.</p></li>
           <li><p>Windows: needs <tt>libpcre2-8.dll</tt> (by default, the Double Commander distribution contains this DLL).</p></li>
-          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>: needs <tt>libpcre2-8.dylib</tt>.</p></li>
+          <li><p>macOS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <br>
 
         <p class="bold"><a name="f4_syntax">Q: How to change the syntax highlighting scheme in the internal editor or add new ones?</a></p>
         <p><span class="bold">A:</span> DC uses two components:</p>
         <p>1. <i>SynEdit</i> with built-in syntax highlighters. If you want to change any highlighter, you should change the DC or Lazarus source code.
-          But you can easily change the colors used and the file extension lists: go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Tools&nbsp;&gt; Editor&nbsp;&gt; Highlighters. Do not forget to save customizations for each file type.<br>
-          All settings are saved in the <tt>highlighters.xml</tt> file.</p>
+          But you can easily change the colors used and the file extension lists: go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Tools&nbsp;&gt; Editor&nbsp;&gt; Highlighters. Do not forget to save customizations for each file type.</p>
         <p>2. <i>SynUniHighlighter</i> for custom syntax highlighting schemes (.hgl) and you can try to find or create this files yourself (see below).</p>
         <p>This files are usual XML-based files, you can open them in a text editor and read/change. In the beginning of this files is the <code>&lt;General&gt;</code> tag (inside <code>&lt;Info&gt;</code>):</p>
         <p>1) Old format: <code>&lt;General&gt;</code> has tags<br>
@@ -381,7 +372,7 @@
         <p><span class="uline"><i>How to create or edit:</i></span></p>
         <p>Use UniHighlighter Editor or HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">download</a>). Both programs were written for Windows, but you can use Wine. HglEditor will save HGL-file in the new format.<br>
           Two packs of various highlighters are also available.<br>
-          In the <a href="configuration.html#ConfigToolsEditorHL">Tools&nbsp;&gt; Editor&nbsp;&gt; Highlighters</a> section, you can change the text and background colors and font style.<span class="versionref"><sup>(Beta version)</sup></span></p>
+          In the <a href="configuration.html#ConfigToolsEditorHL">Tools&nbsp;&gt; Editor&nbsp;&gt; Highlighters</a> section, you can change the text and background colors and font style.</p>
         <p><span class="uline"><i>How to add:</i></span></p>
         <p>1) Portable version<br>
           Copy (or move) your HGL-file(s) to the "highlighters" folder near <tt>doublecmd.exe</tt> and restart DC.</p>
@@ -403,6 +394,10 @@
           &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3"/&gt;</code><br>
           and after<br>
           &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3" Other="1"/&gt;</code></p>
+        <br>
+
+        <p class="bold"><a name="f4_open">How to open a specific file from a manually specified location in the built-in viewer?</a></p>
+        <p><span class="bold">A:</span> Add a button with an external command to the <a href="toolbar.html">toolbar</a>, specify the <a href="configuration.html#ConfigAssociations">{!DC-VIEWER}</a> macro as the command, and add the full name of the desired file in the parameters field.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -410,10 +405,6 @@
         <h2>6. Issues related to the file panels</h2>
         <p class="bold"><a name="fv_datetime">Q: I didn't find a suitable date format for file panels in the list! How to add my own?</a></p>
         <p><span class="bold">A:</span> Date and time format is easy configurable: go to Configurations&nbsp;&gt; Options &nbsp;&gt; Files views&nbsp;&gt; Formatting&nbsp;&gt; Date and time format and use <a href="configuration.html#dt_format">this table</a>.</p>
-        <br>
-
-        <p class="bold"><a name="fv_svg">Q: Is it possible to add SVG thumbnails support in thumbnails view?</a></p>
-        <p><span class="bold">A:</span> It's already supported, see <a href="faq.html#f3_svg">Is it possible to add SVG support in the viewer?</a></p>
         <br>
 
         <p class="bold"><a name="fn_ext">Q: I want to see the filenames in the "Name" column with extensions, can I do it?</a></p>
@@ -429,6 +420,10 @@
         <p class="bold"><a name="slinkt">Q: How to see the target objects of symbolic links?</a></p>
         <p><span class="bold">A:</span> In addition to the file properties dialog, you can use <code>GETFILELINKTO</code> in a <a href="configuration.html#ConfigColumns">set of columns</a> or a <a href="configuration.html#ConfigTooltips">tooltip</a>. In the last case, you should create a search template and specify <code>l+</code> in the attributes.<br>
           Also you can <a href="lua.html">use Lua</a> and write in the log window.</p>
+        <br>
+
+        <p class="bold"><a name="parent">Q: How to hide the ".." item for the parent directory in the file list?</a></p>
+        <p><span class="bold">A:</span> Use the <a href="configuration.html#ConfigIgnore">Ignore list</a> in the program settings.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -448,11 +443,11 @@
         <br>
 
         <p class="bold"><a name="ftps_reuse">Q: ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></p>
-        <p><span class="bold">A:</span> This server requires session reuse support and the FTP plugin supports it, but the OpenSSL libraries are needed: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
+        <p><span class="bold">A:</span> This server requires session reuse support and the FTP plugin supports it, but requires a library that supports SSL and TLS protocols (see the <a href="plugins.html#ftp.wfx">description</a> of the plugin). Put the libraries near <tt>doublecmd.exe</tt> or in the PATH (Windows) or install the appropriate package (Linux and other Unix-like systems).</p>
         <br>
 
         <p class="bold"><a name="ftp_openssl">Q: ftp.wfx: Does not work with some servers! After connecting, I get errors: "104,Connection reset by peer" and "CSOCK ERROR Connection reset by peer" or "10060,Connection timed out" and "CSOCK ERROR Connection timed out".</a></p>
-        <p><span class="bold">A:</span> OpenSSL libraries required: put <tt>libeay32.dll</tt> and <tt>ssleay32.dll</tt> near <tt>doublecmd.exe</tt> or in the PATH.</p>
+        <p><span class="bold">A:</span> Requires a library that supports SSL and TLS protocols (see the <a href="plugins.html#ftp.wfx">description</a> of the plugin). Put the libraries near <tt>doublecmd.exe</tt> or in the PATH (Windows) or install the appropriate package (Linux and other Unix-like systems).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

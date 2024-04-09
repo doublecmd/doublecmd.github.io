@@ -93,14 +93,13 @@
           <li><p>And you can <a href="https://github.com/doublecmd/doublecmd/wiki/Development" target="_blank">build</a> Double Commander yourself.</p></li>
         </ul>
         <p><a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">Version archive</a> is also available.</p>
-        <p>First, you must choose which operating system (Windows, Linux, macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>), processor architecture and then you may select the version to download.</p>
+        <p>First, you must choose which operating system (Windows, Linux, macOS), processor architecture and then you may select the version to download.</p>
         <p>For Windows there is an executable file <tt>.exe</tt> (Inno Setup) or <tt>.msi</tt> and an archive <tt>.zip</tt> (which is the so-called portable version).</p>
-        <p>For Linux there are versions based on GTK toolkit and based on Qt. Also portable versions are available (compiled binaries packed with XZ, use <tt>doublecmd.sh</tt> to launch).</p>
-        <p>Note: The features of the update of the portable version are described in the <a href="faq.html#pupd">FAQ</a>.</p>
-        <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages. The language can be changed in the menu via <a href="configuration.html#ConfigLang">Configuration&nbsp;&gt; Options...&nbsp;&gt; Language</a>.</p>
+        <p>For Linux there are versions based on GTK toolkit and based on Qt. Also available: portable versions (compiled binaries packed with XZ) and files in the AppImage format.</p>
+        <p>On the first launch Double Commander will automatically detect the system language, and set it for the interface. DC is translated into many languages. The language can be changed in the <a href="configuration.html#settings">program settings</a>.</p>
         <p>Double Commander determines and uses the current system theme. It looks like this (Ubuntu, three themes and two icon sets):</p>
         <p class="figure"><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="690" height="500"></p>
-        <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager). Double Commander also supports dark mode in Windows (Windows 10 1809 and newer).<span class="versionref"><sup>(Beta version)</sup></span></p>
+        <p>As can be seen from the figure, there are left file panel, a command line and a lower window that is a log viewer (it shows all the actions from the file manager). Double Commander also supports dark mode in Windows (Windows 10 1809 and newer).</p>
         <p>Double Commander uses Total Commander plugin API, so under Windows you can use plugins from Total Commander (many of them are compatible with DC). See the description of the types of plugins in the <a href="configuration.html#ConfigPlugins">Plugins</a> settings section. DC is distributed with several <a href="plugins.html">pre-installed plugins</a>, other plugins can be installed manually.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -130,7 +129,7 @@
 
         <p><span class="bold">Create Directory</span> (internal command <tt>cm_MakeDir</tt>)&nbsp;&ndash; creates a new subdirectory in the current directory. The file name (without extension) or directory name under the cursor will be offered, this is useful for creating multiple directories with similar names. You can also create several subdirectories in one operation, just separate the subdrectories with the directory separator (in Unix/Linux system it will be "/" and in Windows it will be "\").</p>
         <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="144"></p>
-        <p>If <span class="italic">Extended syntax</span><span class="versionref"><sup>(Beta version)</sup></span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
+        <p>If <span class="italic">Extended syntax</span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
 
         <p><span class="bold">Create Shortcut</span> (Windows only)&nbsp;&ndash; Double Commander creates a shortcut (Microsoft Windows .lnk file) to the file under the cursor and places it in the folder opened in the opposite panel.</p>
 
@@ -138,11 +137,11 @@
 
         <p><a name="cm_FileProperties"><span class="bold">Show file properties...</span></a> (internal command <tt>cm_FileProperties</tt>) will show the default "Properties" dialog (Windows) or Double Commander own dialog (Linux and other Unix-like systems) like this:</p>
         <p class="figure">
-          <img class="largeimage" title="Show file properties" alt="Show file properties: Properties" src="images/imgDC/pic16.png" width="360" height="406">
-          <img class="largeimage" title="Show file properties: Attributes" alt="Show file properties" src="images/imgDC/pic17.png" width="360" height="406">
-          <img class="largeimage" title="Show file properties: Plugins" alt="Show file properties" src="images/imgDC/pic18.png" width="360" height="406">
+          <img class="largeimage" title="Show file properties" alt="Show file properties: Properties" src="images/imgDC/pic16.png" width="360" height="400">
+          <img class="largeimage" title="Show file properties: Attributes" alt="Show file properties" src="images/imgDC/pic17.png" width="360" height="400">
+          <img class="largeimage" title="Show file properties: Plugins" alt="Show file properties" src="images/imgDC/pic18.png" width="360" height="400">
         </p>
-        <p>which indicates the file or folder name, size, write and last access time, and also owner and group. On the "Attributes" tab you can change the access to the file (if you have the rights to do so). The "Plugins" tab is optional and is only available if you have a suitable content plugin (in this case it was <a href="plugins.html#deb_wdx.wdx">DEB</a>). Also see description of <a href="configxml.html">&lt;SystemItemProperties&gt;</a>.</p>
+        <p>which indicates the file or folder name, MIME type, size, write and last access time. For links, Double Commander will additionally show the link object (symbolic link) or their total number (hard link). On the "Attributes" tab you can change the access rights to the file and its owner (if you have the rights to do so). The "Plugins" tab is optional and is only available if you have a suitable content plugin (in this case it was <a href="plugins.html#deb_wdx.wdx">DEB</a>). Also see description of <a href="configxml.html">&lt;SystemItemProperties&gt;</a>.</p>
 
         <p>Using item <a name="cm_EditComment"><span class="bold">Edit comment...</span></a> (internal command <tt>cm_EditComment</tt>) you can create or change file comments, which stored in a file <tt>descript.ion</tt>. Supports UTF, ISO, KOI and ANSI encodings. In the <a href="configuration.html#ConfigMisc">Miscellaneous</a> settings section you can set the default text encoding.</p>
         <p>Comments only work with normal files on the local file system, but not on remote or virtual file systems (e.g. on FTP server, in archive, etc.). In order for Double Commander to take into account the contents of <tt>descript.ion</tt> when copying or moving files, make sure that <span class="italic">Process comments with files/folders</span> is enabled in the <a href="configuration.html#ConfigOperations">File operations</a> settings section.</p>
@@ -162,7 +161,7 @@
           <li><p><span class="italic">Binary mode</span>&nbsp;&ndash; result is presented in binary form.</p></li>
           <li><p><span class="italic">Keep scrolling</span>&nbsp;&ndash; allows synchronized scrolling (vertical and horizontal).</p></li>
         </ul>
-        <p>Also see <a href="configxml.html">description</a> of <code>&lt;Added&gt;</code>, <code>&lt;Deleted&gt;</code> and <code>&lt;Modified&gt;</code> parameters and <a href="configuration.html#ConfigToolsDiffer">Position of frame panel after the comparison</a>.</p>
+        <p>The colors used can be changed in the <a href="configuration.html#ConfigColor">Colors</a> settings section (the <span class="italic">Differ</span> category). Also see <a href="configuration.html#ConfigToolsDiffer">Position of frame panel after the comparison</a>.</p>
         <p>The two files will be chosen as follows</p>
         <ul>
           <li><p>If two files are selected in the active panel, they will be opened in the compare tool. The first selected file will be opened in the left panel of the comparison tool.</p></li>
@@ -183,7 +182,7 @@
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
         <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.
           The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
-        <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract<span class="versionref"><sup>(Beta version)</sup></span>: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
+        <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
         <p><span class="italic">Unpack path names if stored with files</span>&nbsp;&ndash; If checked, the directory structure in the archive will be kept. Otherwise, all files will be extracted without re-creating the directory structure.</p>
         <p>Checkbox <span class="italic">Overwrite existing files</span> disables confirmation of overwriting existing files.</p>
 
@@ -212,13 +211,15 @@
         <p class="figure"><img class="largeimage" title="Calculate checksum" alt="Calculate checksum" src="images/imgDC/pic26.png" width="402" height="432"></p>
         <p><span class="italic">Save checksum file(s) to:</span>&nbsp;&ndash; line specifies name and path to the calculated checksum.</p>
         <p><span class="italic">Create separate checksum files for each file</span>&nbsp;&ndash; if checksum calculates for multiple files, this option allows to create separate checksum files for each target file.</p>
+        <p><span class="italic">File format</span>&nbsp;&ndash; allows to specify the line ending type and directory separator instead of the commonly used values in Windows (CRLF and "\") and Unix-like systems (LF and "/").</p>
         <p><span class="italic">Choose your preferred checksum and</span>&nbsp;&ndash; select algorithm which will calculate checksums.</p>
 
         <p>Item <a name="cm_CheckSumVerify"><span class="bold">Verify Checksum...</span></a> (internal command <tt>cm_CheckSumVerify</tt>) will start verification the list of checksums from the checksum file under the cursor. Also you can run this command by double mouse clicking on the checksum file (or using the <kbd>Enter</kbd> key).</p>
         <p>Double Commander can check files one by one: select the file, run this command, now enter its checksum (or paste from the clipboard) and select the algorithm.</p>
         <p>You can use checksum files, which generated by other programs, but first make sure Double Commander supports their algorithm and format.</p>
 
-        <p>Item <a name="cm_Wipe"><span class="bold">Wipe</span></a> (internal command <tt>cm_Wipe</tt>) for secure deletion (shortcut <kbd>Alt+Del</kbd> by default): before deleting from the hard disk, the selected file will be renamed with a random name, and its contents will be overwritten with zeros, ones or random data. You can set number of wipe passes in <a href="configuration.html#ConfigOperations">Configuration&nbsp;&gt; Options...&nbsp;&gt; File operations</a>. Directories and links will just be renamed before deleting.</p>
+        <p>Item <a name="cm_Wipe"><span class="bold">Wipe</span></a> (internal command <tt>cm_Wipe</tt>) for secure deletion (shortcut <kbd>Alt+Del</kbd> by default): before deleting from the hard disk, the selected file will be renamed with a random name, and its contents will be overwritten three times (zeros, ones and random data). You can set number of wipe passes in <a href="configuration.html#ConfigOperations">Configuration&nbsp;&gt; Options...&nbsp;&gt; File operations</a>. Directories and links will just be renamed before deleting.</p>
+        <p>Note: Some features of solid-state drives (garbage collection, TRIM) significantly complicate the recovery of deleted files or make it impossible, therefore, using the <tt>cm_Wipe</tt> command on an SSD can be a pointless waste of device resource.</p>
 
         <p>Item <span class="bold">Delete</span> (internal command <tt>cm_Delete</tt>)&nbsp;&ndash; will delete the selected files or the file under the cursor to trash (recycle bin) or permanently. By default, Double Commander moves files to trash, you can change this in <a href="configuration.html#ConfigOperations">Configuration&nbsp;&gt; Options...&nbsp;&gt; File operations</a>. Deleting to trash can might not be available for all platforms.</p>
         <p>To delete files inside archive (in this case the files will be deleted directly), you need to add a suitable WCX plugin or configure an external archiver, also the archive format must support the delete operation.</p>
@@ -230,10 +231,16 @@
       <div>
         <h2><a name="mnu_select">2.1.2. "Mark"</a></h2>
         <p>There are some commands in this group with which you can select files in different ways.</p>
-        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). For example, select all files that have the <tt>.txt</tt> extension:</p>
+        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). Also there is a drop-down list with masks history. For example, select all files that have the <tt>.txt</tt> extension:</p>
         <p class="figure"><img class="largeimage" title="Select a group" alt="Select a group" src="images/imgDC/pic27.png" width="333" height="332"></p>
-        <p>Also there is a drop-down list with masks history.</p>
-        <p>Third and fourth items <span class="bold"><a name="cm_MarkMarkAll">Select All</a></span> (internal command <tt>cm_MarkMarkAll</tt>) and <span class="bold"><a name="cm_MarkUnmarkAll">Unselect All</a></span> (internal command <tt>cm_MarkUnmarkAll</tt>). They make it possible to select or unselect all items from the panel quickly.</p>
+        <p>The <span class="italic">Define...</span> button allows to create a new search template.</p>
+        <p>If the <a href="findfiles.html#advanced">duplicate search</a> result is open in the active panel, these commands will work in a special mode:</p>
+        <p class="figure"><img class="largeimage" title="Select a group (duplicates)" alt="Select a group (duplicates)" src="images/imgDC/pic82.png" width="386" height="230"></p>
+        <p><span class="italic">Select by name/extension:</span>&nbsp;&ndash; works the same as in the usual group selection dialog. Also you can use search templates (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">).</p>
+        <p><span class="italic">Remove selection by name/extension:</span>&nbsp;&ndash; is applied after the previous option, excludes corresponding files from selection.</p>
+        <p><span class="italic">Leave at least one file in each group unselected:</span>&nbsp;&ndash; A useful option if you want to remove duplicate files, but keep at least one file in each group. First, Double Commander will apply method number 1: modification date (newest, oldest), size (largest, smallest), or position in the group (first or last file in the group) will be compared. If no file matches the condition (for example, all files have the same modification date or the same size), then method 2 will be applied: in this case, modification date or size will be compared.</p>
+        <p>The <span class="italic">Apply</span> button allows to see the result immediately without closing this dialog window.</p>
+        <p>Third and fourth menu items are <span class="bold"><a name="cm_MarkMarkAll">Select All</a></span> (internal command <tt>cm_MarkMarkAll</tt>) and <span class="bold"><a name="cm_MarkUnmarkAll">Unselect All</a></span> (internal command <tt>cm_MarkUnmarkAll</tt>). They make it possible to select or unselect all items from the panel quickly.</p>
         <p>Fifth item is <span class="bold"><a name="cm_MarkInvert">Invert Selection</a></span> (internal command <tt>cm_MarkInvert</tt>). It makes currently selected files unselected and vice versa.</p>
         <p>Sixth and seventh items <span class="bold"><a name="cm_MarkCurrentExtension">Select All with the Same Extension</a></span> (internal command <tt>cm_MarkCurrentExtension</tt>) and <span class="bold"><a name="cm_UnmarkCurrentExtension">Unselect All with the Same Extension</a></span> (internal command <tt>cm_UnmarkCurrentExtension</tt>). These functions help to select and unselect files with the same extension as the file under the cursor.</p>
         <p>Eighth and ninth items <span class="bold">Save Selection</span> (internal command <tt>cm_SaveSelection</tt>) and <span class="bold">Restore Selection</span> (internal command <tt>cm_RestoreSelection</tt>). The first command will save in internal buffer current selected items. Then later, the second command could be use to re-select again the same items that were selected before.</p>
@@ -266,8 +273,8 @@
         <p><span class="bold"><a name="cm_FlatView">Flat view</a></span> (internal command <tt>cm_FlatView</tt>) will scan all the directories of panel to show all content in one single panel.</p>
         <p><span class="bold"><a name="cm_OpenVirtualFileSystemList">Open VFS List</a></span> (internal command <tt>cm_OpenVirtualFileSystemList</tt>) will open a list of added file system plugins (WFX plugins) that use their own file systems or provide access to other file systems and devices (local or remote). As well as virtual folders:</p>
         <ul>
-          <li><p><tt>Computer</tt><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; contains a list of normal disks with a drive letter and devices that do not have a drive letter (for example, USB devices that are connected via the MTP protocol, i.e. smartphones, tablets or players). Windows only.</p></li>
-          <li><p><tt>Linux</tt><span class="versionref"><sup>(Beta version)</sup></span>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
+          <li><p><tt>Computer</tt>&nbsp;&ndash; contains a list of normal disks with a drive letter and devices that do not have a drive letter (for example, USB devices that are connected via the MTP protocol, i.e. smartphones, tablets or players). Windows only.</p></li>
+          <li><p><tt>Linux</tt>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
           <li><p><tt>Network</tt>&nbsp;&ndash; used to access shared network resources (Windows only).</p></li>
           <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; used to access files deleted to trash.</p></li>
         </ul>
@@ -301,13 +308,20 @@
         <p><span class="bold"><a name="cm_OpenDirInNewTab">Open Folder in a New Tab</a></span> (internal command <tt>cm_OpenDirInNewTab</tt>)&nbsp;&ndash; opens a new tab for the directory under the cursor, but does not switch to it (i.e. in the background).</p>
         <p><span class="bold"><a name="cm_CloseTab">Close Tab</a></span> (internal command <tt>cm_CloseTab</tt>)&nbsp;&ndash; closes the active tab and switches the panel to the next tab (or the previous tab, if you close the last tab).</p>
         <p><span class="bold"><a name="cm_CloseAllTabs">Close All Tabs</a></span> (internal command <tt>cm_CloseAllTabs</tt>)&nbsp;&ndash; closes all inactive tabs. If they consist of locked tabs, it will prompt for <a href="configuration.html#5_1_11_0_vopros">confirmation</a>.</p>
-        <p><span class="bold"><a name="cm_CloseDuplicateTabs">Close Duplicate Tabs</a></span> (internal command <tt>cm_CloseDuplicateTabs</tt>)&nbsp;&ndash; Double Commander will check the list of opened tabs and close duplicate tabs (separately for each panel!), only the first of them will be saved (counting from the left).</p>
+        <p><span class="bold"><a name="cm_CloseDuplicateTabs">Close Duplicate Tabs</a></span> (internal command <tt>cm_CloseDuplicateTabs</tt>)&nbsp;&ndash; Double Commander will check the list of opened tabs and close duplicate tabs (separately for each panel!). The following priority rules are used:</p>
+        <ul>
+          <li><p>locked tabs have higher priority;</p></li>
+          <li><p>renamed tab will be closed if there is a locked tab with the same directory;</p></li>
+          <li><p>if there is a renamed tab with the same directory as another tab, but not renamed, then the second one will be closed;</p></li>
+          <li><p>a locked renamed tab has priority over a non-renamed tab, so the second one will be closed;</p></li>
+          <li><p>if there are two tabs with the same priority, the first one will be saved (counting from the left).</p></li>
+        </ul>
         <p><span class="bold">Tab Options</span>&nbsp;&ndash; Using this submenu you can change the state of the tab:</p>
         <ul>
           <li><p><span class="bold">Normal</span> (internal command <tt>cm_SetTabOptionNormal</tt>)&nbsp;&ndash; will make the tab normal: the usual tabs that Double Commander creates by default.</p></li>
-          <li><p><span class="bold"><a name="cm_SetTabOptionPathLocked">Locked</a></span> (internal command <tt>cm_SetTabOptionPathLocked</tt>)&nbsp;&ndash; makes the tab locked, trying to change to another directory within this tab will prompt to open in a new tab.</p>
-          <li><p><span class="bold"><a name="cm_SetTabOptionPathResets">Locked with Directory Changes Allowed</a></span> (internal command <tt>cm_SetTabOptionPathResets</tt>)&nbsp;&ndash; if you lock a tab with this method, you can change to another directory within this tab, but after switching to another tab (or Double Commander is restarted) the tab will revert to the locked tabs original directory.</p>
-          <li><p><span class="bold"><a name="cm_SetTabOptionDirsInNewTab">Locked with Directories Opened in New Tabs</a></span> (internal command <tt>cm_SetTabOptionDirsInNewTab</tt>)&nbsp;&ndash; When you try to enter in any directory inside the panel, that one will be opened in a new tab.</p>
+          <li><p><span class="bold"><a name="cm_SetTabOptionPathLocked">Locked</a></span> (internal command <tt>cm_SetTabOptionPathLocked</tt>)&nbsp;&ndash; makes the tab locked, trying to change to another directory within this tab will prompt to open in a new tab.</p></li>
+          <li><p><span class="bold"><a name="cm_SetTabOptionPathResets">Locked with Directory Changes Allowed</a></span> (internal command <tt>cm_SetTabOptionPathResets</tt>)&nbsp;&ndash; if you lock a tab with this method, you can change to another directory within this tab, but after switching to another tab (or Double Commander is restarted) the tab will revert to the locked tabs original directory.</p></li>
+          <li><p><span class="bold"><a name="cm_SetTabOptionDirsInNewTab">Locked with Directories Opened in New Tabs</a></span> (internal command <tt>cm_SetTabOptionDirsInNewTab</tt>)&nbsp;&ndash; When you try to enter in any directory inside the panel, that one will be opened in a new tab.</p></li>
         </ul>
         <p>The rest of the items of this submenu will do the same, but for all tabs at once.</p>
         <p>Note: By default, Double Commander will not allow to close a locked tab without confirmation (<span class="italic">Confirm close locked tabs</span> in the <a href="configuration.html#ConfigTabs">Folder tabs</a> settings section).</p>
@@ -419,7 +433,7 @@
       <div>
         <h2><a name="iface_tabs">2.5. Tabs bar</a></h2>
         <p class="figure"><img class="largeimage" title="Tabs bar" alt="Tabs bar" src="images/imgDC/pic6.png" width="228" height="28"></p>
-        <p>Display tabs. Click on tabs with left mouse or you can use the keyboard to navigate tabs (<kbd>Ctrl+Tab</kbd> and <kbd>Ctrl+Shift+Tab</kbd> by default). To change the order of the tabs, use drag &amp; drop or the <tt>cm_MoveTabLeft</tt> and <tt>cm_MoveTabRight</tt> commands<span class="versionref"><sup>(Beta version)</sup></span>.</p>
+        <p>Display tabs. Click on tabs with left mouse or you can use the keyboard to navigate tabs (<kbd>Ctrl+Tab</kbd> and <kbd>Ctrl+Shift+Tab</kbd> by default). To change the order of the tabs, use drag &amp; drop or the <tt>cm_MoveTabLeft</tt> and <tt>cm_MoveTabRight</tt> commands.</p>
         <p>You can protect tabs from closing or changing the directory, the available tab states are described in the <a href="#mnu_tabs">"Tabs"</a> subsection. Locked tabs are marked with an asterisk (if <a href="configuration.html#5_1_12_1_zvezda">Show locked tabs with an asterisk *</a> is enabled).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -431,7 +445,7 @@
         <p>A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories:</p>
         <p class="figure"><img class="largeimage" title="Directories history" alt="Directories history" src="images/imgDC/pic8.png" width="372" height="164"></p>
         <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually. You can use the keyboard instead of the mouse, just set a hotkey for the <a href="cmds.html#cm_EditPath">cm_EditPath</a> command. Environment variables are supported, in Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
-        <p>A double click or middle mouse click drop down a directory hotlist.</p>
+        <p>A double click or middle mouse click drop down a <a href="directoryhotlist.html">directory hotlist</a>. We can replace the double-click action with an edit path command, see the description of the <a href="configxml.html">&lt;DoubleClickEditPath&gt;</a> parameter.</p>
         <p>It is now also possible to click on parts of the directory bar to quickly navigate back in the directory structure. Very handy if you want to go to a parent directory back many levels. This is known as a "breadcrumb" navigation feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -462,7 +476,7 @@
         <p>The methods of creating thumbnails and the supported file formats depend on the family of the operating system.</p>
         <ul>
           <li><p>Windows: Double Commander uses the capabilities of the operating system (as in Windows Explorer), WLX plugins with thumbnail creation support and supplements the list with image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>.</p></li>
-          <li><p>macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>: Double Commander uses the capabilities of the operating system (<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>) and supplements the list with image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>. The program also supports the OpenDocument format (.odt, .ods, .odp, .odg) and will try to create thumbnails (if files contains "Thumbnails/thumbnail.png") before using the Quick Look API.</p></li>
+          <li><p>macOS: Double Commander uses the capabilities of the operating system (<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>) and supplements the list with image formats that are supported by the <a href="viewer.html#intro">built-in viewer</a>. The program also supports the OpenDocument format (.odt, .ods, .odp, .odg) and will try to create thumbnails (if files contains "Thumbnails/thumbnail.png") before using the Quick Look API.</p></li>
           <li>
             <p>Linux and other Unix-like systems: Double Commander creates thumbnails for the following formats:</p>
             <ul>
@@ -499,7 +513,6 @@
         <p>Double Commander supports the ability to drag and drop files using the mouse (that is, with the left mouse button pressed) to the windows of external applications (for example, a text or graphics editor or viewer), to the toolbar and copying/moving files between directories. If the action is possible, the "+" symbol will be displayed near the mouse cursor.</p>
         <p>When dragging a file to an empty place on the toolbar, a button with an external command will be created, the passed file will be used as a command. Dragging a file to a button is only possible if it is a button with an external command: the command will launched and the file will be passed to it as a launch parameter.</p>
         <p>For file copy or move (using the <kbd>Ctrl</kbd> or <kbd>Shift</kbd> key) operations, the following targets are possible: the opposite file panel, any folder in the active or inactive panel (the folder name will be highlighted with a frame), the directory of any open tab (just drop the files on the header of the desired tab). Use ".." to copy files to the parent directory. Double Commander can also copy files to an archive if adding files is supported.</p>
-        <p>If more than one file is selected, press the modifier key after the start of dragging.</p>
         <p>Dragging using the right mouse button will show the menu with the following actions: <span class="italic">Copy</span>, <span class="italic">Move</span>, <span class="italic">Create link</span> (hard link), <span class="italic">Create symlink</span> and <span class="italic">Cancel</span>. If several files are selected, Double Commander will offer to create a link only for the first file in the list.</p>
         <p>You can create a symbolic link using <kbd>Ctrl+Shift</kbd>.</p>
         <p>When you drag files to the window of another application, Double Commander uses the system implementation of drag &amp; drop. Using the <kbd>Alt</kbd> key, you can call an alternative action (for example, when dragging a file into the Windows Explorer window, a shortcut will be created instead of copying the file).</p>
@@ -511,9 +524,15 @@
         <ul>
           <li><p><span class="italic">Open</span>&nbsp;&ndash; Open the file under the cursor in the default program (system file associations will be used).</p></li>
           <li><p>The <span class="italic">Actions</span> submenu&nbsp;&ndash; contains all the actions added to the <a href="configuration.html#ConfigAssociations">file association</a> for files with the file extension under the cursor. Also you can add a few <a href="configuration.html#ConfigAssocEx">additional actions</a>.</p></li>
-          <li><p>The <span class="italic">Open with</span> submenu&nbsp;&ndash; contains a list of applications suitable for opening a file. To get the list in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>, Double Commander uses the Launch Services API, in other systems the program follows the <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">Desktop Menu</a> specification.<br>
-            The additional item <span class="italic">Other...</span> (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>) will open the application selection window: you can choose an application from a list of all available applications or manually specify the command line to open the file. Also here you can save an additional system association for the file type, add a new one or change the default application (Double Commander will use the <tt>~/.config/mimeapps.list</tt> file (see <a href="https://specifications.freedesktop.org/mime-apps-spec/latest" target="_blank">Association between MIME types and applications</a>).</p></li>
-          <li><p><span class="italic">Services</span>&nbsp;&ndash; system services (macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup> only).</p></li>
+          <li><p>The <span class="italic">Open with</span> submenu&nbsp;&ndash; contains a list of applications suitable for opening a file. To get the list in macOS, Double Commander uses the Launch Services API, in other systems the program follows the <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">Desktop Menu</a> specification.<br>
+            The additional item <span class="italic">Other...</span></p>
+            <ul>
+              <li><p>macOS: will open a list of all installed applications.</p></li>
+              <li><p>Linux and other Unix-like systems: will open the application selection window, you can choose an application from a list of all available applications or manually specify the command line to open the file. Also here you can save an additional system association for the file type, add a new one or change the default application (Double Commander will use the <tt>~/.config/mimeapps.list</tt> file (see <a href="https://specifications.freedesktop.org/mime-apps-spec/latest" target="_blank">Association between MIME types and applications</a>).</p></li>
+            </ul>
+          </li>
+          <li><p><span class="italic">Services</span>&nbsp;&ndash; macOS only, an analogue of the "Services" system submenu.</p></li>
+          <li><p><span class="italic">Share...</span>&nbsp;&ndash; macOS only, an analogue of the "Share" system submenu.</p></li>
           <li><p><span class="italic">Pack here...</span>&nbsp;&ndash; calls the <a href="#cm_PackFiles">command to pack</a> the selected file(s), the current directory will be used as the target directory.</p></li>
           <li><p><span class="italic">Extract here...</span>&nbsp;&ndash; calls the <a href="#cm_ExtractFiles">command to unpack</a> the selected file, the current directory will be used as the target directory. This item will be added only if the file extension is specified in the settings of archiver plugins or external archivers.</p></li>
           <li><p>Calling basic file operations: <span class="italic">Move</span> (<kbd>F6</kbd>), <span class="italic">Copy</span> (<kbd>F5</kbd>), <span class="italic">Delete</span> (<kbd>F8</kbd>), <span class="italic">Rename</span> (<kbd>F2</kbd>).</p></li>
@@ -525,7 +544,7 @@
           <li><p><span class="italic">Refresh</span>&nbsp;&ndash; the command to reread the contents of the directory in the panel.</p></li>
           <li><p>The <span class="italic">Sort by</span> submenu&nbsp;&ndash; contains commands for switching the sorting method: by name, file extension, size, modification date or attributes. Also added the <span class="italic">Reverse Order</span> command which switches the sorting direction.</p></li>
           <li><p><span class="italic">Paste</span>&nbsp;&ndash; used to copy and move files using the clipboard.</p></li>
-          <li><p>The <span class="italic">New</span> submenu&nbsp;&ndash; contains commands for creating a directory (<kbd>F7</kbd>) and a text file (<kbd>Shift+F4</kbd>). Also this submenu contains templates for new files, if the system directory with templates exists and is not empty (not available in macOS<sup>(<a title="Note about macOS support" href="https://github.com/doublecmd/doublecmd/wiki/Supported-platforms#macos" target="_blank">*</a>)</sup>).</p></li>
+          <li><p>The <span class="italic">New</span> submenu&nbsp;&ndash; contains commands for creating a directory (<kbd>F7</kbd>) and a text file (<kbd>Shift+F4</kbd>). Also this submenu contains templates for new files, if the system directory with templates exists and is not empty (not available in macOS).</p></li>
           <li><p><span class="italic">Show file properties</span>&nbsp;&ndash; Show the <a href="#cm_FileProperties">properties window</a> of the current directory.</p></li>
         </ul>
         <p>Context menu inside an open archive or a file system plugin (WFX) is always the same and does not depend on the operating system:</p>
@@ -574,7 +593,7 @@
         <p>Several <a href="cmds.html#catcommandline">internal commands</a> are available for working with the command line, also see the typing options in the <a href="configuration.html#ConfigKeys">Keys</a> settings section.</p>
         <p>If the command line is hidden in the <a href="configuration.html#ConfigLayout">settings</a>, you can still use it. In this case, the command line will be automatically hidden after the command is run. You can hide it using the <kbd>Esc</kbd> key (if the input field is empty) or just move the cursor to the file panel (or switch the focus in another way).</p>
         <p>Environment variables are supported, in Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
-        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel. If you use a path with the file name, Double Commander will change directory and place the cursor on this file. If you specify only a file name, Double Commander will place the cursor on this file in the current directory.</p>
+        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel (works only with the local file system or remote resources mounted as a local disk). If you use a path with the file name, Double Commander will change directory and place the cursor on this file. If you specify only a file name, Double Commander will place the cursor on this file in the current directory.</p>
         <p>You can use slash: <code>cd \</code> to go to the root of the current drive (Windows) and <code>cd /</code> to go to the root of the file system (Linux and other Unix-like systems).</p>
         <p>In Windows, you can change the drive by simply specifying the drive letter and a colon: <code>c:</code>, <code>d:</code> and so on.</p>
         <p>Right mouse click will show the usual input box menu that contains standard commands <span class="italic">Cut</span>, <span class="italic">Copy</span>, <span class="italic">Paste</span>, <span class="italic">Delete</span>, <span class="italic">Select All</span> and submenu <span class="italic">Insert Unicode Control Character</span>.</p>
@@ -591,7 +610,7 @@
       <div>
         <h2><a name="iface_buttons">2.12. Function key buttons bar</a></h2>
         <p class="figure"><img class="largeimage" title="Function key buttons bar" alt="Function key buttons bar" src="images/imgDC/pic14.png" width="738" height="22"></p>
-        <p>Displays <kbd>F3</kbd>-<kbd>F9</kbd> hotkeys. Enables you to select commands with a mouse click.</p>
+        <p>Contains buttons for several frequently used actions for quick access with the mouse. Additionally, hotkeys for the corresponding internal commands are displayed.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

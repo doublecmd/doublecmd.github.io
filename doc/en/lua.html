@@ -90,9 +90,6 @@
             This is a large number, so you will need a 64-bit version of Double Commander or Lua 5.3+.</li>
         </ul>
         <p>The list above contains the names from the header files, in Lua scripts we must use the numeric values which are specified in parentheses.</p>
-        <p>Note: For the <a href="help.html#cm_FileProperties">file properties</a> dialog, the <code>ContentGetValue</code> function is called with the <code>CONTENT_DELAYIFSLOW</code> flag (the fourth parameter, the value is 1), this avoids the delay in opening the window: if data retrieval is slow, we can exclude this data by simply adding a flag value check and returning <code>nil</code> for such fields or plugin.</p>
-        <p>Note: If the plugin needs to return an empty string, it will be faster to pass <code>nil</code> instead of <code>""</code>.</p>
-        <p>Note: Lua function <code>io.open</code> uses the standard C function <code>fopen</code>: in text mode, this function can convert the type of line endings (CRLF, LF or CR) when reading and writing and it can lead to unexpected results. If you come across files with different types of line endings or if you are writing a cross-platform script, this must be taken into account or it may be more practical to give preference to the binary mode.</p>
         <br>
 
         <p><span class="bold">About text encoding</span></p>
@@ -100,6 +97,24 @@
         <p>Some functions from the standard Lua libraries have been replaced with functions from Double Commander or Free Pascal/Lazarus (or new ones have been written), this provides UTF-8 support.</p>
         <p>When writing plugins, we should also use UTF-8 for text data (<i>ft_multiplechoice</i>, <i>ft_string</i> and <i>ft_fulltext</i>).</p>
         <p>When saving scripts, use UTF-8 encoding without BOM.</p>
+        <br>
+
+        <p><span class="bold">Notes</span></p>
+        <p>Automation with Lua has great possibilities, but there may be nuances that in some cases need to be kept in mind. Let's try to collect them in this subsection.</p>
+        <p>1. If <a href="configuration.html#ConfigRefresh">auto refresh</a> and the <a href="configuration.html#ConfigViewEx">Load file list in separate thread</a> option are enabled, the refresh function will work asynchronously. At the same time, scripts are executed in the main thread of Double Commander and therefore, in some cases, all this may affect the operation of your script. For example, sometimes sequential execution of <a href="cmds.html#catnavigation">commands for navigation</a> may not work (for example, large directories, slow disk), in this case try to disable <i>Load file list in separate thread</i> or look for an alternative solution.</p>
+        <p>If your script creates new files in the current panel or renames existing files, but then does not complete and performs some additional actions (for example, selecting files or moving the cursor), then in some cases these actions will not have an effect: not all files may be in the panel yet and you will need to first call the <a href="cmds.html#cm_Refresh">cm_Refresh</a> command. Under the described conditions, <tt>cm_Refresh</tt> will also be executed asynchronously and Double Commander may not have time to completely refresh the list of files after your changes.</p>
+        <p>Auto-refreshing and loading the list of files in a separate thread are convenient functions for a file manager, so the stable working method was experimentally found to temporarily return control to the program and allow the file list to be completely refreshed:</p>
+        <pre>
+DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Refresh"</span><span class="luasbl">)</span>
+i <span class="luasbl">=</span> <span class="luanum">10</span>
+<span class="luakyw">while</span> i <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">do</span>
+  SysUtils.Sleep<span class="luasbl">(</span><span class="luanum">10</span><span class="luasbl">)</span>
+  DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">""</span><span class="luasbl">)</span>
+  i <span class="luasbl">=</span> i <span class="luasbl">-</span> <span class="luanum">1</span>
+<span class="luakyw">end</span></pre>
+        <p>2. Lua function <code>io.open</code> uses the standard C function <code>fopen</code>: in text mode, this function can convert the type of line endings (CRLF, LF or CR) when reading and writing and it can lead to unexpected results. If you come across files with different types of line endings or if you are writing a cross-platform script, this must be taken into account or it may be more practical to give preference to the binary mode.</p>
+        <p>3. For the <a href="help.html#cm_FileProperties">file properties</a> dialog in Linux and other Unix-like operating systems, the <code>ContentGetValue</code> function is called with the <code>CONTENT_DELAYIFSLOW</code> flag (the fourth parameter, the value is 1), this avoids the delay in opening the window: if data retrieval is slow, we can exclude this data by simply adding a flag value check and returning <code>nil</code> for such fields or plugin.</p>
+        <p>4. If the plugin should return an empty string, it will be faster to pass <code>nil</code> instead of <code>""</code>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -171,7 +186,6 @@
             </td>
           </tr>
         </table>
-        <p><b>Note</b>: Scripts work in the main thread of Double Commander, so sometimes sequential execution of <a href="cmds.html#catnavigation">commands for navigation</a> may not work (for example, large directories, slow disk), in this case try to disable <i>Load file list in separate thread</i> in the <a href="configuration.html#ConfigViewEx">settings</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -191,35 +205,34 @@
 
         <pre>
 <span class="luacmt">-- 1. Focus on right panel.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span>, <span class="luastr">"side=right"</span><span class="luasbl">)</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span><span class="luasbl">,</span> <span class="luastr">"side=right"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 2. Close all tabs.</span>
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 3. Switch to a specific directory.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"E:\\FakeKey\\Documents\\Music"</span><span class="luasbl">)</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> <span class="luastr">"E:\\FakeKey\\Documents\\Music"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 4. Focus on left panel.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span>, <span class="luastr">"side=left"</span><span class="luasbl">)</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span><span class="luasbl">,</span> <span class="luastr">"side=left"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 5. Close all tabs.</span>
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 6. Switch to a specific directory.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"C:\\Users\\Public\\Music"</span><span class="luasbl">)</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> <span class="luastr">"C:\\Users\\Public\\Music"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 7. Open a new tab.</span>
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 8. Switch to a specific directory.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"E:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> <span class="luastr">"E:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
 
         <p>Using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, we may configure a tool bar button that will execute our script.</p>
         <p>Assuming this script file is <code>E:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
-        <p class="figure"><img class="largeimage" title="Invoking a lua script from toolbar" alt="Invoking a lua script from toolbar" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
+        <p class="figure"><img class="largeimage" title="Invoking a Lua script from toolbar" alt="Invoking a Lua script from toolbar" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
 
-        <p>Also, we may use the internal Double Commander Editor for editing our scripts.</p>
-        <p>If filename has <code>.lua</code> file extension, it will be recognized by internal editor and it will provide us syntax highlighting specific for this Lua language:</p>
+        <p>Also, we may use the internal Double Commander Editor for editing our scripts. If filename has <code>.lua</code> file extension, it will be recognized by internal editor and it will provide us syntax highlighting specific for this Lua language:</p>
         <p class="figure"><img class="largeimage" title="Lua syntax highlighting with internal editor" alt="Lua syntax highlighting with internal editor" src="images/imgDC/luaimg2.png" width="660" height="480"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -386,6 +399,7 @@
                 <li><var>sFileName</var> : The filename with a relative path.</li>
                 <li><var>sBaseDirectory</var> : The directory that was used as the base directory for <var>sFileName</var>.</li>
               </ul>
+              <p>If the absolute path could not be obtained, the function will return the <var>sFileName</var> value.</p>
             </td>
           </tr>
           <tr>
@@ -397,7 +411,7 @@
                 <li><var>sFileName</var> : The full (absolute) filename.</li>
                 <li><var>sBaseDirectory</var> : The directory that will be used as the base directory <var>sFileName</var>.</li>
               </ul>
-              <p>If <var>sFileName</var> and <var>sBaseDirectory</var> contain the same value, the function will return an empty string ("").</p>
+              <p>If <var>sFileName</var> and <var>sBaseDirectory</var> contain the same value, the function will return an empty string (""). If it was not possible to get the file name with a relative path, the function will return the <var>sFileName</var> value.</p>
             </td>
           </tr>
           <tr>
@@ -511,7 +525,7 @@
 <span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- We got at least one parameter?</span>
   iAttr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
   <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
-    <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+    <span class="luakyw">if</span> math.floor<span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luastr">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
       <span class="luacmt">-- bit 4 is set? So it's a directory.</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
@@ -535,24 +549,24 @@
         <pre>
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
 
-<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">2</span> then <span class="luacmt">-- We got our 2 parameters?</span>
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">2</span> <span class="luakyw">then</span> <span class="luacmt">-- We got our 2 parameters?</span>
   <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
-  <span class="luakyw">local</span> hOutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+  <span class="luacmt">local</span> hOutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
 
-  hOutputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>output<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
+  hOutputFile <span class="luasbl">=</span> io.output(params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
 
   <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
   <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
     <span class="luakyw">repeat</span>
-      io.<span class="luafct">write</span><span class="luasbl">(</span>FindData.Name <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
-      io.<span class="luafct">write</span><span class="luasbl">(</span>FindData.Size <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
-      io.<span class="luafct">write</span><span class="luasbl">(</span><span class="luastr">"---------------\r"</span><span class="luasbl">)</span>
+      io.write<span class="luasbl">(</span>FindData.Name <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
+      io.write<span class="luasbl">(</span>FindData.Size <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
+      io.write<span class="luasbl">(</span><span class="luastr">"---------------\r"</span><span class="luasbl">)</span>
 
-      Result<span class="luasbl">,</span>FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindNext</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+      Result<span class="luasbl">,</span> FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindNext</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
     <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
 
     <span class="mark">SysUtils.FindClose</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
-    io<span class="luasbl">.</span>close<span class="luasbl">(</span>hOutputFile<span class="luasbl">)</span>
+    io.close<span class="luasbl">(</span>hOutputFile<span class="luasbl">)</span>
   <span class="luakyw">end</span>
 <span class="luakyw">end</span></pre>
         <p>In the above example, we need to pass two parameters to our script:</p>
@@ -627,7 +641,7 @@
 <span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
 <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
 <span class="luakyw">local</span> iAttr
-<span class="luakyw">local</span> bFound <span class="luasbl">=</span> false
+<span class="luakyw">local</span> bFound <span class="luasbl">=</span> <span class="luakyw">false</span>
 <span class="luakyw">local</span> sCompleteFilename <span class="luasbl">=</span> <span class="luastr">""</span>
 <span class="luakyw">local</span> hInputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
 <span class="luakyw">local</span> sLine <span class="luasbl">=</span> <span class="luastr">""</span>
@@ -642,43 +656,43 @@
   DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_MarkUnmarkAll"</span><span class="luasbl">)</span> <span class="luacmt">-- Make sure nothing is selected.</span>
 
   <span class="luacmt">-- Let's scan one by one all the files of our directory.</span>
-  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindFirst(params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindFirst<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
   <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
     <span class="luakyw">repeat</span>
-      sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name
+      sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData.Name
       iAttr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
-      <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
+      <span class="luakyw">if</span> iAttr &gt; <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
         <span class="luacmt">-- We need file, not directory!</span>
-        <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+        <span class="luakyw">if</span> math.floor<span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
 
           <span class="luacmt">-- Let's now read the file line by line until the the end OR a found.</span>
-          hInputFile <span class="luasbl">=</span> io<span class="luasbl">.</span>open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
-          bFound <span class="luasbl">=</span> false
+          hInputFile <span class="luasbl">=</span> io.open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
+          bFound <span class="luasbl">=</span> <span class="luakyw">false</span>
 
-          <span class="luakyw">while</span> bFound <span class="luasbl">==</span> false <span class="luakyw">do</span>
-            sLine <span class="luasbl">=</span> hInputFile<span class="luasbl">:</span><span class="luafct">read</span><span class="luasbl">()</span>
+          <span class="luakyw">while</span> bFound <span class="luasbl">==</span> <span class="luakyw">false</span> <span class="luakyw">do</span>
+            sLine <span class="luasbl">=</span> hInputFile:read<span class="luasbl">()</span>
             <span class="luakyw">if</span> sLine <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
-            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string<span class="luasbl">.</span>find<span class="luasbl">(</span>sLine, sSearchString<span class="luasbl">)</span>
-            <span class="luakyw">if</span> iPosS <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> bFound <span class="luasbl">=</span> true <span class="luakyw">end</span>
+            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string.find<span class="luasbl">(</span>sLine<span class="luasbl">,</span> sSearchString<span class="luasbl">)</span>
+            <span class="luakyw">if</span> iPosS <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> bFound <span class="luasbl">=</span> <span class="luakyw">true</span> <span class="luakyw">end</span>
           <span class="luakyw">end</span>
 
-          <span class="luakyw">if</span> bFound <span class="luasbl">==</span> true <span class="luakyw">then</span>
-            sFileToSelect <span class="luasbl">=</span> sFileToSelect <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name <span class="luasbl">..</span> <span class="luastr">"\n"</span>
+          <span class="luakyw">if</span> bFound <span class="luasbl">==</span> <span class="luakyw">true</span> <span class="luakyw">then</span>
+            sFileToSelect <span class="luasbl">=</span> sFileToSelect <span class="luasbl">..</span> FindData.Name <span class="luasbl">..</span> <span class="luastr">"\n"</span>
           <span class="luakyw">end</span>
 
-          io<span class="luasbl">.</span>close<span class="luasbl">(</span>hInputFile<span class="luasbl">)</span>
+          io.close<span class="luasbl">(</span>hInputFile<span class="luasbl">)</span>
         <span class="luakyw">end</span>
       <span class="luakyw">end</span>
-      Result<span class="luasbl">,</span>FindData <span class="luasbl">=</span> SysUtils<span class="luasbl">.</span>FindNext<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+      Result<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindNext<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
     <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
 
-    SysUtils<span class="luasbl">.</span>FindClose<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    SysUtils.FindClose<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
   <span class="luakyw">end</span>
 
   <span class="luacmt">-- If we've found something, select it!</span>
   <span class="luakyw">if</span> sFileToSelect <span class="luasbl">~=</span> <span class="luastr">""</span> <span class="luakyw">then</span>
     <span class="mark">Clipbrd.SetAsText</span><span class="luasbl">(</span>sFileToSelect<span class="luasbl">)</span>
-    DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_LoadSelectionFromClip"</span><span class="luasbl">)</span>
+    DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_LoadSelectionFromClip"</span><span class="luasbl">)</span>
   <span class="luakyw">end</span>
 
   <span class="mark">Clipbrd.SetAsText</span><span class="luasbl">(</span>sSearchString<span class="luasbl">)</span> <span class="luacmt">-- Restoring what we had in clipboard.</span>
@@ -924,7 +938,7 @@ iFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_I
 iButton <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Do you want to quit?"</span><span class="luasbl">,</span> <span class="luastr">"Question"</span><span class="luasbl">,</span> iFlags<span class="luasbl">)</span>
 
 <span class="luakyw">if</span> iButton <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
-  DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
+  DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="362" height="120"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -934,10 +948,10 @@ iButton <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</spa
         <h2><a name="querysample">3.4.6. Example of usage of the Dialogs.InputQuery</a></h2>
         <p>Here is a little script using <code>Dialogs.InputQuery</code> and the resulting window that will be displayed:</p>
         <pre>
-bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> false<span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
+bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> <span class="luakyw">false</span><span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
 
-<span class="luakyw">if</span> bResult <span class="luasbl">==</span> true then
-  Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
+<span class="luakyw">if</span> bResult <span class="luasbl">==</span> <span class="luakyw">true</span> <span class="luakyw">then</span>
+  Dialogs.MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer <span class="luasbl">..</span> <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
         <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="364" height="112"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -965,12 +979,11 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               <p class="definition">LazUtf8.Next(String)</p>
               <p>An iterator function that, each time it is called, returns the next character in the <var>String</var> and the position of the beginning of this character (in bytes).</p>
               <p>Example:</p>
-<pre>
+              <pre>
 <span class="luacmt">-- Print pairs of values in the form "position : character"</span>
-<span class="luakyw">for</span> iPos, sChar <span class="luakyw">in</span> LazUtf8.Next<span class="luasbl">(</span>String<span class="luasbl">)</span> <span class="luakyw">do</span>
-  DC.LogWrite<span class="luasbl">(</span>iPos .. <span class="luastr">" : "</span> .. sChar<span class="luasbl">)</span>
-<span class="luakyw">end</span>
-</pre>
+<span class="luakyw">for</span> iPos<span class="luasbl">,</span> sChar <span class="luakyw">in</span> <span class="mark">LazUtf8.Next</span><span class="luasbl">(</span>String<span class="luasbl">)</span> <span class="luakyw">do</span>
+  DC.LogWrite<span class="luasbl">(</span>iPos <span class="luasbl">..</span> <span class="luastr">" : "</span> <span class="luasbl">..</span> sChar<span class="luasbl">)</span>
+<span class="luakyw">end</span></pre>
             </td>
           </tr>
           <tr>

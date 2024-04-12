@@ -246,7 +246,9 @@
         <p><span class="bold"><a name="ConfigToolsTerminal">2.3.4. Tools&nbsp;&gt; Terminal</a></span></p>
         <p>This section contains terminal launch parameters:</p>
         <p class="figure"><img class="largeimage" title="Launch of the terminal" alt="Launch of the terminal" src="images/imgDC/pic54.png" width="578" height="291"></p>
-        <p>The first two items are for running commands in the terminal: to indicate the position of commands to run on the command line, use <code>{command}</code> in the parameters field.</p>
+        <p>The first two groups are for running commands in the terminal (to indicate the position of commands to run on the command line, use <code>{command}</code> in the parameters field). They can be used in toolbar buttons, internal file associations, to launch external applications to <a href="#ConfigTools">replace</a> the built-in text editor, viewer and file comparison tool. You <a href="#ConfigAssocEx">can add</a> these actions to the file context menu (to the "Actions" submenu).</p>
+        <p>Also, the first group is used to open a file under the cursor in the terminal using <kbd>Shift+Enter</kbd> and to run a command from the command line (but if the <a href="help.html#iface_console">Terminal window</a> is enabled, the command will be executed in it).</p>
+        <p>The third group allows to specify the command that will be executed when the terminal is called (internal command <a href="cmds.html#cm_RunTerm">cm_RunTerm</a>, <kbd>F9</kbd> by default).</p>
         <p>Default values:</p>
         <ul>
           <li><p>Windows: <tt>cmd.exe</tt></p></li>
@@ -417,7 +419,7 @@
         <p>A window for adding hotkeys:</p>
         <p class="figure"><img class="largeimage" title="Add new hotkey" alt="Add new hotkey" src="images/imgDC/pic33.png" width="418" height="440"></p>
         <p><span class="italic">Shortcuts</span>&nbsp;&ndash; new shortcut displays here. Click in the box and press combination on keyboard to enter new hot key. If the new combination is already being used for another command, Double Commander will show a warning.</p>
-        <p><span class="italic">Parameters (each in a separate line):</span>&nbsp;&ndash; allows to set some parameters for the command. Most parameters must be added as <span class="italic">parameter=value</span> (unless otherwise stated), without quotes and each in a separate line.</p>
+        <p><span class="italic">Parameters (each in a separate line):</span>&nbsp;&ndash; allows to set some parameters for the command. Most parameters must be added as <span class="italic">parameter=value</span> (unless otherwise stated) and each in a separate line, without quotes and other ways of escaping special characters and spaces.</p>
         <p><span class="italic">Only for these controls</span>&nbsp;&ndash; The hotkey will only work if the selected interface element(s) has focus: command line, files or quick search panel.</p>
         <p>The following buttons are located on the right side of the window:</p>
         <ul>
@@ -765,7 +767,8 @@
           Note: The first parameter is not used in the copy function in Windows, since the system function is used for copying.</p>
         <p><span class="italic">Number of wipe passes</span>&nbsp;&ndash; Here you can specify the number of rewrites to <a href="help.html#cm_Wipe">secure delete files</a>.</p>
         <p><span class="italic">Process comments with files/folders</span>&nbsp;&ndash; If enabled and you have a file/folder with a <a href="help.html#cm_EditComment">comment</a> attached and you copy or move it to another folder the comment will be copied or moved to the destination along with the file/folder.</p>
-        <p><span class="italic">Skip file operations errors and write them to log window</span>&nbsp;&ndash; If a file operation error should occur the error message will appear in the log window below the panels rather than appearing in a popup dialog. This can be useful because the error window will suspend the operation.</p>
+        <p><span class="italic">Skip file operations errors and write them to log window</span>&nbsp;&ndash; If a file operation error should occur the error message will appear in the log window below the panels rather than appearing in a popup dialog. This can be useful because the error window will suspend the operation. In the <a href="#ConfigLog">Log</a> settings section, you can limit the total number of messages, allowing only messages with the "Error" status.<br>
+          The parameter is taken into account in most file operations: copying, moving, deleting, erasing, combining and splitting files, setting file properties (timestamps, owner, attributes), calculating checksum, as well as file operations when working with archives, WFX plugins and GVfs.</p>
         <p><span class="italic">Duplicated name auto-rename style</span>&nbsp;&ndash; sets the file auto-renaming template if a file with the same name already exists in the target directory (i.e. when you choose <span class="italic">Auto-rename source files</span> or <span class="italic">Auto-rename target files</span> in the copy/move dialog): "Copy&nbsp;(x)&nbsp;filename.ext", "filename&nbsp;(x).ext" or "filename(x).ext", where "x" is a counter (2, 3, 4 and so on).</p>
         <br>
 
@@ -1025,7 +1028,12 @@
         <p><span class="italic">Add</span>&nbsp;&ndash; adds a new group. You should enter a group name.</p>
         <p><span class="italic">Remove</span>&nbsp;&ndash; deletes a group.</p>
         <p><span class="italic">Rename</span>&nbsp;&ndash; allows to set a new name for the group.</p>
-        <p><span class="italic">Icon</span>&nbsp;&ndash; you can set the path to an icon for this group. Also you can use MIME-type icons: for example, if you want to use <tt>text-x-pascal.png</tt> from Double Commander icons theme (or from system theme in Linux and other Unix-like systems), just insert <code>text-x-pascal</code>. Double Commander supports frequently used image formats, additionally in Windows you can use icons from binary executable files (.exe, .dll).</p>
+        <p><span class="italic">Icon</span>&nbsp;&ndash; you can set the path to an icon for this group. Double Commander supports frequently used image formats, additionally in Windows you can use icons from binary executable files (.exe or .dll; in this case, DC will automatically choose the appropriate icon size from the available ones). You can also specify only the name of the icon without an extension (MIME-type icons are usually used), in this case:</p>
+        <ul>
+          <li><p>Windows: Double Commander will use the icon from its own current icon theme.</p></li>
+          <li><p>Linux and other Unix-like systems: Double Commander will use the icon from the system icon theme, because it has priority. If there is no icon file, the program will use the icon from its own current icon theme.</p></li>
+        </ul>
+        <p>This is a convenient way, because Double Commander will automatically choose the appropriate icon size from the available ones and will take into account the switching of the icon theme.</p>
         <p><span class="italic">Extensions</span>&nbsp;&ndash; here you can set the extensions (without dot) for the selected group. You can add multiple extensions using a vertical bar "|" (without spaces between them). Special values:</p>
         <ul>
           <li><p><tt>file</tt>&nbsp;&ndash; any file;</p></li>

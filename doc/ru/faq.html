@@ -116,7 +116,7 @@
         <br>
 
         <p class="bold"><a name="linux">В: Это версия Total Commander для Linux, да?</a></p>
-        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux с графическими интерфейсами GTK и Qt (зависит от Lazarus, поэтому на данный момент GTK2 и Qt5) и macOS, также Double Commander доступен в портах FreeBSD.</p>
+        <p><span class="bold">О:</span> Нет, это независимая программа от других разработчиков. Сейчас существуют версии для ОС Windows, GNU/Linux и macOS, также Double Commander доступен в портах FreeBSD.</p>
         <br>
 
         <p class="bold"><a name="wincmd">В: В чём отличия этой программы от моего любимого Total Commander?</a></p>
@@ -127,7 +127,8 @@
         <p class="bold"><a name="link">В: Как можно связаться с разработчиками Double Commander?</a></p>
         <p><span class="bold">О:</span> <a href="https://doublecmd.h1n.ru/" target="_blank">Официальный форум</a> проекта или <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
           Убедитесь, что вы используете последнюю версию программы, и перед тем, как сообщать об ошибке или запрашивать новую функцию, рекомендуется проверить разрабатываемую (альфа) версию.
-          Также смотрите <a title="Creating a new issue" href="https://github.com/doublecmd/doublecmd/issues/117" target="_blank">#117</a>.</p>
+          Также смотрите <a title="Creating a new issue" href="https://github.com/doublecmd/doublecmd/issues/117" target="_blank">#117</a>.<br>
+          Примечание: Можеть стать полезным запуск Double Commander с получением отладочных сообщений, смотрите описание <a href="commandline.html">--debug-log</a>. Также приложение позволяет скопировать содержимое окна сообщения в буфер обмена, просто нажмите <kbd>Ctrl+C</kbd>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -348,7 +349,7 @@
         <br>
 
         <p class="bold"><a name="f34_regutf8">В: Как я могу использовать регулярные выражения для поиска в UTF-8?</a></p>
-        <p><span class="bold">О:</span> Возможность была добавлена в версии 1.0.0. Необходима библиотека PCRE2 с поддержкой 8-битной кодировки и включенной поддержкой юникода (обычно включено по умолчанию):</p>
+        <p><span class="bold">О:</span> Возможность была добавлена в версии 1.0.0. Необходима библиотека PCRE2 с поддержкой 8-битной кодировки и включенной поддержкой юникода (по умолчанию обычно включено):</p>
         <ul>
           <li><p>Linux: необходим файл <tt>libpcre2-8.so.0</tt>. Например, пакет <tt>libpcre2-8-0</tt> в Debian/Ubuntu или <tt>pcre2</tt> в Arch Linux.</p></li>
           <li><p>Windows: необходим файл <tt>libpcre2-8.dll</tt> (по умолчанию дистрибутив Double Commander содежит эту DLL).</p></li>

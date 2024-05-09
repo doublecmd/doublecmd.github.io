@@ -44,7 +44,6 @@ p.definition { font-family: monospace; color:black ; background: #e0e0e0; font-w
 
 span.mark { background: #ffff40; }
 span.luacmt { color: #008000; }
-span.luafct { color: #0050c0; }
 span.luanum { color: #800080; }
 span.luakyw { color: #0000ff; }
 span.luastr { color: #800000; }

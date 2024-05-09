@@ -444,7 +444,7 @@
         <p>Displays the directory opened in the file panel.</p>
         <p>A left mouse click on this directory bar drops down a directories history (internal command <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>) which allows to quickly navigate back to previous directories:</p>
         <p class="figure"><img class="largeimage" title="Directories history" alt="Directories history" src="images/imgDC/pic8.png" width="372" height="164"></p>
-        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually. You can use the keyboard instead of the mouse, just set a hotkey for the <a href="cmds.html#cm_EditPath">cm_EditPath</a> command. Environment variables are supported, in Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
+        <p>A right mouse click on the directory bar will allow to copy the pathname to the clipboard or enter a new path manually. You can use the keyboard instead of the mouse, just set a hotkey for the <a href="cmds.html#cm_EditPath">cm_EditPath</a> command. Environment variables are supported, in Linux and other Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
         <p>A double click or middle mouse click drop down a <a href="directoryhotlist.html">directory hotlist</a>. We can replace the double-click action with an edit path command, see the description of the <a href="configxml.html">&lt;DoubleClickEditPath&gt;</a> parameter.</p>
         <p>It is now also possible to click on parts of the directory bar to quickly navigate back in the directory structure. Very handy if you want to go to a parent directory back many levels. This is known as a "breadcrumb" navigation feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -554,14 +554,11 @@
           <li><p>Calling several file operations: <span class="italic">Copy</span> (<kbd>F5</kbd>), <span class="italic">Rename</span> (<kbd>F2</kbd>) and <span class="italic">Delete</span> (<kbd>F8</kbd>).</p></li>
           <li><p><span class="italic">Show File Properties</span>&nbsp;&ndash; Show file properties window. The content depends on the capabilities of the virtual file system. Inside archives, this will be the properties window of the packed file (see <a href="multiarc.html#workingcomp">Archive handling</a>).</p></li>
         </ul>
-        <p>Keep in mind that not all menu items will work in every case. For example, if some archive format does not support deleting files, Double Commander will ignore the choice of the <span class="italic">Delete</span> command.</p>
+        <p>Keep in mind that not all file operations will work in every case. For example, if some archive format does not support deleting files, Double Commander will hide the <span class="italic">Delete</span> menu item.</p>
         <br>
 
         <p><a name="cm_QuickSearch"><span class="bold">Quick search/filter</span></a></p>
         <p>When using the quick search/filter tool, its panel is displayed at the bottom of the file panel. Quick search is used to search through the current contents of the file panel: the cursor will be moved to the nearest matching file and when using the <kbd>up arrow</kbd> and <kbd>down arrow</kbd> keys, the program will move the cursor in a circle only over files whose names match the conditions. Quick filter will hide all file names that do not match the conditions (to reset the filter, use the <kbd>Esc</kbd> key or the "X" button).</p>
-        <p>Double Commander supports pinyin (the <tt>pinyin.tbl</tt> file in the program directory will be used).</p>
-        <p>You can set the way of call the quick search/filter panel in the <a href="configuration.html#ConfigKeys">Keys</a> settings section, or use the <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> and <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a> commands.</p>
-        <p>All parameters that have been changed in the quick search panel will be kept for the next quick search/filter call (before closing the program), you can change it and the default values in the <a href="configuration.html#ConfigQuick">Quick search/filter</a> settings section.</p>
         <p class="figure"><img class="largeimage" title="Quick search/filter panel" alt="Quick search/filter panel" src="images/imgDC/pic57.png" width="418" height="29"></p>
         <ul>
           <li><p><span class="italic">Filter</span>&nbsp;&ndash; search/filter switch;</p></li>
@@ -572,6 +569,9 @@
           <li><p><span class="italic">D</span>&nbsp;&ndash; filter directories;</p></li>
           <li><p><span class="italic">X</span>&nbsp;&ndash; disable quick search and close the panel.</p></li>
         </ul>
+        <p>Double Commander supports pinyin (the <tt>pinyin.tbl</tt> file in the program directory will be used).</p>
+        <p>You can set the way of call the quick search/filter panel in the <a href="configuration.html#ConfigKeys">Keys</a> settings section, or use the <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> and <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a> commands.</p>
+        <p>All parameters that have been changed in the quick search panel will be kept for the next quick search/filter call (before closing the program), you can change it and the default values in the <a href="configuration.html#ConfigQuick">Quick search/filter</a> settings section.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -592,8 +592,8 @@
         <p>Path to active directory shows in line beginning (<tt>C:\Program Files\Double Commander\</tt> in screenshot). The button on the right with an arrow opens the history of the entered commands. Use <kbd>Shift+Del</kbd> to remove unnecessary entries from the history.</p>
         <p>Several <a href="cmds.html#catcommandline">internal commands</a> are available for working with the command line, also see the typing options in the <a href="configuration.html#ConfigKeys">Keys</a> settings section.</p>
         <p>If the command line is hidden in the <a href="configuration.html#ConfigLayout">settings</a>, you can still use it. In this case, the command line will be automatically hidden after the command is run. You can hide it using the <kbd>Esc</kbd> key (if the input field is empty) or just move the cursor to the file panel (or switch the focus in another way).</p>
-        <p>Environment variables are supported, in Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
-        <p>Double Commander independently handles the "cd" command, you can use it to change the current directory in the active panel (works only with the local file system or remote resources mounted as a local disk). If you use a path with the file name, Double Commander will change directory and place the cursor on this file. If you specify only a file name, Double Commander will place the cursor on this file in the current directory.</p>
+        <p>Environment variables are supported, in Linux and other Unix-like operating systems you can also use the tilde symbol "~" to indicate the current user's home directory.</p>
+        <p>Double Commander independently handles the <code>cd</code> command, you can use it to change the current directory in the active panel (works only with the local file system or remote resources mounted as a local disk). If you use a path with the file name, Double Commander will change directory and place the cursor on this file. If you specify only a file name, Double Commander will place the cursor on this file in the current directory. The <code>cd ..</code> command can be used to navigate to the parent directory, running the command without parameters will open the current user's home directory.</p>
         <p>You can use slash: <code>cd \</code> to go to the root of the current drive (Windows) and <code>cd /</code> to go to the root of the file system (Linux and other Unix-like systems).</p>
         <p>In Windows, you can change the drive by simply specifying the drive letter and a colon: <code>c:</code>, <code>d:</code> and so on.</p>
         <p>Right mouse click will show the usual input box menu that contains standard commands <span class="italic">Cut</span>, <span class="italic">Copy</span>, <span class="italic">Paste</span>, <span class="italic">Delete</span>, <span class="italic">Select All</span> and submenu <span class="italic">Insert Unicode Control Character</span>.</p>

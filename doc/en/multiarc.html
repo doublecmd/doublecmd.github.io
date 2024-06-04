@@ -50,7 +50,8 @@
               <dt>4.10. <a href="#actionextractnpath">Configuring the "Extract without path" action</a></dt>
               <dt>4.11. <a href="#actionselfextract">Configuring the "Create self extracting archive" action</a></dt>
               <dt>4.12. <a href="#configids">Configuring the "ID's"</a></dt>
-              <dt>4.13. <a href="#other">Menu of the "Other" button</a></dt>
+              <dt>4.13. <a href="#debug">Debugging</a></dt>
+              <dt>4.14. <a href="#other">Menu of the "Other" button</a></dt>
             </dl>
           </dd>
           <dt>5. <a href="#openassociation">Opening an archive file in an associated application</a></dt>
@@ -493,7 +494,18 @@
       </div>
 
       <div>
-        <h2><a name="other">4.13. Menu of the "Other" button</a></h2>
+        <h2><a name="debug">4.13. Debugging</a></h2>
+        <p>The steps described above are usually sufficient to use an external archiver, but just in case we have a couple more options:</p>
+        <ul>
+          <li><p><span class="italic">Show console output</span>&nbsp;&ndash; If enabled, Double Commander will write (line by line) the result of the work of the external archiver and parser to the log window.</p></li>
+          <li><p><span class="italic">Debug mode</span>&nbsp;&ndash; Similar to the previous option, but the result of the work will also be output to the Double Commander's debugging messages (see the description of <a href="commandline.html">--debug-log</a>). In this case, the temporary file with the list of files (<code>%L</code> in our example) will not be automatically deleted after the operation is completed.</p></li>
+        </ul>
+        <p>If the display of the log window is disabled in the <a href="configuration.html#ConfigLayout">settings</a>, it will be shown forcibly and hidden when Double Commander is closed. Messages will not be saved to the log file.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="other">4.14. Menu of the "Other" button</a></h2>
         <p>This menu contains several additional functions:</p>
         <ul>
           <li><p><span class="italic">Auto Configure</span>&nbsp;&ndash; Double Commander will check all executable files of archivers: if a file is found, the program will automatically add its full path and enable the archiver, otherwise the archiver will be disabled.</p></li>

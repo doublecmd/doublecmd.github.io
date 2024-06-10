@@ -68,6 +68,7 @@
               <dt>4.8. <a href="#descript_ion">Can the comments (via the descript.ion file) be copied/moved when a file is copied/moved from one directory to another?</a></dt>
               <dt>4.9. <a href="#set_property">In some cases I see warning "Can not set [attributes, date/time, owner/group or permissions] for xxx" when I copy or move files, I want that DC use action "skip"/"skip all" by default. How I can do it?</a></dt>
               <dt>4.10. <a href="#admin_shares">Why doesn't the program show a list of admin shares?</a></dt>
+              <dt>4.11. <a href="#hotkey_controls">I assigned the left and right arrows to navigate back and forth through the directory history, but now I can't use them while renaming a file. How to fix it?</a></dt>
             </dl>
           </dd>
           <dt><a name="viewer">5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
@@ -143,16 +144,18 @@
         <ul>
           <li>
             <p>release:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
-              or
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              or
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
             </p>
           </li>
           <li>
             <p>alpha ("nightly") build:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
-              or
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              or
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
             </p>
           </li>
         </ul>
@@ -321,6 +324,10 @@
 
         <p class="bold"><a name="admin_shares">Q: Why doesn't the program show a list of admin shares?</a></p>
         <p><span class="bold">A:</span> Administrative shares are hidden network shares, make sure that you have enabled the display of hidden files and folders (use the <a href="configuration.html#ConfigViewEx">program settings</a> or the corresponding item in the <a href="help.html#mnu_view">Show</a> menu).</p>
+        <br>
+
+        <p class="bold"><a name="hotkey_controls">Q: I assigned the left and right arrows to navigate back and forth through the directory history, but now I can't use them while renaming a file. How to fix it?</a></p>
+        <p><span class="bold">A:</span> When assigning a hot key, Double Commander allows to limit the scope of the keyboard shortcut, see <a href="configuration.html#ConfigHotKeys">Only for these controls</a>.<br>In this case, you need to enable the "Files Panel".</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

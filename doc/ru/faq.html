@@ -68,6 +68,7 @@
               <dt>4.8. <a href="#descript_ion">Можно ли копировать/перемещать комментарии (через файл descript.ion), когда файл копируется/перемещается из одного каталога в другой?</a></dt>
               <dt>4.9. <a href="#set_property">В некоторых случаях вижу предупреждение "Не удалось установить [атрибуты, дату/время, владельца/группу или права доступа] для ххх" когда копирую или перемещаю файлы, хочу, чтобы DC по умолчанию использовал действие "пропустить"/"пропустить все". Как я могу это сделать?</a></dt>
               <dt>4.10. <a href="#admin_shares">Почему программа не показывает список административных общих ресурсов?</a></dt>
+              <dt>4.11. <a href="#hotkey_controls">Я назначил левую и правую стрелки для перехода по истории каталогов назад и вперёд, но теперь не могу их использовать во время переименования файла. Как это исправить?</a></dt>
             </dl>
           </dd>
           <dt><a name="viewer">5. Вопросы, связанные со встроенной программой просмотра (<kbd>F3</kbd>) и редактором (<kbd>F4</kbd>)</a></dt>
@@ -143,16 +144,18 @@
         <ul>
           <li>
             <p>релиз:
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
-              или
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              или
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
             </p>
           </li>
           <li>
             <p>альфа-версия ("ночные" сборки):
-              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>
-              или
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
               <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              или
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
             </p>
           </li>
         </ul>
@@ -321,6 +324,10 @@
 
         <p class="bold"><a name="admin_shares">В: Почему программа не показывает список административных общих ресурсов?</a></p>
         <p><span class="bold">О:</span> Административные общие ресурсы&nbsp;&ndash; это скрытые сетевые ресурсы, убедитесь, что у вас включено отображение скрытых файлов и папок (используйте <a href="configuration.html#ConfigViewEx">настройки программы</a> или соответствующий пункт в меню <a href="help.html#mnu_view">Вид</a>).</p>
+        <br>
+
+        <p class="bold"><a name="hotkey_controls">В: Я назначил левую и правую стрелки для перехода по истории каталогов назад и вперёд, но теперь не могу их использовать во время переименования файла. Как это исправить?</a></p>
+        <p><span class="bold">О:</span> При назначении горячей клавиши Double Commander позволяет ограничить область работы сочетания клавиш, смотрите <a href="configuration.html#ConfigHotKeys">Только для этих элементов интерфейса</a>.<br>В данном случае вам необходимо включить "Files Panel".</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 

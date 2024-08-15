@@ -136,7 +136,10 @@
       <div>
         <h2>2. Issues related to GNU/Linux</h2>
         <p class="bold"><a name="version">Q: Which version do I download?</a></p>
-        <p><span class="bold">A:</span> If you have KDE, LXQt or Fly&nbsp;&ndash; download a Qt-build; in other cases (Cinnamon, GNOME, LXDE, MATE or Xfce) a build for GTK toolkit. But this is not strict rule.</p>
+        <p><span class="bold">A:</span> If you have KDE, LXQt or Fly&nbsp;&ndash; download a Qt-build; in other cases (Cinnamon, GNOME, LXDE, MATE or Xfce) a build for GTK toolkit. But this is not strict rule and there are methods available that allow to get a more or less similar look of Qt applications in a GTK environment and vice versa.<br>
+          A few words about some details:<br>
+          -&nbsp;The GTK2 library do not support Wayland, so Xwayland will be used to run the application in a Wayland session. If you need native Wayland support, then try the Qt version (Qt5 or Qt6).<br>
+          -&nbsp;If you use a scaling factor greater than 1 (HiDPI or just a big monitor), then perhaps the Qt version (Qt5 or Qt6) will look more acceptable, check it.</p>
         <br>
 
         <p class="bold"><a name="repo">Q: Where is the project repository?</a></p>
@@ -181,6 +184,7 @@
           <li>SMB: <code>smb://servername/sharename/</code></li>
           <li>WebDAV: <code>davs://servername</code></li>
         </ul>
+        <p>For a list of supported protocols, see the GVfs documentation.</p>
         <p>Well, for access to FTP (for SSH+SCP too) and SMB you can use default WFX plugins <a href="plugins.html#ftp.wfx">FTP</a> and <a href="plugins.html#samba.wfx">Samba</a>.</p>
         <br>
 

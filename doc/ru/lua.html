@@ -178,11 +178,39 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             <td class="cmdcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
               <p class="definition">DC.ExecuteCommand(sCommand, Param1, Param2,...,ParamX)</p>
-              <p>Вызывает внутреннюю команду Double Commander <var>sCommand</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
+              <p>Вызывает <a href="cmds.html">внутреннюю команду</a> Double Commander <var>sCommand</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
               <p>Мы можем подставить столько <var>Param...</var>, сколько поддерживает команда <var>Command</var>.</p>
             </td>
           </tr>
         </table>
+        <p>Помимо внутренних команд, в скриптах мы можем использовать специальную команду <tt>cm_ExecuteToolBarItem</tt>, эта команда позволяет вызывать кнопки панелей инструментов по их идентификатору (в программе эта функция обеспечивает использование горячих клавиш для кнопок панелей инструментов). Команда используется аналогично обычным внутренним командам (смотрите примеры ниже) и имеет следующие параметры:</p>
+        <table class="innercmddesc">
+          <tr class="rowinnerdesc">
+            <th class="innerdescheader">Параметр</th>
+            <th class="innerdescheader">Значение</th>
+            <th class="innerdescheader">Описание</th>
+          </tr>
+          <tr>
+            <td class="innerdescparamcell" rowspan="3">ToolBarID</td>
+            <td class="innerdescvaluecell">TfrmOptionsToolbar</td>
+            <td class="innerdescdesccell">кнопка основной панели инструментов</td>
+          </tr>
+          <tr>
+            <td class="innerdescvaluecell">TfrmOptionsToolbarMiddle</td>
+            <td class="innerdescdesccell">кнопка центральной панели инструментов</td>
+          </tr>
+          <tr>
+            <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
+            <td class="innerdescdesccell">кнопка основной панели инструментов</td>
+          </tr>
+          <tr>
+            <td class="innerdescparamcell">ToolItemID</td>
+            <td class="innerdescvaluecell"><i>идентификатор</i></td>
+            <td class="innerdescdesccell">уникальный идентификатор кнопки</td>
+          </tr>
+        </table>
+        <p>Уникальный идентификатор хранится в теге <code>ID</code> и у нас есть несколько способов его получить: мы можем найти кнопку в файле <tt>doublecmd.xml</tt>, в файле резервной копии панели инструментов или просто скопировать кнопку в буфер обмена и вставить её код в текстовый редактор.</p>
+        <p>Примечание: Идентификаторы генерируются автоматически и не обязаны совпадать с индентификаторами аналогичных кнопок другой копии программы, но при необходимости мы можем вручную задать своё значение.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 

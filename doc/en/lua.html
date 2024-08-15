@@ -180,12 +180,40 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             <td class="cmdcell"><div class="firstcolumnaleft">DC.ExecuteCommand</div></td>
             <td class="hintcell">
               <p class="definition">DC.ExecuteCommand(sCommand, Param1, Param2,...,ParamX)</p>
-              <p>This allows the script to invoke internal commands of DC.</p>
+              <p>This allows the script to invoke <a href="cmds.html">internal commands</a> of Double Commander.</p>
               <p>The <var>sCommand</var> is holding the actual internal command name.</p>
               <p>We may provide as many <var>Param...</var> as command may support.</p>
             </td>
           </tr>
         </table>
+        <p>In addition to internal commands, in scripts we can use the special command <tt>cm_ExecuteToolBarItem</tt>, this command allows to call toolbar buttons by their identifier (in the program, this function provides the use of hotkeys for toolbar buttons). The command is used similarly to ordinary internal commands (see examples below) and has the following parameters:</p>
+        <table class="innercmddesc">
+          <tr class="rowinnerdesc">
+            <th class="innerdescheader">Parameter</th>
+            <th class="innerdescheader">Value</th>
+            <th class="innerdescheader">Description</th>
+          </tr>
+          <tr>
+            <td class="innerdescparamcell" rowspan="3">ToolBarID</td>
+            <td class="innerdescvaluecell">TfrmOptionsToolbar</td>
+            <td class="innerdescdesccell">the button of the main toolbar</td>
+          </tr>
+          <tr>
+            <td class="innerdescvaluecell">TfrmOptionsToolbarMiddle</td>
+            <td class="innerdescdesccell">the button of the middle toolbar</td>
+          </tr>
+          <tr>
+            <td class="innerdescvaluecell"><i>(absent)</i></td>
+            <td class="innerdescdesccell">the button of the main toolbar</td>
+          </tr>
+          <tr>
+            <td class="innerdescparamcell">ToolItemID</td>
+            <td class="innerdescvaluecell"><i>identifier</i></td>
+            <td class="innerdescdesccell">the unique identifier of the button</td>
+          </tr>
+        </table>
+        <p>The unique identifier is stored in the <code>ID</code> tag and we have several ways to get it: we can find the button in the <tt>doublecmd.xml</tt> file, in the toolbar backup file, or simply copy the button to the clipboard and paste its code into a text editor.</p>
+        <p>Note: Identifiers are generated automatically and do not have to match the identifiers of similar buttons in another copy of the program, but if necessary, we can manually set our own value.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

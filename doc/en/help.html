@@ -92,7 +92,7 @@
           <li><p>Double Commander has its own <a href="faq.html#repo">repository</a> for several Linux distributions (the official repositories of Linux distributions do not always contain the current (latest) version of the program).</p></li>
           <li><p>And you can <a href="https://github.com/doublecmd/doublecmd/wiki/Development" target="_blank">build</a> Double Commander yourself.</p></li>
         </ul>
-        <p><a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">Version archive</a> is also available.</p>
+        <p><a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">Version archive</a> and <a href="https://doublecmd.sourceforge.io/site/eng/snapshots.php" target="_blank">nightly builds</a> are also available.</p>
         <p>First, you must choose which operating system (Windows, Linux, macOS), processor architecture and then you may select the version to download.</p>
         <p>For Windows there is an executable file <tt>.exe</tt> (Inno Setup) or <tt>.msi</tt> and an archive <tt>.zip</tt> (which is the so-called portable version).</p>
         <p>For Linux there are versions based on GTK toolkit and based on Qt (Qt5 or Qt6). Also available: portable versions (compiled binaries packed with XZ) and files in the AppImage format.</p>
@@ -511,7 +511,7 @@
 
         <p><a name="draganddrop"><span class="bold">Drag &amp; drop</span></a></p>
         <p>Double Commander supports the ability to drag and drop files using the mouse (that is, with the left mouse button pressed) to the windows of external applications (for example, a text or graphics editor or viewer), to the toolbar and copying/moving files between directories. If the action is possible, the "+" symbol will be displayed near the mouse cursor.</p>
-        <p>When dragging a file to an empty place on the toolbar, a button with an external command will be created, the passed file will be used as a command. Dragging a file to a button is only possible if it is a button with an external command: the command will launched and the file will be passed to it as a launch parameter.</p>
+        <p>When dragging a file to an empty place on the toolbar, a button with an external command will be created, the passed file will be used as a command. Dragging a file to a button is only possible if it is a button with an external command: the command will launched and the file will be passed to it as a launch parameter (keep in mind that in this case the parameters of the button command are ignored).</p>
         <p>For file copy or move (using the <kbd>Ctrl</kbd> or <kbd>Shift</kbd> key) operations, the following targets are possible: the opposite file panel, any folder in the active or inactive panel (the folder name will be highlighted with a frame), the directory of any open tab (just drop the files on the header of the desired tab). Use ".." to copy files to the parent directory. Double Commander can also copy files to an archive if adding files is supported.</p>
         <p>Dragging using the right mouse button will show the menu with the following actions: <span class="italic">Copy</span>, <span class="italic">Move</span>, <span class="italic">Create link</span> (hard link), <span class="italic">Create symlink</span> and <span class="italic">Cancel</span>. If several files are selected, Double Commander will offer to create a link only for the first file in the list.</p>
         <p>You can create a symbolic link using <kbd>Ctrl+Shift</kbd>.</p>

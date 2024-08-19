@@ -67,14 +67,14 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F2, Shift+F6</div></td>
-            <td class="hintcell">1. Переименовать файл/папку под курсором<br>
+            <td class="hintcell">1. Переименовать файл/папку под курсором.<br>
               2. Если ничего не выделено и курсор находится на первом пункте (".."):
-              редактировать текущий путь (как <a href="cmds.html#cm_EditPath">cm_EditPath</a>)</td>
+              редактировать текущий путь (как <a href="cmds.html#cm_EditPath">cm_EditPath</a>).</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">F3</div></td>
-            <td class="hintcell">1. На файле: открыть файл в <a href="viewer.html">просмотрщике</a> (так же и несколько выделенных файлов)<br>
-              2. На папке: открыть эту папку</td>
+            <td class="hintcell">1. На файле: открыть файл в <a href="viewer.html">просмотрщике</a> (так же и несколько выделенных файлов).<br>
+              2. На папке: открыть эту папку.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
@@ -372,8 +372,8 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
-            <td class="hintcell">1. Аналогично клавише <kbd>Enter</kbd><br>
-              2. Открыть каталог/архив (включая самораспаковывающиеся архивы)</td>
+            <td class="hintcell">1. Аналогично клавише <kbd>Enter</kbd>.<br>
+              2. Открыть каталог/архив (включая самораспаковывающиеся архивы).</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Ctrl+PgUp</div></td>
@@ -432,20 +432,14 @@
             <td class="hintcell">Переключиться на противоположную файловую панель</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="shortcutname">&larr;</div></td>
-            <td class="hintcell">Перейти в родительский каталог (если активирован режим "Навигация в стиле Lynx")</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="shortcutname">&rarr;</div></td>
-            <td class="hintcell">Перейти в каталог под курсором (если активирован режим "Навигация в стиле Lynx")</td>
-          </tr>
-          <tr>
             <td class="varcell"><div class="shortcutname">Enter</div></td>
-            <td class="hintcell">1. Курсор в командной строке и она не пуста: выполнить команду<br>
-              2. Курсор на каталоге/архиве: открыть каталог/архив<br>
-              3. Курсор на исполняемом файле: запустить<br>
-              4. Курсор на обычном файле: открыть в ассоциированной программе<br>
-              5. Курсор на файле внутри архива: показать диалог свойств упакованного файла</td>
+            <td class="hintcell">1. Курсор в командной строке и она не пуста: выполнить команду.<br>
+              2. Курсор на каталоге/архиве: открыть каталог/архив.<br>
+              3. Курсор на исполняемом файле: запустить его.<br>
+              4. Курсор на обычном файле: открыть в ассоциированной программе.<br>
+              5. Курсор на файле внутри архива: показать диалог свойств упакованного файла или распаковать файл из архива и запустить его или открыть в ассоциированной программе.<br>
+              6. Курсор на файле контрольных сумм: выполнить проверку контрольных сумм.<br>
+              7. Курсор в поле редактирования при переименовании в файловой панели: сохранить новое имя.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Insert</div></td>
@@ -457,13 +451,17 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Пробел</div></td>
-            <td class="hintcell">1. На файле: инвертировать выделение<br>
-              2. На каталоге: инвертировать выделение с подсчетом занимаемого места</td>
+            <td class="hintcell">1. На файле: инвертировать выделение.<br>
+              2. На каталоге: инвертировать выделение с подсчетом занимаемого места.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Буква или цифра</div></td>
-            <td class="hintcell">1. Переместить курсор в командную строку и ввести букву там<br>
-              2. В режиме быстрого поиска "Только буква": быстрый поиск в текущей панели</td>
+            <td class="hintcell">Действие зависит от <a href="configuration.html#ConfigKeys">настроек</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Стрелки влево/вправо</div></td>
+            <td class="hintcell">Перейти в родительский каталог или в каталог под курсором (если активирован режим <a href="configuration.html#ConfigKeys">Навигация в стиле Lynx</a> и только в подробном режиме).<br>
+              Краткий режим или эскизы: переместить курсор по горизонтали в предыдущую/следующую колонку или переместить курсор по горизонтали на предыдущий/следующий эскиз.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Правая кнопка мыши</div></td>
@@ -1193,8 +1191,8 @@
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Tab</div></td>
-            <td class="hintcell">1. Вставить символ Tab<br>
-              2. Если включено <a href="configuration.html#ConfigToolsEditor">Tab меняет отступ блоков</a> и текст выделен: добавить отступ для строки или блока текста</td>
+            <td class="hintcell">1. Вставить символ Tab.<br>
+              2. Если включено <a href="configuration.html#ConfigToolsEditor">Tab меняет отступ блоков</a> и текст выделен: добавить отступ для строки или блока текста.</td>
           </tr>
           <tr>
             <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>

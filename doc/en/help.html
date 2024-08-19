@@ -60,6 +60,7 @@
                   <dt>&#8226; <a href="#draganddrop">Drag &amp; drop</a></dt>
                   <dt>&#8226; <a href="#cm_ContextMenu">Context menu</a></dt>
                   <dt>&#8226; <a href="#cm_QuickSearch">Quick search/filter</a></dt>
+                  <dt>&#8226; <a href="#rename_files">Renaming files</a></dt>
                 </dl>
               </dd>
               <dt>2.9. <a href="#iface_status">Status bar</a></dt>
@@ -341,7 +342,7 @@
         <p><span class="bold">Resave on the last Favorite Tabs loaded</span> (internal command <tt>cm_ResaveFavoriteTabs</tt>)&nbsp;&ndash; will resave the current tabs configuration over the last loaded Favorites Tabs entry.</p>
         <p><span class="bold">Reload the last Favorite Tabs loaded</span> (internal command <tt>cm_ReloadFavoriteTabs</tt>)&nbsp;&ndash; reload again the last Favorite Tabs setup that was loaded, i.e. this command is used to restore a saved set "as is".</p>
         <p>The next item <span class="bold">Configuration of Favorite Tabs</span> is for quick jump to the <a href="configuration.html#ConfigFavoriteTabs">Favorite Tabs</a> settings section.</p>
-        <p>To unload the last loaded Favorite Tabs, use the <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> command with <code>setup=""</code> (add a button to the toolbar or a hotkey). The currently open tabs will not be affected, this command will just unload the name of the used set of Favorite Tabs from memory and Double Commander will continue to work as usual.</p>
+        <p>To unload the last loaded Favorite Tabs, use the <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> command with <code>setup=</code> (add a button to the toolbar or a hotkey). The currently open tabs will not be affected, this command will just unload the name of the used set of Favorite Tabs from memory and Double Commander will continue to work as usual.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -572,6 +573,13 @@
         <p>Double Commander supports pinyin (the <tt>pinyin.tbl</tt> file in the program directory will be used).</p>
         <p>You can set the way of call the quick search/filter panel in the <a href="configuration.html#ConfigKeys">Keys</a> settings section, or use the <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> and <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a> commands.</p>
         <p>All parameters that have been changed in the quick search panel will be kept for the next quick search/filter call (before closing the program), you can change it and the default values in the <a href="configuration.html#ConfigQuick">Quick search/filter</a> settings section.</p>
+        <br>
+
+        <p><a name="rename_files"><span class="bold">Renaming files</span></a></p>
+        <p>Double Commander allows to rename files directly in the file panel. There are several ways to call this operation: the internal command <tt>cm_RenameOnly</tt> (<kbd>F2</kbd> or <kbd>Shift+F6</kbd> by default), the <a href="configuration.html#ConfigViewEx">left mouse click</a> or the corresponding item in the right mouse button menu.</p>
+        <p>By default, Double Commander will select the file name completely, but you can <a href="configuration.html#ConfigOperations">enable</a> file name selecting without an extension. Also, repeated hotkey presses allow to select the file name in parts, the following characters are used as a separator: space, hyphen underscore and period. Folder names are always selected completely.</p>
+        <p>To confirm the change in the name, use the <kbd>Enter</kbd> key or the rename confirmation button to the right of the edit field. To cancel unconfirmed changes (to exit editing mode), use the <kbd>Esc</kbd> key or the mouse click outside the edit field. You can use a mouse click outside the edit field to confirm the renaming (as in Windows Explorer), see the description of <a href="configxml.html">RenameConfirmMouse</a>.</p>
+        <p>For group renaming files, the <a href="multirename.html">appropriate tool</a> is available.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

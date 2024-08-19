@@ -240,9 +240,9 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;RenameConfirmMouse&gt;<br><small>from &lt;FilesViews&gt;</small></div></td>
             <td class="hintcell">
-              This option changes the mouse click action when renaming a file under the cursor: if <code>True</code>, the mouse click outside the name input field will confirm renaming the file (as in Windows Explorer), otherwise, the mouse click will work the same as the <kbd>Esc</kbd> key.<br>
+              This option changes the mouse click action when renaming a file under the cursor: if <code>True</code>, the mouse click outside the name edit field will confirm renaming the file (as in Windows Explorer), otherwise, the mouse click will work the same as the <kbd>Esc</kbd> key.<br>
               <code>False</code> by default.<br>
-              In both cases, we can still use the button to the right of the input field to confirm the operation.
+              In both cases, we can still use the button to the right of the edit field to confirm the operation.
             </td>
           </tr>
 
@@ -330,6 +330,19 @@
                 </tr>
               </table>
               <i>Example:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Count</i><br><small>from &lt;History&gt;&lt;DirHistory&gt;</small></div></td>
+            <td class="hintcell">
+              The <code>Count</code> attribute allows to specify the number of entries from the list of visited directories that will be displayed in the popup menu (the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command).
+              When using the Tree View Menu, the attribute value will be ignored.<br>
+              Default value is 30.
             </td>
           </tr>
 
@@ -473,10 +486,8 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
             <td class="hintcell">
-              Synchronize directories: by default, the program saves the last used file mask as the default mask for the next run of the synchronization tool (if it is not a search template),
-              to disable this behavior, we can replace <code>True</code> with <code>False</code><br>
-              <code>&lt;FileMask Save="False"&gt;</code><br>
-              and DC will suggest the value of &lt;FileMask&gt; every time by default ("*" by default, i.e. all files).
+              Synchronize directories: by default, Double Commander saves the last used file mask as the mask for the next run of the synchronization tool (if it is not a search template),
+              to disable this behavior, we can replace <code>True</code> with <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) and specify our own <code>&lt;FileMask&gt;</code> value ("*" by default, i.e. all files).
             </td>
           </tr>
 

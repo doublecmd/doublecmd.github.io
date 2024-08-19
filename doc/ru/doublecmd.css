@@ -65,6 +65,9 @@ span.uline { text-decoration: underline; }
 table { font-size: inherit; border: 1px #b0b0b0 solid; border-collapse: collapse; width: 885px; margin-left: 5px; }
 table.innercmddesc { border: 1px #c0c0c0 solid; border-collapse: collapse; width: 99%}
 
+table.index { font-size: inherit; border: none; border-collapse: collapse; }
+td.indexcell { vertical-align: top; }
+
 tr.rowsubtitle { background-color: #ffffc0; color: #000000; }
 tr.rowcategorytitle { background-color: #ffd0d0; color: #000000; }
 tr.rowinnerdesc { background-color: #ffffc0; color: #000000; }

@@ -374,7 +374,7 @@
         <p><span class="bold"><a name="ConfigKeys">2.6. Keys</a></span></p>
         <p class="figure"><img class="largeimage" title="Keys" alt="Keys" src="images/imgDC/pic60.png" width="578" height="168"></p>
         <p>Here you can set the action on pressing some keys in the active file panel: <span class="italic">Letters</span>, <span class="italic">Alt+Letters</span>, <span class="italic">Ctrl+Alt+Letters</span>. You can choose one of the following actions: do nothing, set focus to command line and enter command, run <p><a href="help.html#cm_QuickSearch">quick search or quick filter</a>.</p>
-        <p><span class="italic">Left, Right arrows change directory (Lynx-like movement)</span>&nbsp;&ndash; <kbd>right arrow</kbd> opens directory or runs a program under cursor, <kbd>left arrow</kbd> opens parent directory.</p>
+        <p><span class="italic">Left, Right arrows change directory (Lynx-like movement)</span>&nbsp;&ndash; <kbd>right arrow</kbd> opens directory or runs a program under cursor, <kbd>left arrow</kbd> opens parent directory (only in the <a href="help.html#iface_files">full mode</a>).</p>
         <br>
 
         <p><span class="bold"><a name="ConfigHotKeys">2.6.1. Keys&nbsp;&gt; Hot Keys</a></span></p>
@@ -419,7 +419,7 @@
         <p>A window for adding hotkeys:</p>
         <p class="figure"><img class="largeimage" title="Add new hotkey" alt="Add new hotkey" src="images/imgDC/pic33.png" width="418" height="440"></p>
         <p><span class="italic">Shortcuts</span>&nbsp;&ndash; new shortcut displays here. Click in the box and press combination on keyboard to enter new hot key. If the new combination is already being used for another command, Double Commander will show a warning.</p>
-        <p><span class="italic">Parameters (each in a separate line):</span>&nbsp;&ndash; allows to set some parameters for the command. Most parameters must be added as <span class="italic">parameter=value</span> (unless otherwise stated) and each in a separate line, without quotes and other ways of escaping special characters and spaces.</p>
+        <p><span class="italic">Parameters (each in a separate line):</span>&nbsp;&ndash; allows to set some parameters for the command. Most parameters must be added as <span class="italic">parameter=value</span> (unless otherwise stated), each must be in a separate line, without quotes and other ways of escaping special characters and spaces.</p>
         <p><span class="italic">Only for these controls</span>&nbsp;&ndash; The hotkey will only work if the selected interface element(s) has focus: command line, files or quick search panel.</p>
         <p>The following buttons are located on the right side of the window:</p>
         <ul>
@@ -633,7 +633,7 @@
           <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&ndash; file or directory status change date.</p></li>
           <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; file or directory attributes. You can choose a string or numeric (octal) value. In Windows, an octal value can be used if Unix attributes are displayed in the file panel (for example, with the FTP plugin). For a detailed description of the string value, see <a href="#ConfigColorFiles">here</a>.</p></li>
           <li><p><tt>GETFILEPATH</tt>&nbsp;&ndash; path to the current item. Uses: usually, for search results.</p></li>
-          <li><p><tt>GETFILEGROUP</tt>&nbsp;&ndash; displays the group of the file.</p></li>
+          <li><p><tt>GETFILEGROUP</tt>&nbsp;&ndash; displays the group of the file owner.</p></li>
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; displays the owner of the file.</p></li>
           <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; displays the path and file, that is, what is linked with this symlink.</p></li>
           <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; file type (as in Windows Explorer or MIME-type).</p></li>
@@ -865,11 +865,12 @@
           <li><p><span class="italic">Main window state</span>&nbsp;&ndash; Size and position of the application window.</p></li>
           <li><p><span class="italic">Folder tabs</span>&nbsp;&ndash; List of tabs that are open in the left and right panels.</p></li>
           <li><p><span class="italic">Search/Replace history</span>&nbsp;&ndash; <a href="findfiles.html">File search</a> history (except for file name masks, see below), history of masks in the <a href="multirename.html">Multi-Rename Tool</a> and history of searching and replacing text: search by file contents, viewer, built-in editor and built-in differ, search and replace in directory hotlist and toolbar settings. The state of the text search options (<span class="italic">Case sensitive</span>, <span class="italic">Regular expressions</span> and <span class="italic">Hexadecimal</span>) for each entry is also saved.</p></li>
-          <li><p><span class="italic">Directory history</span>&nbsp;&ndash; List of all visited directories.</p></li>
+          <li><p><span class="italic">Directory history</span>&nbsp;&ndash; List of all visited directories (see note below).</p></li>
           <li><p><span class="italic">Command line history</span>&nbsp;&ndash; Commands that were used at the <a href="help.html#iface_path">command line</a>.</p></li>
           <li><p><span class="italic">File mask history</span>&nbsp;&ndash; Double Commander saves a general history of used file masks for several tools: find files, filters in <a href="syncdirs.html">directory synchronization</a> and <a href="help.html#cm_ExtractFiles">archive unpacking</a>, commands for <a href="help.html#cm_MarkPlus">selecting and deselecting a group of files</a>.</p></li>
         </ul>
         <p>The maximum number of entries in history is limited to 50.</p>
+        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory (however, when the program is closed, only the last 50 entries will be saved). You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
         <p>Note: Search templates are not related to the history and are saved separately (in the <tt>doublecmd.xml</tt> configuration file). To manage the list of templates, you can use the <a href="findfiles.html#templates">file search</a> tool.</p>
         <p>You can choose how the list of settings sections will look:</p>
         <ul>
@@ -929,6 +930,7 @@
         <p>Note: This function may not work inside mounted network directories.</p>
         <p>If both options are disabled, Double Commander will not watch changes made by third-party applications, and after changes made in the program in the file system, it will reread the entire list of files.</p>
         <p>In virtual file systems (WFX plugins, GVfs), Double Commander rereads the entire list of files when you create, delete, or rename a file.</p>
+        <p>Note: Keep in mind that the final result may depend on the value of the <span class="italic">Insert new files</span> and <span class="italic">Move updated files</span> parameters in the <a href="#ConfigView">Files views</a> settings section.</p>
         <p>Also you can disable auto-refresh:</p>
         <ul>
           <li><p>When Double Commander window is in the background or minimized.</p></li>

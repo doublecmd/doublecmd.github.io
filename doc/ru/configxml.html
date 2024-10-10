@@ -159,6 +159,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultDropEffect&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Действие по умолчанию при <a href="help.html#draganddrop">перетаскивании файлов</a> мышью: копирование (<code>True</code>) или перемещение (<code>False</code>) файлов. По умолчанию <code>True</code>.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">Предупредить, если целевой путь длиннее максимальной длины для пути (некоторые программы не смогут получить доступ к файлу/каталогу с таким длинным именем). В Windows это значение (MAX_PATH) составляет 260 символов. По умолчанию <code>True</code>.</td>
           </tr>
@@ -338,9 +343,8 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Count</i><br><small>в &lt;History&gt;&lt;DirHistory&gt;</small></div></td>
             <td class="hintcell">
-              Атрибут <code>Count</code> позволяет указать количество записей из списка посещённых каталогов, которые будут отображаться в выпадающем меню (команда <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>).
-              При использовании древовидного меню значение атрибута будет проигнорировано.<br>
-              По умолчанию 30.
+              Атрибут <code>Count</code> позволяет указать количество записей из списка посещённых каталогов, которые будут отображаться в выпадающем меню (команда <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>). По умолчанию 30.<br>
+              При использовании древовидного меню значение атрибута будет проигнорировано.
             </td>
           </tr>
 
@@ -485,7 +489,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
             <td class="hintcell">
               Синхронизация каталогов: по умолчанию Double Commander сохраняет последнюю использованную маску файлов как маску для следующего запуска инструмента синхронизации (если это не шаблон поиска),
-              чтобы запретить такое поведение, мы можем заменить <code>True</code> на <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) и указать своё значение <code>&lt;FileMask&gt;</code> (по умолчанию "*", т.е. все файлы).
+              чтобы запретить такое поведение, мы можем заменить <code>True</code> на <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) и указать в значении <code>&lt;FileMask&gt;</code> предпочитаемую маску файлов или "*" (т.е. все файлы).
             </td>
           </tr>
 

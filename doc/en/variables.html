@@ -91,6 +91,7 @@
             <td class="hintcell">Relative filename referenced to the current active directory<br>This is pertinent for example if you've invoke the internal command <a href="cmds.html#cm_flatview">cm_FlatView</a>.<br><code>If we've done a flat view from directory "C:\Users\UserName", the %v will result in "Desktop\comment.png"</code></td>
           </tr>
         </table>
+        <p>The <code>%a</code> variable is available for the virtual file system (an open archive or a file system plugin): the string includes the path to the virtual file system (the full name of the archive or the name of the WFX plugin with "wfx://") and the full file name relative to the root of the virtual file system.</p>
         <p>If several files are selected, these variables will return the values for all selected files in one line. To get the value only for the file under the cursor in any case, we can use the <a href="#numsuffix">numbered suffix 0</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -234,6 +235,7 @@
             <td class="hintcell">Last directory name of path of right panel<br><code>Example: "Work"</code></td>
           </tr>
         </table>
+        <p>The <code>%A</code> variable is available for the virtual file system (an open archive or a file system plugin): the full name of the archive or the name of the WFX plugin with "wfx://".</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

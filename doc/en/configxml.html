@@ -160,6 +160,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultDropEffect&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">The default action when <a href="help.html#draganddrop">drag &amp; drop files</a> with the mouse: copying (<code>True</code>) or moving (<code>False</code>) files. <code>True</code> by default.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>from &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">Warn if target path is longer than maximum length for a path (some programs will not be able to access a file/directory with such a long name). In Windows this value (MAX_PATH) is defined as 260 characters. <code>True</code> by default.</td>
           </tr>
@@ -340,9 +345,8 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Count</i><br><small>from &lt;History&gt;&lt;DirHistory&gt;</small></div></td>
             <td class="hintcell">
-              The <code>Count</code> attribute allows to specify the number of entries from the list of visited directories that will be displayed in the popup menu (the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command).
-              When using the Tree View Menu, the attribute value will be ignored.<br>
-              Default value is 30.
+              The <code>Count</code> attribute allows to specify the number of entries from the list of visited directories that will be displayed in the popup menu (the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command). Default value is 30.<br>
+              When using the Tree View Menu, the attribute value will be ignored.
             </td>
           </tr>
 
@@ -487,7 +491,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>Save</i><br><small>from &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
             <td class="hintcell">
               Synchronize directories: by default, Double Commander saves the last used file mask as the mask for the next run of the synchronization tool (if it is not a search template),
-              to disable this behavior, we can replace <code>True</code> with <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) and specify our own <code>&lt;FileMask&gt;</code> value ("*" by default, i.e. all files).
+              to disable this behavior, we can replace <code>True</code> with <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) and specify the preferred file mask or "*" (i.e. all files) in the <code>&lt;FileMask&gt;</code> value.
             </td>
           </tr>
 

@@ -157,11 +157,11 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">The name of a single file to process.<br>The archiver will be executed several times until all file names are exhausted.<br>This variable should be used only if the destination archiver does not support filelists on the command line.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">The volume size (for multivolume archive)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">The password</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Maximum acceptable command errorlevel.<br>For example, %E2 indicates that errorlevels 0, 1 and 2 are acceptable.<br>This variable may be specified in any place of command.<br>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt;</div></td><td class="hintcell">By default, multiarc convert archiver output from OEM encoding to UTF-8.<br>Use this to override encoding. See below the possible encoding modifiers.<br>Can be used with "List" action only.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Maximum acceptable command errorlevel.<br>For example, <code>%E2</code> indicates that errorlevels 0, 1 and 2 are acceptable.<br>This variable may be specified in any place of command.<br>If it is absent, only errorlevel 0 is considered as successful.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt;</div></td><td class="hintcell">By default, Double Commander convert archiver output from OEM encoding to UTF-8.<br>Use this to override encoding. See below the possible encoding modifiers.<br>Can be used with "List" action only.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Target subdirectory IN archive</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">If some variable is enclosed in braces - it'll be added only if this variable will contain something non-empty</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Depends on modes, set in configuration dialog, MultiArc will ask user about additional command-line parameters should be passed in-place of %S</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">The variable specifies the position for additional command line parameters that we can add in the <a href="help.html#cm_PackFiles">file packaging dialog</a></td></tr>
         </table>
         <p>Don't worry, we'll give example later to better understand.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -173,13 +173,13 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Variable modifiers</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Modifier letter</th><th class="categorydesccolumn">What it stands for</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">include in FileList only files (can be used with %L and %l variables)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">include in FileList only files (can be used with <code>%L</code> and <code>%l</code> variables)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">quote names with spaces</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">quote all names</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">use name only, without path</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">use path only, without name</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">use the ANSI system encoding in Windows or the default system encoding in Unix-like systems (in GNU/Linux distributions it is usually UTF-8); can be used with %L and %O variables</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">use UTF-8 encoding; can be used with %L and %O variables</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">use the ANSI system encoding in Windows or the default system encoding in Unix-like systems (in GNU/Linux distributions it is usually UTF-8); can be used with <code>%L</code> and <code>%O</code> variables</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">use UTF-8 encoding; can be used with <code>%L</code> and <code>%O</code> variables</td></tr>
         </table>
         <p>Again don't worry, we'll have example later on.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -202,9 +202,9 @@
         <p class="figure"><img class="largeimage" title="Action: List" alt="Action: List" src="images/imgDC/archiveimg8.png" width="86" height="41"></p>
         <p>We wrote <code>%P v %AQ</code> using the variable mentioned earlier with the Variable and Variable Modifier.</p>
         <ul>
-          <li><code>%P</code> will be substituted by our executable written earlier, so "E:\Program Files\WinRAR\Rar.exe".</li>
-          <li><code>v</code> will remain as is and is the "v" command or the "rar.exe" external archiver to view list of files.</li>
-          <li><code>%A</code> is the name of the archive, we add to it the <code>Q</code> to indicate we want Double Commander to quote the name if there is space in it.</li>
+          <li><b>%P</b> will be substituted by our executable written earlier, so "E:\Program Files\WinRAR\Rar.exe".</li>
+          <li><b>v</b> will remain as is and is the "v" command or the "rar.exe" external archiver to view list of files.</li>
+          <li><b>%A</b> is the name of the archive, we add to it the "Q" to indicate we want Double Commander to quote the name if there is space in it.</li>
         </ul>
         <p>So all this is to invoke the external archiver with proper parameters.</p>
         <p>This will be use when we use the internal command <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
@@ -229,7 +229,7 @@
         <p>Because we have dashed line before and after, it's pretty easy to set these two parameters with the dashed lines:</p>
         <p class="figure"><img class="largeimage" title="Action: Listing start/finish" alt="Action: Listing start/finish" src="images/imgDC/archiveimg9.png" width="360" height="79"></p>
         <p>In the eventuality that an external archive would immediately output bar data with no extra lines, simply let the two fields empty.</p>
-        <p>The caret ("^") is a there to indicate that the magic string needs absolutely to start the line, with nothing else.</p>
+        <p>The caret ("^") is a there to indicate that the magic string needs absolutely to start the line, with nothing else. Otherwise, the text can be located anywhere in the line.</p>
         <p>If it would not be possible to be sure it starts the line, like for example if the external archiver would start the line with the date and time, and then a constant string, we would set the magic string to be the constant string but we would not add the caret which instruct to Double Commander that the string to search might be anywhere.</p>
         <p>If the "Listing finish" string might be confused with a filename, it could stop processing the content of the archive too early.</p>
         <p>That's why, when possible, it's good to specify that the string must start the line.</p>
@@ -290,6 +290,7 @@
           <li>the date and times letters for the date and time of files;</li>
           <li>series of "n", more than enough, for where is the actual filenames.</li>
         </ul>
+        <p>And all we still need to do is exclude 4 spaces at the beginning of the line, replacing them with "????".</p>
         <p>So configured that way, if we select our previous "just.rar" archive into a panel, we press <kbd>Enter</kbd> to get into it like it would be a directory, we see the file content showing us what we did "basically" worked (if we ignore the last file...):</p>
         <p class="figure"><img class="largeimage" title="View archive: example with standard syntax" alt="View archive: example with standard syntax" src="images/imgDC/archiveimg11.png" width="668" height="570"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -311,7 +312,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">p+</div></td><td class="hintcell">use all digits up to first non-digit character for the packed size</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">$</div></td><td class="hintcell">skip all spaces/tabstops until next character or end of line</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">\</div></td><td class="hintcell">data continues on next line (maximum 2 lines supported)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">exactly 1 space, if there is a different character at this position, ignore the whole line</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">exactly 1 space; if there is a different character at this position, ignore the whole line</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">z=1024</div></td><td class="hintcell">unpacked size multiplied with given value (here: 1024)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">p=1024</div></td><td class="hintcell">packed size multiplied with given value (here: 1024)</td></tr>
         </table>

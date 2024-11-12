@@ -155,11 +155,11 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">Имя одного файла для обработки.<br>Архиватор будет вызван несколько раз, до тех пор, пока не будут обработаны все файлы.<br>Эта переменная должна использоваться только в том случае, если архиватор не поддерживает работу со списком файлов в командной строке.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">Размер тома (для многотомного архива)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">Пароль</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Максимальный допустимый код завершения (errorlevel, код выхода).<br>Например, %E2 означает, что принимаются коды завершения 0, 1 и 2.<br>Эта переменная может быть указана в любом месте команды.<br>Если она не используется, то только код завершения 0 считается успешным.</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;модификатор&gt;</div></td><td class="hintcell">По умолчанию MultiArc конвертирует вывод архиватора из кодировки OEM (DOS) в UTF-8.<br>Используйте её для переопределения кодировки, возможные модификаторы смотрите ниже.<br>Может использоваться только с командой "Список".</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Максимальный допустимый код завершения (errorlevel, код выхода).<br>Например, <code>%E2</code> означает, что принимаются коды завершения 0, 1 и 2.<br>Эта переменная может быть указана в любом месте команды.<br>Если она не используется, то только код завершения 0 считается успешным.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;модификатор&gt;</div></td><td class="hintcell">По умолчанию Double Commander конвертирует вывод архиватора из кодировки OEM (DOS) в UTF-8.<br>Используйте её для переопределения кодировки, возможные модификаторы смотрите ниже.<br>Может использоваться только с командой "Список".</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Целевая поддиректория В архиве</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">Если какая-то переменная заключена в фигурные скобки, то она будет добавлена только если эта переменная содержит что-либо, т.е. не пустая</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Зависит от режима, устанавливается в диалоге настройки, MultiArc будет запрашивать у пользователя дополнительные параметры командной строки, которые должны быть размещены на месте %S</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Переменная задаёт позицию для дополнительных параметров командной строки, которые мы можем добавить в <a href="help.html#cm_PackFiles">диалоге упаковки файлов</a></td></tr>
         </table>
         <p>Не беспокойтесь, ниже мы покажем пример для лучшего понимания.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -171,13 +171,13 @@
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Модификаторы переменных</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Буква модификатора</th><th class="categorydesccolumn">Что означает</th></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">включить в список только файлы (применимо к переменным %L и %l)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">включить в список только файлы (применимо к переменным <code>%L</code> и <code>%l</code>)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">брать в кавычки имена с пробелами</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">брать в кавычки все имена</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">использовать только имя, без пути</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">использовать только путь, без имени</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">использовать системную кодировку ANSI в Windows или системную кодировку по умолчанию в Unix-подобных системах (в дистрибутивах GNU/Linux это обычно UTF-8); может использоваться с переменными %L и %O</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">использовать кодировку UTF-8; может использоваться с переменными %L и %O</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">использовать системную кодировку ANSI в Windows или системную кодировку по умолчанию в Unix-подобных системах (в дистрибутивах GNU/Linux это обычно UTF-8); может использоваться с переменными <code>%L</code> и <code>%O</code></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">использовать кодировку UTF-8; может использоваться с переменными <code>%L</code> и <code>%O</code></td></tr>
         </table>
         <p>И снова не волнуйтесь, пример будет ниже.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -200,9 +200,9 @@
         <p class="figure"><img class="largeimage" title="Действие: Список" alt="Действие: Список" src="images/imgDC/archiveimg8.png" width="86" height="41"></p>
         <p>У нас получилось <code>%P v %AQ</code>:</p>
         <ul>
-          <li><code>%P</code> будет заменено нашим исполняемым файлом, то есть "E:\Program Files\WinRAR\Rar.exe".</li>
-          <li><code>v</code> останется как есть, так как является командой архиватора "rar.exe" для просмотра списка файлов.</li>
-          <li><code>%A</code>&nbsp;&ndash; это имя архива, мы добавляем к нему <code>Q</code>, чтобы указать Double Commander на необходимость взять имя в кавычки, если в нём есть пробелы.</li>
+          <li><b>%P</b> будет заменено нашим исполняемым файлом, то есть "E:\Program Files\WinRAR\Rar.exe".</li>
+          <li><b>v</b> останется как есть, так как является командой архиватора "rar.exe" для просмотра списка файлов.</li>
+          <li><b>%A</b>&nbsp;&ndash; это имя архива, мы добавляем к нему "Q", чтобы указать Double Commander на необходимость взять имя в кавычки, если в нём есть пробелы.</li>
         </ul>
         <p>Таким образом, всё это для того, чтобы вызвать внешний архиватор с подходящими параметрами.</p>
         <p>Будет использовано при вызове внутренней команды <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
@@ -226,7 +226,7 @@
         <p>Поскольку у нас есть пунктирная линия до и после, довольно просто установить эти два параметра:</p>
         <p class="figure"><img class="largeimage" title="Действие: Начало/конец списка" alt="Действие: Начало/конец списка" src="images/imgDC/archiveimg9.png" width="360" height="79"></p>
         <p>В случае, если внешний архиватор выводит данные сразу же, без дополнительных строк, просто оставьте эти поля пустыми.</p>
-        <p>Символ карет ("^") указывает, что магическая строка располагается в самом начале строки и никак иначе.</p>
+        <p>Символ карет ("^") указывает, что магическая строка располагается в самом начале строки и никак иначе. В противном случае текст может располагаться в любом месте строки.</p>
         <p>Если магическая строка, останавливающая разбор данных, может быть спутана с именем файла, то Double Commander может прекратить анализ слишком рано, поэтому, когда возможно, полезно уточнить, что эта строка должна начинаться с самого начала строки.</p>
         <p>Есть смысл установить "Конец списка" как можно дальше, но сохраняя его функцию: лучше и безопаснее убедиться, что в будущем не будет путаницы.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -283,6 +283,7 @@
           <li>буквы даты и времени соответствуют дате и времени файлов;</li>
           <li>серия "n", с запасом, соответствует именам файлов.</li>
         </ul>
+        <p>И нам осталось только исключить 4 пробела в начале строки, заменив их на "????".</p>
         <p>Теперь выделим наш архив "just.rar" в панели, нажмём <kbd>Enter</kbd>, чтобы войти в него как в каталог, и видим, что показ содержимое файла работает (за исключением последнего файла...):</p>
         <p class="figure"><img class="largeimage" title="Просмотр архива: пример со стандартным синтаксисом" alt="Просмотр архива: пример со стандартным синтаксисом" src="images/imgDC/archiveimg11.png" width="668" height="570"></p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -303,7 +304,7 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">p+</div></td><td class="hintcell">размер сжатого файла: использовать все цифры до первого нецифрового символа</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">$</div></td><td class="hintcell">пропустить все пробелы/табуляции до следующего символа или до конца строки</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">\</div></td><td class="hintcell">данные продолжаются на следующей строке (поддерживается максимум 2 строки)</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">в точности один пробел, если на этом месте находится другой символ, то вся строка игнорируется</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">в точности один пробел; если на этом месте находится другой символ, то вся строка игнорируется</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">z=1024</div></td><td class="hintcell">размер несжатого файла, умноженный на указанное значение (в данном случае: 1024)</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">p=1024</div></td><td class="hintcell">размер сжатого файла, умноженный на указанное значение (в данном случае: 1024)</td></tr>
         </table>

@@ -90,7 +90,6 @@ td.categorycell { border: 1px #b0b0b0 solid; }
 td.categorydesc { border: 1px #b0b0b0 solid; }
 td.cmdcell { border: 1px #b0b0b0 solid; vertical-align: top; }
 
-
 small.firstcolumnaleft { font-weight:normal }
 
 div.cmdname {
@@ -131,6 +130,17 @@ tr.rowcategorysubtitle {
 div.categoryname {
   text-align: left;
   font-weight: bold;
+}
+
+div.subsection {
+  text-align: left;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+td.subsection {
+  background-color: #ecf3f7;
 }
 
 body { font-size: 11pt; font-family: 'Arial', sans-serif; font-style: normal; font-weight: normal; color: #000000; text-decoration: none; background-color: #e6e8ea; }

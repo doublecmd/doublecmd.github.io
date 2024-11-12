@@ -25,6 +25,7 @@
           <dt>1. <a href="#presenta">Описание</a></dt>
           <dt>2. <a href="#location">Расположение</a></dt>
           <dt>3. <a href="#manualed">Параметры, изменяемые вручную</a></dt>
+          <dt>4. <a href="#index">Индекс</a></dt>
         </dl>
       </div>
 
@@ -67,7 +68,11 @@
           <tr class="rowsubtitle"><th class="namecolumn">Тег</th><th class="categorydesccolumn">Описание</th></tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Mode&gt;<br><small>в &lt;AutoRefresh&gt;</small></div></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;AutoRefresh&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Mode">&lt;Mode&gt;</a></div></td>
             <td class="hintcell">
               Возможность удалить просматриваемые каталоги.<br>"Просматриваемый каталог"&nbsp;&ndash; это каталог, на который Double Commander создаёт своего рода хук, поэтому может отслеживать любые изменения в нём.<br>Таким образом, он может обновить отображаемое содержимое файловой панели, если оно изменилось.<br>
               Этот параметр позволяет контролировать, как Double Commander будет реагировать на попытку удалить один из таких "просматриваемых каталогов" (даже в неактивной вкладке).<br>
@@ -94,11 +99,11 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Behaviours&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ActiveRight&gt;<br><small>в &lt;Behaviours&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ActiveRight">&lt;ActiveRight&gt;</a></div></td>
             <td class="hintcell">
               При запуске Double Commander активной будет правая панель.<br>
               <table class="innercmddesc">
@@ -120,16 +125,16 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ConfirmQuit&gt;<br><small>в &lt;Behaviours&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ConfirmQuit">&lt;ConfirmQuit&gt;</a></div></td>
             <td class="hintcell">Подтверждать закрытие Double Commander (<code>True</code>) или нет (<code>False</code>). По умолчанию <code>False</code>.</td>
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Colors&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;gBorderFrameWidth&gt;<br><small>в &lt;Colors&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="gBorderFrameWidth">&lt;gBorderFrameWidth&gt;</a></div></td>
             <td class="hintcell">
               Мы можем настроить DC так, чтобы он рисовал рамку вокруг курсора. Параметр <code>&lt;gBorderFrameWidth&gt;</code> позволяет нам задать ширину линий.<br>
               Чтобы включить курсор-рамку, мы должны перейти в Настройки&nbsp;&gt; Параметры...&nbsp;&gt; Цвета&nbsp;&gt; Файловые панели и отметить параметр <i>Курсор-рамка</i>.<br>
@@ -138,20 +143,20 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Editor&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FindWordAtCursor&gt;<br><small>в &lt;Editor&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="FindWordAtCursor">&lt;FindWordAtCursor&gt;</a></div></td>
             <td class="hintcell">Встроенный редактор и инструмент сравнения: если ничего не выделено, в диалоге поиска и замены будет использоваться слово под курсором (<code>True</code>) или текст из истории поиска (<code>False</code>). По умолчанию <code>True</code>.</td>
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;FileOperations&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoExtractOpenMask&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoExtractOpenMask">&lt;AutoExtractOpenMask&gt;</a></div></td>
             <td class="hintcell">
               Предположим, мы "вошли" в сжатый файл в активной панели и просматриваем его содержимое. Файлы с расширением, заданным в этом параметре, при нажатии <kbd>Enter</kbd> или двойном щелчке мыши будут автоматически распакованы из архива и выполнены в соответствии с файловыми ассоциациями (вместо показа окна свойств).<br>
               <i>Пример:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
@@ -159,17 +164,17 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultDropEffect&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DefaultDropEffect">&lt;DefaultDropEffect&gt;</a></div></td>
             <td class="hintcell">Действие по умолчанию при <a href="help.html#draganddrop">перетаскивании файлов</a> мышью: копирование (<code>True</code>) или перемещение (<code>False</code>) файлов. По умолчанию <code>True</code>.</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="LongNameAlert">&lt;LongNameAlert&gt;</a></div></td>
             <td class="hintcell">Предупредить, если целевой путь длиннее максимальной длины для пути (некоторые программы не смогут получить доступ к файлу/каталогу с таким длинным именем). В Windows это значение (MAX_PATH) составляет 260 символов. По умолчанию <code>True</code>.</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="NtfsHourTimeDelay">&lt;NtfsHourTimeDelay&gt;</a></div></td>
             <td class="hintcell">
               При сравнении даты и времени игнорировать разницу во времени ровно один час
               (при использовании внутренних команд <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> или <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>).<br>
@@ -193,7 +198,11 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;FileOperations&gt;&lt;Options&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CopyAttributes">&lt;CopyAttributes&gt;</a></div></td>
             <td class="hintcell">
               Windows: если <code>True</code>, при копировании/перемещении файлов будут скопированы атрибуты исходного файла; если <code>False</code>, также будут скопированы атрибуты исходного файла и Double Commander установит атрибут "архивный".<br>
               Linux и другие: используйте параметр <span class="italic">Копировать атрибуты</span> в <a href="copymove.html">диалоговом окне копирования/перемещения</a>.<br>
@@ -202,7 +211,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyTime&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CopyTime">&lt;CopyTime&gt;</a></div></td>
             <td class="hintcell">
               Windows: если <code>True</code>, при копировании/перемещении файлов будут скопированы отметки времени (дата создания, дата изменения, дата последнего доступа) исходного файла, в противном случае будет скопирована только дата модификации и использоваться текущая дата для остальных.<br>
               Linux и другие: используйте параметр <span class="italic">Копировать дату/время</span> в <a href="copymove.html">диалоговом окне копирования/перемещения</a>.<br>
@@ -211,7 +220,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyXattributes&gt;<br><small>в &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CopyXattributes">&lt;CopyXattributes&gt;</a></div></td>
             <td class="hintcell">
               Копировать расширенные атрибуты файловой системы при копировании/перемещении файлов или нет.<br>
               Windows: Если <code>True</code>, также будут скопированы атрибуты сжатый и зашифрованный.<br>
@@ -221,19 +230,20 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;FilesViews&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ExtraLineSpanF">&lt;ExtraLineSpan&gt;</a></div></td>
             <td class="hintcell">
-              Параметр позволяет добавить несколько дополнительных пикселей по высоте для каждого элемента в файловых панелях.<br>Значение задаётся непосредственно в пикселях.<br>По умолчанию равно 2.<br>
+              Параметр позволяет добавить несколько дополнительных пикселей по высоте для каждого элемента в файловых панелях. Значение задаётся непосредственно в пикселях.<br>
+              По умолчанию равно 2.<br>
               <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;FolderPrefix&gt; <small>и</small> &lt;FolderPostfix&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="FolderPrePostfix">&lt;FolderPrefix&gt; <small>и</small> &lt;FolderPostfix&gt;</a></div></td>
             <td class="hintcell">
               По умолчанию DC показывает квадратные скобки вокруг имён папок (это опциональный параметр в Список файлов&nbsp;&gt; Список файлов (дополнительно)), но мы можем использовать вместо них любые символы.<br>
               Примечание: В XML некоторые специальные символы зарезервированы как часть разметки и мы не можем использовать их как есть. Существует пять предопределённых сущностей: <code>&lt;</code> должен быть записан как <code>&amp;lt;</code>, <code>&gt;</code> как <code>&amp;gt;</code>, <code>&amp;</code> как <code>&amp;amp;</code>, <code>'</code> как <code>&amp;apos;</code> и <code>"</code> как <code>&amp;quot;</code>.
@@ -241,7 +251,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;RenameConfirmMouse&gt;<br><small>в &lt;FilesViews&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="RenameConfirmMouse">&lt;RenameConfirmMouse&gt;</a></div></td>
             <td class="hintcell">
               Параметр меняет действие щелчка мыши при переименовании файла под курсором: если <code>True</code>, щелчок мыши вне поля редактирования имени подтвердит переименование файла (как в Проводнике Windows), в противном случае щелчок мыши будет работать аналогично клавише <kbd>Esc</kbd>.<br>
               По умолчанию <code>False</code>.<br>
@@ -250,7 +260,11 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoSaveWidth&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;FilesViews&gt;&lt;ColumnsView&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoSaveWidth">&lt;AutoSaveWidth&gt;</a></div></td>
             <td class="hintcell">
               Когда мы вручную с помощью мыши изменяем ширину колонки, по умолчанию DC применяет изменения для обеих панелей и сохраняет новое значение для последующих запусков.<br>
               Если мы хотим отключить такое поведение и использовать изменения только в текущей сессии, то должны заменить <code>True</code> на <code>False</code>, т.е. использовать <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
@@ -258,13 +272,13 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongInStatus&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="LongInStatus">&lt;LongInStatus&gt;</a></div></td>
             <td class="hintcell">Если выбран подробный вид и нет выделенных файлов, то в строке состояния отображается имя файла под курсором (<code>True</code>) или количество файлов (<code>False</code>, по умолчанию).<br>
               Если <code>True</code>, строка состояния также будет показывать количество файлов, когда курсор находится на пункте "..". Для ссылок дополнительно будут отображаться целевые объекты.</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;TitleStyle&gt;<br><small>в &lt;FilesViews&gt;&lt;ColumnsView&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="TitleStyle">&lt;TitleStyle&gt;</a></div></td>
             <td class="hintcell">
               Изменение вида панели заголовков колонок.<br>Значение по умолчанию зависит от ОС.<br>
               <table class="innercmddesc">
@@ -290,11 +304,11 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">во всех тегах &lt;Fonts&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Quality&gt;<br><small>во всех тегах &lt;Fonts&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Quality">&lt;Quality&gt;</a></div></td>
             <td class="hintcell">
               Задаёт тип <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">растеризации шрифта</a>. Другими словами, определяет качество шрифта.<br>
               Есть много тегов <code>&lt;Font&gt;</code>, можно менять не для всей программы, а индивидуально.<br>
@@ -337,11 +351,11 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;History&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Count</i><br><small>в &lt;History&gt;&lt;DirHistory&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Count">Атрибут <i>Count</i><br><small>в &lt;History&gt;&lt;DirHistory&gt;</small></a></div></td>
             <td class="hintcell">
               Атрибут <code>Count</code> позволяет указать количество записей из списка посещённых каталогов, которые будут отображаться в выпадающем меню (команда <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>). По умолчанию 30.<br>
               При использовании древовидного меню значение атрибута будет проигнорировано.
@@ -349,11 +363,11 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Icons&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;CustomIcons&gt;<br><small>в &lt;Icons&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CustomIcons">&lt;CustomIcons&gt;</a></div></td>
             <td class="hintcell">
               Только Windows: параметр определяет, какие значки будут использоваться для дисков, папок и архивов.<br>
               Задаётся как сумма следующих значений:<br>
@@ -411,7 +425,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DiskAlpha&gt;<br><small>в &lt;Icons&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DiskAlpha">&lt;DiskAlpha&gt;</a></div></td>
             <td class="hintcell">
               Задаёт уровень прозрачности для значков отмонтированных дисков.<br>
               <table class="innercmddesc">
@@ -432,21 +446,21 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ToolSize&gt;<br><small>в &lt;Icons&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ToolSize">&lt;ToolSize&gt;</a></div></td>
             <td class="hintcell">Размер значков панели инструментов во встроенном редакторе, просмотрщике и инструменте сравнения, допустимые значения: 16, 24 или 32.</td>
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Layout&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ShowColonAfterDrive&gt;<br><small>в &lt;Layout&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ShowColonAfterDrive">&lt;ShowColonAfterDrive&gt;</a></div></td>
             <td class="hintcell">Только Windows: показать двоеточие после букв дисков в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;UppercaseDriveLetter&gt;<br><small>в &lt;Layout&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="UppercaseDriveLetter">&lt;UppercaseDriveLetter&gt;</a></div></td>
             <td class="hintcell">
               Только Windows: использовать заглавные буквы в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.<br>
               Примечание: Параметр не меняет буквы дисков в ранее сохранённой истории и настройках (избранное, кнопки и так далее).
@@ -454,30 +468,35 @@
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Miscellaneous&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DecimalSeparator&gt;<br><small>в &lt;Miscellaneous&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DecimalSeparator">&lt;DecimalSeparator&gt;</a></div></td>
             <td class="hintcell">Параметр позволяет указать предпочитаемый символ десятичного разделителя (т.е. разделителя целой и дробной частей числа) вместо значения из ваших региональных настроек. Мы можем указать любой символ из таблицы ASCII с кодом от U+0000 до U+007F (подразумевается использование печатных символов, т.е. от U+0020 до U+007F).</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DoubleClickEditPath&gt;<br><small>в &lt;Miscellaneous&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DoubleClickEditPath">&lt;DoubleClickEditPath&gt;</a></div></td>
             <td class="hintcell">Параметр позволяет выбрать действие двойного щелчка по <a href="help.html#iface_dir">панели текущего пути</a>: показать избранные каталоги (<code>False</code>, по умолчанию) или редактировать текущий путь (<code>True</code>).</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SystemItemProperties&gt;<br><small>в &lt;Miscellaneous&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SystemItemProperties">&lt;SystemItemProperties&gt;</a></div></td>
             <td class="hintcell">Linux/FreeBSD: значение <code>True</code> позволяет использовать диалоговое окно свойств файла файлового менеджера, который указан как программа по умолчанию в настройках среды рабочего стола (если это возможно), иначе Double Commander будет использовать собственное <a href="help.html#cm_FileProperties">окно свойств</a>. По умолчанию <code>False</code>.</td>
           </tr>
 
           <tr>
-            <td colspan="2"></td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;SyncDirs&gt;:</div></td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DateTimeFormat">&lt;DateTimeFormat&gt;</a></div></td>
+            <td class="hintcell">Параметр позволяет указать предпочитаемый формат даты и времени в <a href="syncdirs.html">инструменте синхронизации каталогов</a>. Символы форматирования даты и времени описаны <a href="configuration.html#dt_format">здесь</a>.<br>Значение по умолчанию <code>yyyy.mm.dd hh:nn:ss</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SaveAsymmetric">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></a></div></td>
             <td class="hintcell">
               Синхронизация каталогов: сохранять или нет асимметричный режим по умолчанию.<br>
               Если мы хотим сохранять состояние режима, тогда <code>&lt;Asymmetric Save="True"&gt;</code>,
@@ -486,7 +505,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SaveFileMask">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;FileMask&gt;</small></a></div></td>
             <td class="hintcell">
               Синхронизация каталогов: по умолчанию Double Commander сохраняет последнюю использованную маску файлов как маску для следующего запуска инструмента синхронизации (если это не шаблон поиска),
               чтобы запретить такое поведение, мы можем заменить <code>True</code> на <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) и указать в значении <code>&lt;FileMask&gt;</code> предпочитаемую маску файлов или "*" (т.е. все файлы).
@@ -494,31 +513,25 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DateTimeFormat&gt;<br><small>в &lt;SyncDirs&gt;</small></div></td>
-            <td class="hintcell">Параметр позволяет указать предпочитаемый формат даты и времени в <a href="syncdirs.html">инструменте синхронизации каталогов</a>. Символы форматирования даты и времени описаны <a href="configuration.html#dt_format">здесь</a>.<br>Значение по умолчанию <code>yyyy.mm.dd hh:nn:ss</code>.</td>
+            <td colspan="2" class="subsection"><div class="subsection">в &lt;Viewer&gt;:</div></td>
           </tr>
 
           <tr>
-            <td colspan="2"></td>
-          </tr>
-
-          <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;AutoCopy&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoCopy">&lt;AutoCopy&gt;</a></div></td>
             <td class="hintcell">Встроенный просмотрщик: включает (<code>True</code>) или выключает (<code>False</code>) автоматическое копирование выделенного текста в буфер обмена. По умолчанию <code>True</code>.</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ExtraLineSpan&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ExtraLineSpanV">&lt;ExtraLineSpan&gt;</a></div></td>
             <td class="hintcell">
-              Встроенный просмотрщик: параметр позволяет добавить несколько дополнительных пикселей по высоте для каждой строки.<br>
-              Значение задаётся непосредственно в пикселях.<br>
+              Встроенный просмотрщик: параметр позволяет добавить несколько дополнительных пикселей по высоте для каждой строки. Значение задаётся непосредственно в пикселях.<br>
               По умолчанию 0.<br>
               <i>Пример:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;ImageExifRotate&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ImageExifRotate">&lt;ImageExifRotate&gt;</a></div></td>
             <td class="hintcell">
               Double Commander способен распознавать формат метаданных <a href="https://ru.wikipedia.org/wiki/EXIF" target="_blank">EXIF</a>, которые могут быть в файлах изображений JPEG.<br>
               Среди метаданных есть <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">флаг ориентации</a>, который может быть использован для просмотра изображения в том положении, в котором оно было сделано: портрет, пейзаж, перевёрнутое, зеркальное и т.д.<br>
@@ -542,22 +555,21 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;JpegQuality&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="JpegQuality">&lt;JpegQuality&gt;</a></div></td>
             <td class="hintcell">Встроенный просмотрщик: значение качества, которое Double Commander будет использовать по умолчанию при сохранении в формат JPEG (команды <span class="italic">Сохранить</span> и <span class="italic">Сохранить как...</span>). По умолчанию 80.</td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;LeftMargin&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="LeftMargin">&lt;LeftMargin&gt;</a></div></td>
             <td class="hintcell">
-              Встроенный просмотрщик: параметр позволяет добавить пространство между левой границей окна и границей текста.<br>
-              Значение задаётся непосредственно в пикселях.<br>
+              Встроенный просмотрщик: параметр позволяет добавить пространство между левой границей окна и границей текста. Значение задаётся непосредственно в пикселях.<br>
               По умолчанию 4.<br>
               <i>Пример:</i> <code>&lt;LeftMargin&gt;4&lt;/LeftMargin&gt;</code>
             </td>
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;MaxCodeSize&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxCodeSize">&lt;MaxCodeSize&gt;</a></div></td>
             <td class="hintcell">
               Встроенный просмотрщик: ограничивает максимальный размер файла для автоматического выбора режима просмотра кода (отображение текста с подсветкой синтаксиса требует больше ресурсов, чем отображение простого текста). Значение параметра игнорируется, когда мы принудительно включаем режим просмотра кода в окне просмотрщика.<br>
               Размер задаётся в мегабайтах, значение по умолчанию 128.
@@ -565,7 +577,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;MaxTextWidth&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxTextWidth">&lt;MaxTextWidth&gt;</a></div></td>
             <td class="hintcell">
               Встроенный просмотрщик: задать максимальное количество символов в одной строке до принудительного переноса на новую.<br>
               Диапазон значений от 80 до 16384, по умолчанию 1024.<br>
@@ -574,7 +586,7 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;SynEditMask&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditMask">&lt;SynEditMask&gt;</a></div></td>
             <td class="hintcell">
               Встроенный просмотрщик: параметр позволяет управлять списком расширений файлов для режима просмотра кода (конечно, в пределах доступного списка).
               Мы можем указать маски файлов (через точку с запятой ";" без пробелов), которые автоматически будут открываться в этом режиме вместо обычного текста, или имя шаблона поиска для исключения. Также мы можем отключить автоматическое открытие файлов в этом режиме, задав пустую строку.
@@ -583,11 +595,72 @@
           </tr>
 
           <tr>
-            <td class="cmdcell"><div class="firstcolumnaleft">&lt;TabSpaces&gt;<br><small>в &lt;Viewer&gt;</small></div></td>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="TabSpaces">&lt;TabSpaces&gt;</a></div></td>
             <td class="hintcell">
               Встроенный просмотрщик: задать ширину табуляции.<br>
               Диапазон значений от 1 до 32, по умолчанию 8.<br>
               <i>Пример:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="index">4. Индекс</a></h2>
+        <table class="index">
+          <tr>
+            <td class="indexcell">
+              <p>
+                <a href="#Count">Атрибут <i>Count</i> (&lt;DirHistory&gt;)</a><br>
+                <a href="#SaveAsymmetric">Атрибут <i>Save</i> (&lt;Asymmetric&gt;)</a><br>
+                <a href="#SaveFileMask">Атрибут <i>Save</i> (&lt;FileMask&gt;)</a><br><br>
+                <a href="#ActiveRight">ActiveRight</a><br>
+                <a href="#AutoCopy">AutoCopy</a><br>
+                <a href="#AutoExtractOpenMask">AutoExtractOpenMask</a><br>
+                <a href="#AutoSaveWidth">AutoSaveWidth</a><br>
+                <a href="#ConfirmQuit">ConfirmQuit</a><br>
+                <a href="#CopyAttributes">CopyAttributes</a><br>
+                <a href="#CopyTime">CopyTime</a><br>
+                <a href="#CopyXattributes">CopyXattributes</a><br>
+                <a href="#CustomIcons">CustomIcons</a><br>
+                <a href="#DateTimeFormat">DateTimeFormat</a>
+              </p>
+            </td>
+            <td class="indexcell">
+              <p>
+                <a href="#DecimalSeparator">DecimalSeparator</a><br>
+                <a href="#DefaultDropEffect">DefaultDropEffect</a><br>
+                <a href="#DiskAlpha">DiskAlpha</a><br>
+                <a href="#DoubleClickEditPath">DoubleClickEditPath</a><br>
+                <a href="#ExtraLineSpanF">ExtraLineSpan (&lt;FilesViews&gt;)</a><br>
+                <a href="#ExtraLineSpanV">ExtraLineSpan (&lt;Viewer&gt;)</a><br>
+                <a href="#FindWordAtCursor">FindWordAtCursor</a><br>
+                <a href="#FolderPrePostfix">FolderPrefix и FolderPostfix</a><br>
+                <a href="#gBorderFrameWidth">gBorderFrameWidth</a><br>
+                <a href="#ImageExifRotate">ImageExifRotate</a><br>
+                <a href="#JpegQuality">JpegQuality</a><br>
+                <a href="#LeftMargin">LeftMargin</a><br>
+                <a href="#LongInStatus">LongInStatus</a><br>
+                <a href="#LongNameAlert">LongNameAlert</a>
+              </p>
+            </td>
+            <td class="indexcell">
+              <p>
+                <a href="#MaxCodeSize">MaxCodeSize</a><br>
+                <a href="#MaxTextWidth">MaxTextWidth</a><br>
+                <a href="#Mode">Mode</a><br>
+                <a href="#NtfsHourTimeDelay">NtfsHourTimeDelay</a><br>
+                <a href="#Quality">Quality</a><br>
+                <a href="#RenameConfirmMouse">RenameConfirmMouse</a><br>
+                <a href="#ShowColonAfterDrive">ShowColonAfterDrive</a><br>
+                <a href="#SynEditMask">SynEditMask</a><br>
+                <a href="#SystemItemProperties">SystemItemProperties</a><br>
+                <a href="#TabSpaces">TabSpaces</a><br>
+                <a href="#TitleStyle">TitleStyle</a><br>
+                <a href="#ToolSize">ToolSize</a><br>
+                <a href="#UppercaseDriveLetter">UppercaseDriveLetter</a>
+              </p>
             </td>
           </tr>
         </table>

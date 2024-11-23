@@ -198,6 +198,28 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Sounds">&lt;Sounds&gt;</a></div></td>
+            <td class="hintcell">
+              Включает звуковые уведомления при завершении файловых операций. Возможное содержимое тега <code>&lt;Sounds&gt;</code> полностью:<br>
+              <pre>
+&lt;Sounds Duration="-1"&gt;
+  &lt;Copy&gt;C:\Windows\Media\Alarm01.wav&lt;/Copy&gt;
+  &lt;Move&gt;C:\Windows\Media\Alarm01.wav&lt;/Move&gt;
+  &lt;Wipe&gt;C:\Windows\Media\Alarm01.wav&lt;/Wipe&gt;
+  &lt;Delete&gt;C:\Windows\Media\Alarm01.wav&lt;/Delete&gt;
+  &lt;Split&gt;C:\Windows\Media\Alarm01.wav&lt;/Split&gt;
+  &lt;Combine&gt;C:\Windows\Media\Alarm01.wav&lt;/Combine&gt;
+&lt;/Sounds&gt;</pre>
+              <code>Duration</code>&nbsp;&ndash; минимальное время (в секундах), которое должна продолжаться файловая операция. Дополнительные значения: 0&nbsp;&ndash; включено всегда, -1 отключает звуковые уведомления.<br>
+              Файловые операции: копировать, переместить, стереть, удалить файлы, разрезать файл и собрать файлы. Если для какой-то операции не нужно звуковое оповещение, то просто уберите (или не добавляйте) соответствующую строку. Поддерживаются <a href="variables.html#envvariables">переменные окружения</a>.<br>
+              Поддерживаемые форматы аудио:<br>
+              - Windows (функция <tt>sndPlaySoundW</tt> из Windows API): .wav.<br>
+              - macOS (Core Audio API): .aac, .adts, .ac3, .caf, .mp3, .m4a и .mp4 (с AAC или ALAC), .wav.<br>
+              - Linux и другие Unix-подобные системы: Double Commander может использовать библиотеку GStreamer (в первую очередь, <tt>libgstreamer-1.0.so.0</tt>) или библиотеку SDL2 (<tt>libSDL2-2.0.so.0</tt>). GStreamer поддерживает большинство популярных форматов аудио, с SDL2 мы можем использовать только .wav. В Haiku доступно использование только SDL2.
+            </td>
+          </tr>
+
+          <tr>
             <td colspan="2" class="subsection"><div class="subsection">в &lt;FileOperations&gt;&lt;Options&gt;:</div></td>
           </tr>
 
@@ -654,6 +676,7 @@
                 <a href="#Quality">Quality</a><br>
                 <a href="#RenameConfirmMouse">RenameConfirmMouse</a><br>
                 <a href="#ShowColonAfterDrive">ShowColonAfterDrive</a><br>
+                <a href="#Sounds">Sounds</a><br>
                 <a href="#SynEditMask">SynEditMask</a><br>
                 <a href="#SystemItemProperties">SystemItemProperties</a><br>
                 <a href="#TabSpaces">TabSpaces</a><br>

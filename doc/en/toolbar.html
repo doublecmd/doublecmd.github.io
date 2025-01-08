@@ -45,7 +45,8 @@
         <p>The idea of the toolbar it to allow each one to customize buttons inside a bar for functions we need to do often.</p>
         <p>Double Commander proposes also to use numerous possible parameters based on current displayed/selected files to allow us to pass them as parameters to the application to launch.</p>
         <p>Here follows the default toolbar of DC shown above the file panels after a default installation. But don't worry: you may configure it the way you want to adapt to your need and your taste.</p>
-        <p class="figure"><img class="largeimage" title="Toolbar sample" alt="Toolbar sample" src="images/imgDC/toolbarsample.png" width="713" height="39"></p>
+        <p class="figure"><img class="largeimage" title="Toolbar sample" alt="Toolbar sample" src="images/imgDC/toolbarsample.png" width="756" height="38"></p>
+        <p>The middle toolbar is also available, it is located between the file panels. The capabilities and process of configuring the middle toolbar are similar to the main one.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -99,8 +100,13 @@
 
       <div>
         <h2><a name="catseparator">5.1. Description of elements - Separator</a></h2>
-        <p>The separator is simply a vertical bar that may be used to separate group of buttons to have similar related actions grouped together.</p>
-        <p>There have no real active functions, it's just decorative for pleasant looking.</p>
+        <p>The separator has no real active functions, it's just decorative for pleasant looking. Can be used to separate group of buttons to have similar related actions grouped together.</p>
+        <p>The following styles are available:</p>
+        <ul>
+          <li><p><span class="italic">Separator</span>&nbsp;&ndash; is simply a vertical bar (horizontal in the middle toolbar).</p></li>
+          <li><p><span class="italic">Space</span>&nbsp;&ndash; adds an empty space, its width corresponds to the size of the button.</p></li>
+        </ul>
+        <p>The menu will use the first one regardless of the style selected.</p>
         <p>In the following example, the person used separator to isolate together functions related with comparisons, then the ones related with clipboard, etc.</p>
         <p class="figure"><img class="largeimage" title="Example of separator" alt="Example of separator" src="images/imgDC/toolbarseparator.png" width="420" height="192"></p>
       </div>
@@ -114,10 +120,10 @@
         <p>As we see in the following image, we may select a custom icon for it but generally just choosing the command from the drop box of command is enough and command already have an internal associated icon.</p>
         <p>The tooltip is also there to allow us to write an easy to remember little words to remember us the task of the button as we move cursor over.</p>
         <p>Here is an example with that <a href="cmds.html#cm_Search">cm_Search</a> command:</p>
-        <p class="figure"><img class="largeimage" title="Example of internal command with no parameter" alt="Example of internal command with no parameter" src="images/imgDC/toolbarinternal1.png" width="611" height="186"></p>
+        <p class="figure"><img class="largeimage" title="Example of internal command with no parameter" alt="Example of internal command with no parameter" src="images/imgDC/toolbarinternal1.png" width="610" height="289"></p>
         <p>Some internal commands might accept parameters to configure their actions. When this is required, we'll simply write the parameter for in the parameter box: most parameters must be added as <i>parameter=value</i> (unless otherwise stated), each must be in a separate line, without quotes and other ways of escaping special characters and spaces.</p>
         <p>In the following example, we use the internal command <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a> and we're providing two parameters to indicate which directory to load and show in each panel.</p>
-        <p class="figure"><img class="largeimage" title="Example of internal command with parameters" alt="Example of internal command with parameters" src="images/imgDC/toolbarinternal2.png" width="611" height="210"></p>
+        <p class="figure"><img class="largeimage" title="Example of internal command with parameters" alt="Example of internal command with parameters" src="images/imgDC/toolbarinternal2.png" width="610" height="210"></p>
       </div>
       <br>
 
@@ -128,7 +134,7 @@
         <p>The "Command" field is for the executable file only (as is, without quotes): we can specify the file name or the file name with the full path, we can also use <a href="variables.html#envvariables">environment variables</a>.</p>
         <p>Regarding the parameters, we may select user variables that will be substituted by their actual value based on the current selected file of the active panel and so on. See the dedicated page of the possible variable to use as parameter under <a href="variables.html">this link</a> (please note the use of <a href="variables.html#quotation">quotation marks</a>). To run a command in the terminal, we can use the variables <a href="variables.html#executeterm">%t0 and %t1</a>.</p>
         <p>In the following example, we've set a toolbar button to launch the application GIMP and the <code>%p</code> as parameter means that when we click the button to launch GIMP, the complete filename of the current selected file in the active panel will be passed as parameter, since that's what <code>%p</code> stands for.</p>
-        <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="611" height="230"></p>
+        <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="610" height="229"></p>
         <p>If we do not need to explicitly specify the working directory, then we can leave the "Start Path" field empty, in this case, the working directory will be the current directory of the active file panel.</p>
       </div>
       <br>
@@ -141,7 +147,7 @@
         <p>This will make appear a new sub toolbar below that we can populate as we needed with new toolbar buttons pointing to different tasks.</p>
         <p>This example also shows us that it could help to group together buttons related to the same projects, the same areas.</p>
         <p>In this example the sub toolbar has functions related with different type of OS's installed in virtual machines.</p>
-        <p class="figure"><img class="largeimage" title="Example of menu" alt="Example of menu" src="images/imgDC/toolbarmenu.png" width="624" height="319"></p>
+        <p class="figure"><img class="largeimage" title="Example of menu" alt="Example of menu" src="images/imgDC/toolbarmenu.png" width="610" height="318"></p>
         <p>Below is displayed how the configured sub toolbar will appear in the application:</p>
         <p class="figure"><img class="largeimage" title="Example of drop menu" alt="Example of drop menu" src="images/imgDC/toolbarmenudrop.png" width="250" height="342"></p>
         <p>The sub toolbar configured this way may contains the same type of button type presented before.</p>

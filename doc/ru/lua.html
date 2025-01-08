@@ -126,6 +126,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
         <p>Мы можем использовать DLL-файл <a href="https://luajit.org/" target="_blank">проекта LuaJIT</a>.
            LuaJIT сочетает в себе высокоскоростной интерпретатор, написанный на ассемблере, и JIT-компилятор. Также мы получаем библиотеку FFI: с её помощью в скриптах можно будет вызывать внешние функции C и использовать структуры данных C.</p>
         <p>Дистрибутивы DC для Windows включают в себя DLL-файл Lua (в DC 0.9.7 и новее из проекта LuaJIT), в иных случаях мы можем найти и установить его с помощью менеджера пакетов или скомпилировать. Если используем 64-битную версию DC, то DLL-файл также должен быть 64-битным.</p>
+        <p>Имя библиотеки должно быть указано в значении параметра <a href="configuration.html#ConfigPlugins">Библиотека Lua</a>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -255,7 +256,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
 
         <p>Для выполнения нашего скрипта мы можем создать кнопку на панели инструментов с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>.</p>
         <p>Предположим, наш скрипт <code>E:\scripts\lua\music.lua</code>, мы можем настроить эту кнопку следующим образом:</p>
-        <p class="figure"><img class="largeimage" title="Вызов скрипта Lua кнопкой панели инструментов" alt="Вызов скрипта Lua кнопкой панели инструментов" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
+        <p class="figure"><img class="largeimage" title="Вызов скрипта Lua кнопкой панели инструментов" alt="Вызов скрипта Lua кнопкой панели инструментов" src="images/imgDC/luaimg1.png" width="610" height="289"></p>
 
         <p>Кроме того, для редактирования наших скриптов мы можем использовать встроенный редактор Double Commander. Если файл имеет расширение <code>.lua</code>, то он будет распознан редактором и открыт с подсветкой синтаксиса, специфичного для языка Lua:</p>
         <p class="figure"><img class="largeimage" title="Подсветка синтаксиса Lua во встроенном редакторе" alt="Подсветка синтаксиса Lua во встроенном редакторе" src="images/imgDC/luaimg2.png" width="660" height="480"></p>
@@ -557,7 +558,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
         <p>В приведённом выше примере <var>params[1]</var> является первым параметром, переданным скрипту.</p>
         <p>При использовании внутренней команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> это будет первый параметр, переданный после имени файла скрипта.</p>
         <p>Итак, в нашем примере мы можем создать на панели инструментов кнопку, как показано ниже:</p>
-        <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="560" height="290"></p>
+        <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="610" height="289"></p>
         <p>В этом примере скрипту будет передан параметр <code>%"0%p</code>: имя выделенного в активной панели файла или папки, без кавычек.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -596,7 +597,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
           <li><var>params[2]</var> - имя файла для сохранения результата работы скрипта</li>
         </ol>
         <p>Настраиваем кнопку на панели инструментов с внутренней командой <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> и передаём параметрами всё необходимое:</p>
-        <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="560" height="262"></p>
+        <p class="figure"><img class="largeimage" title="Параметр с cm_ExecuteScript" alt="Параметр с cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="610" height="289"></p>
         <p>В этом примере скрипту в качестве первого параметра будет передано <code>%"0%Ds</code>: имя каталога активной панели, без кавычек.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>

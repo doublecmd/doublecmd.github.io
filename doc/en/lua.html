@@ -126,6 +126,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
         <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>.
            LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
+        <p>The library name must be specified in the value of the <a href="configuration.html#ConfigPlugins">Lua library file to use</a> option.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -258,7 +259,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
 
         <p>Using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, we may configure a tool bar button that will execute our script.</p>
         <p>Assuming this script file is <code>E:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
-        <p class="figure"><img class="largeimage" title="Invoking a Lua script from toolbar" alt="Invoking a Lua script from toolbar" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
+        <p class="figure"><img class="largeimage" title="Invoking a Lua script from toolbar" alt="Invoking a Lua script from toolbar" src="images/imgDC/luaimg1.png" width="610" height="289"></p>
 
         <p>Also, we may use the internal Double Commander Editor for editing our scripts. If filename has <code>.lua</code> file extension, it will be recognized by internal editor and it will provide us syntax highlighting specific for this Lua language:</p>
         <p class="figure"><img class="largeimage" title="Lua syntax highlighting with internal editor" alt="Lua syntax highlighting with internal editor" src="images/imgDC/luaimg2.png" width="660" height="480"></p>
@@ -564,7 +565,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
         <p>In the above example, the <var>params[1]</var> is the 1st parameter passed to the script.</p>
         <p>When using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, it will will be the first parameter passed after the script filename.</p>
         <p>So in our example, we may program a sample toolbar button like the following:</p>
-        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="560" height="290"></p>
+        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="610" height="289"></p>
         <p>In this example, the parameter <code>%"0%p</code> will be passed to the script. This will represent, unquoted, the filename of the item currently selected in the active panel at the moment we press the toolbar button.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -603,7 +604,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
           <li><var>params[2]</var> - which is the outputfilename to store the result</li>
         </ol>
         <p>So it's easy to configure a toolbar button using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> and pass the parameter to accomplish all this.</p>
-        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="560" height="262"></p>
+        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="610" height="289"></p>
         <p>In this example, the parameter <code>%"0%Ds</code> will be passed to the script as the first parameter. This will represent, unquoted, the directory displayed by the active panel.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>

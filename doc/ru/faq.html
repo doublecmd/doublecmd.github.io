@@ -40,6 +40,7 @@
               <dt>2.3. <a href="#plugs">Плагины от Total Commander не работают?!</a></dt>
               <dt>2.4. <a href="#gvfs">Могу ли я получить доступ к сетевым ресурсам как в Nautilus или Thunar?</a></dt>
               <dt>2.5. <a href="#tray">При шелчке по значку в трее вместо восстановления окна отображается меню с пунктами "Восстановить" и "Выход" (только GTK2).</a></dt>
+              <dt>2.6. <a href="#systheme">Почему при переключении системной темы вид программы не меняется или меняется частично? Мне приходится закрывать программу и открывать снова.</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">3. Настройка интерфейса</a></dt>
@@ -190,6 +191,10 @@
 
         <p class="bold"><a name="tray">В: При шелчке по значку в трее вместо восстановления окна отображается меню с пунктами "Восстановить" и "Выход" (только GTK2).</a></p>
         <p><span class="bold">О:</span> Добавьте библиотеку общей поддержки системного трея: например, пакет <tt>libappindicator1</tt> в Debian/Ubuntu или <tt>libappindicator-gtk2</tt> в Arch Linux.</p>
+        <br>
+
+        <p class="bold"><a name="systheme">В: Почему при переключении системной темы вид программы не меняется или меняется частично? Мне приходится закрывать программу и открывать снова.</a></p>
+        <p><span class="bold">О:</span> GTK2-версия? Это особенность Lazarus, в этом случае цвета элементов интерфейса не обновляются под GTK2.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -362,8 +367,8 @@
         <p class="bold"><a name="f34_regutf8">В: Как я могу использовать регулярные выражения для поиска в UTF-8?</a></p>
         <p><span class="bold">О:</span> Возможность была добавлена в версии 1.0.0. Необходима библиотека PCRE2 с поддержкой 8-битной кодировки и включенной поддержкой юникода (по умолчанию обычно включено):</p>
         <ul>
-          <li><p>Linux: необходим файл <tt>libpcre2-8.so.0</tt>. Например, пакет <tt>libpcre2-8-0</tt> в Debian/Ubuntu или <tt>pcre2</tt> в Arch Linux.</p></li>
           <li><p>Windows: необходим файл <tt>libpcre2-8.dll</tt> (по умолчанию дистрибутив Double Commander содежит эту DLL).</p></li>
+          <li><p>Linux: необходим файл <tt>libpcre2-8.so.0</tt>. Например, пакет <tt>libpcre2-8-0</tt> в Debian/Ubuntu или <tt>pcre2</tt> в Arch Linux.</p></li>
           <li><p>macOS: необходим файл <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <br>
@@ -455,11 +460,11 @@
         <br>
 
         <p class="bold"><a name="ftps_reuse">В: ftp.wfx: Пытаюсь использовать FTPS (FTP+SSL), но получаю "522 SSL connection failed: session reuse required".</a></p>
-        <p><span class="bold">О:</span> Сервер требует поддержки повторного использования сеанса (session reuse) и плагин FTP это поддерживает, но требуется библиотека, поддерживающая протоколы SSL и TLS (смотрите <a href="plugins.html#ftp.wfx">описание</a> плагина). Поместите библиотеки рядом с <tt>doublecmd.exe</tt> или в PATH (Windows) или установите соответствующий пакет (Linux и другие Unix-подобные системы).</p>
+        <p><span class="bold">О:</span> Сервер требует поддержки повторного использования сеанса (session reuse) и плагин FTP это поддерживает, но требуется библиотека, поддерживающая протоколы SSL и TLS (смотрите <a href="plugins.html#ftp.wfx">описание</a> плагина).</p>
         <br>
 
         <p class="bold"><a name="ftp_openssl">В: ftp.wfx: Не работает с некоторыми серверами! После подключения получаю ошибки: "104,Connection reset by peer" и "CSOCK ERROR Connection reset by peer" или "10060,Connection timed out" и "CSOCK ERROR Connection timed out".</a></p>
-        <p><span class="bold">О:</span> Требуется библиотека, поддерживающая протоколы SSL и TLS (смотрите <a href="plugins.html#ftp.wfx">описание</a> плагина). Поместите библиотеки рядом с <tt>doublecmd.exe</tt> или в PATH (Windows) или установите соответствующий пакет (Linux и другие Unix-подобные системы).</p>
+        <p><span class="bold">О:</span> Требуется библиотека, поддерживающая протоколы SSL и TLS (смотрите <a href="plugins.html#ftp.wfx">описание</a> плагина).</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
         <br>
       </div>

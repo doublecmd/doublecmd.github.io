@@ -157,11 +157,15 @@
         <p>Это плагин файловой системы для работы со следующими сетевыми протоколами: FTP, FTPS, FTPES, SFTP и SSH+SCP. Плагин также поддерживает работу с прокси-серверами (HTTP, SOCKS 4 или SOCKS 5).</p>
         <p>Требуются дополнительные библиотеки:</p>
         <p>1) Протоколы SSL и TLS</p>
+        <p>Криптографическая библиотека <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> (3.1, 3.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1):</p>
         <ul>
-          <li><p>Криптографическая библиотека <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> (3.1, 3.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1): плагин FTP будет использовать <tt>ssleay32.dll</tt> и <tt>libeay32.dll</tt> (Windows), <tt>libssl.dylib</tt> и <tt>libcrypto.dylib</tt> (macOS) или <tt>libssl.so.N</tt> и <tt>libcrypto.so.N</tt> (Linux и другие Unix-подобные ОС), где "N"&nbsp;&ndash; номер версии. Имена библиотек нередко включают номер версии, плагин содержит список распространённых имён и нужный файл будет найден в системе автоматически.<br>
-            Скомпилированные бинарные файлы OpenSSL для Windows можно найти <a href="https://wiki.openssl.org/index.php/Binaries" target="_blank">здесь</a>, в остальных случаях мы можем использовать менеджер пакетов операционной системы (например, пакет <tt>libssl3</tt> или <tt>libssl1.1</tt> в Debian/Ubuntu, <tt>openssl</tt> в Arch Linux, <tt>openssl</tt> в macOS (Homebrew)).</p></li>
-          <li><p>В качестве альтернативы в Linux плагин может использовать библиотеку <a href="https://www.gnutls.org/" target="_blank">GnuTLS</a> (<tt>libgnutls.so.N</tt>, где "N"&nbsp;&ndash; номер версии).</p></li>
+          <li>Windows: плагин содержит список распространённых имён и нужный файлы будут найдены автоматически.</li>
+          <li>macOS: <tt>libssl.N.dylib</tt> и <tt>libcrypto.N.dylib</tt> (где "N"&nbsp;&ndash; номер версии) или <tt>libssl.dylib</tt> и <tt>libcrypto.dylib</tt>.</li>
+          <li>Linux и другие Unix-подобные ОС: <tt>libssl.so.N</tt> и <tt>libcrypto.so.N</tt>, где "N"&nbsp;&ndash; номер версии.</li>
         </ul>
+        <p>Скомпилированные бинарные файлы OpenSSL для Windows можно найти <a href="https://wiki.openssl.org/index.php/Binaries" target="_blank">здесь</a>, в остальных случаях мы можем использовать менеджер пакетов операционной системы (например, пакет <tt>libssl3</tt> или <tt>libssl1.1</tt> в Debian/Ubuntu, <tt>openssl</tt> в Arch Linux, <tt>openssl</tt> в macOS (Homebrew)).</p>
+        <p>Примечание: В Windows библиотеки должны располагаться рядом с исполняемым файлом Double Commander или в системном каталоге Windows.</p>
+        <p>В качестве альтернативы в Linux плагин может использовать библиотеку <a href="https://www.gnutls.org/" target="_blank">GnuTLS</a> (<tt>libgnutls.so.N</tt>, где "N"&nbsp;&ndash; номер версии).</p>
         <p>2) Протокол SSH</p>
         <p>Библиотека <a href="https://libssh2.org/" target="_blank">libssh</a>: плагин FTP будет использовать <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS) или <tt>libssh2.so.1</tt> (Linux и другие Unix-подобные ОС).</p>
         <p>Дистрибутивы Double Commander для Windows содержат эту библиотеку, в иных случаях мы можем использовать обычные способы получения библиотек в операционной системе (например, пакет <tt>libssh2-1</tt> в Debian/Ubuntu, <tt>libssh2</tt> в Arch Linux, <tt>libssh2</tt> в macOS (Homebrew)).</p>

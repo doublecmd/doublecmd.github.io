@@ -40,6 +40,7 @@
               <dt>2.3. <a href="#plugs">Plugins from Total Commander do not work?!</a></dt>
               <dt>2.4. <a href="#gvfs">Can I get access to network resources like in Nautilus or Thunar?</a></dt>
               <dt>2.5. <a href="#tray">Clicking on the tray icon displays a menu with "Restore" and "Exit" items instead of restoring the window (GTK2 only).</a></dt>
+              <dt>2.6. <a href="#systheme">Why does the program's appearance not change or change only partially when switching the system theme? I have to close the program and open it again.</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">3. Interface configuration</a></dt>
@@ -190,6 +191,10 @@
 
         <p class="bold"><a name="tray">Q: Clicking on the tray icon displays a menu with "Restore" and "Exit" items instead of restoring the window (GTK2 only).</a></p>
         <p><span class="bold">A:</span> Add a library of general system tray support: for example, package <tt>libappindicator1</tt> in Debian/Ubuntu or <tt>libappindicator-gtk2</tt> in Arch Linux.</p>
+        <br>
+
+        <p class="bold"><a name="systheme">Q: Why does the program's appearance not change or change only partially when switching the system theme? I have to close the program and open it again.</a></p>
+        <p><span class="bold">A:</span> GTK2 version? This is a feature of Lazarus, in this case, it does not update controls colors under GTK2.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -362,8 +367,8 @@
         <p class="bold"><a name="f34_regutf8">Q: How can I use regular expressions to search in UTF-8?</a></p>
         <p><span class="bold">A:</span> This feature has been added to version 1.0.0. Needs PCRE2 library with support 8-bit code units and Unicode support enabled (usually enabled by default):</p>
         <ul>
-          <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Ubuntu or <tt>pcre2</tt> in Arch Linux.</p></li>
           <li><p>Windows: needs <tt>libpcre2-8.dll</tt> (by default, the Double Commander distribution contains this DLL).</p></li>
+          <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Ubuntu or <tt>pcre2</tt> in Arch Linux.</p></li>
           <li><p>macOS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <br>
@@ -455,11 +460,11 @@
         <br>
 
         <p class="bold"><a name="ftps_reuse">Q: ftp.wfx: I try to use FTPS (FTP+SSL), but I get "522 SSL connection failed: session reuse required".</a></p>
-        <p><span class="bold">A:</span> This server requires session reuse support and the FTP plugin supports it, but requires a library that supports SSL and TLS protocols (see the <a href="plugins.html#ftp.wfx">description</a> of the plugin). Put the libraries near <tt>doublecmd.exe</tt> or in the PATH (Windows) or install the appropriate package (Linux and other Unix-like systems).</p>
+        <p><span class="bold">A:</span> This server requires session reuse support and the FTP plugin supports it, but requires a library that supports SSL and TLS protocols (see the <a href="plugins.html#ftp.wfx">description</a> of the plugin).</p>
         <br>
 
         <p class="bold"><a name="ftp_openssl">Q: ftp.wfx: Does not work with some servers! After connecting, I get errors: "104,Connection reset by peer" and "CSOCK ERROR Connection reset by peer" or "10060,Connection timed out" and "CSOCK ERROR Connection timed out".</a></p>
-        <p><span class="bold">A:</span> Requires a library that supports SSL and TLS protocols (see the <a href="plugins.html#ftp.wfx">description</a> of the plugin). Put the libraries near <tt>doublecmd.exe</tt> or in the PATH (Windows) or install the appropriate package (Linux and other Unix-like systems).</p>
+        <p><span class="bold">A:</span> Requires a library that supports SSL and TLS protocols (see the <a href="plugins.html#ftp.wfx">description</a> of the plugin).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>
       </div>

@@ -157,11 +157,15 @@
         <p>This is a file system plugin for working with the following network protocols: FTP, FTPS, FTPES, SFTP and SSH+SCP. The plugin also supports working with proxy servers (HTTP, SOCKS 4 or SOCKS 5).</p>
         <p>Requires additional libraries:</p>
         <p>1) SSL and TLS protocols</p>
+        <p>The <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> cryptographic library (3.1, 3.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1):</p>
         <ul>
-          <li><p>The <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> cryptographic library (3.1, 3.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1): the FTP plugin will use <tt>ssleay32.dll</tt> and <tt>libeay32.dll</tt> (Windows), <tt>libssl.dylib</tt> and <tt>libcrypto.dylib</tt> (macOS) or <tt>libssl.so</tt> and <tt>libcrypto.so</tt> (Linux and other Unix-like OS), where "N" is a version number. Library names often include a version number, the plugin contains a list of common names, and the required file will be found in the system automatically.<br>
-            Compiled OpenSSL binaries for Windows can be found <a href="https://wiki.openssl.org/index.php/Binaries" target="_blank">here</a>, in other cases, we can use the operating system's package manager (for example, package <tt>libssl3</tt> or <tt>libssl1.1</tt> in Debian/Ubuntu, <tt>openssl</tt> in Arch Linux, <tt>openssl</tt> in macOS (Homebrew)).</p></li>
-          <li><p>Alternatively, in Linux, the plugin can use the <a href="https://www.gnutls.org/" target="_blank">GnuTLS</a> library (<tt>libgnutls.so.N</tt>, where "N" is a version number).</p></li>
+          <li>Windows: plugin contains a list of common names, and the required files will be found automatically.</li>
+          <li>macOS: <tt>libssl.N.dylib</tt> and <tt>libcrypto.N.dylib</tt> (where "N" is a version number) or <tt>libssl.dylib</tt> and <tt>libcrypto.dylib</tt>.</li>
+          <li>Linux and other Unix-like OS: <tt>libssl.so.N</tt> and <tt>libcrypto.so.N</tt>, where "N" is a version number.</li>
         </ul>
+        <p>Compiled OpenSSL binaries for Windows can be found <a href="https://wiki.openssl.org/index.php/Binaries" target="_blank">here</a>, in other cases, we can use the operating system's package manager (for example, package <tt>libssl3</tt> or <tt>libssl1.1</tt> in Debian/Ubuntu, <tt>openssl</tt> in Arch Linux, <tt>openssl</tt> in macOS (Homebrew)).</p>
+        <p>Note: In Windows, libraries must be located near the Double Commander executable file or in the Windows system directory.</p>
+        <p>Alternatively, in Linux, the plugin can use the <a href="https://www.gnutls.org/" target="_blank">GnuTLS</a> library (<tt>libgnutls.so.N</tt>, where "N" is a version number).</p>
         <p>2) SSH protocol</p>
         <p>The <a href="https://libssh2.org/" target="_blank">libssh</a> library: the FTP plugin will use <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS) or <tt>libssh2.so.1</tt> (Linux and other Unix-like OS).</p>
         <p>The distributions of Double Commander for Windows contain this library, in other cases, we can use the usual ways to get libraries in the operating system (for example, package <tt>libssh2-1</tt> in Debian/Ubuntu, <tt>libssh2</tt> in Arch Linux, <tt>libssh2</tt> in macOS (Homebrew)).</p>

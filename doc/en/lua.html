@@ -122,11 +122,9 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       <div>
         <h2><a name="dllrequired">2. DLL required</a></h2>
         <p>In order to interpret Lua script file, we need to have a Lua DLL file, Double Commander supports versions 5.1 - 5.4.</p>
-        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS) in its directory and in the system directory. We can change the file name (and path) in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter.</p>
-        <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>.
-           LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
+        <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>. LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
-        <p>The library name must be specified in the value of the <a href="configuration.html#ConfigPlugins">Lua library file to use</a> option.</p>
+        <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS) in its directory and in the system directory. We can change the file name (and path) in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

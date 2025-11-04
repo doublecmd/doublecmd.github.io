@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 搜索文件</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="copymove.html">上一页</a> | <a title="Next page" href="multirename.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.5. 搜索文件</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#intro">简介</a></dt>
+          <dt>2. <a href="#standard">“标准” 选项卡</a></dt>
+          <dt>3. <a href="#advanced">“高级” 选项卡</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#attributes">按特定属性查找文件</a></dt>
+               <dd>
+                 <dl>
+                   <dt>3.1.1. <a href="#advpattrn">高级模式</a></dt>
+                   <dt>3.1.2. <a href="#examples">示例</a></dt>
+                 </dl>
+               </dd>
+            </dl>
+          </dd>
+          <dt>4. <a href="#plugins">“插件” 选项卡</a></dt>
+          <dt>5. <a href="#templates">“载入/保存” 选项卡</a></dt>
+          <dt>6. <a href="#results">“结果” 选项卡</a></dt>
+          <dt>7. <a href="#configuration">附加配置</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. 简介</a></h2>
+        <p>查找工具的功能按选项卡分组，可使用 <kbd>Alt+1</kbd>…<kbd>Alt+4</kbd> 在选项卡之间切换。</p>
+        <p>此外，本窗口的一些功能也可从主菜单中访问。</p>
+      </div>
+
+      <div>
+        <h2><a name="standard">2. “标准” 选项卡</a></h2>
+        <p>在此选项卡可以按文件名和文件内容进行搜索。</p>
+        <p class="figure"><img class="largeimage" title="Search: Standard" alt="Search: Standard" src="images/imgDC/findstandard.png" width="641" height="471"></p>
+        <p><span class="italic">启动文件夹</span> 字段指定搜索起始目录，默认使用活动面板的当前目录。</p>
+        <p>用于指定搜索位置的附加选项：</p>
+        <ul>
+          <li><p><span class="italic">打开的标签</span>&nbsp;&ndash; 仅使用已打开选项卡的目录（包括活动与非活动面板的选项卡）。</p></li>
+          <li><p><span class="italic">选定的文件夹和文件</span>&nbsp;&ndash; 启用后仅在活动面板中被选中的文件和文件夹中进行搜索。如果文件面板中已有选中项，该选项会自动启用。</p></li>
+          <li><p><span class="italic">追踪符号链接</span>&nbsp;&ndash; 如果发现指向目录的符号链接，将读取并使用其目标目录；否则该符号链接将被视为普通文件。</p></li>
+          <li><p><span class="italic">排除子文件夹</span>&nbsp;&ndash; 要从搜索中排除的目录掩码列表，可在此指定文件夹名以及相对或绝对路径。</p></li>
+          <li><p><span class="italic">搜索子文件夹</span> 有以下选项：</p>
+          <ul>
+            <li><p>仅当前文件夹，</p></li>
+            <li><p>选择层级深度（1 到 100），</p></li>
+            <li><p>全部（不限深度）。</p></li>
+          </ul>
+          <p>此设置控制在文件系统树中搜索的深度。若设置为“仅当前文件夹”，搜索仅在“启动文件夹”中指定的目录进行（不包含子文件夹）。</p></li>
+        </ul>
+        <p><span class="italic">文件掩码</span> 字段设置搜索掩码，也可以直接输入完整或部分文件名。</p>
+        <p>附加选项：</p>
+        <ul>
+          <li><p><span class="italic">在压缩文件中搜索</span>&nbsp;&ndash; 启用后，Double Commander 会尝试读取搜索目录中所有压缩包内的内容。支持的格式取决于已添加的打包器插件。</p></li>
+          <li><p><span class="italic">搜索文件名的一部分</span>&nbsp;&ndash; 若要进行精确文件名匹配，应将此项取消选中。</p></li>
+          <li><p><span class="italic">正则表达式</span>&nbsp;&ndash; 启用后可以使用 <a href="regexp.html">正则表达式</a>。</p></li>
+          <li><p><span class="italic">排除文件</span>&nbsp;&ndash; 要从搜索中排除的文件名列表，支持掩码。</p>
+        </ul>
+        <p>注意：<span class="italic">文件掩码</span>, <span class="italic">排除文件</span>, <span class="italic">启动文件夹</span> 和 <span class="italic">排除子文件夹</span> 支持使用分号 ";"（无空格）分隔多个值。如果需要查找文件名包含分号的文件，可使用正则表达式。</p>
+        <p>若选中 <span class="italic">查找文本</span> 复选框，程序将在文件中搜索指定文本。启用 <span class="italic">替换为</span> 字段并填写文本后，还可以将匹配文本替换为指定文本。</p>
+        <p>附加选项：</p>
+        <ul>
+          <li><p><span class="italic">查找不包含该文本的文件</span>&nbsp;&ndash; 显示不包含 <span class="italic">查找文本</span> 中指定文本的文件。</p></li>
+          <li><p><span class="italic">区分大小写</span>&nbsp;&ndash; 区分大小写，例如 “Fallout” 与 “fallout” 将被视为不同。</p></li>
+          <li><p><span class="italic">按十六进制字符搜索</span>&nbsp;&ndash; 按十六进制字符搜索（不区分大小写，可带或不带字符间的空格，例如 "C0 C1 C2" 或 "c0c1c2"）。</p></li>
+          <li><p><span class="italic">Office XML</span>&nbsp;&ndash; 启用对 Microsoft Office（DOCX、XLSX）和 OpenOffice/LibreOffice（ODT、ODS）文件的搜索。</p></li>
+          <li><p>还可设置编码（UTF、ISO、KOI、DOS、ANSI 等）并启用正则表达式。</p></li>
+        </ul>
+        <p>关于文本编码：可设置特定编码或使用以下特殊值：</p>
+        <ul>
+          <li><p><span class="italic">Default</span>&nbsp;&ndash; 取决于操作系统和系统区域设置：</p>
+          <ul>
+            <li><p>Windows：默认系统 ANSI 编码。</p></li>
+            <li><p>Linux 及其他类 Unix 系统：默认系统文本编码，现代系统通常使用 UTF-8。</p></li>
+          </ul>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; 默认系统 ANSI 编码（依赖区域设置）。</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; 默认系统 OEM（DOS）编码（依赖区域设置）。</p></li>
+        </ul>
+        <p><span class="italic">编码</span>按钮（<img title="Encoding" alt="Encoding" src="images/imgDC/bencoding.png" width="16" height="16">）允许指定多个编码。</p>
+        <p><span class="italic">开始</span> 按钮开始搜索，<span class="italic">取消</span> 停止搜索，<span class="italic">关闭</span> 关闭查找窗口。</p>
+        <p><span class="italic">新建搜索</span>&nbsp;&ndash; 清除旧结果并允许以新条件开始新搜索。</p>
+        <p><span class="italic">上次搜索</span>&nbsp;&ndash; 加载上一次搜索的参数（在当前会话中，未关闭 Double Commander 前）。</p>
+        <p>默认情况下，Double Commander 会保存输入字段的历史。要删除历史中的不必要条目，可使用 <kbd>Shift+Del</kbd>；也可在 <a href="configuration.html#ConfigDC">Configuration</a> 设置中禁用保存历史。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advanced">3. “高级” 选项卡</a></h2>
+        <p>“高级” 选项卡允许指定附加条件：按文件修改日期的日期、时间与年龄、最小和最大文件大小，以及文件属性。</p>
+        <p class="figure"><img class="largeimage" title="Search: Advanced" alt="Search: Advanced" src="images/imgDC/findadvanced.png" width="641" height="471"></p>
+        <p>文件属性可手动指定，或使用 <span class="italic">添加</span> 按钮的助手（下面小节将详细说明文件属性的用法）。<span class="italic">帮助</span> 按钮会打开本页的下一个子节。</p>
+        <p>在此还可选择通过以下一项或多项条件查找重复文件：</p>
+        <ul>
+          <li><p>相同的文件名；</p></li>
+          <li><p>相同大小；</p></li>
+          <li><p>相同的哈希值：使用 BLAKE2b（x64）或 BLAKE2s 校验和；</p></li>
+          <li><p>相同的内容（逐字节比较）。</p></li>
+        </ul>
+        <p>结果中将显示文件名、匹配文件的组号以及文件位置。将结果传入列表框后，可使用特殊选择模式，仅选择重复项：在 <a href="help.html#mnu_select">标记</a> 子菜单中使用 <span class="italic">选择一组文件</span> 与 <span class="italic">取消选择一组文件</span>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="attributes">3.1. 按特定属性查找文件</a></h2>
+        <p>要按特定属性查找，需输入一个字符串模版，指定要匹配的属性及其是否应被设置或未设置。</p>
+        <p>单个属性的表示格式为：</p>
+        <p><code>&lt;attribute&gt;+</code> 或 <code>&lt;attribute&gt;-</code></p>
+        <p>加号表示文件必须具有该属性，减号表示文件不得具有该属性。</p>
+        <p>各 <tt>&lt;attribute&gt;</tt> 标识符如下：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Windows 下的属性</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">属性字母</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">archive（归档）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">compressed（压缩包，NTFS 压缩）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory（文件夹）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">encrypted（加密，EFS）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">hidden（隐藏）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink（符号链接）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">sparse（稀疏）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">read only（只读）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">system（系统）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">temporary（临时）</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Unix/Linux 下的属性（权限）</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">权限字母</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ur</div></td><td class="hintcell">user read（用户可读）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">uw</div></td><td class="hintcell">user write（用户可写）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ux</div></td><td class="hintcell">user execute（用户可执行）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gr</div></td><td class="hintcell">group read（组可读）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gw</div></td><td class="hintcell">group write（组可写）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gx</div></td><td class="hintcell">group execute（组可执行）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">or</div></td><td class="hintcell">others read（其他用户可读）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ow</div></td><td class="hintcell">others write（其他用户可写）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ox</div></td><td class="hintcell">others execute（其他用户可执行）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">us</div></td><td class="hintcell">set user ID（设置用户 ID）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">gs</div></td><td class="hintcell">set group ID（设置组 ID）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">sb</div></td><td class="hintcell">sticky bit（粘滞位）</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Unix/Linux 下的属性（文件类型）</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">文件类型字母</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block device（块设备）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character device（字符设备）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory（文件夹）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">named pipe (FIFO)（命名管道）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink（符号链接）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">regular file（常规文件）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">socket（套接字）</td></tr>
+        </table>
+        <br>
+        <p>在 Unix/Linux 中也可以使用八进制表示法来表示权限。例如 0750 等价于组合了 <code>ur</code>, <code>uw</code>, <code>ux</code>, <code>gr</code> 和 <code>gx</code>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advpattrn">3.1.1. 高级模式</a></h2>
+        <p>多个属性可以用 AND 关系组合，只需依次指定各个模式。</p>
+        <p>例如：<code>r+s+h+</code> 匹配同时设置了只读、隐藏和系统属性的文件。</p>
+        <p>这些 AND 组合还可以用竖线 "|" 连接，表示 OR 关系。</p>
+        <p>例如：<code>r+|s+h+</code> 匹配满足下列任一条件的文件：</p>
+        <ul>
+          <li>设置了只读属性</li>
+          <li>同时设置了隐藏和系统属性</li>
+        </ul>
+        <p>可在序列开头使用 "!" 对 AND 序列取反。</p>
+        <p>例如：<code>!r+s+h+</code> 匹配不同时具备这三项属性的文件（即匹配的文件可能不具备其中任意一项或多项，但不能同时具备全部三项）。</p>
+        <p>取反仅适用于 AND 序列，因此模式 <code>!r+|!s+h+</code> 匹配的文件要么：</p>
+        <ul>
+          <li>不具备只读属性（等同于 <code>r-</code>）</li>
+          <li>不同时具备隐藏和系统属性</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="examples">3.1.2. 示例</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Windows 示例</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">示例模式</th><th class="categorydesccolumn">解释</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a+s-h-</div></td><td class="hintcell">匹配设置了归档属性且既不包含系统属性也不包含隐藏属性的文件</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e+|c+</div></td><td class="hintcell">匹配被压缩或被加密的文件</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d-</div></td><td class="hintcell">匹配文件（但不匹配文件夹）</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Unix/Linux 示例</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">示例模式</th><th class="categorydesccolumn">解释</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">uw+|gw+|ow+</div></td><td class="hintcell">匹配对用户、组或任何人都可写的文件</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">222+</div></td><td class="hintcell">匹配对用户、组和其他人均可写的文件</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d+ox+</div></td><td class="hintcell">匹配对任何人可访问的目录</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">!700+</div></td><td class="hintcell">匹配对用户并非完全可访问的文件</td></tr>
+        </table>
+        <br>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="plugins">4. “插件” 选项卡</a></h2>
+        <p>使用搜索（DSX）和内容（WDX）插件进行搜索（插件类型及其安装方法见 <a href="configuration.html#ConfigPlugins">此处</a>）。</p>
+        <p>例如按最小和最大宽度搜索图片：</p>
+        <p class="figure"><img class="largeimage" title="Search: Plugins" alt="Search: Plugins" src="images/imgDC/findplugins.png" width="641" height="471"></p>
+        <p>DSX 插件接口允许从“常规”和“高级”选项卡向插件传递参数，传递的具体参数列表取决于插件的功能。</p>
+        <p>WDX 插件扩展了搜索，其字段可按以下规则组合：</p>
+        <ul>
+          <li><p><span class="italic">与（全部匹配）</span>&nbsp;&ndash; 所有条件必须匹配。</p></li>
+          <li><p><span class="italic">或（任意匹配）</span>&nbsp;&ndash; 满足任一条件即可。</p></li>
+        </ul>
+        <p><span class="italic">操作符</span>（运算符）和 <span class="italic">值</span>（值）取决于插件字段返回的数据类型：数字、字符串、日期、时间或布尔值。对某些数值，可选择单位（例如大小或持续时间）。支持的比较操作如下：</p>
+        <table class="innercmddesc">
+          <tr class="rowinnerdesc">
+            <th class="innerdescheader">运算符</th>
+            <th class="innerdescheader">说明</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">=</div></td>
+            <td class="hintcell">等于</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!=</div></td>
+            <td class="hintcell">不等于</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">=(case)</div></td>
+            <td class="hintcell">等于，区分大小写</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!=(case)</div></td>
+            <td class="hintcell">不等于，区分大小写</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&gt;</div></td>
+            <td class="hintcell">大于</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;</div></td>
+            <td class="hintcell">小于</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&gt;=</div></td>
+            <td class="hintcell">大于或等于</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;=</div></td>
+            <td class="hintcell">小于或等于</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">contains</div></td>
+            <td class="hintcell">字符串包含特定文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!contains</div></td>
+            <td class="hintcell">字符串不包含特定文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">contains(case)</div></td>
+            <td class="hintcell">字符串包含特定文本，区分大小写</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!contains(case)</div></td>
+            <td class="hintcell">字符串不包含特定文本，区分大小写</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">regexp</div></td>
+            <td class="hintcell">字符串匹配 <a href="regexp.html">正则表达式</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">!regexp</div></td>
+            <td class="hintcell">字符串不匹配 <a href="regexp.html">正则表达式</a></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="templates">5. “载入/保存” 选项卡</a></h2>
+        <p>“载入/保存” 选项卡允许保存搜索参数，以便以后再次使用。</p>
+        <p>此外，可在此查看程序设置中创建的模版（例如 <a href="#ConfigColorFiles">颜色 &gt; 文件类型</a>、<a href="configuration.html#ConfigTooltips">工具提示</a>）以及某些工具中使用的模版（例如 <a href="help.html#cm_MarkPlus">标记组</a>、<a href="syncdirs.html">同步文件夹</a>）。</p>
+        <p>在模版列表下方有一个提示字段：选中某个模版时会显示该模版保存的 <span class="italic">文件掩码</span> 与 <span class="italic">起始目录</span>（若已保存）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="results">6. “结果” 选项卡</a></h2>
+        <p>该选项卡包含搜索结果（仅为完整文件名列表），并具有以下按钮：</p>
+        <ul>
+          <li><p><span class="italic">查看</span>&nbsp;&ndash; 在查看器中打开选中文件（<kbd>F3</kbd>）。</p></li>
+          <li><p><span class="italic">编辑</span>&nbsp;&ndash; 在编辑器中打开选中文件（<kbd>F4</kbd>）。</p></li>
+          <li><p><span class="italic">跳转到文件</span>&nbsp;&ndash; 关闭搜索窗口，在活动文件面板中打开选中文件所在目录并将光标定位到该文件（<kbd>Enter</kbd> 或双击）。</p></li>
+          <li><p><span class="italic">发送到列表框</span>&nbsp;&ndash; 将找到的文件列表传入活动文件面板。</p></li>
+        </ul>
+        <p>另也可使用上下文菜单：</p>
+        <ul>
+          <li><p><span class="italic">在新标签中打开</span>&nbsp;&ndash; 类似于 <span class="italic">跳转到文件</span> 命令，但选中文件将在后台选项卡中打开（多个选中文件将分别在独立后台选项卡中打开）。</p></li>
+          <li><p><span class="italic">在查看器中显示</span>。</p></li>
+          <li><p><span class="italic">在编辑器中显示</span>。</p></li>
+          <li><p><span class="italic">从列表中移除</span>（或 <kbd>Del</kbd>）&nbsp;&ndash; 从列表中移除不合适的结果（不会影响文件系统）。</p></li>
+          <li><p><span class="italic">显示所有找到的项目</span>&nbsp;&ndash; 取消上一步操作的效果，显示所有找到的项目。</p></li>
+        </ul>
+        <p>要多选文件，可使用鼠标配合 <kbd>Ctrl</kbd> 与 <kbd>Shift</kbd> 键，或使用 <kbd>Shift</kbd> 与方向键。</p>
+        <p><kbd>左箭头</kbd> 与 <kbd>右箭头</kbd> 键可在搜索结果列表与 <span class="italic">New search</span> 按钮之间切换焦点。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configuration">7. 附加配置</a></h2>
+        <p>与查找工具相关的附加参数位于 <span class="italic">文件操作</span> &gt; <span class="italic">文件搜索</span> 设置部分。</p>
+        <p class="figure"><img class="largeimage" title="Search: Additional configuration" alt="Search: Additional configuration" src="images/imgDC/findconfiguration.png" width="288" height="292"></p>
+        <p>文件搜索设置：</p>
+        <ul>
+          <li><p><span class="italic">搜索文件名的一部分</span>&nbsp;&ndash; 取消选中时，Double Commander 将进行精确名称匹配。</p></li>
+          <li><p><span class="italic">启动文件搜索时，清除文件掩码过滤器</span>&nbsp;&ndash; 启用后，Double Commander 每次启动搜索时会自动清除 <span class="italic">File mask</span> 字段。</p></li>
+          <li><p><span class="italic"><新建搜索> 按钮的当前过滤器</span>&nbsp;&ndash; 设置“New search”按钮对其余搜索参数的处理：保持当前状态、重置为默认或询问。</p></li>
+          <li><p><span class="italic">在 <查找文件> 中显示菜单栏</span>&nbsp;&ndash; 在“查找文件”窗口显示菜单栏（同时显示热键），并提供快速跳转到该设置部分及 <a href="configuration.html#ConfigHotKeys">热键设置</a> 的项目。</p></li>
+          <li><p><span class="italic">默认搜索模版</span>&nbsp;&ndash; 可选择先前保存的搜索模版之一，Double Commander 将在每次打开查找对话框时使用其参数作为默认值。</p></li>
+        </ul>
+        <p>搜索文件中的文本：</p>
+        <ul>
+          <li><p><span class="italic">使用内存映射搜索文件中的文本</span>&nbsp;&ndash; 在搜索前将文件映射到虚拟内存，速度更快，但需要更强的计算资源。</p></li>
+          <li><p><span class="italic">使用流搜索文件中的文本</span>&nbsp;&ndash; 将文件拆分为若干部分再开始搜索（较慢，但占用资源更少）。</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="copymove.html">上一页</a> | <a title="Next page" href="multirename.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

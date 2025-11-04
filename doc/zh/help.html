@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 基础帮助</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="faq.html">上一页</a> | <a title="Next page" href="configuration.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.1. 基础帮助</h1>
+      </div>
+
+      <div>
+        <h2>内容</h2>
+        <dl>
+          <dt>1. <a href="#presentation">简介</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#origin">起源</a></dt>
+              <dt>1.2. <a href="#usage">用法</a></dt>
+            </dl>
+          </dd>
+
+          <dt>2. <a href="#iface">界面</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#iface_menu">菜单栏</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.1.1. <a href="#mnu_file">"文件"</a></dt>
+                  <dt>2.1.2. <a href="#mnu_select">"标记"</a></dt>
+                  <dt>2.1.3. <a href="#mnu_commands">"命令"</a></dt>
+                  <dt>2.1.4. <a href="#mnu_net">"网络"</a></dt>
+                  <dt>2.1.5. <a href="#mnu_tabs">"标签"</a></dt>
+                  <dt>2.1.6. <a href="#mnu_fav">"收藏夹"</a></dt>
+                  <dt>2.1.7. <a href="#mnu_view">"显示"</a></dt>
+                  <dt>2.1.8. <a href="#mnu_config">"配置"</a></dt>
+                  <dt>2.1.9. <a href="#mnu_help">"帮助"</a></dt>
+                </dl>
+              </dd>
+              <dt>2.2. <a href="#iface_toolbar">按钮工具栏</a></dt>
+              <dt>2.3. <a href="#iface_drive_pane">驱动器按钮栏</a></dt>
+              <dt>2.4. <a href="#iface_drive_btn">驱动器列表</a></dt>
+              <dt>2.5. <a href="#iface_tabs">标签栏</a></dt>
+              <dt>2.6. <a href="#iface_dir">当前目录栏</a></dt>
+              <dt>2.7. <a href="#iface_columns">Tabstop 标题栏</a></dt>
+              <dt>2.8. <a href="#iface_files">文件面板</a></dt>
+              <dd>
+                <dl>
+                  <dt>&#8226; <a href="#select_files">选择文件</a></dt>
+                  <dt>&#8226; <a href="#draganddrop">拖放</a></dt>
+                  <dt>&#8226; <a href="#cm_ContextMenu">上下文菜单</a></dt>
+                  <dt>&#8226; <a href="#rename_files">重命名文件</a></dt>
+                  <dt>&#8226; <a href="#cm_QuickSearch">快速搜索/过滤</a></dt>
+                </dl>
+              </dd>
+              <dt>2.9. <a href="#iface_status">状态栏</a></dt>
+              <dt>2.10. <a href="#iface_path">命令行</a></dt>
+              <dt>2.11. <a href="#iface_console">终端窗口</a></dt>
+              <dt>2.12. <a href="#iface_buttons">功能键按钮栏</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="presentation">1. 简介</a></h2>
+        <p>欢迎使用 Double Commander！</p>
+      </div>
+
+      <div>
+        <h2><a name="origin">1.1. 起源</a></h2>
+        <p>Double Commander&nbsp;&ndash; 是一个由俄罗斯程序员 Alexander Koblov (Alexx2000@mail.ru) 开发的项目，作为 Sexi Commander (作者&nbsp;&ndash; Radek Cervinka, radek.cervinka@centrum.cz) 的一个分支。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="usage">1.2. 使用</a></h2>
+        <p>获取 Double Commander 有几种方法：</p>
+        <ul>
+          <li><p>访问 GitHub 上的 <a href="https://github.com/doublecmd/doublecmd/releases" target="_blank">发布</a> 页面。</p></li>
+          <li><p>访问 SourceForge 上的 <a href="https://sourceforge.net/p/doublecmd/wiki/Download/" target="_blank">发布</a> 页面。</p></li>
+          <li><p>Double Commander 可在许多 Linux 发行版的仓库和 FreeBSD Ports 集合中找到。</p></li>
+          <li><p>Double Commander 为多个 Linux 发行版提供了自己的 <a href="faq.html#repo">仓库</a>（Linux 发行版的官方仓库并不总是包含程序的当前（最新）版本）。</p></li>
+          <li><p>您还可以自己 <a href="https://github.com/doublecmd/doublecmd/wiki/Development" target="_blank">构建</a> Double Commander。</p></li>
+        </ul>
+        <p><a href="https://sourceforge.net/projects/doublecmd/files/" target="_blank">版本存档</a> 和 <a href="https://doublecmd.sourceforge.io/site/eng/snapshots.php" target="_blank">夜间构建</a> 也可用。</p>
+        <p>首先，您必须选择操作系统（Windows、Linux、macOS）、处理器架构，然后选择要下载的版本。</p>
+        <p>对于 Windows，有一个可执行文件 <tt>.exe</tt>（Inno Setup）或 <tt>.msi</tt> 和一个压缩包 <tt>.zip</tt>（即所谓的便携版本）。</p>
+        <p>对于 Linux，有基于 GTK 工具包和基于 Qt（Qt5 或 Qt6）的版本。还提供：便携版本（与 XZ 打包的编译二进制文件）和 AppImage 格式的文件。</p>
+        <p>在第一次启动时，Double Commander 将自动检测系统语言，并为界面设置该语言。DC 已翻译成多种语言。语言可以在 <a href="configuration.html#settings">程序设置</a> 中更改。</p>
+        <p>Double Commander 确定并使用当前系统主题。它看起来像这样（Ubuntu，三个主题和两个图标集）：</p>
+        <p class="figure"><img class="largeimage" title="Main program window" alt="Main window" src="images/imgDC/pic1.png" width="690" height="500"></p>
+        <p>从图中可以看出，左侧是文件面板，底部是命令行，下面的窗口是日志查看器（显示文件管理器的所有操作）。Double Commander 还支持 Windows 的深色模式（Windows 10 1809 及更高版本）。</p>
+        <p>Double Commander 使用 Total Commander 插件 API，因此在 Windows 下可以使用 Total Commander 的插件（其中许多与 DC 兼容）。有关插件类型的描述，请参见 <a href="configuration.html#ConfigPlugins">插件</a> 设置部分。DC 附带了几个 <a href="plugins.html">预安装插件</a>，其他插件可以手动安装。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface">2. 界面</a></h2>
+        <p>Double Commander 的界面。</p>
+      </div>
+
+      <div>
+        <h2><a name="iface_menu">2.1. 菜单栏</a></h2>
+        <p class="figure"><img title="Menu bar" alt="Menu bar" src="images/imgDC/pic2.png" width="508" height="51"></p>
+        <p>菜单栏提供对 Double Commander 所有功能的访问。但请不要忘记，大多数操作可以通过其他方式执行：使用热键或工具栏上的按钮。</p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_file">2.1.1. "文件"</a></h2>
+        <p>此菜单包含几乎所有可以对文件执行的操作。请考虑所有项目：</p>
+
+        <p><a name="cm_SymLink"><span class="bold">创建符号链接...</span></a>（内部命令 <tt>cm_SymLink</tt>）。使用此项，Double Commander 会创建一个指向光标下文件的 <a href="https://en.wikipedia.org/wiki/Symlink" target="_blank">符号链接</a>，并将其放置在对面面板中打开的文件夹中。</p>
+        <p class="figure"><img class="largeimage" title="Symbolic link" alt="Symbolic link" src="images/imgDC/pic15.png" width="514" height="205"></p>
+        <p><span class="italic">链接名</span>&nbsp;&ndash; 这是链接的路径及其名称。名称是行中最后一个目录分隔符字符后的最后一个单词。</p>
+        <p><span class="italic">链接将指向的目标</span>&nbsp;&ndash; 链接所指向的对象。</p>
+        <p><span class="italic">尽可能使用相对路径</span>&nbsp;&ndash; 如果勾选，Double Commander 将使用相对路径指向对象目录。</p>
+
+        <p><a name="cm_HardLink"><span class="bold">创建硬链接...</span></a>（内部命令 <tt>cm_HardLink</tt>）。与上面的符号链接类似，但链接是 <a href="https://en.wikipedia.org/wiki/Hard_link" target="_blank">硬链接</a>，并且使用相对路径将不可用。</p>
+
+        <p><span class="bold">创建文件夹</span>（内部命令 <tt>cm_MakeDir</tt>）&nbsp;&ndash; 在当前文件夹中创建一个新的子文件夹。光标下的文件名（不带扩展名）或文件夹名将被提供，这对于创建多个具有相似名称的文件夹非常有用。您还可以在一次操作中创建多个子文件夹，只需用目录分隔符分隔子文件夹（在 Unix/Linux 系统中为 "/"，在 Windows 中为 "\"）。</p>
+        <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="176"></p>
+        <p>带箭头的按钮打开输入名称的历史记录。输入字段右侧的按钮允许启用或禁用来自目录创建历史的自动完成。</p>
+        <p>如果启用了 <span class="italic">扩展语法</span>，则可以使用 <code>&lt;[]</code> 模版插入当前日期/时间：在方括号内可以使用 <a href="configuration.html#dt_format">日期和时间格式字符</a> 和任何允许用于文件名的字符。</p>
+
+        <p><span class="bold">创建快捷方式</span>（仅限 Windows）&nbsp;&ndash; Double Commander 会创建一个指向光标下文件的快捷方式（Microsoft Windows .lnk 文件），并将其放置在对面面板中打开的文件夹中。</p>
+
+        <p><span class="bold">更改属性...</span>（内部命令 <tt>cm_SetFileProperties</tt>）&nbsp;&ndash; 允许更改时间戳和属性（Windows）或文件权限（Linux 和其他类 Unix 系统），包括子文件夹或不包括子文件夹。</p>
+
+        <p><a name="cm_FileProperties"><span class="bold">显示文件属性...</span></a>（内部命令 <tt>cm_FileProperties</tt>）将显示默认的“属性”对话框（Windows）或 Double Commander 自己的对话框（Linux 和其他类 Unix 系统），如下所示：</p>
+        <p class="figure">
+          <img class="largeimage" title="Show file properties" alt="Show file properties: Properties" src="images/imgDC/pic16.png" width="360" height="400">
+          <img class="largeimage" title="Show file properties: Attributes" alt="Show file properties" src="images/imgDC/pic17.png" width="360" height="400">
+          <img class="largeimage" title="Show file properties: Plugins" alt="Show file properties" src="images/imgDC/pic18.png" width="360" height="400">
+        </p>
+        <p>指示文件或文件夹名称、MIME 类型、大小、写入和最后访问时间。对于链接，Double Commander 还将显示链接对象（符号链接）或其总数（硬链接）。在“属性”选项卡上，您可以更改文件的访问权限及其所有者（如果您有权这样做）。 “插件”选项卡是可选的，仅在您拥有合适的内容插件时可用（在这种情况下是 <a href="plugins.html#deb_wdx.wdx">DEB</a>）。另请参阅 <a href="configxml.html">&lt;系统项属性&gt;</a> 的描述。</p>
+
+        <p>使用项目 <a name="cm_EditComment"><span class="bold">编辑注释...</span></a>（内部命令 <tt>cm_EditComment</tt>），您可以创建或更改文件注释，这些注释存储在文件 <tt>descript.ion</tt> 中。支持 UTF、ISO、KOI 和 ANSI 编码。在 <a href="configuration.html#ConfigMisc">杂项</a> 设置部分中，您可以设置默认文本编码。</p>
+        <p>注释仅适用于本地文件系统上的普通文件，而不适用于远程或虚拟文件系统（例如，在 FTP 服务器、压缩包等中）。为了使 Double Commander 在复制或移动文件时考虑 <tt>descript.ion</tt> 的内容，请确保在 <a href="configuration.html#ConfigOperations">文件操作</a> 设置部分中启用 <span class="italic">处理文件/文件夹的注释</span>。</p>
+
+        <p><a name="cm_CalculateSpace"><span class="bold">计算占用空间</span></a>（内部命令 <tt>cm_CalculateSpace</tt>）项计算所选对象的大小（以字节为单位和四舍五入的单位）。</p>
+        <p class="figure"><img class="largeimage" title="Calculate size" alt="Calculate size" src="images/imgDC/pic19.png" width="388" height="107"></p>
+
+        <p><a name="cm_CompareContents"><span class="bold">比较内容</span></a> （内部命令 <tt>cm_CompareContents</tt>） 显示一个带有两个面板的窗口，用于比较文件（通常是文本）。</p>
+        <p class="figure"><img class="largeimage" title="Compare dialog" alt="Compare dialog" src="images/imgDC/pic20.png" width="1018" height="466"></p>
+        <p>这是一个简单的视觉比较和合并工具，具有典型的功能：在差异之间导航（下一个、上一个、第一或最后），从右到左和从左到右复制文本块，就地编辑文件，撤消和重做最后的更改，以不同名称保存等。</p>
+        <p>选项：</p>
+        <ul>
+          <li><p><span class="italic">自动比较</span>&nbsp;&ndash; 更改 <span class="italic">忽略空格</span> 和 <span class="italic">忽略大小写</span> 参数时自动进行比较。并且在选择新文件时也是如此。</p></li>
+          <li><p><span class="italic">忽略空格</span>&nbsp;&ndash; 如果启用，则多个空格将被视为一个。</p></li>
+          <li><p><span class="italic">忽略大小写</span>&nbsp;&ndash; 如果启用，则不区分大小写。</p></li>
+          <li><p><span class="italic">差异行</span>&nbsp;&ndash; 如果启用，则还会显示行内的差异。</p></li>
+          <li><p><span class="italic">二进制模式</span>&nbsp;&ndash; 结果以二进制形式呈现。</p></li>
+          <li><p><span class="italic">持续滚动</span>&nbsp;&ndash; 允许同步滚动（垂直和水平）。</p></li>
+        </ul>
+        <p>使用的颜色可以在 <a href="configuration.html#ConfigColor">颜色</a> 设置部分中更改（<span class="italic">差异</span> 类别）。另请参阅 <a href="configuration.html#ConfigToolsDiffer">工具 比较程序</a>。</p>
+        <p>将选择两个文件，如下所示</p>
+        <ul>
+          <li><p>如果在活动面板中选择了两个文件，它们将被打开在比较工具中。第一个选定的文件将被打开在比较工具的左侧面板中。</p></li>
+          <li><p>如果只选择了一个文件，它将与非活动面板中选定的文件进行比较。</p></li>
+          <li><p>如果只选择了一个文件，并且在非活动面板中没有选择任何内容，它将与第二面板中具有相同名称的文件进行比较（如果存在），或者与光标下的文件进行比较。</p></li>
+          <li><p>如果没有选择任何内容，光标下的文件将与另一个面板中具有相同名称的文件进行比较（如果存在），或者与光标下的文件进行比较。</p></li>
+        </ul>
+        <p>在<a href="configuration.html#ConfigToolsDiffer">工具&nbsp;&gt; 比较程序</a> 选项卡中，您可以设置外部比较工具。</p>
+
+        <p><a name="cm_MultiRename"><span class="bold">批量重命名工具</span></a> （内部命令 <tt>cm_MultiRename</tt>）</p>
+        <p class="figure"><img class="largeimage" title="Multi-Rename Tool" alt="Multi-Rename Tool" src="images/imgDC/pic21.png" width="790" height="676"></p>
+        <p>允许通过定义的掩码重命名任何文件。例如，一些具有不同名称的文件可以重命名为 Picture1、Picture2、Picture3 等。首先，选择要重命名的文件，然后启动此工具（请参见上图）。在那里，您可以看到文件的旧名称和新名称。有关详细说明，请参阅 <a href="multirename.html">此页面</a>。</p>
+
+        <p>通过选择项目 <a name="cm_PackFiles"><span class="bold">压缩文件</span></a> （内部命令 <tt>cm_PackFiles</tt>），我们调用一个标准对话框，将文件压缩为 zip、tar 和其他压缩格式：支持的格式列表取决于添加的压缩插件和外部压缩工具（请参阅 <a href="multiarc.html">压缩处理</a>）。</p>
+        <p class="figure"><img class="largeimage" title="Pack" alt="Pack" src="images/imgDC/pic22.png" width="546" height="297"></p>
+        <p>如果可用格式的列表太长而无法适应窗口，Double Commander 将把它们放入下拉菜单中（在这种情况下，请使用带有“=>”标签的复选框）。</p>
+        <p><span class="italic">配置</span> 按钮的操作取决于所选的压缩工具：</p>
+        <ul>
+          <li><p>压缩插件 (WCX): 打开插件自己的设置窗口（如果选定的插件支持此功能）；</p></li>
+          <li><p>外部压缩工具: 打开一个窗口，提供额外压缩参数的输入字段（当使用 <a href="multiarc.html#variables">%S</a> 变量时）。</p></li>
+        </ul>
+        <p>我们还可以通过 <a name="cm_ExtractFiles"><span class="bold">解压缩文件</span></a> （内部命令 <tt>cm_ExtractFiles</tt>）来解压文件。当您从压缩包中复制文件时，将调用相同的对话框。</p>
+        <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="455" height="265"></p>
+        <p>在 <span class="italic">解压缩与文件掩码匹配的文件</span> 行中，您可以指定一个掩码，以确定将解压哪些文件。掩码的历史记录可以在下拉列表中找到。
+          下一行指定了解压到文件夹（压缩包将被解压到该文件夹）。可以手动更改或通过单击最右侧的浏览按钮进行更改。</p>
+        <p><span class="italic">将每个文件解压到单独的子文件夹（名称采用压缩文件文件名）</span>&nbsp;&ndash; 如果选中，Double Commander 将在目标目录中创建一个与压缩文件同名的文件夹，并将文件提取到该文件夹中。您可以使用此选项一次提取多个压缩包，每个压缩包都将提取到目标文件夹中的其同名文件夹中。未确定的复选框状态（三态）启用智能提取：如果压缩包的根目录中有多个对象，则压缩包的内容将解压到与压缩包同名的文件夹中，但如果只有一个对象，则内容将原样解压。默认情况下，它未选中，并且其状态不会在下次调用提取命令时保存。</p>
+        <p><span class="italic">如果文件与压缩包一起存储，则解压缩路径名</span>&nbsp;&ndash; 如果选中，存档中的目录结构将被保留。否则，所有文件将被提取而不重新创建目录结构。</p>
+        <p>复选框 <span class="italic">覆盖现有文件</span> 禁用覆盖现有文件的确认。</p>
+
+        <p><span class="bold"><a name="cm_TestArchive">测试压缩文件</a></span> （内部命令 <tt>cm_TestArchive</tt>）将验证所选压缩文件或光标下文件的内容完整性。如果压缩内容损坏，将报告错误消息。支持的格式列表取决于添加的压缩插件和外部压缩工具。</p>
+
+        <p>项目 <a name="cm_FileSpliter"><span class="bold">分割文件</span></a> 和 <a name="cm_FileLinker"><span class="bold">合并文件</span></a> （内部命令 <tt>cm_FileSpliter</tt> 和 <tt>cm_FileLinker</tt>）</p>
+        <p class="figure"><img class="largeimage" title="Split file" alt="Split file" src="images/imgDC/pic24.png" width="502" height="286"></p>
+        <p><span class="italic">将文件拆分到文件夹</span>&nbsp;&ndash; 指定拆分文件的目标文件夹。默认情况下，将使用非活动文件面板的目录。</p>
+        <p>下一组参数允许选择拆分部分的大小或数量。您可以输入自己的值或使用预设值之一：</p>
+        <ul>
+          <li><p>1457664 B - 3.5"&nbsp;&ndash; 3.5 英寸软盘;</p></li>
+          <li><p>98078 KB - ZIP 100 MB&nbsp;&ndash; ZIP 驱动器;</p></li>
+          <li><p>650 MB - CD 650 MB&nbsp;&ndash; CD 驱动器大小;</p></li>
+          <li><p>700 MB - CD 700 MB&nbsp;&ndash; CD 驱动器大小;</p></li>
+          <li><p>4482 MB - DVD+R&nbsp;&ndash; DVD 驱动器大小。</p></li>
+        </ul>
+        <p>如果您使用 <span class="italic">部分数量</span> 参数，部分的大小始终以字节为单位显示。</p>
+        <p>如果启用 <span class="italic">需要一个 CRC32 验证文件</span>，Double Commander 将创建一个文本文件，文件名为源文件名，扩展名为 ".crc"，其中包含源文件的名称、大小和校验和（使用 CRC32 算法）。这是一种简单的方法，可以检查文件是否正确组合，以及在移动过程中其部分是否未更改。如果此文件不可用，Double Commander 将显示警告，但这不会阻止您获取原始文件（但是，在这种情况下，程序将无法添加原始文件扩展名）。</p>
+        <p>单击确定按钮后，您将在目标目录中获得多个文件。作为文件扩展名，Double Commander 使用三位或更多（如果需要）数字的顺序编号。要再次合并文件，请选择第一部分并单击 <span class="bold">合并文件</span> （<tt>cm_FileLinker</tt>）。或者选择所有部分，您还可以指定合并的分割部分的顺序。</p>
+        <p class="figure"><img class="largeimage" title="Combine files" alt="Combine files" src="images/imgDC/pic25.png" width="399" height="457"></p>
+        <p>此功能非常有用，如果您有小驱动器和大文件。可以移动文件部分。请记住，此工具不会创建任何特定的容器或压缩包，而只是拆分合并文件，因此可以获取文件的部分并安全地通过其他程序合并在一起。</p>
+
+        <p>项目 <a name="cm_CheckSumCalc"><span class="bold">计算校验码...</span></a> （内部命令 <tt>cm_CheckSumCalc</tt>）用于计算 <a href="https://en.wikipedia.org/wiki/Checksum" target="_blank">校验码</a> 以检查文件完整性。以下校验码可用：
+          BLAKE2 (BLAKE2s, BLAKE2sp, BLAKE2b, BLAKE2bp), BLAKE3, CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV, SHA,
+          SHA2 (digest sizes 224, 256, 384 or 512 bits), SHA3 (digest sizes 224, 256, 384 or 512 bits), Tiger/192.</p>
+        <p class="figure"><img class="largeimage" title="Calculate checksum" alt="Calculate checksum" src="images/imgDC/pic26.png" width="434" height="432"></p>
+        <p><span class="italic">保存校验码文件为：</span>&nbsp;&ndash; 行指定计算的校验码的名称和路径。</p>
+        <p><span class="italic">为每个文件分别创建 MD5/SHA1 文件</span>&nbsp;&ndash; 如果对多个文件计算校验码，此选项允许为每个目标文件创建单独的校验码文件。</p>
+        <p><span class="italic">任务完成后打开校验码文件</span>&nbsp;&ndash; 任务完成后，校验码文件将在 <a href="viewer.html">文件查看器</a> 中打开。</p>
+        <p><span class="italic">File format</span>&nbsp;&ndash; 允许指定行结束类型和目录分隔符，而不是 Windows（CRLF 和 "\"）和类 Unix 系统（LF 和 "/"）中常用的值。</p>
+
+        <p>项目 <a name="cm_CheckSumVerify"><span class="bold">验证校验码...</span></a> （内部命令 <tt>cm_CheckSumVerify</tt>）将开始验证光标下的校验码文件中的校验码列表。您还可以通过双击校验码文件（或使用 <kbd>Enter</kbd> 键）来运行此命令。</p>
+        <p>Double Commander 可以逐个检查文件：选择文件，运行此命令，现在输入其校验码（或从剪贴板粘贴）并选择算法。</p>
+        <p>您可以使用其他程序生成的校验码文件，但首先确保 Double Commander 支持其算法和格式。</p>
+
+        <p>项目 <a name="cm_Wipe"><span class="bold">擦除</span></a> （内部命令 <tt>cm_Wipe</tt>）用于安全删除（默认快捷键 <kbd>Alt+Del</kbd>）：在从硬盘删除之前，所选文件将被重命名为随机名称，其内容将被覆盖三次（零、一次和随机数据）。您可以在 <a href="configuration.html#ConfigOperations">配置&nbsp;&gt; 选项...&nbsp;&gt; 文件操作</a> 中设置擦除次数。目录和链接将在删除之前仅被重命名。</p>
+        <p>注意：固态硬盘的一些功能（垃圾回收、TRIM）显著增加了恢复已删除文件的难度或使其不可能，因此，在 SSD 上使用 <tt>cm_Wipe</tt> 命令可能是对设备资源的无谓浪费。</p>
+
+        <p>项目 <span class="bold">删除</span> （内部命令 <tt>cm_Delete</tt>）&nbsp;&ndash; 将选定的文件或光标下的文件删除到回收站或永久删除。默认情况下，Double Commander 将文件移动到回收站，您可以在 <a href="configuration.html#ConfigOperations">配置&nbsp;&gt; 选项...&nbsp;&gt; 文件操作</a> 中更改此设置。删除到回收站可能并不适用于所有平台。</p>
+        <p>要删除存档中的文件（在这种情况下，文件将被直接删除），您需要添加合适的 WCX 插件或配置外部压缩程序，并且压缩包格式必须支持删除操作。</p>
+
+        <p>项目 <span class="bold">退出</span> （内部命令 <tt>cm_Exit</tt>）&nbsp;&ndash; 关闭 Double Commander。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_select">2.1.2. "标记"</a></h2>
+        <p>此组中有一些命令可以以不同方式选择文件。</p>
+        <p>第一和第二项 <span class="bold"><a name="cm_MarkPlus">选择一组文件</a></span> 和 <span class="bold"><a name="cm_MarkMinus">取消选择一组文件</a></span> （内部命令 <tt>cm_MarkPlus</tt> 和 <tt>cm_MarkMinus</tt>）。这些命令通过掩码选择文件组。使用此掩码，您可以指定文件名或扩展名（可以指定多个值，用分号 ";" 分隔，且不带空格）。此外，还有一个带有掩码历史记录的下拉列表。例如，选择所有具有 <tt>.txt</tt> 扩展名的文件：</p>
+        <p class="figure"><img class="largeimage" title="选择组" alt="选择组" src="images/imgDC/pic27.png" width="333" height="332"></p>
+        <p><span class="italic">定义...</span> 按钮允许创建新的搜索模版。</p>
+        <p>如果 <a href="findfiles.html#advanced">查找重复文件</a> 结果在活动面板中打开，则这些命令将以特殊模式工作：</p>
+        <p class="figure"><img class="largeimage" title="选择组（重复项）" alt="选择组（重复项）" src="images/imgDC/pic82.png" width="386" height="230"></p>
+        <p><span class="italic">通过文件名/文件后缀选择：</span>&nbsp;&ndash; 与常规组选择对话框中的工作方式相同。您还可以使用搜索模版（<img title="模版..." alt="模版..." src="images/imgDC/btemplate.png" width="16" height="16">）。</p>
+        <p><span class="italic">通过文件名/文件后缀取消选择：</span>&nbsp;&ndash; 在前一个选项之后应用，排除相应的文件。</p>
+        <p><span class="italic">在每组中至少保留一个文件未选中：</span>&nbsp;&ndash; 如果您想删除重复文件，但在每组中保留至少一个文件，这是一个有用的选项。首先，Double Commander 将应用方法 1：修改日期（最新、最旧）、大小（最大、最小）或组中的位置（组中的第一个或最后一个文件）将被比较。如果没有文件符合条件（例如，所有文件具有相同的修改日期或相同的大小），则将应用方法 2：在这种情况下，将比较修改日期或大小。</p>
+        <p><span class="italic">应用</span> 按钮允许立即查看结果，而无需关闭此对话窗口。</p>
+        <p>第三和第四项是 <span class="bold"><a name="cm_MarkMarkAll">选择全部</a></span> （内部命令 <tt>cm_MarkMarkAll</tt>）和 <span class="bold"><a name="cm_MarkUnmarkAll">全不选择</a></span> （内部命令 <tt>cm_MarkUnmarkAll</tt>）。它们可以快速选择或取消选择面板中的所有项目。</p>
+        <p>第五项是 <span class="bold"><a name="cm_MarkInvert">全部不选</a></span> （内部命令 <tt>cm_MarkInvert</tt>）。它使当前选定的文件未选中，反之亦然。</p>
+        <p>第六和第七项是 <span class="bold"><a name="cm_MarkCurrentExtension">选择所有扩展名相同的文件</a></span> （内部命令 <tt>cm_MarkCurrentExtension</tt>）和 <span class="bold"><a name="cm_UnmarkCurrentExtension">取消选择所有扩展名相同的文件</a></span> （内部命令 <tt>cm_UnmarkCurrentExtension</tt>）。这些功能有助于选择和取消选择与光标下文件具有相同扩展名的文件。</p>
+        <p>第八和第九项是 <span class="bold">保存选择</span> （内部命令 <tt>cm_SaveSelection</tt>）和 <span class="bold">恢复选择</span> （内部命令 <tt>cm_RestoreSelection</tt>）。第一个命令将当前选定的项目保存在内部缓冲区中。然后，第二个命令可以用来重新选择之前选定的相同项目。</p>
+        <p>第十和第十一项是 <span class="bold">保存选择到文件</span> （内部命令 <tt>cm_SaveSelectionToFile</tt>）和 <span class="bold">从文件加载选择</span> （内部命令 <tt>cm_LoadSelectionFromFile</tt>）。与之前的命令类似，但使用纯文本文件（每行一个文件名）。</p>
+        <p>第十二项是 <span class="bold">从剪贴板加载选择项</span> （内部命令 <tt>cm_LoadSelectionFromClip</tt>）。将根据剪贴板中的列表（每行一个文件名）选择文件和文件夹。</p>
+        <p>第十三和第十四项是 <span class="bold"><a name="cm_CopyNamesToClip">复制文件名到剪贴板</a></span> （内部命令 <tt>cm_CopyNamesToClip</tt>）和 <span class="bold"><a name="cm_CopyFullNamesToClip">复制包含完整路径的文件名</a></span> （内部命令 <tt>cm_CopyFullNamesToClip</tt>）。第一个命令将选定的文件列表复制到剪贴板，第二个命令也会复制，但带有完整的文件路径。</p>
+        <p>第十五项是 <span class="bold">复制所有显示的列</span> （内部命令 <tt>cm_CopyFileDetailsToClip</tt>）。将复制选定项目的文件信息到剪贴板：每行一个文件，列的内容将以制表符分隔。</p>
+        <p>最后一项是 <span class="bold">比较文件夹</span> （内部命令 <tt>cm_CompareDirectories</tt>）。将选择在活动面板和非活动面板中不在对方面板中的项目（默认情况下仅选择文件）。具有相同名称的文件将按修改日期进行比较，之后将选择较新的文件。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_commands">2.1.3. "命令"</a></h2>
+        <p>第一个项目是 <span class="bold"><a name="cm_Search">搜索</a></span> （内部命令 <tt>cm_Search</tt>）。此工具旨在根据指定的条件搜索文件和文件夹。还可以用于按文件内容搜索。有关详细说明，请参见 <a href="findfiles.html">此页面</a>。</p>
+        <p><span class="bold">新建搜索实例...</span> （内部命令 <tt>cm_AddNewSearch</tt>）&nbsp;&ndash; 打开一个具有默认设置的搜索对话框的新实例。它还允许在长时间搜索进行时启动新的搜索实例以搜索其他内容。</p>
+        <p><span class="bold">查看当前搜索实例</span> （内部命令 <tt>cm_ViewSearches</tt>）&nbsp;&ndash; 将显示一个窗口，其中列出了搜索实例及其简要信息（状态、找到的文件数量、是否完成和文件掩码），并可以切换到其中一个实例。</p>
+
+        <p>第四项是 <span class="bold"><a name="cm_DirHotList">常用文件夹列表</a></span> （内部命令 <tt>cm_DirHotList</tt>）。此命令与按下 <a href="#btn_dirlist">"*"</a> 按钮相同。</p>
+        <p>选择此项，我们将获得一个弹出菜单，其中包含 <a href="directoryhotlist.html">常用文件夹列表</a>，我们可以在其中选择：</p>
+        <ul>
+          <li><p>切换活动面板的当前路径到您创建的列表中的预配置文件夹；</p></li>
+          <li><p>添加新书签：当前文件夹、选定文件夹（如有需要可选择多个）或光标下的文件夹；</p></li>
+          <li><p>配置现有书签。</p></li>
+        </ul>
+        <p>有关如何使用和配置它的详细信息，请参见专门的 <a href="directoryhotlist.html">常用文件夹列表</a> 帮助页面。</p>
+
+        <p><span class="bold"><a name="cm_SyncDirs">同步文件夹...</a></span> （内部命令 <tt>cm_SyncDirs</tt>）打开 <a href="syncdirs.html">文件夹同步工具</a>：将扫描左侧和右侧面板的文件夹，您将看到它们内容的差异，并可以使它们相同。</p>
+        <p><span class="bold"><a name="cm_RunTerm">运行终端</a></span> （内部命令 <tt>cm_RunTerm</tt>）在当前文件夹打开一个终端（设置在 <a href="configuration.html#ConfigTools">工具</a> 中）。</p>
+        <p><span class="bold"><a name="cm_DoAnyCmCommand">执行内部命令</a></span> （内部命令 <tt>cm_DoAnyCmCommand</tt>）打开一个窗口，列出所有内部命令及其描述。命令按类别分组，并提供快速过滤和排序功能：您可以执行所选命令、复制其名称或打开 <a href="cmds.html">内部命令</a> 页面（某些命令支持参数）。</p>
+        <p><span class="bold"><a name="cm_FlatView">平面视图</a></span> （内部命令 <tt>cm_FlatView</tt>）将扫描活动面板当前文件夹中的所有子文件夹，并以一个列表显示所有文件。可以通过按 <kbd>Esc</kbd> 键中止扫描，再次调用该命令将返回正常模式。如果光标位于某个文件上，则在返回正常模式时，Double Commander 将把光标放在该文件上。</p>
+        <p>此外，还提供了 <a href="cmds.html#cm_FlatViewSel">cm_FlatViewSel</a> 命令，该命令也以一个列表显示所有文件，但仅适用于选定的文件和文件夹。再次调用此命令只会在基本文件夹中返回正常模式。</p>
+        <p><span class="bold"><a name="cm_OpenVirtualFileSystemList">打开虚拟文件系统（VFS）列表</a></span> （内部命令 <tt>cm_OpenVirtualFileSystemList</tt>）将打开一个已添加的文件系统插件（WFX 插件）列表，这些插件使用自己的文件系统或提供对其他文件系统和设备（本地或远程）的访问。以及虚拟文件夹：</p>
+        <ul>
+          <li><p><tt>此电脑</tt>&nbsp;&ndash; 包含带有驱动器字母的正常磁盘和没有驱动器字母的设备（例如，通过 MTP 协议连接的 USB 设备，即智能手机、平板电脑或播放器）。仅限 Windows。</p></li>
+          <li><p><tt>Linux</tt>&nbsp;&ndash; 列出您添加到 WSL 的所有 Linux 发行版及其根文件系统（Windows 10 及更高版本）。</p></li>
+          <li><p><tt>网络</tt>&nbsp;&ndash; 访问共享网络资源（Windows）或使用 Gio 访问网络资源（Linux）。</p></li>
+          <li><p><tt>回收站</tt>&nbsp;&ndash; 访问已删除到回收站的文件。</p></li>
+        </ul>
+        <p>（这个列表是按字母顺序排列的，并且取决于系统和程序的语言设置。）</p>
+        <p><span class="bold"><a name="cm_Exchange">交换面板</a></span> （内部命令 <tt>cm_Exchange</tt>）交换左侧和右侧文件面板及所有打开的选项卡。</p>
+        <p><span class="bold">目标 = 来源</span> （内部命令 <tt>cm_TargetEqualSource</tt>）在非活动文件面板中打开相同的目录。</p>
+        <p><span class="bold">显示占用空间</span> 计算并显示当前目录的子文件夹中所有文件的总大小。活动面板的大小列中的 &lt;DIR&gt; 文本将被总大小替换。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_net">2.1.4. "网络"</a></h2>
+        <p><span class="bold">网络连接</span>&nbsp;&ndash; 将打开一个已添加的文件系统插件（WFX 插件）列表，类似于“命令”菜单中的 <a href="#cm_OpenVirtualFileSystemList">打开虚拟文件系统（VFS）列表</a> 命令。</p>
+        <p><span class="bold">断开网络连接</span>&nbsp;&ndash; 将关闭活动的网络连接。Double Commander 将关闭以下连接之一（按优先级降序排列）：</p>
+        <ul>
+          <li><p>在活动面板中打开的连接；</p></li>
+          <li><p>在非活动面板中打开的连接；</p></li>
+          <li><p>最后创建的连接。</p></li>
+        </ul>
+        <p>以下项目仅适用于 Windows。</p>
+        <p><span class="bold">映射网络驱动器...</span> 和 <span class="bold">断开网络驱动器连接...</span>&nbsp;&ndash; 将调用 Windows 系统对话框以连接和断开网络驱动器。</p>
+        <p><span class="bold">使用网络路径复制名称</span>&nbsp;&ndash; 将复制网络上文件的完整名称到剪贴板：服务器名称、共享名称和相对文件路径。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_tabs">2.1.5. "标签"</a></h2>
+        <p>此组管理带标签的文件面板。</p>
+        <p><span class="bold"><a name="cm_NewTab">新建标签</a></span> （内部命令<tt>cm_NewTab</tt>）&nbsp;&ndash; 在活动面板上添加一个新标签（带有当前路径）并切换到它。</p>
+        <p><span class="bold">重命名标签</span> （内部命令<tt>cm_RenameTab</tt>）&nbsp;&ndash; 允许更改当前标签的标题。</p>
+        <p><span class="bold"><a name="cm_OpenDirInNewTab">在新标签中打开文件夹</a></span> （内部命令<tt>cm_OpenDirInNewTab</tt>）&nbsp;&ndash; 为光标下的目录打开一个新标签，但不切换到它（即在后台）。</p>
+        <p><span class="bold"><a name="cm_CloseTab">关闭标签</a></span> （内部命令<tt>cm_CloseTab</tt>）&nbsp;&ndash; 关闭活动标签并将面板切换到下一个标签（如果关闭最后一个标签，则切换到上一个标签）。</p>
+        <p><span class="bold"><a name="cm_CloseAllTabs">关闭所有标签</a></span> （内部命令<tt>cm_CloseAllTabs</tt>）&nbsp;&ndash; 关闭所有非活动标签。如果它们包含锁定标签，将提示<a href="configuration.html#5_1_11_0_vopros">确认</a>。</p>
+        <p><span class="bold"><a name="cm_CloseDuplicateTabs">关闭重复标签</a></span> （内部命令<tt>cm_CloseDuplicateTabs</tt>）&nbsp;&ndash; Double Commander 将检查打开的标签列表并关闭重复标签（每个面板单独处理！）。使用以下优先级规则：</p>
+        <ul>
+          <li><p>锁定标签具有更高优先级；</p></li>
+          <li><p>如果存在具有相同目录的锁定标签，则重命名的标签将被关闭；</p></li>
+          <li><p>如果存在具有相同目录的重命名标签，但未重命名，则第二个标签将被关闭；</p></li>
+          <li><p>锁定的重命名标签优先于未重命名的标签，因此第二个标签将被关闭；</p></li>
+          <li><p>如果存在两个具有相同优先级的标签，则第一个标签将被保留（从左侧开始计数）。</p></li>
+        </ul>
+        <p><span class="bold">标签选项</span>&nbsp;&ndash; 使用此子菜单可以更改标签的状态：</p>
+        <ul>
+          <li><p><span class="bold">正常</span> （内部命令<tt>cm_SetTabOptionNormal</tt>）&nbsp;&ndash; 将标签设置为正常：Double Commander 默认创建的普通标签。</p></li>
+          <li><p><span class="bold"><a name="cm_SetTabOptionPathLocked">锁定</a></span> （内部命令<tt>cm_SetTabOptionPathLocked</tt>）&nbsp;&ndash; 将标签设置为锁定状态，尝试在此标签内更改到另一个目录将提示在新标签中打开。</p></li>
+          <li><p><span class="bold"><a name="cm_SetTabOptionPathResets">锁定，但允许更改文件夹</a></span> （内部命令<tt>cm_SetTabOptionPathResets</tt>）&nbsp;&ndash; 如果您以此方法锁定标签，则可以在此标签内更改到另一个目录，但在切换到另一个标签（或重新启动 Double Commander）后，标签将恢复为锁定标签的原始目录。</p></li>
+          <li><p><span class="bold"><a name="cm_SetTabOptionDirsInNewTab">锁定，并在新标签中打开文件夹</a></span> （内部命令<tt>cm_SetTabOptionDirsInNewTab</tt>）&nbsp;&ndash; 当您尝试进入面板内的任何目录时，该目录将以新标签的形式打开。</p></li>
+        </ul>
+        <p>剩下的子菜单项将执行相同的操作，但适用于所有标签。</p>
+        <p>注意：默认情况下，Double Commander 不允许在没有确认的情况下关闭锁定标签（在<a href="configuration.html#ConfigTabs">文件夹标签</a>设置部分中的<span class="italic">确认关闭锁定标签</span>）。</p>
+        <p><span class="bold"><a name="cm_NextTab">切换到下一标签</a></span> （内部命令<tt>cm_NextTab</tt>）和 <span class="bold"><a name="cm_PrevTab">切换到上一标签</a></span> （内部命令<tt>cm_PrevTab</tt>）&nbsp;&ndash; 分别切换到右侧（下一个）标签和左侧（上一个）标签。</p>
+        <p><span class="bold">保存标签到文件</span> （内部命令<tt>cm_SaveTabs</tt>）和 <span class="bold">从文件加载标签</span> （内部命令<tt>cm_LoadTabs</tt>）&nbsp;&ndash; 当前标签的名称及其关联目录可以保存在 .tab 文件中，并从该文件加载。</p>
+        <p><span class="bold">将当前标签保存到新的收藏标签</span> （内部命令<tt>cm_SaveFavoriteTabs</tt>）&nbsp;&ndash; 将当前打开的标签保存到<a href="configuration.html#ConfigFavoriteTabs">收藏标签</a>集中。稍后，您可以使用下一个菜单项重新加载这些保存的设置。</p>
+        <p><span class="bold">从收藏夹标签加载标签</span> （内部命令<tt>cm_LoadFavoriteTabs</tt>）&nbsp;&ndash; 将显示一个弹出菜单，您可以选择之前保存的标签集之一。</p>
+        <p>最后两个项目用于快速跳转到<a href="configuration.html#ConfigTabs">文件夹标签</a>和<a href="configuration.html#ConfigFavoriteTabs">收藏夹标签</a>配置部分。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_fav">2.1.6. "收藏夹"</a></h2>
+        <p>此菜单包含您保存的收藏夹标签的列表以及一些用于处理它们的命令。</p>
+        <p>收藏夹标签是根据您方便的标准（工作、项目、爱好等）分组的保存标签集，它们允许您一次性在标签中打开所有必要的目录。</p>
+        <p><span class="bold">将当前标签保存到新的收藏夹标签</span> （内部命令<tt>cm_SaveFavoriteTabs</tt>）&nbsp;&ndash; 将当前打开的标签保存到收藏夹标签集中。</p>
+        <p><span class="bold">重新保存上次载入的收藏夹标签</span> （内部命令<tt>cm_ResaveFavoriteTabs</tt>）&nbsp;&ndash; 将当前标签配置重新保存到最后加载的收藏夹标签条目上。</p>
+        <p><span class="bold">重新加载上次加载的收藏夹标签</span> （内部命令<tt>cm_ReloadFavoriteTabs</tt>）&nbsp;&ndash; 再次重新加载最后加载的收藏夹标签设置，即此命令用于恢复保存的设置“原样”。</p>
+        <p>下一个项目<span class="bold">收藏夹标签配置</span>用于快速跳转到<a href="configuration.html#ConfigFavoriteTabs">收藏夹标签</a>配置部分。</p>
+        <p>要删除最后加载的收藏夹标签，请使用带有<code>setup=</code>的<a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a>命令（将按钮添加到工具栏或热键）。当前打开的标签将不受影响，此命令只会从内存中删除所用的收藏夹标签集的名称，Double Commander将继续正常工作。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_view">2.1.7. "显示"</a></h2>
+        <p>管理文件面板的显示内容。</p>
+        <p>前三个项目允许切换文件列表的视图：<span class="bold">列表视图</span>（内部命令<tt><a name="cm_BriefView">cm_BriefView</a></tt>）、<span class="bold">详细视图</span>（内部命令<tt><a name="cm_ColumnsView">cm_ColumnsView</a></tt>）和<span class="bold">缩略图</span>（内部命令<tt><a name="cm_ThumbnailsView">cm_ThumbnailsView</a></tt>）。有关详细信息，请参见<a href="#iface_files">下文</a>。</p>
+        <p><span class="bold">快速查看面板</span>（内部命令<tt>cm_QuickView</tt>）&nbsp;&ndash; 在查看器程序中打开文件，但所选项目的内容显示在相对面板中（而不是单独的窗口中）。有关更多详细信息，请参见<a href="viewer.html">此处</a>。</p>
+        <p><span class="bold">树状视图面板</span>（内部命令<tt>cm_TreeView</tt>）&nbsp;&ndash; 显示活动文件面板的目录树。内部命令<tt>cm_FocusTreeView</tt>在当前文件列表和树之间切换焦点（默认快捷键<kbd>Shift+Tab</kbd>）。</p>
+        <p>接下来的五个项目：
+          <span class="bold"><a name="sort_by">按文件名排序</a></span>（内部命令<tt><a name="cm_SortByName">cm_SortByName</a></tt>），
+          <span class="bold">按扩展名排序</span>（内部命令<tt><a name="cm_SortByExt">cm_SortByExt</a></tt>），
+          <span class="bold">按大小排序</span>（内部命令<tt><a name="cm_SortBySize">cm_SortBySize</a></tt>），
+          <span class="bold">按日期排序</span>（内部命令<tt><a name="cm_SortByDate">cm_SortByDate</a></tt>），
+          <span class="bold">按属性排序</span>（内部命令<tt><a name="cm_SortByAttr">cm_SortByAttr</a></tt>）&nbsp;&ndash;
+          允许选择文件的不同排序方式。您还可以单击<a href="#iface_columns">列标题</a>的左键来更改排序顺序。</p>
+        <p><span class="bold"><a name="cm_ReverseOrder">反向排序</a></span>（内部命令<tt>cm_ReverseOrder</tt>）&nbsp;&ndash; 反转活动面板的排序顺序。</p>
+        <p><span class="bold"><a name="cm_Refresh">刷新</a></span>（内部命令<tt>cm_Refresh</tt>）&nbsp;&ndash; Double Commander将重新读取活动面板中目录的内容。</p>
+        <p><span class="bold"><a name="cm_ShowSysFiles">显示隐藏/系统文件</a></span>（内部命令<tt>cm_ShowSysFiles</tt>）&nbsp;&ndash; 控制具有“隐藏”或“系统”属性（Windows）或名称以点字符开头（Linux和其他类Unix系统）的文件和文件夹的显示。与配置中的设置相同&nbsp;&ndash; <a href="configuration.html#show_hidden">显示系统和隐藏文件</a>。</p>
+        <p><span class="bold">水平面板模式</span>（内部命令<tt>cm_HorizontalFilePanels</tt>）&nbsp;&ndash; 设置文件面板的位置：两个垂直面板并排放置或两个水平面板上下放置。</p>
+        <p><span class="bold">操作查看器</span>（内部命令<tt>cm_OperationsViewer</tt>）&nbsp;&ndash; 显示一个窗口，其中列出了文件操作。您可以更改队列中操作的顺序，停止或暂停任务。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_config">2.1.8. "配置"</a></h2>
+        <p>第一项是 <span class="bold"><a name="cm_Options">选项...</a></span>（内部命令 <tt>cm_Options</tt>），它打开“选项”窗口，详细信息请参见 <a href="configuration.html">专用帮助页面</a>。</p>
+        <p>其他项目：快速跳转到某些设置部分
+          （<a href="configuration.html#ConfigDirHotlist">常用文件夹列表配置</a>，
+          <a href="configuration.html#ConfigFavoriteTabs">收藏夹标签配置</a>，
+          <a href="configuration.html#ConfigAssociations">文件关联配置</a>，
+          <a href="configuration.html#ConfigTabs">文件夹标签配置</a> 和
+          <a href="configuration.html#ConfigArchivers">压缩程序配置</a>）
+          和命令 <a href="cmds.html#cm_ConfigSavePos">保存位置</a> 和 <a href="cmds.html#cm_ConfigSaveSettings">保存设置</a>。
+        </p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_help">2.1.9. "帮助"</a></h2>
+        <p>在这里您可以获取帮助信息（本说明文档）和有关程序的信息：</p>
+        <ul>
+          <li><p><span class="bold">内容</span>&nbsp;&ndash; 打开帮助索引页面。</p></li>
+          <li><p><span class="bold">热键列表</span>&nbsp;&ndash; 打开键盘快捷键页面。</p></li>
+          <li><p><span class="bold">访问 Double Commander 网站</span>&nbsp;&ndash; 如果您在线，则转到项目主页。</p></li>
+          <li><p><span class="bold">关于</span>&nbsp;&ndash; 显示有关程序版本和开发人员的信息。</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_toolbar">2.2. 按钮工具栏</a></h2>
+        <p class="figure"><img class="largeimage" title="Toolbar sample" alt="Toolbar sample" src="images/imgDC/toolbarsample.png" width="488" height="24"></p>
+        <p>工具栏包含执行内部命令和启动应用程序的按钮。</p>
+        <p>提供了默认配置，但我们肯定会根据自己的需要进行配置，因为这可能是 Double Commander 中可配置性最强的部分。</p>
+        <p>这就是为什么专门为此创建了一个页面，您可以在 <a href="toolbar.html">此链接</a> 中找到。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_drive_pane">2.3. 驱动器按钮栏</a></h2>
+        <p class="figure"><img title="Drives button bar" alt="Drives button bar" src="images/imgDC/pic3.png" width="472" height="25"></p>
+        <p>驱动器按钮栏帮助您通过单击鼠标快速更改驱动器。中间鼠标（鼠标滚轮）单击将在活动面板中以新选项卡打开磁盘。打开驱动器有两种方法，请参阅<a href="configuration.html#ConfigMisc">更改驱动器时始终转到驱动器根目录</a>参数的说明。</p>
+        <p>右键单击显示上下文菜单，其中包含挂载/卸载、格式化等操作（取决于操作系统和驱动器类型）。</p>
+        <p>最后一个按钮是<a href="#cm_OpenVirtualFileSystemList">打开虚拟文件系统（VFS）列表</a>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_drive_btn">2.4. 驱动器列表</a></h2>
+        <p class="figure"><img class="largeimage" title="Drives list" alt="Drives list" src="images/imgDC/pic4.png" width="650" height="27"></p>
+        <p>帮助更改驱动器，还包含附加信息（大小、可用空间）和导航按钮&nbsp;&ndash; <tt>&laquo;&nbsp;* \ .. ~ &lt;&nbsp;&raquo;</tt>。</p>
+        <p>内部命令 <tt><a name="cm_LeftOpenDrives">cm_LeftOpenDrives</a></tt> 用于左面板，<tt><a name="cm_RightOpenDrives">cm_RightOpenDrives</a></tt>&nbsp;&ndash; 用于右面板。默认快捷键： <kbd>Alt+F1</kbd> 和 <kbd>Alt+F2</kbd>，但它们在大多数 Linux 桌面环境中不起作用（只需打开 <a href="configuration.html#ConfigHotKeys">按键&nbsp;&gt; 热键</a> 配置部分并替换它们）。</p>
+        <p class="figure"><img class="largeimage" title="Drives list" alt="Drives list" src="images/imgDC/pic5.png" width="371" height="102"></p>
+        <p>内部命令 <tt>cm_SrcOpenDrives</tt> 将为活动面板显示此菜单。</p>
+        <p>有两种方法可以打开驱动器，请参阅<a href="configuration.html#ConfigMisc">更改驱动器时始终转到驱动器根目录</a>参数的说明。</p>
+        <p>附加导航按钮：</p>
+        <p><tt><a name="btn_dirlist">"*"</a></tt>&nbsp;&ndash; 显示常用文件夹列表，详细信息请参阅专门的<a href="directoryhotlist.html">常用文件夹列表</a>帮助页面；</p>
+        <p><tt>"\"</tt> or <tt>"/"</tt>&nbsp;&ndash; 转到当前驱动器的根目录（Windows）或文件系统根目录（Linux 和其他类 Unix 系统）。例外情况：</p>
+        <ul>
+          <li>WFX 插件的压缩包：转到此压缩包或其他虚拟文件系统的根目录。</li>
+          <li>锁定选项卡：如果您使用<a href="#cm_SetTabOptionPathResets">允许目录更改的锁定</a>，此按钮将把当前路径更改为锁定路径。</li>
+        </ul>
+        <p><tt>".."</tt>&nbsp;&ndash; 转到父文件夹；</p>
+        <p><tt>"~"</tt>&nbsp;&ndash; 转到用户主文件夹；</p>
+        <p><tt>"&lt;"</tt> 和 <tt>"&gt;"</tt>&nbsp;&ndash; 命令 <a href="cmds.html#cm_LeftEqualRight">cm_LeftEqualRight</a> 和 <a href="cmds.html#cm_RightEqualLeft">cm_RightEqualLeft</a>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_tabs">2.5. 标签栏</a></h2>
+        <p class="figure"><img class="largeimage" title="Tabs bar" alt="Tabs bar" src="images/imgDC/pic6.png" width="228" height="28"></p>
+        <p>显示标签。用左键单击标签，或使用键盘在标签之间导航（默认情况下为 <kbd>Ctrl+Tab</kbd> 和 <kbd>Ctrl+Shift+Tab</kbd>）。要更改标签的顺序，请使用拖放或 <tt>cm_MoveTabLeft</tt> 和 <tt>cm_MoveTabRight</tt> 命令。</p>
+        <p>您可以保护标签，以防止关闭或更改目录，可用的标签状态在 <a href="#mnu_tabs">"Tabs"</a> 子部分中描述。锁定的标签用星号标记（如果启用 <a href="configuration.html#5_1_12_1_zvezda">Show locked tabs with an asterisk *</a>）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_dir">2.6. 当前目录栏</a></h2>
+        <p class="figure"><img class="largeimage" title="Current directory bar" alt="Current directory bar" src="images/imgDC/pic7.png" width="372" height="21"></p>
+        <p>显示在文件面板中打开的目录。</p>
+        <p>左键单击此目录栏会下拉目录历史记录（内部命令 <tt><a name="cm_DirHistory">cm_DirHistory</a></tt>），可以快速导航回先前的目录：</p>
+        <p class="figure"><img class="largeimage" title="Directories history" alt="Directories history" src="images/imgDC/pic8.png" width="372" height="164"></p>
+        <p>右键单击目录栏将允许您将路径名复制到剪贴板或手动输入新路径。您可以使用键盘代替鼠标，只需为 <a href="cmds.html#cm_EditPath">cm_EditPath</a> 命令设置一个热键即可。支持环境变量，在 Linux 和其他类 Unix 操作系统中，您还可以使用波浪号符号“~”来表示当前用户的主目录。</p>
+        <p>双击或中键单击将下拉 <a href="directoryhotlist.html">常用文件夹列表</a>。我们可以用编辑路径命令替换双击操作，请参阅 <a href="configxml.html">&lt;DoubleClickEditPath&gt;</a> 参数的描述。</p>
+        <p>现在还可以单击目录栏的部分以快速在目录结构中向后导航。如果您想返回许多级别的父目录，这非常方便。这被称为“面包屑”导航功能。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_columns">2.7. Tabstop 标题栏</a></h2>
+        <p class="figure"><img class="largeimage" title="Tabstop headers bar" alt="Tabstop headers bar" src="images/imgDC/pic9.png" width="531" height="33"></p>
+        <p>显示列名称。左键单击 <a href="#sort_by">按列排序</a> 文件。标题文本左侧的小箭头显示排序方向。您还可以通过在按住 <kbd>Ctrl</kbd> 键的同时单击标题来设置多个列的排序顺序。例如，尝试按扩展名对文件进行排序，现在按住 <kbd>Ctrl</kbd> 键单击“日期”标题：每个文件类型将独立于其他文件按日期排序。</p>
+        <p>TTabstop 标题栏允许使用鼠标更改列的宽度，默认情况下，DC 会同时更改两个面板的宽度，并为下次启动保存新值（请参阅 <a href="configxml.html">&lt;AutoSaveWidth&gt;</a>）。</p>
+        <p>右键单击时会显示一个菜单，以更改和编辑自定义列样式集。</p>
+        <p class="figure"><img class="largeimage" title="Column set style dialog" alt="Column set style dialog" src="images/imgDC/pic10.png" width="144" height="59"></p>
+        <p><span class="italic">Default</span>&nbsp;&ndash; 现有样式。</p>
+        <p><span class="italic">配置自定义列</span>&nbsp;&ndash; 打开 <a href="configuration.html#ConfigColumns">文件视图&nbsp;&gt; 列&nbsp;&gt; 自定义列</a> 选项卡。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_files">2.8. 文件面板</a></h2>
+        <p>文件面板显示当前目录中文件的名称。Double Commander 可以将文件面板垂直（左右，默认）或水平（上下）排列，使用 <span class="italic">水平面板模式</span> 项在 <a href="#mnu_view">显示</a> 菜单中或 <kbd>Ctrl+Shift+H</kbd>。</p>
+        <p>默认情况下，两个面板的宽度相同。大小以左（或上）面板的百分比设置，有几种方法可以更改它：只需用鼠标拖动面板分隔符（程序将在工具提示中显示左面板的宽度），使用右键菜单中的固定大小比例（20/80、30/70、40/60、50/50、60/40、70/30、80/20）或 <a href="cmds.html#cm_PanelsSplitterPerPos">cm_PanelsSplitterPerPos</a> 命令。</p>
+        <p>显示文件面板内容的一般参数收集在 <a href="configuration.html#ConfigView">文件视图</a> 和 <a href="configuration.html#ConfigViewEx">文件视图扩展</a> 配置部分。</p>
+        <p>提供几种文件列表视图模式。</p>
+        <p><span class="italic">详细信息列视图</span>&nbsp;&ndash; 每行一个文件，带有默认或用户定义的列。对于文件夹和链接，Double Commander 显示 <tt>&lt;DIR&gt;</tt> 和 <tt>&lt;LNK&gt;</tt>。选项可在 <a href="configuration.html#ConfigViewFull">列</a> 配置部分中找到，您可以在 <a href="configuration.html#ConfigColumns">自定义列</a> 部分中添加或更改列集。列视图用于大多数插图。</p>
+        <p><span class="italic">列表视图</span>&nbsp;&ndash; 仅文件名称。如果可能，显示多个列。选项可在 <a href="configuration.html#ConfigViewBrief">文件视图&nbsp;&gt; 简要</a> 配置部分中找到。</p>
+        <p><span class="italic">缩略图视图</span>&nbsp;&ndash; 文件以小图像形式显示。如果可能，显示多个列。您可以在 <a href="configuration.html#ConfigMisc">杂项</a> 配置部分中更改缩略图的大小。</p>
+        <p class="figure"><img class="largeimage" title="Brief view / Thumbnails" alt="Brief view / Thumbnails" src="images/imgDC/pic56.png" width="786" height="307"></p>
+        <p>Double Commander 可以利用操作系统的功能来创建缩略图或自行创建缩略图。您可以选择允许将缩略图缓存保存到磁盘，或仅在程序关闭之前将其保留在内存中（请参阅 <a href="configuration.html#ConfigMisc">杂项</a>）。</p>
+        <p>创建缩略图的方法和支持的文件格式取决于操作系统。</p>
+        <ul>
+          <li><p>Windows: Double Commander 使用操作系统的功能（如 Windows 资源管理器），WLX 插件支持缩略图创建，并将列表补充为 <a href="viewer.html#intro">内部查看器</a> 支持的图像格式。</p></li>
+          <li><p>macOS: Double Commander 使用操作系统的功能（<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>）并将列表补充为 <a href="viewer.html#intro">内部查看器</a> 支持的图像格式。该程序还支持 OpenDocument 格式（.odt、.ods、.odp、.odg），并将在使用 Quick Look API 之前尝试创建缩略图（如果文件包含 "Thumbnails/thumbnail.png"）。</p></li>
+          <li>
+            <p>Linux 和其他类Unix系统: Double Commander 为以下格式创建缩略图:</p>
+            <ul>
+              <li><p>由 <a href="viewer.html#intro">内部查看器</a> 支持的图像格式;</p></li>
+              <li><p>XCF 图像格式（如果可用 ImageMagick 库）;</p></li>
+              <li><p>一些流行的视频格式（如果可用 FFmpegthumbnailer 库）：.avi、.flv、.mkv、.mov、.mp4、.mpeg、.mpg、.vob、.webm、.wmv;</p></li>
+              <li><p>MP3 文件的嵌入封面艺术;</p></li>
+              <li><p>OpenDocument 格式（如果文件包含 "Thumbnails/thumbnail.png"）：.odt、.ods、.odp、.odg。</p></li>
+            </ul>
+          </li>
+        </ul>
+        <p>Double Commander 还会为文本文件（纯文本和其他非二进制文件）创建缩略图。这些文件的缩略图不会保存到磁盘。</p>
+        <p>Double Commander 可以在文件名称左侧显示文件图标（默认启用），以显示文件类型和与程序的关联（系统或 <a href="configuration.html#ConfigAssociations">内部</a>）。DC 使用其自己的图标主题和/或根据系统设置的图标（请参阅 <a href="configuration.html#ConfigIcons">图标</a> 设置部分）。</p>
+        <p>该程序还允许指定文件类型，其名称应为不同颜色，请参阅 <a href="configuration.html#ConfigColorFiles">颜色&nbsp;&gt; 文件类型</a> 设置部分以获取更多详细信息。</p>
+        <p>当前文件将被细矩形包围，带或不带颜色填充，所选文件的名称将显示为红色。您可以在 <a href="configuration.html#ConfigColorPanels">颜色&nbsp;&gt; 文件面板</a> 设置部分中更改使用的颜色和光标的外观。</p>
+        <p>Double Commander 可以在鼠标光标悬停在文件上时显示工具提示，请参阅 <a href="configuration.html#ConfigTooltips">工具提示</a> 设置部分以获取详细信息。</p>
+        <br>
+
+        <p><a name="select_files"><span class="bold">选择文件</span></a></p>
+        <p>有几种选择文件的方法。</p>
+        <p>要选择光标下的文件或目录，只需按 <kbd>Insert</kbd> 键（选择后，Double Commander 将自动将光标移动到下一个文件）或 <kbd>空格</kbd> 键。如果使用 <kbd>空格</kbd> 键选择目录，程序将计算该目录的总大小并在相应列中显示。</p>
+        <p>您可以 <a href="configuration.html#ConfigMouse">选择</a> 左键或右键来选择文件：</p>
+        <ul>
+          <li><p><span class="italic">左键</span>&nbsp;&ndash; 鼠标的工作方式与 Windows 资源管理器相同，右键仅用于打开上下文菜单。在此模式下，您可以通过单击任何未选择文件的名称或 ".." 项来取消选择所有选定的文件。您还可以使用适当的内部命令（见下文）。</p></li>
+          <li><p><span class="italic">右键</span>&nbsp;&ndash; 左键的工作方式相同，右键允许通过单击文件名来选择文件。稍微长时间按住右键将调用文件的上下文菜单。要选择多个连续文件，您可以按住右键并移动鼠标光标在文件列表上。要取消选择所有选定的文件，您可以使用适当的内部命令（见下文）。</p></li>
+        </ul>
+        <p>您可以使用带有修饰键的鼠标单击：<kbd>Ctrl</kbd>（选择下一个文件，列表中的任何位置）和 <kbd>Shift</kbd>（将多个连续文件添加到选择中）。要选择多个连续文件，您可以按住 <kbd>Shift</kbd> 并使用上下键。</p>
+        <p>还可以通过单击文件图标来选择文件，您可以在 <a href="configuration.html#ConfigMouse">鼠标</a> 设置部分启用此功能。同时，Double Commander 将把光标移动到所选文件上，就像使用带有 <kbd>Ctrl</kbd> 键的鼠标单击一样。在缩略图视图中，当您单击图像的左侧部分（1/4 或 25%）时，这种方式有效，因此您可以通过单击右侧图像部分来设置光标而不进行选择。此功能方便用于取消选择大量文件：单击任何选定文件的图标，然后单击其名称。</p>
+        <p>您可以完全禁用鼠标选择：左键将仅设置光标，右键将调用上下文菜单。</p>
+        <p>可用特殊 <a href="cmds.html#catmark">命令</a> 选择和取消选择文件，这些命令允许使用不同条件：按名称或名称的一部分、文件类型、属性等。其中一些已添加到 <a href="#mnu_select">标记</a> 菜单中，您可以 <a href="configuration.html#ConfigHotKeys">分配热键</a> 或将按钮添加到 <a href="toolbar.html">工具栏</a>。或者打开一个窗口，列出所有内部命令及其描述（内部命令 <tt>cm_DoAnyCmCommand</tt>，默认 <kbd>Shift+F12</kbd>）并转到 <span class="italic">标记</span> 类别。</p>
+        <br>
+
+        <p><a name="draganddrop"><span class="bold">拖放</span></a></p>
+        <p>Double Commander 支持使用鼠标拖放文件（即按住左键）到外部应用程序的窗口（例如文本或图形编辑器或查看器）、工具栏以及在目录之间复制/移动文件。如果该操作是可能的，"+" 符号将显示在鼠标光标附近。</p>
+        <p>将文件拖到工具栏的空白处时，将创建一个带有外部命令的按钮，传递的文件将用作命令。将文件拖到按钮上仅在该按钮是带有外部命令的按钮时才可能：该命令将启动，文件将作为启动参数传递给它（请记住，在这种情况下按钮命令的参数将被忽略）。</p>
+        <p>对于文件复制或移动（使用 <kbd>Ctrl</kbd> 或 <kbd>Shift</kbd> 键）操作，可能的目标包括：相对文件面板、活动或非活动面板中的任何文件夹（文件夹名称将用框突出显示）、任何打开选项卡的目录（只需将文件拖到所需选项卡的标题上）。使用 ".." 将文件复制到父目录。如果支持添加文件，Double Commander 还可以将文件复制到压缩包中。您可以 <a href="configuration.html#ConfigMouseDD">启用或禁用确认对话框</a> 并选择默认操作（请参阅 <a href="configxml.html">&lt;DefaultDropEffect&gt;</a> 的描述）。</p>
+        <p>使用右键拖动将显示以下操作的菜单：<span class="italic">复制</span>、<span class="italic">移动</span>、<span class="italic">创建链接</span>（硬链接）、<span class="italic">创建符号链接</span> 和 <span class="italic">取消</span>。如果选择了多个文件，Double Commander 将仅为列表中的第一个文件提供创建链接的选项。</p>
+        <p>您可以使用 <kbd>Ctrl+Shift</kbd> 创建符号链接。</p>
+        <p>当您将文件拖到另一个应用程序的窗口时，Double Commander 使用系统实现的拖放功能。使用 <kbd>Alt</kbd> 键，您可以调用替代操作（例如，当将文件拖到 Windows 资源管理器窗口时，将创建一个快捷方式，而不是复制文件）。</p>
+        <br>
+
+        <p><a name="cm_ContextMenu"><span class="bold">上下文菜单</span></a></p>
+        <p>文件的上下文菜单（右键菜单）的外观和内容取决于操作系统。在 Windows 中，Double Commander 使用系统上下文菜单（如 Windows 资源管理器）和“操作”子菜单（见下文），在其他操作系统中，Double Commander 创建自己的上下文菜单，包含典型操作。如果您更喜欢使用右键选择模式，则需要稍微长时间按住右键才能调用此菜单。您可以使用内部命令 <a href="cmds.html#cm_ContextMenu">cm_ContextMenu</a> 来调用上下文菜单（默认 <kbd>Shift+F10</kbd>）。</p>
+        <p>Double Commander 在 Linux 和其他类 Unix 系统中的上下文菜单：</p>
+        <ul>
+          <li><p><span class="italic">打开</span>&nbsp;&ndash; 在默认程序中打开光标下的文件（将使用系统文件关联）。</p></li>
+          <li><p><span class="italic">操作</span> 子菜单&nbsp;&ndash; 包含所有添加到光标下文件扩展名的 <a href="configuration.html#ConfigAssociations">文件关联</a> 的操作。您还可以添加一些 <a href="configuration.html#ConfigAssocEx">附加操作</a>。</p></li>
+          <li><p><span class="italic">使用打开</span> 子菜单&nbsp;&ndash; 包含适合打开文件的应用程序列表。要在 macOS 中获取该列表，Double Commander 使用 Launch Services API，在其他系统中，该程序遵循 <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">桌面菜单</a> 规范。<br>
+            附加项 <span class="italic">其他...</span></p>
+            <ul>
+              <li><p>macOS: 将会打开所有已安装应用程序的列表。</p></li>
+              <li><p>Linux 和其他类 Unix 系统: 将打开应用程序选择窗口，您可以从所有可用应用程序的列表中选择一个应用程序或手动指定命令行以打开文件。在这里，您还可以为文件类型保存额外的系统关联，添加新的关联或更改默认应用程序（Double Commander 将使用 <tt>~/.config/mimeapps.list</tt> 文件（请参阅 <a href="https://specifications.freedesktop.org/mime-apps-spec/latest" target="_blank">MIME 类型与应用程序之间的关联</a>）。</p></li>
+            </ul>
+          </li>
+          <li><p><span class="italic">服务</span>&nbsp;&ndash; 仅 macOS，类似于“服务”系统子菜单。</p></li>
+          <li><p><span class="italic">分享...</span>&nbsp;&ndash; 仅 macOS，类似于“分享”系统子菜单。</p></li>
+          <li><p><span class="italic">在此打包...</span>&nbsp;&ndash; 调用 <a href="#cm_PackFiles">命令打包</a>选定的文件，当前目录将用作目标目录。</p></li>
+          <li><p><span class="italic">在此解压缩...</span>&nbsp;&ndash; 调用 <a href="#cm_ExtractFiles">命令解压缩</a>选定的文件，当前目录将用作目标目录。仅当在压缩插件或外部压缩程序的设置中指定了文件扩展名时，此项才会添加。</p></li>
+          <li><p>调用基本文件操作: <span class="italic">移动</span> (<kbd>F6</kbd>), <span class="italic">复制</span> (<kbd>F5</kbd>), <span class="italic">删除</span> (<kbd>F8</kbd>), <span class="italic">重命名</span> (<kbd>F2</kbd>).</p></li>
+          <li><p>使用剪贴板复制和移动文件的命令: <span class="italic">剪切</span>, <span class="italic">复制</span>, <span class="italic">粘贴</span></p></li>
+          <li><p><span class="italic">显示文件属性</span>&nbsp;&ndash; 显示 <a href="#cm_FileProperties">文件属性窗口</a>。</p></li>
+        </ul>
+        <p>在空白区域单击鼠标右键，在 Linux 和其他类 Unix 系统的文件面板中会调用一个菜单，包含以下项目：</p>
+        <ul>
+          <li><p><span class="italic">刷新</span>&nbsp;&ndash; 重新读取面板中目录内容的命令。</p></li>
+          <li><p><span class="italic">排序方式</span> 子菜单&nbsp;&ndash; 包含切换排序方式的命令：按名称、文件扩展名、大小、修改日期或属性。还添加了 <span class="italic">反向排序</span> 命令，可以切换排序方向。</p></li>
+          <li><p><span class="italic">粘贴</span>&nbsp;&ndash; 用于使用剪贴板复制和移动文件。</p></li>
+          <li><p><span class="italic">新建</span> 子菜单&nbsp;&ndash; 包含创建目录（<kbd>F7</kbd>）和文本文件（<kbd>Shift+F4</kbd>）的命令。此子菜单还包含新文件的模版，如果存在且不为空的系统模版目录（在 macOS 中不可用）。</p></li>
+          <li><p><span class="italic">显示文件属性</span>&nbsp;&ndash; 显示 <a href="#cm_FileProperties">文件属性窗口</a>。</p></li>
+        </ul>
+        <p>在打开的压缩包文件或文件系统插件（WFX）中，右键菜单始终相同，并且不依赖于操作系统：</p>
+        <ul>
+          <li><p><span class="italic">打开</span>&nbsp;&ndash; 在默认程序中打开文件，就像使用双击或按 <kbd>Enter</kbd> 一样（将使用 <a href="configuration.html#ConfigAssociations">内部</a> 和系统文件关联）。默认情况下，在压缩包文件内部，此命令将显示已打包文件的属性窗口（请参阅 <a href="multiarc.html#workingcomp">压缩包处理</a>），您可以选择在关联程序中打开文件，但 Double Commander 允许直接配置在关联程序中自动打开文件（使用 <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>）。</p></li>
+          <li><p><span class="italic">查看</span>&nbsp;&ndash; 在查看器中打开文件（<kbd>F3</kbd>）。</p></li>
+          <li><p>调用多个文件操作: <span class="italic">复制</span> (<kbd>F5</kbd>), <span class="italic">重命名</span> (<kbd>F2</kbd>) 和 <span class="italic">删除</span> (<kbd>F8</kbd>).</p></li>
+          <li><p><span class="italic">显示文件属性</span>&nbsp;&ndash; 显示文件属性窗口。内容取决于虚拟文件系统的功能。在压缩包内部，这将是已打包文件的属性窗口（请参阅 <a href="multiarc.html#workingcomp">压缩包处理</a>）。</p></li>
+        </ul>
+        <p>请记住，并非所有文件操作在每种情况下都能正常工作。例如，如果某些压缩包格式不支持删除文件， Double Commander 将隐藏 <span class="italic">删除</span> 菜单项。</p>
+        <br>
+
+        <p><a name="rename_files"><span class="bold">重命名文件</span></a></p>
+        <p>Double Commander 允许直接在文件面板中重命名文件。有几种方法可以调用此操作：内部命令 <tt>cm_RenameOnly</tt>（默认情况下为 <kbd>F2</kbd> 或 <kbd>Shift+F6</kbd>）、<a href="configuration.html#ConfigViewEx">左键单击</a> 或右键菜单中的相应项。</p>
+        <p>默认情况下，Double Commander 将完全选择文件名，但您可以<a href="configuration.html#ConfigOperations">启用</a> 不带扩展名的文件名选择。此外，重复按下热键可以按部分选择文件名，以下字符用作分隔符：空格、连字符、下划线和句点。文件夹名称始终完全选择。</p>
+        <p>要确认名称更改，请使用 <kbd>Enter</kbd> 键或编辑字段右侧的重命名确认按钮。要取消未确认的更改（退出编辑模式），请使用 <kbd>Esc</kbd> 键或在编辑字段外单击鼠标。您可以在编辑字段外单击鼠标以确认重命名（如在 Windows 资源管理器中），请参阅<a href="configxml.html">&lt;RenameConfirmMouse&gt;</a>的描述。</p>
+        <p>对于批量重命名文件，可以使用<a href="multirename.html">适当的工具</a>。</p>
+        <br>
+
+        <p><a name="cm_QuickSearch"><span class="bold">快速搜索/过滤</span></a></p>
+        <p>使用快速搜索/过滤工具时，其面板显示在文件面板的底部。快速搜索用于搜索文件面板的当前内容：光标将移动到最近的匹配文件，当使用 <kbd>上箭头</kbd> 和 <kbd>下箭头</kbd> 键时，程序将仅在文件名匹配条件的文件上循环移动光标。快速过滤将隐藏所有不匹配条件的文件名（要重置过滤器，请使用 <kbd>Esc</kbd> 键或“X”按钮）。</p>
+        <p class="figure"><img class="largeimage" title="快速搜索/过滤面板" alt="快速搜索/过滤面板" src="images/imgDC/pic57.png" width="378" height="21"></p>
+        <ul>
+          <li><p><span class="italic">过滤器</span>&nbsp;&ndash; 搜索/过滤开关;</p></li>
+          <li><p><span class="italic">{</span>&nbsp;&ndash; 名称必须以输入的第一个字符开头;</p></li>
+          <li><p><span class="italic">}</span>&nbsp;&ndash; 输入的点“.”之前的最后一个字符必须匹配;</p></li>
+          <li><p><span class="italic">Aa</span>&nbsp;&ndash; 区分大小写;</p></li>
+          <li><p><span class="italic">F</span>&nbsp;&ndash; 过滤文件;</p></li>
+          <li><p><span class="italic">D</span>&nbsp;&ndash; 过滤目录;</p></li>
+          <li><p><span class="italic">X</span>&nbsp;&ndash; 禁用快速搜索并关闭面板。</p></li>
+        </ul>
+        <p>Double Commander 支持拼音（将使用程序目录中的 <tt>pinyin.tbl</tt> 文件）。</p>
+        <p>您可以在 <a href="configuration.html#ConfigKeys">按键</a> 设置部分中设置调用快速搜索/过滤面板的方式，或使用 <a href="cmds.html#cm_QuickSearch">cm_QuickSearch</a> 和 <a href="cmds.html#cm_QuickFilter">cm_QuickFilter</a> 命令。</p>
+        <p>在快速搜索面板中更改的所有参数将在下次快速搜索/过滤调用时保留（在关闭程序之前），您可以在 <a href="configuration.html#ConfigQuick">快速搜索/过滤</a> 设置部分中更改它和默认值。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_status">2.9. 状态栏</a></h2>
+        <p class="figure"><img class="largeimage" title="Statusbar" alt="Statusbar" src="images/imgDC/pic11.png" width="385" height="17"></p>
+        <p>显示有关文件面板内容的一些详细信息。</p>
+        <p>如果设置了列表视图，则状态栏将显示所选文件的大小及其数量，以及面板中所有文件的总数量和大小。</p>
+        <p>如果设置了列表视图或缩略图视图，则此处将显示光标下的文件名、大小、修改日期和属性。如果选择了文件，则状态栏将显示与列表视图相同的信息。</p>
+        <p>如果启用了扁平视图（没有子目录），则光标下的文件名将以相对路径显示。如果选择了文件，则状态栏将显示与列表视图相同的信息。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_path">2.10. 命令行</a></h2>
+        <p class="figure"><img class="largeimage" title="Command line" alt="Command line" src="images/imgDC/pic12.png" width="738" height="29"></p>
+        <p>用于手动输入命令，您可以快速运行或打开当前目录或 PATH 中的文件（如有必要，可以添加其他参数）。</p>
+        <p>活动目录的路径显示在行首（在屏幕截图中为 <tt>C:\Program Files\Double Commander\</tt>）。右侧带箭头的按钮打开已输入命令的历史记录。使用 <kbd>Shift+Del</kbd> 删除历史记录中不必要的条目。</p>
+        <p>有几个 <a href="cmds.html#catcommandline">内部命令</a> 可用于处理命令行，还可以查看 <a href="configuration.html#ConfigKeys">按键</a> 设置部分中的输入选项。</p>
+        <p>如果在 <a href="configuration.html#ConfigLayout">设置</a> 中隐藏了命令行，您仍然可以使用它。在这种情况下，命令行将在命令运行后自动隐藏。您可以使用 <kbd>Esc</kbd> 键（如果输入字段为空）或将光标移动到文件面板（或以其他方式切换焦点）来隐藏它。</p>
+        <p>支持环境变量，在 Linux 和其他类 Unix 操作系统中，您还可以使用波浪号符号“~”来表示当前用户的主目录。</p>
+        <p>Double Commander 独立处理 <code>cd</code> 命令，您可以使用它来更改活动面板中的当前目录（仅适用于本地文件系统或作为本地磁盘挂载的远程资源）。如果您使用带有文件名的路径，Double Commander 将更改目录并将光标放在该文件上。如果您仅指定文件名，Double Commander 将在当前目录中将光标放在该文件上。可以使用 <code>cd ..</code> 命令导航到父目录，运行不带参数的命令将打开当前用户的主目录。</p>
+        <p>您可以使用斜杠：<code>cd \</code> 进入当前驱动器的根目录（Windows），<code>cd /</code> 进入文件系统的根目录（Linux 和其他类 Unix 系统）。</p>
+        <p>在 Windows 中，您可以通过简单地指定驱动器字母和冒号来更改驱动器：<code>c:</code>、<code>d:</code> 等。</p>
+        <p>右键单击将显示常用输入框菜单，其中包含标准命令 <span class="italic">剪切</span>、<span class="italic">复制</span>、<span class="italic">粘贴</span>、<span class="italic">删除</span>、<span class="italic">全选</span> 和子菜单 <span class="italic">插入 Unicode 控制字符</span>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_console">2.11. 终端窗口</a></h2>
+        <p class="figure"><img class="largeimage" title="Terminal window" alt="Terminal window" src="images/imgDC/pic13.png" width="684" height="140"></p>
+        <p>显示控制台命令的输出。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="iface_buttons">2.12. 功能键按钮栏</a></h2>
+        <p class="figure"><img class="largeimage" title="Function key buttons bar" alt="Function key buttons bar" src="images/imgDC/pic14.png" width="657" height="23"></p>
+        <p>包含多个常用操作的按钮，便于通过鼠标快速访问。此外，还显示了相应内部命令的热键。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <br>
+        <p><small>Created by Rustem (dok_rust@bk.ru)</small></p>
+        <p><small>中文版本由 H1DDENADM1N 创建</small></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="faq.html">上一页</a> | <a title="Next page" href="configuration.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 复制/移动 文件</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="shortcuts.html">上一页</a> | <a title="Next page" href="findfiles.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.4. 复制/移动 文件</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#confirmation">复制/移动 对话框</a></dt>
+          <dt>2. <a href="#clipboard">使用剪贴板</a></dt>
+          <dt>3. <a href="#progress">操作进度对话框</a></dt>
+          <dt>4. <a href="#collisions">名称冲突处理</a></dt>
+          <dt>5. <a href="#aconfig">附加配置</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="confirmation">1. 复制/移动 对话框</a></h2>
+        <p>在复制或移动文件时显示的确认对话框，可在其中更改若干参数。复制与移动操作的对话框仅在少数参数上有所不同，因此在此处一并说明。</p>
+        <p class="figure"><img class="largeimage" title="复制/移动 文件" alt="复制/移动 文件" src="images/imgDC/copymove1.png" width="629" height="481"></p>
+        <p>可以使用 <kbd>F5</kbd>（复制）、<kbd>Shift+F5</kbd>（在同一目录复制）和 <kbd>F6</kbd>（移动）快捷键调用，或使用功能键栏的按钮，或通过内部命令（<a href="cmds.html#cm_Copy">cm_Copy</a>、<a href="cmds.html#cm_CopySamePanel">cm_CopySamePanel</a> 和 <a href="cmds.html#cm_Rename">cm_Rename</a>）调用。当启用 <a href="configuration.html#ConfigMouseDD">拖放完成后显示确认对话框</a> 时，拖放文件也会弹出此对话框。</p>
+        <p>对话框显示一个可编辑字段，用于目标目录和文件掩码（或单个文件名），可以手动修改目标路径和文件名。使用 <kbd>F5</kbd> 或 <kbd>F6</kbd> 可以按顺序切换选中项：基础文件名、文件名、扩展名、路径、全部。如果未指定目标目录（例如通过 <tt>cm_CopySamePanel</tt> 或手动编辑），文件将复制到源目录。</p>
+        <p>文件掩码决定复制或移动时如何重命名文件（符号 "*" 表示任意数量字符，符号 "?" 表示任意单个字符）。例如，可指定 <code>*.*.bak</code> 将为所有复制的文件添加 <code>.bak</code> 扩展名。使用 <code>*.ext</code> 可将所有复制文件的扩展名替换为 <code>ext</code>。或者例如使用 <code>????.*</code> 将名称截断为前四个字符。出现在 <code>*.*</code> 之前的符号会从名称的第一位开始替换字符。如果掩码不适用，名称将保持不变。</p>
+        <p>若干按钮说明：</p>
+        <ul>
+          <li><p><span class="italic">开始</span> 和 <span class="italic">取消</span> &nbsp;&ndash; 开始或取消操作。</p></li>
+          <li><p><span class="italic">添加到队列</span> &nbsp;&ndash; 将任务添加到文件操作队列。若同时有多个任务运行时，这很方便：可以在队列中更改任务顺序、停止或暂停任务。文件操作列表窗口可通过 <span class="italic">显示</span> 菜单中的 <span class="italic">操作查看器</span> 项或按 <kbd>Alt+V</kbd>（内部命令 <tt>cm_OperationsViewer</tt>）调用。</p></li>
+          <li><p><span class="italic">选项</span> &nbsp;&ndash; 展开附加选项。</p></li>
+        </ul>
+        <p>第一组选项用于在名称冲突或无法设置文件属性时确定要执行的操作：</p>
+        <ul>
+          <li><p><span class="italic">文件已存在时</span> &nbsp;&ndash; 如果目标目录已存在同名文件。可选操作：<span class="italic">询问</span>、<span class="italic">覆盖</span>、<span class="italic">覆盖旧的</span>、<span class="italic">跳过</span>。</p></li>
+          <li><p><span class="italic">文件夹已存在时</span> &nbsp;&ndash; 如果目标目录已存在同名文件夹。可选操作：<span class="italic">询问</span>、<span class="italic">合并</span>、<span class="italic">跳过</span>。</p></li>
+          <li><p><span class="italic">无法设置属性时</span> &nbsp;&ndash; 当无法设置文件时间、属性等（例如目标目录的文件系统限制）时的处理方式。可选操作：<span class="italic">询问</span>、<span class="italic">不再设置</span>、<span class="italic">忽略错误</span>。</p></li>
+        </ul>
+        <p><span class="italic">询问</span>（默认）会提供更多可选操作（见下文）。</p>
+        <p>下一组为过滤器，可指定要复制或移动的文件（文件掩码、文件年龄等）。在此可以看到所选模版并：</p>
+        <ul>
+          <li><p><span class="italic">选择模版...</span> 按钮（<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">）会打开包含已保存模版列表的窗口，并允许添加新模版。</p></li>
+          <li><p><span class="italic">排除空文件夹</span> &nbsp;&ndash; 启用后仅复制或移动非空文件夹。仅在使用模版时生效。</p></li>
+        </ul>
+        <p>下面的参数列表会根据文件操作类型和操作系统家族有所不同。</p>
+        <ul>
+          <li><p><span class="italic">校验</span> &nbsp;&ndash; 启用后，Double Commander 将对源文件与目标目录中的复制文件进行比较：在 Windows 上为逐字节比较，在 Linux 等系统上使用 BLAKE2 校验和。程序会尽量减少磁盘缓存影响（如果文件系统不支持直接 I/O，则会报告校验失败）。请注意，此功能会显著降低操作速度，且每个文件会被读取两次，因此进度条中的总大小会加倍。在 macOS 上不可用。</p></li>
+          <li><p><span class="italic">检查可用空间</span> &nbsp;&ndash; 在复制前检查目标目录是否有足够的可用磁盘空间。</p></li>
+          <li><p><span class="italic">预分配空间</span> &nbsp;&ndash; 启用后，Double Commander 将预分配磁盘空间，从而减少文件碎片的可能性，同时也是更快的创建文件方式。在 Windows 上 Double Commander 始终预分配空间。在使用 FAT32 分区的 Linux 上此项无效。</p></li>
+          <li><p><span class="italic">追踪链接</span> &nbsp;&ndash; 启用后，程序会将指向文件夹的符号链接视为普通文件夹并复制其内容；对于文件链接，将复制链接指向的目标文件。复选框的三态（不确定）表示每次询问如何处理。</p></li>
+          <li><p><span class="italic">修正链接</span> &nbsp;&ndash; 启用后，程序会检查链接并在需要时根据目标目录修正其目标路径。如果使用相对路径，则修正后的路径仍写为相对路径。</p></li>
+          <li><p><span class="italic">复制权限</span> &nbsp;&ndash; 启用后会复制源文件的权限，否则使用当前用户的默认值，通常为文件 664、目录 775。另见 <a href="configxml.html">&lt;CopyXattributes&gt;</a> 的说明。对于 Windows，请参见 <a href="configxml.html">&lt;CopyAttributes&gt;</a>。</p></li>
+          <li><p><span class="italic">删除只读标志</span> &nbsp;&ndash; 启用后会添加 "w" 属性（Linux）。</p></li>
+          <li><p><span class="italic">复制日期/时间</span> &nbsp;&ndash; 启用后会复制源文件的修改时间，否则使用当前时间。对于 Windows，请参见 <a href="configxml.html">&lt;CopyTime&gt;</a> 的说明。</p></li>
+          <li><p><span class="italic">复制所有权</span> &nbsp;&ndash; 如果未启用，目标文件的所有者将为运行程序的用户。</p></li>
+          <li><p><span class="italic">复制权限</span> &nbsp;&ndash; 允许复制 NTFS 文件系统特有的权限，否则使用当前用户的权限（即运行程序的用户）。仅适用于 Windows。</p></li>
+          <li><p><span class="italic">写时复制</span> &nbsp;&ndash; 支持 Btrfs 文件系统的写时复制（COW）特性：默认情况下 Btrfs 对本地文件使用 COW。Windows 上不可用。</p></li>
+        </ul>
+        <p>注意：从归档中复制文件时，只有 <span class="italic">文件已存在时</span> 参数可用。从文件系统插件（WFX）复制时，可用多个参数：<span class="italic">文件已存在时</span>、<span class="italic">复制日期/时间</span> 和 <span class="italic">在后台工作（单独连接）</span>。最后一个参数可防止文件操作进度窗口阻塞 Double Commander 主窗口。</p>
+        <p><span class="italic">保存为默认选项</span> &nbsp;&ndash; 将当前值设为下次复制/移动操作的默认值。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="clipboard">2. 使用剪贴板</a></h2>
+        <p>另一种复制或移动文件的方式：可以使用 <span class="italic">复制</span> 与 <span class="italic">粘贴</span> 或 <span class="italic">剪切</span> 与 <span class="italic">粘贴</span> 命令，通过键盘（默认 <kbd>Ctrl+C</kbd>/<kbd>Ctrl+V</kbd 或 <kbd>Ctrl+X</kbd>/<kbd>Ctrl+V</kbd）或在 <a href="help.html#cm_ContextMenu">上下文菜单</a> 中选择相应项。</p>
+        <p>在此情况下，操作将直接启动而不弹出确认对话框。Double Commander 会使用保存为默认的操作设置，但不包括 <span class="italic">校验</span> 参数（见上文说明）。</p>
+        <p>如果在活动面板（同一目录）中复制并粘贴文件，将使用 <a href="configuration.html#ConfigOperations">文件操作设置</a> 中的模版自动重命名，创建重复文件的副本。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="progress">3. 操作进度对话框</a></h2>
+        <p>该对话框显示操作进度的详细信息：两个进度条（当前处理文件和总体进度）、百分比（在标题中）、文件总数与已处理数量、当前文件的完整路径及在目标目录中的名称、大小、速度和剩余时间。</p>
+        <p>按钮：</p>
+        <ul>
+          <li><p><span class="italic">暂停/继续</span> &nbsp;&ndash; 暂停或继续操作。</p></li>
+          <li><p><span class="italic">取消</span> &nbsp;&ndash; 取消操作并关闭对话框。</p></li>
+          <li><p><span class="italic">最小化到面板</span> &nbsp;&ndash; 将对话框最小化到 <a href="configuration.html#ConfigOperations">操作面板</a>。</p></li>
+          <li><p><span class="italic">查看所有</span> &nbsp;&ndash; 打开 <span class="italic">Operations Viewer</span> 窗口。</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="collisions">4. 名称冲突处理</a></h2>
+        <p>如果要复制的文件在目标目录已存在同名文件，Double Commander 会提供多种处理方式。自动选择的操作（无需用户参与）不会保存为后续复制/移动操作的默认行为。</p>
+        <p>如果存在同名文件夹：</p>
+        <ul>
+          <li><p><span class="italic">合并</span> &nbsp;&ndash; 将源文件夹的内容复制到目标目录中同名的文件夹中。</p></li>
+          <li><p><span class="italic">全部合并</span> &nbsp;&ndash; 与上项相同，并在后续的名称冲突中自动使用该操作。</p></li>
+          <li><p><span class="italic">跳过</span> &nbsp;&ndash; 不复制该文件夹。</p></li>
+          <li><p><span class="italic">全部跳过</span> &nbsp;&ndash; 与上项相同，并在后续冲突中自动使用该操作。</p></li>
+        </ul>
+        <p>如果存在同名文件：</p>
+        <ul>
+          <li><p><span class="italic">覆盖</span> &nbsp;&ndash; 用源文件内容替换目标目录中的文件内容。</p></li>
+          <li><p><span class="italic">全部覆盖</span> &nbsp;&ndash; 与上项相同，并在后续冲突中自动使用该操作。</p></li>
+          <li><p><span class="italic">覆盖所有较早的文件</span> &nbsp;&ndash; 仅替换修改时间较旧的文件。</p></li>
+          <li><p><span class="italic">跳过</span> &nbsp;&ndash; 不复制该文件。</p></li>
+          <li><p><span class="italic">全部跳过</span> &nbsp;&ndash; 与上项相同，并在后续冲突中自动使用该操作。</p></li>
+          <li><p><span class="italic">重命名</span> &nbsp;&ndash; 弹出对话框并可即时手动更改源文件的文件名。</p></li>
+          <li><p><span class="italic">恢复</span> &nbsp;&ndash; 若目标文件比源文件小或为空，则将差异追加到目标文件末尾。此功能在例如下载或复制因程序崩溃中断后从其它位置恢复文件时可能更方便、更快。启用 <span class="italic">保留空间</span> 时不可用。</p></li>
+          <li><p><span class="italic">其他</span> &nbsp;&ndash; 其他附加操作菜单：</p>
+            <ul>
+              <li><p><span class="italic">比较文件内容</span> &nbsp;&ndash; 调用 <a href="help.html#cm_CompareContents">Compare by Contents</a> 命令。</p></li>
+              <li><p><span class="italic">追加</span> &nbsp;&ndash; 将源文件内容追加到目标文件末尾。</p></li>
+              <li><p><span class="italic">覆盖所有较小的文件</span> &nbsp;&ndash; 仅替换比源文件小的文件。</p></li>
+              <li><p><span class="italic">覆盖所有较大的文件</span> &nbsp;&ndash; 仅替换比源文件大的文件。</p></li>
+              <li><p><span class="italic">自动重命名源文件</span> &nbsp;&ndash; 使用 <a href="configuration.html#ConfigOperations">文件操作设置</a> 中的模版自动重命名要复制的源文件。</p></li>
+              <li><p><span class="italic">自动重命名目标文件</span> &nbsp;&ndash; 与上项类似，但重命名目标目录中已存在的文件。</p></li>
+            </ul>
+          </li>
+        </ul>
+        <p>单击 <span class="italic">取消</span> 按钮将中止操作。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="aconfig">5. 附加配置</a></h2>
+        <p>与复制/移动 操作相关的更多选项位于 <a href="configuration.html#ConfigOperations">文件操作</a> 设置页。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="shortcuts.html">上一页</a> | <a title="Next page" href="findfiles.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

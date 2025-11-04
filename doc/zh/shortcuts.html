@@ -1,0 +1,1518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 快捷键</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="configuration.html">上一页</a> | <a title="Next page" href="copymove.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.3. 快捷键</h1>
+      </div>
+
+      <div>
+        <h2>内容</h2>
+        <dl>
+          <dt>1. <a href="#intro">简介</a></dt>
+          <dt>2. <a href="#main_window">主窗口</a></dt>
+          <dt>3. <a href="#dcopymove">复制/移动对话框</a></dt>
+          <dt>4. <a href="#editdesc">编辑注释对话框</a></dt>
+          <dt>5. <a href="#find">搜索文件</a></dt>
+          <dt>6. <a href="#mrename">批量重命名工具</a></dt>
+          <dt>7. <a href="#sync">同步文件夹</a></dt>
+          <dt>8. <a href="#viewer">内部查看器</a></dt>
+          <dt>9. <a href="#editor">内部编辑器</a></dt>
+          <dt>10. <a href="#differ">比较工具</a></dt>
+          <dt>11. <a href="#options">配置</a></dt>
+          <dd>
+            <dl>
+              <dt>11.1. <a href="#hotkeys">按键&nbsp;&gt; 热键</a></dt>
+              <dt>11.2. <a href="#favtabs">收藏夹标签</a></dt>
+              <dt>11.3. <a href="#dirhotlist">常用文件夹列表</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. 简介</a></h2>
+        <p>以下表格包含 Double Commander 的默认键盘快捷键。</p>
+        <p>我们可以通过打开配置&nbsp;&gt; 选项...&nbsp;&gt; 按键&nbsp;&gt; <a href="configuration.html#ConfigHotKeys">热键</a>（或者使用内部命令 <a href="cmds.html#cm_ConfigHotKeys">cm_ConfigHotKeys</a>）来更改它们。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="main_window">2. 主窗口</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">主窗口</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F1</div></td>
+            <td class="hintcell">打开程序帮助</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2, Shift+F6</div></td>
+            <td class="hintcell">重命名选中的文件<br>
+              2. 如果没有选中任何内容，并且光标位于第一个项目（".."）上：
+              编辑当前路径（作为 <a href="cmds.html#cm_EditPath">cm_EditPath</a>）。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">1. 在文件上：在 <a href="viewer.html">内部查看器</a> 中打开文件（多个文件也可以）。<br>
+              2. 在文件夹上：打开该文件夹。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">仅在内部查看器中打开光标下的文件（如果选中了多个文件）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">在编辑器中打开文件，详细信息请参见 <a href="cmds.html#cm_Edit">这里</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">创建一个新文本文件并在内部编辑器中打开，或打开现有文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F5</div></td>
+            <td class="hintcell">从源复制项目到目标</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
+            <td class="hintcell">在同一目录中复制项目（"内联"）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">重命名或移动项目</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7</div></td>
+            <td class="hintcell">创建新目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F8, Del</div></td>
+            <td class="hintcell">将选中的文件/文件夹删除到回收站，参见 <a href="configuration.html#ConfigOperations">删除到回收站（Shift 键可逆转此设置）</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F8, Shift+Del</div></td>
+            <td class="hintcell">永久删除选中的文件/文件夹，参见 <a href="configuration.html#ConfigOperations">删除到回收站（Shift 键可逆转此设置）</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">启动终端</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F1</div></td>
+            <td class="hintcell">更改左侧驱动器</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F2</div></td>
+            <td class="hintcell">更改右侧驱动器</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F4, Alt+X</div></td>
+            <td class="hintcell">退出</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F5</div></td>
+            <td class="hintcell">压缩选中的文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F7</div></td>
+            <td class="hintcell">搜索文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F8</div></td>
+            <td class="hintcell">调用命令行历史弹出菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F9</div></td>
+            <td class="hintcell">解压光标下的压缩包中的所有文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+digit (1..9)</div></td>
+            <td class="hintcell">按索引激活选项卡（请参见 <a href="cmds.html#cm_ActivateTabByIndex">cm_ActivateTabByIndex</a>）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+0</div></td>
+            <td class="hintcell">激活最后一个选项卡（请参见 <a href="cmds.html#cm_ActivateTabByIndex">cm_ActivateTabByIndex</a>）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">目录历史</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">转到历史记录中的上一个条目</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">转到历史记录中的下一个条目</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+F9</div></td>
+            <td class="hintcell">验证选定压缩包文件内容的完整性</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
+            <td class="hintcell">文件属性</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+Enter</div></td>
+            <td class="hintcell">计算所有文件夹的大小</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Del</div></td>
+            <td class="hintcell">清除文件/文件夹</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+V</div></td>
+            <td class="hintcell">显示当前正在进行的文件操作的窗口（如果有）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Z</div></td>
+            <td class="hintcell">在另一个面板中打开活动面板的目录（目标=源）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F1</div></td>
+            <td class="hintcell">列表视图</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F2</div></td>
+            <td class="hintcell">详细信息列视图</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F1</div></td>
+            <td class="hintcell">缩略图视图</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">按名称排序</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F4</div></td>
+            <td class="hintcell">按扩展名排序</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F5</div></td>
+            <td class="hintcell">按日期/时间排序</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F6</div></td>
+            <td class="hintcell">按大小排序</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+digit (1..9)</div></td>
+            <td class="hintcell">按索引打开驱动器（请参见 <a href="cmds.html#cm_OpenDriveByIndex">cm_OpenDriveByIndex</a>）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Enter</div></td>
+            <td class="hintcell">使用系统默认程序打开所选文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">转到活动面板中的下一个选项卡</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">转到活动面板中的上一个选项卡</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">全选</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+B</div></td>
+            <td class="hintcell">平面视图：将扫描活动面板当前目录中的所有子目录，并以一个列表显示所有文件。再次调用该命令将返回正常模式。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+B</div></td>
+            <td class="hintcell">平面视图：类似于 <kbd>Ctrl+B</kbd>，但仅适用于选定的文件和文件夹</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">复制到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">常用文件夹列表</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+H</div></td>
+            <td class="hintcell">调用目录历史下拉菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">计算占用空间（适用于选定的项目）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+M</div></td>
+            <td class="hintcell">批量重命名工具</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
+            <td class="hintcell">切换全屏模式控制台</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">将活动面板路径附加到命令行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Q</div></td>
+            <td class="hintcell">快速查看：在相对面板中显示所选项的内容（详细信息请参见 <a href="viewer.html">此处</a>）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">刷新当前面板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">快速搜索（请参见选项）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
+            <td class="hintcell">在活动面板中打开新选项卡</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+U</div></td>
+            <td class="hintcell">交换面板（左侧面板中的目录与右侧面板中的目录交换）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">从剪贴板粘贴</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">关闭当前选项卡</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">剪切到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">创建/编辑文件注释</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &uarr;</div></td>
+            <td class="hintcell">在新选项卡中打开所选文件夹</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &darr;</div></td>
+            <td class="hintcell">调用命令行历史下拉菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &#8592;</div></td>
+            <td class="hintcell">光标在右侧面板中，打开左侧面板中的相同目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &#8594;</div></td>
+            <td class="hintcell">光标在左侧面板中，打开右侧面板中的相同目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+\</div></td>
+            <td class="hintcell">转到根目录（在类Unix操作系统中为“/”，在Windows中为当前磁盘的根目录）。<br>
+              在压缩包中：转到此压缩包的根目录。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+.</div></td>
+            <td class="hintcell">显示/隐藏 隐藏和系统文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Enter</div></td>
+            <td class="hintcell">增加选定项到命令行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Enter</div></td>
+            <td class="hintcell">增加活动面板路径和选定项的连接到命令行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F7</div></td>
+            <td class="hintcell">新建搜索项</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td>
+            <td class="hintcell">树状视图面板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Home</div></td>
+            <td class="hintcell">转到主目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+A</div></td>
+            <td class="hintcell">显示所有打开选项卡的列表菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
+            <td class="hintcell">复制选定项的完整名称到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+X</div></td>
+            <td class="hintcell">复制选定项的名称到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+D</div></td>
+            <td class="hintcell">常用文件夹列表配置</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+H</div></td>
+            <td class="hintcell">将面板的排列设置为两个垂直面板（左/右）或两个水平面板（上/下）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
+            <td class="hintcell">1. 同 <kbd>Enter</kbd>.<br>
+              2. 打开目录/压缩包（也包括自解压缩的压缩包）。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgUp</div></td>
+            <td class="hintcell">同 <kbd>Backspace</kbd></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Num +</div></td>
+            <td class="hintcell">全选</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Num -</div></td>
+            <td class="hintcell">取消全选</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num +</div></td>
+            <td class="hintcell">扩展选择</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num -</div></td>
+            <td class="hintcell">缩小选择</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num *</div></td>
+            <td class="hintcell">反选</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Num +</div></td>
+            <td class="hintcell">选择当前目录中与聚焦文件具有相同扩展名的所有文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Num -</div></td>
+            <td class="hintcell">取消选择当前目录中与聚焦文件具有相同扩展名的所有文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">将焦点设置到命令行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
+            <td class="hintcell">显示文件和文件夹的上下文菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F12</div></td>
+            <td class="hintcell">显示所有内部命令的窗口</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
+            <td class="hintcell">在当前文件列表和树视图之间切换焦点（如果启用）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Enter</div></td>
+            <td class="hintcell">在终端中执行命令（在选项中选择）</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="shortcutname">Tab</div></td>
+            <td class="hintcell">在面板之间切换</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Enter</div></td>
+            <td class="hintcell">1. 光标在命令行中且不为空：执行命令。<br>
+              2. 光标在文件夹/压缩包上：打开文件夹/压缩包。<br>
+              3. 光标在可执行文件上：运行它。<br>
+              4. 光标在常规文件上：在关联程序中打开。<br>
+              5. 光标在归档中的文件上：显示打包文件的属性对话框，或从归档中解压文件并运行，或在关联程序中打开。<br>
+              6. 光标在校验和文件上：执行校验和验证。<br>
+              7. 光标在文件面板重命名时的编辑字段中：保存新名称。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Insert</div></td>
+            <td class="hintcell">选择文件或文件夹</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Backspace</div></td>
+            <td class="hintcell">转到上一级（父）目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Space</div></td>
+            <td class="hintcell">1. 在文件上 - 选择/取消选择项目。<br>
+              2. 在文件夹上 - 选择/取消选择项目并计算文件夹中占用的空间。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">alphanumeric keys</div></td>
+            <td class="hintcell">动作取决于<a href="configuration.html#ConfigKeys">设置</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Left/right arrows&larr;</div></td>
+            <td class="hintcell">转到上一级目录或转到选定目录（如果启用<a href="configuration.html#ConfigKeys">Lynx样式移动</a>且仅在完整模式下）。<br>
+              简洁或缩略图模式：水平移动光标到上一列/下一列或水平移动光标到上一缩略图/下一缩略图。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Right mouse button</div></td>
+            <td>显示带有可配置命令的弹出菜单（来自<a href="configuration.html#ConfigAssociations">文件关联</a>）</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dcopymove">3. 复制/移动对话框</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">复制/移动对话框</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">将任务添加到文件操作队列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F5, F6</div></td>
+            <td class="hintcell">在目标目录和文件名字段中切换选择（循环）：<br>
+              无扩展名的文件名&nbsp;&gt; 带扩展名的文件名&nbsp;&gt; 文件扩展名&nbsp;&gt; 路径&nbsp;&gt; 选择全部</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="editdesc">4. 编辑注释对话框</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">编辑注释对话框</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">保存描述</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="find">5. 搜索文件</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">搜索文件</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc</div></td>
+            <td class="hintcell">取消搜索并关闭窗口</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">查看（在“结果”页面上找到的文件）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">编辑（在“结果”页面上找到的文件）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7</div></td>
+            <td class="hintcell">启用按文件内容搜索并切换焦点</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">开始</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+1, Alt+F7</div></td>
+            <td class="hintcell">转到“标准”页面</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+2</div></td>
+            <td class="hintcell">转到“高级”页面</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+3</div></td>
+            <td class="hintcell">转到“插件”页面</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+4</div></td>
+            <td class="hintcell">转到“加载/保存”页面</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+5</div></td>
+            <td class="hintcell">转到“结果”页面</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">切换到下一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">切换到上一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F4</div></td>
+            <td class="hintcell">取消搜索，关闭并释放内存</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">上次搜索</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
+            <td class="hintcell">新建搜索</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+N</div></td>
+            <td class="hintcell">新建搜索（清除过滤器）</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mrename">6. 批量重命名工具</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">批量重命名工具</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc</div></td>
+            <td class="hintcell">关闭</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">显示预设列表</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">从文件加载名称</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">编辑名称</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">编辑当前新名称</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">重命名</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F10</div></td>
+            <td class="hintcell">配置</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F11</div></td>
+            <td class="hintcell">查看重命名日志文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F12</div></td>
+            <td class="hintcell">使用指定名称保存预设</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+0</div></td>
+            <td class="hintcell">加载最后一个预设</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+digit (1..9)</div></td>
+            <td class="hintcell">按索引加载预设：第1个、第2个等等</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F1</div></td>
+            <td class="hintcell">文件名：显示带有插件字段的子菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F1</div></td>
+            <td class="hintcell">扩展：显示带有插件字段的子菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F2</div></td>
+            <td class="hintcell">文件名：显示带有占位符的菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F2</div></td>
+            <td class="hintcell">扩展：显示带有占位符的菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">文件名：显示带有占位符的子菜单“名称”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F3</div></td>
+            <td class="hintcell">扩展：显示带有占位符的子菜单“名称”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F4</div></td>
+            <td class="hintcell">文件名：显示带有占位符的子菜单“扩展名”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F4</div></td>
+            <td class="hintcell">扩展：显示带有占位符的子菜单“扩展名”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F5</div></td>
+            <td class="hintcell">文件名：显示带有占位符的子菜单“日期”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F5</div></td>
+            <td class="hintcell">扩展：显示带有占位符的子菜单“日期”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F6</div></td>
+            <td class="hintcell">文件名：显示带有占位符的子菜单“时间”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F6</div></td>
+            <td class="hintcell">扩展：显示带有占位符的子菜单“时间”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F7</div></td>
+            <td class="hintcell">文件名：显示带有占位符的子菜单“计数器”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F7</div></td>
+            <td class="hintcell">扩展：显示带有占位符的子菜单“计数器”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+S</div></td>
+            <td class="hintcell">排序预设</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">删除预设</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+I</div></td>
+            <td class="hintcell">显示菜单“编辑器”</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">重置所有（返回默认状态）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">保存已修改的预设</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">显示预设菜单</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
+            <td class="hintcell">重命名预设</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="sync">7. 同步文件夹</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">同步文件夹</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">查看左侧</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">查看右侧</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">按内容比较文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">复制选中项（默认方向）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">复制选中项 -&gt;（从左到右）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">复制选中项 &lt;- (从右到左)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+M</div></td>
+            <td class="hintcell">取消选择</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">反向复制方向</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="viewer">8. 内部查看器</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">内部查看器</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Q (or with any combination Ctrl, Shift, Alt)</div></td>
+            <td class="hintcell">关闭</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">重新加载当前文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">显示/隐藏文本光标</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F7, Ctrl+F</div></td>
+            <td class="hintcell">查找文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">查找下一个</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">查找上一个</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
+            <td class="hintcell">全屏</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">全选</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">复制选中内容到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">转到指定行（仅在代码视图模式下）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">打印</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">撤销（仅在图像查看模式下）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">1</div></td>
+            <td class="hintcell">以文本形式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">2</div></td>
+            <td class="hintcell">以二进制形式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">3</div></td>
+            <td class="hintcell">以十六进制形式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">4</div></td>
+            <td class="hintcell">以十进制形式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">5</div></td>
+            <td class="hintcell">以书籍形式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">6</div></td>
+            <td class="hintcell">以图形形式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">7</div></td>
+            <td class="hintcell">使用插件显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">8</div></td>
+            <td class="hintcell">Office XML (DOCX 和 XLSX, ODT 和 ODS), 仅文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">9</div></td>
+            <td class="hintcell">以代码视图模式显示</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">A</div></td>
+            <td class="hintcell">更改编码：ANSI</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">S</div></td>
+            <td class="hintcell">更改编码：OEM</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">X</div></td>
+            <td class="hintcell">更改编码：UTF-16 LE</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Z</div></td>
+            <td class="hintcell">更改编码：UTF-8</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">C</div></td>
+            <td class="hintcell">图像：放置在窗口中心</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F</div></td>
+            <td class="hintcell">图像：拉伸图像</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">L</div></td>
+            <td class="hintcell">图像：仅拉伸大图像</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">N, Alt+ &#8594;</div></td>
+            <td class="hintcell">在多个文件中下一个文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">P, Alt+ &#8592;</div></td>
+            <td class="hintcell">在多个文件中上一个文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">W</div></td>
+            <td class="hintcell">换行/取消换行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num +</div></td>
+            <td class="hintcell">放大</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num -</div></td>
+            <td class="hintcell">缩小</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">`</div></td>
+            <td class="hintcell">显示/隐藏预览</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="editor">9. 内部编辑器</a></h2>
+        <p>某些热键不可配置！</p>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">内部编辑器</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Alt+X</div></td>
+            <td class="hintcell">退出</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2, Ctrl+S</div></td>
+            <td class="hintcell">保存</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
+            <td class="hintcell">查找文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">查找下一个</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">查找上一个</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Backspace</div></td>
+            <td class="hintcell">从左侧删除</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Backspace</div></td>
+            <td class="hintcell">按词从左侧删除</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Del</div></td>
+            <td class="hintcell">从右侧删除</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Home</div></td>
+            <td class="hintcell">移动光标到行首</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">End</div></td>
+            <td class="hintcell">移动光标到行尾</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">PgDn</div></td>
+            <td class="hintcell">按页向下滚动内容</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">PgUp</div></td>
+            <td class="hintcell">按页向上滚动内容</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Insert</div></td>
+            <td class="hintcell">切换插入/覆盖模式</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Backspace</div></td>
+            <td class="hintcell">撤销</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+Backspace</div></td>
+            <td class="hintcell">重做</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+digit (0..9)</div></td>
+            <td class="hintcell">转到书签</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+digit (0..9)</div></td>
+            <td class="hintcell">设置书签</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&uarr;</div></td>
+            <td class="hintcell">向上滚动内容，同时移动文本光标：光标将保持在编辑器窗口中最低可见行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&darr;</div></td>
+            <td class="hintcell">向下滚动内容，同时移动文本光标：光标将保持在编辑器窗口中最高可见行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&#8592;</div></td>
+            <td class="hintcell">移动光标到上一个单词</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&#8594;</div></td>
+            <td class="hintcell">移动光标到下一个单词</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Home</div></td>
+            <td class="hintcell">移动光标到文件开头</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+End</div></td>
+            <td class="hintcell">移动光标到文件结尾</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
+            <td class="hintcell">移动光标到编辑器窗口中最低可见行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgUp</div></td>
+            <td class="hintcell">移动光标到编辑器窗口中最高可见行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+&#8592;</div></td>
+            <td class="hintcell">按词向左选择</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+&#8594;</div></td>
+            <td class="hintcell">按词向右选择</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Home</div></td>
+            <td class="hintcell">选择文本到文件开头</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+End</div></td>
+            <td class="hintcell">选择文本到文件结尾</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+PgDn</div></td>
+            <td class="hintcell">选择文本到编辑器窗口中最低可见行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+PgUp</div></td>
+            <td class="hintcell">选择文本到编辑器窗口中最高可见行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">全选</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">复制选中文本到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">转到指定行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
+            <td class="hintcell">创建新文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
+            <td class="hintcell">打开文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">替换文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
+            <td class="hintcell">按词向右删除</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">粘贴剪贴板中的文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">剪切选中文本到剪贴板</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Y</div></td>
+            <td class="hintcell">删除行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">撤销</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Z</div></td>
+            <td class="hintcell">重做</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
+            <td class="hintcell">列选择模式</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+L</div></td>
+            <td class="hintcell">行选择模式</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+N</div></td>
+            <td class="hintcell">普通选择模式</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+B</div></td>
+            <td class="hintcell">移动光标到匹配的括号（"()", "[]" 或 "{}"）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+I</div></td>
+            <td class="hintcell">为一行或一块文本添加缩进</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+U</div></td>
+            <td class="hintcell">减少一行或一块文本的缩进</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Y</div></td>
+            <td class="hintcell">删除光标到行尾的文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Insert</div></td>
+            <td class="hintcell">复制</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&uarr;</div></td>
+            <td class="hintcell">扩展选择到上一行的相同列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&darr;</div></td>
+            <td class="hintcell">扩展选择到下一行的相同列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&#8592;</div></td>
+            <td class="hintcell">扩展选择到左侧</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&#8594;</div></td>
+            <td class="hintcell">扩展选择到右侧</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Home</div></td>
+            <td class="hintcell">扩展选择到行首</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+End</div></td>
+            <td class="hintcell">扩展选择到行尾</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+PgDn</div></td>
+            <td class="hintcell">扩展选择到下一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+PgUp</div></td>
+            <td class="hintcell">扩展选择到上一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Del</div></td>
+            <td class="hintcell">删除</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Insert</div></td>
+            <td class="hintcell">粘贴</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Tab</div></td>
+            <td class="hintcell">1. 插入一个 Tab 字符。<br>
+              2. 如果启用了 <a href="configuration.html#ConfigToolsEditor">Tab 缩进块</a> 并且选中了文本：为一行或一块文本添加缩进。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
+            <td class="hintcell">如果启用了 <a href="configuration.html#ConfigToolsEditor">Tab 缩进块</a> 并且选中了文本：为一行或一块文本减少缩进。</td>
+          </tr>
+        </table>
+        <p>在打开的文档中，您可以在文档中的任何位置粘贴所选文本的副本，而无需使用剪贴板：只需选择文本，将鼠标光标移动到所需位置，然后按下鼠标滚轮。</p>
+        <p>内部编辑器支持多光标模式：使用 <kbd>Alt</kbd> 键的鼠标选择，<kbd>Alt+Shift+click</kbd> 或 <kbd>Alt+Shift+arrows</kbd> 进行列编辑，<kbd>Ctrl+Shift+click</kbd> 进行多光标编辑。</p>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">文本列选择热键</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&uarr;</div></td>
+            <td class="hintcell">向上选择列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&darr;</div></td>
+            <td class="hintcell">向下选择列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&#8592;</div></td>
+            <td class="hintcell">向左选择列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&#8594;</div></td>
+            <td class="hintcell">向右选择列</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+Home</div></td>
+            <td class="hintcell">列选择到行首</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+End</div></td>
+            <td class="hintcell">列选择到行尾</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+PgDn</div></td>
+            <td class="hintcell">列选择到下一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+PgUp</div></td>
+            <td class="hintcell">列选择到上一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+Home</div></td>
+            <td class="hintcell">列选择到文件开头</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+End</div></td>
+            <td class="hintcell">列选择到文件结尾</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+PgDn</div></td>
+            <td class="hintcell">列选择到下一页</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+PgUp</div></td>
+            <td class="hintcell">列选择到上一页</td>
+          </tr>
+        </table>
+        <p>注意：如果选中了多行内容，缩进更改命令将无法正确工作，这是所使用组件的限制。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="differ">10. 比较工具</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">比较工具</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
+            <td class="hintcell">查找文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">查找下一个</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">查找上一个</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Home</div></td>
+            <td class="hintcell">第一个差异</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+End</div></td>
+            <td class="hintcell">最后一个差异</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &uarr;</div></td>
+            <td class="hintcell">上一个差异</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">下一个差异</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">向左复制块</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">向右复制块</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+X</div></td>
+            <td class="hintcell">关闭</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">转到指定行</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">重新加载文件</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="options">11. 配置</a></h2>
+        <p>在配置页面中，有些页面在配置过程中有许多可能的操作，因此一些快捷键可以帮助我们快速完成所需的操作。</p>
+        <p>这些快捷键是不可重新配置的，但至少它们是默认存在的，以下表格将列出它们。</p>
+        <p><kbd>F1</kbd> 键将打开 Double Commander 帮助的相应部分。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+
+      <div>
+        <h2><a name="hotkeys">11.1. 按键&nbsp;&gt; 热键</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">按键&nbsp;&gt; 热键</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr><td class="varcell"><div class="shortcutname">F4</div></td><td class="hintcell">编辑光标下命令的热键</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F5</div></td><td class="hintcell">复制当前热键设置</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F7</div></td><td class="hintcell">为光标下命令添加热键</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F8</div></td><td class="hintcell">删除当前热键设置</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F9</div></td><td class="hintcell">弹出与热键文件相关的菜单</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Del</div></td><td class="hintcell">删除光标下命令的热键</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Num +</div></td><td class="hintcell">下一个类别</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Num -</div></td><td class="hintcell">上一个类别</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F3</div></td><td class="hintcell">按命令名称对命令列表进行排序</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F4</div></td><td class="hintcell">按热键对命令列表进行排序（分组）</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F5</div></td><td class="hintcell">按热键对命令列表进行排序（每行一个）</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+S</div></td><td class="hintcell">保存当前热键设置</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+F6</div></td><td class="hintcell">重命名当前热键设置</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+Ctrl+R</div></td><td class="hintcell">恢复 DC 默认设置</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="favtabs">11.2. 收藏夹标签</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">收藏夹标签</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr><td class="varcell"><div class="shortcutname">F2</div></td><td class="hintcell">仅对单个项目组进行排序</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F6</div></td><td class="hintcell">重命名</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F7</div></td><td class="hintcell">添加子菜单</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+F7</div></td><td class="hintcell">插入子菜单</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F10</div></td><td class="hintcell">添加分隔符</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+F10</div></td><td class="hintcell">插入分隔符</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Del</div></td><td class="hintcell">删除选定项目</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+X</div></td><td class="hintcell">剪切</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+V</div></td><td class="hintcell">粘贴</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dirhotlist">11.3. 常用文件夹列表</a></h2>
+        <p>为了帮助我们配置我们的 <a href="directoryhotlist.html">常用文件夹列表</a>，我们有很多快捷键。</p>
+        <p>这使我们能够保持对底部三个框的关注，以输入我们的名称和路径，并且仍然能够在不退出文本框的情况下移动到常用列表树中。</p>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">常用文件夹列表</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">按键</th>
+            <th class="categorydesccolumn">动作</th>
+          </tr>
+          <tr><td class="varcell"><div class="shortcutname">F2</div></td><td class="hintcell">将焦点移动到常用文件夹列表树</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F5</div></td><td class="hintcell">在当前位置插入当前选定条目的副本</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F7</div></td><td class="hintcell">在当前位置插入子菜单</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F8</div></td><td class="hintcell">删除选定位置的当前条目</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F9</div></td><td class="hintcell">在当前位置插入一个我们将要输入的目录条目</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F10</div></td><td class="hintcell">在当前位置插入一条水平分隔线</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F5</div></td><td class="hintcell">在当前位置下方添加当前选定条目的副本</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F7</div></td><td class="hintcell">在当前位置下方插入子菜单</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F8</div></td><td class="hintcell">删除选定元素，但当遇到子菜单时，将删除子菜单入口点，但所有内容将不会被删除，并将向根目录移动一级</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F9</div></td><td class="hintcell">在当前位置下方插入一个我们将要输入的目录条目</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F10</div></td><td class="hintcell">在当前位置下方插入一条水平分隔线</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Home</div></td><td class="hintcell">将选择设置为列表的第一个元素</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+End</div></td><td class="hintcell">将选择设置为最后一个可显示的条目，而无需打开新分支</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &#8592;</div></td><td class="hintcell">如果当前选择是子菜单条目，则将关闭该分支</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &#8594;</div></td><td class="hintcell">如果当前选择是子菜单条目，则将打开该分支</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &uarr;</div></td><td class="hintcell">将当前选择移动到当前位置上方</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &darr;</div></td><td class="hintcell">将当前选择移动到当前位置下方</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td><td class="hintcell">删除选定元素，但当遇到子菜单时，将删除整个子菜单</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+Alt+F8</div></td><td class="hintcell">删除所有元素，无论是否被选中</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+P</div></td><td class="hintcell">将允许编辑当前选择的路径，使其相对于某个内容或许多其他提供的选项</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+T</div></td><td class="hintcell">将允许编辑当前选择的路径，使其相对于某个内容或许多其他提供的选项</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+V</div></td><td class="hintcell">将擦除刚刚在临时列表中放置的条目，并将它们粘贴到当前的新位置</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+X</div></td><td class="hintcell">将当前选择保存到临时列表中，以便稍后删除并放置到其他位置</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">&uarr;</div></td><td class="hintcell">将选择设置为当前条目上方的条目</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">&darr;</div></td><td class="hintcell">将选择设置为当前条目下方的条目</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="configuration.html">上一页</a> | <a title="Next page" href="copymove.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

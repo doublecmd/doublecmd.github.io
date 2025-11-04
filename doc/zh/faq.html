@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 常见问题 (FAQ)</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="about.html">上一页</a> | <a title="Next page" href="help.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>1.2. 常见问题 (FAQ)</h1>
+      </div>
+
+      <div>
+        <h2>内容</h2>
+        <dl>
+          <dt><a name="common">1. 常见问题</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#whatisit">什么是 Double Commander？</a></dt>
+              <dt>1.2. <a href="#whatsnew">此版本有什么新功能？</a></dt>
+              <dt>1.3. <a href="#linux">这是 Linux 的 Total Commander 吗？</a></dt>
+              <dt>1.4. <a href="#wincmd">这个程序和我最喜欢的文件管理器（Total Commander）有什么区别？</a></dt>
+              <dt>1.5. <a href="#link">我如何联系 Double Commander 的开发者？</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="tux">2. GNU/Linux 相关的问题</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#version">我该下载哪个版本？</a></dt>
+              <dt>2.2. <a href="#repo">项目仓库在哪里？</a></dt>
+              <dt>2.3. <a href="#plugs">Total Commander 的插件无法使用？</a></dt>
+              <dt>2.4. <a href="#gvfs">我可以像在 Nautilus 或 Thunar 中一样访问网络资源吗？</a></dt>
+              <dt>2.5. <a href="#tray">点击托盘图标会显示“还原”和“退出”项目的菜单，而不是还原窗口（仅限 GTK2）。</a></dt>
+              <dt>2.6. <a href="#systheme">当切换系统主题时，程序的外观为什么不改变或仅部分改变？我必须关闭程序并重新打开它。</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="interface">3. 界面配置</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#color">我如何更改面板的颜色设置？</a></dt>
+              <dt>3.2. <a href="#colorbuttons">颜色设置中的<kbd>R</kbd> 和 <kbd>All</kbd> 是什么意思？</a></dt>
+              <dt>3.3. <a href="#columns">某列中的文本覆盖了另一列的文本！</a></dt>
+              <dt>3.4. <a href="#icons">如何将我自己的图标与某些文件类型关联？</a></dt>
+              <dt>3.5. <a href="#splitter">如何在按钮面板上创建分隔条？</a></dt>
+              <dt>3.6. <a href="#theme">DC 是否有其他图标主题？</a></dt>
+              <dt>3.7. <a href="#cs_size">如何使功能键和地址栏更大？</a></dt>
+              <dt>3.8. <a href="#height">文件面板：如何更改元素（字符串）的高度及其间隔？</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="navigation">4. 控制和导航相关的问题</a></dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#cursor_down">是否可以在使用<kbd>空格</kbd>键选择后自动向下移动光标一行？</a></dt>
+              <dt>4.2. <a href="#queue">是否有创建文件操作队列的能力？</a></dt>
+              <dt>4.3. <a href="#hotkeys_default"><kbd>Ctrl+A</kbd> 无法使用，如何启用它？</a></dt>
+              <dt>4.4. <a href="#mouse_unmark">当目录中所有文件都被选中时，无法使用鼠标取消选择它们。</a></dt>
+              <dt>4.5. <a href="#context_menu_create">如何在此程序中创建我自己的上下文菜单？</a></dt>
+              <dt>4.6. <a href="#context_menu_edit">如何自定义上下文菜单，例如，添加“打开方式”项？</a></dt>
+              <dt>4.7. <a href="#auto_extract">如何自动解压并运行打开的压缩文件中的文件？每次都在压缩文件的属性窗口中使用“解压并执行”按钮很不方便。</a></dt>
+              <dt>4.8. <a href="#descript_ion">当文件从一个目录复制/移动到另一个目录时，注释（通过 descript.ion 文件）可以被复制/移动吗？</a></dt>
+              <dt>4.9. <a href="#set_property">在某些情况下，当我复制或移动文件时，我看到警告“无法为 xxx 设置 [属性、日期/时间、所有者/组或权限]”。我希望 DC 默认使用“跳过”/“全部跳过”操作。我该如何做到这一点？</a></dt>
+              <dt>4.10. <a href="#admin_shares">为什么程序不显示管理员共享的列表？</a></dt>
+              <dt>4.11. <a href="#hotkey_controls">我将左右箭头分配给在目录历史中前后导航，但现在在重命名文件时无法使用它们。如何解决？</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="viewer">5. 内部查看器(<kbd>F3</kbd>) 和编辑器 (<kbd>F4</kbd>)的问题</a></dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#f3_compiz">启用 Compiz 时，编辑器和浏览器窗口会出现在随机位置。</a></dt>
+              <dt>5.2. <a href="#f3_font">字体看起来很奇怪（水平字符相互覆盖等）或选择无法正常工作。</a></dt>
+              <dt>5.3. <a href="#f3_jpg">查看器无法处理少数图像，但可以处理大多数图像。</a></dt>
+              <dt>5.4. <a href="#f3_hscroll">在某些文本文件中，行会超出窗口的边缘。</a></dt>
+              <dt>5.5. <a href="#f4_colmode">您能否添加列编辑功能（类似于 Notepad++、UltraEdit 等）？</a></dt>
+              <dt>5.6. <a href="#f34_regutf8">我该如何使用正则表达式在 UTF-8 中进行搜索？</a></dt>
+              <dt>5.7. <a href="#f4_syntax">如何更改内部编辑器的语法高亮方案或添加新的方案？</a></dt>
+              <dt>5.8. <a href="#f4_open">如何在内部查看器中从手动指定的位置打开特定文件？</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="fv">6. 文件面板相关的问题</a></dt>
+          <dd>
+            <dl>
+              <dt>6.1. <a href="#fv_datetime">我在列表中没找到适合文件面板的日期格式！我该如何添加自己的格式？</a></dt>
+              <dt>6.2. <a href="#fn_ext">我想在“名称”列中看到带有扩展名的文件名，可以做到吗？</a></dt>
+              <dt>6.3. <a href="#folder_sort">能否实现点击列标题（“日期”、“大小”等）对文件夹进行排序？</a></dt>
+              <dt>6.4. <a href="#slinkt">如何查看符号链接的目标对象？</a></dt>
+              <dt>6.5. <a href="#parent">如何在文件列表中隐藏父目录的“..”项？</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="plugins">7. 插件</a></dt>
+          <dd>
+            <dl>
+              <dt>7.1. <a href="#not_valid">“这不是一个有效的插件！”消息是什么意思？</a></dt>
+              <dt>7.2. <a href="#ftps_reuse">ftp.wfx: 我尝试使用 FTPS（FTP+SSL），但收到“522 SSL 连接失败：需要会话重用”的错误。</a></dt>
+              <dt>7.3. <a href="#ftp_openssl">ftp.wfx：与某些服务器不兼容！连接后，我收到错误：“104，由对等方重置连接”和“CSOCK 错误：由对等方重置连接”或“10060，连接超时”和“CSOCK 错误：连接超时”。</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2>1. 常见问题</h2>
+        <p class="bold"><a name="whatisit">问：什么是 Double Commander？</a></p>
+        <p><span class="bold">答：</span>Double Commander 是一个跨平台的双面板文件管理器。详细信息请见 <a href="about.html">此处</a>。</p>
+        <br>
+
+        <p class="bold"><a name="whatsnew">问：此版本有什么新功能？</a></p>
+        <p><span class="bold">答：</span>变更列表可以在 <a href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki 页面</a> 找到。
+          但该项目现在正在开发中，因此稍后的 <a href="https://doublecmd.sourceforge.io/site/eng/snapshots.php" target="_blank">夜间构建</a> 包含许多新功能和改进。</p>
+        <br>
+
+        <p class="bold"><a name="linux">问：这是 Linux 的 Total Commander 吗？</a></p>
+        <p><span class="bold">答：</span>不，这是来自其他开发人员的另一个程序。它现在支持 Windows、GNU/Linux 和 macOS，Double Commander 也可以在 FreeBSD Ports 集合中找到。</p>
+        <br>
+
+        <p class="bold"><a name="wincmd">问：这个程序和我最喜欢的文件管理器（Total Commander）有什么区别？</a></p>
+        <p><span class="bold">答：</span>本项目的目标是创建一个在操作上接近 TC 的程序，并通过插件和配置文件实现最大兼容性。
+          然而，Double Commander 具有一些重要优势：它是免费的，支持不同的操作系统，并且是开源的。</p>
+        <br>
+
+        <p class="bold"><a name="link">问：我如何联系 Double Commander 的开发者？</a></p>
+        <p><span class="bold">答：</span>项目的 <a href="https://doublecmd.h1n.ru/" target="_blank">官方论坛</a> 或 <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>。<br>
+          确保您使用的是最新版本的程序，并且在报告错误或请求新功能之前，检查开发（alpha）版本是个好主意。
+          另请参阅 <a title="Creating a new issue" href="https://github.com/doublecmd/doublecmd/issues/117" target="_blank">#117</a>。<br>
+          注意：运行 Double Commander 并接收调试消息可能会很有用，请参阅 <a href="commandline.html">--debug-log</a> 的说明。该应用程序还允许将消息窗口的内容复制到剪贴板，只需按 <kbd>Ctrl+C</kbd>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2>2. GNU/Linux 相关的问题</h2>
+        <p class="bold"><a name="version">问：我该下载哪个版本？</a></p>
+        <p><span class="bold">答：</span>如果您使用的是 KDE、LXQt 或 Fly&nbsp;&ndash; 下载 Qt 版本；在其他情况下（Cinnamon、GNOME、LXDE、MATE 或 Xfce）下载 GTK 工具包版本。但这不是严格的规则，还有一些方法可以使 Qt 应用程序在 GTK 环境中看起来或多或少相似，反之亦然。<br>
+          关于一些细节的几点说明：<br>
+          -&nbsp;GTK2 库不支持 Wayland，因此将在 Wayland 会话中使用 Xwayland 来运行应用程序。如果您需要原生 Wayland 支持，请尝试 Qt 版本（Qt5 或 Qt6）。<br>
+          -&nbsp;如果您使用的缩放比例大于 1（HiDPI 或大屏幕），那么 Qt 版本（Qt5 或 Qt6）可能看起来更可接受，请检查一下。</p>
+        <br>
+
+        <p class="bold"><a name="repo">问：项目仓库在哪里？</a></p>
+        <p><span class="bold">答：</span>一些 GNU/Linux 发行版的仓库：</p>
+        <ul>
+          <li>
+            <p>发布版:
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              或
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
+            </p>
+          </li>
+          <li>
+            <p>alpha ("夜间") 构建:
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              或
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
+            </p>
+          </li>
+        </ul>
+        <p>也提供便携式版本（详情请见<a href="help.html#usage">此处</a>)）。</p>
+        <br>
+
+        <p class="bold"><a name="plugs">问：Total Commander 的插件无法使用？</a></p>
+        <p><span class="bold">答：</span>它们可以工作，但并非所有插件都可以。为 Windows 编译的 TC 插件只能与 Windows 版本的 Double Commander 一起使用。
+          但是，如果插件具有开源代码，您可以尝试为 GNU/Linux 构建它们（或者也许请插件开发者这样做 :)）。<br>
+          还有一些适用于 Linux 的插件和跨平台插件（请参阅 <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins" target="_blank">Wiki</a>、仓库 <a href="https://github.com/doublecmd/plugins" target="_blank">插件</a>、<a href="https://github.com/j2969719/doublecmd-plugins" target="_blank">doublecmd-插件</a> 及其他），
+          以及官方论坛上的几个主题（例如， <a href="https://doublecmd.h1n.ru/viewtopic.php?f=8&amp;t=4106" target="_blank">一</a>、 <a href="https://doublecmd.h1n.ru/viewtopic.php?f=8&amp;t=3333" target="_blank">二</a>）。</p>
+        <br>
+
+        <p class="bold"><a name="gvfs">问：我可以像在 Nautilus 或 Thunar 中一样访问网络资源吗？</a></p>
+        <p><span class="bold">答：</span>是的，DC 可以使用 GVfs。GVfs 支持多种协议：NFS、SMB、FTP、SFTP、WebDAV、MTP、手机（Windows、Android、Apple）、媒体播放器等。</p>
+        <p>首先，必须安装软件包 <tt>gvfs</tt>、<tt>gvfs-backends</tt> 和 <tt>gvfs-fuse</tt>。
+          请记住，一些发行版没有软件包 <tt>gvfs-backends</tt> 和 <tt>gvfs-fuse</tt>，
+          因为它们是软件包 <tt>gvfs</tt> 的一部分，或者可能有几个名称为 <tt>gvfs-backends-*</tt> 或 <tt>gvfs-*</tt> 的软件包。</p>
+        <p>现在在地址栏中插入 GVfs 路径：右键单击地址栏以编辑它（或调用内部命令 <tt>cm_EditPath</tt>）。</p>
+        <p>例如，访问</p>
+        <ul>
+          <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
+          <li>SMB: <code>smb://servername/sharename/</code></li>
+          <li>WebDAV: <code>davs://servername</code></li>
+        </ul>
+        <p>支持协议的列表，请参阅 GVfs 文档。</p>
+        <p>嗯，要访问 FTP（包括 SSH+SCP）可以使用 <a href="plugins.html#ftp.wfx">FTP 插件</a>。</p>
+        <br>
+
+        <p class="bold"><a name="tray">问：点击托盘图标时显示“还原”和“退出”项目的菜单，而不是还原窗口（仅限 GTK2）。</a></p>
+        <p><span class="bold">答：</span>添加一个通用系统托盘支持库：例如，在 Debian/Ubuntu 中使用软件包 <tt>libappindicator1</tt>，或在 Arch Linux 中使用 <tt>libappindicator-gtk2</tt>。</p>
+        <br>
+
+        <p class="bold"><a name="systheme">问：当切换系统主题时，程序的外观为什么不改变或仅部分改变？我必须关闭程序并重新打开它。</a></p>
+        <p><span class="bold">答：</span>GTK2 版本？这是 Lazarus 的一个特性，在这种情况下，它不会更新 GTK2 下的控件颜色。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2>3. 界面配置</h2>
+        <p class="bold"><a name="color">问：我如何更改面板的颜色设置？</a></p>
+        <p><span class="bold">答：</span>要更改颜色，您必须转到配置&nbsp;&gt; 选项...&nbsp;&gt; 颜色&nbsp;&gt; 文件面板。
+          这些是两个面板的全局设置，可以被覆盖，请参阅配置&nbsp;&gt; 选项...&nbsp;&gt; 文件视图&nbsp;&gt; 列&nbsp;&gt; 自定义列。</p>
+        <br>
+
+        <p class="bold"><a name="colorbuttons">问：颜色设置中的<kbd>R</kbd> 和 <kbd>All</kbd> 是什么意思？</a></p>
+        <p><span class="bold">答：</span>它们的含义如下：</p>
+        <ul>
+          <li><p><kbd>R</kbd>&nbsp;&ndash; 恢复默认颜色。</p></li>
+          <li><p><kbd>All</kbd>&nbsp;&ndash; 将所选颜色应用于所有列。</p></li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="columns">问：某列中的一些文本覆盖了另一列的文本！</a></p>
+        <p><span class="bold">答：</span>配置&nbsp;&gt; 选项...&nbsp;&gt; 文件视图&nbsp;&gt; 列&nbsp;&gt; 勾选“按列宽裁剪文本”。</p>
+        <br>
+
+        <p class="bold"><a name="icons">问：如何将我自己的图标与某些文件类型关联？</a></p>
+        <p><span class="bold">答：</span>您应该执行以下操作：配置&nbsp;&gt; 选项...&nbsp;&gt; <a href="configuration.html#ConfigAssociations">文件关联</a>。</p>
+        <br>
+
+        <p class="bold"><a name="splitter">问：如何在按钮面板上创建分隔条？</a></p>
+        <p><span class="bold">答：</span>从类别 <a href="toolbar.html#catseparator">分隔符</a> 中插入新的按钮。</p>
+        <br>
+
+        <p class="bold"><a name="theme">问：DC 是否有其他图标主题？</a></p>
+        <p><span class="bold">答：</span>目前我们只知道一个小主题 <a href="https://doublecmd.h1n.ru/viewtopic.php?f=5&amp;t=3658" target="_blank">DoubleMac</a>，但安装说明已过时（见下文）。<br>
+          您可以自己制作图标主题，这很简单（我们将使用名称“ MyDCTheme”作为示例）。</p>
+        <p><span class="uline"><i>制作方法：</i></span><br>
+          -&nbsp;打开 DC 文件夹并查看“pixmaps/dctheme”的目录结构；<br>
+          -&nbsp;将“dctheme”复制一份，命名为“mydctheme”；<br>
+          -&nbsp;打开 "mydctheme/index.theme" 并更改主题名称：将 "Name=DCTheme" 替换为 "Name=MyDCTheme"；<br>
+          -&nbsp;现在替换图标。</p>
+        <p><span class="uline"><i>注意：</i></span><br>
+          1. 不要使用默认图标替换！您的图标将在 DC 更新后被替换。<br>
+          2. 如果您想保留一些现有的默认图标，只需在“mydctheme”中删除它们，DC 将使用默认主题中的图标。<br>
+          3. 一些非标准图标尺寸（如 40x40、60x60 等）用于 HiDPI 显示器。<br>
+          4. 另请参阅 <a href="configxml.html">&lt;自定义图标&gt;</a>。</p>
+        <p><span class="uline"><i>如何安装：</i></span></p>
+        <p>1. 便携版<br>
+          将“mydctheme”文件夹复制（或移动）到靠近 <tt>doublecmd.exe</tt> 的“pixmaps”文件夹中，重新启动 DC，转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 图标&nbsp;&gt; 图标主题，选择您的主题并再次重新启动 DC。</p>
+        <p>2. 安装版<br>
+          转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 配置&nbsp;&gt; 目录&nbsp;&gt; 图标主题：在这里您将看到可能的目录列表。<br>
+          不要使用 <i>/usr/share/doublecmd/pixmaps</i>、<i>C:\Program Files\Double Commander\pixmaps</i> 或其他系统目录：这需要 root/admin 权限，这也会干扰 Linux 中软件包管理器的工作或 Windows 中 DC 安装程序的工作。
+          DC 通常建议以下附加路径（除了靠近 <tt>doublecmd.exe</tt> 的“pixmaps”文件夹）：</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;用户名&gt;\Local Settings\doublecmd\pixmaps</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;用户名&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+          <li>类 Unix 操作系统: <i>/home/&lt;用户名&gt;/.local/share/doublecmd/pixmaps</i></li>
+        </ul>
+        <p>如果目录不存在，请创建它。<br>
+          现在重新启动 DC，转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 图标&nbsp;&gt; 图标主题，选择您的主题并再次重新启动 DC。</p>
+        <br>
+
+        <p class="bold"><a name="cs_size">问：如何使功能键和地址栏更大？</a></p>
+        <p><span class="bold">答：</span>大小取决于字体大小，存在三种方式：</p>
+        <p>1. 简单快速：您可以使用 <kbd>Ctrl</kbd>+鼠标滚轮，它适用于以下界面元素或 DC 的部分：<br>
+          -&nbsp;左右面板中的文件列表；<br>
+          -&nbsp;当前目录（地址）栏；<br>
+          -&nbsp;功能键按钮栏；<br>
+          -&nbsp;树状视图菜单；<br>
+          -&nbsp;搜索文件对话框中的搜索结果；<br>
+          -&nbsp;内部编辑器；<br>
+          -&nbsp;内部查看器（如果查看器显示文本，则此操作将更改字体大小，如果显示图像，则该操作将作为缩放命令工作）。</p>
+        <p>2. 转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 字体。<br>
+          注意：所有可能的选项仅在 1.0.0+ 版本中可用，对于 0.9.x 及更早版本，请参阅第三项。</p>
+        <p>3. 关闭 DC&nbsp;&gt; 打开 <tt>doublecmd.xml</tt>&nbsp;&gt; 找到标签 <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> 并手动更改界面元素的 <code>&lt;Size&gt;</code>。</p>
+        <br>
+
+        <p class="bold"><a name="height">问：文件面板：如何更改元素（字符串）的高度及其间隔？</a></p>
+        <p><span class="bold">答：</span>视图取决于以下参数：</p>
+        <ul>
+          <li>配置 &gt; 选项... &gt; 字体 &gt; 主要字体</li>
+          <li>配置 &gt; 选项... &gt; 图标 &gt; 图标大小 &gt; 文件面板</li>
+          <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (来自 <code>&lt;FilesViews&gt;</code>)</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2>4. 控制和导航相关的问题</h2>
+        <p class="bold"><a name="cursor_down">问：是否可以在使用 <kbd>空格</kbd> 键选择后自动将光标向下移动一行？</a></p>
+        <p><span class="bold">答：</span>您应该执行以下操作：配置&nbsp;&gt; 选项...&nbsp;&gt; 文件视图&nbsp;&gt; 文件视图扩展&nbsp;&gt; 使用空格键选择文件时，自动移动到下一文件（相当于插入键）。</p>
+        <br>
+
+        <p class="bold"><a name="queue">问：是否有创建文件操作队列的能力？</a></p>
+        <p><span class="bold">答：</span>文件操作队列在 0.4.6 alpha 版本中实现，并添加到下一个稳定版本中。</p>
+        <br>
+
+        <p class="bold"><a name="hotkeys_default">问：<kbd>Ctrl+A</kbd> 无法使用，如何启用它？</a></p>
+        <p><span class="bold">答：</span>您应该执行以下操作：配置&nbsp;&gt; 选项...&nbsp;&gt; 按键&nbsp;&gt; 热键&nbsp;&gt; 在“主要”类别中，滚动以查看命令 <tt>cm_MarkMarkAll</tt> 并为其设置 <kbd>Ctrl+A</kbd> 快捷键。</p>
+        <br>
+
+        <p class="bold"><a name="mouse_unmark">问：当目录中所有文件都被选中时，无法使用鼠标取消选择它们。</a></p>
+        <p><span class="bold">答：</span>有几种方法：</p>
+        <ul>
+          <li>使用文件列表开头的"..."项（但如果文件列表很长，则需要滚动以查看此项）。</li>
+          <li>使用主菜单：标记&nbsp;&gt; 全部不选。</li>
+          <li>在工具栏上添加“全部不选”按钮（内部命令 <tt>cm_MarkUnmarkAll</tt>）。</li>
+          <li>转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 鼠标&nbsp;&gt; 用鼠标选择&nbsp;&gt; 启用“通过单击图标”：第一次单击将取消标记一个文件，现在单击其名称。（如何在缩略图视图中使用，请参阅此参数的<a href="configuration.html#ConfigMouse">描述</a>。）</li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="context_menu_create">问：如何在此程序中创建我自己的上下文菜单？</a></p>
+        <p><span class="bold">答：</span>将按钮添加到“菜单”类别的工具栏中。有关示例，请参阅<a href="toolbar.html#catmenu">本节</a>。</p>
+        <br>
+
+        <p class="bold"><a name="context_menu_edit">问：如何自定义上下文菜单，例如，添加“打开方式”项？</a></p>
+        <p><span class="bold">答：</span>这可以集成到 Double Commander 中；然而，很容易将命令添加到上下文菜单的“操作”子菜单中。以下是如何以 root 权限打开任何目录的示例：</p>
+        <ol>
+          <li>在文件类型下，点击添加，然后在弹出窗口中输入，例如<code>Dir</code>。</li>
+          <li>在扩展名下，点击添加，然后在弹出窗口中输入，例如<code>folder</code>。</li>
+          <li>在操作下，点击添加，然后在“操作：编辑”行下方，输入所需的操作，例如<code>Open as root</code></li>
+          <li>在命令编辑行中，输入所需的命令：例如<code>pkexec doublecmd %p</code>。</li>
+          <li>完成后，只需右键单击任何文件夹，选择“Open as root”，然后输入 root 密码。:)</li>
+        </ol>
+        <br>
+
+        <p class="bold"><a name="auto_extract">问：如何自动解压并运行打开的压缩文件中的文件？每次都在压缩文件的属性窗口中使用“解压并执行”按钮很不方便。</a></p>
+        <p><span class="bold">答：</span>请参阅<a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>的描述。</p>
+        <br>
+
+        <p class="bold"><a name="descript_ion">问：当文件从一个目录复制/移动到另一个目录时，注释（通过 descript.ion 文件）可以被复制/移动吗？</a></p>
+        <p><span class="bold">答：</span>是的，可以实现：转到配置&nbsp;&gt; 选项...&nbsp;&gt; 文件操作，并启用“处理文件/文件夹的注释”。</p>
+        <br>
+
+        <p class="bold"><a name="set_property">问：在某些情况下，当我复制或移动文件时，我看到警告“无法为 xxx 设置 [属性、日期/时间、所有者/组或权限]”。我希望 DC 默认使用“跳过”/“全部跳过”操作。我该如何做到这一点？</a></p>
+        <p><span class="bold">答：</span>运行复制或移动操作，并将<a href="copymove.html#confirmation">无法设置属性时</a>选项的值更改为“忽略错误”。“保存为默认选项”按钮将允许在后续操作中使用此值。</p>
+        <br>
+
+        <p class="bold"><a name="admin_shares">问：为什么程序不显示管理员共享的列表？</a></p>
+        <p><span class="bold">答：</span>管理共享是隐藏的网络共享，请确保您已启用隐藏文件和文件夹的显示（使用<a href="configuration.html#ConfigViewEx">程序设置</a>或<a href="help.html#mnu_view">显示</a>菜单中的相应项）。</p>
+        <br>
+
+        <p class="bold"><a name="hotkey_controls">问：我将左右箭头分配给在目录历史中前后导航，但现在在重命名文件时无法使用它们。如何解决？</a></p>
+        <p><span class="bold">答：</span>在分配热键时，Double Commander 允许限制键盘快捷键的作用域，请参阅 <a href="configuration.html#ConfigHotKeys">仅限于此类控件</a>。<br>在这种情况下，您需要启用“Files Panel”。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2>5. 内部查看器(<kbd>F3</kbd>) 和编辑器 (<kbd>F4</kbd>)的问题</h2>
+        <p class="bold"><a name="f3_compiz">问：启用 Compiz 时，编辑器和浏览器窗口会出现在随机位置。</a></p>
+        <p><span class="bold">答：</span>编辑 Compiz 设置：窗口位置&nbsp;&gt; 固定位置的窗口和窗口规则&nbsp;&gt; 固定大小窗口。</p>
+        <pre class="CODE">(class=Doublecmd) &amp; (title=/)</pre>
+        <br>
+
+        <p class="bold"><a name="f3_font">问：字体看起来很奇怪（水平字符相互覆盖等）或选择无法正常工作。</a></p>
+        <p><span class="bold">答：</span>您应该在查看器和编辑器中使用等宽字体。</p>
+        <p>注意：“Monospace”是一个字体别名，值可能不是来自等宽字体系列。如果您遇到问题，请尝试在 Double Commander 设置中指定真正的等宽字体。</p>
+        <br>
+
+        <p class="bold"><a name="f3_jpg">问：查看器无法处理少数图像，但可以处理大多数图像。</a></p>
+        <p><span class="bold">答：</span>用于查看图像的组件不支持某些 JPEG 文件。</p>
+        <br>
+
+        <p class="bold"><a name="f3_hscroll">问：在某些文本文件中，行会超出窗口的边缘。</a></p>
+        <p><span class="bold">答：</span>在查看器中启用“Wrap text”选项（在“视图”菜单中）。内部编辑器不支持换行。</p>
+        <br>
+
+        <p class="bold"><a name="f4_colmode">问：您能否添加列编辑功能（类似于 Notepad++、UltraEdit 等）？</a></p>
+        <p><span class="bold">答：</span>内部编辑器支持列和行选择模式以及多光标，请参阅键盘快捷键 <a href="shortcuts.html#editor">此处</a>。</p>
+        <br>
+
+        <p class="bold"><a name="f34_regutf8">问：我该如何使用正则表达式在 UTF-8 中进行搜索？</a></p>
+        <p><span class="bold">答：</span>此功能已添加到 1.0.0 版本。需要支持 8 位代码单元和 Unicode 支持的 PCRE2 库（通常默认启用）：</p>
+        <ul>
+          <li><p>Windows: 需要 <tt>libpcre2-8.dll</tt> （默认情况下，Double Commander 发行版包含此 DLL）。</p></li>
+          <li><p>Linux: 需要 <tt>libpcre2-8.so.0</tt>。例如，Debian/Ubuntu 中的 <tt>libpcre2-8-0</tt> 包或 Arch Linux 中的 <tt>pcre2</tt>。</p></li>
+          <li><p>macOS: 需要 <tt>libpcre2-8.dylib</tt>。</p></li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="f4_syntax">问：如何更改内部编辑器的语法高亮方案或添加新的方案？</a></p>
+        <p><span class="bold">答：</span>DC 使用两个组件：</p>
+        <p>1. <i>SynEdit</i> 带有内置文本高亮。如果您想更改任何高亮器，则应更改 DC 或 Lazarus 源代码。
+          但您可以轻松更改使用的颜色和文件扩展名列表：转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 工具&nbsp;&gt; 编辑器&nbsp;&gt; 文本高亮。不要忘记为每种文件类型保存自定义设置。</p>
+        <p>2. <i>SynUniHighlighter</i> 用于自定义语法高亮显示方案 (.hgl)，您可以尝试自己查找或创建这些文件（见下文）。</p>
+        <p>这些文件通常是基于 XML 的文件，您可以在文本编辑器中打开它们并进行读取/更改。在这些文件的开头是 <code>&lt;General&gt;</code> 标签（在 <code>&lt;Info&gt;</code> 内部）：</p>
+        <p>1) 旧格式： <code>&lt;General&gt;</code> 包含标签<br>
+          -&nbsp;<code>&lt;Name&gt;</code>: <i>Syntax highlight</i> 菜单的名称；<br>
+          -&nbsp;<code>&lt;FileTypeName&gt;</code>: 支持的文件扩展名列表。</p>
+        <p>2) 新格式： <code>&lt;General&gt;</code> 具有属性<br>
+          -&nbsp;<code>Name</code>: <i>语法高亮</i> 菜单的名称；<br>
+          -&nbsp;<code>Extensions</code>: 支持的文件扩展名列表。</p>
+        <p>(DC 支持这两种格式。)</p>
+        <p><span class="uline"><i>如何创建或编辑：</i></span></p>
+        <p>使用 UniHighlighter Editor 或 HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">下载</a>)。这两个程序是为 Windows 编写的，但您可以使用 Wine。HglEditor 将以新格式保存 HGL 文件。<br>
+          还有两个不同高亮器的包可供选择。<br>
+          在 <a href="configuration.html#ConfigToolsEditorHL">工具&nbsp;&gt; 编辑器&nbsp;&gt; 文本高亮</a> 部分，您可以更改文本和背景颜色以及字体样式。</p>
+        <p><span class="uline"><i>如何添加：</i></span></p>
+        <p>1) 便携版<br>
+          将您的 HGL 文件复制（或移动）到 <tt>doublecmd.exe</tt> 附近的 "highlighters" 文件夹中，然后重新启动 DC。</p>
+        <p>2) 安装版<br>
+          转到主菜单中的 "配置"&nbsp;&gt; 选项...&nbsp;&gt; 配置&nbsp;&gt; 文件夹&nbsp;&gt; 高亮设置，在这里您将看到可能的目录列表。<br>
+          不要使用 <i>/usr/share/doublecmd/highlighters</i>、<i>C:\Program Files\Double Commander\highlighters</i> 或其他系统目录：这需要 root/admin 权限，并且这会干扰 Linux 中软件包管理器的工作或 Windows 中 DC 安装程序的工作。
+          DC 通常建议以下附加路径（除了 <tt>doublecmd.exe</tt> 附近的 "highlighters" 文件夹）：</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\highlighters</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\highlighters</i></li>
+          <li>类 Unix 操作系统: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/highlighters</i></li>
+        </ul>
+        <p>If the directory doesn't exist, create it. Now restart DC.</p>
+        <p><span class="uline"><i>附加功能：</i></span></p>
+        <p>1) <i>其他</i>子菜单</p>
+        <p>额外的 <i>语法高亮</i> 菜单项：如果菜单太长，则可以将某些项目移动到 <i>其他</i> 子菜单中。
+          只需将新属性 <code>Other</code> 和值 1 添加到 <code>&lt;General&gt;</code> 标签中，然后重新启动 DC。<br>
+          例如，在此之前<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3"/&gt;</code><br>
+          之后<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3" Other="1"/&gt;</code></p>
+        <br>
+
+        <p class="bold"><a name="f4_open">问：如何在内部查看器中从手动指定的位置打开特定文件？</a></p>
+        <p><span class="bold">答：</span>在 <a href="toolbar.html">工具栏</a> 中添加一个带有外部命令的按钮，将 <a href="configuration.html#ConfigAssociations">{!DC-VIEWER}</a> 宏指定为命令，并在参数字段中添加所需文件的完整名称。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2>6. 文件面板相关的问题</h2>
+        <p class="bold"><a name="fv_datetime">问：我在列表中没找到适合文件面板的日期格式！我该如何添加自己的格式？</a></p>
+        <p><span class="bold">答：</span>日期和时间格式很容易配置：转到配置&nbsp;&gt; 选项...&nbsp;&gt; 文件视图&nbsp;&gt; 正在格式化&nbsp;&gt; 日期时间格式，并使用 <a href="configuration.html#dt_format">此表</a>。</p>
+        <br>
+
+        <p class="bold"><a name="fn_ext">问：我想在“名称”列中看到带有扩展名的文件名，可以做到吗？</a></p>
+        <p><span class="bold">答：</span>是的，可以。转到主菜单中的“配置”&nbsp;&gt; 选项...&nbsp;&gt; 文件视图&nbsp;&gt; 列&nbsp;&gt; 自定义列，
+          现在创建一个新的列集或更改现有的默认集：默认情况下，DC 使用 <code>GETFILENAMENOEXT</code> 字段作为名称，请改用 <code>GETFILENAME</code>。</p>
+        <br>
+
+        <p class="bold"><a name="folder_sort">问：能否实现点击列标题（“日期”、“大小”等）对文件夹进行排序？</a></p>
+        <p><span class="bold">答：</span>是的，您可以使用此功能：转到“配置”&nbsp;&gt; 选项...&nbsp;&gt;
+          文件视图&nbsp;&gt; 正在排序&nbsp;&gt; 文件夹排序，并使用“像文件一样排序且首先显示”或“像文件一样排序”。</p>
+        <br>
+
+        <p class="bold"><a name="slinkt">问：如何查看符号链接的目标对象？</a></p>
+        <p><span class="bold">答：</span>除了文件属性对话框，您还可以在<a href="configuration.html#ConfigColumns">配置自定义列</a>或<a href="configuration.html#ConfigTooltips">工具提示</a>中使用<code>GETFILELINKTO</code>。在最后一种情况下，您应该创建一个搜索模版并在属性中指定<code>l+</code>。<br>
+          您还可以<a href="lua.html">使用 Lua</a>并在日志窗口中编写。</p>
+        <br>
+
+        <p class="bold"><a name="parent">问：如何在文件列表中隐藏父目录的“..”项？</a></p>
+        <p><span class="bold">答：</span>在程序设置中使用<a href="configuration.html#ConfigIgnore">忽略列表</a>（也可以使用不那么全局的方法，例如，<code>///Search result/..</code>将仅在搜索结果中隐藏此项）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2>7. 插件</h2>
+        <p class="bold"><a name="not_valid">问：“这不是一个有效的插件！”消息是什么意思？</a></p>
+        <p><span class="bold">答：</span>这通常意味着依赖项存在问题：并非所有必需的库都在您的系统中可用。如果插件的描述中没有详细信息，无法联系作者或使用搜索引擎找到解决方案，则可以尝试以下方法：</p>
+        <ul>
+          <li>Windows: FileInfo 或 PEViewer 插件，实用程序如 DLL Export Viewer 或 Dependency Walker。</li>
+          <li>Linux: 使用终端和命令 <tt>ldd</tt>（最简单的方法，<code>ldd pluginname | grep "not found"</code>），GNU Binutils 或 AnyELF 插件。</li>
+        </ul>
+        <p>如果这是一个用 Lua 编写的 WDX 插件：</p>
+        <p>1. Lua 库不可用：请参阅 <a href="lua.html#dllrequired">所需的DLL</a>。</p>
+        <p>2. 脚本需要一个额外的模块：请参阅脚本的描述或联系作者。</p>
+        <p>3. 脚本中有错误。要进行调试，您可以在终端或高级代码编辑器/IDE（例如，ZeroBrane Studio）中使用 Lua。<br>
+          如果您使用 <a href="lua.html#libraries">Double Commander 函数</a>：创建一个带有内部命令 <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> 的按钮，并使用可用函数（<code>DC.LogWrite</code>、<code>Dialogs.MessageBox</code>、<code>Clipbrd.SetAsText</code> 或将结果保存到文件中）。</p>
+        <br>
+
+        <p class="bold"><a name="ftps_reuse">问：ftp.wfx: 我尝试使用 FTPS（FTP+SSL），但收到“522 SSL 连接失败：需要会话重用”的错误。</a></p>
+        <p><span class="bold">答：</span>此服务器需要会话重用支持，FTP 插件支持此功能，但需要支持 SSL 和 TLS 协议的库（请参阅插件的 <a href="plugins.html#ftp.wfx">描述</a>）。</p>
+        <br>
+
+        <p class="bold"><a name="ftp_openssl">问：ftp.wfx: 在某些服务器上无法工作！连接后，我收到错误：“104,Connection reset by peer”和“CSOCK ERROR Connection reset by peer”或“10060,Connection timed out”和“CSOCK ERROR Connection timed out”。</a></p>
+        <p><span class="bold">答：</span>需要支持 SSL 和 TLS 协议的库（请参阅插件的 <a href="plugins.html#ftp.wfx">描述</a>）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="about.html">上一页</a> | <a title="Next page" href="help.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

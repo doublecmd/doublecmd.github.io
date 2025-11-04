@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 参数中的变量</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander 主页" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="toolbar.html">上一页</a> | <a title="Next page" href="cmds.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.12. 参数中的变量</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#quickpres">快速说明</a></dt>
+          <dt>2. <a href="#basicvar">基本参数变量</a></dt>
+          <dt>3. <a href="#basicsuffix">基本后缀变量</a></dt>
+          <dt>4. <a href="#numsuffix">编号后缀</a></dt>
+          <dt>5. <a href="#prefixpostfix">为每个文件指定前缀和后缀</a></dt>
+          <dt>6. <a href="#pathpanel">面板路径</a></dt>
+          <dt>7. <a href="#quotation">是否带引号</a></dt>
+          <dt>8. <a href="#trailingdelim">路径是否带尾部分隔符</a></dt>
+          <dt>9. <a href="#listoffiles">文件列表</a></dt>
+          <dt>10. <a href="#suffixforlist">列表文件的后缀选项</a></dt>
+          <dt>11. <a href="#combsuffixlist">列表后缀的组合</a></dt>
+          <dt>12. <a href="#executeterm">在终端中执行</a></dt>
+          <dt>13. <a href="#interaction">交互</a></dt>
+          <dt>14. <a href="#miscellaneous">其他变量</a></dt>
+          <dt>15. <a href="#summaryall">全部变量汇总表</a></dt>
+          <dt>16. <a href="#envvariables">环境变量</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="quickpres">1. 快速说明</a></h2>
+        <p>变量用于配置 <a href="toolbar.html">工具栏按钮</a>、设置 <a href="configuration.html#ConfigAssociations">文件关联</a> 操作或 <a href="configuration.html#ConfigHotKeys">快捷键</a> 操作时，作为命令参数传递。</p>
+        <p>通常在需要根据当前所选文件、当前目录以及面板上下文决定命令参数时使用变量。</p>
+        <p>举个简单例子：有人配置了一个按钮，用来用变量 <code>%p</code> 作为参数启动 VSCode。</p>
+        <p class="image"><img title="变量示例" alt="变量示例" src="images/imgDC/variablesample.png" width="551" height="222"></p>
+        <p>当点击该按钮时，%p 会被替换为活动面板中当前选定的文件，然后用此参数启动 VSCode。</p>
+        <p>这就是本页所述的 <b>变量</b> 的用途。</p>
+        <p>如你所见，大多数变量以百分号 <code>%</code> 开头。</p>
+        <p>注意：变量和后缀区分大小写！</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="basicvar">2. 基本参数变量</a></h2>
+        <p>下面是与当前选择相关的基本变量。</p>
+        <p>默认情况下，包含空格或特殊字符的变量值会自动转义：在 Windows 下会被双引号包裹；在类 Unix 系统下会用反斜杠转义这些字符。如果需要不带引号的值，请参见 <a href="#quotation">是否带引号</a> 一节。</p>
+        <p><i>下列示例均假设我们指向的文件为 C:\Users\UserName\Desktop\comment.png。</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">基本变量</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">变量</th><th class="categorydesccolumn">含义</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%p</div></td>
+            <td class="hintcell">完整文件名（包含路径）<br><code>示例: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%f</div></td>
+            <td class="hintcell">仅文件名（含扩展名）<br><code>示例: %f = "comment.png"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%d</div></td>
+            <td class="hintcell">仅路径，不含末尾的目录分隔符<br><code>示例: %d = "C:\Users\UserName\Desktop"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%z</div></td>
+            <td class="hintcell">路径中最后一级目录名<br><code>示例: %z = "Desktop"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%o</div></td>
+            <td class="hintcell">不含扩展名的文件名<br><code>示例: %o = "comment"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%e</div></td>
+            <td class="hintcell">仅扩展名，不含点符号<br><code>示例: %e = "png"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%v</div></td>
+            <td class="hintcell">相对于当前活动目录的相对文件名<br>例如当使用内部命令 <a href="cmds.html#cm_flatview">cm_FlatView</a> 时适用。<br><code>如果对目录 "C:\Users\UserName" 做了平铺视图，%v 的结果会是 "Desktop\comment.png"</code></td>
+          </tr>
+        </table>
+        <p><code>%a</code> 变量用于虚拟文件系统（如打开的压缩包文件或文件系统插件）：该字符串包含虚拟文件系统的路径（压缩包文件的完整名称或带有 "wfx://" 的 WFX 插件名称）以及相对于虚拟文件系统根的完整文件名。</p>
+        <p>如果选中了多个文件，这些变量会把所有选中文件的值放在同一行返回。若始终只想获取光标所在文件的值，可以使用 <a href="#numsuffix">编号后缀 0</a>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="basicsuffix">3. 基本后缀变量</a></h2>
+        <p>在前述变量字母后，可以追加另一个字母来指定更精确的目标。</p>
+        <p><i>下列示例假设：左面板指向 "C:\LeftFolder\File.lft"，右面板指向 "C:\RightFolder\File.rgh"，且当前活动面板为右侧。</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">基本后缀</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">后缀</th><th class="categorydesccolumn">含义</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">s</div></td>
+            <td class="hintcell">来源面板或活动面板（无论左或右）<br><code>示例: %ps = "C:\RightFolder\File.rgh"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">t</div></td>
+            <td class="hintcell">目标面板或非活动面板（无论左或右）<br><code>示例: %pt = "C:\LeftFolder\File.lft"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">l</div></td>
+            <td class="hintcell">左侧面板<br><code>示例: %pl = "C:\LeftFolder\File.lft"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">r</div></td>
+            <td class="hintcell">右侧面板<br><code>示例: %pr = "C:\RightFolder\File.rgh"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">p</div></td>
+            <td class="hintcell">两面板：先活动面板，再空格，再非活动面板<br><code>示例: %pp = "C:\RightFolder\File.rgh" "C:\LeftFolder\File.lft"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">b</div></td>
+            <td class="hintcell">两面板：先左侧，再空格，再右侧<br><code>示例: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="numsuffix">4. 编号后缀</a></h2>
+        <p>当选中了多个文件时，可以在前述后缀后追加编号，以指定要使用的具体文件。</p>
+        <p><i>下列表格假设来源面板为 "C:\temp\"，并选中了 26 个文件，命名为 "FileA.txt"、"FileB.txt" … 到 "FileZ.txt"。</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">编号后缀</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">后缀</th><th class="categorydesccolumn">含义</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0</div></td>
+            <td class="hintcell">光标所在的文件<br><code>示例: %ps0 = "C:\temp\FileY.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">1</div></td>
+            <td class="hintcell">第一个被选中的文件<br><code>示例: %ps1 = "C:\temp\FileA.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">2</div></td>
+            <td class="hintcell">第二个被选中的文件<br><code>示例: %ps2 = "C:\temp\FileB.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">3</div></td>
+            <td class="hintcell">第三个被选中的文件<br><code>示例: %ps3 = "C:\temp\FileC.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">21</div></td>
+            <td class="hintcell">第 21 个被选中的文件<br><code>示例: %ps21 = "C:\temp\FileU.txt"</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="prefixpostfix">5. 为每个文件指定前缀和后缀</a></h2>
+        <p>有时把参数传给可执行程序时，需要在文件名前加上某些文本。</p>
+        <p>有时则需要在文件名前后分别加上文本。</p>
+        <p>下述操作将应用到每个单独的选中项。</p>
+        <p><i>表格示例假设当前目录为 "C:\Windows\Fonts"，选中了三个文件："courrier.ttf"、"fixedsys.ttf" 和 "terminal.ttf"。</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">前缀和后缀</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表示法</th><th class="categorydesccolumn">含义</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{}</div></td>
+            <td class="hintcell">使用一组大括号会把括号内的文本加在每个选中文件名前<br><code>示例: %fs{+} = "+courrier.ttf" "+fixedsys.ttf" "+terminal.ttf"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{}{}</div></td>
+            <td class="hintcell">使用两组大括号会在每个选中文件名前后分别加入括号内的文本。<br><code>示例: %fs{[}{]} = "[courrier.ttf]" "[fixedsys.ttf]" "[terminal.ttf]"</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="pathpanel">6. 面板路径</a></h2>
+        <p>前面简介的是与面板中选中文件相关的变量。</p>
+        <p>还可以使用变量 <code>%D</code> 来表示面板的目录路径。</p>
+        <p>该变量同样可以添加前面提到的 <a href="#basicsuffix">后缀字母</a> 来指定具体是哪个面板。</p>
+        <p><i>下列示例假设：左侧面板为 "C:\Reference"，右侧面板为 "E:\Work"，且当前活动面板为右侧。</i></p>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">面板路径</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">变量</th><th class="categorydesccolumn">含义</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%D</div></td>
+            <td class="hintcell">不带后缀时，返回当前活动面板的路径<br><code>示例: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Ds</div></td>
+            <td class="hintcell">当前活动面板或来源面板的目录（无论左或右）<br><code>示例: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Dt</div></td>
+            <td class="hintcell">非活动面板或目标面板的目录（无论左或右）<br><code>示例: "C:\Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Dl</div></td>
+            <td class="hintcell">左侧面板的目录<br><code>示例: "C:\Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Dr</div></td>
+            <td class="hintcell">右侧面板的目录<br><code>示例: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Z</div></td>
+            <td class="hintcell">不带后缀时，返回当前活动面板路径的最后一级目录名<br><code>示例: "Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zs</div></td>
+            <td class="hintcell">当前活动面板路径的最后一级目录名（无论左或右）<br><code>示例: "Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zt</div></td>
+            <td class="hintcell">非活动面板路径的最后一级目录名（无论左或右）<br><code>示例: "Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zl</div></td>
+            <td class="hintcell">左侧面板路径的最后一级目录名<br><code>示例: "Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zr</div></td>
+            <td class="hintcell">右侧面板路径的最后一级目录名<br><code>示例: "Work"</code></td>
+          </tr>
+        </table>
+        <p><code>%A</code> 变量用于虚拟文件系统（如打开的压缩包文件或文件系统插件）：返回压缩包文件的完整名称或带有 "wfx://" 的 WFX 插件名称。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="quotation">7. 是否带引号</a></h2>
+        <p>如前所述，出于历史兼容性原因，Double Commander 默认会返回带引号的结果。</p>
+        <p>这是为了在文件名包含空格时，把文件名作为参数传递时能保持整体正确。</p>
+        <p>随着更多变量的加入，明显需要一种方式来返回不带引号的结果。常见场景例如把不带扩展名的文件名与新的扩展名直接拼接。</p>
+        <p>因此我们无需新增变量，只需在参数行中使用类似 <code>%"0</code> 的标记，告知 DC 从该位置起到行尾产生的结果不带引号。</p>
+        <p>基本规则：</p>
+        <dl>
+          <dt><code>%"0</code> ：从此处起返回的不带引号</dt>
+          <dt><code>%"1</code> ：从此处起返回带引号</dt>
+          <dt><code>%"</code> ：也可用以恢复默认（带引号）</dt>
+        </dl>
+
+        <p>下表示例中，我们假设选中的文件名为 "Client List.mdb"，展示不同组合的引号行为：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">是否带引号示例</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">结果</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%o.zip</div></td>
+            <td class="hintcell">"Client List".zip</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%"0%o.zip</div></td>
+            <td class="hintcell">Client List.zip</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%"0"%o.zip"</div></td>
+            <td class="hintcell">"Client List.zip"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%"0"%o.zip" %"1%f</div></td>
+            <td class="hintcell">"Client List.zip" "Client List.mdb"</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="trailingdelim">8. 路径是否带尾部分隔符</a></h2>
+        <p>历史原因导致 DC 返回路径时默认不包含尾部分隔符。</p>
+        <p>可以使用特定变量来控制后续路径变量是否包含尾部分隔符。</p>
+        <p>基本规则：</p>
+        <dl>
+          <dt><code>%/0</code> ：返回路径不带尾部分隔符</dt>
+          <dt><code>%/1</code> ：返回路径带尾部分隔符</dt>
+          <dt><code>%/</code> ：同样接受，默认返回不带尾部分隔符</dt>
+        </dl>
+
+        <p>下表示例中，我们假设所选目录为 "C:\Users\UserName\Desktop"：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">路径尾分隔符示例</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">结果</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%/0%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%/1%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop\"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%/%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop"</td>
+          </tr>
+        </table>
+        <p>在组合多个变量构成路径时，该变量很有用。例如在 Windows 中，直接使用 <code>%Dt\%f0</code>（手动添加目录分隔符）而不是 <code>%/1%Dt%f0</code> 可在常规目录下工作，但当非活动面板打开为驱动器根时，后者可能导致驱动器字母后出现两个分隔符而产生错误路径。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="listoffiles">9. 文件列表</a></h2>
+        <p>有些应用接受单个文件名作为参数，并假定该文件为文本文件，内含文件名列表。</p>
+        <p>Double Commander 提供的变量可以创建一个临时文本文件（放在系统临时目录），其内容为所选项的列表，并将该临时文件名替换到变量位置。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">文件列表变量</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%L</div></td>
+            <td class="hintcell">生成的列表文件名，列表内容为选中项的完整路径（路径 + 文件名）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%F</div></td>
+            <td class="hintcell">生成的列表文件名，列表内容仅含文件名</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%R</div></td>
+            <td class="hintcell">生成的列表文件名，列表内容为相对路径（相对于活动目录）</td>
+          </tr>
+        </table>
+        <p>在 Windows 中，列表文件默认使用系统 ANSI 编码；在类 Unix 系统中使用系统默认编码（在多数 Linux 发行版中通常为 UTF-8）。</p>
+        <p>关闭后，Double Commander 会删除所有此类临时文件。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="suffixforlist">10. 列表文件的后缀选项</a></h2>
+        <p>默认情况下，列表文件中的文件名不带引号。如需带引号，可添加相应后缀。</p>
+        <p>此外，还可以通过后缀指定列表文件的编码为 UTF-8 或 UTF-16。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">列表文件变量的后缀</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Q</div></td>
+            <td class="hintcell">列表中的文件名将被引号包裹</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">U</div></td>
+            <td class="hintcell">列表文件采用 UTF-8 编码</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">W</div></td>
+            <td class="hintcell">列表文件采用 UTF-16 编码</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="combsuffixlist">11. 列表后缀的组合</a></h2>
+        <p>还可以追加后缀来指定列表应来自哪一面板，使用前文提到的后缀字母。</p>
+        <p>下面是一些可能的组合示例：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">列表变量后缀的组合</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%LQt</div></td>
+            <td class="hintcell">完整文件名，带引号，来自目标面板的选中文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%FUs</div></td>
+            <td class="hintcell">仅文件名，采用 UTF-8 编码，来自来源面板的选中文件</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%RQW</div></td>
+            <td class="hintcell">相对路径文件名，带引号，采用 UTF-16 编码，来自来源面板（默认）</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="executeterm">12. 在终端中执行</a></h2>
+        <p>可以在参数中指定是否希望将配置的命令行在终端中执行。</p>
+        <p>为此使用变量 <code>%t</code>。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">在终端中执行</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%t0</div></td>
+            <td class="hintcell">在终端中运行，执行结束后关闭终端</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%t1</div></td>
+            <td class="hintcell">在终端中运行，执行结束后保持终端打开</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="interaction">13. 交互</a></h2>
+        <p>下面两个变量用于显示消息或在运行时提示用户输入参数（并提供默认值）：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">交互</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td>
+            <td class="hintcell">显示一个消息框，内容为方括号内的文本</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[message;default_val]</div></td>
+            <td class="hintcell">提示用户输入一个值，并显示方括号内指定的默认值</td>
+          </tr>
+        </table>
+        <p>交互示例：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">交互示例</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[Make sure ThisFile.ext is closed!]</div></td>
+            <td class="hintcell">在执行操作前显示消息 “Make sure ThisFile.ext is closed!”。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[Enter WIDTH value for image conversion;1024]</div></td>
+            <td class="hintcell">提示用户输入值并显示文本 “Enter WIDTH value for image conversion”，默认建议值为 1024，用户可修改。用户输入的结果将替换命令行中所在的位置（即 "%[query;default]" 表达式的位置）。</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="miscellaneous">14. 其他变量</a></h2>
+        <p>本节列出尚未简介的其它变量。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">其他变量</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%%</div></td>
+            <td class="hintcell">将被替换为单个百分号 %</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%#</div></td>
+            <td class="hintcell">从此处起，# 将被视为百分号的等价符号</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">#%</div></td>
+            <td class="hintcell">从前述状态恢复，让 % 再次被视为变量前缀</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%?</div></td>
+            <td class="hintcell">显示即将要执行的命令行。</td>
+          </tr>
+        </table>
+        <p>当你需要在参数中包含 % 符号但又不希望其被解析为变量时，可使用 <code>%%</code>。</p>
+        <p><code>%?</code> 在配置新工具按钮等场景非常有用，可用于预览将要替换的命令行参数。</p>
+        <p>使用 <code>%?</code>，DC 会显示实际用于启动程序的命令和参数，甚至可以在最后一刻对其进行修改。</p>
+        <p>当不确定要传递给目标应用的参数时，这非常有帮助。</p>
+        <p>有时百分号与变量字母的组合可能会与系统环境变量冲突。</p>
+        <p>例如输入 <code>%os%ot</code>，本意是把活动和非活动面板的扩展名拼接起来，但在 Windows 下可能会失败，因为 <code>%os%</code> 是系统变量，会被替换为操作系统名称。</p>
+        <p>此时可使用 <code>%#</code>。例如写成 <code>%##os#ot</code>。</p>
+        <p><code>%#</code> 告诉 DC 从此刻起把 <code>#</code> 当作百分号，这样就不会与系统变量冲突。</p>
+        <p>这种用法很少需要，但必要时会很有用。若需恢复，可使用 <code>#%</code>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="summaryall">15. 全部变量汇总表</a></h2>
+        <p>本节将把所有支持的变量及其含义汇总到一张表格中，便于查阅。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">变量一览</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">说明</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">完整文件名（含路径）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%f</div></td><td class="hintcell">仅文件名（含扩展名）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%d</div></td><td class="hintcell">仅路径</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%z</div></td><td class="hintcell">路径中的最后一级目录</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%o</div></td><td class="hintcell">不含扩展名的文件名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%e</div></td><td class="hintcell">仅扩展名（不含点）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%v</div></td><td class="hintcell">相对于当前活动目录的相对文件名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">表示来源/活动面板的后缀（示例: %ps）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">表示目标/非活动面板的后缀（示例: %pt）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">左侧面板后缀（示例: %pl）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">右侧面板后缀（示例: %pr）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">两面板后缀：先活动面板，后非活动面板（示例: %pp）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">两面板后缀：先左侧，后右侧（示例: %pb）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0</div></td><td class="hintcell">光标所在文件（示例: %ps0）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">1</div></td><td class="hintcell">第一个被选中文件（示例: %ps1）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">2</div></td><td class="hintcell">第二个被选中文件（示例: %ps2）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">3</div></td><td class="hintcell">第三个被选中文件（示例: %ps3）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">21</div></td><td class="hintcell">第 21 个被选中文件（示例: %ps21）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}</div></td><td class="hintcell">单组大括号：在每个文件名前加入括号内文本（示例: %f{+}）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}{suffix}</div></td><td class="hintcell">两组大括号：分别在文件名前后加入文本（示例: %f{[}{]})</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%D</div></td><td class="hintcell">默认：活动（来源）面板的路径</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Ds</div></td><td class="hintcell">明确表示活动（来源）面板的路径</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Dt</div></td><td class="hintcell">非活动（目标）面板的路径</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Dl</div></td><td class="hintcell">左侧面板的路径（不论哪个面板处于活动状态）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Dr</div></td><td class="hintcell">右侧面板的路径（不论哪个面板处于活动状态）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Z</div></td><td class="hintcell">默认：活动（来源）面板路径的最后一级目录名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zs</div></td><td class="hintcell">明确：活动（来源）面板路径的最后一级目录名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zt</div></td><td class="hintcell">非活动（目标）面板路径的最后一级目录名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zl</div></td><td class="hintcell">左侧面板路径的最后一级目录名（不论哪个面板处于活动状态）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zr</div></td><td class="hintcell">右侧面板路径的最后一级目录名（不论哪个面板处于活动状态）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%"0</div></td><td class="hintcell">从此处起，返回的不带引号</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%"1</div></td><td class="hintcell">从此处起，返回的带引号</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%"</div></td><td class="hintcell">也可用于恢复默认（带引号）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%/0</div></td><td class="hintcell">默认：返回的路径不带尾部分隔符</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%/1</div></td><td class="hintcell">返回的路径带尾部分隔符</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%/</div></td><td class="hintcell">同样接受，默认返回不带尾部分隔符</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">生成的列表文件名，列表内容为选中文件的完整路径（路径 + 文件名）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">生成的列表文件名，列表内容仅为文件名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">生成的列表文件名，列表内容为相对路径名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">%L、%F 或 %R 的后缀，要求文件名带引号</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">%L、%F 或 %R 的后缀，要求列表为 UTF-8 编码</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">%L、%F 或 %R 的后缀，要求列表为 UTF-16 编码</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%t0</div></td><td class="hintcell">在终端中运行，执行结束后关闭终端</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%t1</div></td><td class="hintcell">在终端中运行，执行结束后保持终端打开</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td><td class="hintcell">显示方括号中指定文本的消息框</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%[message;default_val]</div></td><td class="hintcell">提示用户输入值，并显示建议的默认值</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%%</div></td><td class="hintcell">将被替换为单个百分号 %</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%#</div></td><td class="hintcell">从此处起，# 将被视为百分号的等价符号</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">#%</div></td><td class="hintcell">从前述状态恢复，让 % 再次作为变量前缀</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%?</div></td><td class="hintcell">显示即将要执行的命令行</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="envvariables">16. 环境变量</a></h2>
+        <p>在 Double Commander 的设置中可以使用环境变量：例如工具栏上可执行文件和图标的路径、插件名、收藏目录等。这是在不使用绝对路径时指定路径的便捷方式。</p>
+        <p>Double Commander 支持系统环境变量，并提供了一些自有的环境变量：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">环境变量</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">变量</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_EXE%</div></td>
+            <td class="hintcell">Double Commander 可执行文件的完整名称（路径 + 文件名，若为符号链接则返回真实文件）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_PATH%</div></td>
+            <td class="hintcell">Double Commander 可执行文件所在目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_DRIVE%</div></td>
+            <td class="hintcell">Double Commander 所在磁盘：<br>- Windows：带冒号的驱动器字母；<br>- 类 Unix 系统：挂载点。</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI%</div></td>
+            <td class="hintcell">主配置文件（<tt>doublecmd.xml</tt>）的完整名称（路径 + 文件名）</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI_PATH%</div></td>
+            <td class="hintcell">Double Commander 配置文件所在目录</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%DC_CONFIG_PATH%</div></td>
+            <td class="hintcell">Double Commander 配置文件所在目录</td>
+          </tr>
+        </table>
+        <p>变量名 <code>%COMMANDER_PATH%</code> 与 <code>%DC_CONFIG_PATH%</code> 不区分大小写，可跨操作系统使用百分号 <code>%</code>（为向后兼容，便于跨平台使用）。但在类 Unix 系统中，环境变量名称区分大小写，通常使用大写，遵循这一习惯有助于一致性。</p>
+        <p>在 Windows 中，还可以使用类似 <code>%$Name%</code> 的伪环境变量，代表常见的系统特殊文件夹（DC 使用 Windows API 的 <tt>SHGetSpecialFolderPath</tt> 与 <tt>SHGetKnownFolderPath</tt> 获取这些值）。这些伪变量不是普通环境变量，无法传递给子进程（从 DC 启动的应用），但在 DC 内部可像环境变量一样使用。所有这些变量都汇集在路径选择助手菜单中：在文件或目录选择按钮右侧有按钮 <span class="italic">Some functions to select appropriate path</span> <img title="Some functions to select appropriate path" alt="Some functions to select appropriate path" src="images/imgDC/bhelper.png" width="16" height="16">，详见 <a href="directoryhotlist.html#helperpath">此处</a> 的说明。</p>
+        <p>这些变量也已被加入到 <a href="directoryhotlist.html">常用文件夹列表</a> 菜单。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <br>
+        <p><small>最初由 Rustem (dok_rust@bk.ru) 创建</small></p>
+        <p><small>中文版本由 H1DDENADM1N 创建</small></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="toolbar.html">上一页</a> | <a title="Next page" href="cmds.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

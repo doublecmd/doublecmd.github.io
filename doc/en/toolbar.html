@@ -135,7 +135,7 @@
         <p>Regarding the parameters, we may select user variables that will be substituted by their actual value based on the current selected file of the active panel and so on. See the dedicated page of the possible variable to use as parameter under <a href="variables.html">this link</a> (please note the use of <a href="variables.html#quotation">quotation marks</a>). To run a command in the terminal, we can use the variables <a href="variables.html#executeterm">%t0 and %t1</a>.</p>
         <p>In the following example, we've set a toolbar button to launch the application GIMP and the <code>%p</code> as parameter means that when we click the button to launch GIMP, the complete filename of the current selected file in the active panel will be passed as parameter, since that's what <code>%p</code> stands for.</p>
         <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="610" height="229"></p>
-        <p>If we do not need to explicitly specify the working directory, then we can leave the "Start Path" field empty, in this case, the working directory will be the current directory of the active file panel.</p>
+        <p>If we do not need to explicitly specify the working directory, then we can leave the "Start Path" field empty, in this case, the working directory will be the current directory of the active file panel. Here we can use the variable <a href="variables.html#pathpanel">%D</a>, <a href="variables.html#basicvar">%d</a> or <a href="variables.html#envvariables">environment variables</a>.</p>
       </div>
       <br>
 

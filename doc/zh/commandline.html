@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 命令行</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander 主页" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="lua.html">上一页</a> | <a title="Next page" href="configxml.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.16. 命令行</h1>
+      </div>
+
+      <div>
+        <h2>内容</h2>
+        <dl>
+          <dt>1. <a href="#presenta">简介</a></dt>
+          <dt>2. <a href="#tablepos">可用参数</a></dt>
+          <dt>3. <a href="#examples">示例</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="presenta">1. 简介</a></h2>
+        <p>启动 Double Commander 可执行程序时，可以通过命令行参数自定义启动行为。</p>
+        <p>例如，可以指定在文件面板中显示的文件夹。</p>
+        <p>还有一些可用的开关（switch）。</p>
+        <p>这些开关不区分大小写。</p>
+        <br>
+        <p>下面是命令行语法的简要说明：</p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [path1\subpath1] [path2\subpath2]</code></p>
+        <br>
+        <p>也可以使用下面的另一种形式：</p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [-L path1\subpath1] [-R path2\subpath2]</code></p>
+        <br>
+        <p>注意：在 macOS 上命令行使用方式有些不同，使用 <code>open</code> 命令并通过 <code>-a "Double Commander"</code> 指定完整应用名，随后使用 <code>--args</code> 传递参数。对于第二个及后续实例，可加上 <code>-n</code>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="tablepos">2. 可用参数</a></h2>
+        <p>下面列出启动 Double Commander 时可使用的参数。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">命令行参数</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">参数</th><th class="categorydesccolumn">说明</th></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft"><var>path1\sub1 [path2\sub2]</var><br><i><small class="firstcolumnaleft">（无开关，直接为路径）</small></i></div></td>
+            <td class="hintcell">
+              如果只传递一个路径，则在活动面板中加载该路径。<br>
+              如果传递两个路径，则第一个路径加载到左侧面板，第二个加载到右侧面板。<br>
+              若文件夹名包含空格，需使用双引号括起来。<br>
+              建议始终指定完整路径名。
+            </td>
+          </tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-C <i>或</i> --client</div></td><td class="hintcell">如果 Double Commander 已在运行，则激活该实例并将命令行中的路径传递给该实例。</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-L <i>文件夹</i></div></td><td class="hintcell">设置左侧面板要显示的文件夹。</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-R <i>文件夹</i></div></td><td class="hintcell">设置右侧面板要显示的文件夹。</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">设置程序启动时的活动面板：<ul><li><code>-P L</code> 表示左侧</li><li><code>-P R</code> 表示右侧</li></ul></td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">在新标签中打开传入的路径。</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--config-dir=<i>path</i></div></td><td class="hintcell">指定自定义文件夹以存放 DC 的配置文件。</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--servername=x</div></td>
+            <td class="hintcell">
+              设置实例（服务器）的名称，该名称可用于向该实例传递参数。<br>
+              如果当前不存在该实例，则创建它。<br>
+              如果已存在实例，且当前进程是客户端，则将参数发送到服务器（即已存在的实例）。<br>
+              如果已存在实例，但当前进程不是客户端（例如“仅允许同时运行一个 DC 实例”未启用，且未给出 <code>--client</code>/<code>-c</code> 选项），则用户提供的 servername 会被修改：首先在末尾添加数字 "2"。<br>
+              如果已经带有尾号，则将尾号加 1，直到找到未被占用的 servername，然后使用该名称创建新实例。
+            </td>
+          </tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">禁用启动时的启动画面（splash 屏幕）。</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--debug-log=<i>file</i></div></td>
+            <td class="hintcell">
+              将 Double Commander 的调试输出写入指定文件。<br>
+              使用的日志模块（Lazlogger）支持环境变量 <code>xxx_debuglog</code>，其中 <code>xxx</code> 为程序文件名（不含扩展名）；在本例中为 <code>doublecmd_debuglog</code>。如果该环境变量存在，其值指定的文件将被使用。<br>
+              在 Linux 上，推荐在终端中运行并将输出（stdout 和 stderr）重定向到文件。
+            </td>
+          </tr>
+        </table>
+        <p>注意：如果指定的是完整文件名而不是文件夹，Double Commander 会打开该文件所在的文件夹并将光标定位到该文件。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="examples">3. 示例</a></h2>
+        <p>下面列出若干通过命令行参数启动 Double Commander 时常见的用例示例。</p>
+        <br>
+        <p>在左侧面板打开文件夹 <code>e:\Xilinx\ISE DS</code>，在右侧面板打开文件夹 <code>c:\temp</code>：</p>
+        <pre>doublecmd.exe "e:\Xilinx\ISE DS" c:\temp</pre>
+        <br>
+        <p>在已运行实例的活动面板中以新标签打开文件夹 <code>c:\Logs</code>：</p>
+        <pre>doublecmd.exe -c -t c:\Logs</pre>
+        <br>
+        <p>以位于 <code>f:\Documents\DC\Job Settings</code> 的配置文件启动应用，并在标题栏中使用标识 <code>JOB</code>：</p>
+        <pre>doublecmd.exe --config-dir="f:\Documents\DC\Job Settings" --servername="JOB"</pre>
+        <p class="figure"><img class="largeimage" title="命令行示例" alt="命令行示例" src="images/imgDC/cmdline.png" width="226" height="100"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="lua.html">上一页</a> | <a title="Next page" href="configxml.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 同步文件夹</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="multirename.html">上一页</a> | <a title="Next page" href="viewer.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.7. 同步文件夹</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#intro">简介</a></dt>
+          <dt>2. <a href="#window">同步工具窗口</a></dt>
+          <dt>3. <a href="#commands">命令</a></dt>
+          <dt>4. <a href="#asettings">附加配置</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. 简介</a></h2>
+        <p>同步文件夹工具会扫描左、右文件面板的文件夹，显示它们内容的差异，并允许将其同步一致。</p>
+        <p>可以同步两个本地文件夹，或本地文件夹与虚拟文件系统中的文件夹（如打开的压缩包或文件系统插件中的文件夹）。</p>
+        <p>默认情况下，同步工具会按文件名、大小和修改日期进行比较。</p>
+        <p>删除文件的方式（移至回收站或永久删除）取决于 <a href="configuration.html#ConfigOperations">删除到回收站（按下 Shift 键切换此设置）</a> 选项的状态。</p>
+        <p>注意：空文件夹会被忽略。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="window">2. 同步工具窗口</a></h2>
+        <p class="figure"><img class="largeimage" title="同步工具" alt="同步工具" src="images/imgDC/syncdirs.png" width="662" height="302"></p>
+        <p>窗口顶部显示左、右文件面板的当前文件夹，可以手动修改或通过按钮选择文件夹。</p>
+        <p>中间有一个文件掩码过滤字段（符号“*”表示匹配任意字符数，符号“?”表示匹配任意单个字符）。不匹配掩码的文件会被忽略。可用分号“;”分隔多个类型（无需空格），也可使用搜索模版（<img title="模版..." alt="模版..." src="images/imgDC/btemplate.png" width="16" height="16">），包括内容插件搜索。默认值为“*”（全部文件）。</p>
+        <p>带箭头的按钮可打开已用文件掩码列表（注意 Double Commander 会为多个工具保存掩码历史：查找文件、同步文件夹、解包归档、批量选择等）。默认情况下（无论 <a href="configuration.html#ConfigDC">文件掩码历史记录</a> 选项状态如何），Double Commander 会保存上次使用的掩码作为下次同步工具的默认掩码（若不是搜索模版），详见 <a href="#asettings">附加配置</a>。</p>
+        <p>要排除文件夹及符号链接，可用搜索模版和 <a href="findfiles.html#standard">排除子文件夹</a> 字段。</p>
+        <p><span class="italic">比较</span>&nbsp;&ndash; 开始比较所选文件夹，进度显示在状态栏。如有需要可按 <kbd>Esc</kbd> 键中断。</p>
+        <p>参数：</p>
+        <ul>
+          <li><p><span class="italic">仅选定在主窗口中</span>&nbsp;&ndash; 启用后，仅比较文件面板中已选中的文件和文件夹，只需在一个面板选择即可。</p></li>
+          <li><p><span class="italic">非对称</span>&nbsp;&ndash; 用于备份：左侧内容将复制到右侧，右侧不存在于左侧的文件会被标记为删除。若右侧文件夹无法删除（如只读归档或光盘），此选项不可用。</p></li>
+          <li><p><span class="italic">子文件夹</span>&nbsp;&ndash; 递归查找文件，Double Commander 会检查所有子文件夹内容。</p></li>
+          <li><p><span class="italic">按内容</span>&nbsp;&ndash; 启用后，大小和日期相同的文件会按内容（字节级）比较。若第二文件夹为虚拟文件系统则不可用。</p></li>
+          <li><p><span class="italic">忽略日期</span>&nbsp;&ndash; 默认优先较新文件并自动选择复制方向，启用后，大小相同的文件视为相同。</p></li>
+        </ul>
+        <p>更改选项后需重新比较。</p>
+        <p><span class="italic">显示：</span>&nbsp;&ndash; 一组按钮用于显示或隐藏不同类型文件：</p>
+        <ul>
+          <li><p><span class="italic">&gt;</span>&nbsp;&ndash; 显示左侧需复制或删除的文件。</p></li>
+          <li><p><span class="italic">=</span>&nbsp;&ndash; 显示当前参数下被视为相同的文件。</p></li>
+          <li><p><span class="italic">&#8800;</span>&nbsp;&ndash; 显示不相同的文件。</p></li>
+          <li><p><span class="italic">?</span>&nbsp;&ndash; 显示状态为“未知”的文件（如损坏的符号链接或内容比较时无法读取的文件）。</p></li>
+          <li><p><span class="italic">&lt;</span>&nbsp;&ndash; 显示右侧需复制或删除的文件。</p></li>
+          <li><p><span class="italic">重复</span>&nbsp;&ndash; 显示两侧都存在的文件。</p></li>
+          <li><p><span class="italic">单侧</span>&nbsp;&ndash; 显示仅一侧存在的文件。</p></li>
+        </ul>
+        <p>下方区域分为三部分：</p>
+        <ul>
+          <li><p>左、右分别显示文件列表，均有“名称”、“大小”、“日期”列，可点击表头排序。</p></li>
+          <li><p>中间列显示文件状态或计划操作。</p></li>
+        </ul>
+        <p>状态栏显示整体比较结果。</p>
+        <p>比较完成后，同步工具会用不同颜色显示文件夹内容：</p>
+        <p class="figure"><img class="largeimage" title="同步工具：比较" alt="同步工具：比较" src="images/imgDC/syncdirscomp.png" width="800" height="430"></p>
+        <ul>
+          <li><p><span class="italic">绿色</span>&nbsp;&ndash; 左侧选中需复制或删除的文件。</p></li>
+          <li><p><span class="italic">蓝色</span>&nbsp;&ndash; 右侧选中需复制或删除的文件。</p></li>
+          <li><p><span class="italic">红色</span>&nbsp;&ndash; 同名但不相同的文件。</p></li>
+          <li><p>其他文件使用默认文本颜色。</p></li>
+        </ul>
+        <p>可在 <a href="configuration.html#ConfigColor">颜色</a> 设置（“同步文件夹”类别）中更改。</p>
+        <p>“&lt;=&gt;” 列的图标含义：</p>
+        <ul>
+          <li><p><img title="未知" alt="未知" src="images/imgDC/syncdirsstateu.png" width="14" height="14">&nbsp;&ndash; 未知；</p></li>
+          <li><p><img title="相同" alt="相同" src="images/imgDC/syncdirsstatee.png" width="14" height="14">&nbsp;&ndash; 相同文件；</p></li>
+          <li><p><img title="不同" alt="不同" src="images/imgDC/syncdirsstatene.png" width="14" height="14">&nbsp;&ndash; 不同文件；</p></li>
+          <li><p><img title="复制到右" alt="复制到右" src="images/imgDC/syncdirsstatecr.png" width="14" height="14">&nbsp;&ndash; 将文件复制到右侧；</p></li>
+          <li><p><img title="复制到左" alt="复制到左" src="images/imgDC/syncdirsstatecl.png" width="14" height="14">&nbsp;&ndash; 将文件复制到左侧；</p></li>
+          <li><p><img title="左侧删除" alt="左侧删除" src="images/imgDC/syncdirsstatedl.png" width="14" height="14">&nbsp;&ndash; 左侧文件将被删除；</p></li>
+          <li><p><img title="右侧删除" alt="右侧删除" src="images/imgDC/syncdirsstatedr.png" width="14" height="14">&nbsp;&ndash; 右侧文件将被删除；</p></li>
+          <li><p><img title="两侧删除" alt="两侧删除" src="images/imgDC/syncdirsstatedb.png" width="14" height="14">&nbsp;&ndash; 两侧文件都将被删除；</p></li>
+          <li><p><img title="无操作" alt="无操作" src="images/imgDC/syncdirsstaten.png" width="14" height="14">&nbsp;&ndash; 无操作。</p></li>
+        </ul>
+        <p>可用鼠标或 <kbd>空格</kbd> 键取消操作，将文件排除在同步之外。</p>
+        <p>双击文件名可调用 <a href="help.html#cm_CompareContents">按内容比较</a> 命令。</p>
+        <p>使用快捷键 <kbd>Ctrl+C</kbd> 可复制所有列内容到剪贴板。</p>
+        <p><span class="italic">关闭</span>&nbsp;&ndash; 关闭同步工具。</p>
+        <p><span class="italic">同步</span>&nbsp;&ndash; 打开同步确认对话框，显示即将执行操作的详细信息：</p>
+        <p class="figure"><img class="largeimage" title="同步工具：确认" alt="同步工具：确认" src="images/imgDC/syncdirsconfirm.png" width="359" height="257"></p>
+        <p>可按类型（复制或删除）或方向排除计划操作。</p>
+        <p><span class="italic">确认覆盖</span>&nbsp;&ndash; 如遇重名，Double Commander 会弹出与常规复制/移动相同的选择对话框（跳过、重命名等）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="commands">3. 命令</a></h2>
+        <p>命令可作用于光标所在文件或已选文件。所有同步工具支持的命令都已加入右键菜单。可在 <a href="configuration.html#ConfigHotKeys">按键 &gt; 热键</a> 设置（切换到“同步文件夹”类别）中分配或更改快捷键。</p>
+        <ul>
+          <li><p><span class="italic">选择复制方向（默认方向）</span>&nbsp;&ndash; Double Commander 会重新检查文件并自动选择操作。</p></li>
+          <li><p><span class="italic">删除选择</span>&nbsp;&ndash; 取消已分配操作，将文件排除在同步过程之外。</p></li>
+          <li><p><span class="italic">选择复制方向 -&gt;（从左到右）</span>。</p></li>
+          <li><p><span class="italic">选择复制方向 &lt;-（从右到左）</span>。</p></li>
+          <li><p><span class="italic">反转复制方向</span>。</p></li>
+          <li><p><span class="italic">查看左侧</span> 和 <span class="italic">查看右侧</span>&nbsp;&ndash; 在<a href="viewer.html">文件查看器</a>中打开光标所在左/右侧文件。</p></li>
+          <li><p><span class="italic">比较</span>&nbsp;&ndash; 对光标所在文件调用<a href="help.html#cm_CompareContents">按内容比较</a>命令。</p></li>
+          <li><p><span class="italic">选择删除方向 &lt;-（左）</span>。</p></li>
+          <li><p><span class="italic">选择删除方向 -&gt;（右）</span>。</p></li>
+          <li><p><span class="italic">选择删除 &lt;-&gt;（两边都有）</span>。</p></li>
+          <li><p><span class="italic">&lt;- 删除左边</span>。</p></li>
+          <li><p><span class="italic">-&gt; 删除右边</span>。</p></li>
+          <li><p><span class="italic">两边都删除</span>。</p></li>
+        </ul>
+        <p>最后三项命令会在同步操作前立即删除选中文件，此时 Double Commander 会弹出确认请求。</p>
+        <p>注意：<span class="italic">查看左侧</span>、<span class="italic">查看右侧</span>和<span class="italic">比较</span>命令的快捷键由 Double Commander 源码固定，无法更改。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">4. 附加配置</a></h2>
+        <p>有 <a href="configxml.html">若干参数</a> 只能在 <tt>doublecmd.xml</tt> 配置文件中手动修改：<code>&lt;Asymmetric&gt;</code>、<code>&lt;DateTimeFormat&gt;</code>、<code>&lt;FileMask&gt;</code>、<code>&lt;NtfsHourTimeDelay&gt;</code>。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="multirename.html">上一页</a> | <a title="Next page" href="viewer.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

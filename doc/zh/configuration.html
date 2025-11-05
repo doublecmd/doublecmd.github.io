@@ -1,0 +1,1217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 配置</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="help.html">上一页</a> | <a title="Next page" href="shortcuts.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.2. 配置</h1>
+      </div>
+
+      <div>
+        <h2>内容</h2>
+        <dl>
+          <dt>1. <a href="#config_files">配置文件</a></dt>
+          <dt>2. <a href="#settings">配置</a>:</dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#ConfigLang">语言</a></dt>
+              <dt>2.2. <a href="#ConfigBehaviors">行为</a></dt>
+              <dt>2.3. <a href="#ConfigTools">工具</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.3.1. <a href="#ConfigToolsViewer">查看器</a></dt>
+                  <dt>2.3.2. <a href="#ConfigToolsEditor">编辑器</a></dt>
+                  <dd>
+                    <dl>
+                      <dt>2.3.2.1. <a href="#ConfigToolsEditorHL">高亮显示器</a></dt>
+                    </dl>
+                  </dd>
+                  <dt>2.3.3. <a href="#ConfigToolsDiffer">比较工具</a></dt>
+                  <dt>2.3.4. <a href="#ConfigToolsTerminal">终端</a></dt>
+                </dl>
+              </dd>
+              <dt>2.4. <a href="#ConfigFonts">字体</a></dt>
+              <dt>2.5. <a href="#ConfigColor">颜色</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.5.1. <a href="#ConfigColorPanels">文件面板</a></dt>
+                  <dt>2.5.2. <a href="#ConfigColorFiles">文件类型</a></dt>
+                </dl>
+              </dd>
+              <dt>2.6. <a href="#ConfigKeys">按键</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.6.1. <a href="#ConfigHotKeys">热键</a></dt>
+                </dl>
+              </dd>
+              <dt>2.7. <a href="#ConfigMouse">鼠标</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.7.1. <a href="#ConfigMouseDD">拖放</a></dt>
+                </dl>
+              </dd>
+              <dt>2.8. <a href="#ConfigView">文件视图</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.8.1. <a href="#ConfigViewEx">文件视图扩展</a></dt>
+                  <dt>2.8.2. <a href="#ConfigViewBrief">列表视图</a></dt>
+                  <dt>2.8.3. <a href="#ConfigViewFull">详细信息列视图</a></dt>
+                  <dd>
+                    <dl>
+                      <dt>2.8.3.1. <a href="#ConfigColumns">自定义列</a></dt>
+                    </dl>
+                  </dd>
+                </dl>
+              </dd>
+              <dt>2.9. <a href="#ConfigPlugins">插件</a></dt>
+              <dt>2.10. <a href="#ConfigLayout">布局</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.10.1. <a href="#ConfigDrivesList">驱动器列表按钮</a></dt>
+                  <dt>2.10.2. <a href="#ConfigTreeMenu">树状视图菜单</a></dt>
+                  <dt>2.10.3. <a href="#ConfigTreeMenuColor">树状视图菜单颜色</a></dt>
+                </dl>
+              </dd>
+              <dt>2.11. <a href="#ConfigToolbar">工具栏</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.11.1. <a href="#ConfigToolbar">工具栏中间</a></dt>
+                  <dt>2.11.2. <a href="#ConfigToolbarEx">工具栏扩展</a></dt>
+                </dl>
+              </dd>
+              <dt>2.12. <a href="#ConfigOperations">文件操作</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.12.1. <a href="#ConfigSearch">文件搜索</a></dt>
+                  <dt>2.12.2. <a href="#ConfigRename">批量重命名</a></dt>
+                </dl>
+              </dd>
+              <dt>2.13. <a href="#ConfigTabs">文件夹标签</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.13.1. <a href="#ConfigFavoriteTabs">收藏夹标签</a></dt>
+                  <dt>2.13.2. <a href="#ConfigTabsEx">文件夹标签扩展</a></dt>
+                </dl>
+              </dd>
+              <dt>2.14. <a href="#ConfigLog">日志</a></dt>
+              <dt>2.15. <a href="#ConfigDC">配置</a></dt>
+              <dt>2.16. <a href="#ConfigQuick">快速搜索/过滤器</a></dt>
+              <dt>2.17. <a href="#ConfigMisc">杂项</a></dt>
+              <dt>2.18. <a href="#ConfigRefresh">自动刷新</a></dt>
+              <dt>2.19. <a href="#ConfigIcons">图标</a></dt>
+              <dt>2.20. <a href="#ConfigIgnore">忽略列表</a></dt>
+              <dt>2.21. <a href="#ConfigArchivers">压缩文件</a></dt>
+              <dt>2.22. <a href="#ConfigTooltips">工具提示</a></dt>
+              <dt>2.23. <a href="#ConfigAssociations">文件关联</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.23.1. <a href="#ConfigAssocEx">文件关联扩展</a></dt>
+                </dl>
+              </dd>
+              <dt>2.24. <a href="#ConfigDirHotlist">常用文件夹列表</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.24.1. <a href="#ConfigDirHotlistEx">常用文件夹列表扩展</a></dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="config_files">1. 配置文件</a></h2>
+        <p>Double Commander 保存其配置设置在文件中。您可以从 <a href="#ConfigDC">配置</a> 配置部分配置这些配置文件的位置。通常不需要手动编辑这些文件，因为在少数情况下，Double Commander 的参数可以通过程序的界面访问。</p>
+        <p>主要文件包括：</p>
+        <ul>
+          <li><p><tt>doublecmd.xml</tt>&nbsp;&ndash; 所有主要程序设置;</p></li>
+          <li><p><tt>doublecmd.cfg</tt>&nbsp;&ndash; 在初始化所有程序组件和加载 <tt>doublecmd.xml</tt> 之前应用的设置;</p></li>
+          <li><p><tt>colors.json</tt>&nbsp;&ndash; 所有颜色设置，Double Commander 将颜色值存储在“Light”和“Dark”配置文件中，并根据当前主题（浅色或深色主题）自动选择配置文件;</p></li>
+          <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; 文件扩展名关联配置;</p></li>
+          <li><p><tt>favoritetabs.xml</tt>&nbsp;&ndash; 收藏夹标签;</p></li>
+          <li><p><tt>history.xml</tt>&nbsp;&ndash; 命令行和目录历史记录，搜索和替换等;</p></li>
+          <li><p><tt>multiarc.ini</tt>&nbsp;&ndash; 外部压缩工具;</p></li>
+          <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; 将文件扩展名映射到 MIME 类型图标名称;</p></li>
+          <li><p><tt>session.ini</tt>&nbsp;&ndash; 子程序窗口的大小、位置和状态（这些设置为每个屏幕分辨率单独保存）；</p></li>
+          <li><p><tt>shortcuts.scf</tt>&nbsp;&ndash; 键盘布局设置;</p></li>
+          <li><p><tt>tabs.xml</tt>&nbsp;&ndash; 打开的标签列表;</p></li>
+          <li><p>其他一些...&nbsp;&ndash; 等等...</p></li>
+        </ul>
+        <p>这些文件是自动生成的，除了 <tt>multiarc.ini</tt> 和 <tt>pixmaps.txt</tt>：它们包含在 Double Commander 的发行版中（在“默认”文件夹中），并在程序首次启动时复制到配置文件目录。</p>
+        <p><tt>doublecmd.xml</tt> 中的配置版本定义了数据存储格式：如果在新版本的程序中发生更改（例如，添加了新参数或更改了现有参数），则在第一次启动时，Double Commander 将更新配置文件。升级过程将备份 <tt>doublecmd.xml</tt> 的先前版本。</p>
+      </div>
+
+      <div>
+        <h2><a name="settings">2. 配置</a></h2>
+        <p>“选项”窗口允许设置 Double Commander 中几乎所有的选项，但有一些 <a href="configxml.html">参数</a> 只能在 <tt>doublecmd.xml</tt> 配置文件中手动更改。</p>
+        <p>窗口底部提供了按参数名称过滤的功能：程序将仅显示包含匹配参数的部分。要打开程序帮助中的相应部分，可以使用 <span class="italic">帮助</span> 按钮或 <kbd>F1</kbd> 键。</p>
+        <p>Double Commander 具有几个 <a href="cmds.html#catconfiguration">内部命令</a>，可以打开配置对话框并快速跳转到所需部分。</p>
+        <p>Double Commander 支持导入/导出某些设置：常用文件夹列表、收藏夹标签、外部压缩工具、工具栏（主工具栏和中间工具栏）、工具提示。此外，热键列表可以保存到新文件中，您可以在它们之间切换。</p>
+        <p>注意：在文件或目录选择按钮的右侧是按钮 <span class="italic">一些选择适当路径的功能</span> <img title="一些选择适当路径的功能" alt="一些选择适当路径的功能" src="images/imgDC/bhelper.png" width="16" height="16">：弹出菜单包含变量列表（包括环境变量）和一些附加功能，请参阅 <a href="directoryhotlist.html#helperpath">此处</a> 的描述。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLang">2.1. 语言</a></span></p>
+        <p>这些是可用于 Double Commander 的各种翻译。您可以选择首选语言。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigBehaviors">2.2. 行为</a></span></p>
+        <p>有几个参数会影响 Double Commander 的某些行为。</p>
+        <p class="figure"><img class="largeimage" title="Behaviors" alt="Behaviors" src="images/imgDC/pic58.png" width="454" height="370"></p>
+        <p><span class="italic">一次只允许一个 DC 副本</span>&nbsp;&ndash; 如果启用，则只能运行一个程序副本。如果尝试运行第二个 Double Commander 副本，则将激活第一个副本。</p>
+        <p><span class="italic">最小化到系统托盘图标</span>&nbsp;&ndash; 最小化时，Double Commander 将在系统托盘（通知区域）中显示其图标，而不是面板（或 Windows 任务栏）中。</p>
+        <p><span class="italic">总是显示托盘图标</span>&nbsp;&ndash; 如果启用，除了面板（或 Windows 任务栏）上的 Double Commander 窗口按钮外，还将额外显示托盘图标。</p>
+        <p><span class="italic">驱动器黑名单</span>&nbsp;&ndash; 使用此选项可以隐藏驱动器面板菜单栏中的某些驱动器。每个项目必须包含驱动器/挂载点的完整路径。多个驱动器之间用分号 ";" 分隔，不带空格。示例： <code>/media/cdrom;/mnt/win_c</code> (Linux) 或 <code>a:\;b:\;d:\</code> (Windows)。在 Unix/Linux 中，您还可以使用通配符掩码，例如 AppImage 文件的示例： <code>/tmp/.mount_*</code>。隐藏的驱动器仍然可用，例如，您可以从常用文件夹列表菜单中打开它们或手动更改路径。</p>
+        <p><span class="italic">自动隐藏未安装的设备</span>&nbsp;&ndash; 未挂载的设备将自动从 <a href="help.html#iface_drive_pane">驱动器按钮栏</a> 和 <a href="help.html#iface_drive_btn">驱动器列表</a> 中删除。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTools">2.3. 工具</a></span></p>
+        <p>本节包含内置 Double Commander 工具（编辑器（<kbd>F4</kbd>）、查看器（<kbd>F3</kbd>）和文件比较工具）以及启动终端的命令的设置。</p>
+        <p>您可以为编辑、查看和查找差异指定外部程序。这些外部程序将替代内部工具。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsViewer">2.3.1. 工具&nbsp;&gt; 查看器</a></span></p>
+        <p>此部分有两个参数组：</p>
+        <p class="figure"><img class="largeimage" title="Viewer" alt="Viewer" src="images/imgDC/pic50.png" width="454" height="370"></p>
+        <p>第一个组允许您指定用于查看文件的外部程序。每次调用查看器时，Double Commander 将自动将完整文件名作为最后一个启动参数添加。</p>
+        <p>此外：<span class="italic">在终端中执行</span> 和 <span class="italic">执行程序后保持终端窗口打开</span> 如果您使用的是控制台程序和/或程序的终端输出很重要（或仅仅是暂时用于调试），则可能会很有用。</p>
+        <p>下一个参数组是 <span class="italic">内部查看器选项</span>，但是几乎所有参数和开关都可以在 <a href="viewer.html">内部查看器</a> 的窗口中找到。</p>
+        <p><span class="italic">书籍查看器中的列数</span>&nbsp;&ndash; 请在 <a href="viewer.html#mnu_view">此处</a> 查看此模式的描述。</p>
+        <p>还有一些 <a href="configxml.html">参数</a> 只能在 <tt>doublecmd.xml</tt> 配置文件中手动更改。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsEditor">2.3.2. 工具&nbsp;&gt; 编辑器</a></span></p>
+        <p class="figure"><img class="largeimage" title="Editor" alt="Editor" src="images/imgDC/pic51.png" width="574" height="427"></p>
+        <p>第一个参数组允许您指定用于编辑文本文件的外部程序。每次调用编辑器时，Double Commander 将自动将完整文件名作为最后一个启动参数添加。</p>
+        <p>此外：<span class="italic">在终端中执行</span> 和 <span class="italic">执行程序后保持终端窗口打开</span> 如果您使用的是控制台程序和/或程序的终端输出很重要（或仅仅是暂时用于调试），则可能会很有用。</p>
+        <p>内部编辑器选项：</p>
+        <p><span class="italic">自动缩进</span>&nbsp;&ndash; 允许在使用 <kbd>Enter</kbd> 创建新行时，使用与前一行相同数量的前导空格来缩进光标。</p>
+        <p><span class="italic">删除尾随空格</span>&nbsp;&ndash; 自动删除尾随空格，仅适用于编辑过的行。</p>
+        <p><span class="italic">插入符号越过行尾</span>&nbsp;&ndash; 允许光标进入超出行尾位置的空白区域。</p>
+        <p><span class="italic">显示特殊字符</span>&nbsp;&ndash; 显示空格和制表符的特殊字符。</p>
+        <p><span class="italic">使用空格代替制表符</span>&nbsp;&ndash; 将制表符转换为指定数量的空格字符（在输入时）。</p>
+        <p><span class="italic">制表键块缩进</span>&nbsp;&ndash; 如果启用，<kbd>Tab</kbd> 和 <kbd>Shift+Tab</kbd> 在选中文本时将作为块缩进和取消缩进。</p>
+        <p><span class="italic">智能制表符</span>&nbsp;&ndash; 当使用 <kbd>Tab</kbd> 键时，光标将移动到前一行的下一个非空格字符。</p>
+        <p><span class="italic">Group Undo</span>&nbsp;&ndash; 如果启用，所有连续的相同类型的更改将在一次撤销或重做命令中处理，而不是逐个撤销/重做每个单独的文本更改。</p>
+        <p><span class="italic">制表符宽度</span>&nbsp;&ndash; 制表符的宽度（以字符数为单位）。如果启用 <span class="italic">使用空格代替制表符</span>，则 <kbd>Tab</kbd> 键将插入指定数量的空格字符。如果启用 <span class="italic">智能制表符</span> 选项，则此设置不适用。</p>
+        <p><span class="italic">Block indent</span>&nbsp;&ndash; 设置使用相应命令时缩进增加或减少的字符数。</p>
+        <p><span class="italic">右边距</span>&nbsp;&ndash; 行长度标记，在给定位置的细垂直线：行不会因强制换行而被截断，这只是一个视觉提示。在建议限制字符串长度的情况下（例如，80 或 120 个字符），这很有用。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsEditorHL">2.3.2.1. 工具&nbsp;&gt; 编辑器&nbsp;&gt; 高亮显示器</a></span></p>
+        <p>SynEdit 组件用于内部编辑器，某些语法高亮规则的设置是 SynEdit 的一部分，可以在此部分中找到。</p>
+        <p class="figure"><img class="largeimage" title="Syntax highlighting" alt="Syntax highlighting" src="images/imgDC/pic52.png" width="700" height="562"></p>
+        <p>在窗口顶部，有一个带有文件类型（纯文本、编程和标记语言）的下拉菜单，以及一个用于文件扩展名列表的字段。按钮：</p>
+        <ul>
+          <li><p><span class="italic">保存</span>&nbsp;&ndash; 将保存文件扩展名列表中的更改。</p></li>
+          <li><p><span class="italic">重置</span>&nbsp;&ndash; 将列表重置为默认值。</p></li>
+        </ul>
+        <p>在窗口的左侧部分，有一个可用元素的列表，右侧部分是预览区域。</p>
+        <p>您可以更改用于关键字、字符串、数字、运算符等的文本和背景颜色以及字体样式（下划线、粗体、斜体和删除线）。对于默认文本，仅提供文本和背景颜色。</p>
+        <p><span class="italic">Text-mark</span> 用于在元素周围添加边框：您可以选择颜色、边框类型和线条类型。</p>
+        <p><span class="italic">使用（并编辑）全局方案设置</span> 和 <span class="italic">使用本地方案设置</span> 仅适用于默认文本：您可以一次更改所有文件类型的颜色，或仅更改某些文件类型的颜色。</p>
+        <p>所有设置都保存在 <tt>colors.json</tt> 文件中。</p>
+        <p>注意：可能的更改（修复或改进）文件解析（语法分析）、关键字列表等的方法：</p>
+        <ul>
+          <li>建议对 Lazarus 项目进行更改（最佳方法）；</li>
+          <li>独立更改 SynEdit 组件的源代码并编译 Double Commander。</li>
+        </ul>
+        <p>此外，Double Commander 还使用 SynUniHighlighter 组件进行语法高亮，详细信息请参见 <a href="faq.html#f4_syntax">FAQ</a>。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsDiffer">2.3.3. 工具&nbsp;&gt; 比较程序</a></span></p>
+        <p>几乎所有参数和开关都可以在内置差异工具的窗口中找到，本节中只有两个参数组。</p>
+        <p class="figure"><img class="largeimage" title="Differ" alt="Differ" src="images/imgDC/pic53.png" width="377" height="360"></p>
+        <p>第一个组允许您指定一个外部文件比较程序。每次调用差异工具时，Double Commander 将自动将完整文件名作为最后的启动参数添加。</p>
+        <p>此外：<span class="italic">在终端中执行</span> 和 <span class="italic">执行程序后保持终端窗口打开</span> 如果您使用的是控制台程序和/或程序的终端输出很重要（或仅仅是为了调试）可能会很有用。</p>
+        <p><span class="italic">比较后框架面板的位置</span>&nbsp;&ndash; 定义文件名传递给比较程序（内置或外部）的顺序：</p>
+        <ul>
+          <li><p><span class="italic">左侧为活动窗体面板，右侧为非活动窗体面板（传统）</span>&nbsp;&ndash; 活动文件面板中的文件将在比较程序的左侧面板中打开，第二个文件将在右侧面板中打开。</p></li>
+          <li><p><span class="italic">左侧窗体面板在左侧，右侧在右侧</span>&nbsp;&ndash; 左侧文件面板中的文件将在比较程序的左侧面板中打开，第二个文件将在右侧面板中打开。</p></li>
+        </ul>
+        <p>如果在活动面板中选择了两个文件，第一个文件将在比较程序的左侧面板中打开。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsTerminal">2.3.4. 工具&nbsp;&gt; 终端</a></span></p>
+        <p>本节包含终端启动参数：</p>
+        <p class="figure"><img class="largeimage" title="Launch of the terminal" alt="Launch of the terminal" src="images/imgDC/pic54.png" width="435" height="335"></p>
+        <p>前两个组用于在终端中运行命令（要指示要在命令行上运行的命令的位置，请在参数字段中使用 <code>{command}</code>）。它们可以用于工具栏按钮、内部文件关联，以启动外部应用程序以 <a href="#ConfigTools">替换</a> 内置文本编辑器、查看器和文件比较工具。您 <a href="#ConfigAssocEx">可以添加</a> 这些操作到文件上下文菜单（到“操作”子菜单）。</p>
+        <p>此外，第一个组用于使用 <kbd>Shift+Enter</kbd> 在终端中打开光标下的文件，并从命令行运行命令（但如果启用了 <a href="help.html#iface_console">终端窗口</a>，则命令将在其中执行）。</p>
+        <p>第三组允许指定在调用终端时将执行的命令（内部命令 <a href="cmds.html#cm_RunTerm">cm_RunTerm</a>，默认 <kbd>F9</kbd>）。</p>
+        <p>默认值：</p>
+        <ul>
+          <li><p>Windows: <tt>cmd.exe</tt></p></li>
+          <li><p>macOS: Double Commander 将自动检测系统设置中指定的程序。</p></li>
+          <li><p>Linux 和其他类 Unix 系统：</p>
+            <ul>
+              <li><p>对于 Debian 和基于 Debian 的发行版（Ubuntu、Linux Mint、antiX、Devuan 等），将使用 <tt>x-terminal-emulator</tt>：这是指向这些系统默认使用的终端的符号链接。</p></li>
+              <li><p>否则，Double Commander 将尝试从桌面环境的设置中获取值：Cinnamon、GNOME、KDE、LXDE、LXQt、MATE 或 Xfce。</p></li>
+              <li><p>如果自动检测失败，Double Commander 将使用 <tt>xterm</tt>。</p></li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigFonts">2.4. 字体</a></span></p>
+        <p class="figure"><img class="largeimage" title="Fonts" alt="Fonts" src="images/imgDC/pic28.png" width="461" height="627"></p>
+        <p>您可以为编辑器（<kbd>F4</kbd>）、查看器（<kbd>F3</kbd>）、文件面板（<span class="italic">主要字体</span>）和 Double Commander 界面的其他元素选择字体及其大小。每个字体的底部行允许您查看所选字体的显示效果。一个重要的说明：编辑器和查看器的字体必须是 <span class="red">等宽字体</span>。下图说明了上方窗口中的比例字体（注意奇怪的间距）和下方窗口中的等宽字体（显示正常间距）。此外，某些比例字体的字符可能会相互覆盖，看起来相当奇怪。</p>
+        <p class="figure"><img class="largeimage" title="Font Differences" alt="Font Differences" src="images/imgDC/pic29.png" width="576" height="360"></p>
+        <p>上方为正常（比例）字体，下方为等宽字体。</p>
+        <p>您还可以使用 <kbd>Ctrl</kbd>+鼠标滚轮来更改字体大小，此功能适用于 Double Commander 的以下界面元素或部分：</p>
+        <ul>
+          <li><p>左侧和右侧面板中的文件列表;</p></li>
+          <li><p>当前目录（地址）栏;</p></li>
+          <li><p>功能键按钮栏;</p></li>
+          <li><p>树状图菜单;</p></li>
+          <li><p>搜索文件对话框中的搜索结果;</p></li>
+          <li><p>内部编辑器;</p></li>
+          <li><p>内部查看器（如果查看器显示文本，则此操作将更改字体大小；如果显示图像，则此操作将作为缩放命令工作）。</p></li>
+        </ul>
+        <p>您还可以选择字体光栅化的类型（无论系统设置如何），请参阅 <a href="configxml.html">&lt;Quality&gt;</a> 的描述。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColor">2.5. 颜色</a></span></p>
+        <p>本节包含未包含在其他设置部分中的颜色设置。参数按类别分组。</p>
+        <p class="figure"><img class="largeimage" title="Colors: Dark mode" alt="Colors: Dark mode" src="images/imgDC/pic59.png" width="461" height="178"></p>
+        <p>1. <span class="italic">Dark mode</span>&nbsp;&ndash; 启用或禁用暗黑模式支持（仅限 macOS 和 Windows 10 1809 及更高版本）。状态：</p>
+        <ul>
+          <li><p><span class="italic">自动</span>&nbsp;&ndash; 将使用系统设置。</p></li>
+          <li><p><span class="italic">启用</span>&nbsp;&ndash; 强制启用。</p></li>
+          <li><p><span class="italic">禁用</span>&nbsp;&ndash; 强制禁用。</p></li>
+        </ul>
+         <p>2. <span class="italic">查看器</span>&nbsp;&ndash; 由内置 <a href="viewer.html">文件查看器</a> 使用的颜色设置（请参阅 <a href="viewer.html#mnu_view">此处</a> 的查看模式描述）：</p>
+        <p><span class="italic">Book Mode</span>&nbsp;&ndash; 对于“书籍”查看模式，可以设置文本颜色和背景颜色。</p>
+        <p><span class="italic">Image Mode</span>：</p>
+        <ul>
+          <li><p><span class="italic">Background 1:</span>&nbsp;&ndash; 设置查看图像时窗口的背景颜色。</p></li>
+          <li><p><span class="italic">背景色 2:</span>&nbsp;&ndash; 如果启用 <a href="viewer.html#mnu_image">显示透明度</a>，内部查看器将使用棋盘图案作为背景来指示透明度，而 <span class="italic">背景色 2</span> 定义方块的颜色。如果未设置，查看器将自动计算该值：对于深色背景，将使用浅色方块，反之亦然。</p></li>
+        </ul>
+        <p>3. <span class="italic">比较程序</span>&nbsp;&ndash; 用于内部 <a href="help.html#cm_CompareContents">Differ tool</a>: 你可以更改添加、删除和修改行的颜色，以及二进制模式下不同字符的颜色。</p>
+        <p>4. <span class="italic">日志</span>&nbsp;&ndash; 设置日志窗口中文本颜色的选项，包括信息消息、错误消息和成功操作消息。此外，这些颜色也用于 <a href="help.html#cm_CheckSumVerify">验证校验和</a> 结果的窗口中。</p>
+        <p>5. <span class="italic">文件夹同步</span>&nbsp;&ndash; 用于内部 <a href="syncdirs.html">文件夹同步</a> 工具：</p>
+        <ul>
+          <li><p><span class="italic">Left:</span>&nbsp;&ndash; 选定要在左侧复制或删除的文件。</p></li>
+          <li><p><span class="italic">Right:</span>&nbsp;&ndash; 选定要在右侧复制或删除的文件。</p></li>
+          <li><p><span class="italic">Unknown:</span>&nbsp;&ndash; 名称相同但不完全相同的文件。</p></li>
+        </ul>
+        <p>6. <span class="italic">驱动器可用空间指示器</span>&nbsp;&ndash; 在这里你可以更改驱动器可用空间指示器的外观：</p>
+        <p class="figure"><img class="largeimage" title="Colors: Free Space Indicator" alt="Colors: Free Space Indicator" src="images/imgDC/pic81.png" width="521" height="226"></p>
+        <p>Double Commander 可以显示从绿色到红色的渐变或简单的单色指示器，在第二种情况下，您可以选择颜色和背景。如果可用磁盘空间少于 10%，将使用 <span class="italic">指示器阈值颜色</span>。</p>
+        <p>指示器示例是可点击的，因此您可以查看它的外观。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColorPanels">2.5.1. 颜色&nbsp;&gt; 文件面板</a></span></p>
+        <p>本节包含文件面板外观的设置：</p>
+        <p class="figure"><img class="largeimage" title="Color settings" alt="Color settings" src="images/imgDC/pic30.png" width="821" height="689"></p>
+        <p>这里的颜色设置是两个文件面板的全局设置。这些设置可以通过创建自定义列样式来覆盖，该样式可以为面板中的每个选项卡具有自己的颜色设置等！有关如何执行此操作的详细信息，请参阅 <a href="#ConfigColumns">文件视图&nbsp;&gt; 列&nbsp;&gt; 自定义列</a>。您应该调整列的当前样式（默认情况下为 <span class="italic">Default</span>）或创建自己的样式并将其应用于任何选项卡。</p>
+        <p>在这里，您可以选择用于处理文件面板的颜色：<span class="italic">文本颜色</span>、<span class="italic">背景</span>、<span class="italic">背景 2</span>、<span class="italic">标记颜色</span>、<span class="italic">光标颜色</span>、<span class="italic">光标文本</span>、<span class="italic">非活动光标颜色</span>、<span class="italic">非活动标记颜色</span>，以及 <span class="italic">光标边框</span>（如果您不使用框架光标）。通过这两个背景选项，您可以在面板中制作交替条纹，如某些屏幕截图所示。</p>
+        <p><span class="italic">使用反向选择</span>&nbsp;&ndash; 反转标记文本和光标下标记文本的颜色。</p>
+        <p><span class="italic">使用非活动选择区域颜色</span>&nbsp;&ndash; 启用在非活动面板中显示光标。</p>
+        <p><span class="italic">使用窗体光标</span>&nbsp;&ndash; Double Commander 将使用框架而不是实心矩形。</p>
+        <p><span class="italic">允许叠加着色</span> 启用使用与默认颜色不同的颜色来表示文件名的能力（请参阅 <a href="#ConfigColorFiles">颜色&nbsp;&gt; 文件类型</a> 部分）。</p>
+        <p>在 <span class="italic">Current Path</span> 参数组中，您可以更改活动和非活动文件面板的 <a href="help.html#iface_dir">当前目录栏</a> 的文本颜色和背景颜色。</p>
+        <p>在这里，您还可以降低非活动面板的亮度。</p>
+        <p>窗口底部有一个预览区域，因此您可以一次查看所有更改。</p>
+        <p><span class="italic">重置为 DC 默认值</span> 按钮将所有参数重置为默认值。</p>
+        <p>网格颜色也可以更改，但只能手动更改。您需要关闭应用程序，打开 <a href="#config_files">colors.json</a> 文件，并替换 <code>FilePanel</code> 对象中 <code>GridLine</code> 键的值。（不要忘记，<tt>colors.json</tt> 中的颜色存储在两个配置文件中：“Light”用于浅色主题，“Dark”用于深色主题。）<br>
+          关于颜色格式：Double Commander 将颜色值存储为十进制数，格式为 <code>$BBGGRR</code>。例如，如果您想使用靛蓝色 <code>#4B0082</code>（<code>$RRGGBB</code>），那么进行重新排列，您将得到 <code>82004B</code>，现在您需要将此十六进制数转换为十进制。或者，您可以暂时为某种类型的文件添加颜色（见下文），通过名称或掩码在 <tt>colors.json</tt> 中找到它，复制值并删除。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColorFiles">2.5.2. 颜色&nbsp;&gt; 文件类型</a></span></p>
+        <p>在这里，您可以指定应赋予不同颜色的文件类型。必须启用 <a href="#ConfigColorPanels">允许叠加着色</a> 参数（默认启用）。</p>
+        <p class="figure"><img class="largeimage" title="File types by color" alt="File types by color" src="images/imgDC/pic31.png" width="521" height="323"></p>
+        <p>在 <span class="italic">类别名称</span> 行中，您可以写下文件的描述、它的功能或它打开的程序。</p>
+        <p>在 <span class="italic">类别掩码</span> 行中，放置一个通配符掩码以匹配文件类型（符号“*”表示匹配任意数量的字符，符号“？”表示匹配任意一个字符）。您可以在此处使用分号“;”放置多个文件类型，且之间不需要空格。您还可以使用搜索模版（<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">），包括使用内容插件的搜索。</p>
+        <p>在 <span class="italic">分类属性</span> 行中，您可以放置文件属性，DC 将匹配具有匹配属性的任何文件（如果使用搜索模版，则不可用）。文件属性由以下模版指定：</p>
+        <ul>
+          <li><p>Windows: [<code>d</code> or <code>l</code>]<code>rahs</code>[<code>c</code> or <code>e</code>]<code>tp</code></p></li>
+          <li><p>Unix/Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code> or <code>s</code>]<code>rwxrwxrwx</code></p></li>
+        </ul>
+        <p>即 模版必须匹配文件列表中的属性文本字符串。值的描述：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Windows 属性</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">属性字母</th><th class="categorydesccolumn">代表的含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">archive 存档</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">compressed (NTFS compression) 压缩（NTFS 压缩）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory 目录</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">encrypted (EFS encryption) 加密（EFS 加密）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">hidden 隐藏</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink 符号链接</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">sparse 稀疏</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">read only 只读</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">system 系统</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">temporary 临时</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Unix/Linux 属性</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">文件类型字母</th><th class="categorydesccolumn">代表的含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">block device 块设备</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">character device 字符设备</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">directory 目录</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">named pipe (FIFO) 命名管道（FIFO）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symlink 符号链接</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">socket 套接字</td></tr>
+        </table>
+        <br>
+        <p>关于Unix/Linux 模版的第二部分显示权限：读取（r）、写入（w）、执行（x）。这些值按以下顺序分为三组：用户（所有者）、用户组、其他所有人。</p>
+        <p>如果不应设置属性，则必须用“-”符号替换，不必要的属性应隐藏：符号“*”表示匹配任意数量的字符，符号“？”表示任意一个字符。例如，<code>?r*</code>（Windows）或<code>?r-*</code>（Linux）将找到所有只读文件和文件夹。</p>
+        <p>您可以使用列表中的颜色或使用“..”按钮指定自己的颜色。</p>
+        <p>自定义后，请不要忘记单击“应用”按钮。</p>
+        <p>Double Commander 从上到下检查列表，直到找到第一个匹配项：列表中较高的规则将覆盖下面的任何规则。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigKeys">2.6. 按键</a></span></p>
+        <p class="figure"><img class="largeimage" title="Keys" alt="Keys" src="images/imgDC/pic60.png" width="363" height="183"></p>
+        <p>在这里，您可以设置在活动文件面板中按下某些键时的操作：<span class="italic">字母</span>、<span class="italic">Alt+字母</span>、<span class="italic">Ctrl+Alt+字母</span>。您可以选择以下操作之一：什么都不做，将焦点设置到命令行并输入命令，运行 <p><a href="help.html#cm_QuickSearch">快速搜索或快速过滤</a>。</p>
+        <p><span class="italic">左，右箭头更改文件夹（类似Lynx运动）</span>&nbsp;&ndash; <kbd>右方向键</kbd> 打开目录或在光标下运行程序，<kbd>左方向键</kbd> 打开父目录（仅在<a href="help.html#iface_files">完整模式</a>中）。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigHotKeys">2.6.1. 按键&nbsp;&gt; 热键</a></span></p>
+        <p>在本节中，您可以设置按键以启动命令，并为这些命令指定参数。</p>
+        <p class="figure"><img class="largeimage" title="Hot Keys" alt="Hot Keys" src="images/imgDC/pic32.png" width="777" height="479"></p>
+        <p><span class="italic">快捷键文件</span>&nbsp;&ndash; 一个下拉菜单，包含一组热键的文件列表。它们存储在程序设置文件的目录中。</p>
+        <p>右侧是与文件相关的菜单按钮：</p>
+        <ul>
+          <li><p>当前文件的操作：<span class="italic">立即保存</span>、<span class="italic">重命名</span>、<span class="italic">复制</span>和<span class="italic">删除</span>。</p></li>
+          <li><p><span class="italic">恢复 DC 默认设置</span>。</p></li>
+          <li><p>切换到上一个和下一个类别的命令。</p></li>
+          <li><p>切换命令表的排序顺序的命令（见下文）。</p></li>
+        </ul>
+        <p><span class="italic">类别</span>&nbsp;&ndash; 显示热键组合的类别：
+          <span class="italic">主要</span>,
+          <span class="italic">复制/移动对话框</span>,
+          <span class="italic">比较程序</span>,
+          <span class="italic">编辑注释对话框</span>,
+          <span class="italic">编辑器</span>,
+          <span class="italic">搜索文件</span>,
+          <span class="italic">批量重命名</span>,
+          <span class="italic">文件夹同步</span>,
+          <span class="italic">查看器</span>.
+        </p>
+        <p><span class="italic">过滤器</span>&nbsp;&ndash; 使您能够更快地搜索内部命令。</p>
+        <p><span class="italic">排序</span>&nbsp;&ndash; 切换命令表的排序顺序：</p>
+        <ul>
+          <li><p><span class="italic">按命令名称</span>。</p></li>
+          <li><p><span class="italic">按快捷键（分组）</span>&nbsp;&ndash; 如果分配了多个热键，它们将以分号 ";" 分隔的形式列出。</p></li>
+          <li><p><span class="italic">按快捷键（每行一个）</span>。</p></li>
+        </ul>
+        <p><span class="italic">命令</span>&nbsp;&ndash; 列举可用的 <a href="cmds.html">内部命令</a> 在 Double Commander 中。该列表以三列的表格形式显示：</p>
+        <ul>
+          <li><p>命令（内部命令的名称）。</p></li>
+          <li><p>热键（分配的快捷键）。</p></li>
+          <li><p>描述（简短描述）。</p></li>
+        </ul>
+        <p>窗口底部的表格显示了所选命令的分配的键盘快捷键、参数和界面元素（见下文）。</p>
+        <p><span class="italic">添加热键</span>&nbsp;&ndash; 将打开一个添加热键的窗口。</p>
+        <p><span class="italic">编辑热键</span>&nbsp;&ndash; 将打开相同的窗口，但热键和其他选项已设置。</p>
+        <p><span class="italic">删除热键</span>&nbsp;&ndash; 将删除列表中选定的热键。</p>
+        <p>添加热键的窗口：</p>
+        <p class="figure"><img class="largeimage" title="Add new hotkey" alt="Add new hotkey" src="images/imgDC/pic33.png" width="460" height="497"></p>
+        <p><span class="italic">快捷键</span>&nbsp;&ndash; 新的快捷键将在此显示。单击框并按下组合键以输入新的热键。如果新组合已用于其他命令，Double Commander 将显示警告。</p>
+        <p><span class="italic">参数（每行一个）：</span>&nbsp;&ndash; 允许为命令设置一些参数。大多数参数必须作为 <span class="italic">parameter=value</span> 添加（除非另有说明），每个参数必须单独一行，且不带引号或其他转义特殊字符和空格的方式。下面的按钮将打开 Double Commander 的 <a href="cmds.html">相应帮助文件</a> 中的命令描述。</p>
+        <p><span class="italic">仅限于此类控件</span>&nbsp;&ndash; 热键仅在所选界面元素获得焦点时有效：命令行、文件或快速搜索面板。</p>
+        <p>窗口右侧有以下按钮：</p>
+        <ul>
+          <li><p><span class="italic">F1</span> 按钮将显示一个菜单，其中列出了按字母和修饰符分组的可用快捷键。</p></li>
+          <li><p>“+”按钮将添加另一个快捷键字段（最多五个）。</p></li>
+          <li><p>“-”按钮将从列表中删除最后一个快捷键。</p></li>
+        </ul>
+        <p>您可以通过两种方式为内部命令设置多个热键：使用 <span class="italic">添加热键</span> 按钮，然后多次单击 “+” 按钮，或者多次单击 <span class="italic">添加热键</span> 按钮。第二种方法允许使用不同的参数来使用所选命令。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMouse">2.7. 鼠标</a></span></p>
+        <p class="figure"><img class="largeimage" title="Mouse" alt="Mouse" src="images/imgDC/pic61.png" width="410" height="356"></p>
+        <p>第一个参数组是 <span class="italic">选择</span>：</p>
+        <ul>
+          <li><p><span class="italic">用鼠标选择</span>&nbsp;&ndash; 启用使用鼠标选择和取消选择文件和文件夹的功能。</p></li>
+          <li><p><span class="italic">通过点击图标</span>&nbsp;&ndash; 允许通过单击图标来选择文件。在缩略图视图中，通过单击图像的左侧部分（1/4 或 25%）来选择图标。</p></li>
+          <li><p><span class="italic">模式</span>&nbsp;&ndash; 设置左键或右键鼠标按钮。</p></li>
+        </ul>
+        <p>有关详细信息，请参阅 <a href="help.html#select_files">选择文件</a> 子章节。</p>
+        <p><span class="italic">滚动</span>&nbsp;&ndash; 使用鼠标滚轮滚动面板中文件列表的能力。</p>
+        <ul>
+          <li><p><span class="italic">光标逐行移动</span>&nbsp;&ndash; 光标将在滚动发生之前上下移动面板。</p></li>
+          <li><p><span class="italic">逐行</span>&nbsp;&ndash; 光标保持在文件上，立即发生滚动。您还可以指定行数。</p></li>
+          <li><p><span class="italic">逐页</span>&nbsp;&ndash; 与前一个相同，但滚动是按页而不是按行进行的（滚动速度更快）。</p></li>
+        </ul>
+        <p><span class="italic">打开方式...</span>&nbsp;&ndash; 将确定在使用鼠标按钮单击面板中显示的文件列表中的元素时将启动的操作：</p>
+        <ul>
+          <li><p>需要双击才能启动操作（默认）。</p></li>
+          <li><p>单击打开文件和文件夹。</p></li>
+          <li><p>单击仅打开文件夹。对于文件，需要双击。</p></li>
+        </ul>
+        <p><span class="italic">文本光标不再跟随鼠标光标</span>&nbsp;&ndash; 用于最后两个值。如果启用单击，默认情况下文本光标将跟随鼠标光标：这有助于避免意外打开文件或文件夹。如果您不需要它（或不喜欢它），可以禁用它。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMouseDD">2.7.1. 鼠标&nbsp;&gt; 拖放</a></span></p>
+        <p>本节包含与 <a href="help.html#draganddrop">拖放</a> 相关的设置。</p>
+        <p class="figure"><img class="largeimage" title="Mouse&nbsp;&gt; Drag &amp; drop" alt="Mouse&nbsp;&gt; Drag &amp; drop" src="images/imgDC/pic62.png" width="410" height="356"></p>
+        <p><span class="italic">拖放完成后显示确认对话框</span>&nbsp;&ndash; 有助于避免在活动文件面板内或面板之间使用拖放文件时发生意外错误：Double Commander 将显示确认对话框，就像正常复制或移动文件一样。</p>
+        <p>下一个功能仅在 Windows 中可用：您可以将选定的文本从 Web 浏览器或文字处理器（例如 LibreOffice Writer 或 Microsoft Word）拖放到面板中并保存。在这里，您可以选择文件格式（RTF、HTML 或纯文本文件）、编码并启用自动名称生成。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigView">2.8. 文件视图</a></span></p>
+        <p>在本节中，您可以设置各种文件排序选项以及日期/时间和大小格式。</p>
+        <p class="figure"><img class="largeimage" title="Files views: sorting and formatting" alt="Files views: sorting and formatting" src="images/imgDC/pic34.png" width="727" height="479"></p>
+
+        <p><span class="italic">排序方法</span>&nbsp;&ndash; 设置文件面板中的排序方法：</p>
+        <ul>
+          <li><p><span class="italic">按字母顺序：考虑重音</span>&nbsp;&ndash; 此方法将按字母顺序排序，考虑系统语言和区域设置的特殊性：还将考虑附加字符（例如，德语中的变音符号和其他变音符号，或俄语中的字母“ё”）。</p></li>
+          <li><p><span class="italic">按字母顺序：考虑特殊字符</span>&nbsp;&ndash; 与前一种方法类似，但列表将按特殊字符和标点符号在字母之前排序。</p></li>
+          <li><p><span class="italic">按自然顺序排序：考虑字母和数字</span>&nbsp;&ndash; 此方法将数字按数字排序：例如，“3”将显示在“20”之前，因为20大于3。</p></li>
+          <li><p><span class="italic">按自然顺序排序：考虑特殊字符</span>&nbsp;&ndash; 与前一种方法类似，但还会按特殊字符和标点符号进行排序。</p></li>
+        </ul>
+        <p><span class="italic">区分大小写</span>&nbsp;&ndash; 补充所选方法：</p>
+        <ul>
+          <li><p>不区分大小写；</p></li>
+          <li><p>根据区域设置（aAbBcC）；</p></li>
+          <li><p>先大写然后小写（ABCabc）。</p></li>
+        </ul>
+        <p><span class="italic">文件夹排序</span>&nbsp;&ndash; 设置文件夹在文件列表中的位置：</p>
+        <ul>
+          <li><p>按名称排序，首先显示；</p></li>
+          <li><p>像文件一样排序且首先显示；</p></li>
+          <li><p>像文件一样排序。</p></li>
+        </ul>
+        <p><span class="italic">插入新文件</span>&nbsp;&ndash; 设置新文件在列表中的位置：</p>
+        <ul>
+          <li><p>在文件列表顶部；</p></li>
+          <li><p>在文件夹之后（如果文件夹在文件前排序）；</p></li>
+          <li><p>在排序位置；</p></li>
+          <li><p>在文件列表底部。</p></li>
+        </ul>
+        <p><span class="italic">移动更新的文件</span>&nbsp;&ndash; 如果用于排序的文件属性发生更改（修改日期、大小等），则设置位置：</p>
+        <ul>
+          <li><p>不更改位置；</p></li>
+          <li><p>使用与新文件相同的设置；</p></li>
+          <li><p>要排序位置。</p></li>
+        </ul>
+
+        <p>正在格式化组中的第一个参数是 <span class="italic"><a name="dt_format">日期时间格式</a></span>。您可以从下拉列表中选择现有模版，或使用日期和时间格式字符设置自己的模版。</p>
+        <p>格式化字符如下所示（基于 <a title="Free Pascal: Date and time format" href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html" target="_blank">Free Pascal 文档</a>）。某些值取决于操作系统的区域设置！</p>
+        <p>作为示例，我们将使用 2021.01.24 09:06:02（即 <code>yyyy.mm.dd hh:mm:ss</code>）和美国区域。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">可选字符</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">字符</th><th class="categorydesccolumn">描述</th><th class="categorynamecolumn">示例</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">短日期格式和长时间格式（如果时间不为零）</td><td class="hintcell">1/24/2021 9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">与 <tt>c</tt> 相同，但即使时间为零也会添加时间</td><td class="hintcell">1/24/2021 9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">月份中的天数</td><td class="hintcell">24</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dd</div></td><td class="hintcell">月份中的天数（前导零）</td><td class="hintcell">24</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ddd</div></td><td class="hintcell">星期几（缩写）</td><td class="hintcell">Sun</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dddd</div></td><td class="hintcell">星期几（全称）</td><td class="hintcell">Sunday</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ddddd</div></td><td class="hintcell">短日期格式</td><td class="hintcell">1/24/2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dddddd</div></td><td class="hintcell">长日期格式</td><td class="hintcell">Sunday, January 24, 2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">m</div></td><td class="hintcell">月份或分钟（如果前面有 <tt>h</tt> 或 <tt>hh</tt> 修饰符）</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mm</div></td><td class="hintcell">月份或分钟（如果前面有 <tt>h</tt> 或 <tt>hh</tt> 修饰符，带前导零）</td><td class="hintcell">01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mmm</div></td><td class="hintcell">月份（缩写）</td><td class="hintcell">Jun</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mmmm</div></td><td class="hintcell">月份（全称）</td><td class="hintcell">January</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">yy</div></td><td class="hintcell">年份（两位数）</td><td class="hintcell">21</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">yyyy</div></td><td class="hintcell">年份（带世纪）</td><td class="hintcell">2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">小时</td><td class="hintcell">9</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">hh</div></td><td class="hintcell">小时（前导零）</td><td class="hintcell">09</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n</div></td><td class="hintcell">分钟</td><td class="hintcell">6</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">nn</div></td><td class="hintcell">分钟（前导零）</td><td class="hintcell">06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">秒</td><td class="hintcell">2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ss</div></td><td class="hintcell">秒（前导零）</td><td class="hintcell">02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">毫秒</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">毫秒（前导零）</td><td class="hintcell">001</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">短时间格式</td><td class="hintcell">9:06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">tt</div></td><td class="hintcell">长时间格式</td><td class="hintcell">9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">am/pm</div></td><td class="hintcell">使用 12 小时制并相应地显示 am 和 pm（也可以使用 <tt>AM/PM</tt>、<tt>a/m</tt> 或 <tt>A/M</tt>）；例如，<code>t&nbsp;AM/PM</code></td><td class="hintcell">9:06 am</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">插入日期分隔符</td><td class="hintcell">/</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">插入时间分隔符</td><td class="hintcell">:</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">"text"</div></td><td class="hintcell">文字文本；例如，<code>yyyy "AD"</code></td><td class="hintcell">2021 AD</td></tr>
+        </table>
+
+        <p>下一项参数设置文件大小格式：</p>
+        <ul>
+          <li><p><span class="italic">文件大小格式</span>&nbsp;&ndash; 将用于文件面板。</p></li>
+          <li><p><span class="italic">头部格式</span>&nbsp;&ndash; 将用于驱动器列表和可用空间标签。</p></li>
+          <li><p><span class="italic">页脚格式</span>&nbsp;&ndash; 将用于文件面板的状态栏。</p></li>
+          <li><p><span class="italic">操作大小格式</span>&nbsp;&ndash; 将用于文件操作对话框：复制、移动、计算校验和等。</p></li>
+        </ul>
+        <p>右侧还可以设置小数分隔符后的数字位数（即数字的整数部分和小数部分之间的分隔符）：0、1、2 或 3。</p>
+        <p>文件大小单位：字节、千字节、兆字节、吉字节、太字节或浮点数（ Double Commander 将根据大小自动选择单位）。</p>
+        <p>名称中的“个性化”意味着 Double Commander 将使用下面列表中的<span class="italic">个性化缩写</span>。<span class="italic">默认</span>按钮将其重置为所选语言的默认值（在相应的语言文件中指定）。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewEx">2.8.1. 文件视图&nbsp;&gt; 文件视图扩展</a></span></p>
+        <p class="figure"><img class="largeimage" title="Files views extra" alt="Files views extra" src="images/imgDC/pic63.png" width="649" height="415"></p>
+        <p>正在标记/取消标记条目：</p>
+        <ul>
+          <li><p><span class="italic">标记文件时的 Windows 样式过滤器（"*.*" 同时选择没有扩展名的文件等。）</span>&nbsp;&ndash; 默认情况下，掩码 "*.*" 匹配任何具有扩展名的文件的名称，对于任何文件名，请使用掩码 "*"。如果启用，掩码 "*.*" 将匹配任何文件。</p></li>
+          <li><p><span class="italic">要使用的默认属性掩码值</span>&nbsp;&ndash; 将用于以下命令：
+            <span class="italic">全选</span> (<tt>cm_MarkMarkAll</tt>),
+            <span class="italic">取消全选</span> (<tt>cm_MarkUnmarkAll</tt>),
+            <span class="italic">反转选择</span> (<tt>cm_MarkInvert</tt>),
+            <span class="italic">选择组</span> (<tt>cm_MarkPlus</tt>)
+            和 <span class="italic">取消选择组</span> (<tt>cm_MarkMinus</tt>)。
+            例如，如果您希望这些命令仅适用于文件，请指定 <code>d-</code>。
+            <span class="italic">添加</span>按钮将打开文件属性选择窗口，您可以使用它或手动输入它们。有关文件属性及其使用的更多信息，请参见<a href="findfiles.html#attributes">此处</a>。</p></li>
+          <li><p><span class="italic">每次在掩码输入对话框中使用独立的属性过滤器</span>&nbsp;&ndash; 如果启用，属性过滤器将添加到<span class="italic">选择组</span> (<tt>cm_MarkPlus</tt>)和<span class="italic">取消选择组</span> (<tt>cm_MarkMinus</tt>)命令对话框中。</p></li>
+        </ul>
+        <p><span class="italic">使用 &lt;空格键&gt; 选择文件时，自动移动到下一文件（相当于 &lt;插入键&gt;）</span>&nbsp;&ndash; 在使用 <kbd>空格</kbd> 键选择时，光标向下移动。默认键是 <kbd>Shift+Down</kbd> 或 <kbd>Shift+Up</kbd>。</p>
+        <p><span class="italic">文件夹名前后显示方括号</span>&nbsp;&ndash; 有助于在禁用图标时直观地区分目录和文件。您还可以使用任何符号代替它们，请参阅 <code>&lt;FolderPrefix&gt;</code> 和 <code>&lt;FolderPostfix&gt;</code> 参数的描述 <a href="configxml.html">此处</a>。</p>
+        <p><span class="italic"><a name="show_hidden">显示隐藏/系统文件</a></span>&nbsp;&ndash; 如果启用，Double Commander 将显示具有“隐藏”或“系统”属性（Windows）或名称以点字符开头（Linux 和其他类 Unix 系统）的文件和文件夹。这也可以从 <a href="help.html#cm_ShowSysFiles">主菜单</a> 中更改。</p>
+        <p>参数 <span class="italic">在单独的线程中加载文件列表</span> 和 <span class="italic">在文件列表后加载图标</span> 旨在加快面板中文件列表的显示，即在打开大型目录时，应用程序窗口将更少地挂起。</p>
+        <p><span class="italic">标签激活前不要加载文件列表</span>&nbsp;&ndash; 启动时，Double Commander 将不会加载在上一个会话中打开的非激活选项卡的文件列表。</p>
+        <p><span class="italic">高亮显示新建和更新的文件</span>&nbsp;&ndash; 如果启用，当前正在创建或修改的文件的名称将闪烁。</p>
+        <p><span class="italic">双击文件名时启用就地重命名</span>&nbsp;&ndash; 是一种额外的能力，可以使用左键单击重命名文件（这不依赖于选择鼠标的所选键），与 Windows 资源管理器相同。单击后，鼠标光标必须保持静止至少一秒钟。在<a href="#ConfigMouse">鼠标设置</a>部分，应该选择文件和文件夹的双击或仅文件。</p>
+        <p><span class="italic">双击文件视图的空白区域时，启用变更到父文件夹</span>&nbsp;&ndash; 是一种额外的功能，可以简化目录导航。但如果您使用的是列集，并且当前目录中的文件列表不适合面板（即您看到垂直滚动条），则不适用。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewBrief">2.8.2. 文件视图&nbsp;&gt; 列表视图</a></span></p>
+        <p>这里只有两项参数。</p>
+        <p class="figure"><img class="largeimage" title="Files views&nbsp;&gt; Brief" alt="Files views&nbsp;&gt; Brief" src="images/imgDC/pic64.png" width="283" height="210"></p>
+        <p><span class="italic">显示文件扩展名</span>: <span class="italic">在文件名后直接显示</span> 或 <span class="italic">对齐（使用 Tab 键）</span>。在第二种情况下，文件扩展名将单独显示，并对齐到列的右侧。</p>
+        <p><span class="italic">列宽</span>: Double Commander 将自动设置大小（大小将取决于文件名的长度），或者您可以设置列的宽度（以像素为单位）或列的数量。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewFull">2.8.3. 文件视图&nbsp;&gt; 详细信息列视图</a></span></p>
+        <p class="figure"><img class="largeimage" title="Files views&nbsp;&gt; Columns" alt="Files views&nbsp;&gt; Columns" src="images/imgDC/pic65.png" width="283" height="333"></p>
+        <p>第一组是 <span class="italic">显示网格</span>:</p>
+        <ul>
+          <li><p><span class="italic">垂直列</span>&nbsp;&ndash; 在面板中启用垂直网格线。</p></li>
+          <li><p><span class="italic">水平行</span>&nbsp;&ndash; 在面板中启用水平网格线。</p></li>
+        </ul>
+        <p>下面的屏幕截图说明了这种微妙的网格效果。左侧的屏幕截图启用了垂直和水平线，而右侧的屏幕截图则没有。</p>
+        <p class="figure"><img class="largeimage" title="with and without lines" alt="with and without lines" src="images/imgDC/pic35.png" width="800" height="250"></p>
+        <p>可以更改线条的颜色，更多细节请参见<a href="#ConfigColorPanels">这里</a>。</p>
+        <p><span class="italic">自动填充列</span>&nbsp;&ndash; 如果启用，当调整窗口大小时（或如果存在空闲空间），Double Commander 将调整在下一个选项 <span class="italic">自动宽度的列：</span>（首先或最后）中选择的列的大小。将不提供水平滚动条。</p>
+        <p><span class="italic">按值对齐列标题</span>&nbsp;&ndash; 如果启用，Double Commander 将使列标题与内容对齐（而不是左对齐）。</p>
+        <p>如果列的内容大于其宽度：</p>
+        <ul>
+          <li><p><span class="italic">按列宽裁剪文本</span>&nbsp;&ndash; 有时列文本可能会重叠到其他列中。此选项会在列边界处截断任何多余的文本。</p></li>
+          <li><p><span class="italic">文本显示不全时，扩展单元格宽度</span>&nbsp;&ndash; 如果文本不适合且相邻单元格为空，则文本也将占用相邻单元格。</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColumns">2.8.3.1. 文件视图&nbsp;&gt; 列&nbsp;&gt; 自定义列</a></span></p>
+        <p>在本节中，您可以自定义面板外观、列、颜色、字体等。Double Commander 在这方面非常易于配置。</p>
+        <p class="figure"><img class="largeimage" title="Custom columns" alt="Custom columns" src="images/imgDC/pic36.png" width="800" height="590"></p>
+        <p>窗口底部有一个预览区域，因此您可以一次查看所有更改。您可以移动光标并选择文件，以立即获得各种设置的实际外观和感觉。</p>
+        <p><span class="italic">文件系统</span>&nbsp;&ndash; 允许切换到 WFX 插件的列设置（如果安装的插件支持它）。</p>
+        <p><span class="italic">列视图</span>&nbsp;&ndash; 现有列样式的列表。默认样式为 <span class="italic">默认</span>。</p>
+        <p><span class="italic">保存</span>&nbsp;&ndash; 保存所选列集中的更改。</p>
+        <p><span class="italic">另存为</span>&nbsp;&ndash; 允许将所选列集（原样或更改后）另存为新名称。</p>
+        <p><span class="italic">新建</span>&nbsp;&ndash; 创建一个基于所选列集的新列集。名称相同 + 当前日期和时间。</p>
+        <p><span class="italic">重命名</span>&nbsp;&ndash; 将提示输入新名称。</p>
+        <p><span class="italic">删除</span>&nbsp;&ndash; 删除所选列集。</p>
+        <p>下面是所选集的列的表格，在这里您可以设置列的编号、名称、内容、位置和大小。表格中的行数等于标签中的列数。添加新列：使用 <kbd>下箭头</kbd> 键或在表格附近的空白区域右键单击并选择 <span class="italic">添加列</span>。</p>
+        <p>这些是确定列表格的参数（单击框以编辑它们）：</p>
+        <p class="figure"><img class="largeimage" title="Columns" alt="Columns" src="images/imgDC/pic37.png" width="612" height="46"></p>
+        <p><span class="italic">列</span>&nbsp;&ndash; 显示所选列的指示器。</p>
+        <p><span class="italic">标题</span>&nbsp;&ndash; 指定将在<a href="help.html#iface_columns">标签页标题栏</a>中显示的列名称。您可以设置任何您喜欢的名称。</p>
+        <p><span class="italic">宽度</span>&nbsp;&ndash; 列宽（以像素为单位），将在程序启动时设置。注意：宽度取决于列内容，例如，文件扩展名列的宽度将很小。</p>
+        <p><span class="italic">对齐</span>&nbsp;&ndash; 设置列内容的对齐方式。变体包括：</p>
+        <ul>
+          <li><p><tt>"&lt;-"</tt>&nbsp;&ndash; 左对齐；</p></li>
+          <li><p><tt>"-&gt;"</tt>&nbsp;&ndash; 右对齐；</p></li>
+          <li><p><tt>"="</tt>&nbsp;&ndash; 居中对齐。</p></li>
+        </ul>
+        <p><span class="italic">字段内容</span>&nbsp;&ndash; 设置列的基本内容。当选择单元格时，右侧将出现“+”按钮，您可以选择 Double Commander 的内部字段（子菜单“DC”）或已安装的 WDX 插件的字段（子菜单“插件”）。内部字段列表：</p>
+        <ul>
+          <li><p><tt>GETFILENAME</tt>&nbsp;&ndash; 文件名和扩展名（<tt>text.txt</tt>）。</p></li>
+          <li><p><tt>GETFILENAMENOEXT</tt>&nbsp;&ndash; 文件名且无扩展名（<tt>text</tt>）。</p></li>
+          <li><p><tt>GETFILEEXT</tt>&nbsp;&ndash; 文件扩展名（从点到最后，例如 <tt>txt</tt>）。</p></li>
+          <li><p><tt>GETFILESIZE</tt>&nbsp;&ndash; 文件或目录大小。默认情况下，外观将取决于在 <a href="#ConfigView">文件视图</a> 部分中选择的选项，但所有可能的大小格式也可用。</p></li>
+          <li><p><tt>GETFILETIME</tt>&nbsp;&ndash; 文件或目录修改日期。</p></li>
+          <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&ndash; 文件或目录创建日期。</p></li>
+          <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&ndash; 文件或目录最后访问日期。</p></li>
+          <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&ndash; 文件或目录状态更改日期。</p></li>
+          <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; 文件或目录属性。您可以选择字符串或数字（八进制）值。在 Windows 中，如果在文件面板中显示 Unix 属性（例如，使用 FTP 插件），则可以使用八进制值。有关字符串值的详细描述，请参见 <a href="#ConfigColorFiles">此处</a>。</p></li>
+          <li><p><tt>GETFILEPATH</tt>&nbsp;&ndash; 当前项目的路径。用途：通常用于搜索结果。</p></li>
+          <li><p><tt>GETFILEGROUP</tt>&nbsp;&ndash; 显示文件所有者的组。</p></li>
+          <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; 显示文件的所有者。</p></li>
+          <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; 显示符号链接的目标路径和文件。</p></li>
+          <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; 文件类型（如在 Windows 资源管理器或 MIME 类型中）。</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; 来自 <tt>descript.ion</tt> 的文件或目录描述（注释）（详细信息请参见 <a href="help.html#cm_EditComment">此处</a>）。</p></li>
+          <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&ndash; 压缩文件大小（如果使用 NTFS 压缩，则为实际大小）。</p></li>
+        </ul>
+        <p>默认情况下，带有时间戳的字段使用在 <a href="#ConfigView">文件视图</a> 配置部分中选择的日期和时间格式。您还可以直接在大括号内的列中指定首选格式，使用相同的 <a href="#dt_format">日期和时间格式字符</a>。</p>
+        <p><span class="italic">移动</span>&nbsp;&ndash; 允许移动行（这相当于重新排序列）。在移动框中单击两次，您将看到一种旋转器出现，单击上部将行向上移动（列向左移动）。</p>
+        <p><span class="italic">删除</span>&nbsp;&ndash; 允许删除任何行。要删除：单击该行的删除框。然后再次单击，这时会出现一个删除符号。如果您第三次单击，该行将从表中删除。</p>
+        <p>接下来，您可以更改文件面板的外观。</p>
+        <p><span class="italic">转到设置默认值</span>&nbsp;&ndash; 打开 <a href="#ConfigColorPanels">颜色&nbsp;&gt; 文件面板</a> 部分。</p>
+        <p><span class="italic">仅对该视图使用自定义字体和颜色</span>&nbsp;&ndash; 仅允许更改此列集的文件面板外观（如果需要，可以单独为每列更改）。您可以覆盖文件面板的字体以及 <a href="#ConfigColorPanels">颜色&nbsp;&gt; 文件面板</a> 中的全局设置：</p>
+        <p class="figure"><img class="largeimage" title="自定义字体和颜色" alt="自定义字体和颜色" src="images/imgDC/pic38.png" width="982" height="265"></p>
+        <p>注意：<span class="italic">光标边框</span> 和 <span class="italic">使用窗体光标</span> 仅适用于整个列集。</p>
+        <p><span class="italic">上一个</span>、<span class="italic">下一个</span>&nbsp;&ndash; 切换列。</p>
+        <p><span class="italic">自定义列</span>&nbsp;&ndash; 显示自定义列的名称。</p>
+        <p><span class="italic">&gt;&gt;</span>&nbsp;&ndash; 选择调色板中任意颜色的按钮。</p>
+        <p><span class="italic">R</span>&nbsp;&ndash; 恢复默认值。</p>
+        <p><span class="italic">全部</span>&nbsp;&ndash; 将修改应用于所有其他列。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigPlugins">2.9. 插件</a></span></p>
+        <p>插件是增强 Double Commander 功能的扩展。</p>
+        <p>首先，一些通用设置。</p>
+        <p class="figure"><img class="largeimage" title="Plugins" alt="Plugins" src="images/imgDC/pic66.png" width="440" height="237"></p>
+        <p><span class="italic">添加新插件时，自动进入调整窗口</span>&nbsp;&ndash; 请参阅下面的 <span class="italic">调整</span> 按钮的描述。</p>
+        <p><span class="italic">添加新插件时的插件文件名样式</span>&nbsp;&ndash; 在这里您可以选择添加插件时路径的设置方式：</p>
+        <ul>
+          <li><p>完整的绝对路径</p></li>
+          <li><p>相对于 <a href="variables.html#envvariables">%COMMANDER_PATH%</a> 的路径。</p></li>
+          <li><p>相对于指定路径的路径。</p></li>
+        </ul>
+        <p>您还可以将所选方式应用于已添加的插件。</p>
+        <p><span class="italic"><a name="luapathtolibrary">要使用的 Lua 库文件</a></span>&nbsp;&ndash; Lua 库的完整名称，或者仅在文件位于程序目录或系统库目录中时使用文件名。此路径可以相对于 Double Commander 可执行文件。 （Lua 脚本可用于自动化和作为内容插件，更多详细信息请参见 <a href="lua.html">此处</a>。）</p>
+        <p>有几种类型的插件：</p>
+        <p><span class="italic">1. 压缩插件 (WCX)</span></p>
+        <p>压缩插件用于解压特定类型的文件，通常是压缩包格式。一些插件还支持创建新压缩包和修改现有压缩包。<br>
+          有些插件允许保存所选文件的列表或使用批处理：创建链接、转换文件、根据特定条件复制等。<br>
+          顺序很重要：在选择合适的插件时，Double Commander 从上到下按扩展名检查。使用 <span class="italic">按扩展名/按插件</span> 按钮切换列表视图并拖放。</p>
+        <p><span class="italic">2. 内容插件 (WDX)</span></p>
+        <p>内容插件旨在获取文件的属性或其内容的信息（例如，EXIF 或 ID3 标签）。您可以在文件搜索或批量重命名工具、列集、工具提示中使用这些数据。<br>
+          此外，Double Commander 还支持用 Lua 语言编写的内容插件（脚本的添加方式与普通插件相同）。示例可以在程序文件夹中找到（<tt>plugins/wdx/scripts</tt>）。</p>
+        <p><span class="italic">3. 文件系统插件 (WFX)</span></p>
+        <p>文件系统插件使用自己的文件系统或提供对其他文件系统和设备（本地或远程）的访问。例如，FTP 服务器、网络目录、移动设备。它还可以是文件列表、正在运行的进程和服务或 Windows 注册表。</p>
+        <p><span class="italic">4. 查看器插件 (WLX)</span></p>
+        <p>内部查看器显示纯文本文件、某些图像格式和控制台命令输出，插件允许扩展此列表：电子文档和数据库、音频和视频文件、字体文件、压缩包内容、某些文件的详细信息、带有语法高亮的源代码文件。<br>
+          顺序很重要：在选择合适的插件时，Double Commander 从上到下检查。</p>
+        <p><span class="italic">5. 搜索插件 (DSX)</span></p>
+        <p>搜索插件是 Double Commander 自有的插件类型，这些插件使用控制台程序搜索文件（例如，Locate、Everything 或 Recoll）。DSX 插件接口允许从“标准”和“高级”选项卡向它们发送 <a href="findfiles.html">搜索参数值</a>。</p>
+        <p>按钮：</p>
+        <ul>
+          <li><p><span class="italic">添加</span>&nbsp;&ndash; 打开文件选择对话框。或者，您可以使用内部命令 <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a>（插件也可以自动安装）。</p></li>
+          <li><p><span class="italic">禁用</span>&nbsp;&ndash; 允许暂时禁用所选插件。</p></li>
+          <li><p><span class="italic">移除除</span>&nbsp;&ndash; 从列表中删除所选插件（但不删除插件文件！）。</p></li>
+          <li><p><span class="italic">调整</span>&nbsp;&ndash; 操作取决于插件类型：</p>
+            <ul>
+              <li><p>WCX: 更改插件路径、设置文件扩展名和支持的功能；</p></li>
+              <li><p>WDX 和 WLX: 更改插件路径、显示名称或检测字符串；</p></li>
+              <li><p>WFX: 更改插件路径或显示名称。</p></li>
+            </ul>
+          </li>
+          <li><p><span class="italic">配置</span>&nbsp;&ndash; 打开插件的设置窗口（如果所选插件支持此功能）。</p></li>
+        </ul>
+        <p>Double Commander 支持使用主密码来保护 WCX 和 WFX 插件中的密码（如果插件开发者提供了此功能的使用）。这很方便，因为您的密码将受到加密保护，您只需记住一个密码。密码被加密两次，第一次使用 Blowfish（448 位），然后使用 AES（256 位）。</p>
+        <p>注意：目前，Double Commander 不支持更改主密码：如有必要，您需要在插件设置中禁用主密码的使用，关闭程序，打开<a href="configuration.html#ConfigDC">配置文件目录</a>，删除<tt>pwd.ini</tt>文件，重新运行程序并在插件设置中启用主密码。要删除过时或不必要的保存密码，您需要关闭程序并手动编辑<tt>pwd.ini</tt>文件。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLayout">2.10. 布局</a></span></p>
+        <p class="figure"><img class="largeimage" title="Layout" alt="Layout" src="images/imgDC/pic39.png" width="257" height="540"></p>
+        <p>您可以在此处更改主窗口的布局。我想，所有可用的选项在上面的屏幕截图（布局）中都有解释。下面的屏幕截图说明了在未选择所有布局选项的情况下，DC 的外观。</p>
+        <p class="figure"><img class="largeimage" title="Layout DC" alt="Layout DC" src="images/imgDC/pic40.png" width="737" height="643"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDrivesList">2.10.1. 布局&nbsp;&gt; 驱动器列表按钮</a></span></p>
+        <p class="figure"><img class="largeimage" title="Drives list button" alt="Drives list button" src="images/imgDC/pic67.png" width="373" height="179"></p>
+        <p>在此部分中，您可以选择 Double Commander 在 <a href="help.html#iface_drive_btn">驱动器列表菜单</a> 中显示哪些附加信息：卷标、文件系统和可用空间。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTreeMenu">2.10.2. 布局&nbsp;&gt; 树状视图菜单</a></span></p>
+        <p>在此部分中，您可以启用树状视图菜单并选择其使用位置。</p>
+        <p class="figure"><img class="largeimage" title="Tree View Menu settings" alt="Tree View Menu settings" src="images/imgDC/pic68.png" width="559" height="475"></p>
+        <p>树状视图菜单是一种将某些 Double Commander 菜单以树状结构显示在单独窗口中的方式：常用文件夹列表、收藏夹标签、目录和命令行历史记录。这种内容呈现方式和过滤器将帮助您快速选择所需的菜单项。</p>
+        <p class="figure"><img class="largeimage" title="Tree View Menu" alt="Tree View Menu" src="images/imgDC/pic41.png" width="392" height="418"></p>
+        <p>使用相应内部命令的参数，您可以设置树状视图菜单的位置：</p>
+        <ul>
+          <li><p>菜单将从活动面板的左上角显示；</p></li>
+          <li><p>菜单将显示在当前鼠标光标位置。</p></li>
+        </ul>
+        <p>参数可以在 <a href="#ConfigHotKeys">热键设置</a> 中指定，或在 <a href="toolbar.html">工具栏</a> 上添加按钮。</p>
+        <p>此外，Double Commander 还可以将主菜单和工具栏显示为树状结构（始终位于其窗口的中心），请参阅命令 <a href="cmds.html#cm_ShowMainMenu">cm_ShowMainMenu</a> 和 <a href="cmds.html#cm_ShowButtonMenu">cm_ShowButtonMenu</a> 的描述。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTreeMenuColor">2.10.3. 布局&nbsp;&gt; 树状视图菜单颜色</a></span></p>
+        <p>在此处，您可以根据自己的喜好自定义菜单的外观，预览将显示所有更改，直到保存。</p>
+        <p class="figure"><img class="largeimage" title="Tree View Menu Colors" alt="Tree View Menu Colors" src="images/imgDC/pic69.png" width="604" height="559"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolbar">2.11. 工具栏</a></span> 和 <span class="bold">工具栏&nbsp;&gt; 工具栏中间</span></p>
+        <p>请参阅专门的 <a href="toolbar.html">工具栏</a> 帮助页面，了解如何使用和配置它。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolbarEx">2.11.2. 工具栏&nbsp;&gt; 工具栏扩展</a></span></p>
+        <p class="figure"><img class="largeimage" title="Toolbar Extra" alt="Toolbar Extra" src="images/imgDC/pic70.png" width="399" height="179"></p>
+        <p>在此部分中，您可以选择在添加图标、命令和起始路径时如何设置路径：</p>
+        <ul>
+          <li><p>完整的绝对路径。</p></li>
+          <li><p>相对于 <a href="variables.html#envvariables">%COMMANDER_PATH%</a> 的路径。</p></li>
+          <li><p>相对于以下。</p></li>
+        </ul>
+        <p>此外，您还可以将当前设置应用于所有配置的文件名和路径。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigOperations">2.12. 文件操作</a></span></p>
+        <p>此部分包含与文件操作相关的设置。</p>
+        <p class="figure"><img class="largeimage" title="文件操作" alt="文件操作" src="images/imgDC/pic71.png" width="436" height="589"></p>
+        <p><span class="italic">初始操作进度显示在</span>&nbsp;&ndash; 设置文件操作进度的初始显示方式和位置：</p>
+        <ul>
+          <li><p>独立窗口;</p></li>
+          <li><p>最小化独立窗口;</p></li>
+          <li><p>操作面板：将使用功能键按钮栏上方的特殊面板<br>
+            <img class="largeimage" title="Operations panel" alt="Operations panel" src="images/imgDC/pic42.png" width="330" height="104"><br>
+            (您可以通过鼠标单击它切换为在独立窗口中显示进度).</p></li>
+        </ul>
+        <p><span class="italic">移除只读标志</span>&nbsp;&ndash; 如果启用，Double Commander 将在 Windows 中删除此标志，并在 Linux 中添加 "w" 属性。这在从 CD/DVD 媒体复制文件时非常方便，因为文件默认会保留只读属性。</p>
+        <p><span class="italic">重命名时仅选择文件名（不包含扩展名）</span>&nbsp;&ndash; 如果启用，使用 <kbd>F2</kbd> 键重命名时将选择文件名中最后一个点之前的所有字符，否则将选择整个文件名。</p>
+        <p><span class="italic">在复制/移动对话框显示标签选择面板</span>&nbsp;&ndash; 如果目标面板有多个标签，在复制/移动时可以选择目标标签：</p>
+        <p class="figure"><img class="largeimage" title="Tabs in copy/move dialog" alt="Tabs in copy/move dialog" src="images/imgDC/pic43.png" width="614" height="307"></p>
+        <p><span class="italic">删除文件到回收站（按下 Shift 键切换此设置）</span>&nbsp;&ndash; 如果启用，Double Commander 将在您按下 <kbd>F8</kbd> 或 <kbd>Del</kbd> 时将选定的文件或光标下的文件删除到回收站，并在您使用 <kbd>Shift+F8</kbd> 或 <kbd>Shift+Del</kbd> 时永久删除。如果未选中，则这些键的行为将被反转。</p>
+        <p><span class="italic">显示确认窗口</span>&nbsp;&ndash; 允许选择 Double Commander 将显示确认对话框的文件操作。默认情况下选择最大安全行为。请记住，当您使用 <a href="help.html#draganddrop">拖放</a> 时，此参数组不被考虑：在这种情况下，Double Commander 在 <a href="ConfigMouseDD">鼠标&nbsp;&gt; 拖放</a> 设置部分使用独立参数。</p>
+        <p>以下参数与执行操作直接相关。</p>
+        <p><span class="italic">文件操作缓冲区大小（单位：KB）</span> 和 <span class="italic">哈希计算缓冲区大小（单位：KB）</span> 参数设置用于复制、移动、拆分或合并文件、按内容搜索文件和计算校验和等操作的分配内存大小。您应该记住，没有通用值，但可以尝试找到更合适的大小。<br>
+          注意：第一个参数在 Windows 中的复制功能中未使用，因为使用了系统函数进行复制。</p>
+        <p><span class="italic">擦除次数</span>&nbsp;&ndash; 在这里可以指定对 <a href="help.html#cm_Wipe">安全删除文件</a> 的重写次数。</p>
+        <p><span class="italic">处理文件/文件夹的注释</span>&nbsp;&ndash; 如果启用，并且您有一个附加了 <a href="help.html#cm_EditComment">注释</a> 的文件/文件夹，并且您将其复制或移动到另一个文件夹，则注释将与文件/文件夹一起复制或移动到目标位置。</p>
+        <p><span class="italic">忽略文件操作错误，并记录到日志窗口</span>&nbsp;&ndash; 如果发生文件操作错误，错误消息将出现在面板下方的日志窗口中，而不是弹出对话框中。这可能很有用，因为错误窗口会暂停操作。在 <a href="#ConfigLog">日志</a> 设置部分，您可以限制消息的总数，仅允许 "错误" 状态的消息。<br>
+          该参数在大多数文件操作中都被考虑：复制、移动、删除、擦除、合并和拆分文件、设置文件属性（时间戳、所有者、属性）、计算校验和，以及在处理压缩包、WFX 插件和 GVfs 时的文件操作。</p>
+        <p><span class="italic">文件重复时自动重命名样式：</span>&nbsp;&ndash; 如果目标目录中已经存在同名文件，则设置文件自动重命名模版（即当您在复制/移动对话框中选择 <span class="italic">自动重命名源文件</span> 或 <span class="italic">自动重命名目标文件</span> 时）： "Copy&nbsp;(x)&nbsp;filename.ext", "filename&nbsp;(x).ext" 或 "filename(x).ext"，其中 "x" 是计数器（2、3、4 等）。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigSearch">2.12.1. 文件操作&nbsp;&gt; 文件搜索</a></span></p>
+        <p>查看 <a href="findfiles.html#configuration">文件搜索</a> 帮助页面的描述。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigRename">2.12.2. 文件操作&nbsp;&gt; 批量重命名</a></span></p>
+        <p>查看 <a href="multirename.html#configuration">批量重命名工具</a> 帮助页面的描述。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTabs">2.13. 文件夹标签</a></span></p>
+        <p class="figure"><img class="largeimage" title="Folder tabs" alt="Folder tabs" src="images/imgDC/pic72.png" width="436" height="483"></p>
+        <p><span class="italic">仅有一个标签时也显示标签标题</span>&nbsp;&ndash; 如果禁用此选项，并且面板上只有一个标签，则不会出现标签头（通常这在视觉上更具吸引力）。</p>
+        <p><span class="italic">多行标签</span>（仅限 Windows）&nbsp;&ndash; 如果文件夹标签不适合一行，则将放置在多行中。否则，将在右侧显示滚动按钮（GTK2：在右侧和左侧）。</p>
+        <p><span class="italic">标签标题长度限制：</span>&nbsp;&ndash; 长名称的标签将被限制为此长度，如果超过此值，则显示的名称将被截断。</p>
+        <p><span class="italic">关闭锁定的标签时需确认</span>&nbsp;&ndash; 如果启用，则会提示确认您希望关闭锁定标签。否则，此类标签将像普通标签一样关闭。</p>
+        <p><span class="italic"><a name="5_1_11_0_vopros">关闭所有标签时需确认</a></span>&nbsp;&ndash; 如果选择并执行 <a href="help.html#cm_CloseAllTabs">关闭所有标签</a> 命令，则此选项将提示您确认是否希望删除所有非活动标签。</p>
+        <p><span class="italic">程序关闭时关闭重复标签</span>&nbsp;&ndash; 如果启用， Double Commander 将检查打开的标签列表并关闭重复标签（每个面板单独处理！），只有第一个标签将被保留（从左侧开始计数）。</p>
+        <p><span class="italic"><a name="5_1_11_2_vopros">Ctrl+Up 前台打开新标签</a></span>&nbsp;&ndash; 此选项更改命令 <a href="help.html#cm_OpenDirInNewTab">在新标签中打开文件夹</a>（<tt>cm_OpenDirInNewTab</tt>）的行为：如果启用，则 Double Commander 将在光标下的目录中打开新标签并切换到该标签。</p>
+        <p><span class="italic">在当前标签旁打开新标签</span>&nbsp;&ndash; 如果启用，将在当前活动标签的右侧创建新标签。如果不启用，新标签将添加到最后一个标签的右侧。</p>
+        <p><span class="italic">尽可能重复使用现有标签</span>&nbsp;&ndash; 对于在新标签中更改目录的锁定标签：如果所选文件夹在任何标签中已经打开，则将激活该标签，而不是创建新标签。</p>
+        <p><span class="italic"><a name="5_1_11_3_vopros">显示标签关闭按钮</a></span>（仅限类 Unix 系统）&nbsp;&ndash; 如果选中，将在标签上显示一个小 "x" 按钮，允许单击它以关闭标签。</p>
+        <p><span class="italic"><a name="5_1_12_1_zvezda">锁定的标签前显示星号 *</a></span>&nbsp;&ndash; 以区分锁定标签和未锁定标签。锁定标签将标记为 "*"。标签 <tt>Downloads</tt> 被锁定：</p>
+        <p class="figure"><img class="largeimage" title="Tabs" alt="Tabs" src="images/imgDC/pic6.png" width="228" height="28"></p>
+        <p><span class="italic">解锁标签时保留重命名的名称</span>&nbsp;&ndash; 当您将标签的状态从 "锁定标签" 更改为 "普通标签" 时， Double Commander 将返回常规标签名称（当前文件夹名称）：此选项允许保留更改后的名称。</p>
+        <p><span class="italic">点击标签后激活目标面板</span>&nbsp;&ndash; 如果启用，当您单击另一个面板上的标签时，焦点将自动转移到该面板（它将成为活动面板）。此外，在以这种方式切换面板时，光标位置将被保留。</p>
+        <p><span class="italic">始终在标签标题中显示驱动器符</span>（仅限 Windows）&nbsp;&ndash; 在文件夹名称之前显示驱动器字母和冒号，例如 "c:plugins"。</p>
+        <p><span class="italic">标签位置：</span>&nbsp;&ndash; 将文件夹标签放置在文件面板的顶部或底部。</p>
+        <p><span class="italic">双击标签时的操作：</span>&nbsp;&ndash; 您可以选择以下操作之一：</p>
+        <ul>
+          <li><p>什么都不做；</p></li>
+          <li><p>关闭标签；</p></li>
+          <li><p>访问收藏夹标签（保存当前标签，加载保存的标签或配置）；</p></li>
+          <li><p>显示与 <a href="help.html#mnu_tabs">"标签"</a> 菜单中相同项目的标签弹出菜单。</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigFavoriteTabs">2.13.1. 文件夹标签&nbsp;&gt; 收藏夹标签</a></span></p>
+        <p>保存的标签集列表可在 <a href="help.html#mnu_fav">"收藏夹"</a> 菜单和通过 <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> 命令调用的弹出菜单中找到。</p>
+        <p>在本节中您可以管理它们：更改顺序、名称、删除不必要的、排序或分组到子菜单中。</p>
+        <p class="figure"><img class="largeimage" title="Favorite Tabs" alt="Favorite Tabs" src="images/imgDC/pic73.png" width="502" height="483"></p>
+        <p>您还可以将条目导出到所选目录并导入它们。每个条目将保存到单独的 .tab 文件中（如果需要，可以使用 <a href="cmds.html#cm_LoadTabs">cm_LoadTabs</a> 命令加载此类文件中的标签）。</p>
+        <p>一些典型操作已添加到条目的上下文菜单中。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTabsEx">2.13.2. 文件夹标签&nbsp;&gt; 文件夹标签扩展</a></span></p>
+        <p>本节包含对收藏夹标签的附加配置。</p>
+        <p class="figure"><img class="largeimage" title="Folder tabs extra" alt="Folder tabs extra" src="images/imgDC/pic74.png" width="343" height="415"></p>
+        <p><span class="italic">启用收藏夹标签扩展选项（还原时选择目标窗口等）</span>&nbsp;&ndash; 默认情况下，保存的标签将在同一面板中还原，并将替换所有打开的标签，您可以通过以下方式更改它：</p>
+        <ul>
+          <li><p><span class="italic">保存在左侧的标签将恢复为：</span></p></li>
+          <li><p><span class="italic">保存在右侧的标签将恢复为：</span></p></li>
+          <li><p><span class="italic">恢复标签时，需保留现有标签：</span>&nbsp;&ndash; 即收藏夹标签将添加到已经打开的标签中。</p></li>
+        </ul>
+        <p>每个参数可用的值有：<span class="italic">左侧</span>、<span class="italic">右侧</span>、<span class="italic">活动</span>、<span class="italic">非活动</span>、<span class="italic">全部</span> 或 <span class="italic">无</span>。</p>
+        <p><span class="italic">保留收藏夹标签文件夹历史记录：</span>&nbsp;&ndash; 启用或禁用为每个标签保存访问过的目录的历史记录。</p>
+      <p>您还可以单独为每个标签集应用这些参数。</p>
+        <p><span class="italic">新的收藏夹标签在保存在菜单中的默认位置：</span>&nbsp;&ndash; determines the order of adding a new set:</p>
+        <ul>
+          <li><p>在开始处添加</p></li>
+          <li><p>在末尾处添加</p></li>
+          <li><p>按字母顺序排序</p></li>
+        </ul>
+        <p>您还可以选择在保存新标签或重新保存当前标签后自动打开 <a href="#ConfigFavoriteTabs">收藏夹标签</a> 设置部分：</p>
+        <ul>
+          <li><p><span class="italic">保存新标签后转到收藏夹标签配置</span>。</p></li>
+          <li><p><span class="italic">重新保存后转到收藏夹标签配置</span>。</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLog">2.14. 日志</a></span></p>
+        <p>在这里，您可以选择记录 Double Commander 操作的文件名（复制或移动文件、创建目录、启动外部应用程序等）。您还可以选择要记录哪些操作。</p>
+        <p class="figure"><img class="largeimage" title="Log" alt="Log" src="images/imgDC/pic44.png" width="476" height="464"></p>
+        <p>如果启用 <span class="italic">日志文件名中包含日期</span>，Double Commander 将为每一天创建一个单独的文件。在这种情况下，您可以设置日志文件的数量：较旧的文件将被自动删除。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDC">2.15. 配置</a></span></p>
+        <p class="figure"><img class="largeimage" title="Configuration" alt="Configuration" src="images/imgDC/pic75.png" width="582" height="638"></p>
+        <p><span class="italic">配置文件位置</span>&nbsp;&ndash; 在这里，您可以选择存储所有配置文件的位置（您还可以在此处查看完整路径）：</p>
+        <ul>
+          <li><p>程序目录中的 "settings" 文件夹（便携版）。</p></li>
+          <li><p>用户主文件夹。</p></li>
+        </ul>
+        <p>作为指示，Double Commander 在程序目录的 "settings" 文件夹中使用一个空的 <tt>doublecmd.inf</tt> 文件：
+          如果该文件存在，Double Commander 将从 "settings" 文件夹加载配置文件并将其保存在此处，否则 Double Commander 将使用当前用户的文件夹。
+          您可以手动添加 <tt>doublecmd.inf</tt> 文件并获得便携版本，或通过将存储方法切换到用户文件夹来删除它。</p>
+        <p>如果您使用 <a href="commandline.html">--config-dir</a> 参数启动 Double Commander，则 DC 将仅写入 <span class="italic">在命令行中设置</span> 并显示配置文件的完整路径。</p>
+        <p>要快速导航到配置文件所在的目录，您可以使用 <span class="italic">特殊目录</span> 子菜单在 <a href="directoryhotlist.html">常用文件夹列表</a> 菜单中，或使用 <a href="variables.html#envvariables">%DC_CONFIG_PATH%</a> 变量。</p>
+        <p>按钮 <span class="italic">编辑</span> 和 <span class="italic">应用</span>&nbsp;&ndash; 允许打开 <tt>doublecmd.xml</tt> 配置文件并手动更改设置。请记住，某些设置需要重新启动 Double Commander 才能生效。</p>
+        <p>注意（或小技巧）：这种方法允许立即应用设置，而无需重新启动 DC（但并非全部！）：例如，您可以更改并立即应用文件面板中图标的大小，但无法在不重新启动的情况下更改程序语言。</p>
+        <p><span class="italic">退出时保存</span>&nbsp;&ndash; 在这里，您可以选择 Double Commander 在退出时保存的内容。复选框 <span class="italic">保存配置</span> 启用或禁用保存：</p>
+        <ul>
+          <li><p><span class="italic">主窗口状态</span>&nbsp;&ndash; 应用程序窗口的大小和位置。</p></li>
+          <li><p><span class="italic">文件夹标签</span>&nbsp;&ndash; 左右面板中打开的标签列表。</p></li>
+          <li><p><span class="italic">搜索/替换历史记录</span>&nbsp;&ndash; <a href="findfiles.html">文件搜索</a> 历史（文件名掩码除外，见下文）、<a href="multirename.html">批量重命名工具</a> 中的掩码历史以及文本搜索和替换历史：按文件内容、查看器、内部编辑器和内置差异工具搜索，以及在常用文件夹列表和工具栏设置中搜索和替换。每个条目的文本搜索选项（<span class="italic">区分大小写</span>、<span class="italic">正则表达式</span> 和 <span class="italic">十六进制</span>）的状态也会被保存。</p></li>
+          <li><p><span class="italic">文件夹历史记录</span>&nbsp;&ndash; 所有访问过的文件夹列表（见下文说明）。</p></li>
+          <li><p><span class="italic">命令行历史记录</span>&nbsp;&ndash; 在 <a href="help.html#iface_path">命令行</a> 中使用的命令。</p></li>
+          <li><p><span class="italic">文件掩码历史记录</span>&nbsp;&ndash; Double Commander 保存了多个工具使用的文件掩码的一般历史记录：搜索文件、<a href="syncdirs.html">目录同步</a> 中的过滤器和 <a href="help.html#cm_ExtractFiles">压缩包解压</a> 中的命令，以及 <a href="help.html#cm_MarkPlus">选择和取消选择文件组</a> 的命令。</p></li>
+        </ul>
+        <p>历史记录中的条目数量最多限制为 50。</p>
+        <p>关于访问过的目录历史的说明：在会话期间，Double Commander 在内存中最多存储 255 个访问过的目录（但是，当程序关闭时，仅最后 50 个条目将被保存）。您可以在调用 <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> 命令时在弹出菜单中更改历史条目的数量（默认值为 30，请参见 <code>Count</code> 属性在 <a href="configxml.html">&lt;DirHistory&gt;</a> 标签中），但是在使用 <a href="#ConfigTreeMenu">树状视图菜单</a> 时，将显示所有可用的历史记录。</p>
+        <p>注意：搜索模版与历史记录无关，并单独保存（在 <tt>doublecmd.xml</tt> 配置文件中）。要管理模版列表，您可以使用 <a href="findfiles.html#templates">文件搜索</a> 工具。</p>
+        <p>您可以选择设置部分列表的外观：</p>
+        <ul>
+          <li><p><span class="italic">左侧文件夹数排序设置</span>&nbsp;&ndash; 您可以选择经典（如 Double Commander 和帮助的源代码中）或按字母顺序。在这两种情况下，<span class="bold">语言</span> 仍然优先。</p></li>
+          <li><p><span class="italic">进入配置页面时树状视图状态</span>&nbsp;&ndash; 全部展开或全部折叠。</p></li>
+        </ul>
+        <p><span class="italic">目录</span>&nbsp;&ndash; 在这里，您可以看到 Double Commander 可以用来存储缩略图缓存、图标主题和内部编辑器的语法高亮文件的目录列表。您无法更改它们，这只是信息。<br>
+          如果使用便携模式，Double Commander 将仅使用程序目录中的相应文件夹（“cache”、“pixmaps”和“highlighters”）。在此模式下，程序目录中的“plugins”文件夹将用于插件的自动安装（详细信息请参见 <a href="cmds.html#cm_AddPlugin">此处</a>）。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigQuick">2.16. 快速搜索/过滤器</a></span></p>
+        <p>本节包含 <a href="help.html#cm_QuickSearch">快速搜索/过滤器</a> 工具的设置。快速搜索用于在面板中搜索文件名，快速过滤将隐藏所有不符合条件的文件名。</p>
+        <p class="figure"><img class="largeimage" title="快速搜索/过滤器" alt="快速搜索/过滤器" src="images/imgDC/pic45.png" width="287" height="367"></p>
+        <p>精确名称匹配：</p>
+        <ul>
+          <li><p><span class="italic">开始（名称必须以输入第一个字符开头）</span>&nbsp;&ndash; 这意味着输入的文本将匹配 "text*" 掩码，其中 "*" 是任意数量的任意字符。</p></li>
+          <li><p><span class="italic">结尾（匹配句点号的前一字母）</span>&nbsp;&ndash; 如果输入的字符中有一个点，则名称必须以这些字符结尾。例如，如果您输入 "dx.l"，则文件掩码将是 "* wx.l *"。</p></li>
+        </ul>
+        <p>如果没有选中任何内容，则输入的字符可以位于文件名的任何部分。</p>
+        <p>我喜欢选择 <span class="italic">开始（名称必须以输入第一个字符开头）</span>，然后我可以只输入我正在寻找的文件名的第一个字符，然后是第二个字符，等等。文件会以这种方式快速定位。</p>
+        <p>在下面，您可以设置大小写敏感性并选择要搜索的内容：仅文件或文件夹，或两者。</p>
+        <p>这些选项可以在快速搜索/过滤器栏中动态更改。您还可以在搜索和过滤器之间切换。</p>
+        <p>选项：</p>
+        <ul>
+          <li><p><span class="italic">未聚焦时隐藏过滤器面板</span>&nbsp;&ndash; 快速搜索/过滤面板将在您将焦点移到文件面板时自动隐藏。在 <a href="help.html#iface_files">简要视图</a> 中，隐藏面板无法正常工作，因此该选项在找到合适的解决方案之前将被忽略。</p></li>
+          <li><p><span class="italic">为下一会话保留设置修改</span>&nbsp;&ndash; 默认情况下，快速搜索面板中更改的所有参数将仅在程序关闭之前保留在内存中，该选项允许更改此行为。</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMisc">2.17. 杂项</a></span></p>
+        <p>本节包含在其他设置部分中没有合适位置的参数：</p>
+        <p class="figure"><img class="largeimage" title="Miscellaneous" alt="Miscellaneous" src="images/imgDC/pic46.png" width="473" height="574"></p>
+        <p><span class="italic">显示启动画面</span>&nbsp;&ndash; 如果启用，在显示主窗口之前，Double Commander 将显示一个启动画面，其中包含程序图标和版本、编译日期，以及 Lazarus、FPC 和操作系统的版本。</p>
+        <p><span class="italic">显示所有警告信息（仅含 <确定> 按钮）</span>&nbsp;&ndash; 如果启用，将显示警告消息。（例如，如果 Double Commander 无法由于目标目录中的文件系统限制而设置文件的某些属性或属性。）</p>
+        <p><span class="italic">更换驱动器时，总是转到根文件夹</span>&nbsp;&ndash; 如果未选中，Double Commander 将转到该驱动器上最后打开的目录（在这种情况下，您可以通过按其按钮两次转到驱动器的根目录）。</p>
+        <p><span class="italic">在主窗口标题栏中显示当前目录</span>&nbsp;&ndash; 如果启用，Double Commander 将在主窗口标题栏中显示当前文件夹的名称和活动面板路径。</p>
+        <p><span class="italic">默认单字节文本编码：</span>&nbsp;&ndash; 默认情况下（NONE），内置文件查看器和内部编辑器使用自动编码检测，但您可以指定支持的单字节编码之一作为默认值。此参数不影响多字节编码（UTF-8、UTF-16 等）的自动检测。还提供特殊值：</p>
+        <ul>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; 默认系统 ANSI 编码（取决于系统区域设置）。</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; 默认系统 OEM（DOS）编码（取决于系统区域设置）。</p></li>
+        </ul>
+        <p><span class="italic">缩略图</span>&nbsp;&ndash; 在这里，您可以设置图像的缩略图大小并启用在缓存中保存缩略图（否则，缩略图缓存将仅在程序关闭之前存储在内存中）。参数值用于相应的 <a href="help.html#iface_files">文件列表视图模式</a> 和内置 <a href="viewer.html#preview">查看器</a> 中。缩略图缓存目录可以在 <a href="#ConfigDC">配置</a> 部分找到。Double Commander 使用 PNG 或 JPEG（仅适用于 .bmp、.jpg 和 .jpeg）格式。缩略图名称是源文件完整名称的 MD5 值。源文件的完整名称、大小和修改日期将添加到文件中。</p>
+        <p><span class="italic">删除不存在文件的缩略图</span> 按钮将帮助您删除过时的缩略图。</p>
+        <p><span class="italic">文件注释（descript.ion）</span>&nbsp;&ndash; 在这里，您可以设置现有 <a href="help.html#cm_EditComment">文件注释</a> 的默认编码（OEM、ANSI 或 UTF-8）以及新文件的编码（UTF-8 BOM、UTF-16 LE 或 UTF-16 BE）。</p>
+        <p>下一组参数用于从 Total Commander 导入和导出 <a href="directoryhotlist.html#exportimporttc">常用文件夹列表</a> 和 <a href="toolbar.html">工具栏</a>：Total Commander 可执行文件和主配置文件的路径和名称，以及工具栏输出路径。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigRefresh">2.18. 自动刷新</a></span></p>
+        <p>允许 Double Commander 自动刷新面板，类似于 <kbd>Ctrl+R</kbd> 手动刷新命令的效果。</p>
+        <p class="figure"><img class="largeimage" title="Auto refresh" alt="Auto refresh" src="images/imgDC/pic76.png" width="259" height="237"></p>
+        <p><span class="italic">刷新文件列表</span>&nbsp;&ndash; 指定 Double Commander 应该对哪些事件做出反应并更新文件列表和状态栏：</p>
+        <ul>
+          <li><p>当文件创建、删除或重命名时刷新。</p></li>
+          <li><p>当大小、日期或属性更改时。</p></li>
+        </ul>
+        <p>如果可能，Double Commander 会对文件列表进行适当的更改，否则会完全重新读取文件列表。如果更改数量很大（如果超过四分之一的文件受到影响或更改总数超过 100），则文件列表将被完全重新读取。</p>
+        <p>注意：此功能可能无法在挂载的网络目录中工作。</p>
+        <p>如果两个选项都被禁用，Double Commander 将不会监视第三方应用程序所做的更改，并且在程序对文件系统进行更改后，它将重新读取整个文件列表。</p>
+        <p>在虚拟文件系统（WFX 插件、GVfs）中，当您创建、删除或重命名文件时，Double Commander 会重新读取整个文件列表。</p>
+        <p>注意：请记住，最终结果可能取决于 <span class="italic">插入新文件</span> 和 <span class="italic">移动更新文件</span> 参数在 <a href="#ConfigView">文件视图</a> 设置部分中的值。</p>
+        <p>您还可以禁用自动刷新：</p>
+        <ul>
+          <li><p>当 Double Commander 窗口在后台或最小化时。</p></li>
+          <li><p>对于指定的路径及其子目录，只需用分号“;”分隔它们，而不带空格（例如 <code>/home;/media/cdrom</code>）。</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIcons">2.19. 图标</a></span></p>
+        <p class="figure"><img class="largeimage" title="Icons" alt="Icons" src="images/imgDC/pic77.png" width="438" height="642"></p>
+        <p>第一个选项启用在文件名左侧显示图标：</p>
+        <ul>
+          <li><p><span class="italic">所有关联 + EXE/LNK（慢）</span>&nbsp;&ndash; 与 <span class="italic">所有</span> 相同，但另外：来自.exe、.ico、.cur、.ani和快捷方式（Windows）的图标，来自应用程序目录的应用程序图标（即.app、macOS）、.desktop和.directory（Linux和其他类Unix系统）。此外，DC还将显示在<tt>desktop.ini</tt>（Windows）和<tt>.directory</tt>（Linux）文件中指定的文件夹图标。</p></li>
+          <li><p><span class="italic">全部</span>&nbsp;&ndash; 将显示与任何程序关联的所有文件类型的图标（来自系统设置和Double Commander <a href="#ConfigAssociations">文件关联</a>）。</p></li>
+          <li><p><span class="italic">仅标准图标</span>&nbsp;&ndash; 仅显示在<tt>pixmaps.txt</tt>文件中列出的图标和文件关联设置中的图标。在这种情况下，您只能使用来自Double Commander图标主题的图标（请参阅程序文件夹中的<tt>pixmaps/dctheme/XxX/mimetypes</tt>目录）或指定完整（带路径）文件名。创建图标主题的说明请参见<a href="faq.html#theme">常见问题解答</a>。</p></li>
+          <li><p><span class="italic">无图标</span>。</p></li>
+        </ul>
+        <p><span class="italic">显示叠加图标，比如链接</span>&nbsp;&ndash; 如果启用，Double Commander 将显示叠加图标，例如 .lnk 文件和链接的箭头。</p>
+        <p><span class="italic">淡化隐藏文件（较慢）</span>&nbsp;&ndash; 如果启用，Double Commander 将以 50% 的透明度显示隐藏文件的图标。</p>
+        <p><span class="italic">禁用特殊图标</span>&nbsp;&ndash; 您可以禁用为指定目录及其子目录加载特殊图标（叠加图标、.exe/.lnk 文件的图标），只需用分号“;”分隔它们，而不带空格。</p>
+        <p><span class="italic">图标大小</span>&nbsp;&ndash; 您可以从以下大小中选择：</p>
+        <ul>
+          <li><p><span class="italic">文件面板</span>&nbsp;&ndash; 16x16、24x24、32x32 或 48x48。</p></li>
+          <li><p><span class="italic">磁盘面板</span>&nbsp;&ndash; 16x16、24x24 或 32x32。</p></li>
+          <li><p><span class="italic">主菜单</span>&nbsp;&ndash; 16x16、24x24 或 32x32。</p></li>
+        </ul>
+        <p><span class="italic">在按钮上显示图标</span>&nbsp;&ndash; 如果启用，Double Commander 将在对话窗口的按钮上显示图标（<span class="italic">确定</span>、<span class="italic">取消</span>、<span class="italic">开始</span>、<span class="italic">添加到队列</span>等）。</p>
+        <p><span class="italic">显示菜单中操作的图标</span>&nbsp;&ndash; 如果启用，Double Commander 将在应用程序窗口的主菜单和批量重命名工具中显示图标。此选项还启用在常用文件夹列表和收藏标签菜单中显示子菜单图标。</p>
+        <p>在最后一个参数<span class="italic">图标主题</span>中，您可以从下拉菜单中选择一个图标集。Double Commander 附带一个<span class="italic">DCTheme</span>图标主题，但您可以创建并添加自己的主题，详细信息请参见<a href="faq.html#theme">常见问题解答</a>。</p>
+        <p>注意：在类Unix系统中，Double Commander 将主要使用系统图标主题，如果某些图标不存在，它将使用自己的图标。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIgnore">2.20. 忽略列表</a></span></p>
+        <p>忽略特定文件和文件夹（每行一个）：它们将不会显示在面板中。</p>
+        <p class="figure"><img class="largeimage" title="Ignore list" alt="Ignore list" src="images/imgDC/pic78.png" width="434" height="329"></p>
+        <ul>
+          <li><p>您可以使用文件的完整路径或文件名。</p></li>
+          <li><p>支持通配符“*”和“？”（符号“*”表示匹配任意数量的字符，符号“？”表示匹配任意一个字符）。</p></li>
+          <li><p>当掩码以目录分隔符结尾时，它将仅匹配目录。</p></li>
+        </ul>
+        <p><span class="italic">保存在：</span>&nbsp;&ndash; 忽略列表位置（默认是 <tt>ignorelist.txt</tt>，位于 <tt>doublecmd.xml</tt> 附近）。</p>
+        <p><span class="italic">添加选定的带有完整路径的文件名</span>&nbsp;&ndash; 将添加在活动面板中选择的所有文件/文件夹（如果存在）或光标下的文件的完整路径。</p>
+        <p><span class="italic">添加选定的文件名</span>&nbsp;&ndash; 将添加在活动面板中选择的所有文件/文件夹（如果存在）或光标下的文件的名称。这意味着它们将在所有地方隐藏。</p>
+        <p>注意：这两个按钮不会在文件夹名称的末尾添加目录分隔符。</p>
+        <p>您可以使用内部命令 <a href="cmds.html#cm_SwitchIgnoreList">cm_SwitchIgnoreList</a> 来打开和关闭此选项，或在工具栏上添加按钮或热键。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigArchivers">2.21. 压缩文件</a></span></p>
+        <p>请参阅专门的 <a href="multiarc.html">压缩文件处理</a> 帮助页面，了解如何使用和配置它。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTooltips">2.22. 工具提示</a></span></p>
+        <p>本节包含鼠标光标悬停在文件上时的工具提示设置。</p>
+        <p class="figure"><img class="largeimage" title="Tooltips" alt="Tooltips" src="images/imgDC/pic47.png" width="806" height="598"></p>
+        <p><span class="italic">显示文件面板中文件的工具提示</span>&nbsp;&ndash; 启用使用工具提示的功能。</p>
+        <p><span class="italic">文件类型</span>&nbsp;&ndash; 包含文件组的列表。 Double Commander 从上到下检查列表，直到找到第一个匹配项：列表中较高的文件组将覆盖下面的任何文件组。</p>
+        <p>按钮：</p>
+        <ul>
+          <li><p><span class="italic">应用</span>&nbsp;&ndash; 将保存所选文件类型的设置。</p></li>
+          <li><p><span class="italic">添加</span>&nbsp;&ndash; 将添加一个新文件类型并询问名称，您可以写下文件的描述、功能或打开的程序。</p></li>
+          <li><p><span class="italic">复制</span>&nbsp;&ndash; 将使用新名称复制所选文件类型。</p></li>
+          <li><p><span class="italic">重命名</span>&nbsp;&ndash; 将提示输入所选文件类型的新名称。</p></li>
+          <li><p><span class="italic">删除</span>&nbsp;&ndash; 将删除所选文件类型。</p></li>
+        </ul>
+        <p><span class="italic">其他...</span> 按钮是一个菜单：</p>
+        <ul>
+          <li><p><span class="italic">放弃修改</span>&nbsp;&ndash; 将重置所选文件类型中的所有未保存更改。</p></li>
+          <li><p><span class="italic">工具提示文件类型排序</span>&nbsp;&ndash; 将按字母顺序对文件类型进行排序（首先是大写字母，然后是小写字母）。</p></li>
+          <li><p><span class="italic">导出...</span> 和 <span class="italic">导入...</span>&nbsp;&ndash; 允许将工具提示导出到 DC 工具提示文件，并从这些文件中导入（全部或部分）。</p></li>
+        </ul>
+        <p>在下面，您可以配置所选文件类型的工具提示内容。</p>
+        <p>在行 <span class="italic">类别掩码</span> 中输入通配符掩码以匹配文件类型（符号“*”表示匹配任意数量的字符，符号“？”表示匹配任意一个字符）。您可以在此处使用分号“;”而不带空格输入多个文件类型。您还可以使用搜索模版（<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">），包括使用内容插件的搜索。</p>
+        <p>在 <span class="italic">分类提示</span> 字段中，您可以输入任何文本并使用 WDX 插件字段获取信息（“&gt;&gt;”按钮）。</p>
+        <p>其余参数是有关工具提示的常规选项。</p>
+        <p><span class="italic">工具提示显示模式</span>&nbsp;&ndash; 确定 Double Commander 将显示哪种类型的工具提示以及如何组合它们（如果两种类型都存在）：</p>
+        <ul>
+          <li><p>结合 DC 和系统工具提示，DC 优先（传统）。</p></li>
+          <li><p>组合 DC 和系统工具提示，系统优先。</p></li>
+          <li><p>尽可能显示DC工具提示，不显示系统。</p></li>
+          <li><p>仅显示 DC 工具提示。</p></li>
+          <li><p>仅显示系统工具提示。</p></li>
+        </ul>
+        <p>系统工具提示的内容取决于操作系统：</p>
+        <ul>
+          <li><p>Windows：文件名，与 Windows 资源管理器中的相同。如果无法获取信息，则 Double Commander 将显示与 Linux 和其他类 Unix 系统相同的内容。</p></li>
+          <li><p>Linux 和其他类 Unix 系统：文件名、修改日期和大小。</p></li>
+        </ul>
+        <p>工具提示的第一行始终包含文件名，如果您在 <span class="italic">分类提示</span> 字段中没有指定任何内容，则 DC 工具提示将仅包含文件名。</p>
+        <p><span class="italic">工具提示隐藏延时</span>&nbsp;&ndash; 设置工具提示的显示持续时间：系统默认值、1 秒、2 秒、3 秒、5 秒、10 秒、30 秒、1 分钟和从不隐藏（当您将鼠标光标移动到另一个文件或文件面板外部时，工具提示将被隐藏）。</p>
+        <p>在本节描述开头的屏幕截图中，您可以看到一个工具提示的示例，该工具提示使用 <tt>textline.wdx</tt> 插件显示文本文件选定行的内容（在本例中为第一、第二和第三行），选择了 <span class="italic">组合 DC 和系统工具提示，系统优先</span> 模式。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigAssociations">2.23. 文件关联</a></span></p>
+        <p>此项打开配置文件关联。所有关联集都包含在文件 <tt>extassoc.xml</tt> 中。</p>
+        <p>在这里您可以自定义文件关联并为所选文件类型设置命令或脚本。命令将被添加到文件的 <a href="help.html#cm_ContextMenu">上下文菜单</a> 中。 Double Commander 还允许简单地设置（或替换）文件类型的图标，而无需添加任何操作。</p>
+        <p class="figure"><img class="largeimage" title="File associations" alt="File associations" src="images/imgDC/pic48.png" width="499" height="655"></p>
+        <p><span class="italic">文件类型</span>&nbsp;&ndash; 包含扩展名列表。每个组可以包含多个文件扩展名，并且可以将此类组与各种程序关联。</p>
+        <p><span class="italic">添加</span>&nbsp;&ndash; 添加新组。您应该输入组名称。</p>
+        <p><span class="italic">移除</span>&nbsp;&ndash; 移除组。</p>
+        <p><span class="italic">重命名</span>&nbsp;&ndash; 允许为组设置新名称。</p>
+        <p><span class="italic">图标</span>&nbsp;&ndash; 您可以为此组设置图标的路径。 Double Commander 支持常用的图像格式，此外在 Windows 中您可以使用来自二进制可执行文件（.exe 或 .dll）的图标；在这种情况下，DC 将自动从可用的图标中选择合适的图标大小。您还可以仅指定图标的名称而不带扩展名（通常使用 MIME 类型图标），在这种情况下：</p>
+        <ul>
+          <li><p>Windows： Double Commander 将使用其当前图标主题中的图标。</p></li>
+          <li><p>Linux 和其他类 Unix 系统： Double Commander 将使用系统图标主题中的图标，因为它具有优先权。如果没有图标文件，程序将使用其当前图标主题中的图标。</p></li>
+        </ul>
+        <p>这是一种方便的方式，因为 Double Commander 将自动从可用的图标中选择合适的图标大小，并将考虑图标主题的切换。</p>
+        <p><span class="italic">扩展名</span>&nbsp;&ndash; 在这里您可以为所选组设置扩展名（不带点）。您可以使用竖线“|”（之间不带空格）添加多个扩展名。特殊值：</p>
+        <ul>
+          <li><p><tt>file</tt>&nbsp;&ndash; 任何文件;</p></li>
+          <li><p><tt>folder</tt>&nbsp;&ndash; 任何文件夹;</p></li>
+          <li><p><tt>default</tt>&nbsp;&ndash; 当特定扩展名关联不存在时使用。</p></li>
+        </ul>
+        <p><span class="italic">插入</span>&nbsp;&ndash; 在列表的当前位置添加新扩展名。</p>
+        <p><span class="italic">添加</span>&nbsp;&ndash; 在列表的末尾添加新扩展名。</p>
+        <p><span class="italic">移除</span>&nbsp;&ndash; 从组中删除扩展名。</p>
+        <p><span class="italic">编辑</span>&nbsp;&ndash; 在这里您可以为组设置命令。</p>
+        <p><span class="italic">插入</span>&nbsp;&ndash; 在列表的当前位置添加新操作。</p>
+        <p><span class="italic">添加</span>&nbsp;&ndash; 在列表的末尾添加新操作。</p>
+        <p><span class="italic">移除</span>&nbsp;&ndash; 从列表中删除操作。</p>
+        <p><span class="italic">上移</span>, <span class="italic">下移</span>&nbsp;&ndash; 移动操作。如果有多个操作，可以重新排序。</p>
+        <p><span class="italic">操作名称：</span>&nbsp;&ndash; 设置操作类型。变体：</p>
+        <ul>
+          <li><p>从弹出菜单</p>
+            <ul>
+              <li><p>打开&nbsp;&ndash; 动作将在按下 <kbd>Enter</kbd> 或双击后运行。</p></li>
+              <li><p>查看&nbsp;&ndash; 动作将在按下 <kbd>F3</kbd> 后运行。</p></li>
+              <li><p>编辑&nbsp;&ndash; 动作将在按下 <kbd>F4</kbd> 后运行。</p></li>
+            </ul>
+          </li>
+          <li><p>其他动作显示在文件上下文菜单中（子菜单“操作”）。</p></li>
+        </ul>
+        <p><span class="italic">命令</span>&nbsp;&ndash; 来自桌面环境的任何命令。还提供了几个宏（名称区分大小写！）：</p>
+        <ul>
+          <li><p><tt>{!DC-EDITOR}</tt>&nbsp;&ndash; 调用内部编辑器;</p></li>
+          <li><p><tt>{!DC-VIEWER}</tt>&nbsp;&ndash; 调用内部查看器;</p></li>
+          <li><p><tt>{!EDITOR}</tt>&nbsp;&ndash; 调用编辑器（内部或外部，取决于配置）；</p></li>
+          <li><p><tt>{!VIEWER}</tt>&nbsp;&ndash; 调用查看器（内部或外部，取决于配置）；</p></li>
+          <li><p><tt>{!SHELL}</tt>&nbsp;&ndash; 在终端中运行并在结束时保持打开。</p></li>
+          <li><p><tt>{!TERMSTAYOPEN}</tt>&nbsp;&ndash; 在终端中运行并在结束时保持打开；</p></li>
+          <li><p><tt>{!TERMANDCLOSE}</tt>&nbsp;&ndash; 在终端中运行并请求在结束时关闭它。</p></li>
+        </ul>
+        <p>“查看”动作与 <tt>{!DC-VIEWER}</tt> 宏将被考虑用于 <a href="viewer.html#quick">快速查看</a>，其他宏和命令将被忽略。</p>
+        <p><tt>{!TERMSTAYOPEN}</tt> 和 <tt>{!TERMANDCLOSE}</tt> 已被添加以实现统一，并能够使用变量 <a href="variables.html#executeterm">%t0 和 %t1</a>，<tt>{!SHELL}</tt> 已被保留以保持向后兼容性。</p>
+        <p>作为命令，您可以使用 <a href="cmds.html">Double Commander 的内部命令</a>。内部命令的参数按行指定，因此您只能在此处指定一个。还可以使用内部命令 <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> 运行 <a href="lua.html">Lua 脚本</a>，在这种情况下，您可以使用 <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> 或 <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a> 获取所选文件的名称。</p>
+        <p><span class="italic">参数</span>&nbsp;&ndash; 命令参数，包括变量：</p>
+        <ul>
+          <li><p>任何来自 <a href="variables.html">“百分号”变量</a> 的变量。</p></li>
+          <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; 在系统 shell 中运行 "command" 并将输出传递给上面的命令。</p></li>
+        </ul>
+        <p>至少，您必须指定一个文件名，通常是 <code>%p</code> 或 <code>%p0</code>，用于光标下的文件。</p>
+        <p><span class="italic">开始路径</span>&nbsp;&ndash; 命令开始路径。此目录将成为正在启动的程序的工作目录，如果您不需要显式指定它，则只需将此字段留空：在这种情况下，工作目录将是活动文件面板的当前目录（常规文件）或临时文件的系统目录（来自压缩包和 WFX 插件的文件）。</p>
+        <p>所有可用的操作将显示在上下文菜单的“操作”子菜单中：</p>
+        <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="417" height="119"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigAssocEx">2.23.1. 文件关联&nbsp;&gt; 文件关联扩展</a></span></p>
+        <p class="figure"><img class="largeimage" title="File associations extra" alt="File associations extra" src="images/imgDC/pic79.png" width="340" height="409"></p>
+        <p><span class="italic">尚未包括在内时，可添加选择到文件关联</span>&nbsp;&ndash; 访问文件关联时，如果当前选定的文件尚未包含在配置的文件类型中，则提供将其添加的选项。这是添加“打开方式”操作的快速方法： Double Commander 将提示您指定类型名称和可执行文件，其他所有操作将自动完成。</p>
+        <p><span class="italic">扩展右键菜单</span>&nbsp;&ndash; 允许向“操作”子菜单添加一些项目：</p>
+        <ul>
+          <li><p><span class="italic">Default context actions (View/Edit)</span>&nbsp;&ndash; 用于在查看器和编辑器中打开文件的命令。将使用内置工具或外部应用程序（取决于设置），内部文件关联将被忽略。</p></li>
+          <li><p>使用系统外壳 <tt>{!SHELL}</tt>、<tt>{!TERMANDCLOSE}</tt> 和 <tt>{!TERMSTAYOPEN}</tt> 运行（详细信息请参见 <a href="#ConfigAssociations">此处</a>）：</p>
+            <ul>
+              <li><p><span class="italic">通过系统外壳执行</span></p></li>
+              <li><p><span class="italic">通过终端执行并关闭</span></p></li>
+              <li><p><span class="italic">通过终端执行并保持打开状态</span></p></li>
+            </ul>
+          </li>
+          <li><p><span class="italic">文件关联配置</span>&nbsp;&ndash; 打开 <a href="#ConfigAssociations">文件关联</a> 配置部分。</p></li>
+        </ul>
+        <p>以下是为图标、命令和起始路径添加元素时设置路径的方法：</p>
+        <ul>
+          <li><p>使用完整的绝对路径。</p></li>
+          <li><p>相对于 <a href="variables.html#envvariables">%COMMANDER_PATH%</a> 的路径。</p></li>
+          <li><p>相对于以下内容。</p></li>
+        </ul>
+        <p>您还可以将当前设置应用于所有当前配置的文件名和路径。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDirHotlist">2.24. 常用文件夹列表</a></span></p>
+        <p>请参阅专门的 <a href="directoryhotlist.html">常用文件夹列表</a> 帮助页面，了解如何使用和配置它。</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDirHotlistEx">2.24.1. 常用文件夹列表&nbsp;&gt; 常用文件夹列表扩展</a></span></p>
+        <p class="figure"><img class="largeimage" title="Directory Hotlist Extra" alt="Directory Hotlist Extra" src="images/imgDC/pic80.png" width="340" height="184"></p>
+        <p>在本节中，您可以选择如何设置路径和目标路径：</p>
+        <ul>
+          <li><p>使用完整的绝对路径。</p></li>
+          <li><p>相对于 <a href="variables.html#envvariables">%COMMANDER_PATH%</a> 的路径。</p></li>
+          <li><p>相对于以下内容。</p></li>
+        </ul>
+        <p>您还可以将当前设置应用到常用文件夹列表。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <br>
+        <p><small>Created by Rustem (dok_rust@bk.ru)</small></p>
+        <p><small>中文版本由 H1DDENADM1N 创建</small></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="help.html">上一页</a> | <a title="Next page" href="shortcuts.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

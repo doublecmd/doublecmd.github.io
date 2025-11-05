@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 批量重命名工具</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="findfiles.html">上一页</a> | <a title="Next page" href="syncdirs.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.6. 批量重命名工具</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#presentation">简介</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#recommendation">建议</a></dt>
+              <dt>1.2. <a href="#overview">总览</a></dt>
+            </dl>
+          </dd>
+          <dt>2. <a href="#interface">界面</a></dt>
+          <dt>3. <a href="#generation">生成新文件名</a></dt>
+          <dt>4. <a href="#placeholders">占位符</a></dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#basic">基本占位符</a></dt>
+              <dt>4.2. <a href="#other">其他占位符</a></dt>
+              <dt>4.3. <a href="#plugin">使用插件的占位符</a></dt>
+            </dl>
+          </dd>
+          <dt>5. <a href="#listoffiles">文件列表</a></dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#existing">现有列表</a></dt>
+              <dt>5.2. <a href="#currentfilename">基于当前文件名动态创建列表</a></dt>
+              <dt>5.3. <a href="#newfilename">基于当前新文件名列动态创建列表</a></dt>
+            </dl>
+          </dd>
+          <dt>6. <a href="#modifiers">修改器</a></dt>
+          <dd>
+            <dl>
+              <dt>6.1. <a href="#case">大小写</a></dt>
+              <dt>6.2. <a href="#searchreplace">查找和替换</a></dt>
+              <dd>
+                <dl>
+                  <dt>6.2.1. <a href="#singlesearchreplace">查找和替换单个序列</a></dt>
+                  <dt>6.2.2. <a href="#multiplesearchandreplace">多个序列替换</a></dt>
+                  <dt>6.2.3. <a href="#multiplepairs">多组查找和替换</a></dt>
+                  <dt>6.2.4. <a href="#searchreplaceregex">使用正则表达式</a></dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>7. <a href="#actualaction">实际重命名操作</a></dt>
+          <dt>8. <a href="#log">日志</a></dt>
+          <dt>9. <a href="#presets">预设配置</a></dt>
+          <dt>10. <a href="#configuration">额外配置</a></dt>
+          <dd>
+            <dl>
+              <dt>10.1. <a href="#menubar">在顶部显示菜单栏</a></dt>
+              <dt>10.2. <a href="#invalidchar">替换无效文件名字符</a></dt>
+              <dt>10.3. <a href="#presetatlaunch">启动时的预设</a></dt>
+              <dt>10.4. <a href="#exitmodified">修改预设后退出</a></dt>
+              <dt>10.5. <a href="#renamelog">重命名日志</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="presentation">1. 简介</a></h2>
+        <p>批量重命名工具允许我们使用不同的方法一次重命名多个选定的文件。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="recommendation">1.1. 建议</a></h2>
+        <p>如果你不熟悉批量重命名工具，在实际使用之前，建议先将一些实际文件复制到临时文件夹进行测试。</p>
+        <p>然后当我们熟悉了其使用方法后，就可以在实际文件上使用批量重命名工具了。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="overview">1.2. 总览</a></h2>
+        <p>假设我们下载了一组播客 MP3 文件。</p>
+        <p>我们可能想给每个文件一个有意义的名称。</p>
+        <p>这时候批量重命名工具就会非常有用，因为它可以帮助我们在一次操作中重命名多个文件。</p>
+        <br>
+        <p>我们会在面板中选择要重命名的元素。</p>
+        <p>然后通过以下任一方式调用批量重命名工具：</p>
+        <ul>
+          <li>从主菜单 <b>文件</b>&nbsp;&gt; <b>批量重命名工具</b></li>
+          <li>使用内部命令 <a href="cmds.html#cm_MultiRename">cm_MultiRename</a></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="interface">2. 界面</a></h2>
+        <p>这将打开如下所示的批量重命名工具对话窗口：</p>
+        <p class="figure"><img class="largeimage" title="界面" alt="界面" src="images/imgDC/mulrengeneral.png" width="667" height="442"></p>
+        <p>在顶部我们可以看到一个表格，其中显示了我们从源面板选择的文件，每行一个文件，这些文件将要被重命名。我们可以使用拖放或 <kbd>Shift+方向键</kbd> 重新排序文件列表。要从列表中移除文件，我们可以使用 <kbd>Del</kbd> 键（在删除所有文件后，Double Commander 将关闭批量重命名工具）。</p>
+        <p>该表格有三列：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">批量重命名工具文件名预览表格</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">列名</th><th class="categorydesccolumn">描述</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">旧文件名</div></td><td class="hintcell">该行表示的文件当前的名称</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">新文件名</div></td><td class="hintcell">确认重命名后的新文件名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">文件路径</div></td><td class="hintcell">文件当前的位置</td></tr>
+        </table>
+
+        <p>我们的操作思路是通过一系列调整，直到 <b>新文件名</b> 列显示我们想要的新文件名。</p>
+        <p>然后我们将按下 <b>重命名</b> 按钮来实际重命名文件。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="generation">3. 生成新文件名</a></h2>
+        <p>我们有多种工具可以用来生成想要的新文件名。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">可用工具</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">类别</th><th class="categorydesccolumn">描述</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">占位符</div></td><td class="hintcell">使用文件名的当前部分、其属性或内容来生成新名称的部分</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">文件列表</div></td><td class="hintcell">一个包含名称的文本文件，每行一个，按顺序应用到每个文件</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">修改器</div></td><td class="hintcell">修改上述元素生成的最终新名称中的字符</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="placeholders">4. 占位符</a></h2>
+        <p>让我们来看看可以使用的占位符。</p>
+        <p>注意：占位符区分大小写！</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="basic">4.1. 基本占位符</a></h2>
+        <p>我们在左侧标有 <b>模版</b> 的框中定义占位符。</p>
+        <p>如我们所见，我们可以定义用于组成新名称的 <b>文件名</b> 和 <b>扩展名</b>。</p>
+        <p>这些占位符定义在方括号中。</p>
+        <p>通常，每个占位符会返回一个字符串，该字符串将成为我们要创建的文件名或其扩展名的一部分。</p>
+        <p>我们可以在一行中定义多个占位符，新文件名的部分将是所有这些占位符的连接结果。</p>
+        <br>
+        <p>基本占位符如下：</p>
+        <ul>
+          <li><b>[N]</b> 代表当前文件名</li>
+          <li><b>[E]</b> 代表当前文件扩展名</li>
+        </ul>
+
+        <p>对于这两个占位符，我们可以包含一些占位符来限定要使用的文件名和/或扩展名的字符范围。</p>
+        <p>让我们看一个基于以下示例文件的结果表：</p>
+        <p class="figure"><img class="largeimage" title="示例文件" alt="示例文件" src="images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">可用占位符</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">占位符</th><th class="categorydesccolumn">描述</th><th class="categorynamecolumn">示例</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx]</div></td><td class="hintcell">文件名中第 x 个位置的字符</td><td class="hintcell"><code>[N9]</code> = T</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x]</div></td><td class="hintcell">同上，但从文件名的末尾开始计算</td><td class="hintcell"><code>[N-5]</code> = P</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:y]</div></td><td class="hintcell">文件名中从位置 x 到 y 的字符范围</td><td class="hintcell"><code>[N5:6]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:-y]</div></td><td class="hintcell">同上，但从文件名的末尾开始计算</td><td class="hintcell"><code>[N-6:-7]</code> = 06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:-y]</div></td><td class="hintcell">同上，但起始位置从头部计算，结束位置从末尾计算</td><td class="hintcell"><code>[N10:-6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:y]</div></td><td class="hintcell">同上，但起始位置从末尾计算，结束位置从头部计算</td><td class="hintcell"><code>[N-16:6]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx,y]</div></td><td class="hintcell">从位置 x 开始，长度为 y 个字符的范围</td><td class="hintcell"><code>[N10,6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x,y]</div></td><td class="hintcell">同上，但从末尾开始计算，向左选取 y 个字符</td><td class="hintcell"><code>[N-8,4]</code> = 0603</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex]</div></td><td class="hintcell">扩展名中第 x 个位置的字符</td><td class="hintcell"><code>[E1]</code> = m</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x]</div></td><td class="hintcell">同上，但从扩展名的末尾开始计算</td><td class="hintcell"><code>[E-1]</code> = 3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:y]</div></td><td class="hintcell">扩展名中从位置 x 到 y 的字符范围</td><td class="hintcell"><code>[E2:3]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:-y]</div></td><td class="hintcell">同上，但从扩展名的末尾开始计算</td><td class="hintcell"><code>[E-3:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:-y]</div></td><td class="hintcell">同上，但起始位置从头部计算，结束位置从末尾计算</td><td class="hintcell"><code>[E1:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:y]</div></td><td class="hintcell">同上，但起始位置从末尾计算，结束位置从头部计算</td><td class="hintcell"><code>[E-2:3]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex,y]</div></td><td class="hintcell">从位置 x 开始，长度为 y 个字符的范围</td><td class="hintcell"><code>[E1,3]</code> = mp3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x,y]</div></td><td class="hintcell">同上，但从末尾开始计算，向左选取 y 个字符</td><td class="hintcell"><code>[E-1,2]</code> = p3</td></tr>
+        </table>
+        <br>
+        <p>为了确保我们理解了这个概念，这里有一个例子，我们把文件名的模版设置为 <code>[N1,4]-[N5,2]-[N7,2]</code></p>
+        <p>我们可以看到 <b>新文件名</b> 列已经按照上面描述的替换规则更新了。</p>
+        <p class="figure"><img class="largeimage" title="重命名示例" alt="重命名示例" src="images/imgDC/mulrensample1.png" width="382" height="284"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="other">4.2. 其他占位符</a></h2>
+        <p>以下是一些其他占位符，仍然使用同样的示例文件：</p>
+        <p class="figure"><img class="largeimage" title="示例文件" alt="示例文件" src="images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">其他占位符</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">占位符</th><th class="categorydesccolumn">描述</th><th class="categorynamecolumn">示例</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">代表完整的文件名，包括完整路径、目录分隔符、扩展名、冒号和点号</td><td class="hintcell"><code>[A]</code> =<br><i>完整文件名</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">可以像之前那样指定范围：[Ax]、[Ax:y]、[A-x:-y] 等</td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Y]</div></td><td class="hintcell">文件日期的年份（最后 2 位数字）</td><td class="hintcell"><code>[Y]</code> = 19</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[YYYY]</div></td><td class="hintcell">年份（4 位数字）</td><td class="hintcell"><code>[YYYY]</code> = 2019</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[M]</div></td><td class="hintcell">文件日期的月份数字，原样显示</td><td class="hintcell"><code>[M]</code> = 1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[MM]</div></td><td class="hintcell">月份数字，如果需要会用零补齐至 2 位</td><td class="hintcell"><code>[MM]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[MMM]</div></td><td class="hintcell">月份的缩写，如“jan”、“feb”、“mar”等</td><td class="hintcell"><code>[MMM]</code> = Jan</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[MMMM]</div></td><td class="hintcell">完整的月份名称，如“january”、“february”等</td><td class="hintcell"><code>[MMMM]</code> = January</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[D]</div></td><td class="hintcell">文件日期的天数，原样显示</td><td class="hintcell"><code>[D]</code> = 2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[DD]</div></td><td class="hintcell">天数，如果需要会用零补齐至 2 位</td><td class="hintcell"><code>[DD]</code> = 02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[DDD]</div></td><td class="hintcell">星期缩写，如“mon”、“tue”、“wed”等</td><td class="hintcell"><code>[DDD]</code> = Wed</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[DDDD]</div></td><td class="hintcell">完整的星期名称，如“monday”、“tuesday”等</td><td class="hintcell"><code>[DDDD]</code> = Wednesday</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[h]</div></td><td class="hintcell">文件时间的小时数，原样显示</td><td class="hintcell"><code>[h]</code> = 9</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[hh]</div></td><td class="hintcell">小时数，如果需要会用零补齐至 2 位</td><td class="hintcell"><code>[hh]</code> = 09</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[n]</div></td><td class="hintcell">文件时间的分钟数，原样显示</td><td class="hintcell"><code>[n]</code> = 2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[nn]</div></td><td class="hintcell">分钟数，如果需要会用零补齐至 2 位</td><td class="hintcell"><code>[nn]</code> = 02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[s]</div></td><td class="hintcell">文件时间的秒数，原样显示</td><td class="hintcell"><code>[s]</code> = 7</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[ss]</div></td><td class="hintcell">秒数，如果需要会用零补齐至 2 位</td><td class="hintcell"><code>[ss]</code> = 07</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">即时生成的 GUID 格式：<br>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</td><td class="hintcell"><code>[G]</code> =<br><i>16 字节的 GUID</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">直接命名完整路径中的第 x 级目录（从根目录开始数）</td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">直接命名完整路径中的第 x 级目录（从文件名开始数）</td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">使用“计数器”框的参数为每个迭代自动递增的计数器（也支持负数）</td><td class="hintcell"><code>[C]</code> =<i>每个文件的<br>递增数字</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[V:hint]</div></td><td class="hintcell">用户定义的变量“hint”，将在实际重命名过程中提示用户输入</td><td class="hintcell"><code>[V:Guest]</code> = <i>提示输入<br>Guest 的值</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[[]</div></td><td class="hintcell">按原样插入左方括号</td><td class="hintcell"><code>[[]</code> = [</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[]]</div></td><td class="hintcell">按原样插入右方括号</td><td class="hintcell"><code>[]]</code> = ]</td></tr>
+        </table>
+
+        <p>这里是另一个例子，我们使用了一些上述占位符，将模版设置为</p>
+        <p><code>[C] - [YYYY]-[MM]-[DD] @ [hh]-[nn]-[ss]</code></p>
+        <p class="figure"><img class="largeimage" title="重命名示例" alt="重命名示例" src="images/imgDC/mulrensample2.png" width="722" height="452"></p>
+
+        <p>随着使用频率的增加，我们很快就能从记忆中直接输入所需的占位符！</p>
+        <p>在此之前，幸运的是，我们可以点击每个模版下方的按钮，然后访问一个弹出菜单，它将帮助我们根据需要自动输入占位符。</p>
+        <p class="figure"><img class="largeimage" title="帮助器使用" alt="帮助器使用" src="images/imgDC/mulrenhelpers.png" width="875" height="424"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="plugin">4.3. 使用插件的占位符</a></h2>
+        <p>我们还可以使用内容插件的占位符。</p>
+        <p>它会从文件中提取所选定的字段，并将其用作我们想要的新名称的一部分。</p>
+        <p>下面的示例使用多媒体插件提取 MP3 播客文件的时长，并将其加在括号中放入文件名中：</p>
+        <p class="figure"><img class="largeimage" title="使用插件" alt="使用插件" src="images/imgDC/mulrenplugin.png" width="660" height="570"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="listoffiles">5. 文件列表</a></h2>
+        <p>我们还可以使用包含文件名列表的文本文件来重命名我们的文件。</p>
+        <p>默认该文本文件的每一行包含一个新文件名（包括扩展名），并按顺序应用到对应位置的文件。</p>
+        <br>
+        <p>这个列表可以是：</p>
+        <ul>
+          <li>你之前创建的现有文本文件</li>
+          <li>基于当前文件名动态创建（<b>旧文件名</b> 列）</li>
+          <li>基于当前 <b>新文件名</b> 列动态创建</li>
+        </ul>
+        <p>你还可以从剪贴板加载文件名列表，要使用这个功能，你需要打开<a href="configuration.html#ConfigHotKeys">热键设置</a>，切换到“批量重命名工具”类别，并为 <tt>cm_LoadNamesFromClipboard</tt> 命令设置热键。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="existing">5.1. 现有列表</a></h2>
+        <p>如果我们已经有这样的文件，我们将点击 <b>编辑</b> 按钮并选择 <b>从文件加载名称...</b>。</p>
+        <p class="figure"><img class="largeimage" title="现有列表" alt="现有列表" src="images/imgDC/mulrenlstfromfile.png" width="404" height="102"></p>
+        <p>然后我们将被提示选择我们的文件列表。</p>
+        <p>如果文件的行数与要重命名的元素数量相同，我们将在 <b>新文件名</b> 列中看到每个文件的新文件名。</p>
+        <p>只有在我们点击 <b>重命名</b> 按钮时才会进行实际的重命名操作。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="currentfilename">5.2. 基于当前文件名动态创建列表</a></h2>
+        <p>类似于上面描述的<a href="#existing">现有列表</a>，Double Commander 可以让我们动态创建这个文件列表。</p>
+        <p>点击 <b>编辑器</b> 按钮，然后选择 <b>编辑名称...</b> 将使工具基于原始文件名创建一个临时文本文件，该文件将像上一点一样使用。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="newfilename">5.3. 基于当前新文件名列动态创建列表</a></h2>
+        <p>与上面相同，只是列表中的文件名来自当前的 <b>新文件名</b> 列。</p>
+        <p>当占位符方法给我们“接近”我们想要的文件名时，这种方法特别有用，我们只需要进行一些调整来修正那些需要符合我们需求的名称。</p>
+        <p>下面的示例展示了使用这种方法时的事件流程。</p>
+        <p class="figure"><img class="largeimage" title="编辑新名称列" alt="编辑新名称列" src="images/imgDC/mulreneditnewnames.png" width="828" height="882"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="modifiers">6. 修改器</a></h2>
+        <p>在仍然遵循并在上面提到的占位符和文件列表<b>之后</b>应用的情况下，我们可以使用修改器来改变新文件名。</p>
+        <p>这些修改器包括：</p>
+        <ul>
+          <li>改变字符的大小写</li>
+          <li>用另一个字符序列查找和替换字符序列</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="case">6.1. 大小写</a></h2>
+        <p>以下是可能的选项，它们将影响新文件名中字符的大小写：</p>
+        <ul>
+          <li>不修改</li>
+          <li>全部大写</li>
+          <li>全部小写</li>
+          <li>首字母大写，其余小写</li>
+          <li>每个单词的首字母大写</li>
+        </ul>
+        <p>即使这个修改器在 <b>模版</b> 框内，当文件名来自列表时也会被应用。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="searchreplace">6.2. 查找和替换</a></h2>
+        <p><b>查找</b> 字段中的字符串将被 <b>替换</b> 字段中的字符串替换。还有几个额外的功能，请参见下面。搜索默认不区分大小写！</p>
+        <p>额外选项：</p>
+        <ul>
+          <li><p><span class="italic">A&#8800;a</span>&nbsp;&ndash; 启用区分大小写搜索。</p></li>
+          <li><p><span class="italic">1x</span>&nbsp;&ndash; 启用后，无论有多少匹配，只替换第一个。</p></li>
+        </ul>
+        <p>这两个参数也会影响正则表达式的行为。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="singlesearchreplace">6.2.1. 查找和替换单个序列</a></h2>
+        <p>我们可以在字符串中查找一个字符序列，并用另一个序列替换它。</p>
+        <p class="figure"><img class="largeimage" title="简单查找和替换" alt="简单查找和替换" src="images/imgDC/mulrensrchrpl.png" width="401" height="205"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="multiplesearchandreplace">6.2.2. 多个序列替换</a></h2>
+        <p>我们还可以用一个序列替换不同的序列，方法是将序列放在管道符之间，如下面的例子中 2020 将替换 2017、2018 或 2019 的任何匹配：</p>
+        <p class="figure"><img class="largeimage" title="多重替换" alt="多重替换" src="images/imgDC/mulrenrepl3for1.png" width="476" height="230"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="multiplepairs">6.2.3. 多组查找和替换</a></h2>
+        <p>我们还可以通过将多组序列放在管道符之间来定义多个查找和替换对。</p>
+        <p>每个要查找的序列都将在相同位置定义其替换序列。</p>
+        <p class="figure"><img class="largeimage" title="多组查找和替换对" alt="多组查找和替换对" src="images/imgDC/mulrenreplplace.png" width="497" height="263"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="searchreplaceregex">6.2.4. 使用正则表达式</a></h2>
+        <p>我们还可以在字符串的查找部分和替换部分使用<a href="regexp.html">正则表达式</a>（<b>使用替换</b>启用在 <b>替换</b> 字段中使用<a href="regexp.html#meta-sub">子表达式</a>）。</p>
+        <p class="figure"><img class="largeimage" title="使用正则表达式" alt="使用正则表达式" src="images/imgDC/mulrenregex.png" width="328" height="304"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actualaction">7. 实际重命名操作</a></h2>
+        <p>当我们使用上面提到的方法定义了所有想要的 <b>新文件名</b> 后，我们就可以开始实际的 <b>重命名</b> 操作了。</p>
+        <p class="figure"><img class="largeimage" title="实际重命名操作" alt="实际重命名操作" src="images/imgDC/mulrenrename.png" width="98" height="27"></p>
+        <p>如果发现重复的文件名，Double Commander 将提供中止操作或使用自动重命名，方法是添加数字：“name (1).ext”、“name (2).ext” 等。请注意，在第二种情况下，自动添加的数字将不会在“新文件名”列中显示。</p>
+        <p>在重命名过程后，应用程序将重新扫描文件并再次填充上面的表格。</p>
+        <p><b>旧文件名</b> 列通常会显示我们重命名过程的结果。</p>
+        <p><b>新文件名</b> 列也会通过重新应用仍然定义的相同占位符/列表/修改器来刷新。</p>
+        <p>通常，我们应该更多地关注第一列，因为它代表我们刚刚重命名的实际新文件名。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="log">8. 日志</a></h2>
+        <p>应用程序可以创建一个日志文件，或者在已存在的日志文件中追加，记录在执行实际重命名时发生的所有重命名尝试的结果。</p>
+        <p>如果我们需要查找原始文件名或者不经意重命名的内容，这个日志将会很有用。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="presets">9. 预设配置</a></h2>
+        <p>我们可能需要为同类型的批量重命名重复使用上一次会话中的相同占位符/修改器。</p>
+        <p>不用一次又一次地重新输入相同的配置，我们可以将当前配置保存为预设配置，然后再次使用。</p>
+        <p>要做到这一点，我们点击按钮访问与预设相关的操作，然后选择 <b>另存为...</b>。</p>
+        <p>我们给它一个有意义的名称，这样我们就在预设配置中添加了一个配置。</p>
+        <p>下次我们需要再次批量重命名时，只需点击预设下拉框，选择我们的预设，然后各个字段就会填充我们保存的内容。</p>
+        <br>
+        <p>上面提到的菜单为我们提供了与预设相关的各种操作，如加载、保存、重命名、删除、排序等。</p>
+        <p class="figure"><img class="largeimage" title="预设配置" alt="预设配置" src="images/imgDC/mulrenpreset.png" width="463" height="420"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configuration">10. 额外配置</a></h2>
+        <p>在配置页面中，有一个专门的页面包含了与批量重命名工具相关的额外设置。</p>
+        <p class="figure"><img class="largeimage" title="额外配置" alt="额外配置" src="images/imgDC/mulrenconfiguration.png" width="120" height="27"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="menubar">10.1. 在顶部显示菜单栏</a></h2>
+        <p>如果我们更喜欢在窗口顶部有一个菜单栏，可以通过它访问所有相关的功能并在菜单中查看它们，我们可以勾选这个选项。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="invalidchar">10.2. 替换无效文件名字符</a></h2>
+        <p>在我们调整过程中可能会出现无效的文件名字符。</p>
+        <p>为了避免产生错误，Double Commander 将使用我们在这个框中输入的内容替换该无效字符。</p>
+        <p>如果我们只想简单地删除无效字符，我们可以将这个框留空。</p>
+        <p class="figure"><img class="largeimage" title="替换无效文件名字符" alt="替换无效文件名字符" src="images/imgDC/mulrenreplacechar.png" width="377" height="35"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="presetatlaunch">10.3. 启动时预设</a></h2>
+        <p>该设置决定了每次启动批量重命名工具时加载的默认预设。</p>
+        <p class="figure"><img class="largeimage" title="启动时的预设" alt="启动时的预设" src="images/imgDC/mulrenpresetlaunch.png" width="365" height="109"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exitmodified">10.4. 退出并修改预设</a></h2>
+        <p>如果我们加载了一个现有预设，并且至少改变了一个设置，然后在没有保存修改后的预设的情况下尝试退出批量重命名工具窗口，这个选项将决定 Double Commander 的行为。</p>
+        <p class="figure"><img class="largeimage" title="修改预设后退出" alt="修改预设后退出" src="images/imgDC/mulrenexitmodified.png" width="365" height="109"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="renamelog">10.5. 重命名日志</a></h2>
+        <p>这些设置帮助确定如何处理重命名日志文件的保存。</p>
+        <p>在以前，每个重命名日志文件都是在每个预设中定义的。</p>
+        <p>但有了这里的选项，我们可以指示 Double Commander 将这些日志保存到这里定义的单一位置，每次重命名操作的结果都会追加到这个重命名日志文件中。</p>
+        <p>我们可以定义将日志存储到按天划分的独立目录中。</p>
+        <p class="figure"><img class="largeimage" title="重命名日志" alt="重命名日志" src="images/imgDC/mulrenrenamelog.png" width="365" height="167"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="findfiles.html">上一页</a> | <a title="Next page" href="syncdirs.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

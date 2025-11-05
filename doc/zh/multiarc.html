@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 压缩文件处理</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="directoryhotlist.html">上一页</a> | <a title="Next page" href="toolbar.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.10. 压缩文件处理</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#workingcomp">与压缩文件的交互</a></dt>
+          <dt>2. <a href="#withplugin">通过插件处理压缩包</a></dt>
+          <dt>3. <a href="#archivers">使用外部压缩程序</a></dt>
+          <dt>4. <a href="#config">配置外部压缩程序集成</a></dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#addingnew">添加新的外部压缩程序</a></dt>
+              <dt>4.2. <a href="#variables">与外部压缩程序交互时可用的变量</a></dt>
+              <dt>4.3. <a href="#modifiers">变量修饰符</a></dt>
+              <dt>4.4. <a href="#actionlist">配置“列出”操作</a></dt>
+              <dt>4.5. <a href="#recuperate">获取并解析内容列表</a></dt>
+              <dd>
+                <dl>
+                  <dt>4.5.1. <a href="#delimit">限定要分析的区域</a></dt>
+                  <dt>4.5.2. <a href="#parsing">解析内容列表</a></dt>
+                  <dt>4.5.3. <a href="#standardparsing">标准解析语法</a></dt>
+                  <dt>4.5.4. <a href="#standardexample">使用标准语法的示例</a></dt>
+                  <dt>4.5.5. <a href="#advancedparsing">高级解析语法</a></dt>
+                  <dt>4.5.6. <a href="#advancedexample">使用高级语法的示例</a></dt>
+                </dl>
+              </dd>
+              <dt>4.6. <a href="#actionextract">配置 “解压” 动作</a></dt>
+              <dt>4.7. <a href="#actionadding">配置 “添加” 动作</a></dt>
+              <dt>4.8. <a href="#actiondelete">配置 “删除” 动作</a></dt>
+              <dt>4.9. <a href="#actiontest">配置 “测试” 动作</a></dt>
+              <dt>4.10. <a href="#actionextractnpath">配置 “不保留路径解压” 动作</a></dt>
+              <dt>4.11. <a href="#actionselfextract">配置 “创建自解压压缩包” 动作</a></dt>
+              <dt>4.12. <a href="#configids">配置 “ID” 识别</a></dt>
+              <dt>4.13. <a href="#debug">调试</a></dt>
+              <dt>4.14. <a href="#other">“其他” 按钮的菜单</a></dt>
+            </dl>
+          </dd>
+          <dt>5. <a href="#openassociation">在关联程序中打开压缩包</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="workingcomp">1. 与压缩文件的交互</a></h2>
+        <p>Double Commander 可以把压缩文件当作普通文件夹来浏览和操作。</p>
+        <p>例如，在面板中选中一个 ZIP 文件，按 <kbd>Enter</kbd> 后面板会像切换文件夹一样显示该 ZIP 的内容。</p>
+        <p>Double Commander 足够灵活，可以通过自身界面调用外部程序来处理压缩文件。它采用两种不同的方式：</p>
+        <ul>
+          <li>通过插件；</li>
+          <li>通过由命令行控制的外部压缩/解压程序。</li>
+        </ul>
+        <p>当尝试打开压缩包时，Double Commander 会首先检查可用的打包插件列表。</p>
+        <p>进入压缩包“内部”后，可以进行查看、复制到另一侧面板等基本操作（功能有所限制）。</p>
+        <p>下面的示例显示我们选中压缩文件 “help.rar”，按 <kbd>Enter</kbd> 后就像进入了文件夹：</p>
+        <p class="figure"><img class="largeimage" title="查看压缩包" alt="查看压缩包" src="images/imgDC/archiveimg1.png" width="800" height="600"></p>
+        <p>调用查看（<kbd>F3</kbd>）或编辑（<kbd>F4</kbd>）命令时，Double Commander 会将光标所在的文件解压到系统临时文件夹并打开它。关闭查看器后，临时文件会被删除。如果在编辑器中修改了该临时文件，Double Commander 会在支持此功能的格式/插件或外部解压器下提示是否重新打包回压缩包中。</p>
+        <p>双击或按 <kbd>Enter</kbd> 时，Double Commander 会显示被打包文件的属性窗口：</p>
+        <p class="figure"><img class="largeimage" title="打包文件属性" alt="打包文件属性" src="images/imgDC/archiveimg27.png" width="283" height="358"></p>
+        <p><span class="italic">压缩程序</span> 一栏显示使用的打包插件名称或外部压缩工具的名称。</p>
+        <p>按钮说明：</p>
+        <ul>
+          <li><p><span class="italic">关闭</span>&nbsp;&ndash; 关闭属性窗口。</p></li>
+          <li><p><span class="italic">解压缩并执行</span>&nbsp;&ndash; 将光标所在文件解压到系统临时文件夹并用内部或系统关联的默认程序打开（参见 <a href="configuration.html#ConfigAssociations">配置</a>）。</p></li>
+          <li><p><span class="italic">全部解压缩并执行</span>&nbsp;&ndash; 与上一项类似，但会先解压压缩包的全部内容再执行。</p></li>
+        </ul>
+        <p>可以通过 <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a> 配置自动在关联程序中打开文件。</p>
+        <p>关闭时，Double Commander 会删除所有临时文件。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="withplugin">2. 通过插件处理压缩包</a></h2>
+        <p>可以配置 Double Commander 使用外部的 “压缩程序插件” 来帮助处理压缩压缩包。</p>
+        <p>安装后，Double Commander 已包含了<a href="plugins.html#wcx">部分</a> .WCX 插件。</p>
+        <p>网络上还有更多此类插件可供下载，搜索 .WCX 插件即可找到。</p>
+        <p>请注意，为 Total Commander 编写的插件通常也能在 Double Commander 中使用。</p>
+        <br>
+        <p>要安装、启用或配置这些插件，请进入 配置 &gt; 选项... &gt; 插件 &gt; 插件 WCX：</p>
+        <p class="figure"><img class="largeimage" title="配置 &gt; Plugins WCX" alt="配置 &gt; Plugins WCX" src="images/imgDC/archiveimg2.png" width="800" height="280"></p>
+        <p><i>注意：某些格式为只读，仅支持查看、解包与测试。</i></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="archivers">3. 使用外部压缩程序</a></h2>
+        <p>有时所需的压缩包格式没有对应插件。</p>
+        <p>或者我们希望直接使用熟悉的外部压缩程序，以利用其插件可能不支持的功能。</p>
+        <p>Double Commander 对外部压缩程序的支持方式类似于 Total Commander 的 <a href="http://wcx.sourceforge.net/" target="_blank">MultiArc</a> 插件。</p>
+        <p><b>简而言之：使用外部压缩程序就是让 Double Commander 调用你熟悉的压缩/解压工具，并通过命令行参数将其“集成”到应用中。</b></p>
+        <p>本页接下来的部分将简介如何配置 Double Commander 来调用外部压缩程序完成各种操作。</p>
+        <p>例如，假设我们要使用 "Rar.exe" 来处理 .rar 文件。</p>
+        <p>需要配置的基本操作包括：</p>
+        <ul>
+          <li>获取压缩包内文件列表；</li>
+          <li>解压；</li>
+          <li>向压缩包添加一个或多个文件；</li>
+          <li>从压缩包中提取一个或多个文件。</li>
+        </ul>
+        <p>这些都可以在 配置 &gt; 选项... &gt; 压缩文件 中进行配置，如下图所示：</p>
+        <p class="figure"><img class="largeimage" title="配置 &gt; Archivers" alt="配置 &gt; Archivers" src="images/imgDC/archiveimg3.png" width="800" height="500"></p>
+        <p>所有设置保存在 <tt>multiarc.ini</tt> 文件中。</p>
+        <p>下面章节将展示如何灵活地将外部压缩程序集成到 Double Commander 中。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="config">4. 配置外部压缩程序集成</a></h2>
+        <p>这里不逐项说明每个字段（界面大多直观），而通过示例演示如何完成集成配置。</p>
+        <p>我们以 "Rar.exe" 为例，进行逐步说明，便于理解实际操作流程。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addingnew">4.1. 添加新的外部压缩程序</a></h2>
+        <p>点击下方的 “添加” 按钮，为压缩程序在列表中命名，然后开始配置。</p>
+        <p class="figure"><img class="largeimage" title="添加新的外部压缩程序" alt="添加新的外部压缩程序" src="images/imgDC/archiveimg4.png" width="550" height="402"></p>
+        <br>
+        <p>填写压缩程序说明、可执行文件路径，以及与其关联的扩展名（不带点）。</p>
+        <p>若有多个扩展名，请用单个逗号分隔，勿加空格。</p>
+        <p class="figure"><img class="largeimage" title="添加新的外部压缩程序" alt="添加新的外部压缩程序" src="images/imgDC/archiveimg5.png" width="789" height="182"></p>
+        <p>注意：Double Commander 支持双重扩展（如 "tar.gz"、"tar.xz"），双扩展应放在扩展列表前端（例如 "tar.gz" 放在 "gz" 前）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="variables">4.2. 与外部压缩程序交互时可用的变量</a></h2>
+        <p>如前所述，需要配置如何调用外部压缩程序以完成所需操作。</p>
+        <p>为此，Double Commander 提供了若干变量，用于在命令字符串中进行替换。</p>
+        <p>下表列出可用变量及其含义：</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">命令定义</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">变量表达式</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%P</div></td><td class="hintcell">打包程序的完整名称（如在“压缩文件”项中配置）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">打包程序的短名称（如在“压缩文件”项中配置）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%A</div></td><td class="hintcell">压缩包的完整名称</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%a</div></td><td class="hintcell">压缩包的短名称</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">文件列表名。该文件包含要由外部压缩程序处理的文件名（长文件名）。</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%l</div></td><td class="hintcell">使用短文件名的文件列表</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">单个要处理的文件名。如果压缩程序不支持命令行文件列表，则会为每个文件多次调用压缩程序。</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">分卷大小（用于多卷压缩）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">密码</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">可接受的最大命令返回码。例如 <code>%E2</code> 表示返回码 0、1、2 均视为成功。可在命令中任意位置使用；若省略，则仅返回码 0 视为成功。</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt;</div></td><td class="hintcell">默认情况下，Double Commander 会将压缩程序输出从 OEM 编码转换为 UTF-8。使用此变量可覆盖编码（见下文编码修饰符）。仅可用于“列出”动作。</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">压缩内的目标子文件夹</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">若某变量用大括号包裹，则仅在变量非空时添加到命令中</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">指定在文件打包对话框中可添加的额外命令行参数的位置（参见 <a href="help.html#cm_PackFiles">压缩文件</a>）。</td></tr>
+        </table>
+        <p>后面会通过示例进一步说明这些变量的用法。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="modifiers">4.3. 变量修饰符</a></h2>
+        <p>这些修饰符可直接紧跟在变量后使用（不留空格）。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">变量修饰符</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">修饰符字母</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">在文件列表中仅包含文件（可与 <code>%L</code> 和 <code>%l</code> 一起使用）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">对包含空格的名称加引号</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">对所有名称加引号</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">仅使用名称，不带路径</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">仅使用路径，不带名称</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">使用 Windows 的 ANSI 系统编码或类 Unix 系统的默认系统编码（在多数 GNU/Linux 发行版中通常为 UTF-8）；可用于 <code>%L</code> 和 <code>%O</code></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">使用 UTF-8 编码；可用于 <code>%L</code> 和 <code>%O</code></td></tr>
+        </table>
+        <p>示例将在后文展示，便于理解这些修饰符的实际用法。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionlist">4.4. 配置“列出”操作</a></h2>
+        <p>若希望将压缩包当作文件夹浏览，就需要能够获取压缩包内的文件列表。</p>
+        <p>这并不需要解压，只需让外部程序输出其内容列表，Double Commander 解析后显示即可。</p>
+        <p>以 "Rar.exe" 为例，其文档说明使用 "v" 命令可输出压缩包内的文件列表：</p>
+        <p class="figure"><img class="largeimage" title="rar.exe: 启动选项" alt="rar.exe: 启动选项" src="images/imgDC/archiveimg6.png" width="594" height="162"></p>
+        <br>
+        <p>因此，要获取 RAR 中的文件列表，需要调用类似 "Rar.exe v &lt;archive&gt;" 的命令。</p>
+        <p>可先在终端手动测试，例如显示 "C:\Temp\help.rar" 的内容：</p>
+        <p class="figure"><img class="largeimage" title="rar.exe: 在终端中获取文件列表" alt="rar.exe: 在终端中获取文件列表" src="images/imgDC/archiveimg7.png" width="800" height="250"></p>
+        <br>
+        <p>接着在 Double Commander 的配置中设置 “列表” 命令，告诉程序如何调用 "Rar.exe"。</p>
+        <p>使用之前简介的变量和修饰符来构建命令，例如：</p>
+        <p class="figure"><img class="largeimage" title="动作：List" alt="动作：List" src="images/imgDC/archiveimg8.png" width="83" height="46"></p>
+        <p>此处写了 <code>%P v %AQ</code>（%P 为可执行程序的路径，v 为 Rar 的查看命令，%A 为压缩包文件名，Q 表示必要时加引号）。</p>
+        <ul>
+          <li><b>%P</b> 会被替换为配置的可执行文件路径，例如 "C:\Program Files\WinRAR\Rar.exe"。</li>
+          <li><b>v</b> 是 Rar.exe 的查看列出命令。</li>
+          <li><b>%A</b> 是压缩包文件名，后跟修饰符 <b>Q</b> 表示若名称含空格则加引号。</li>
+        </ul>
+        <p>该配置用于内部命令 <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>。</p>
+        <p>关于 “使用不含扩展名的压缩文件名作为列表” 选项：适用于仅包含单个文件且压缩文件名等于去掉扩展名后的文件名的格式（如 Bzip2、XZ），因为这些压缩文件通常不包含原始文件名。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="recuperate">4.5. 获取并解析内容列表</a></h2>
+        <p>到目前为止，我们已让外部解压缩程序输出了压缩包内的列表。</p>
+        <p>接下来需要将这些输出数据获取并在面板中显示。</p>
+        <p>因此，Double Commander 需要解析解压缩程序的输出表格，将其转换为文件名、大小、日期等字段。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="delimit">4.5.1. 限定要分析的区域</a></h2>
+        <p>如上图所示，"Rar.exe" 输出的内容并不是只有纯粹的文件列表。</p>
+        <p>输出中包含一些不需要的文字，我们需要将这些干扰信息去掉，只保留实际的文件条目。</p>
+        <p>为此，可以配置一个“起始/结束标记”（魔法字符串），Double Commander 会在检测到起始标记后开始解析后续的行。</p>
+        <p>同样也可以设置结束标记，用于停止解析。</p>
+        <p>例如，如果文件列表前后都有一行虚线，就可以直接用这些虚线作为开始和结束标记：</p>
+        <p class="figure"><img class="largeimage" title="Action: Listing start/finish" alt="Action: Listing start/finish" src="images/imgDC/archiveimg9.png" width="755" height="79"></p>
+        <p>如果外部解压缩程序直接输出纯粹的列表而没有额外行，则可以将这两个字段留空。</p>
+        <p>前导符号 <code>^</code> 表示该魔法字符串必须位于行首才能匹配；否则该字符串可以出现在行中的任意位置。</p>
+        <p>例如，如果外部解压缩程序在每行前都加上日期/时间，然后才是固定字符串，那么在配置时可把魔法字符串设为该固定字符串，但不要加 <code>^</code>，以允许它出现在行中间。</p>
+        <p>如果“列表完成” 字符串可能与某个文件名相混淆，就可能过早地终止解析，因此尽量指定该字符串必须位于行首。</p>
+        <p>另外，若能把“列表完成” 配置为尽可能长且唯一的常量字符串，会更可靠，能降低误判的概率。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="parsing">4.5.2. 解析内容列表</a></h2>
+        <p>到此为止，Double Commander 已知道要解析哪部分输出以获取压缩包内的文件列表。</p>
+        <p>虽然可以在程序里为特定格式（例如 RAR）硬编码解析规则，但 Double Commander 选择更灵活的方式：让用户配置解析表格的规则。</p>
+        <p>这会比“零配置”略复杂，但带来更大的灵活性，可以支持程序开发者未预见到的外部解压缩程序输出格式。</p>
+        <p>为此，解析规则使用一组字母表达式来表示不同字段的位置和含义，后面各节将详述这些表达式。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="standardparsing">4.5.3. 标准解析语法</a></h2>
+        <p>下表列出了用于解析外部解压缩程序输出的“标准语法”。</p>
+        <p>正如后面的示例所示，标准语法主要基于直接替换，通常比下文简介的“高级语法”解析速度更快。能用标准语法时尽量优先使用。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">标准语法解析</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n</div></td><td class="hintcell">文件名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">解压后大小</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">文件描述</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">压缩后大小</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">日（day）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">月（month）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">TTT</div></td><td class="hintcell">三字母的月份缩写（Jan, Feb, Mar ...）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">y</div></td><td class="hintcell">年</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">小时</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">H</div></td><td class="hintcell">小时修饰字母（a = 上午, p = 下午）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">m</div></td><td class="hintcell">分钟</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">秒</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">属性（attributes）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">扩展名</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">?</div></td><td class="hintcell">跳过一个字符</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">*</div></td><td class="hintcell">跳过直到第一个空格或行尾</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">对于行尾的名称字段：使用直到行尾的所有字符</td></tr>
+        </table>
+        <p>如果解压缩程序每个文件的信息占用多行，则必须在配置中指定解析行数（Double Commander 支持最多 50 行）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="standardexample">4.5.4. 使用标准语法的示例</a></h2>
+        <p>使用前表中定义的表达式，可以构造一个“列表格式” 字符串，使 Double Commander 能从外部解压缩程序的输出中提取文件夹、文件名、大小、日期等信息。</p>
+        <p>一个实用的方法是先手工把某一文件在解压缩程序输出中的一行复制到记事本，然后在该行下方写出与之对应的表达式，直至找到匹配的模式。</p>
+        <p>例如：</p>
+        <p class="figure"><img class="largeimage" title="Listing format: example with standard syntax" alt="Listing format: example with standard syntax" src="images/imgDC/archiveimg10.png" width="787" height="172"></p>
+        <p>如图所示，我们在输出的相应位置写下了表示各字段的字母表达式：</p>
+        <ul>
+          <li>用一串 <code>a</code> 表示文件属性的位置；</li>
+          <li>用一串 <code>z</code> 表示解压后文件大小的位置；</li>
+          <li>用日期/时间相应的字母表示日期时间字段；</li>
+          <li>用多于足够数量的 <code>n</code> 表示实际文件名所在的位置。</li>
+        </ul>
+        <p>还需把行首的 4 个空格用 <code>????</code>（跳过 4 个字符）表示，从而对齐解析模板。</p>
+        <p>配置好后，在面板中选中压缩包并按 <kbd>Enter</kbd> 进入时，文件内容会按配置被正确解析并显示（示例中有一个文件可能显示不完全，但大多情况可正确工作）：</p>
+        <p class="figure"><img class="largeimage" title="View archive: example with standard syntax" alt="View archive: example with standard syntax" src="images/imgDC/archiveimg11.png" width="475" height="561"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advancedparsing">4.5.5. 高级解析语法</a></h2>
+        <p>下表简介了解析列表时可用的“高级语法”。这些表达式比标准语法更灵活，但解析速度较慢，只有在标准语法无法满足时才使用。</p>
+        <p>后续示例会演示高级语法的用法。</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">高级语法解析</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">表达式</th><th class="categorydesccolumn">含义</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">用于非行尾的名称字段：取直到下一个空格的所有字符</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">用于数字字段：取直到第一个非数字字符的所有数字</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n+</div></td><td class="hintcell">对文件名：取直到行尾的所有字符</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z+</div></td><td class="hintcell">对解压后大小：取直到第一个非数字字符的所有数字</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p+</div></td><td class="hintcell">对压缩后大小：取直到第一个非数字字符的所有数字</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">$</div></td><td class="hintcell">跳过所有空格/制表符直到下一个字符或行尾</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">\</div></td><td class="hintcell">数据延续到下一行（最多支持 2 行）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">精确 1 个空格；若该位置不是空格，则忽略整行</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z=1024</div></td><td class="hintcell">将解压后大小乘以指定值（例如 1024）</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p=1024</div></td><td class="hintcell">将压缩后大小乘以指定值（例如 1024）</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advancedexample">4.5.6. 使用高级语法的示例</a></h2>
+        <p>标准语法在许多情况下表现良好，但并非万能。在某些情况下（例如文件名或大小字段宽度不固定时），标准语法可能会失败。</p>
+        <p>例如对大文件（如 <code>F1.....mkv</code>），文件大小字段可能超出预期宽度，导致解析错位：</p>
+        <p class="figure"><img class="largeimage" title="View archive: appropriate information" alt="View archive: appropriate information" src="images/imgDC/archiveimg12.png" width="732" height="126"></p>
+        <p>在此类情况下，可使用高级语法的更精确规则来修正解析。</p>
+        <p>例如可以使用如下更复杂的 Listing format：</p>
+        <p class="figure"><img class="largeimage" title="Listing format" alt="Listing format" src="images/imgDC/archiveimg13.png" width="295" height="44"></p>
+        <p>虽然语法更复杂，但按块划分并结合高级表达式后能更稳健地处理宽度变化的字段。</p>
+        <p class="figure"><img class="largeimage" title="Listing format: example with advanced syntax" alt="Listing format: example with advanced syntax" src="images/imgDC/archiveimg14.png" width="618" height="590"></p>
+        <p>用这个格式再次测试后，即使针对非常大的文件，也能得到正确的解析结果：</p>
+        <p class="figure"><img class="largeimage" title="View archive: example with advanced syntax" alt="View archive: example with advanced syntax" src="images/imgDC/archiveimg15.png" width="654" height="298"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionextract">4.6. 配置 “解压” 动作</a></h2>
+        <p>使用前述的 <a href="#variables">变量</a> 和 <a href="#modifiers">变量修饰符</a>，可以构造调用外部解压缩工具以执行“解压”操作的命令行。</p>
+        <p>以 "Rar.exe" 为例，其文档说明使用命令 <code>x</code> 来解压一个文件或一组文件。</p>
+        <p>Rar.exe 支持通过参数传入一个要解压的文件列表。</p>
+        <p>因此我们可以使用 <code>%L</code> 变量，Double Commander 会把所选文件名写入一个文本列表文件，并把该列表文件名作为参数传递给外部解压缩程序。</p>
+        <p>例如本示例中我们配置的解压命令如下：</p>
+        <p class="figure"><img class="largeimage" title="Action: Extract" alt="Action: Extract" src="images/imgDC/archiveimg16.png" width="158" height="49"></p>
+        <p>该示例的说明：</p>
+        <ul>
+          <li><b>%P</b> — 将被替换为配置的外部解压缩可执行程序路径。</li>
+          <li><b>x</b> — Rar.exe 用于解压的命令。</li>
+          <li><b>-y</b> — Rar.exe 的参数，表示对所有提示默认回答“是”，用于自动覆盖等情况。</li>
+          <li><b>%AQ</b> — 压缩包文件名，修饰符 <b>Q</b> 表示如有空格则加引号。</li>
+          <li><b>@</b> — 表示接下来用文件列表作为要解压的文件集合（rar 的语法）。</li>
+          <li><b>%LQA</b> — 包含要处理文件名的列表文件名，<b>A</b> 指定使用 ANSI 编码。</li>
+        </ul>
+        <p>当我们选择压缩包执行“解压”或在压缩包内部查看文件（例如按 <kbd>F3</kbd>）时，Double Commander 会在后台用该模式把文件解压到系统临时文件夹并打开查看器。</p>
+        <p>此命令会在内部命令 <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> 被调用时使用。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionadding">4.7. 配置 “添加” 动作</a></h2>
+        <p>同样地，使用 <a href="#variables">变量</a> 和 <a href="#modifiers">变量修饰符</a> 可以构造将文件添加到压缩包的命令行。</p>
+        <p>对于 "Rar.exe"，创建或添加到压缩包的命令为 <code>a</code>，并可接收一个文件列表参数。</p>
+        <p>我们仍然使用 <code>%L</code>，让 Double Commander 把要打包的文件写入一个列表文件，并把该文件传给外部解压缩程序。</p>
+        <p>示例配置如下：</p>
+        <p class="figure"><img class="largeimage" title="Action: Adding" alt="Action: Adding" src="images/imgDC/archiveimg17.png" width="155" height="50"></p>
+        <p>示例说明：</p>
+        <ul>
+          <li><b>%P</b> — 外部解压缩程序可执行文件。</li>
+          <li><b>a</b> — Rar.exe 的添加/创建档案命令。</li>
+          <li><b>-y</b> — 自动对提示回答“是”。</li>
+          <li><b>%AQ</b> — 压缩包文件名，<b>Q</b> 表示如包含空格则加引号。</li>
+          <li><b>@</b> — 使用文件列表作为要添加的文件集合。</li>
+          <li><b>%LQA</b> — 要处理文件名的列表文件（ANSI 编码）。</li>
+        </ul>
+        <p>当使用内部命令 <a href="cmds.html#cm_PackFiles">cm_PackFiles</a> 打包时，会调用此配置。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actiondelete">4.8. 配置 “删除” 动作</a></h2>
+        <p>某些压缩格式支持直接在压缩包内删除条目。若支持此功能，可在配置中指定外部解压缩程序的删除命令。</p>
+        <p>典型用例是在进入压缩包后选中某个文件并执行删除操作。</p>
+        <p>此项位于外部解压缩程序配置的第二个选项卡中。</p>
+        <p>以 "Rar.exe" 为例，可按下图配置删除命令：</p>
+        <p class="figure"><img class="largeimage" title="Action: Delete" alt="Action: Delete" src="images/imgDC/archiveimg18.png" width="170" height="82"></p>
+        <p>示例说明：</p>
+        <ul>
+          <li><b>%P</b> — 外部解压缩程序可执行文件。</li>
+          <li><b>d</b> — Rar.exe 的删除条目命令。</li>
+          <li><b>-y</b> — 自动确认提示。</li>
+          <li><b>%AQ</b> — 压缩包文件名，<b>Q</b> 表示加引号。</li>
+          <li><b>@</b> — 使用文件列表来指定要删除的一个或多个条目。</li>
+          <li><b>%LQA</b> — 列表文件名（ANSI 编码）。</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actiontest">4.9. 配置 “测试” 动作</a></h2>
+        <p>部分解压缩程序提供校验压缩包完整性的功能，可用来检测文件是否损坏。如果可用，可在此处配置相应的命令。</p>
+        <p>以 "Rar.exe" 为例，测试命令通常为 <code>t</code>：</p>
+        <p class="figure"><img class="largeimage" title="Action: Test" alt="Action: Test" src="images/imgDC/archiveimg19.png" width="105" height="48"></p>
+        <p>示例说明：</p>
+        <ul>
+          <li><b>%P</b> — 外部解压缩程序可执行文件。</li>
+          <li><b>t</b> — Rar.exe 的测试命令。</li>
+          <li><b>-y</b> — 自动确认提示。</li>
+          <li><b>%AQ</b> — 压缩包文件名（如有空格则加引号）。</li>
+        </ul>
+        <p>此配置在内部命令 <a href="cmds.html#cm_TestArchive">cm_TestArchive</a> 被调用时使用。如果没有错误，测试窗口会关闭；若有错误，会弹出类似下图的错误信息。</p>
+        <p class="figure"><img class="largeimage" title="Test archive: error message" alt="Test archive: error message" src="images/imgDC/archiveimg20.png" width="508" height="180"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionextractnpath">4.10. 配置 “不保留路径解压” 动作</a></h2>
+        <p>默认情况下，使用内部命令 <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> 解压时，会恢复压缩包内的文件夹结构并在目标位置重建这些子文件夹。</p>
+        <p>如果解压缩程序支持，某些场景下我们希望把所有文件解压到同一文件夹而不重建文件夹结构，此时可配置“Extract without path”动作。</p>
+        <p>以 "Rar.exe" 为例，相关命令示例如下：</p>
+        <p class="figure"><img class="largeimage" title="Action: Extract without path" alt="Action: Extract without path" src="images/imgDC/archiveimg24.png" width="230" height="46"></p>
+        <p>示例说明：</p>
+        <ul>
+          <li><b>%P</b> — 外部解压缩程序可执行文件。</li>
+          <li><b>e</b> — Rar.exe 的“解压但不重建文件夹结构”命令。</li>
+          <li><b>-y</b> — 自动确认提示。</li>
+          <li><b>%AQ</b> — 压缩包文件名（如有空格则加引号）。</li>
+          <li><b>@</b> — 使用文件列表作为要解压的文件集合。</li>
+          <li><b>%LQA</b> — 列表文件名（ANSI 编码）。</li>
+        </ul>
+        <p>在 解压缩文件弹窗 中可以看到是否选择了“保留路径名”或不保留路径名等选项：</p>
+        <p class="figure"><img class="largeimage" title="Unpack path names if stored with files" alt="Unpack path names if stored with files" src="images/imgDC/archiveimg23.png" width="455" height="268"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionselfextract">4.11. 配置 “创建自解压压缩包” 动作</a></h2>
+        <p>部分解压缩程序能生成“自解压”可执行文件。最终结果是一个可执行文件，运行它即可解压内部内容，适合需要在目标机器上无需额外软件即可解压的场景。</p>
+        <p>通常此动作与“添加”动作类似，只需额外加入表示生成自解压文件的参数。</p>
+        <p>以 "Rar.exe" 为例，可添加 <code>-sfx</code> 参数来生成自解压文件，示例如下：</p>
+        <p class="figure"><img class="largeimage" title="Action: Create self extracting archive" alt="Action: Create self extracting archive" src="images/imgDC/archiveimg21.png" width="188" height="46"></p>
+        <p>示例说明：</p>
+        <ul>
+          <li><b>%P</b> — 外部解压缩程序可执行文件。</li>
+          <li><b>a</b> — 添加/创建压缩包的命令。</li>
+          <li><b>-y</b> — 自动确认提示。</li>
+          <li><b>-sfx</b> — 指示生成自解压可执行文件。</li>
+          <li><b>%AQ</b> — 压缩包文件名（如有空格则加引号）。</li>
+          <li><b>@</b> — 使用文件列表作为要打包的文件集合。</li>
+          <li><b>%LQA</b> — 列表文件名（ANSI 编码）。</li>
+        </ul>
+        <p>创建自解压压缩包的流程与普通打包相同（使用内部命令 <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>），在弹出的对话框中勾选“Create self extracting archive”即可。</p>
+        <p class="figure"><img class="largeimage" title="Create self extracting archive" alt="Create self extracting archive" src="images/imgDC/archiveimg22.png" width="546" height="297"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configids">4.12. 配置 “ID” 识别</a></h2>
+        <p>可以配置 Double Commander 忽略文件扩展名，而根据文件内部内容识别压缩包文件类型，然后调用相应的列出/解包命令。</p>
+        <p>这正是内部命令 <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> 使用的机制。</p>
+        <p>例如要查看自解压的 .exe 文件的内容，而不直接运行它，或查看扩展名并非典型压缩包但实际上为 ZIP 的 .docx 文件的内容时，都可以用此功能。</p>
+        <p>我们通过在文件特定位置查找“签名模式”（ID）来识别压缩包文件类型。</p>
+        <p>本节称这些模式为“ID”，并说明如何配置它们。</p>
+        <p>相关设置有三项：ID、ID Position 和 ID Seek Range。</p>
+        <p>我们需要告诉 Double Commander 在文件的哪个位置搜索特定的 ID 模式，以便识别该类型的压缩包并使用对应的命令。</p>
+        <p>举例：下面显示了 7-Zip 文件开头的十六进制片段：</p>
+        <p class="figure"><img class="largeimage" title="Sample 7-Zip file" alt="Sample 7-Zip file" src="images/imgDC/archiveimg25.png" width="622" height="110"></p>
+        <p>观察多个 7-Zip 文件可以发现其前六个字节总为序列 <code>0x37 0x7A 0xBC 0xAF 0x27 0x1C</code>。</p>
+        <p>因此我们可以配置 Double Commander：当文件在偏移 0 处以该字节序列开头时，判定为 7-Zip 压缩包并使用事先配置的命令进行处理。</p>
+        <p class="figure"><img class="largeimage" title="7-Zip ID" alt="7-Zip ID" src="images/imgDC/archiveimg26.png" width="800" height="548"></p>
+        <p>ID 必须以用空格分隔的两位十六进制数表示。</p>
+        <p>ID Position（可选）指定 ID 在文件中的位置；若留空则默认从文件开头搜索。可以用 "-" 指定从文件末尾计算的位置。</p>
+        <p>特殊值 <code>&lt;SeekID&gt;</code> 表示若按数值位置未找到，则在范围内进行搜索；搜索范围为 <code>0 .. 文件大小</code> 或 <code>0 .. ID Seek Range</code>。数值可用十进制或十六进制表示（例如 12345 或 0x3039）。负值用 0xFFFFFFFF 表示（即 -1）。</p>
+        <p>ID Seek Range（可选）是在使用 <code>&lt;SeekID&gt;</code> 时搜索的字节范围，默认值为 1 MB。</p>
+        <p><b>注意：</b>上述参数可以指定多个值，用逗号分隔。</p>
+        <p>在 7-Zip 示例中，指定 ID 及 ID Position（0）通常已足够。</p>
+        <p>当调用 <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> 时，Double Commander 会扫描文件内容并在偏移 0 处识别到 <code>0x37 0x7A 0xBC 0xAF 0x27 0x1C</code>，从而把该文件当作 7z 处理并使用相关配置的列出/解压命令。</p>
+        <p>通常无需手工查看十六进制表示：文件签名可从格式规范或已有的签名库与工具中获得（例如 <a href="https://en.wikipedia.org/wiki/List_of_file_signatures" target="_blank">此 Wikipedia 页面</a> 或 <a href="https://freedesktop.org/wiki/Software/shared-mime-info/" target="_blank">FreeDesktop.org MIME 数据库</a>）。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="debug">4.13. 调试</a></h2>
+        <p>上述步骤通常足以配置外部解压缩程序，但如果出现问题，还有一些调试选项可以帮助诊断：</p>
+        <ul>
+          <li><p><span class="italic">显示控制台输出</span> — 若启用，Double Commander 会在日志窗口逐行显示外部解压缩程序的输出。</p></li>
+          <li><p><span class="italic">调试模式</span> — 与前者类似，但还会把输出写入 Double Commander 的调试消息（参见 <a href="commandline.html">--debug-log</a> 的说明）。在此模式下，包含文件列表的临时文件（例如 <code>%L</code>）不会在操作完成后自动删除，便于问题分析。</p></li>
+        </ul>
+        <p>如果在 <a href="configuration.html#ConfigLayout">配置</a> 中禁用了日志窗口显示，启用上述选项时会强制显示日志窗口，程序退出后再隐藏；这些消息不会保存到日志文件中。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="other">4.14. “其他” 按钮的菜单</a></h2>
+        <p>此菜单包含若干附加功能：</p>
+        <ul>
+          <li><p><span class="italic">自动配置</span> — Double Commander 会检查已配置的解压缩程序可执行文件是否存在：若找到则自动填入完整路径并启用该解压缩程序，否则将其禁用。</p></li>
+          <li><p><span class="italic">放弃修改</span> — 放弃所有未保存的设置更改并恢复上次保存的状态。</p></li>
+          <li><p><span class="italic">压缩文件排序</span> — 按字母顺序排序解压缩程序列表。</p></li>
+          <li><p><span class="italic">全部禁用</span> 和 <span class="italic">全部启用</span> — 禁用或启用列表中的所有解压缩程序。</p></li>
+          <li><p><span class="italic">导出...</span> 和 <span class="italic">导入...</span> — 导出或导入解压缩程序设置（全部或部分）。</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="openassociation">5. 在关联程序中打开压缩包</a></h2>
+        <p>默认情况下，WCX 插件或外部解压缩程序中指定的扩展名会被当作文件夹打开。若要在关联程序中打开这些文件，可以在文件的 <a href="help.html#cm_ContextMenu">上下文菜单</a> 中使用“打开”项（此方式仅使用系统文件关联），或者将所需动作添加到“动作”菜单中。</p>
+        <p>若希望使用 <kbd>Enter</kbd> 键或双击来打开关联程序，需要调整设置。</p>
+        <p>一种办法是从压缩文件配置中移除该扩展名，但这样会导致 <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> 和 <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> 等命令失效。另一种更灵活的方式：</p>
+        <ul>
+          <li><p>如果使用 WCX 插件，可在 插件 WCX - 调整 中选择扩展名并启用 “显示为普通文件（隐藏压缩程序图标）” 标志。</p></li>
+          <li><p>如果使用外部解压缩程序，可配置 ID 识别而不指定文件扩展名。</p></li>
+        </ul>
+        <p>对这类文件，Double Commander 会使用其关联的图标而不是通用的压缩包文件图标。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="directoryhotlist.html">上一页</a> | <a title="Next page" href="toolbar.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>DC - 工具栏</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander 主页" href="https://doublecmd.sourceforge.io/" target="_blank">主页</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="multiarc.html">上一页</a> | <a title="Next page" href="variables.html">下一页</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.11 工具栏</h1>
+      </div>
+
+      <div>
+        <h2>目录</h2>
+        <dl>
+          <dt>1. <a href="#toolbardefinition">工具栏是什么以及如何使用</a></dt>
+          <dt>2. <a href="#toolbarshowit">如何显示工具栏</a></dt>
+          <dt>3. <a href="#toolbarelementlist">工具栏中可以包含的内容</a></dt>
+          <dt>4. <a href="#toolbarconfig">如何配置工具栏</a></dt>
+          <dt>5. <a href="#toolbardescription">元素说明</a></dt>
+          <dd>
+            <dl>
+              <dd>5.1. <a href="#catseparator">分隔符</a></dd>
+              <dd>5.2. <a href="#catinternal">内部命令</a></dd>
+              <dd>5.3. <a href="#catexternal">外部命令</a></dd>
+              <dd>5.4. <a href="#catmenu">菜单</a></dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="toolbardefinition">1. 工具栏是什么以及如何使用</a></h2>
+        <p>在像 Double Commander 这样的双面板文件管理器中，经常需要直接从管理器中启动常用应用，而不是去桌面、任务栏或开始菜单寻找快捷方式。</p>
+        <p>对于常做的任务尤其如此。</p>
+        <p>工具栏的设计目的是允许用户在工具栏中自定义按钮，以便快速访问常用功能。</p>
+        <p>Double Commander 还支持根据当前显示/选定的文件传递各种参数，从而将这些参数作为启动外部应用的参数。</p>
+        <p>下面是默认安装后显示在文件面板上方的 DC 默认工具栏。别担心：你可以按照自己的需要和喜好对其进行配置。</p>
+        <p class="figure"><img class="largeimage" title="Toolbar sample" alt="Toolbar sample" src="images/imgDC/toolbarsample.png" width="756" height="38"></p>
+        <p>中间工具栏也可用，它位于两个文件面板之间。中间工具栏的功能和配置过程与主工具栏类似。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarshowit">2. 如何显示工具栏</a></h2>
+        <p>是否显示工具栏取决于配置中的 <a href="#ConfigLayout">布局</a> 设置。</p>
+        <p>要启用它，只需确保已勾选 <span class="italic">显示工具栏</span> 选项。</p>
+        <p class="figure"><img class="largeimage" title="Show toolbar" alt="Show toolbar" src="images/imgDC/toolbarshowit.png" width="470" height="148"></p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarelementlist">3. 工具栏中可以包含的内容</a></h2>
+        <p>下面列出工具栏中可能包含的元素：</p>
+        <table class="category">
+          <tr class="rowcategorytable"><th colspan="2">工具栏中可能的元素</th></tr>
+          <tr class="rowcategorysubtitle"><th class="categorynamecolumn">元素</th><th class="categorydesccolumn">说明</th></tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catseparator">分隔符</a></div></td>
+            <td class="categorydesc">用于在工具栏中以竖线分隔，将相似功能或相似上下文的按钮分组。</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catinternal">内部命令</a></div></td>
+            <td class="categorydesc">调用 Double Commander 内部的命令。</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catexternal">外部命令</a></div></td>
+            <td class="categorydesc">启动外部应用、可执行文件、脚本等。</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catmenu">菜单</a></div></td>
+            <td class="categorydesc">配置以菜单形式显示的工具栏子项（点击后下拉显示子工具栏）。</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarconfig">4. 如何配置工具栏</a></h2>
+        <p>要配置工具栏中的内容，需要进入配置界面进行设置。</p>
+        <p>我们可以打开 Double Commander 的主配置窗口，在左侧栏中选择“工具栏”来访问相关配置。</p>
+        <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images/imgDC/toolbarconfig1.png" width="662" height="142"></p>
+        <p>另一种快速进入配置的方法是在工具栏空白处右键单击，然后选择 <span class="italic">编辑</span>。</p>
+        <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images/imgDC/toolbarconfig2.png" width="169" height="45"></p>
+        <p>熟悉工具栏后，也可直接在某个按钮上右键，这不仅会打开工具栏编辑器，还会直接准备编辑该按钮关联的操作。</p>
+        <p class="figure"><img class="largeimage" title="Toolbar configuration" alt="Toolbar configuration" src="images/imgDC/toolbarconfig3.png" width="587" height="418"></p>
+        <p>此外，右键菜单允许删除选中按钮、剪切或复制到剪贴板，或从剪贴板插入按钮。</p>
+        <p>我们还可以在不打开设置窗口的情况下更改工具栏元素顺序：按住 <kbd>Shift</kbd> 键并拖动按钮即可。</p>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+      </div>
+
+      <div>
+        <h2><a name="catseparator">5.1 元素说明 - 分隔符</a></h2>
+        <p>分隔符本身没有实际功能，主要用于美观和将相关的按钮分组。</p>
+        <p>可用的样式如下：</p>
+        <ul>
+          <li><p><span class="italic">分隔线</span>&nbsp;&ndash; 简单的竖线（中间工具栏为水平分隔）。</p></li>
+          <li><p><span class="italic">空间</span>&nbsp;&ndash; 添加一个空白空间，其宽度等同于按钮的宽度。</p></li>
+        </ul>
+        <p>在菜单中，无论选择哪种样式，都会使用第一种显示方式。</p>
+        <p>下面的示例中，使用分隔符将与比较相关的功能、与剪贴板相关的功能等分组显示。</p>
+        <p class="figure"><img class="largeimage" title="Example of separator" alt="Example of separator" src="images/imgDC/toolbarseparator.png" width="455" height="207"></p>
+      </div>
+      <br>
+
+      <div>
+        <h2><a name="catinternal">5.2 元素说明 - 内部命令</a></h2>
+        <p>内部命令是由 Double Commander 直接执行的操作，无需调用外部程序。</p>
+        <p>命令种类非常多。请参阅专门简介内部命令的 <a href="cmds.html">页面</a>。</p>
+        <p>例如，如果我们希望工具栏按钮用于启动搜索，只需在命令下拉框中选择 <tt>cm_Search</tt> 即可。</p>
+        <p>如下图所示，可以为其选择自定义图标，但一般只选择命令即可，命令通常已有内置图标。</p>
+        <p>工具提示 用于在鼠标悬停时显示简短说明，帮助记忆该按钮的功能。</p>
+        <p>下面是使用 <a href="cmds.html#cm_Search">cm_Search</a> 命令的示例：</p>
+        <p class="figure"><img class="largeimage" title="Example of internal command with no parameter" alt="Example of internal command with no parameter" src="images/imgDC/toolbarinternal1.png" width="689" height="271"></p>
+        <p>部分内部命令支持参数以配置其行为。需要时，在参数框中填写参数即可：大多数参数应以 <i>parameter=value</i> 的形式添加（如无特殊说明），每个参数单独占一行，不要使用引号或其他转义方式。</p>
+        <p>下面示例中，使用内部命令 <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a>，并提供两个参数以指示在每个面板中加载并显示的目录。</p>
+        <p class="figure"><img class="largeimage" title="Example of internal command with parameters" alt="Example of internal command with parameters" src="images/imgDC/toolbarinternal2.png" width="689" height="190"></p>
+      </div>
+      <br>
+
+      <div>
+        <h2><a name="catexternal">5.3 元素说明 - 外部命令</a></h2>
+        <p>外部命令用于需要调用外部程序的操作。</p>
+        <p>对于外部命令，可以设置更多选项，以便精确配置要启动的命令、启动目录，以及（如需）传递给命令的参数。</p>
+        <p>“命令”字段仅填写可执行文件（原样，无需引号）：可以只写文件名或写完整路径，也可以使用 <a href="variables.html#envvariables">环境变量</a>。</p>
+        <p>关于参数，可以使用变量，这些变量会根据当前活动面板中选中文件等替换为实际值。有关可作为参数使用的变量，请参见 <a href="variables.html">此页面</a>（注意 <a href="variables.html#quotation">引号的使用</a>）。在终端中运行命令时，可使用变量 <a href="variables.html#executeterm">%t0 和 %t1</a>。</p>
+        <p>下面示例中，我们将某个工具栏按钮设置为启动 BCompare，并使用 <code>%pb</code> 作为参数，这表示点击按钮启动 BCompare 时，会将 两个面板，从左到右 中选中文件的完整文件名作为参数传递。</p>
+        <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="700" height="224"></p>
+        <p>如果不需要显式指定工作目录，则可将“开始路径”留空，此时工作目录将为当前活动文件面板的目录。</p>
+      </div>
+      <br>
+
+      <div>
+        <h2><a name="catmenu">5.4 元素说明 - 菜单</a></h2>
+        <p>当配置大量工具栏按钮时，可能无法在同一水平线上显示所有按钮。</p>
+        <p>为便于添加更多按钮，可以使用一种特殊的按钮类型，点击后会在按钮下方弹出下拉菜单，类似于以菜单形式展示的子工具栏。</p>
+        <p>参见下面示例，我们添加了“菜单”类型的按钮。</p>
+        <p>这会在下方显示一个子工具栏，我们可以在其中添加指向不同任务的新按钮。</p>
+        <p>该方式也有助于将与同一项目或相同领域相关的按钮分组。</p>
+        <p>示例中的子工具栏包含与虚拟机中不同操作系统相关的功能。</p>
+        <p class="figure"><img class="largeimage" title="Example of menu" alt="Example of menu" src="images/imgDC/toolbarmenu.png" width="610" height="318"></p>
+        <p>下面显示了配置后的子工具栏在应用中的显示方式：</p>
+        <p class="figure"><img class="largeimage" title="Example of drop menu" alt="Example of drop menu" src="images/imgDC/toolbarmenudrop.png" width="250" height="342"></p>
+        <p>以这种方式配置的子工具栏可以包含先前简介的相同类型的按钮。</p>
+        <p>甚至可以在子工具栏中再嵌套子工具栏，依此类推。</p>
+        <p>在应用中这将以菜单元素的子菜单形式显示。</p>
+        <p>下面给出一个示例：</p>
+        <p class="figure"><img class="largeimage" title="Example of toolbar in a toolbar" alt="Example of toolbar in a toolbar" src="images/imgDC/toolbarinbar.png" width="732" height="558"></p>
+      </div>
+
+      <div>
+        <p class="navback"><a href="#topofpage">（返回顶部）</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">索引</a> | <a title="Previous page" href="multiarc.html">上一页</a> | <a title="Next page" href="variables.html">下一页</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

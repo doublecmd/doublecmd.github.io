@@ -440,7 +440,7 @@
           <li><p><span class="italic">模式</span>&nbsp;&ndash; 设置左键或右键鼠标按钮。</p></li>
         </ul>
         <p>有关详细信息，请参阅 <a href="help.html#select_files">选择文件</a> 子章节。</p>
-        <p><span class="italic">滚动</span>&nbsp;&ndash; 使用鼠标滚轮滚动面板中文件列表的能力。</p>
+        <p><span class="italic">滚动</span>&nbsp;&ndash; 使用鼠标滚轮滚动面板中文件列表的能力：</p>
         <ul>
           <li><p><span class="italic">光标逐行移动</span>&nbsp;&ndash; 光标将在滚动发生之前上下移动面板。</p></li>
           <li><p><span class="italic">逐行</span>&nbsp;&ndash; 光标保持在文件上，立即发生滚动。您还可以指定行数。</p></li>
@@ -1074,14 +1074,14 @@
         </ul>
         <p>“查看”动作与 <tt>{!DC-VIEWER}</tt> 宏将被考虑用于 <a href="viewer.html#quick">快速查看</a>，其他宏和命令将被忽略。</p>
         <p><tt>{!TERMSTAYOPEN}</tt> 和 <tt>{!TERMANDCLOSE}</tt> 已被添加以实现统一，并能够使用变量 <a href="variables.html#executeterm">%t0 和 %t1</a>，<tt>{!SHELL}</tt> 已被保留以保持向后兼容性。</p>
-        <p>作为命令，您可以使用 <a href="cmds.html">Double Commander 的内部命令</a>。内部命令的参数按行指定，因此您只能在此处指定一个。还可以使用内部命令 <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> 运行 <a href="lua.html">Lua 脚本</a>，在这种情况下，您可以使用 <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> 或 <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a> 获取所选文件的名称。</p>
+        <p>可以使用 Double Commander 的<a href="cmds.html">内部命令</a>作为操作命令。内部命令的参数需逐行设置，因此，此处只能指定一个参数。此外，通过内部命令 <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> 可运行 <a href="lua.html">Lua 脚本</a>，此时您可以通过内部命令（<a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> 或 <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>）或 <a href="lua.html#dc_expandvar">DC.ExpandVar</a> 函数获取所选文件的名称。</p>
         <p><span class="italic">参数</span>&nbsp;&ndash; 命令参数，包括变量：</p>
         <ul>
           <li><p>任何来自 <a href="variables.html">“百分号”变量</a> 的变量。</p></li>
           <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; 在系统 shell 中运行 "command" 并将输出传递给上面的命令。</p></li>
         </ul>
         <p>至少，您必须指定一个文件名，通常是 <code>%p</code> 或 <code>%p0</code>，用于光标下的文件。</p>
-        <p><span class="italic">开始路径</span>&nbsp;&ndash; 命令开始路径。此目录将成为正在启动的程序的工作目录，如果您不需要显式指定它，则只需将此字段留空：在这种情况下，工作目录将是活动文件面板的当前目录（常规文件）或临时文件的系统目录（来自压缩包和 WFX 插件的文件）。</p>
+        <p><span class="italic">开始路径</span>&nbsp;&ndash; 命令开始路径。此目录将成为所启动程序的工作目录，若您无需明确指定此目录，可保留此字段为空：此时将以活动文件面板的当前目录（普通文件）或系统临时文件目录（来自压缩包和 WFX 插件的文件）作为工作目录。此处可使用 <a href="variables.html#pathpanel">%D</a> 变量、<a href="variables.html#basicvar">%d</a> 变量或<a href="variables.html#envvariables">环境变量</a>。</p>
         <p>所有可用的操作将显示在上下文菜单的“操作”子菜单中：</p>
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="417" height="119"></p>
         <br>

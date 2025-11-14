@@ -67,7 +67,7 @@
           <li><p><span class="italic">复制日期/时间</span> &nbsp;&ndash; 启用后会复制源文件的修改时间，否则使用当前时间。对于 Windows，请参见 <a href="configxml.html">&lt;CopyTime&gt;</a> 的说明。</p></li>
           <li><p><span class="italic">复制所有权</span> &nbsp;&ndash; 如果未启用，目标文件的所有者将为运行程序的用户。</p></li>
           <li><p><span class="italic">复制权限</span> &nbsp;&ndash; 允许复制 NTFS 文件系统特有的权限，否则使用当前用户的权限（即运行程序的用户）。仅适用于 Windows。</p></li>
-          <li><p><span class="italic">写时复制</span> &nbsp;&ndash; 支持 Btrfs 文件系统的写时复制（COW）特性：默认情况下 Btrfs 对本地文件使用 COW。Windows 上不可用。</p></li>
+          <li><p><span class="italic">写时复制</span>（仅限 Linux）—— 支持 Btrfs 文件系统的特性之一：默认情况下 Btrfs 对所有本地文件采用写入时复制机制。请注意，若启用该选项但系统不支持写入时复制功能，应用程序将提示跳过文件复制或中止操作。必要时可更安全地使用复选框的未定义（第三）状态：若条件允许，数据块仅在修改时被复制，否则将执行普通复制（如同使用 "<tt>cp --reflink=auto</tt>" 命令的效果）。</p></li>
         </ul>
         <p>注意：从归档中复制文件时，只有 <span class="italic">文件已存在时</span> 参数可用。从文件系统插件（WFX）复制时，可用多个参数：<span class="italic">文件已存在时</span>、<span class="italic">复制日期/时间</span> 和 <span class="italic">在后台工作（单独连接）</span>。最后一个参数可防止文件操作进度窗口阻塞 Double Commander 主窗口。</p>
         <p><span class="italic">保存为默认选项</span> &nbsp;&ndash; 将当前值设为下次复制/移动操作的默认值。</p>

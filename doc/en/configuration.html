@@ -440,7 +440,7 @@
           <li><p><span class="italic">Mode</span>&nbsp;&ndash; sets the left or right mouse button.</p></li>
         </ul>
         <p>See the <a href="help.html#select_files">Selecting files</a> subsection for details.</p>
-        <p><span class="italic">Scrolling</span>&nbsp;&ndash; the ability to use the mouse wheel to scroll the list of files in the panels.</p>
+        <p><span class="italic">Scrolling</span>&nbsp;&ndash; the ability to use the mouse wheel to scroll the list of files in the panels:</p>
         <ul>
           <li><p><span class="italic">Line by line with cursor movement</span>&nbsp;&ndash; cursor will move up or down the panel before scrolling takes place.</p></li>
           <li><p><span class="italic">Line by line</span>&nbsp;&ndash; the cursor remains on the file and scrolling takes place immediately. Also you can specify the number of lines.</p></li>
@@ -888,7 +888,7 @@
         <p>Exact name match:</p>
         <ul>
           <li><p><span class="italic">Beginning (name must start with first typed character)</span>&nbsp;&ndash; means that the typed text will match the "text*" mask, where "*" is any number of any characters.</p></li>
-          <li><p><span class="italic">Ending (last character before a typed dot . must match)</span>&nbsp;&ndash; If there is a dot among the typed characters, the name must end with those characters. For example, if you typed "dx.l", the file mask will be "* wx.l *".</p></li>
+          <li><p><span class="italic">Ending (last character before a typed dot . must match)</span>&nbsp;&ndash; If there is a dot among the typed characters, the name must end with those characters. For example, if you typed "dx.l", the file mask will be "*dx.l*".</p></li>
         </ul>
         <p>If nothing is checked, the typed characters can be located in any part of the file name.</p>
         <p>I like to have the <span class="italic">Beginning (name must start with first typed character)</span> selected and then I can just type the first character of the filename I'm looking for and then the second character, etc. The file is quickly located in this manner.</p>
@@ -1074,14 +1074,14 @@
         </ul>
         <p>"View" actions with the <tt>{!DC-VIEWER}</tt> macro will be taken into account for <a href="viewer.html#quick">quick viewing</a>, other macros and commands will be ignored.</p>
         <p><tt>{!TERMSTAYOPEN}</tt> and <tt>{!TERMANDCLOSE}</tt> have been added for unification and the ability to use the variables <a href="variables.html#executeterm">%t0 and %t1</a>, <tt>{!SHELL}</tt> has been kept for backwards compatibility.</p>
-        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
+        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using internal commands (<a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>) or the <a href="lua.html#dc_expandvar">DC.ExpandVar</a> function.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
         <ul>
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>
           <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; runs "command" in the system shell and feeds the output to the command above.</p></li>
         </ul>
         <p>At a minimum, you must specify a file name, usually <code>%p</code> or <code>%p0</code> for the file under cursor.</p>
-        <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins).</p>
+        <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins). Here we can use the variable <a href="variables.html#pathpanel">%D</a>, <a href="variables.html#basicvar">%d</a> or <a href="variables.html#envvariables">environment variables</a>.</p>
         <p>All available actions will be displayed in the "Actions" submenu in the context menu:</p>
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="460" height="288"></p>
         <br>

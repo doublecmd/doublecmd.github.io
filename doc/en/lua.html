@@ -84,7 +84,7 @@
           <li><i>ft_boolean</i> (6)&nbsp;&ndash; boolean type: <i>true</i> or <i>false</i>;</li>
           <li><i>ft_multiplechoice</i> (7)&nbsp;&ndash; a value allowing a limited number of choices;</li>
           <li><i>ft_string</i> (8)&nbsp;&ndash; a text string;</li>
-          <li><i>ft_fulltext</i> (9)&nbsp;&ndash; a full text (multiple text strings), used only for searching with plugins ;</li>
+          <li><i>ft_fulltext</i> (9)&nbsp;&ndash; a full text (multiple text strings), used only for searching with plugins;</li>
           <li><i>ft_datetime</i> (10)&nbsp;&ndash; for date/time: a returned date will be converted to a formatted date and time string (value depends on your regional settings).<br>
             The date must be in Windows format, but Lua and the functions that Double Commander provides for searching files use Unix time format. To convert we can use the formula:<br>
             =&nbsp;UnixTime&nbsp;*&nbsp;10000000&nbsp;+&nbsp;116444736000000000<br>
@@ -164,6 +164,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
                 <li><var>bForce</var> : A boolean, when true, will show the log window if invisible.</li>
                 <li><var>bLogFile</var> : A boolean, when true, will write the message also in the log file.</li>
               </ul>
+              <p>The internal function of Double Commander for writing to the protocol works asynchronously (see notes in the <a href="#preface">introduction</a>), so messages from <code>DC.LogWrite</code> will not be written to the protocol immediately, but after the script is completed. If it is necessary to write the text immediately, we can try to add the call <code>DC.ExecuteCommand("")</code> after <code>DC.LogWrite</code>.</p>
             </td>
           </tr>
           <tr>
@@ -182,6 +183,35 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
               <p>This allows the script to invoke <a href="cmds.html">internal commands</a> of Double Commander.</p>
               <p>The <var>sCommand</var> is holding the actual internal command name.</p>
               <p>We may provide as many <var>Param...</var> as command may support.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_gotofile">DC.GoToFile</a></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.GoToFile(sFileName, bActive)</p>
+              <p>Opens the directory where <var>sFileName</var> is located and places the cursor on <var>sFileName</var>. To open a directory, use <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a> or try to add the directory separator and ".." (without quotes) to <var>sFileName</var>.</p>
+              <p><var>bActive</var> is an optional parameter: function can work in the active file panel (<code>true</code>) or inactive one (<code>false</code>). <code>true</code> by default.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_getpluginfield">DC.GetPluginField</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = DC.GetPluginField(sFileName, sPlugin, iField, iUnit)</p>
+              <p>Allows to get data using the installed content plugin (WDX):</p>
+              <ul>
+                <li><var>sFileName</var> : The full (absolute) filename.</li>
+                <li><var>sPlugin</var> : The plugin name, as it is saved in the corresponding <a href="configuration.html#ConfigPlugins">settings section</a>.</li>
+                <li><var>iField</var> : The plugin field index (counting from 0).</li>
+                <li><var>iUnit</var> : The unit index (counting from 0); specify 0 if it does not exist.</li>
+                <li><var>Result</var> : The return value: signed number (including time in Unix format), floating point number, boolean value, text string or <code>nil</code>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_expandvar">DC.ExpandVar</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = DC.ExpandVar(String)</p>
+              <p>Returns a string in which all <a href="variables.html">variables</a> are replaced with their values (excluding environment variables, use <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a> for them).</p>
             </td>
           </tr>
         </table>
@@ -354,6 +384,14 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_removedirectory">SysUtils.RemoveDirectory</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.RemoveDirectory(sDirectory)</p>
+              <p>Will delete the directory with the name <var>sDirectory</var>. Returns <code>true</code> if successful, <code>false</code> otherwise.</p>
+              <p>Unlike <a href="#os_remove">os.remove</a>, this function does not return a description in case of an error, but it can delete non-empty directories.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_createhardlink">SysUtils.CreateHardLink</a></div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(sFileName, sLinkName)</p>
@@ -480,10 +518,55 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_execute">SysUtils.Execute</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.Execute(sCommand)</p>
+              <p>Will execute <var>sCommand</var> as it would be typed on the command-line and return <code>true</code> if successful and <code>false</code> otherwise (the function does not wait for the executed command to complete).</p>
+              <p>Note: In Windows, the <a href="#os_execute">os.execute</a> function opens a terminal window every time, but the <code>SysUtils.Execute</code> function does not have this drawback.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_expandenv">SysUtils.ExpandEnv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = SysUtils.ExpandEnv(String, bSpecial)</p>
+              <p>Returns a string in which all environment variables are replaced with their values for the current user.</p>
+              <p><var>bSpecial</var> is an optional parameter: if <code>true</code>, pseudo environment variables will also be expanded (see details <a href="variables.html#envvariables">here</a>). <code>false</code> by default.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_gettempname">SysUtils.GetTempName</a></div></td>
             <td class="hintcell">
               <p class="definition">sTempFileName = SysUtils.GetTempName()</p>
-              <p>Will return a filename to use as a temporary filename (in the system directory for the temporary files), similar to the <a href="#libraryos">os.tmpname</a> function, but the file will be created in a subdirectory that is automatically deleted when Double Commander is closed.<br>If the function could not create a unique name, it will return an empty string.</p>
+              <p>Will return a filename to use as a temporary filename (in the system directory for the temporary files), similar to the <a href="#libraryos">os.tmpname</a> function, but the file will be created in the <tt>_dc~~~</tt> subdirectory that is automatically deleted when Double Commander is closed.<br>If the function could not create a unique name, it will return an empty string.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_getfileproperty">SysUtils.GetFileProperty</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = SysUtils.GetFileProperty(sFileName, iValue)</p>
+              <p>Returns the file property corresponding to <var>iValue</var>:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">Value</th><th class="innerdescheader">Description</th>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">File size in bytes</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">String of attributes as in the file panel (for a detailed description of the string value, see <a href="configuration.html#ConfigColorFiles">here</a>)</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">Group of the file owner</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">Owner of the file</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">Modification date</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">Creation date</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">Last access date</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">Status change date</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">File type (as in Windows Explorer or MIME-type)</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">Description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>)</td></tr>
+              </table>
+              <p>Returns a number (file size, timestamps) or a string (in other cases). In case of failure, function returns <code>nil</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_filesettime">SysUtils.FileSetTime</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.FileSetTime(sFileName, iModification, iCreation, iLastAccess)</p>
+              <p>Allows to set timestamps (Unix time format) for <var>sFileName</var>: modification date, creation date and last access date. Specify zero for those timestamps that should be ignored.</p>
+              <p>Returns <code>true</code> if successful, <code>false</code> otherwise.</p>
             </td>
           </tr>
           <tr>
@@ -1264,6 +1347,9 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               <p>
                 <a href="#dc_currentpanel">DC.CurrentPanel</a><br>
                 <a href="#dc_executecommand">DC.ExecuteCommand</a><br>
+                <a href="#dc_expandvar">DC.ExpandVar</a><br>
+                <a href="#dc_getpluginfield">DC.GetPluginField</a><br>
+                <a href="#dc_gotofile">DC.GoToFile</a><br>
                 <a href="#dc_logwrite">DC.LogWrite</a>
               </p>
               <br>
@@ -1273,6 +1359,8 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_createhardlink">SysUtils.CreateHardLink</a><br>
                 <a href="#sysutils_createsymboliclink">SysUtils.CreateSymbolicLink</a><br>
                 <a href="#sysutils_directoryexists">SysUtils.DirectoryExists</a><br>
+                <a href="#sysutils_execute">SysUtils.Execute</a><br>
+                <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a><br>
                 <a href="#sysutils_extractfiledir">SysUtils.ExtractFileDir</a><br>
                 <a href="#sysutils_extractfiledrive">SysUtils.ExtractFileDrive</a><br>
                 <a href="#sysutils_extractfileext">SysUtils.ExtractFileExt</a><br>
@@ -1280,10 +1368,12 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_extractfilepath">SysUtils.ExtractFilePath</a><br>
                 <a href="#sysutils_fileexists">SysUtils.FileExists</a><br>
                 <a href="#sysutils_filegetattr">SysUtils.FileGetAttr</a><br>
+                <a href="#sysutils_filesettime">SysUtils.FileSetTime</a><br>
                 <a href="#sysutils_findclose">SysUtils.FindClose</a><br>
                 <a href="#sysutils_findfirst">SysUtils.FindFirst</a><br>
                 <a href="#sysutils_findnext">SysUtils.FindNext</a><br>
                 <a href="#sysutils_getabsolutepath">SysUtils.GetAbsolutePath</a><br>
+                <a href="#sysutils_getfileproperty">SysUtils.GetFileProperty</a><br>
                 <a href="#sysutils_getrelativepath">SysUtils.GetRelativePath</a><br>
                 <a href="#sysutils_gettempname">SysUtils.GetTempName</a><br>
                 <a href="#sysutils_gettickcount">SysUtils.GetTickCount</a><br>
@@ -1291,6 +1381,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_matchesmasklist">SysUtils.MatchesMaskList</a><br>
                 <a href="#sysutils_pathdelim">SysUtils.PathDelim</a><br>
                 <a href="#sysutils_readsymboliclink">SysUtils.ReadSymbolicLink</a><br>
+                <a href="#sysutils_removedirectory">SysUtils.RemoveDirectory</a><br>
                 <a href="#sysutils_sleep">SysUtils.Sleep</a>
               </p>
               <br>

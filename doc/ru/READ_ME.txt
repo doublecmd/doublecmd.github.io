@@ -31,8 +31,10 @@
   Alexander Koblov aka Alexx2000 (alexx2000@mail.ru)
   Denis Bisson (denis.bisson@denisbisson.org)
   Dmitry Kolomiets aka B4rr4cuda (B4rr4cuda@rambler.ru)
+  H1DDENADM1N
   Przemysław Nagay aka cobines (cobines@gmail.com)
   RedSkotina
+  Rich Chang aka rich2014 (rich2014.git@outlook.com)
   Rod J (rodmac_shiels@hotmail.com)
   Rustem Rakhimov (dok_rust@bk.ru)
   Sash0k

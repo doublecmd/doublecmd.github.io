@@ -1742,59 +1742,6 @@
             <td class="cmdhintcell"><a href="help.html#cm_Exchange">Поменять местами</a> содержимое панелей.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
-              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели. Также смотрите <kbd>F2</kbd> и <kbd>Shift+F6</kbd> <a href="shortcuts.html#main_window">здесь</a>.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
-              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
-            <td class="cmdhintcell">Изменить путь активной/неактивной/левой/правой панели на указанный каталог(и).<br>
-              Обратите внимание, что можно указать более одного параметра, поэтому одной командой можно одновременно установить пути и в активной, и в неактивной панели.<br>
-              <br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Параметр</th>
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">activepath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в активной панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">inactivepath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в неактивной панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">leftpath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в левой панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">rightpath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в правой панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell" colspan="3">Также в качестве единственного параметра можно просто указать путь и DC откроет этот путь в активной панели (сохранено для обеспечения обратной совместимости).</td>
-                </tr>
-              </table>
-              <br>
-              Примеры:<br>
-              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
-              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&ndash; папка "Paul Houde".<br><br>
-              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
-              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&ndash; в правой.<br><br>
-              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              В активной панели будет открыт указанный сетевой путь.<br><br>
-              <i>cm_ChangeDir wfx://FTP</i><br>
-              В активной панели будет открыт указанный WFX-плагин
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickSearch" alt="cm_QuickSearch" src="../../pixmaps/dctheme/32x32/actions/cm_quicksearch.png">
               <div class="cmdname"><a name="cm_QuickSearch">cm_QuickSearch</a></div>
               <div class="shrtctkey">Ctrl+S</div></td>
@@ -1927,6 +1874,59 @@
               </div>
               <br>
               Если ни один параметр не указан, то будет активирован фильтр с предыдущим состоянием опций, <b>не включая</b> строку для фильтра. При этом фокус ввода будет установлен на окно ввода текста на панели фильтра.
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
+              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
+            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели. Также смотрите <kbd>F2</kbd> и <kbd>Shift+F6</kbd> <a href="shortcuts.html#main_window">здесь</a>.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
+              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
+            <td class="cmdhintcell">Изменить путь активной/неактивной/левой/правой панели на указанный каталог(и).<br>
+              Обратите внимание, что можно указать более одного параметра, поэтому одной командой можно одновременно установить пути и в активной, и в неактивной панели.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">activepath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в активной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">inactivepath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в неактивной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">leftpath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в левой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">rightpath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в правой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="3">Также в качестве единственного параметра можно просто указать путь и DC откроет этот путь в активной панели (сохранено для обеспечения обратной совместимости).</td>
+                </tr>
+              </table>
+              <br>
+              Примеры:<br>
+              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
+              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&ndash; папка "Paul Houde".<br><br>
+              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
+              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&ndash; в правой.<br><br>
+              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
+              В активной панели будет открыт указанный сетевой путь.<br><br>
+              <i>cm_ChangeDir wfx://FTP</i><br>
+              В активной панели будет открыт указанный WFX-плагин
             </td>
           </tr>
           <tr>
@@ -2663,7 +2663,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseDuplicateTabs" alt="cm_CloseDuplicateTabs" src="../../pixmaps/dctheme/32x32/actions/cm_closeduplicatetabs.png">
               <div class="cmdname"><a name="cm_CloseDuplicateTabs">cm_CloseDuplicateTabs</a></div></td>
-            <td class="cmdhintcell">Закрыть дублирующие вкладки, так что в итоге останется только одна для каждой директории.<br>
+            <td class="cmdhintcell">Закрыть дублирующие вкладки, так что в итоге останется только одна для каждой директории (<a href="help.html#cm_CloseDuplicateTabs">правила приоритета</a>).<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -3128,7 +3128,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFavoriteTabs" alt="cm_SaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savefavoritetabs.png">
               <div class="cmdname"><a name="cm_SaveFavoriteTabs">cm_SaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Сохранить открытые вкладки в набор избранных вкладок. В дальнейшем их можно будет загрузить с помощью команды cm_LoadFavoriteTabs.</td>
+            <td class="cmdhintcell">Сохранить открытые вкладки в набор избранных вкладок. В дальнейшем их можно будет загрузить с помощью команды <a href="#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a>.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ReloadFavoriteTabs" alt="cm_ReloadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_reloadfavoritetabs.png">
@@ -3138,7 +3138,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ResaveFavoriteTabs" alt="cm_ResaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_resavefavoritetabs.png">
               <div class="cmdname"><a name="cm_ResaveFavoriteTabs">cm_ResaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">Пересохранить текущий набор вкладок под именем последних загруженных избранных вкладок. Это удобно, если, например, хотите добавить новую вкладку в один из сохранённых наборов: загружаете избранные вкладки, добавляете недостающую вкладку, а затем вызываете команду cm_ResaveFavoriteTabs.</td>
+            <td class="cmdhintcell">Пересохранить текущий набор вкладок под именем последних загруженных избранных вкладок. Это удобно, если, например, хотите добавить новую вкладку в один из сохранённых наборов: загружаете избранные вкладки, добавляете недостающую вкладку, а затем вызываете эту команду.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_PreviousFavoriteTabs" alt="cm_PreviousFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_previousfavoritetabs.png">

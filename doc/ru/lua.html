@@ -162,6 +162,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
                 <li><var>bForce</var> : Логическое (булево) значение, если <code>true</code>, то показать окно протокола (если оно скрыто).</li>
                 <li><var>bLogFile</var> : Логическое (булево) значение, если <code>true</code>, то сообщение будет записано и в файл протокола.</li>
               </ul>
+              <p>Внутренняя функция Double Commander для записи в протокол работает асинхронно (смотрите примечания во <a href="#preface">введении</a>), поэтому сообщения из <code>DC.LogWrite</code> будут записаны в протокол не сразу, а после завершения работы скрипта. Если необходимо записать текст сообщения сразу, мы можем попробовать добавить вызов <code>DC.ExecuteCommand("")</code> после <code>DC.LogWrite</code>.</p>
             </td>
           </tr>
           <tr>
@@ -179,6 +180,35 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
               <p class="definition">DC.ExecuteCommand(sCommand, Param1, Param2,...,ParamX)</p>
               <p>Вызывает <a href="cmds.html">внутреннюю команду</a> Double Commander <var>sCommand</var> с параметрами <var>Param1</var>..<var>ParamX</var>.</p>
               <p>Мы можем указать столько <var>Param...</var>, сколько поддерживает команда <var>Command</var>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_gotofile">DC.GoToFile</a></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.GoToFile(sFileName, bActive)</p>
+              <p>Открывает каталог, в котором расположен <var>sFileName</var>, и ставит на <var>sFileName</var> курсор. Чтобы открыть каталог, используйте <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a> или попробуйте добавить к <var>sFileName</var> разделитель каталогов и ".." (без кавычек).</p>
+              <p><var>bActive</var>&nbsp;&ndash; это опциональный параметр: функция может работать в активной файловой панели (<code>true</code>) или неактивной (<code>false</code>). По умолчанию <code>true</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_getpluginfield">DC.GetPluginField</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = DC.GetPluginField(sFileName, sPlugin, iField, iUnit)</p>
+              <p>Позволяет получить данные с помощью установленного информационного (или контентного) плагина (WDX):</p>
+              <ul>
+                <li><var>sFileName</var> : Полное (абсолютное) имя файла.</li>
+                <li><var>sPlugin</var> : Имя плагина, как оно сохранено в соответствующем <a href="configuration.html#ConfigPlugins">разделе настроек</a>.</li>
+                <li><var>iField</var> : Индекс поля плагина (отсчёт от 0).</li>
+                <li><var>iUnit</var> : Индекс единицы измерения (отсчёт от 0); укажите 0, если отсутствует.</li>
+                <li><var>Result</var> : Возвращаемое значение: целое число со знаком (включая время в формате Unix), число с плавающей запятой, логическое (булево) значение, текстовая строка или <code>nil</code>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_expandvar">DC.ExpandVar</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = DC.ExpandVar(String)</p>
+              <p>Возвращает строку, в которой все <a href="variables.html">переменные</a> заменены на их значения (исключая переменные окружения, для них используйте <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a>).</p>
             </td>
           </tr>
         </table>
@@ -348,6 +378,14 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_removedirectory">SysUtils.RemoveDirectory</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.RemoveDirectory(sDirectory)</p>
+              <p>Удалить каталог с именем <var>sDirectory</var>. Возвращает <code>true</code> в случае успеха, иначе возвращает <code>false</code>.</p>
+              <p>В отличие от <a href="#os_remove">os.remove</a>, эта функция при ошибке не возвращает описание, но зато может удалять непустые каталоги.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_createhardlink">SysUtils.CreateHardLink</a></div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(sFileName, sLinkName)</p>
@@ -474,10 +512,55 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_execute">SysUtils.Execute</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.Execute(sCommand)</p>
+              <p>Выполнить <var>sCommand</var>, аналогично введённой в командной строке. Вернёт <code>true</code> в случае успеха и <code>false</code> в противном случае (функция не ожидает завершения запущенной команды).</p>
+              <p>Примечание: В Windows при использовании функции <a href="#os_execute">os.execute</a> каждый раз открывается окно терминала, функция <code>SysUtils.Execute</code> лишена этого недостатка.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_expandenv">SysUtils.ExpandEnv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = SysUtils.ExpandEnv(String, bSpecial)</p>
+              <p>Возвращает строку, в которой все переменные окружения заменены на их значения для текущего пользователя.</p>
+              <p><var>bSpecial</var>&nbsp;&ndash; это опциональный параметр: если <code>true</code>, то также будут раскрыты псевдопеременные окружения (подробнее смотрите <a href="variables.html#envvariables">здесь</a>). По умолчанию <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_gettempname">SysUtils.GetTempName</a></div></td>
             <td class="hintcell">
               <p class="definition">sTempFileName = SysUtils.GetTempName()</p>
-              <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла (в системном каталоге для временных файлов), подобно функции <a href="#libraryos">os.tmpname</a>, но файл будет создан в подкаталоге, который автоматически удаляется при закрытии Double Commander.<br>Если функции не удалось создать уникальное имя, то она вернёт пустую строку.</p>
+              <p>Возвращает строку с именем файла, который может быть использован в качестве временного файла (в системном каталоге для временных файлов), подобно функции <a href="#libraryos">os.tmpname</a>, но файл будет создан в подкаталоге <tt>_dc~~~</tt>, который автоматически удаляется при закрытии Double Commander.<br>Если функции не удалось создать уникальное имя, то она вернёт пустую строку.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_getfileproperty">SysUtils.GetFileProperty</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = SysUtils.GetFileProperty(sFileName, iValue)</p>
+              <p>Возвращает свойство файла, соответствующее <var>iValue</var>:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">Значение</th><th class="innerdescheader">Описание</th></tr>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">Размер файла в байтах</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">Строка атрибутов как в файловой панели (подробное описание строкового значения смотрите <a href="configuration.html#ConfigColorFiles">здесь</a>)</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">Группа владельца файла</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">Владелец файла</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">Дата модификации</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">Дата создания</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">Дата последнего доступа</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">Дата изменения статуса</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">Тип файла (как в Проводнике Windows или MIME-тип)</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">Описание (комментарий) из <tt>descript.ion</tt> (подробнее смотрите <a href="help.html#cm_EditComment">здесь</a>)</td></tr>
+              </table>
+              <p>Возвращает число (размер файла, отметки времени) или строку (в остальных случаях). В случае неудачи функция возвращает <code>nil</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_filesettime">SysUtils.FileSetTime</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.FileSetTime(sFileName, iModification, iCreation, iLastAccess)</p>
+              <p>Позволяет задать отметки времени (время в формате Unix) для <var>sFileName</var>: дата модификации, дата создания и дата последнего доступа. Укажите ноль для тех отметок времени, которые должны быть проигнорированы.</p>
+              <p>Возвращает <code>true</code> в случае успеха, иначе возвращает <code>false</code>.</p>
             </td>
           </tr>
           <tr>
@@ -1255,6 +1338,9 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               <p>
                 <a href="#dc_currentpanel">DC.CurrentPanel</a><br>
                 <a href="#dc_executecommand">DC.ExecuteCommand</a><br>
+                <a href="#dc_expandvar">DC.ExpandVar</a><br>
+                <a href="#dc_getpluginfield">DC.GetPluginField</a><br>
+                <a href="#dc_gotofile">DC.GoToFile</a><br>
                 <a href="#dc_logwrite">DC.LogWrite</a>
               </p>
               <br>
@@ -1264,6 +1350,8 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_createhardlink">SysUtils.CreateHardLink</a><br>
                 <a href="#sysutils_createsymboliclink">SysUtils.CreateSymbolicLink</a><br>
                 <a href="#sysutils_directoryexists">SysUtils.DirectoryExists</a><br>
+                <a href="#sysutils_execute">SysUtils.Execute</a><br>
+                <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a><br>
                 <a href="#sysutils_extractfiledir">SysUtils.ExtractFileDir</a><br>
                 <a href="#sysutils_extractfiledrive">SysUtils.ExtractFileDrive</a><br>
                 <a href="#sysutils_extractfileext">SysUtils.ExtractFileExt</a><br>
@@ -1271,10 +1359,12 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_extractfilepath">SysUtils.ExtractFilePath</a><br>
                 <a href="#sysutils_fileexists">SysUtils.FileExists</a><br>
                 <a href="#sysutils_filegetattr">SysUtils.FileGetAttr</a><br>
+                <a href="#sysutils_filesettime">SysUtils.FileSetTime</a><br>
                 <a href="#sysutils_findclose">SysUtils.FindClose</a><br>
                 <a href="#sysutils_findfirst">SysUtils.FindFirst</a><br>
                 <a href="#sysutils_findnext">SysUtils.FindNext</a><br>
                 <a href="#sysutils_getabsolutepath">SysUtils.GetAbsolutePath</a><br>
+                <a href="#sysutils_getfileproperty">SysUtils.GetFileProperty</a><br>
                 <a href="#sysutils_getrelativepath">SysUtils.GetRelativePath</a><br>
                 <a href="#sysutils_gettempname">SysUtils.GetTempName</a><br>
                 <a href="#sysutils_gettickcount">SysUtils.GetTickCount</a><br>
@@ -1282,6 +1372,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_matchesmasklist">SysUtils.MatchesMaskList</a><br>
                 <a href="#sysutils_pathdelim">SysUtils.PathDelim</a><br>
                 <a href="#sysutils_readsymboliclink">SysUtils.ReadSymbolicLink</a><br>
+                <a href="#sysutils_removedirectory">SysUtils.RemoveDirectory</a><br>
                 <a href="#sysutils_sleep">SysUtils.Sleep</a>
               </p>
               <br>

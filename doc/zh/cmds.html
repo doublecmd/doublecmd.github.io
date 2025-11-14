@@ -1735,59 +1735,6 @@
             <td class="cmdhintcell"><a href="help.html#cm_Exchange">交换</a> 文件面板。</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
-              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">用户可直接输入希望在所选面板中查看的目录。另见 <kbd>F2</kbd> 与 <kbd>Shift+F6</kbd> 的说明（<a href="shortcuts.html#main_window">此处</a>）。</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
-              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
-            <td class="cmdhintcell">将把活动/非活动/左侧/右侧面板切换到指定的目录。<br>
-              请注意可指定多个参数，因此通过单个命令即可同时设置源和目标路径。<br>
-              <br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">参数</th>
-                  <th class="innerdescheader">取值</th>
-                  <th class="innerdescheader">说明</th>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">activepath</td>
-                  <td class="innerdescvaluecell"><i>指定路径</i></td>
-                  <td class="innerdescdesccell">将活动面板切换到 <i>指定路径</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">inactivepath</td>
-                  <td class="innerdescvaluecell"><i>指定路径</i></td>
-                  <td class="innerdescdesccell">将非活动面板切换到 <i>指定路径</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">leftpath</td>
-                  <td class="innerdescvaluecell"><i>指定路径</i></td>
-                  <td class="innerdescdesccell">将左侧面板切换到 <i>指定路径</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">rightpath</td>
-                  <td class="innerdescvaluecell"><i>指定路径</i></td>
-                  <td class="innerdescdesccell">将右侧面板切换到 <i>指定路径</i></td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell" colspan="3">为兼容历史用法，也可仅提供单个路径作为参数，此时 DC 会将活动面板切换到该路径。</td>
-                </tr>
-              </table>
-              <br>
-              示例：<br>
-              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
-              将使活动面板显示当前用户的桌面目录，非活动面板显示 "Paul Houde" 目录内容。<br><br>
-              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
-              无论当前哪个面板为活动面板，左侧会显示 "Working"，右侧会显示 "Euler"。<br><br>
-              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              活动面板将切换并显示该网络路径的内容。<br><br>
-              <i>cm_ChangeDir wfx://FTP</i><br>
-              指定的 WFX 插件将在活动面板中打开。
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickSearch" alt="cm_QuickSearch" src="../../pixmaps/dctheme/32x32/actions/cm_quicksearch.png">
               <div class="cmdname"><a name="cm_QuickSearch">cm_QuickSearch</a></div>
               <div class="shrtctkey">Ctrl+S</div></td>
@@ -1919,6 +1866,59 @@
               </div>
               <br>
               若未指定任何参数，默认会激活过滤，并沿用上次过滤的其他选项，唯独文本字段会获得焦点以便输入新的过滤字符串。
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
+              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
+            <td class="cmdhintcell">用户可以直接输入想要在选中面板中查看的目录。另请参阅<kbd>F2</kbd>和<kbd>Shift+F6</kbd>快捷键，详见<a href="shortcuts.html#main_window">此处</a>。</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
+              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
+            <td class="cmdhintcell">将活动/非活动/左侧/右侧面板切换到指定目录。<br>
+              请注意，您可以指定多个参数，因此只需一个命令即可同时设置源路径和目标路径。<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">参数</th>
+                  <th class="innerdescheader">值</th>
+                  <th class="innerdescheader">描述</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">activepath</td>
+                  <td class="innerdescvaluecell"><i>指定路径</i></td>
+                  <td class="innerdescdesccell">将活动面板切换到<i>指定路径</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">inactivepath</td>
+                  <td class="innerdescvaluecell"><i>指定路径</i></td>
+                  <td class="innerdescdesccell">将非活动面板切换到<i>指定路径</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">leftpath</td>
+                  <td class="innerdescvaluecell"><i>指定路径</i></td>
+                  <td class="innerdescdesccell">将左侧面板切换到<i>指定路径</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">rightpath</td>
+                  <td class="innerdescvaluecell"><i>指定路径</i></td>
+                  <td class="innerdescdesccell">将右侧面板切换到<i>指定路径</i></td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="3">为了保持旧版本向后兼容，您也可以仅提供单个路径作为唯一参数，DC 会将活动面板切换到该路径。</td>
+                </tr>
+              </table>
+              <br>
+              示例：<br>
+              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
+              这会使活动面板显示当前用户桌面文件夹的内容，而在非活动面板中您将看到 "Paul Houde" 文件夹的内容。<br><br>
+              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
+              无论当前活动面板在何处，左侧面板将显示 "Working" 文件夹的内容，右侧面板将显示 "Euler" 文件夹的内容。<br><br>
+              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
+              活动面板将切换以显示上述网络路径的内容。<br><br>
+              <i>cm_ChangeDir wfx://FTP</i><br>
+              提到的 WFX 插件将在活动面板中打开。
             </td>
           </tr>
           <tr>
@@ -3118,7 +3118,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFavoriteTabs" alt="cm_SaveFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_savefavoritetabs.png">
               <div class="cmdname"><a name="cm_SaveFavoriteTabs">cm_SaveFavoriteTabs</a></div></td>
-            <td class="cmdhintcell">将当前打开的标签保存为“收藏标签”。稍后可使用 cm_LoadFavoriteTabs 命令加载这些保存的配置。</td>
+            <td class="cmdhintcell">将当前打开的标签保存为“收藏标签”。稍后可使用 <a href="#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> 命令加载这些保存的配置。</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ReloadFavoriteTabs" alt="cm_ReloadFavoriteTabs" src="../../pixmaps/dctheme/32x32/actions/cm_reloadfavoritetabs.png">

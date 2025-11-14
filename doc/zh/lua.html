@@ -164,6 +164,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
                 <li><var>bForce</var> : 布尔值，若为 true，则在日志窗口不可见时强制显示该窗口。</li>
                 <li><var>bLogFile</var> : 布尔值，若为 true，则同时将消息写入日志文件。</li>
               </ul>
+              <p>Double Commander 用于写入日志的内部函数采用异步工作方式（请参阅<a href="#preface">简介</a>中的说明），因此通过 <code>DC.LogWrite</code> 写入的消息不会立即记录到日志中，而是在脚本运行结束后才写入。若需要立即写入日志消息，可在 <code>DC.LogWrite</code> 后尝试调用 <code>DC.ExecuteCommand("")</code> 来实现。</p>
             </td>
           </tr>
           <tr>
@@ -182,6 +183,35 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
               <p>允许脚本调用 Double Commander 的 <a href="cmds.html">内部命令</a>。</p>
               <p><var>sCommand</var> 为内部命令的名称。</p>
               <p>可以按需提供多个 <var>Param...</var> 参数，具体取决于命令支持的参数数量。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_gotofile">DC.GoToFile</a></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.GoToFile(sFileName, bActive)</p>
+              <p>打开 <var>sFileName</var> 文件所在的目录并将光标定位到 <var>sFileName</var> 文件。要打开目录，请使用 <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a> 命令，或尝试在 <var>sFileName</var> 后添加目录分隔符和".."（不含引号）。</p>
+              <p><var>bActive</var>&nbsp;—— 此为可选参数：函数可在活动文件面板（<code>true</code>）或非活动面板（<code>false</code>）中运行。默认值为<code>true</code>。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_getpluginfield">DC.GetPluginField</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = DC.GetPluginField(sFileName, sPlugin, iField, iUnit)</p>
+              <p>允许通过已安装的信息（或内容）插件（WDX）获取数据：</p>
+              <ul>
+                <li><var>sFileName</var>：文件的完整（绝对）名称。</li>
+                <li><var>sPlugin</var>：插件名称，需与对应 <a href="configuration.html#ConfigPlugins">插件配置</a> 中保存的名称一致。</li>
+                <li><var>iField</var>：插件字段索引（从0开始计数）。</li>
+                <li><var>iUnit</var>：计量单位索引（从0开始计数）；如果不存在请指定0。</li>
+                <li><var>Result</var>：返回值：可返回有符号整数（包括Unix时间格式）、浮点数、布尔值、字符串或 <code>nil</code> 。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_expandvar">DC.ExpandVar</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = DC.ExpandVar(String)</p>
+              <p>返回将其中所有<a href="variables.html">变量</a>替换为其对应值的字符串（环境变量除外，处理环境变量请使用<a href="#sysutils_expandenv">SysUtils.ExpandEnv</a>）。</p>
             </td>
           </tr>
         </table>
@@ -354,6 +384,14 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_removedirectory">SysUtils.RemoveDirectory</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.RemoveDirectory(sDirectory)</p>
+              <p>删除名为 <var>sDirectory</var> 的目录。成功时返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+              <p>与 <a href="#os_remove">os.remove</a> 不同，此函数在出错时不会返回错误描述，但能够删除非空目录。</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_createhardlink">SysUtils.CreateHardLink</a></div></td>
             <td class="hintcell">
               <p class="definition">bResult = SysUtils.CreateHardLink(sFileName, sLinkName)</p>
@@ -449,8 +487,8 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
               <p><var>iMaskOptions</var>（可选，默认值 0）由以下值相加而成：</p>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
+                  <th class="innerdescheader">值</th>
+                  <th class="innerdescheader">说明</th>
                 </tr>
                 <tr>
                   <td class="varcell"><div class="firstcolumnaleft">1</div></td>
@@ -480,10 +518,55 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_execute">SysUtils.Execute</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.Execute(sCommand)</p>
+              <p>执行 <var>sCommand</var> 命令，类似于在命令行中输入命令。成功时返回 <code>true</code> ，否则返回 <code>false</code> （该函数不会等待启动的命令执行完毕）。</p>
+              <p>注意：在 Windows 系统中，使用 <a href="#os_execute">os.execute</a> 函数每次都会打开终端窗口，而 <code>SysUtils.Execute</code> 函数则无此问题。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_expandenv">SysUtils.ExpandEnv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = SysUtils.ExpandEnv(String, bSpecial)</p>
+              <p>返回将其中所有环境变量替换为当前用户对应值的字符串。</p>
+              <p><var>bSpecial</var>&nbsp;—— 此为可选参数：若为 <code>true</code> ，则同时会展开伪环境变量（详见 <a href="variables.html#envvariables">此处</a> 说明）。默认值为 <code>false</code> 。</p>
+            </td>
+          </tr>
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_gettempname">SysUtils.GetTempName</a></div></td>
             <td class="hintcell">
               <p class="definition">sTempFileName = SysUtils.GetTempName()</p>
-              <p>返回一个可作为临时文件名的路径（位于系统临时目录下的子目录中）。与 <a href="#libraryos">os.tmpname</a> 类似，但本函数会把临时文件放在一个子目录中，该子目录在 Double Commander 关闭时会被自动删除。若无法生成唯一名称，则返回空字符串。</p>
+              <p>返回一个可用作临时文件的文件名（位于系统临时文件目录中），类似于 <a href="#libraryos">os.tmpname</a> 函数，但文件将创建在 <tt>_dc~~~</tt> 子目录下，该子目录会在 Double Commander 关闭时自动删除。<br>如果函数无法创建唯一名称，则将返回空字符串。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_getfileproperty">SysUtils.GetFileProperty</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = SysUtils.GetFileProperty(sFileName, iValue)</p>
+              <p>返回与 <var>iValue</var> 对应的文件属性：</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">值</th><th class="innerdescheader">说明</th></tr>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">文件大小（字节）</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">文件面板中显示的属性字符串（关于此字符串值的详细说明请参阅 <a href="configuration.html#ConfigColorFiles">此处</a> ）</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">文件所属组</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">文件所有者</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">修改日期</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">创建日期</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">最后访问日期</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">状态更改日期</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">文件类型（如Windows资源管理器中的类型或MIME类型）</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">来自 <tt>descript.ion</tt> 文件的描述（注释）（详见 <a href="help.html#cm_EditComment">此处</a> ）</td></tr>
+              </table>
+              <p>返回数值（文件大小、时间戳）或字符串（其他情况）。如果操作失败，函数返回 <code>nil</code> 。</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_filesettime">SysUtils.FileSetTime</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.FileSetTime(sFileName, iModification, iCreation, iLastAccess)</p>
+              <p>允许为 <var>sFileName</var> 设置时间戳（Unix时间格式）：修改时间、创建时间和最后访问时间。对于需要忽略的时间戳，请指定为零。</p>
+              <p>成功时返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
             </td>
           </tr>
           <tr>
@@ -504,7 +587,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
         <p>属性值是通过按位或（OR）组合以下常量得到的：</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">SysUtils.FileGetAttr 返回值中使用的常量</th></tr>
-          <tr class="rowsubtitle"><th class="categorynamecolumn">值</th><th class="categorydesccolumn">含义</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">值</th><th class="categorydesccolumn">说明</th></tr>
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
             <td class="hintcell">文件为只读。</td>
@@ -1096,7 +1179,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               <p class="definition">iResult = Char.GetUnicodeCategory(Character)</p>
               <p>返回字符 <code>Character</code> 的 Unicode 类别，取值含义如下：</p>
               <table class="innercmddesc">
-                <tr class="rowinnerdesc"><th class="innerdescheader">Value</th><th class="innerdescheader">Description</th>
+                <tr class="rowinnerdesc"><th class="innerdescheader">值</th><th class="innerdescheader">说明</th>
                 <tr><td colspan="2">&nbsp;&nbsp;Letter:</td></tr>
                 <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">大写字母 (Lu)</td></tr>
                 <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">小写字母 (Ll)</td></tr>
@@ -1257,6 +1340,9 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
               <p>
                 <a href="#dc_currentpanel">DC.CurrentPanel</a><br>
                 <a href="#dc_executecommand">DC.ExecuteCommand</a><br>
+                <a href="#dc_expandvar">DC.ExpandVar</a><br>
+                <a href="#dc_getpluginfield">DC.GetPluginField</a><br>
+                <a href="#dc_gotofile">DC.GoToFile</a><br>
                 <a href="#dc_logwrite">DC.LogWrite</a>
               </p>
               <br>
@@ -1266,6 +1352,8 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_createhardlink">SysUtils.CreateHardLink</a><br>
                 <a href="#sysutils_createsymboliclink">SysUtils.CreateSymbolicLink</a><br>
                 <a href="#sysutils_directoryexists">SysUtils.DirectoryExists</a><br>
+                <a href="#sysutils_execute">SysUtils.Execute</a><br>
+                <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a><br>
                 <a href="#sysutils_extractfiledir">SysUtils.ExtractFileDir</a><br>
                 <a href="#sysutils_extractfiledrive">SysUtils.ExtractFileDrive</a><br>
                 <a href="#sysutils_extractfileext">SysUtils.ExtractFileExt</a><br>
@@ -1273,10 +1361,12 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_extractfilepath">SysUtils.ExtractFilePath</a><br>
                 <a href="#sysutils_fileexists">SysUtils.FileExists</a><br>
                 <a href="#sysutils_filegetattr">SysUtils.FileGetAttr</a><br>
+                <a href="#sysutils_filesettime">SysUtils.FileSetTime</a><br>
                 <a href="#sysutils_findclose">SysUtils.FindClose</a><br>
                 <a href="#sysutils_findfirst">SysUtils.FindFirst</a><br>
                 <a href="#sysutils_findnext">SysUtils.FindNext</a><br>
                 <a href="#sysutils_getabsolutepath">SysUtils.GetAbsolutePath</a><br>
+                <a href="#sysutils_getfileproperty">SysUtils.GetFileProperty</a><br>
                 <a href="#sysutils_getrelativepath">SysUtils.GetRelativePath</a><br>
                 <a href="#sysutils_gettempname">SysUtils.GetTempName</a><br>
                 <a href="#sysutils_gettickcount">SysUtils.GetTickCount</a><br>
@@ -1284,6 +1374,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_matchesmasklist">SysUtils.MatchesMaskList</a><br>
                 <a href="#sysutils_pathdelim">SysUtils.PathDelim</a><br>
                 <a href="#sysutils_readsymboliclink">SysUtils.ReadSymbolicLink</a><br>
+                <a href="#sysutils_removedirectory">SysUtils.RemoveDirectory</a><br>
                 <a href="#sysutils_sleep">SysUtils.Sleep</a>
               </p>
               <br>

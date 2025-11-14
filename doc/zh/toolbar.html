@@ -135,7 +135,7 @@
         <p>关于参数，可以使用变量，这些变量会根据当前活动面板中选中文件等替换为实际值。有关可作为参数使用的变量，请参见 <a href="variables.html">此页面</a>（注意 <a href="variables.html#quotation">引号的使用</a>）。在终端中运行命令时，可使用变量 <a href="variables.html#executeterm">%t0 和 %t1</a>。</p>
         <p>下面示例中，我们将某个工具栏按钮设置为启动 BCompare，并使用 <code>%pb</code> 作为参数，这表示点击按钮启动 BCompare 时，会将 两个面板，从左到右 中选中文件的完整文件名作为参数传递。</p>
         <p class="figure"><img class="largeimage" title="Example of external command" alt="Example of external command" src="images/imgDC/toolbarexternal.png" width="700" height="224"></p>
-        <p>如果不需要显式指定工作目录，则可将“开始路径”留空，此时工作目录将为当前活动文件面板的目录。</p>
+        <p>如果不需要显式指定工作目录，则可将“开始路径”留空，此时工作目录将为当前活动文件面板的目录。此处可使用 <a href="variables.html#pathpanel">%D</a> 变量、<a href="variables.html#basicvar">%d</a> 变量或 <a href="variables.html#envvariables">环境变量</a> 。</p>
       </div>
       <br>
 

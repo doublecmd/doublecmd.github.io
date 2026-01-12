@@ -29,24 +29,27 @@
           <dt>5. <a href="#meta">Metacharacters</a></dt>
           <dd>
             <dl>
-              <dt>5.1. <a href="#meta-line">Metacharacters - line separators</a></dt>
+              <dt>5.1. <a href="#meta-dot">Metacharacters - dot</a></dt>
               <dt>5.2. <a href="#meta-std">Metacharacters - predefined classes</a></dt>
-              <dt>5.3. <a href="#meta-words">Metacharacters - word boundaries</a></dt>
-              <dt>5.4. <a href="#meta-dup">Metacharacters - iterators</a></dt>
-              <dt>5.5. <a href="#meta-vars">Metacharacters - alternatives</a></dt>
-              <dt>5.6. <a href="#meta-sub">Metacharacters - subexpressions</a></dt>
-              <dt>5.7. <a href="#meta-back">Metacharacters - backreferences</a></dt>
+              <dt>5.3. <a href="#meta-line">Metacharacters - line separators</a></dt>
+              <dt>5.4. <a href="#meta-words">Metacharacters - word boundaries</a></dt>
+              <dt>5.5. <a href="#meta-dup">Metacharacters - iterators</a></dt>
+              <dt>5.6. <a href="#meta-vars">Metacharacters - alternatives</a></dt>
+              <dt>5.7. <a href="#meta-sub">Metacharacters - subexpressions</a></dt>
+              <dt>5.8. <a href="#meta-back">Metacharacters - backreferences</a></dt>
+              <dt>5.9. <a href="#meta-reset">Metacharacters - resetting the match start</a></dt>
             </dl>
           </dd>
           <dt>6. <a href="#look">Assertions (lookahead and lookbehind assertions)</a></dt>
           <dt>7. <a href="#noncapt">Non-capturing groups</a></dt>
           <dt>8. <a href="#agroups">Atomic groups</a></dt>
-          <dt>9. <a href="#unicode">Unicode categories</a></dt>
-          <dt>10. <a href="#modifiers">Modifiers</a></dt>
+          <dt>9. <a href="#recursion">Recursion</a></dt>
+          <dt>10. <a href="#unicode">Unicode categories</a></dt>
+          <dt>11. <a href="#modifiers">Modifiers</a></dt>
         </dl>
       </div>
 
-      <p>Double Commander uses the free library <a href="https://regex.sorokin.engineer/en/latest/" target="_blank">TRegExpr</a> by Andrey Sorokin.</p>
+      <p>Double Commander uses the free library <a href="https://regex.sorokin.engineer/" target="_blank">TRegExpr</a> by Andrey Sorokin.</p>
       <p>Most of the explanations are from the help file for this library.</p>
 
       <div>
@@ -106,15 +109,15 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\n</div></td>
-            <td class="hintcell">newline (NL/LF), same as <code>\x0a</code></td>
+            <td class="hintcell">newline (NL/LF), same as <code>\x0A</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\r</div></td>
-            <td class="hintcell">carriage return (CR), same as <code>\x0d</code></td>
+            <td class="hintcell">carriage return (CR), same as <code>\x0D</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\f</div></td>
-            <td class="hintcell">form feed (FF), same as <code>\x0c</code></td>
+            <td class="hintcell">form feed (FF), same as <code>\x0C</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\a</div></td>
@@ -122,7 +125,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\e</div></td>
-            <td class="hintcell">escape (ESC), same as <code>\x1b</code></td>
+            <td class="hintcell">escape (ESC), same as <code>\x1B</code></td>
           </tr>
         </table>
         <p>Here are some examples:</p>
@@ -169,7 +172,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\n-\x0D]</div></td>
-            <td class="hintcell">matches any of <code>\x10</code>, <code>\x11</code>, <code>\x12</code>, <code>\x13</code></td>
+            <td class="hintcell">matches any of <code>\x0A</code>, <code>\x0B</code>, <code>\x0C</code>, <code>\x0D</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\d-t]</div></td>
@@ -204,65 +207,9 @@
       </div>
 
       <div>
-        <h2><a name="meta-line">5.1. Metacharacters - line separators</a></h2>
-        <p>Some expressions help to detect line separation.</p>
-        <table>
-          <tr class="rowcategorytitle"><th colspan="2">Line separators</th></tr>
-          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">^</div></td>
-            <td class="hintcell">start of line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">$</div></td>
-            <td class="hintcell">end of line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">\A</div></td>
-            <td class="hintcell">start of text</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">\Z</div></td>
-            <td class="hintcell">end of text</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">.</div></td>
-            <td class="hintcell">any character in line</td>
-          </tr>
-        </table>
-        <p>Here are some examples:</p>
-        <table>
-          <tr class="rowcategorytitle"><th colspan="2">Example with line separators</th></tr>
-          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
-            <td class="hintcell">matches string <code>foobar</code> only if it's at the beginning of line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
-            <td class="hintcell">matches string <code>foobar</code> only if it's at the end of line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
-            <td class="hintcell">matches string <code>foobar</code> only if it's the only string in line</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">foob.r</div></td>
-            <td class="hintcell">matches strings like <code>foobar</code>, <code>foobbr</code>, <code>foob1r</code> and so on</td>
-          </tr>
-        </table>
-
-        <p>The <code>^</code> metacharacter by default is only guaranteed to match at the beginning of the input string/text, the <code>$</code> metacharacter only at the end. Embedded line separators will not be matched by <code>^</code> or <code>$</code>.</p>
-        <p>You may, however, wish to treat a string as a multi-line buffer, such that the <code>^</code> will match after any line separator within the string, and <code>$</code> will match before any line separator. You can do this by switching On the <a href="#modifiers">modifier m</a>.</p>
-        <p>The <code>\A</code> and <code>\Z</code> are just like <code>^</code> and <code>$</code>, except that they won't match multiple times when the <a href="#modifiers">modifier m</a> is used, while <code>^</code> and <code>$</code> will match at every internal line separator.</p>
-        <p>The <code>.</code> metacharacter by default matches any character, but if you switch Off the <a href="#modifiers">modifier s</a>, then <code>.</code> won't match embedded line separators.</p>
-        <p>TRegExpr works with line separators as recommended at Unicode technical standards (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>):</p>
-        <ul>
-          <li><p><code>^</code> is at the beginning of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately following any occurrence of <code>\x0D\x0A</code> or <code>\x0A</code> or <code>\x0D</code> (with Unicode support: also <code>\x2028</code> or <code>\x2029</code> or <code>\x0B</code> or <code>\x0C</code> or <code>\x85</code>). Note that there is no empty line within the sequence <code>\x0D\x0A</code>.</p></li>
-          <li><p><code>$</code> is at the end of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately preceding any occurrence of <code>\x0D\x0A</code> or <code>\x0A</code> or <code>\x0D</code> (with Unicode support: also <code>\x2028</code> or <code>\x2029</code> or <code>\x0B</code> or <code>\x0C</code> or <code>\x85</code>). Note that there is no empty line within the sequence <code>\x0D\x0A</code>.</p></li>
-          <li><p><code>.</code> matches any character, but if you switch Off <a href="#modifiers">modifier s</a> then <code>.</code> doesn't match <code>\x0D\x0A</code> and <code>\x0A</code> and <code>\x0D</code> (with Unicode support: also <code>\x2028</code> and <code>\x2029</code> and <code>\x0B</code> and <code>\x0C</code> and <code>\x85</code>).</p></li>
-        </ul>
-        <p>Note that <code>^.*$</code> (an empty line pattern) does not match the empty string within the sequence <code>\x0D\x0A</code>, but matches the empty string within the sequence <code>\x0A\x0D</code>.</p>
+        <h2><a name="meta-dot">5.1. Metacharacters - dot</a></h2>
+        <p>The <code>.</code> metacharacter matches any character, but if you switch Off <a href="#modifiers">modifier s</a> then <code>.</code> doesn't match <code>\x0D\x0A</code> and <code>\x0A</code> and <code>\x0D</code> (with Unicode support: also <code>\x{2028}</code> and <code>\x{2029}</code> and <code>\x0B</code> and <code>\x0C</code> and <code>\x85</code>).</p>
+        <p>The <code>.</code> character does not act as metacharacter inside user character classes: <code>[.]</code> means a literal dot.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -296,6 +243,10 @@
             <td class="varcell"><div class="firstcolumnaleft">\S</div></td>
             <td class="hintcell">a non space</td>
           </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\R</div></td>
+            <td class="hintcell">any line break character: <code>\x0D\x0A</code>, <code>\x0A</code>, <code>\x0D</code>, <code>\x0B</code>, <code>\x0C</code> (with Unicode support: also <code>\x{2028}</code>, <code>\x{2029}</code> and <code>\x85</code>)</td>
+          </tr>
         </table>
         <p>You may use <code>\w</code>, <code>\d</code> and <code>\s</code> within custom <span class="bold">character classes</span>.</p>
         <p>Here are some examples:</p>
@@ -315,7 +266,64 @@
       </div>
 
       <div>
-        <h2><a name="meta-words">5.3. Metacharacters - word boundaries</a></h2>
+        <h2><a name="meta-line">5.3. Metacharacters - line separators</a></h2>
+        <p>Some expressions help to detect line separation.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Line separators</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^</div></td>
+            <td class="hintcell">start of line</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">$</div></td>
+            <td class="hintcell">end of line</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\A</div></td>
+            <td class="hintcell">start of text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\Z</div></td>
+            <td class="hintcell">end of text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\G</div></td>
+            <td class="hintcell">zero-length match at the end position of the previous match or if there was no previous match, the start of the line (<code>^</code>)</td>
+          </tr>
+        </table>
+        <p>Here are some examples:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Example with line separators</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Result</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
+            <td class="hintcell">matches string <code>foobar</code> only if it's at the beginning of line</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
+            <td class="hintcell">matches string <code>foobar</code> only if it's at the end of line</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
+            <td class="hintcell">matches string <code>foobar</code> only if it's the only string in line</td>
+          </tr>
+        </table>
+        <p>The <code>^</code> metacharacter by default is only guaranteed to match at the beginning of the input string/text, the <code>$</code> metacharacter only at the end. Embedded line separators will not be matched by <code>^</code> or <code>$</code>.</p>
+        <p>You may, however, wish to treat a string as a multi-line buffer, such that the <code>^</code> will match after any line separator within the string, and <code>$</code> will match before any line separator. You can do this by switching On the <a href="#modifiers">modifier m</a>.</p>
+        <p>The <code>\A</code> and <code>\Z</code> are just like <code>^</code> and <code>$</code>, except that they won't match multiple times when the <a href="#modifiers">modifier m</a> is used, while <code>^</code> and <code>$</code> will match at every internal line separator.</p>
+        <p>The <code>.</code> metacharacter by default matches any character, but if you switch Off the <a href="#modifiers">modifier s</a>, then <code>.</code> won't match embedded line separators.</p>
+        <p>TRegExpr works with line separators as recommended at Unicode technical standards (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>):</p>
+        <ul>
+          <li><p><code>^</code> is at the beginning of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately following any occurrence of <code>\x0D\x0A</code> or <code>\x0A</code> or <code>\x0D</code> (with Unicode support: also <code>\x{2028}</code> or <code>\x{2029}</code> or <code>\x0B</code> or <code>\x0C</code> or <code>\x85</code>). Note that there is no empty line within the sequence <code>\x0D\x0A</code>.</p></li>
+          <li><p><code>$</code> is at the end of a input string, and, if <a href="#modifiers">modifier m</a> is On, also immediately preceding any occurrence of <code>\x0D\x0A</code> or <code>\x0A</code> or <code>\x0D</code> (with Unicode support: also <code>\x{2028}</code> or <code>\x{2029}</code> or <code>\x0B</code> or <code>\x0C</code> or <code>\x85</code>). Note that there is no empty line within the sequence <code>\x0D\x0A</code>.</p></li>
+        </ul>
+        <p>Note that <code>^.*$</code> (an empty line pattern) does not match the empty string within the sequence <code>\x0D\x0A</code>, because this is unbreakable line separator. But matches the empty string within the sequence <code>\x0A\x0D</code>, because this is 2 line-breaks in the wrong order.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-words">5.4. Metacharacters - word boundaries</a></h2>
         <p>A word boundary (<code>\b</code>) is a spot between two characters that has a <code>\w</code> on one side of it and a <code>\W</code> on the other side of it (in either order), counting the imaginary characters off the beginning and end of the string as matching a <code>\W</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Word boundaries</th></tr>
@@ -333,7 +341,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-dup">5.4. Metacharacters - iterators</a></h2>
+        <h2><a name="meta-dup">5.5. Metacharacters - iterators</a></h2>
         <p>Any item of a regular expression may be followed by another type of metacharacters&nbsp;&ndash; iterators.</p>
         <p>Using these metacharacters you can specify the number of occurrences of the previous character, metacharacter or subexpression.</p>
         <table>
@@ -430,7 +438,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-vars">5.5. Metacharacters - alternatives</a></h2>
+        <h2><a name="meta-vars">5.6. Metacharacters - alternatives</a></h2>
         <p>You can specify a series of <span class="bold">alternatives</span> for a pattern using <code>|</code> to separate them, so that <code>fee|fie|foe</code> will match any of <code>fee</code>, <code>fie</code>, or <code>foe</code> in the target string (as would <code>f(e|i|o)e</code>).</p>
         <p>The first alternative includes everything from the last pattern delimiter (<code>(</code>, <code>[</code>, or the beginning of the pattern) up to the first <code>|</code>, and the last alternative contains everything from the last <code>|</code> to the next pattern delimiter.</p>
         <p>For this reason, it's common practice to include alternatives in parentheses, to minimize confusion about where they start and end.</p>
@@ -451,7 +459,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-sub">5.6. Metacharacters - subexpressions</a></h2>
+        <h2><a name="meta-sub">5.7. Metacharacters - subexpressions</a></h2>
         <p>The bracketing construct <code>( ... )</code> may also be used for define regular expression subexpressions.</p>
         <p>After search you can call any subexpression, also you can use subexpressions as masks.</p>
         <p>Subexpressions are numbered based on the left to right order of their opening parenthesis.</p>
@@ -485,7 +493,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-back">5.7. Metacharacters - backreferences</a></h2>
+        <h2><a name="meta-back">5.8. Metacharacters - backreferences</a></h2>
         <p>Metacharacters <code>\1</code> through <code>\9</code> are interpreted as backreferences. <code>\n</code> matches previously matched subexpression <code>n</code>.</p>
         <p>Here are some examples:</p>
         <table>
@@ -508,6 +516,16 @@
       </div>
 
       <div>
+        <h2><a name="meta-reset">5.9. Metacharacters - resetting the match start</a></h2>
+        <p>The begin of the reported match can be set using <code>\K</code>.</p>
+        <p>By default the entire text covered by a pattern is considered matched. However it is possible to set explicitly what will be reported.</p>
+        <p>The pattern <code>a\Kb</code> will require the text to contain <code>ab</code>. But only the <code>b</code> will be reported as having been matched. Their can be several <code>\K</code> in a pattern, The last one will set the match-start position. Only <code>\K</code> in active parts of the pattern are considered. E.g. <code>a(\Kb)?</code> will not consider <code>\K</code> if there is no <code>b</code>. Captures can exist outside the match set by <code>\K</code>. For example, when the pattern <code>(a)\Kb</code> matches <code>ab</code>, the first subexpression is still set to <code>a</code>.</p>
+        <p>If used in other constructs that can apply outside the reported match (like lookahead), then the position marked by <code>\K</code> must be before or at the reported end of the match. If the position is marked later, the match is considered failed.</p>
+        <p><code>\K</code> is somewhat similar to a lookbehind. Unlike a lookbehind the part of the pattern before the <code>\K</code> must be after the start position of the matching, if the pattern is applied from an offset position within the text.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
         <h2><a name="look">6. Assertions (lookahead and lookbehind assertions)</a></h2>
         <p>Positive lookahead assertion: <code>foo(?=bar)</code> matches <code>foo</code> only before <code>bar</code>, and <code>bar</code> is excluded from the match.</p>
         <p>Negative lookahead assertion: <code>foo(?!bar)</code> matches <code>foo</code> only if it’s not followed by <code>bar</code>.</p>
@@ -515,9 +533,8 @@
         <p>Negative lookbehind assertion: <code>(?&lt;!foo)bar</code> matches <code>bar</code> only if it’s not prefixed with <code>foo</code>.</p>
         <p>Limitations:</p>
         <ul>
-          <li><p>Brackets for lookahead must be at the very ending of expression, and brackets for lookbehind must be at the very beginning. So assertions between choices <code>|</code>, or inside groups, are not supported.</p></li>
-          <li><p>For lookbehind <code>(?&lt;!foo)bar</code>, regular expression <code>foo</code> must be of fixed length, ie contains only operations of fixed length matches. Quantifiers are not allowed, except braces with the repeated numbers <code>{n}</code> or <code>{n,n}</code>. Char-classes are allowed here, dot is allowed, <code>\b</code> and <code>\B</code> are allowed. Groups and choices are not allowed.</p></li>
-          <li><p>For other 3 assertion kinds, expression in brackets can be of any complexity.</p></li>
+          <li><p>Variable length lookbehind are not allowed to contain capture groups.</p></li>
+          <li><p>Variable length lookbehind may be slow to execute, if they do not match.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -550,7 +567,16 @@
       </div>
 
       <div>
-        <h2><a name="unicode">9. Unicode categories</a></h2>
+        <h2><a name="recursion">9. Recursion</a></h2>
+        <p>Syntax is <code>(?R)</code>, the alias is <code>(?0)</code>.</p>
+        <p>The regex <code>a(?R)?z</code> matches one or more letters <code>a</code> followed by exactly the same number of letters <code>z</code>.</p>
+        <p>The main purpose of recursion is to match balanced constructs or nested constructs. The generic regex is <code>b(?:m|(?R))*e</code> where <code>b</code> is what begins the construct, <code>m</code> is what can occur in the middle of the construct, <code>e</code> is what occurs at the end of the construct.</p>
+        <p>If what may appear in the middle of the balanced construct may also appear on its own without the beginning and ending parts then the generic regex is <code>b(?R)*e|m</code>.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="unicode">10. Unicode categories</a></h2>
         <p>Unicode standard has names for character categories. These are 2-letter strings. For example <code>Lu</code> is uppercase letters, <code>Ll</code> is lowercase letters. And 1-letter bigger category <code>L</code> is all letters.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Unicode categories</th></tr>
@@ -599,17 +625,17 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">Co</div></td><td class="hintcell">Private Use</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Cn</div></td><td class="hintcell">Unassigned</td></tr>
         </table>
-        <p>Meta-character <code>\p</code> denotes one Unicode char of specified category. Syntaxes: <code>\pL</code> and <code>\p{L}</code> for 1-letter name, <code>\p{Lu}</code> for 2-letter names.</p>
-        <p>Meta-character <code>\P</code> is inverted, it denotes one Unicode char not in the specified category.</p>
-        <p>These meta-characters are supported withing character classes too.</p>
+        <p>Metacharacter <code>\p</code> denotes one Unicode char of specified category. Syntaxes: <code>\pL</code> and <code>\p{L}</code> for 1-letter name, <code>\p{Lu}</code> for 2-letter names.</p>
+        <p>Metacharacter <code>\P</code> is inverted, it denotes one Unicode char not in the specified category.</p>
+        <p>These metacharacters are supported withing character classes too.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
-        <h2><a name="modifiers">10. Modifiers</a></h2>
+        <h2><a name="modifiers">11. Modifiers</a></h2>
         <p>Syntax for one modifier: <code>(?i)</code> to turn on, and <code>(?-i)</code> to turn off. Many modifiers are allowed like this: <code>(?msgxr-imsgxr)</code>.</p>
         <p>Modifiers are for changing behaviour of regular expressions. Modifier affects only that part of regular expression that follows <code>(?imsgxr-imsgxr)</code> operator.</p>
-        <p>Any of these modifiers may be embedded within the regular expression itself. If modifier is inlined into subexpression, then it effects only into this subexpression.</p>
+        <p>Any of these modifiers may be embedded within the regular expression itself. If modifier is inlined into subexpression, then it effects only into this subexpression. Modifiers can also be given as part of a non-capturing group: <code>(?i:expr)</code>.</p>
         <dl>
           <dt><tt>i</tt></dt>
           <dd>Do case-insensitive pattern matching (using installed in your system locale settings). Disabled by default.</dd>
@@ -658,7 +684,7 @@
     |   # You can use spaces to format r.e. - TRegExpr ignores it
   (efg) # comment 2
 )</pre>
-        <p>This also means that if you want real whitespace or <code>#</code> characters in the pattern (outside a character class, where they are unaffected by <code>x</code>), that you'll either have to escape them or encode them using octal or hex escapes.</p>
+        <p>This also means that if you want real whitespace or <code>#</code> characters in the pattern (outside a character class, where they are unaffected by <code>x</code>), that you'll either have to escape them or encode them using hex escapes.</p>
         <p>Taken together, these features go a long way towards making regular expressions text more readable.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
         <br>

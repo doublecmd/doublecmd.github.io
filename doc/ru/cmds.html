@@ -307,25 +307,29 @@
                   <td class="innerdescdesccell">применить к активной панели</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" rowspan="5">column</td>
+                  <td class="innerdescparamcell" rowspan="6">column</td>
                   <td class="innerdescvaluecell">name</td>
-                  <td class="innerdescdesccell">сортировать по колонке "имя-расширение"</td>
+                  <td class="innerdescdesccell">сортировать по имени и расширению</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">namenoext<span class="versionref"><sup>(Альфа-версия)</sup></span></td>
+                  <td class="innerdescdesccell">сортировать по имени без расширения</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">ext</td>
-                  <td class="innerdescdesccell">сортировать по колонке "расширение"</td>
+                  <td class="innerdescdesccell">сортировать по расширению</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">size</td>
-                  <td class="innerdescdesccell">сортировать по колонке "размер"</td>
+                  <td class="innerdescdesccell">сортировать по размеру</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">datetime</td>
-                  <td class="innerdescdesccell">сортировать по колонке "дата"</td>
+                  <td class="innerdescdesccell">сортировать по дате модификации</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(отсутствует)</i></td>
-                  <td class="innerdescdesccell">сортировать по колонке "имя"</td>
+                  <td class="innerdescdesccell">сортировать по имени и расширению</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">order</td>
@@ -602,7 +606,7 @@
                 </tr>
               </table>
               <br>
-              Если выделено несколько файлов, то будет открыт первый выделенный файл (как в <a href="#cm_View">программе просмотра</a>): на данный момент работа команды с несколькими выделенными файлами не реализована в полной мере, поэтому вы можете снять выделение с файлов, добавить "cursor=1" или использовать <a href="#cm_EditNew">cm_EditNew</a>.
+              Если выделено несколько файлов, то будет открыт первый выделенный файл (как в <a href="#cm_View">программе просмотра</a>): на данный момент работа команды с несколькими выделенными файлами не реализована в полной мере, поэтому мы можем снять выделение с файлов, добавить "cursor=1" или использовать <a href="#cm_EditNew">cm_EditNew</a>.
             </td>
           </tr>
           <tr>
@@ -610,7 +614,7 @@
               <div class="cmdname"><a name="cm_EditNew">cm_EditNew</a></div>
               <div class="shrtctkey">Shift+F4</div></td>
             <td class="cmdhintcell">Создать новый текстовый файл в текущем каталоге и открыть его в редакторе (см. <a href="configuration.html#ConfigToolsEditor">Инструменты&nbsp;&gt; Редактор</a>) или открыть существующий файл (если файл с таким именем уже существует).<br>
-              Вы можете ввести полное имя файла (с путём) и он будет создан в указанном каталоге.</td>
+              Мы можем ввести полное имя файла (с путём) и он будет создан в указанном каталоге. Имейте в виду, команда не создаёт новые папки в пути.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Copy" alt="cm_Copy" src="../../pixmaps/dctheme/32x32/actions/cm_copy.png">
@@ -693,7 +697,30 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameOnly" alt="cm_RenameOnly" src="../../pixmaps/dctheme/32x32/actions/cm_renameonly.png">
               <div class="cmdname"><a name="cm_RenameOnly">cm_RenameOnly</a></div>
               <div class="shrtctkey">F2, Shift+F6</div></td>
-            <td class="cmdhintcell">Переименовать файлы в этом же, текущем, каталоге.</td>
+            <td class="cmdhintcell"><a href="help.html#rename_files">Переименовать файл</a> в этом же, текущем, каталоге.<br>
+              Доступен один параметр<span class="versionref"><sup>(Альфа-версия)</sup></span>:<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">extension</td>
+                  <td class="innerdescvaluecell">1/true/on/yes</td>
+                  <td class="innerdescdesccell">Double Commander покажет поле редактирования имени с именем файла под курсором, мы можем изменить базовое имя файла и его расширение (поведение по умолчанию)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0/false/off/no</td>
+                  <td class="innerdescdesccell">Double Commander покажет поле редактирования имени с базовым именем (без расширения) файла под курсором и мы сможем изменить только его, расширение останется прежним</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescdesccell">поведение по умолчанию</td>
+                </tr>
+              </table>
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_MakeDir" alt="cm_MakeDir" src="../../pixmaps/dctheme/32x32/actions/cm_makedir.png">
@@ -814,7 +841,26 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenVirtualFileSystemList" alt="cm_OpenVirtualFileSystemList" src="../../pixmaps/dctheme/32x32/actions/cm_openvirtualfilesystemlist.png">
               <div class="cmdname"><a name="cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a></div></td>
-            <td class="cmdhintcell"><a href="help.html#cm_OpenVirtualFileSystemList">Открыть список VFS</a>.</td>
+            <td class="cmdhintcell"><a href="help.html#cm_OpenVirtualFileSystemList">Открыть список VFS</a>.<br>
+              Доступен один параметр<span class="versionref"><sup>(Альфа-версия)</sup></span>:<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">plugin</td>
+                  <td class="innerdescvaluecell">имя плагина, например, FTP</td>
+                  <td class="innerdescdesccell">открыть плагин напрямую</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(пусто, по умолчанию)</i></td>
+                  <td class="innerdescdesccell">открыть список VFS</td>
+                </tr>
+              </table>
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_FileProperties" alt="cm_FileProperties" src="../../pixmaps/dctheme/32x32/actions/cm_fileproperties.png">
@@ -1108,6 +1154,18 @@
               <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Только Windows: копировать в буфер имена с UNC-путём.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MapNetworkDrive" alt="cm_MapNetworkDrive" src="../../pixmaps/dctheme/32x32/actions/cm_mapnetworkdrive.png">
+              <div class="cmdname"><a name="cm_MapNetworkDrive">cm_MapNetworkDrive</a></div>
+              <div class="shrtctkey">Ctrl+K</div></td>
+            <td class="cmdhintcell">Команда позволяет подключить сетевые устройства, поведение зависит от операционной системы:
+              <ul>
+                <li>Windows: вызывает системный диалог Windows для подключения сетевых дисков.</li>
+                <li>macOS: аналогично команде "Подключение к серверу" в Finder.</li>
+                <li>Linux и другие Unix-подобные системы: Double Commander предложит указать путь: мы можем использовать пути GVfs (подробнее смотрите в <a href="faq.html#gvfs">FAQ</a>) или указать локальный каталог. Таким образом, по результату работы эта команда схожа с командой <a href="#cm_EditPath">cm_EditPath</a>.</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -1210,6 +1268,16 @@
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomOut" alt="cm_MainFontZoomOut" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomout.png">
+              <div class="cmdname"><a name="cm_MainFontZoomOut">cm_MainFontZoomOut</a></div></td>
+            <td class="cmdhintcell">Уменьшить размер основного шрифта (для файловых панелей).</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomIn" alt="cm_MainFontZoomIn" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomin.png">
+              <div class="cmdname"><a name="cm_MainFontZoomIn">cm_MainFontZoomIn</a></div></td>
+            <td class="cmdhintcell">Увеличить размер основного шрифта (для файловых панелей).</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -1483,14 +1551,14 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelectionToFile" alt="cm_SaveSelectionToFile" src="../../pixmaps/dctheme/32x32/actions/cm_saveselectiontofile.png">
               <div class="cmdname"><a name="cm_SaveSelectionToFile">cm_SaveSelectionToFile</a></div></td>
             <td class="cmdhintcell">Сохранить текущее выделение в файл.<br>
-              Вы можете указать имя файла в первом параметре.<br>
+              Мы можем указать имя файла в первом параметре.<br>
               Если параметр не используется, то Double Commander предложит указать имя файла.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_LoadSelectionFromFile" alt="cm_LoadSelectionFromFile" src="../../pixmaps/dctheme/32x32/actions/cm_loadselectionfromfile.png">
               <div class="cmdname"><a name="cm_LoadSelectionFromFile">cm_LoadSelectionFromFile</a></div></td>
             <td class="cmdhintcell">Загрузить выделение из файла.<br>
-              Вы можете указать имя файла в первом параметре.<br>
+              Мы можем указать имя файла в первом параметре.<br>
               Если параметр не используется, то Double Commander предложит указать имя файла.</td>
           </tr>
           <tr>
@@ -1502,7 +1570,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFileDetailsToFile" alt="cm_SaveFileDetailsToFile" src="../../pixmaps/dctheme/32x32/actions/cm_savefiledetailstofile.png">
               <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a></div></td>
             <td class="cmdhintcell">Сохранить содержимое всех колонок выделенных файлов/папок в файл.<br>
-              Вы можете указать имя файла в первом параметре.<br>
+              Мы можем указать имя файла в первом параметре.<br>
               Если параметр не используется, то Double Commander предложит указать имя файла.</td>
           </tr>
 
@@ -2447,8 +2515,7 @@
               <div class="cmdname"><a name="cm_Search">cm_Search</a></div>
               <div class="shrtctkey">Alt+F7</div></td>
             <td class="cmdhintcell">Открыть окно <a href="help.html#cm_Search">поиска</a> с параметрами по умолчанию или с шаблоном поиска по умолчанию (см. Файловые операции&nbsp;&gt; Поиск файлов, опция "Шаблон поиска по умолчанию").<br>
-              Также команда поддерживает один параметр для открытия диалога поиска с сохранённым шаблоном, используйте имя шаблона как есть, без кавычек.
-            </td>
+              Также команда поддерживает один параметр для открытия диалога поиска с сохранённым шаблоном, используйте имя шаблона как есть, без кавычек.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddNewSearch" alt="cm_AddNewSearch" src="../../pixmaps/dctheme/32x32/actions/cm_addnewsearch.png">
@@ -2483,6 +2550,45 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_DebugShowCommandParameters" alt="cm_DebugShowCommandParameters" src="../../pixmaps/dctheme/32x32/actions/cm_debugshowcommandparameters.png">
               <div class="longcmdname"><a name="cm_DebugShowCommandParameters">cm_DebugShowCommandParameters</a></div></td>
             <td class="cmdhintcell">Показать окно сообщения с информацией, переданной в качестве параметров.<br>Это может быть полезно для проверки передаваемых команде параметров.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_CallPlatformFunctions" alt="cm_CallPlatformFunctions" src="../../pixmaps/dctheme/32x32/actions/cm_callplatformfunctions.png">
+              <div class="cmdname"><a name="cm_CallPlatformFunctions">cm_CallPlatformFunctions</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div>
+            <td class="cmdhintcell">Вызвать платформо-специфичные функции: выполняет различные функции в разных операционных системах.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="6">func</td>
+                  <td class="innerdescvaluecell">Share</td>
+                  <td class="innerdescdesccell">показать контекстное меню "Поделиться" (только macOS)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">AirDrop</td>
+                  <td class="innerdescdesccell">показать панель AirDrop (только macOS)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">QuickLook</td>
+                  <td class="innerdescdesccell">показать панель предпросмотра QuickLook (только macOS)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">RevealInFinder</td>
+                  <td class="innerdescdesccell">показать файлы в Finder (только macOS)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">ShowInfoInFinder</td>
+                  <td class="innerdescdesccell">показать информацию о файлах в Finder (только macOS)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">EditFinderTags</td>
+                  <td class="innerdescdesccell">показать панель тегов Finder (только macOS)</td>
+                </tr>
+              </table>
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_DoAnyCmCommand" alt="cm_DoAnyCmCommand" src="../../pixmaps/dctheme/32x32/actions/cm_doanycmcommand.png">
@@ -2588,7 +2694,8 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameTab" alt="cm_RenameTab" src="../../pixmaps/dctheme/32x32/actions/cm_renametab.png">
               <div class="cmdname"><a name="cm_RenameTab">cm_RenameTab</a></div></td>
-            <td class="cmdhintcell">Переименовать текущую вкладку активной панели.</td>
+            <td class="cmdhintcell">Переименовать текущую вкладку активной панели.<br>
+              Также мы можем указать новое имя вкладки как параметр.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseTab" alt="cm_CloseTab" src="../../pixmaps/dctheme/32x32/actions/cm_closetab.png">

@@ -48,7 +48,7 @@
           <dd>
             <dl>
               <dt>3.1. <a href="#ftp.wfx">FTP</a></dt>
-              <dt>3.2. <a href="#maccloud.wfx">MacCloud</a><span class="versionref"><sup>(Альфа-версия)</sup></span></dt>
+              <dt>3.2. <a href="#maccloud.wfx">MacCloud</a></dt>
             </dl>
           </dd>
           <dt>4. Плагины встроенной программы просмотра (WLX)</dt>
@@ -94,7 +94,7 @@
         <p><span class="bold"><a name="sevenzip.wcx">SevenZip</a></span></p>
         <p>Архиваторный плагин для работы с файлами .7z, .arj, .cab, .cpio, .cramfs, .deb, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar и .z. Также мы можем добавить другие типы файлов, которые поддерживаются 7-Zip.</p>
         <p>Примечание: Для некоторых форматов поддерживается только чтение, то есть доступны только просмотр содержимого, распаковка и тестирование.</p>
-        <p>Только Windows.</p>
+        <p>Только Windows и Linux.</p>
         <br>
 
         <p><span class="bold"><a name="unrar.wcx">UnRAR</a></span></p>
@@ -108,6 +108,7 @@
         <p>Архиваторный плагин для работы с архивами .bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .tzst, .xz, .zip, .zipx и .zst. Также этот плагин может открыть файлы, основанные на ZIP (EPUB, Office Open XML, формат OpenDocument, CRX, XPI и другие).</p>
         <p>Требуются дополнительные библиотеки сжатия:</p>
         <ul>
+          <li><p>Brotli (толька распаковка): <tt>libbrotlidec.dll</tt> (Windows), <tt>libbrotlidec.dylib</tt> (macOS), <tt>libbrotlidec.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
           <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS), <tt>libbz2.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
           <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS), <tt>liblzma.so.5</tt> (Linux и другие Unix-подобные ОС).</p></li>
           <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS), <tt>libzstd.so.1</tt> (Linux и другие Unix-подобные ОС).</p></li>
@@ -173,7 +174,7 @@
         <p>Плагин позволяет использовать агент SSH-аутентификации (например, ssh-agent из набора утилит OpenSSH, Pageant из PuTTY).</p>
         <br>
 
-        <p><span class="bold"><a name="maccloud.wfx">MacCloud</a></span><span class="versionref"><sup>(Альфа-версия)</sup></span></p>
+        <p><span class="bold"><a name="maccloud.wfx">MacCloud</a></span></p>
         <p>Плагин для работы с облачными хранилищами, поддерживаются:</p>
         <ul>
           <li>DropBox</li>

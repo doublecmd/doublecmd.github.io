@@ -88,7 +88,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%v</div></td>
-            <td class="hintcell">Relative filename referenced to the current active directory<br>This is pertinent for example if you've invoke the internal command <a href="cmds.html#cm_flatview">cm_FlatView</a>.<br><code>If we've done a flat view from directory "C:\Users\UserName", the %v will result in "Desktop\comment.png"</code></td>
+            <td class="hintcell">Relative filename referenced to the current active directory<br>This is pertinent for example if you've invoke the internal command <a href="cmds.html#cm_flatview">cm_FlatView</a>.<br>If we've done a flat view from directory <code>"C:\Users\UserName"</code>, the <code>%v</code> will result in <code>"Desktop\comment.png"</code></td>
           </tr>
         </table>
         <p>The <code>%a</code> variable is available for the virtual file system (an open archive or a file system plugin): the string includes the path to the virtual file system (the full name of the archive or the name of the WFX plugin with "wfx://") and the full file name relative to the root of the virtual file system.</p>
@@ -340,7 +340,7 @@
       <div>
         <h2><a name="suffixforlist">10. Suffix for list of files</a></h2>
         <p>By default, the above mentioned file names inside the file list are unquoted. But there is a suffix you may add to change that if required.</p>
-        <p>Also, there are suffixes to specify if you want this file list to be coded in UT8 or UTF16.</p>
+        <p>Also, there are suffixes to specify if you want this file list to be coded in UTF-8 or UTF-16.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Suffix to list of files variable</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Expression</th><th class="categorydesccolumn">Description</th></tr>
@@ -350,11 +350,11 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">U</div></td>
-            <td class="hintcell">List will be coded in UTF8 format</td>
+            <td class="hintcell">List will be coded in UTF-8 format</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">W</div></td>
-            <td class="hintcell">List will be coded in UTF16 format</td>
+            <td class="hintcell">List will be coded in UTF-16 format</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -373,11 +373,11 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%FUs</div></td>
-            <td class="hintcell">Just filenames, int UTF8 format, with selected files from source panel</td>
+            <td class="hintcell">Just filenames, int UTF-8 format, with selected files from source panel</td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">%RQW</div></td>
-            <td class="hintcell">Filenames with relative path, quoted, in UTF16 format, files for source (default)</td>
+            <td class="hintcell">Filenames with relative path, quoted, in UTF-16 format, files for source (default)</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -518,8 +518,8 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">file name of file list of selected items with just the file name</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">file name of file list of selected items with just their relative path name</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">suffix for %L, %F or %R to request quoted filenames</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">suffix for %L, %F or %R to request UTF8 file format for list</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">suffix for %L, %F or %R to request UTF16 file format for list</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">suffix for %L, %F or %R to request UTF-8 file format for list</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">suffix for %L, %F or %R to request UTF-16 file format for list</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%t0</div></td><td class="hintcell">run in terminal and request to close it at the end</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%t1</div></td><td class="hintcell">run in terminal and stay open at the end</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td><td class="hintcell">will show a message box with the text specified between brackets</td></tr>

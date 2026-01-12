@@ -121,7 +121,7 @@
         <p>This menu contains almost all the actions that can be made on files. Please consider all the items:</p>
 
         <p><a name="cm_SymLink"><span class="bold">Create Symbolic Link...</span></a> (internal command <tt>cm_SymLink</tt>). With this item, Double Commander creates a <a href="https://en.wikipedia.org/wiki/Symlink" target="_blank">symbolic link</a> to the file under the cursor and places it in the folder opened in the opposite panel.</p>
-        <p class="figure"><img class="largeimage" title="Symbolic link" alt="Symbolic link" src="images/imgDC/pic15.png" width="370" height="188"></p>
+        <p class="figure"><img class="largeimage" title="Symbolic link" alt="Symbolic link" src="images/imgDC/pic15.png" width="408" height="194"></p>
         <p><span class="italic">Link name</span>&nbsp;&ndash; here is the path to the link and its name. The name is the last word after the last directory separator character in the line.</p>
         <p><span class="italic">Destination that the link will point to</span>&nbsp;&ndash; the object, on which the link is created.</p>
         <p><span class="italic">Use relative path when possible</span>&nbsp;&ndash; if possible, Double Commander will use the relative path to the object directory.</p>
@@ -129,7 +129,7 @@
         <p><a name="cm_HardLink"><span class="bold">Create Hard Link...</span></a> (internal command <tt>cm_HardLink</tt>). Like the symbolic link above, but link is <a href="https://en.wikipedia.org/wiki/Hard_link" target="_blank">hard</a> and using a relative path will not be available.</p>
 
         <p><span class="bold">Create Directory</span> (internal command <tt>cm_MakeDir</tt>)&nbsp;&ndash; creates a new subdirectory in the current directory. The file name (without extension) or directory name under the cursor will be offered, this is useful for creating multiple directories with similar names. You can also create several subdirectories in one operation, just separate the subdrectories with the directory separator (in Unix/Linux system it will be "/" and in Windows it will be "\").</p>
-        <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="144"></p>
+        <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="145"></p>
         <p>The button with an arrow opens the history of the entered names. The button to the right of the input field allows to enable or disable auto-completion from the directory creation history.</p>
         <p>If <span class="italic">Extended syntax</span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
 
@@ -145,8 +145,8 @@
         </p>
         <p>which indicates the file or folder name, MIME type, size, write and last access time. For links, Double Commander will additionally show the link object (symbolic link) or their total number (hard link). On the "Attributes" tab you can change the access rights to the file and its owner (if you have the rights to do so). The "Plugins" tab is optional and is only available if you have a suitable content plugin (in this case it was <a href="plugins.html#deb_wdx.wdx">DEB</a>). Also see description of <a href="configxml.html">&lt;SystemItemProperties&gt;</a>.</p>
 
-        <p>Using item <a name="cm_EditComment"><span class="bold">Edit comment...</span></a> (internal command <tt>cm_EditComment</tt>) you can create or change file comments, which stored in a file <tt>descript.ion</tt>. Supports UTF, ISO, KOI and ANSI encodings. In the <a href="configuration.html#ConfigMisc">Miscellaneous</a> settings section you can set the default text encoding.</p>
-        <p>Comments only work with normal files on the local file system, but not on remote or virtual file systems (e.g. on FTP server, in archive, etc.). In order for Double Commander to take into account the contents of <tt>descript.ion</tt> when copying or moving files, make sure that <span class="italic">Process comments with files/folders</span> is enabled in the <a href="configuration.html#ConfigOperations">File operations</a> settings section.</p>
+        <p>Using item <a name="cm_EditComment"><span class="bold">Edit comment...</span></a> (internal command <tt>cm_EditComment</tt>) you can create or change file comments, which stored in a file <tt>descript.ion</tt> (to delete a comment, open the dialog window and clear the edit field). Supports UTF, ISO, KOI and ANSI encodings. In the <a href="configuration.html#ConfigMisc">Miscellaneous</a> settings section you can set the default text encoding.</p>
+        <p>Comments only work with normal files on the local file system, but not on remote or virtual file systems (e.g. on FTP server, in archive, etc.). In order for Double Commander to take into account the contents of <tt>descript.ion</tt> when performing file operations, make sure that <span class="italic">Process comments with files/folders</span> is enabled in the <a href="configuration.html#ConfigOperations">File operations</a> settings section.</p>
 
         <p><a name="cm_CalculateSpace"><span class="bold">Calculate Occupied Space</span></a> (internal command <tt>cm_CalculateSpace</tt>) item calculates the size of selected objects in rounded units and in bytes.</p>
         <p class="figure"><img class="largeimage" title="Calculate size" alt="Calculate size" src="images/imgDC/pic19.png" width="293" height="103"></p>
@@ -183,12 +183,13 @@
         <p>The action of the <span class="italic">Configure</span> button depends on the selected archiver:</p>
         <ul>
           <li><p>packer plugins (WCX): opens the plugin's own settings window (if selected plugin supports this feature);</p></li>
-          <li><p>external archivers: opens a window with an input field for additional archiver parameters (when using the <a href="multiarc.html#variables">%S</a> variable).</p></li>
+          <li><p>external archivers: opens a window with an input field for additional archiver parameters (when using the <a href="multiarc.html#variables">%S</a> variable). Double Commander automatically saves the entered parameter string, the button with an arrow will open the list of previously saved ones (see description of <a href="multiarc.html#aconfig">AskHistory</a>).</p></li>
         </ul>
         <p>Also we can unpack files via <a name="cm_ExtractFiles"><span class="bold">Extract Files</span></a> (internal command <tt>cm_ExtractFiles</tt>). The same dialog is called when you copy files from the archive.</p>
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
-        <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.
-          The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
+        <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files.</p>
+        <p>The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
         <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
         <p><span class="italic">Unpack path names if stored with files</span>&nbsp;&ndash; If checked, the directory structure in the archive will be kept. Otherwise, all files will be extracted without re-creating the directory structure.</p>
         <p>Checkbox <span class="italic">Overwrite existing files</span> disables confirmation of overwriting existing files.</p>
@@ -214,10 +215,12 @@
 
         <p>Item <a name="cm_CheckSumCalc"><span class="bold">Calculate check sum...</span></a> (internal command <tt>cm_CheckSumCalc</tt>) is used to calculate the <a href="https://en.wikipedia.org/wiki/Checksum" target="_blank">checksum</a> to check files integrity. The following checksums are available:
           BLAKE2 (BLAKE2s, BLAKE2sp, BLAKE2b, BLAKE2bp), BLAKE3, CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV, SHA,
-          SHA2 (digest sizes 224, 256, 384 or 512 bits), SHA3 (digest sizes 224, 256, 384 or 512 bits), Tiger/192.</p>
-        <p class="figure"><img class="largeimage" title="Calculate checksum" alt="Calculate checksum" src="images/imgDC/pic26.png" width="402" height="432"></p>
+          SHA2 (digest sizes 224, 256, 384 or 512 bits), SHA3 (digest sizes 224, 256, 384 or 512 bits), Tiger/192,
+          XXH128 (XXH3 with 128 bit digest size).</p>
+        <p class="figure"><img class="largeimage" title="Calculate checksum" alt="Calculate checksum" src="images/imgDC/pic26.png" width="402" height="377"></p>
         <p><span class="italic">Save checksum file(s) to:</span>&nbsp;&ndash; line specifies name and path to the calculated checksum.</p>
         <p><span class="italic">Create separate checksum files for each file</span>&nbsp;&ndash; if checksum calculates for multiple files, this option allows to create separate checksum files for each target file.</p>
+        <p><span class="italic">Create separate checksum file for each directory</span>&nbsp;&ndash; Double Commander will scan the selected folders or the folder under the cursor and create separate checksum files in each subdirectory. The program will not take into account the <a href="configuration.html#ConfigIgnore">ignore list</a> and the status of the <a href="configuration.html#ConfigViewEx">Show system and hidden files</a> option.</p>
         <p><span class="italic">Open checksum file after job is completed</span>&nbsp;&ndash; after the operation is completed, the checksum file will be opened in the <a href="viewer.html">file viewer</a>.</p>
         <p><span class="italic">File format</span>&nbsp;&ndash; allows to specify the line ending type and directory separator instead of the commonly used values in Windows (CRLF and "\") and Unix-like systems (LF and "/").</p>
 
@@ -238,7 +241,9 @@
       <div>
         <h2><a name="mnu_select">2.1.2. "Mark"</a></h2>
         <p>There are some commands in this group with which you can select files in different ways.</p>
-        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). Also there is a drop-down list with masks history. For example, select all files that have the <tt>.txt</tt> extension:</p>
+        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). Also there is a drop-down list with masks history.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files.</p>
+        <p>For example, select all files that have the <tt>txt</tt> extension:</p>
         <p class="figure"><img class="largeimage" title="Select a group" alt="Select a group" src="images/imgDC/pic27.png" width="333" height="332"></p>
         <p>The <span class="italic">Define...</span> button allows to create a new search template.</p>
         <p>If the <a href="findfiles.html#advanced">duplicate search</a> result is open in the active panel, these commands will work in a special mode:</p>
@@ -282,6 +287,7 @@
         <p><span class="bold"><a name="cm_OpenVirtualFileSystemList">Open VFS List</a></span> (internal command <tt>cm_OpenVirtualFileSystemList</tt>) will open a list of added file system plugins (WFX plugins) that use their own file systems or provide access to other file systems and devices (local or remote). As well as virtual folders:</p>
         <ul>
           <li><p><tt>Computer</tt>&nbsp;&ndash; contains a list of normal disks with a drive letter and devices that do not have a drive letter (for example, USB devices that are connected via the MTP protocol, i.e. smartphones, tablets or players). Windows only.</p></li>
+          <li><p><tt>iCloud</tt>&nbsp;&ndash; access to iCloud Drive contents. Additionally, you can <a href="configuration.html#ConfigiCloud">choose the application folders</a> that will be available in this virtual folder. macOS only.</p></li>
           <li><p><tt>Linux</tt>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
           <li><p><tt>Network</tt>&nbsp;&ndash; access to shared network resources (Windows) or to network resources using Gio (Linux).</p></li>
           <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; access to files deleted to the trash.</p></li>
@@ -463,7 +469,7 @@
         <h2><a name="iface_columns">2.7. Tabstop headers bar</a></h2>
         <p class="figure"><img class="largeimage" title="Tabstop headers bar" alt="Tabstop headers bar" src="images/imgDC/pic9.png" width="448" height="19"></p>
         <p>Shows the column names. On left click <a href="#sort_by">sorts</a> files by column. A small arrow to the left of the header text shows the sort direction. Also you can set the sort order for multiple columns by clicking on the header while holding down the <kbd>Ctrl</kbd> key. For example, try to sort files by extension, now click on the "Date" header with the <kbd>Ctrl</kbd> key: each file type will be sorted by date independently of the others.</p>
-        <p>The tabstop headers bar allows to change the width of the columns using the mouse, by default DC changes it for both panels and saves a new value for the next launches (see <a href="configxml.html">&lt;AutoSaveWidth&gt;</a>).</p>
+        <p>The tabstop headers bar allows to change the width of the columns using the mouse by simply dragging the borders, by default DC changes it for both panels and saves a new value for the next launches (see <a href="configxml.html">&lt;AutoSaveWidth&gt;</a>).</p>
         <p>On right click shows a menu to change and edit custom column style set.</p>
         <p class="figure"><img class="largeimage" title="Column set style dialog" alt="Column set style dialog" src="images/imgDC/pic10.png" width="273" height="108"></p>
         <p><span class="italic">Default, File count</span>&nbsp;&ndash; existing styles.</p>
@@ -570,17 +576,19 @@
         <p>Double Commander allows to rename files directly in the file panel. There are several ways to call this operation: the internal command <tt>cm_RenameOnly</tt> (<kbd>F2</kbd> or <kbd>Shift+F6</kbd> by default), the <a href="configuration.html#ConfigViewEx">left mouse click</a> or the corresponding item in the right mouse button menu.</p>
         <p>By default, Double Commander will select the file name completely, but you can <a href="configuration.html#ConfigOperations">enable</a> file name selecting without an extension. Also, repeated hotkey presses allow to select the file name in parts, the following characters are used as a separator: space, hyphen underscore and period. Folder names are always selected completely.</p>
         <p>To confirm the change in the name, use the <kbd>Enter</kbd> key or the rename confirmation button to the right of the edit field. To cancel unconfirmed changes (to exit editing mode), use the <kbd>Esc</kbd> key or the mouse click outside the edit field. You can use a mouse click outside the edit field to confirm the renaming (as in Windows Explorer), see the description of <a href="configxml.html">&lt;RenameConfirmMouse&gt;</a>.</p>
+        <p>Using the up and down arrows, you can rename several files sequentially: the new file name will be automatically saved when you go to edit the name of the next or previous file. To exit this mode, use the methods described above to confirm or cancel the operation.</p>
         <p>For group renaming files, the <a href="multirename.html">appropriate tool</a> is available.</p>
         <br>
 
         <p><a name="cm_QuickSearch"><span class="bold">Quick search/filter</span></a></p>
         <p>When using the quick search/filter tool, its panel is displayed at the bottom of the file panel. Quick search is used to search through the current contents of the file panel: the cursor will be moved to the nearest matching file and when using the <kbd>up arrow</kbd> and <kbd>down arrow</kbd> keys, the program will move the cursor in a circle only over files whose names match the conditions. Quick filter will hide all file names that do not match the conditions (to reset the filter, use the <kbd>Esc</kbd> key or the "X" button).</p>
-        <p class="figure"><img class="largeimage" title="Quick search/filter panel" alt="Quick search/filter panel" src="images/imgDC/pic57.png" width="418" height="29"></p>
+        <p class="figure"><img class="largeimage" title="Quick search/filter panel" alt="Quick search/filter panel" src="images/imgDC/pic57.png" width="444" height="29"></p>
         <ul>
           <li><p><span class="italic">Filter</span>&nbsp;&ndash; search/filter switch;</p></li>
           <li><p><span class="italic">{</span>&nbsp;&ndash; name must start with first typed characters;</p></li>
           <li><p><span class="italic">}</span>&nbsp;&ndash; last characters before a typed dot "." must match;</p></li>
           <li><p><span class="italic">Aa</span>&nbsp;&ndash; case sensitive;</p></li>
+          <li><p><span class="italic">Ďï</span>&nbsp;&ndash; diacritics and ligatures;</p></li>
           <li><p><span class="italic">F</span>&nbsp;&ndash; filter files;</p></li>
           <li><p><span class="italic">D</span>&nbsp;&ndash; filter directories;</p></li>
           <li><p><span class="italic">X</span>&nbsp;&ndash; disable quick search and close the panel.</p></li>

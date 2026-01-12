@@ -40,12 +40,12 @@
         <p>The location of this <tt>doublecmd.xml</tt> file may be in different places:</p>
         <ul>
           <li>It may be configured to be in the user home directory.</li>
-          <li>It may be configured to be in the program directory itself, which is commonly the case when used in a portable context.</li>
+          <li>It may be configured to be in the "settings" folder in the program directory itself, which is commonly the case when used in a portable context.</li>
           <li>We may define its location via a command line parameter when launching the application.</li>
         </ul>
         <p>We follow <a href="commandline.html">this link</a> if we want to specify it by with the command line paramter <code>--config-dir</code>.</p>
         <p>Other than that, we do Configuration&nbsp;&gt; Options...&nbsp;&gt; select in the tree <img src="images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px">&nbsp;&gt; set the option <i>Location of configuration files</i>.</p>
-        <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="496" height="141"></p>
+        <p class="figure"><img class="largeimage" title="Location of configuration file" alt="Location of configuration file" src="images/imgDC/configlocation.png" width="556" height="138"></p>
         <p>Another way to quickly find out where is located the <tt>doublecmd.xml</tt> the current instance of Double Commander is using is by accessing the <a href="directoryhotlist.html">Directory Hotlist</a>. At the end of it there is a sub section called "Special Dirs". Then we select "Go to Double Commander special path" and then "%DC_CONFIG_PATH%". We will find there the <tt>doublecmd.xml</tt> that application is currently using.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -153,7 +153,39 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditSpecialChars">&lt;SynEditSpecialChars&gt;</a></div></td>
+            <td class="hintcell">
+              Allows to change the visual representation of whitespace characters when <a href="configuration.html#ConfigToolsEditor">Show special characters</a> is enabled. Option will be set to a single number representing the sum of the numbers from the following table depending on what are our preferences:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Space characters will be displayed as a middle dot characters ("&#xB7;", U+00B7).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">Tab characters will be displayed as a long space (see <a href="configuration.html#ConfigToolsEditor">Tab width</a>) with a right-pointing double angle quotation mark ("&raquo;", U+00BB) at the beginning.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">4</td>
+                  <td class="innerdescdesccell">Tab characters will be displayed as a long space (see <a href="configuration.html#ConfigToolsEditor">Tab width</a>) with a right-pointing double angle quotation mark ("&raquo;", U+00BB) at the end.</td>
+                </tr>
+              </table>
+              Default value is 5.
+            </td>
+          </tr>
+
+          <tr>
             <td colspan="2" class="subsection"><div class="subsection">from &lt;FileOperations&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoCopyBackward">&lt;AutoCopyBackward&gt;</a></div></td>
+            <td class="hintcell">Sets the behavior for files opened in the editor (built-in or external) from an archive or a WFX plugin.<br>
+              Files from the virtual file system are automatically copied to the system directory for the temporary files before opening. If a file has been changed, Double Commander will prompt to copy it back (<code>False</code>) or copy it back automatically (<code>True</code>). <code>True</code> by default.</td>
           </tr>
 
           <tr>
@@ -260,8 +292,6 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="ExtraLineSpanF">&lt;ExtraLineSpan&gt;</a></div></td>
             <td class="hintcell">
-              *** from DC 1.3, <code>ExtraLineSpan</code> can be set in Options > Files views extra ***<br>
-              <br>
               This setting allows to add some extra pixels to the height allowed for each element displayed in the file panels. The value is interpreted directly in pixels.<br>
               Default value is 2.<br>
               <i>Example:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
@@ -279,7 +309,7 @@
           <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="RenameConfirmMouse">&lt;RenameConfirmMouse&gt;</a></div></td>
             <td class="hintcell">
-              This option changes the mouse click action when renaming a file under the cursor: if <code>True</code>, the mouse click outside the name edit field will confirm renaming the file (as in Windows Explorer), otherwise, the mouse click will work the same as the <kbd>Esc</kbd> key.<br>
+              This option changes the mouse click action when renaming the file under the cursor: if <code>True</code>, the mouse click outside the name edit field will confirm renaming the file (as in Windows Explorer), otherwise, the mouse click will work the same as the <kbd>Esc</kbd> key.<br>
               <code>False</code> by default.<br>
               In both cases, we can still use the button to the right of the edit field to confirm the operation.
             </td>
@@ -378,6 +408,11 @@
 
           <tr>
             <td colspan="2" class="subsection"><div class="subsection">from &lt;History&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxStringItems">Attribute <i>MaxStringItems</i><br><small>from &lt;History&gt;</small></a></div></td>
+            <td class="hintcell">The <code>MaxStringItems</code> attribute allows to specify the maximum number of entries in the <a href="configuration.html#ConfigDC">saved history</a>. Default value is 50.</td>
           </tr>
 
           <tr>
@@ -481,6 +516,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DriveBarFreeSpace">&lt;DriveBarFreeSpace&gt;</a></div></td>
+            <td class="hintcell">Allows us to change the position of the free space label when the drives list button is disabled: by default (<code>False</code>), when we disable the drives list button, its panel and free space label remain in the same place; otherwise (<code>True</code>), the panel will be hidden, and the free space label will be moved up to the drive buttons panel, adding space for the file list.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="ShowColonAfterDrive">&lt;ShowColonAfterDrive&gt;</a></div></td>
             <td class="hintcell">Windows only: show colon after letters of disks in the <a href="help.html#iface_drive_pane">drives button bar</a> and in the <a href="help.html#iface_drive_btn">drives list</a>. <code>False</code> by default.</td>
           </tr>
@@ -561,22 +601,7 @@
             <td class="hintcell">
               Double Commander is able to recognize the <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">EXIF</a> metadata format that might be encoded into a JPEG image file.<br>
               Inside that metadata, there is an <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">orientation flag</a> that may be used to display the picture into the same orientation as it was taken like if was in portrait, landscape, upside-down, mirror, etc.<br>
-              The <code>ImageExifRotate</code> tag configures Double Commander to indicate if we want the viewer to display the image using that information or not.<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Value</th>
-                  <th class="innerdescheader">Description</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Use the orientation flag embedded into the image file (default).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Ignore the orientation flag.</td>
-                </tr>
-              </table>
-              <i>Example:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
+              The <code>ImageExifRotate</code> tag configures Double Commander to indicate if we want the viewer to display the image using that information (<code>True</code>) or not (<code>False</code>). <code>True</code> by default.
             </td>
           </tr>
 
@@ -615,7 +640,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditMask">&lt;SynEditMask&gt;</a></div></td>
             <td class="hintcell">
               For the internal viewer, this option allows to manage the list of file extensions for code view mode (of course, within the available list).
-              We can specify file masks (separated by semicolons ";" without spaces) that will automatically open in this mode instead of plain text, or the name of a search template to exclude. We can also disable automatic opening of files in this mode by setting an empty string.
+              We can specify file masks (separated by semicolons ";" without spaces) that will automatically open in this mode instead of plain text, or the name of a search template (with the "&gt;" symbol before the name) to exclude. We can also disable automatic opening of files in this mode by setting an empty string.
               The default value is "*".
             </td>
           </tr>
@@ -639,10 +664,12 @@
             <td class="indexcell">
               <p>
                 <a href="#Count">Attribute <i>Count</i> (&lt;DirHistory&gt;)</a><br>
+                <a href="#MaxStringItems">Attribute <i>MaxStringItems</i> (&lt;History&gt;)</a><br>
                 <a href="#SaveAsymmetric">Attribute <i>Save</i> (&lt;Asymmetric&gt;)</a><br>
                 <a href="#SaveFileMask">Attribute <i>Save</i> (&lt;FileMask&gt;)</a><br><br>
                 <a href="#ActiveRight">ActiveRight</a><br>
                 <a href="#AutoCopy">AutoCopy</a><br>
+                <a href="#AutoCopyBackward">AutoCopyBackward</a><br>
                 <a href="#AutoExtractOpenMask">AutoExtractOpenMask</a><br>
                 <a href="#AutoSaveWidth">AutoSaveWidth</a><br>
                 <a href="#ConfirmQuit">ConfirmQuit</a><br>
@@ -659,6 +686,7 @@
                 <a href="#DefaultDropEffect">DefaultDropEffect</a><br>
                 <a href="#DiskAlpha">DiskAlpha</a><br>
                 <a href="#DoubleClickEditPath">DoubleClickEditPath</a><br>
+                <a href="#DriveBarFreeSpace">DriveBarFreeSpace</a><br>
                 <a href="#ExtraLineSpanF">ExtraLineSpan (&lt;FilesViews&gt;)</a><br>
                 <a href="#ExtraLineSpanV">ExtraLineSpan (&lt;Viewer&gt;)</a><br>
                 <a href="#FindWordAtCursor">FindWordAtCursor</a><br>
@@ -668,12 +696,12 @@
                 <a href="#JpegQuality">JpegQuality</a><br>
                 <a href="#LeftMargin">LeftMargin</a><br>
                 <a href="#LongInStatus">LongInStatus</a><br>
-                <a href="#LongNameAlert">LongNameAlert</a>
+                <a href="#LongNameAlert">LongNameAlert</a><br>
+                <a href="#MaxCodeSize">MaxCodeSize</a>
               </p>
             </td>
             <td class="indexcell">
               <p>
-                <a href="#MaxCodeSize">MaxCodeSize</a><br>
                 <a href="#MaxTextWidth">MaxTextWidth</a><br>
                 <a href="#Mode">Mode</a><br>
                 <a href="#NtfsHourTimeDelay">NtfsHourTimeDelay</a><br>
@@ -682,6 +710,7 @@
                 <a href="#ShowColonAfterDrive">ShowColonAfterDrive</a><br>
                 <a href="#Sounds">Sounds</a><br>
                 <a href="#SynEditMask">SynEditMask</a><br>
+                <a href="#SynEditSpecialChars">SynEditSpecialChars</a><br>
                 <a href="#SystemItemProperties">SystemItemProperties</a><br>
                 <a href="#TabSpaces">TabSpaces</a><br>
                 <a href="#TitleStyle">TitleStyle</a><br>

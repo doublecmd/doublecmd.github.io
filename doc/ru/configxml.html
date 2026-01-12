@@ -40,12 +40,12 @@
         <p>Файл <tt>doublecmd.xml</tt> может быть расположен в разных местах:</p>
         <ul>
           <li>Домашний каталог пользователя.</li>
-          <li>Каталог программы, обычно в случае использования как портативной версии.</li>
+          <li>Папка "settings" в каталоге программы, обычно в случае использования как портативной версии.</li>
           <li>Мы можем задать каталог с помощью параметра командной строки при запуске приложения.</li>
         </ul>
         <p>Подробнее узнать про параметр командной строки <code>--config-dir</code> можно по <a href="commandline.html">этой ссылке</a>.</p>
         <p>Расположение задаётся в настройках: Настройки&nbsp;&gt; Параметры...&nbsp;&gt; выбираем в дереве <img src="images/imgDC/optionconfiguration.png" title="Конфигурация" alt="Конфигурация" width="107" height="20" border="1px">&nbsp;&gt; устанавливаем параметр <i>Месторасположение файлов конфигурации</i>.</p>
-        <p class="figure"><img class="largeimage" title="Месторасположение файлов конфигурации" alt="Месторасположение файлов конфигурации" src="images/imgDC/configlocation.png" width="496" height="141"></p>
+        <p class="figure"><img class="largeimage" title="Месторасположение файлов конфигурации" alt="Месторасположение файлов конфигурации" src="images/imgDC/configlocation.png" width="556" height="138"></p>
         <p>Ещё один способ быстро выяснить, где находится <tt>doublecmd.xml</tt> текущего экземпляра Double Commander, это использовать меню <a href="directoryhotlist.html">избранных каталогов</a>. В конце его имеется дополнительный раздел под названием "Специальные каталоги", далее выбираем "Каталог Double Commander..." и "%DC_CONFIG_PATH%". Здесь мы найдём <tt>doublecmd.xml</tt>, который приложение использует в данный момент.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -152,7 +152,39 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditSpecialChars">&lt;SynEditSpecialChars&gt;</a></div></td>
+            <td class="hintcell">
+              Позволяет изменить визуальное представление пробельных символов, когда включено <a href="configuration.html#ConfigToolsEditor">Показывать специальные символы</a>. Задаётся как сумма следующих значений:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Символы пробела будут отображаться как символы средней точки ("&#xB7;", U+00B7).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">Символы табуляции будут отображаться как длинный пробел (см. <a href="configuration.html#ConfigToolsEditor">Ширина табуляции</a>) с символом правой двойной кавычки ("&raquo;", U+00BB) в начале.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">4</td>
+                  <td class="innerdescdesccell">Символы табуляции будут отображаться как длинный пробел (см. <a href="configuration.html#ConfigToolsEditor">Ширина табуляции</a>) с символом правой двойной кавычки ("&raquo;", U+00BB) в конце.</td>
+                </tr>
+              </table>
+              По умолчанию 5.
+            </td>
+          </tr>
+
+          <tr>
             <td colspan="2" class="subsection"><div class="subsection">в &lt;FileOperations&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoCopyBackward">&lt;AutoCopyBackward&gt;</a></div></td>
+            <td class="hintcell">Задаёт поведение для файлов, открытых в редакторе (встроенном или внешнем) из архива или WFX-плагина.<br>
+              Файлы из виртуальной файловой системы перед открытием автоматически копируются в системный каталог для временных файлов. Если файл был изменён, Double Commander предложит скопировать его обратно (<code>False</code>) или скопирует обратно автоматически (<code>True</code>). По умолчанию <code>True</code>.</td>
           </tr>
 
           <tr>
@@ -377,6 +409,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxStringItems">Атрибут <i>MaxStringItems</i><br><small>в &lt;History&gt;</small></a></div></td>
+            <td class="hintcell">Атрибут <code>MaxStringItems</code> позволяет указать максимальное количество записей <a href="configuration.html#ConfigDC">сохраняемой истории</a>. По умолчанию 50.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="Count">Атрибут <i>Count</i><br><small>в &lt;History&gt;&lt;DirHistory&gt;</small></a></div></td>
             <td class="hintcell">
               Атрибут <code>Count</code> позволяет указать количество записей из списка посещённых каталогов, которые будут отображаться в выпадающем меню (команда <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>). По умолчанию 30.<br>
@@ -477,6 +514,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DriveBarFreeSpace">&lt;DriveBarFreeSpace&gt;</a></div></td>
+            <td class="hintcell">Позволяет нам изменить положение строки свободного места при отключении кнопки списка дисков: по умолчанию (<code>False</code>) при отключении кнопки списка дисков её панель и строка свободного места остаются на том же месте; в противном случае (<code>True</code>) панель будет скрыта, а строка свободного места будет перемещена вверх, на панель кнопок дисков, добавляя пространство для списка файлов.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="ShowColonAfterDrive">&lt;ShowColonAfterDrive&gt;</a></div></td>
             <td class="hintcell">Только Windows: показать двоеточие после букв дисков в <a href="help.html#iface_drive_pane">панели кнопок дисков</a> и в <a href="help.html#iface_drive_btn">списке дисков</a>. По умолчанию <code>False</code>.</td>
           </tr>
@@ -557,22 +599,7 @@
             <td class="hintcell">
               Double Commander способен распознавать формат метаданных <a href="https://ru.wikipedia.org/wiki/EXIF" target="_blank">EXIF</a>, которые могут быть в файлах изображений JPEG.<br>
               Среди метаданных есть <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">флаг ориентации</a>, который может быть использован для просмотра изображения в том положении, в котором оно было сделано: портрет, пейзаж, перевёрнутое, зеркальное и т.д.<br>
-              Тег <code>ImageExifRotate</code> определяет, будет ли Double Commander учитывать эту информацию при просмотре изображения или нет.<br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">True</td>
-                  <td class="innerdescdesccell">Использовать встроенный в файл изображения флаг ориентации (по умолчанию).</td>
-                </tr>
-                <tr>
-                  <td class="innerdescvaluecell">False</td>
-                  <td class="innerdescdesccell">Игнорировать флаг ориентации.</td>
-                </tr>
-              </table>
-              <i>Пример:</i> <code>&lt;ImageExifRotate&gt;True&lt;/ImageExifRotate&gt;</code>
+              Тег <code>ImageExifRotate</code> определяет, будет ли Double Commander учитывать эту информацию при просмотре изображения (<code>True</code>) или нет (<code>False</code>). По умолчанию <code>True</code>.
             </td>
           </tr>
 
@@ -611,7 +638,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditMask">&lt;SynEditMask&gt;</a></div></td>
             <td class="hintcell">
               Встроенный просмотрщик: параметр позволяет управлять списком расширений файлов для режима просмотра кода (конечно, в пределах доступного списка).
-              Мы можем указать маски файлов (через точку с запятой ";" без пробелов), которые автоматически будут открываться в этом режиме вместо обычного текста, или имя шаблона поиска для исключения. Также мы можем отключить автоматическое открытие файлов в этом режиме, задав пустую строку.
+              Мы можем указать маски файлов (через точку с запятой ";" без пробелов), которые автоматически будут открываться в этом режиме вместо обычного текста, или имя шаблона поиска (с символом "&gt;" перед именем) для исключения. Также мы можем отключить автоматическое открытие файлов в этом режиме, задав пустую строку.
               Значение по умолчанию "*".
             </td>
           </tr>
@@ -635,10 +662,12 @@
             <td class="indexcell">
               <p>
                 <a href="#Count">Атрибут <i>Count</i> (&lt;DirHistory&gt;)</a><br>
+                <a href="#MaxStringItems">Атрибут <i>MaxStringItems</i> (&lt;History&gt;)</a><br>
                 <a href="#SaveAsymmetric">Атрибут <i>Save</i> (&lt;Asymmetric&gt;)</a><br>
                 <a href="#SaveFileMask">Атрибут <i>Save</i> (&lt;FileMask&gt;)</a><br><br>
                 <a href="#ActiveRight">ActiveRight</a><br>
                 <a href="#AutoCopy">AutoCopy</a><br>
+                <a href="#AutoCopyBackward">AutoCopyBackward</a><br>
                 <a href="#AutoExtractOpenMask">AutoExtractOpenMask</a><br>
                 <a href="#AutoSaveWidth">AutoSaveWidth</a><br>
                 <a href="#ConfirmQuit">ConfirmQuit</a><br>
@@ -655,6 +684,7 @@
                 <a href="#DefaultDropEffect">DefaultDropEffect</a><br>
                 <a href="#DiskAlpha">DiskAlpha</a><br>
                 <a href="#DoubleClickEditPath">DoubleClickEditPath</a><br>
+                <a href="#DriveBarFreeSpace">DriveBarFreeSpace</a><br>
                 <a href="#ExtraLineSpanF">ExtraLineSpan (&lt;FilesViews&gt;)</a><br>
                 <a href="#ExtraLineSpanV">ExtraLineSpan (&lt;Viewer&gt;)</a><br>
                 <a href="#FindWordAtCursor">FindWordAtCursor</a><br>
@@ -664,12 +694,12 @@
                 <a href="#JpegQuality">JpegQuality</a><br>
                 <a href="#LeftMargin">LeftMargin</a><br>
                 <a href="#LongInStatus">LongInStatus</a><br>
-                <a href="#LongNameAlert">LongNameAlert</a>
+                <a href="#LongNameAlert">LongNameAlert</a><br>
+                <a href="#MaxCodeSize">MaxCodeSize</a>
               </p>
             </td>
             <td class="indexcell">
               <p>
-                <a href="#MaxCodeSize">MaxCodeSize</a><br>
                 <a href="#MaxTextWidth">MaxTextWidth</a><br>
                 <a href="#Mode">Mode</a><br>
                 <a href="#NtfsHourTimeDelay">NtfsHourTimeDelay</a><br>
@@ -678,6 +708,7 @@
                 <a href="#ShowColonAfterDrive">ShowColonAfterDrive</a><br>
                 <a href="#Sounds">Sounds</a><br>
                 <a href="#SynEditMask">SynEditMask</a><br>
+                <a href="#SynEditSpecialChars">SynEditSpecialChars</a><br>
                 <a href="#SystemItemProperties">SystemItemProperties</a><br>
                 <a href="#TabSpaces">TabSpaces</a><br>
                 <a href="#TitleStyle">TitleStyle</a><br>

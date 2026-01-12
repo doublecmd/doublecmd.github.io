@@ -43,7 +43,7 @@
               <dt>2.6. <a href="#systheme">Why does the program's appearance not change or change only partially when switching the system theme? I have to close the program and open it again.</a></dt>
             </dl>
           </dd>
-          <dt><a name="tux">3. Issues related to macOS</a></dt>
+          <dt><a name="macos">3. Issues related to macOS</a></dt>
           <dd>
             <dl>
               <dt>3.1. <a href="#permissionsOnMacOS">Why does DC need permissions in macOS system setting?</a></dt>
@@ -60,7 +60,7 @@
               <dt>4.4. <a href="#icons">How to associate my own icons with some file types?</a></dt>
               <dt>4.5. <a href="#splitter">How to create a splitter on the buttons panel?</a></dt>
               <dt>4.6. <a href="#theme">Does DC has other icon themes?</a></dt>
-              <dt>4.7. <a href="#cs_size">How to make function keys and address bar bigger?</a></dt>
+              <dt>4.7. <a href="#cs_size">How to make function keys, address bar and other interface elements bigger?</a></dt>
               <dt>4.8. <a href="#height">File panels: how to change the height of elements (strings) and the intervals between them?</a></dt>
             </dl>
           </dd>
@@ -78,6 +78,7 @@
               <dt>5.9. <a href="#set_property">In some cases I see warning "Can not set [attributes, date/time, owner/group or permissions] for xxx" when I copy or move files, I want that DC use action "skip"/"skip all" by default. How I can do it?</a></dt>
               <dt>5.10. <a href="#admin_shares">Why doesn't the program show a list of admin shares?</a></dt>
               <dt>5.11. <a href="#hotkey_controls">I assigned the left and right arrows to navigate back and forth through the directory history, but now I can't use them while renaming a file. How to fix it?</a></dt>
+              <dt>5.12. <a href="#sound_notifications">Is there a way to add sound notifications when operations are completed?</a></dt>
             </dl>
           </dd>
           <dt><a name="viewer">6. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
@@ -194,7 +195,7 @@
         <p>First, packages <tt>gvfs</tt>, <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt> should be installed.
           Keep in mind that some distributions have not packages <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt>,
           because they are part of package <tt>gvfs</tt>, or it can be several packages with names <tt>gvfs-backends-*</tt> or <tt>gvfs-*</tt>.</p>
-        <p>Now insert GVfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>).</p>
+        <p>Now insert GVfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>). Alternatively, you can use the internal command <a href="cmds.html#cm_MapNetworkDrive">cm_MapNetworkDrive</a>.</p>
         <p>For example, access to</p>
         <ul>
           <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
@@ -220,22 +221,23 @@
         <p><span class="bold">A:</span> Because macOS is becoming increasingly strict with the default permissions of apps, and DC, as a file manager, needs to access many restricted files.</p>
         <ul>
           <li>Without proper authorization, DC may not work correctly with Finder Tags, Time Machine snapshot files, iCloud Drive, etc.</li>
-          <li>Clicking the authorization icon in the upper right corner of DC will guide you to the <code>System Settings</code> > <code>Privacy & Security</code> > <code>Privacy</code> > <code>Full Disk Access</code> panel.</li>
+          <li>Clicking the authorization icon in the upper right corner of DC will guide you to the System Settings&nbsp;&gt; Privacy &amp; Security&nbsp;&gt; Privacy&nbsp;&gt; Full Disk Access panel.</li>
           <li>From DC 1.3, the authorization icon will be hidden if the authorization has already been granted.</li>
         </ul>
+        <br>
+
         <p class="bold"><a name="reauthorizedOnMacOS">Q: I clearly remember granting permissions to the DC before, and I found DC in the authorization list, but why is DC still not authorized now?</a></p>
-        <p><span class="bold">A:</span> You must have installed a new version of DC after the last authorization.</p>
+        <p><span class="bold">A:</span> You probably installed a new version of DC after the last authorization.</p>
         <ul>
           <li>You must re-authorize every time you install a new version.</li>
           <li>In this case you need to remove DC from the list first and then add DC back again.</li>
           <li>Because the new version has different fingerprints, simply enabling the checkboxes will not work.</li>
         </ul>
+        <br>
+
         <p class="bold"><a name="shortcutsForMacOS">Q: How to add Shortcuts for specific macOS functions?</a></p>
-        <p><span class="bold">A:</span> As the example shown in the screenshot, we can follow Finder's convention and reset <code>Spacebar</code> as the shortcut for <code>QuickLook</code>:<br>
-        The key is setting <code>func=QuickLook</code> as the parameter of the <a href="cmds.html#cm_CallPlatformFunctions">cm_CallPlatformFunctions</a>.<br>
-        <p class="figure"><img src="images/imgDC/macosshortcutquicklook.png"></p>
-        By the same way, we can set Shortcuts for Share, AirDrop, QuickLook, RevealInFinder, ShowInfoInFinder, EditFinderTags, etc. by <a href="cmds.html#cm_CallPlatformFunctions">cm_CallPlatformFunctions</a>.<br>
-        We can also set Shortcuts for iCloud, Stash, cloud, FTP, Network, etc. by <a href="cmds.html#cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a>.<br>
+        <p><span class="bold">A:</span> You can <a href="configuration.html#ConfigHotKeys">add a shortcut</a> for the <a href="cmds.html#cm_CallPlatformFunctions">cm_CallPlatformFunctions</a> command and specify the required parameter (<code>func=AirDrop</code>, <code>func=QuickLook</code>, <code>func=EditFinderTags</code>, etc).<br>
+          Also note the <a href="cmds.html#cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a> command.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -279,6 +281,7 @@
           2. If you want to keep some existing default icons then just delete them in "mydctheme" and DC will use them from default theme.<br>
           3. Some nonstandard icon sizes (such as 40x40, 60x60 and so one) uses for HiDPI monitors.<br>
           4. Also see <a href="configxml.html">&lt;CustomIcons&gt;</a>.</p>
+        <p>Double Commander supports packing icons into a ZIP file (without compression!): pack <tt>8x8</tt>&nbsp;- <tt>scalable</tt> folders into the <tt>icon-theme.zip</tt> archive, delete them and <tt>icon-theme.cache</tt> (if exists), restart the application.</p>
         <p><span class="uline"><i>How to install:</i></span></p>
         <p>1. Portable version<br>
           Copy (or move) your "mydctheme" folder to the "pixmaps" folder near <tt>doublecmd.exe</tt>, restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
@@ -295,26 +298,20 @@
           Now restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
         <br>
 
-        <p class="bold"><a name="cs_size">Q: How to make function keys and address bar bigger?</a></p>
-        <p><span class="bold">A:</span> The size depends on the font size, three ways exists:</p>
-        <p>1. Simple and fast: you can use <kbd>Ctrl</kbd>+mouse wheel, it works for the following interface elements or part of DC:<br>
-          -&nbsp;file list in left and right panels;<br>
-          -&nbsp;current directory (address) bar;<br>
-          -&nbsp;function key buttons bar;<br>
-          -&nbsp;TreeView menu;<br>
-          -&nbsp;search results in find files dialog;<br>
-          -&nbsp;internal editor;<br>
-          -&nbsp;internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p>
+        <p class="bold"><a name="cs_size">Q: How to make function keys, address bar and other interface elements bigger?</a></p>
+        <p><span class="bold">A:</span> The size depends on the font size, several ways exists:</p>
+        <p>1. Simple and fast: you can use <kbd>Ctrl</kbd>+mouse wheel, see <a href="configuration.html#ConfigMouse">Zoom</a>.</p>
         <p>2. Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Fonts.<br>
           Note: All possible are available in version 1.0.0+ only, for 0.9.x and below additionally see the third item.</p>
-        <p>3. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> and change <code>&lt;Size&gt;</code> of the interface element manually.</p>
+        <p>3. For file panels, you can use the internal commands <a href="cmds.html#cm_MainFontZoomOut">cm_MainFontZoomOut</a> and <a href="cmds.html#cm_MainFontZoomIn">cm_MainFontZoomIn</a>. Similar commands are available in the built-in viewer and editor.</p>
+        <p>4. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> and change <code>&lt;Size&gt;</code> of the interface element manually.</p>
         <br>
 
         <p class="bold"><a name="height">Q: File panels: how to change the height of elements (strings) and the intervals between them?</a></p>
         <p><span class="bold">A:</span> The view depends on the following parameters:</p>
         <ul>
-          <li>Configuration &gt; Options... &gt; Fonts &gt; Main font</li>
-          <li>Configuration &gt; Options... &gt; Icons &gt; Icon size &gt; File panel</li>
+          <li>Configuration&nbsp;&gt; Options...&nbsp;&gt; Fonts&nbsp;&gt; Main font</li>
+          <li>Configuration&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon size&nbsp;&gt; File panel</li>
           <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (from <code>&lt;FilesViews&gt;</code>)</li>
         </ul>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -378,6 +375,10 @@
 
         <p class="bold"><a name="hotkey_controls">Q: I assigned the left and right arrows to navigate back and forth through the directory history, but now I can't use them while renaming a file. How to fix it?</a></p>
         <p><span class="bold">A:</span> When assigning a hot key, Double Commander allows to limit the scope of the keyboard shortcut, see <a href="configuration.html#ConfigHotKeys">Only for these controls</a>.<br>In this case, you need to enable the "Files Panel".</p>
+        <br>
+
+        <p class="bold"><a name="sound_notifications">Q: Is there a way to add sound notifications when operations are completed?</a></p>
+        <p><span class="bold">A:</span> See description of <a href="configxml.html">&lt;Sounds&gt;</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

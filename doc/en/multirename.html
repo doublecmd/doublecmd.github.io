@@ -109,7 +109,7 @@
       <div>
         <h2><a name="interface">2. Interface</a></h2>
         <p>This will get us to the Multi-Rename Tool dialog window like the following:</p>
-        <p class="figure"><img class="largeimage" title="Interface" alt="Interface" src="images/imgDC/mulrengeneral.png" width="724" height="456"></p>
+        <p class="figure"><img class="largeimage" title="Interface" alt="Interface" src="images/imgDC/mulrengeneral.png" width="724" height="434"></p>
         <p>On top we see a table with the files we've selected from source panel, one file per row, and about to be renamed. We can reorder the list of files using drag &amp; drop or <kbd>Shift+arrows</kbd>. To remove a file from the list, we can use the <kbd>Del</kbd> key (after deleting all files, Double Commander will close the Multi-Rename Tool).</p>
         <p>The table has three columns:</p>
         <table>
@@ -226,7 +226,7 @@
 
         <p>Here is another example where we've used some of the above placeholders setting the mask to</p>
         <p><code>[C] - [YYYY]-[MM]-[DD] @ [hh]-[nn]-[ss]</code></p>
-        <p class="figure"><img class="largeimage" title="Sample rename" alt="Sample rename" src="images/imgDC/mulrensample2.png" width="722" height="452"></p>
+        <p class="figure"><img class="largeimage" title="Sample rename" alt="Sample rename" src="images/imgDC/mulrensample2.png" width="716" height="452"></p>
 
         <p>With time, if used often, we'll type from memory what we need!</p>
         <p>Waiting for that, luckily, we may press the button below each mask and then access a popup menu that will help us to have the application type it for us based on what we need.</p>
@@ -316,6 +316,7 @@
         <ul>
           <li><p><span class="italic">A&#8800;a</span>&nbsp;&ndash; enables case-sensitive search.</p></li>
           <li><p><span class="italic">1x</span>&nbsp;&ndash; if enabled, then regardless of the number of matches, only the first will be replaced.</p></li>
+          <li><p><span class="italic">E</span>&nbsp;&ndash; if enabled, then also replace the search text in file extensions.</p></li>
         </ul>
         <p>Both parameters also affect the behavior of regular expressions.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -353,7 +354,7 @@
       <div>
         <h2><a name="actualaction">7. Actual renaming action</a></h2>
         <p>When we have defined all the <b>New File Names</b> we want with the above mentioned methods, we're ready to launch the actual <b>Rename</b> action.</p>
-        <p class="figure"><img class="largeimage" title="Actual renaming action" alt="Actual renaming action" src="images/imgDC/mulrenrename.png" width="191" height="35"></p>
+        <p class="figure"><img class="largeimage" title="Actual renaming action" alt="Actual renaming action" src="images/imgDC/mulrenrename.png" width="140" height="32"></p>
         <p>If duplicate names are discovered, Double Commander will offer to abort the operation or use auto-renaming with adding a number: "name (1).ext", "name (2).ext", etc. Keep in mind, in the second case, the automatic addition of a number will not be shown in the "New File Name" column.</p>
         <p>After the rename process, the application will rescan the files and refill again the above table.</p>
         <p>The <b>Old File Name</b> column will normally show the result of our renaming process.</p>

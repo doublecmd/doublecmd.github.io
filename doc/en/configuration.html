@@ -110,20 +110,21 @@
               <dt>2.16. <a href="#ConfigQuick">Quick search/filter</a></dt>
               <dt>2.17. <a href="#ConfigMisc">Miscellaneous</a></dt>
               <dt>2.18. <a href="#ConfigRefresh">Auto refresh</a></dt>
-              <dt>2.19. <a href="#ConfigIcons">Icons</a></dt>
-              <dt>2.20. <a href="#ConfigIgnore">Ignore list</a></dt>
-              <dt>2.21. <a href="#ConfigArchivers">Archivers</a></dt>
-              <dt>2.22. <a href="#ConfigTooltips">Tooltips</a></dt>
-              <dt>2.23. <a href="#ConfigAssociations">File associations</a></dt>
+              <dt>2.19. <a href="#ConfigiCloud">iCloud</a></dt>
+              <dt>2.20. <a href="#ConfigIcons">Icons</a></dt>
+              <dt>2.21. <a href="#ConfigIgnore">Ignore list</a></dt>
+              <dt>2.22. <a href="#ConfigArchivers">Archivers</a></dt>
+              <dt>2.23. <a href="#ConfigTooltips">Tooltips</a></dt>
+              <dt>2.24. <a href="#ConfigAssociations">File associations</a></dt>
               <dd>
                 <dl>
-                  <dt>2.23.1. <a href="#ConfigAssocEx">File associations extra</a></dt>
+                  <dt>2.24.1. <a href="#ConfigAssocEx">File associations extra</a></dt>
                 </dl>
               </dd>
-              <dt>2.24. <a href="#ConfigDirHotlist">Directory Hotlist</a></dt>
+              <dt>2.25. <a href="#ConfigDirHotlist">Directory Hotlist</a></dt>
               <dd>
                 <dl>
-                  <dt>2.24.1. <a href="#ConfigDirHotlistEx">Directory Hotlist Extra</a></dt>
+                  <dt>2.25.1. <a href="#ConfigDirHotlistEx">Directory Hotlist Extra</a></dt>
                 </dl>
               </dd>
             </dl>
@@ -142,6 +143,7 @@
           <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; file extension association configuration;</p></li>
           <li><p><tt>favoritetabs.xml</tt>&nbsp;&ndash; favorite tabs;</p></li>
           <li><p><tt>history.xml</tt>&nbsp;&ndash; command line and directory history, search and replace, etc.;</p></li>
+          <li><p><tt>localconfig.xml</tt>&nbsp;&ndash; directory hotlist;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&ndash; external archivers;</p></li>
           <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; maps file extensions to MIME-types icon names;</p></li>
           <li><p><tt>session.ini</tt>&nbsp;&ndash; size, position and state of child program windows (these settings are saved separately for each screen resolution);</p></li>
@@ -268,16 +270,7 @@
         <p>You can select fonts for the editor (<kbd>F4</kbd>), viewer (<kbd>F3</kbd>), file panels (<span class="italic">Main Font</span>) and other elements of the Double Commander interface, and also their size. The bottom line for each allows you to see how the display of the selected font looks. One important note: the fonts for the editor and viewer must be <span class="red">MONOSPACE</span>. The figure below illustrates a proportionally spaced font in the window above (notice the strange spacing) and a monospace font in the window below which appears correctly spaced. Also, with some proportional fonts the characters may overwrite each other and look quite strange.</p>
         <p class="figure"><img class="largeimage" title="Font Differences" alt="Font Differences" src="images/imgDC/pic29.png" width="576" height="360"></p>
         <p>Normal (proportional) font above, monospaced below.</p>
-        <p>Also you can use <kbd>Ctrl</kbd>+mouse wheel to change the font size, this function works for the following interface elements or part of Double Commander:</p>
-        <ul>
-          <li><p>file list in left and right panels;</p></li>
-          <li><p>current directory (address) bar;</p></li>
-          <li><p>function key buttons bar;</p></li>
-          <li><p>TreeView menu;</p></li>
-          <li><p>search results in find files dialog;</p></li>
-          <li><p>internal editor;</p></li>
-          <li><p>internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p></li>
-        </ul>
+        <p>Also you can use <kbd>Ctrl</kbd>+mouse wheel to change the font size, see the <a href="#ConfigMouse">Mouse</a> section for details.</p>
         <p>Also you can choose the type of font rasterization (regardless of the system settings), see description of <a href="configxml.html">&lt;Quality&gt;</a>.</p>
         <br>
 
@@ -304,6 +297,7 @@
           <li><p><span class="italic">Left:</span>&nbsp;&ndash; files selected for copying or deleting on the left.</p></li>
           <li><p><span class="italic">Right:</span>&nbsp;&ndash; files selected for copying or deleting on the right.</p></li>
           <li><p><span class="italic">Unknown:</span>&nbsp;&ndash; files with the same names, but not identical.</p></li>
+          <li><p><span class="italic">Selection:</span>&nbsp;&ndash; background color for the file under the cursor or selected files.</p></li>
         </ul>
         <p>6. <span class="italic">Drive Free Space Indicator</span>&nbsp;&ndash; here you can change the appearance of the drive free space indicator:</p>
         <p class="figure"><img class="largeimage" title="Colors: Free Space Indicator" alt="Colors: Free Space Indicator" src="images/imgDC/pic81.png" width="578" height="196"></p>
@@ -368,7 +362,6 @@
         <p>The second part of the Unix/Linux template displays permissions: read (r), write (w), execute (x). The values are grouped in groups of three in the following order: user (owner), user's group, all others.</p>
         <p>If attribute should not be set, it must be replaced with the "-" symbol, unnecessary attributes should be hidden: symbol "*" means match any number of characters, symbol "?" means any one character. For example, <code>?r*</code> (Windows) or <code>?r-*</code> (Linux) will find all read-only files and folders.</p>
         <p>You can use a color from the list or specify yours using the ".." button.</p>
-        <p>Do not forget to click "Apply" button after customization.</p>
         <p>Double Commander checks the list from top to bottom until the first match: a rule higher in the list will overlap any rule below.</p>
         <br>
 
@@ -432,7 +425,7 @@
         <br>
 
         <p><span class="bold"><a name="ConfigMouse">2.7. Mouse</a></span></p>
-        <p class="figure"><img class="largeimage" title="Mouse" alt="Mouse" src="images/imgDC/pic61.png" width="578" height="324"></p>
+        <p class="figure"><img class="largeimage" title="Mouse" alt="Mouse" src="images/imgDC/pic61.png" width="578" height="379"></p>
         <p>The first group of parameters is <span class="italic">Selection</span>:</p>
         <ul>
           <li><p><span class="italic">Selection by mouse</span>&nbsp;&ndash; enables the ability to select and unselect files and folders with the mouse.</p></li>
@@ -446,6 +439,17 @@
           <li><p><span class="italic">Line by line</span>&nbsp;&ndash; the cursor remains on the file and scrolling takes place immediately. Also you can specify the number of lines.</p></li>
           <li><p><span class="italic">Page by page</span>&nbsp;&ndash; the same as previous, but scrolling is by pages rather than by lines (much faster scrolling).</p></li>
         </ul>
+        <p><span class="italic">Zoom</span>&nbsp;&ndash; Double Commander allows to use <kbd>Ctrl</kbd>+mouse wheel to change font sizes. It works for the following interface elements or part of the program:</p>
+        <ul>
+          <li><p>file list in left and right panels;</p></li>
+          <li><p>current directory (address) bar;</p></li>
+          <li><p>function key buttons bar;</p></li>
+          <li><p>TreeView menu;</p></li>
+          <li><p>search results in find files dialog;</p></li>
+          <li><p>internal viewer (if viewer shows text);</p></li>
+          <li><p>internal editor.</p></li>
+        </ul>
+        <p><span class="italic">Zoom with Ctrl + Scroll Wheel</span>&nbsp;&ndash; enables or disables this feature.</p>
         <p><span class="italic">Open with</span>&nbsp;&ndash; will determine what will launch the action when you are using the mouse button on an element from the displayed file list in a panel:</p>
         <ul>
           <li><p>A double click is necessary to launch the action (default).</p></li>
@@ -637,7 +641,7 @@
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; displays the owner of the file.</p></li>
           <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; displays the path and file, that is, what is linked with this symlink.</p></li>
           <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; file type (as in Windows Explorer or MIME-type).</p></li>
-          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; file or directory description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>).</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; file or directory description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>). This field can also be used inside archives (if the archive format supports saving file descriptions and the corresponding <a href="multiarc.html#archivers">external archiver</a> is configured to receive them).</p></li>
           <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&ndash; compressed file size (real size if using NTFS compression).</p></li>
         </ul>
         <p>By default, fields with timestamps use the date and time format that was choosen in the <a href="#ConfigView">Files views</a> settings section. You can also specify your preferred format directly in the column inside the curly brackets, using the same <a href="#dt_format">date and time formatting characters</a>.</p>
@@ -697,14 +701,18 @@
           </li>
           <li><p><span class="italic">Configure</span>&nbsp;&ndash; opens the plugin's own settings window (if selected plugin supports this feature).</p></li>
         </ul>
-        <p>Double Commander supports the use of a master password to protect passwords in WCX and WFX plugins (if the plugin developer has provided for the use of this feature). This is convenient because your passwords will be protected by encryption and you need to remember only one password. Passwords are encrypted twice, first using Blowfish (448 bits)  and then using AES (256 bits).</p>
-        <p>Note: At the moment, Double Commander does not support changing the master password: if necessary, you will need to disable the use of the master password in the plugin settings, close the program, open the <a href="configuration.html#ConfigDC">directory with the configuration files</a>, delete the <tt>pwd.ini</tt> file, run the program again and enable the master password in the plugin settings. To delete outdated or unnecessary saved passwords, you will need to close the program and manually edit the <tt>pwd.ini</tt> file.</p>
+        <p><a name="main_password">Double Commander supports the use of a main password</a> to protect passwords in WCX and WFX plugins (if the plugin developer has provided for the use of this feature). This is convenient because your passwords will be protected by encryption and you need to remember only one password. Passwords are encrypted twice, first using Blowfish (448 bits) and then using AES (256 bits), the <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a> function is used to derive a key from the main password.</p>
+        <p>Double Commander supports two versions of the Argon2 algorithm (Argon2d and Argon2id) and allows to specify three parameters: number of iterations, memory required, degree of parallelism. <a href="https://www.rfc-editor.org/rfc/rfc9106">RFC 9106</a> recommends using Argon2id if you does not know the difference between the versions or if side-channel attacks are considered to be a real threat. Increasing the number of iterations and/or memory size will increase the function's execution time and make it more difficult to crack the password; increasing the degree of parallelism (but without exceeding the number of logical cores of your processor) allows the function to work faster. It is also recommended to choose the parameters so that the function takes about 0.5-1 seconds (the more, the better, but if the values ​​are too large, it may be inconvenient to use the main password).</p>
+        <p>Note: If you actively use the portable version of Double Commander on a USB flash drive on several computers or use a centralized installation of the application with configuration files, then it may be practical to choose the settings suitable for the least performance computer.</p>
+        <p>Note: At the moment, Double Commander does not support changing the main password: if necessary, you will need to disable the use of the main password in the plugin settings, close the program, open the <a href="#ConfigDC">directory with the configuration files</a>, delete the <tt>pwd.ini</tt> file, run the program again and enable the main password in the plugin settings. To delete outdated or unnecessary saved passwords, you will need to close the program and manually edit the <tt>pwd.ini</tt> file.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigLayout">2.10. Layout</a></span></p>
         <p class="figure"><img class="largeimage" title="Layout" alt="Layout" src="images/imgDC/pic39.png" width="438" height="462"></p>
         <p>You can change the layout of the main window here. I suppose, all the available options are explained on the screenshot above (Layout). The screenshot below illustrates what DC looks like with all the layout options unselected.</p>
         <p class="figure"><img class="largeimage" title="Layout DC" alt="Layout DC" src="images/imgDC/pic40.png" width="707" height="382"></p>
+        <p>There are also <a href="configxml.html">several parameters</a> available that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
+        <p>Starting from macOS 11, Double Commanderhe has a toolbar in the window header by default, in addition to the main toolbar. You can disable this UI element manually: close Double Commander, go to the configuration files directory (see details <a href="#ConfigDC">here</a>), open the <tt>doublecmd.cfg</tt> file, find the <code>ModernUI</code> parameter, change its value from <code>True</code> to <code>False</code> and run the application again.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigDrivesList">2.10.1. Layout&nbsp;&gt; Drives list button</a></span></p>
@@ -767,10 +775,12 @@
         <p>The <span class="italic">Buffer size for file operations (in KB)</span> and <span class="italic">Buffer size for hash calculation (in KB)</span> parameters set the size of the allocated memory for operations such as copying, moving, splitting or combining files, searching for files by content and calculating checksums. You should keep in mind that there is no universal value, but you can try to find a more suitable size.<br>
           Note: The first parameter is not used in the copy function in Windows, since the system function is used for copying.</p>
         <p><span class="italic">Number of wipe passes</span>&nbsp;&ndash; Here you can specify the number of rewrites to <a href="help.html#cm_Wipe">secure delete files</a>.</p>
-        <p><span class="italic">Process comments with files/folders</span>&nbsp;&ndash; If enabled and you have a file/folder with a <a href="help.html#cm_EditComment">comment</a> attached and you copy or move it to another folder the comment will be copied or moved to the destination along with the file/folder.</p>
+        <p><span class="italic">Process comments with files/folders</span>&nbsp;&ndash; If enabled and you have a file/folder with a <a href="help.html#cm_EditComment">comment</a> attached and you copy or move it to another folder the comment will be copied or moved to the destination along with the file/folder. If you delete or erase a file, its comment will also be deleted. If you rename a file, its name will also be changed in the <tt>descript.ion</tt> file.<br>
+          Otherwise, the <tt>descript.ion</tt> file will be processed as a regular file.</p>
         <p><span class="italic">Skip file operations errors and write them to log window</span>&nbsp;&ndash; If a file operation error should occur the error message will appear in the log window below the panels rather than appearing in a popup dialog. This can be useful because the error window will suspend the operation. In the <a href="#ConfigLog">Log</a> settings section, you can limit the total number of messages, allowing only messages with the "Error" status.<br>
           The parameter is taken into account in most file operations: copying, moving, deleting, erasing, combining and splitting files, setting file properties (timestamps, owner, attributes), calculating checksum, as well as file operations when working with archives, WFX plugins and GVfs.</p>
         <p><span class="italic">Duplicated name auto-rename style</span>&nbsp;&ndash; sets the file auto-renaming template if a file with the same name already exists in the target directory (i.e. when you choose <span class="italic">Auto-rename source files</span> or <span class="italic">Auto-rename target files</span> in the copy/move dialog): "Copy&nbsp;(x)&nbsp;filename.ext", "filename&nbsp;(x).ext" or "filename(x).ext", where "x" is a counter (2, 3, 4 and so on).</p>
+        <p>There are also <a href="configxml.html">several parameters</a> available that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigSearch">2.12.1. File operations&nbsp;&gt; File search</a></span></p>
@@ -870,8 +880,8 @@
           <li><p><span class="italic">Command line history</span>&nbsp;&ndash; Commands that were used at the <a href="help.html#iface_path">command line</a>.</p></li>
           <li><p><span class="italic">File mask history</span>&nbsp;&ndash; Double Commander saves a general history of used file masks for several tools: find files, filters in <a href="syncdirs.html">directory synchronization</a> and <a href="help.html#cm_ExtractFiles">archive unpacking</a>, commands for <a href="help.html#cm_MarkPlus">selecting and deselecting a group of files</a>.</p></li>
         </ul>
-        <p>The maximum number of entries in history is limited to 50.</p>
-        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory (however, when the program is closed, only the last 50 entries will be saved). You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
+        <p>The maximum number of entries in history is limited to 50 by default (see the <code>MaxStringItems</code> attribute in the <a href="configxml.html">&lt;History&gt;</a> tag).</p>
+        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory, however, when the program is closed, the number of saved entries will be limited to the <code>MaxStringItems</code> value. You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
         <p>Note: Search templates are not related to the history and are saved separately (in the <tt>doublecmd.xml</tt> configuration file). To manage the list of templates, you can use the <a href="findfiles.html#templates">file search</a> tool.</p>
         <p>You can choose how the list of settings sections will look:</p>
         <ul>
@@ -884,7 +894,7 @@
 
         <p><span class="bold"><a name="ConfigQuick">2.16. Quick search/filter</a></span></p>
         <p>This section contains the settings of the <a href="help.html#cm_QuickSearch">quick search/filter</a> tool. Quick search is used in searching for filenames in the panel, quick filter will hide all filenames that do not match the conditions.</p>
-        <p class="figure"><img class="largeimage" title="Quick search/filter" alt="Quick search/filter" src="images/imgDC/pic45.png" width="578" height="332"></p>
+        <p class="figure"><img class="largeimage" title="Quick search/filter" alt="Quick search/filter" src="images/imgDC/pic45.png" width="578" height="351"></p>
         <p>Exact name match:</p>
         <ul>
           <li><p><span class="italic">Beginning (name must start with first typed character)</span>&nbsp;&ndash; means that the typed text will match the "text*" mask, where "*" is any number of any characters.</p></li>
@@ -896,6 +906,7 @@
         <p>These options can be changed on the fly directly in the quick search/filter bar. Also you can toggle between search and filter.</p>
         <p>Options:</p>
         <ul>
+          <li><p><span class="italic">Ignore diacritics and ligatures</span>&nbsp;&ndash; allows to simplify the use of quick search/filter: when searching, Double Commander will replace letters with diacritics and ligatures with letters of the Latin alphabet (the table of common symbols is contained in the source code of the program).</p></li>
           <li><p><span class="italic">Hide filter panel when not focused</span>&nbsp;&ndash; The quick search/filter panel will hide automatically as soon as you move the focus to the file panel. In <a href="help.html#iface_files">brief view</a> hiding the panel does not work correctly, so the option is ignored until a suitable solution is found.</p></li>
           <li><p><span class="italic">Keep saving setting modifications for next session</span>&nbsp;&ndash; By default, all parameters that have been changed in the quick search panel will be kept in memory only until the program is closed, the option allows to change this behavior.</p></li>
         </ul>
@@ -939,7 +950,11 @@
         </ul>
         <br>
 
-        <p><span class="bold"><a name="ConfigIcons">2.19. Icons</a></span></p>
+        <p><span class="bold"><a name="ConfigiCloud">2.19. iCloud</a></span></p>
+        <p>macOS only. This section of the settings lists installed applications that automatically create folders in iCloud Drive: you can choose the application folders that will be available in the <a href="help.html#cm_OpenVirtualFileSystemList">iCloud virtual folder</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIcons">2.20. Icons</a></span></p>
         <p class="figure"><img class="largeimage" title="Icons" alt="Icons" src="images/imgDC/pic77.png" width="578" height="558"></p>
         <p>The first option enables the display of the file type icons to the left of the name:</p>
         <ul>
@@ -948,7 +963,12 @@
           <li><p><span class="italic">Only standard icons</span>&nbsp;&ndash; Only the icons listed in the <tt>pixmaps.txt</tt> file and the icons from the file association settings will be displayed. In this case, you can use icons only from the Double Commander icon theme (see directories <tt>pixmaps/dctheme/XxX/mimetypes</tt> in the program folder) or specify the full (with path) file name. Creating an icon theme is described in the <a href="faq.html#theme">FAQ</a>.</p></li>
           <li><p><span class="italic">No icons</span>.</p></li>
         </ul>
-        <p><span class="italic">Show overlay icons, e.g. for links</span>&nbsp;&ndash; If enabled, Double Commander will show overlay icons such as arrows for .lnk files and links.</p>
+        <p><span class="italic">Show overlay icons, e.g. for links</span>&nbsp;&ndash; If enabled, Double Commander will show overlay icons such as arrows for .lnk files and other overlay emblems and marks:</p>
+        <ul>
+          <li><p>Windows: Emblems from the operating system settings and third-party applications (for example, version control systems or local cloud storage directories).</p></li>
+          <li><p>Linux and other Unix-like systems (except macOS and Haiku): RabbitVCS emblems (if available) and emblems from the GIO/GVfs metadata subsystem (as in Nautilus, Caja, Thunar, PCManFM and other supporting it).</p></li>
+        </ul>
+        <p>The symbolic link emblem and the additional broken/dangling link emblem will be displayed in any case.</p>
         <p><span class="italic">Dimmed hidden files (slower)</span>&nbsp;&ndash; If enabled, Double Commander will show icons for hidden files with 50% transparency.</p>
         <p><span class="italic">Disable special icons</span>&nbsp;&ndash; You can disable the loading of special icons (overlay icons, icons from .exe/.lnk files) for the specified directories and their subdirectories, just list them separated by semicolons ";" without spaces.</p>
         <p><span class="italic">Icon size</span>&nbsp;&ndash; You can choose from the following sizes:</p>
@@ -963,7 +983,7 @@
         <p>Note: In Unix-like systems, Double Commander will primarily use the system icon theme, if some icons does not exist, it will use its own.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigIgnore">2.20. Ignore list</a></span></p>
+        <p><span class="bold"><a name="ConfigIgnore">2.21. Ignore list</a></span></p>
         <p>Ignore specific files and folders (one per line): they will not be displayed in panels.</p>
         <p class="figure"><img class="largeimage" title="Ignore list" alt="Ignore list" src="images/imgDC/pic78.png" width="578" height="370"></p>
         <ul>
@@ -978,11 +998,11 @@
         <p>You can use the internal command <a href="cmds.html#cm_SwitchIgnoreList">cm_SwitchIgnoreList</a> to turn this option on and off, add a button on toolbar or hotkey.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigArchivers">2.21. Archivers</a></span></p>
+        <p><span class="bold"><a name="ConfigArchivers">2.22. Archivers</a></span></p>
         <p>Please see the dedicated <a href="multiarc.html">Archive handling</a> help page about how to use and configure it.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigTooltips">2.22. Tooltips</a></span></p>
+        <p><span class="bold"><a name="ConfigTooltips">2.23. Tooltips</a></span></p>
         <p>This section contains the settings for tooltips when the mouse cursor is hovering over a file.</p>
         <p class="figure"><img class="largeimage" title="Tooltips" alt="Tooltips" src="images/imgDC/pic47.png" width="724" height="416"></p>
         <p><span class="italic">Show tooltip for files in the file panel</span>&nbsp;&ndash; enables the ability to use tooltips.</p>
@@ -1023,7 +1043,7 @@
         <p>In the screenshot at the beginning of the section description, you can see an example of a tooltip with the <tt>textline.wdx</tt> plugin that shows the contents of the selected lines of a text file (in this case, the first, second and third lines), the <span class="italic">Combine DC and system tooltip, system first</span> mode is selected.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigAssociations">2.23. File associations</a></span></p>
+        <p><span class="bold"><a name="ConfigAssociations">2.24. File associations</a></span></p>
         <p>This item opens the configuration file associations. All association sets are contained in the file <tt>extassoc.xml</tt>.</p>
         <p>Here you can customize file associations and set commands or scripts for chosen file types. Commands will be added to the <a href="help.html#cm_ContextMenu">context menu</a> of files. Double Commander also allows to simply set (or replace) icons for file types, without adding any actions.</p>
         <p class="figure"><img class="largeimage" title="File associations" alt="File associations" src="images/imgDC/pic48.png" width="578" height="538"></p>
@@ -1041,7 +1061,7 @@
         <ul>
           <li><p><tt>file</tt>&nbsp;&ndash; any file;</p></li>
           <li><p><tt>folder</tt>&nbsp;&ndash; any directory;</p></li>
-          <li><p><tt>default</tt>&nbsp;&ndash; used when extension specific association does not exists.</p></li>
+          <li><p><tt>default</tt>&nbsp;&ndash; used when extension specific internal association does not exists (only for the "Open", "View" and "Edit" actions, see below).</p></li>
         </ul>
         <p><span class="italic">Insert</span>&nbsp;&ndash; adds a new extension to the current position in the list.</p>
         <p><span class="italic">Add</span>&nbsp;&ndash; adds a new extension to the end of the list.</p>
@@ -1081,12 +1101,12 @@
           <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; runs "command" in the system shell and feeds the output to the command above.</p></li>
         </ul>
         <p>At a minimum, you must specify a file name, usually <code>%p</code> or <code>%p0</code> for the file under cursor.</p>
-        <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins). Here we can use the variable <a href="variables.html#pathpanel">%D</a>, <a href="variables.html#basicvar">%d</a> or <a href="variables.html#envvariables">environment variables</a>.</p>
+        <p><span class="italic">Start path</span>&nbsp;&ndash; command start directory. This directory will become the working directory of the program being launched, and if you do not need to explicitly specify it, then just leave this field empty: in this case, the working directory will be the current directory of the active file panel (regular files) or the system directory for the temporary files (files from archives and WFX plugins). Here you can use the variable <a href="variables.html#pathpanel">%D</a>, <a href="variables.html#basicvar">%d</a> or <a href="variables.html#envvariables">environment variables</a>.</p>
         <p>All available actions will be displayed in the "Actions" submenu in the context menu:</p>
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="460" height="288"></p>
         <br>
 
-        <p><span class="bold"><a name="ConfigAssocEx">2.23.1. File associations&nbsp;&gt; File associations extra</a></span></p>
+        <p><span class="bold"><a name="ConfigAssocEx">2.24.1. File associations&nbsp;&gt; File associations extra</a></span></p>
         <p class="figure"><img class="largeimage" title="File associations extra" alt="File associations extra" src="images/imgDC/pic79.png" width="578" height="366"></p>
         <p><span class="italic">Offer to add selection to file association when not included already</span>&nbsp;&ndash; When accessing file association, offer to add current selected file if not already included in a configured file type. This is a quick way to add an "Open with" action: Double Commander will prompt you to specify a type name and an executable file, everything else will be done automatically.</p>
         <p><span class="italic">Extended context menu</span>&nbsp;&ndash; allows to add some items to the "Actions" submenu:</p>
@@ -1110,11 +1130,11 @@
         <p>Also you can apply the chosen way to the already added paths.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigDirHotlist">2.24. Directory Hotlist</a></span></p>
+        <p><span class="bold"><a name="ConfigDirHotlist">2.25. Directory Hotlist</a></span></p>
         <p>Please see the dedicated <a href="directoryhotlist.html">Directory Hotlist</a> help page about how to use and configure it.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigDirHotlistEx">2.24.1. Directory Hotlist&nbsp;&gt; Directory Hotlist Extra</a></span></p>
+        <p><span class="bold"><a name="ConfigDirHotlistEx">2.25.1. Directory Hotlist&nbsp;&gt; Directory Hotlist Extra</a></span></p>
         <p class="figure"><img class="largeimage" title="Directory Hotlist Extra" alt="Directory Hotlist Extra" src="images/imgDC/pic80.png" width="578" height="165"></p>
         <p>In this section you can choose how the path will be set the path and target path:</p>
         <ul>

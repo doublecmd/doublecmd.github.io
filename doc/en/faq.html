@@ -46,7 +46,8 @@
           <dt><a name="tux">3. Issues related to macOS</a></dt>
           <dd>
             <dl>
-              <dt>3.1. <a href="#shortcutsForMacOS">How to add Shortcuts for specific macOS functions?</a></dt>
+              <dt>3.1. <a href="#permissionsOnMacOS">Why does DC need permissions in macOS system setting?</a></dt>
+              <dt>3.2. <a href="#shortcutsForMacOS">How to add Shortcuts for specific macOS functions?</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">4. Interface configuration</a></dt>
@@ -214,6 +215,13 @@
 
       <div>
         <h2>3. Issues related to macOS</h2>
+        <p class="bold"><a name="permissionsOnMacOS">Q: Why does DC need permissions in macOS system setting?</a></p>
+        <p><span class="bold">A:</span> Because macOS is becoming increasingly strict with the default permissions of apps, and DC, as a file manager, needs to access many restricted files.<br>
+        <ul>
+          <li>Without proper authorization, DC may not work correctly with Finder Tags, Time Machine snapshot files, iCloud Drive, etc.</li>
+          <li>Clicking the authorization icon in the upper right corner of DC will guide you to the <code>System Settings</code> > <code>Privacy & Security</code> > <code>Privacy</code> > <code>Full Disk Access</code> panel.</li>
+          <li>From DC 1.3, the authorization icon will be hidden if the authorization has already been granted.</li>
+        </ul>
         <p class="bold"><a name="shortcutsForMacOS">Q: How to add Shortcuts for specific macOS functions?</a></p>
         <p><span class="bold">A:</span> As the example shown in the screenshot, we can follow Finder's convention and reset <code>Spacebar</code> as the shortcut for <code>QuickLook</code>:<br>
         The key is setting <code>func=QuickLook</code> as the parameter of the <a href="cmds.html#cm_CallPlatformFunctions">cm_CallPlatformFunctions</a>.<br>

@@ -307,29 +307,29 @@
                   <td class="innerdescdesccell">will operate on active panel</td>
                 </tr>
                 <tr>
-                  <td class="innerdescparamcell" rowspan="5">column</td>
+                  <td class="innerdescparamcell" rowspan="6">column</td>
                   <td class="innerdescvaluecell">name</td>
-                  <td class="innerdescdesccell">sorted columns will be the "name-ext"</td>
+                  <td class="innerdescdesccell">sort by name and extension</td>
                 </tr>
                 <tr>
-                  <td class="innerdescvaluecell">namenoext</td>
-                  <td class="innerdescdesccell">sorted column will be the "name (no ext)"</td>
+                  <td class="innerdescvaluecell">namenoext<span class="versionref"><sup>(Alpha version)</sup></span></td>
+                  <td class="innerdescdesccell">sort by name without extension</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">ext</td>
-                  <td class="innerdescdesccell">sorted column will be the "ext"</td>
+                  <td class="innerdescdesccell">sort by extension</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">size</td>
-                  <td class="innerdescdesccell">sorted column will be the "size"</td>
+                  <td class="innerdescdesccell">sort by size</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">datetime</td>
-                  <td class="innerdescdesccell">sorted column will be the "datetime"</td>
+                  <td class="innerdescdesccell">sort by modification date</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell"><i>(absent)</i></td>
-                  <td class="innerdescdesccell">sorted column will be the "name"</td>
+                  <td class="innerdescdesccell">sort by name and extension</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" rowspan="3">order</td>
@@ -606,7 +606,7 @@
                 </tr>
               </table>
               <br>
-              If several files are selected, the first selected file will be opened (as in the <a href="#cm_View">viewer</a>): at the moment, the command's work with several selected files is not fully implemented, so you can deselect files, add "cursor=1" or use <a href="#cm_EditNew">cm_EditNew</a>.
+              If several files are selected, the first selected file will be opened (as in the <a href="#cm_View">viewer</a>): at the moment, the command's work with several selected files is not fully implemented, so we can deselect files, add "cursor=1" or use <a href="#cm_EditNew">cm_EditNew</a>.
             </td>
           </tr>
           <tr>
@@ -614,7 +614,7 @@
               <div class="cmdname"><a name="cm_EditNew">cm_EditNew</a></div>
               <div class="shrtctkey">Shift+F4</div></td>
             <td class="cmdhintcell">Create a new text file in the current directory and open in the editor (see <a href="configuration.html#ConfigToolsEditor">Tools&nbsp;&gt; Editor</a>) or open existing file (if a file with the same name already exists).<br>
-              You can enter the full name of the file (with path) and it will be created in the specified directory.</td>
+              We can enter the full name of the file (with path) and it will be created in the specified directory. Keep in mind that the command does not create new folders in the path.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Copy" alt="cm_Copy" src="../../pixmaps/dctheme/32x32/actions/cm_copy.png">
@@ -697,7 +697,8 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameOnly" alt="cm_RenameOnly" src="../../pixmaps/dctheme/32x32/actions/cm_renameonly.png">
               <div class="cmdname"><a name="cm_RenameOnly">cm_RenameOnly</a></div>
               <div class="shrtctkey">F2, Shift+F6</div></td>
-            <td class="cmdhintcell">Rename files in the same directory.<br>
+            <td class="cmdhintcell"><a href="help.html#rename_files">Rename file</a> in the same directory.<br>
+              One parameter is available<span class="versionref"><sup>(Alpha version)</sup></span>:<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -708,11 +709,15 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="2">extension</td>
                   <td class="innerdescvaluecell">1/true/on/yes</td>
-                  <td class="innerdescdesccell">show extension (default)</td>
+                  <td class="innerdescdesccell">Double Commander will show the name edit field with the file name under the cursor, we can change the base file name and its extension (default behavior)</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">0/false/off/no</td>
-                  <td class="innerdescdesccell">hide extension</td>
+                  <td class="innerdescdesccell">Double Commander will show the name edit field with the base name (without extension) of the file under the cursor and we will be able to change only it, extension will remain the same</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
+                  <td class="innerdescdesccell">default behavior</td>
                 </tr>
               </table>
             </td>
@@ -837,6 +842,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_OpenVirtualFileSystemList" alt="cm_OpenVirtualFileSystemList" src="../../pixmaps/dctheme/32x32/actions/cm_openvirtualfilesystemlist.png">
               <div class="cmdname"><a name="cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a></div></td>
             <td class="cmdhintcell"><a href="help.html#cm_OpenVirtualFileSystemList">Open VFS list</a>.<br>
+              One parameter is available<span class="versionref"><sup>(Alpha version)</sup></span>:<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -847,11 +853,11 @@
                 <tr>
                   <td class="innerdescparamcell">plugin</td>
                   <td class="innerdescvaluecell">the name of the plugin, eg. FTP</td>
-                  <td class="innerdescdesccell">open the plugin directly.</td>
+                  <td class="innerdescdesccell">open the plugin directly</td>
                 </tr>
                 <tr>
                   <td class="innerdescparamcell" colspan="2"><i>(nothing, default)</i></td>
-                  <td class="innerdescdesccell">open Virtual File System List</td>
+                  <td class="innerdescdesccell">open Virtual File System list</td>
                 </tr>
               </table>
             </td>
@@ -1150,6 +1156,18 @@
               <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Windows only: copy names with UNC path.</td>
           </tr>
+         <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MapNetworkDrive" alt="cm_MapNetworkDrive" src="../../pixmaps/dctheme/32x32/actions/cm_mapnetworkdrive.png">
+              <div class="cmdname"><a name="cm_MapNetworkDrive">cm_MapNetworkDrive</a></div>
+              <div class="shrtctkey">Ctrl+K</div></td>
+            <td class="cmdhintcell">This command allows to connect network devices, the behavior depends on the operating system:
+              <ul>
+                <li>Windows: will call the Windows system dialog to connect network drives.</li>
+                <li>macOS: similar to the "Connect to Server" command in Finder.</li>
+                <li>Linux and other Unix-like systems: Double Commander will prompt to specify the path, we can use GVfs paths (see <a href="faq.html#gvfs">FAQ</a> for more details) or specify a local directory. Thus, the result of this command is similar to the <a href="#cm_EditPath">cm_EditPath</a> command.</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -1252,6 +1270,16 @@
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomOut" alt="cm_MainFontZoomOut" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomout.png">
+              <div class="cmdname"><a name="cm_MainFontZoomOut">cm_MainFontZoomOut</a></div></td>
+            <td class="cmdhintcell">Decrease the main font (for file panels) size.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomIn" alt="cm_MainFontZoomIn" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomin.png">
+              <div class="cmdname"><a name="cm_MainFontZoomIn">cm_MainFontZoomIn</a></div></td>
+            <td class="cmdhintcell">Increase the main font (for file panels) size.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -1525,7 +1553,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveSelectionToFile" alt="cm_SaveSelectionToFile" src="../../pixmaps/dctheme/32x32/actions/cm_saveselectiontofile.png">
               <div class="cmdname"><a name="cm_SaveSelectionToFile">cm_SaveSelectionToFile</a></div></td>
             <td class="cmdhintcell">Save the current selection to a file.<br>
-              You may specify the output filename into the first parameter.<br>
+              We may specify the output filename into the first parameter.<br>
               If no parameter is supplied, Double Commander will prompt user to enter one.</td>
           </tr>
           <tr>
@@ -1544,7 +1572,7 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_SaveFileDetailsToFile" alt="cm_SaveFileDetailsToFile" src="../../pixmaps/dctheme/32x32/actions/cm_savefiledetailstofile.png">
               <div class="cmdname"><a name="cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a></div></td>
             <td class="cmdhintcell">Save all shown columns of selected items to file.<br>
-              You may specify the output filename into the first parameter.<br>
+              We may specify the output filename into the first parameter.<br>
               If no parameter is supplied, Double Commander will prompt user to enter one.</td>
           </tr>
         </table>
@@ -2487,7 +2515,8 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_Search" alt="cm_Search" src="../../pixmaps/dctheme/32x32/actions/cm_search.png">
               <div class="cmdname"><a name="cm_Search">cm_Search</a></div>
               <div class="shrtctkey">Alt+F7</div></td>
-            <td class="cmdhintcell">Open <a href="help.html#cm_Search">Search</a> dialog with default parameters or with saved template from option "Default search template" (see File Operations&nbsp;&gt; File search).<br>Also command supports a single parameter to open Search dialog with saved template, use template name as is without quotes.</td>
+            <td class="cmdhintcell">Open <a href="help.html#cm_Search">Search</a> dialog with default parameters or with saved template from option "Default search template" (see File Operations&nbsp;&gt; File search).<br>
+              Also command supports a single parameter to open Search dialog with saved template, use template name as is without quotes.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_AddNewSearch" alt="cm_AddNewSearch" src="../../pixmaps/dctheme/32x32/actions/cm_addnewsearch.png">
@@ -2524,9 +2553,9 @@
             <td class="cmdhintcell">Will simply show a message with the info passed as parameters.<br>This may be helpful to validate the parameter you're passing to a command.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_CallPlatformFunctions" alt="cm_CallPlatformFunctions" src="../../pixmaps/dctheme/32x32/actions/cm_CallPlatformFunctions.png">
-              <div class="cmdname"><a name="cm_CallPlatformFunctions">cm_CallPlatformFunctions</a></div>
-            <td class="cmdhintcell">call platform-specific functions. it has different functions across various operating systems.<br>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_CallPlatformFunctions" alt="cm_CallPlatformFunctions" src="../../pixmaps/dctheme/32x32/actions/cm_callplatformfunctions.png">
+              <div class="cmdname"><a name="cm_CallPlatformFunctions">cm_CallPlatformFunctions</a><span class="versionref"><sup>(Alpha version)</sup></span></div>
+            <td class="cmdhintcell">Call platform-specific functions, it has different functions across various operating systems.<br>
               <br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
@@ -2666,7 +2695,8 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameTab" alt="cm_RenameTab" src="../../pixmaps/dctheme/32x32/actions/cm_renametab.png">
               <div class="cmdname"><a name="cm_RenameTab">cm_RenameTab</a></div></td>
-            <td class="cmdhintcell">Prompt user to rename current tab of active panel.</td>
+            <td class="cmdhintcell">Prompt user to rename current tab of active panel.<br>
+              Also we can specify a new tab name as a parameter.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseTab" alt="cm_CloseTab" src="../../pixmaps/dctheme/32x32/actions/cm_closetab.png">

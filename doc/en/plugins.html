@@ -48,7 +48,7 @@
           <dd>
             <dl>
               <dt>3.1. <a href="#ftp.wfx">FTP</a></dt>
-              <dt>3.2. <a href="#maccloud.wfx">MacCloud</a><span class="versionref"><sup>(Alpha version)</sup></span></dt>
+              <dt>3.2. <a href="#maccloud.wfx">MacCloud</a></dt>
             </dl>
           </dd>
           <dt>4. Lister plugins (WLX)</dt>
@@ -94,7 +94,7 @@
         <p><span class="bold"><a name="sevenzip.wcx">SevenZip</a></span></p>
         <p>Packer plugin for working with .7z, .arj, .cab, .cpio, .cramfs, .deb, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar and .z files. We can also add other file types that are supported by 7-Zip.</p>
         <p>Note: Some formats are read-only, meaning only content viewing, unpacking, and testing are available.</p>
-        <p>Windows only.</p>
+        <p>Windows and Linux only.</p>
         <br>
 
         <p><span class="bold"><a name="unrar.wcx">UnRAR</a></span></p>
@@ -108,6 +108,7 @@
         <p>Packer plugin for working with .bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .tzst, .xz, .zip, .zipx and .zst archives. Also this plugin can open files based on ZIP (EPUB, Office Open XML, OpenDocument format, CRX, XPI and others).</p>
         <p>Requires additional compressor libraries:</p>
         <ul>
+          <li><p>Brotli (decompress only): <tt>libbrotlidec.dll</tt> (Windows), <tt>libbrotlidec.dylib</tt> (macOS), <tt>libbrotlidec.so.1</tt> (Linux and other Unix-like OS).</p></li>
           <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS), <tt>libbz2.so.1</tt> (Linux and other Unix-like OS).</p></li>
           <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS), <tt>liblzma.so.5</tt> (Linux and other Unix-like OS).</p></li>
           <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS), <tt>libzstd.so.1</tt> (Linux and other Unix-like OS).</p></li>
@@ -173,7 +174,7 @@
         <p>Plugin allows to use an SSH authentication agent (for example, ssh-agent from the OpenSSH utility suite, Pageant from PuTTY).</p>
         <br>
 
-        <p><span class="bold"><a name="maccloud.wfx">MacCloud</a></span><span class="versionref"><sup>(Alpha version)</sup></span></p>
+        <p><span class="bold"><a name="maccloud.wfx">MacCloud</a></span></p>
         <p>Offical cloud plugin for macOS, it supports:</p>
         <ul>
           <li>DropBox</li>

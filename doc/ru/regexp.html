@@ -29,24 +29,27 @@
           <dt>5. <a href="#meta">Метасимволы</a></dt>
           <dd>
             <dl>
-              <dt>5.1. <a href="#meta-line">Метасимволы - разделители строк</a></dt>
+              <dt>5.1. <a href="#meta-dot">Метасимволы - точка</a></dt>
               <dt>5.2. <a href="#meta-std">Метасимволы - стандартные наборы символов</a></dt>
-              <dt>5.3. <a href="#meta-words">Метасимволы - границы слов</a></dt>
-              <dt>5.4. <a href="#meta-dup">Метасимволы - повторения</a></dt>
-              <dt>5.5. <a href="#meta-vars">Метасимволы - варианты</a></dt>
-              <dt>5.6. <a href="#meta-sub">Метасимволы - подвыражения</a></dt>
-              <dt>5.7. <a href="#meta-back">Метасимволы - обратные ссылки</a></dt>
+              <dt>5.3. <a href="#meta-line">Метасимволы - разделители строк</a></dt>
+              <dt>5.4. <a href="#meta-words">Метасимволы - границы слов</a></dt>
+              <dt>5.5. <a href="#meta-dup">Метасимволы - повторения</a></dt>
+              <dt>5.6. <a href="#meta-vars">Метасимволы - варианты</a></dt>
+              <dt>5.7. <a href="#meta-sub">Метасимволы - подвыражения</a></dt>
+              <dt>5.8. <a href="#meta-back">Метасимволы - обратные ссылки</a></dt>
+              <dt>5.9. <a href="#meta-reset">Метасимволы - сброс начала совпадения</a></dt>
             </dl>
           </dd>
           <dt>6. <a href="#look">Утверждения (просмотр вперёд и назад)</a></dt>
           <dt>7. <a href="#noncapt">Не захватываемые группы</a></dt>
           <dt>8. <a href="#agroups">Атомарные группы</a></dt>
-          <dt>9. <a href="#unicode">Категории юникода</a></dt>
-          <dt>10. <a href="#modifiers">Модификаторы</a></dt>
+          <dt>9. <a href="#recursion">Рекурсия</a></dt>
+          <dt>10. <a href="#unicode">Категории юникода</a></dt>
+          <dt>11. <a href="#modifiers">Модификаторы</a></dt>
         </dl>
       </div>
 
-      <p>Double Commander использует свободную библиотеку <a href="https://regex.sorokin.engineer/ru/latest/" target="_blank">TRegExpr</a> Андрея Сорокина. Большинство из приведённых далее объяснений и примеров позаимствовано из справочного файла к этой библиотеке.</p>
+      <p>Double Commander использует свободную библиотеку <a href="https://regex.sorokin.engineer/ru/" target="_blank">TRegExpr</a> Андрея Сорокина. Большинство из приведённых далее объяснений и примеров позаимствовано из справочного файла к этой библиотеке.</p>
 
       <div>
         <h2><a name="preface">1. Введение</a></h2>
@@ -105,15 +108,15 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\n</div></td>
-            <td class="hintcell">новая строка (NL/LF), можно также <code>\x0a</code></td>
+            <td class="hintcell">новая строка (NL/LF), можно также <code>\x0A</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\r</div></td>
-            <td class="hintcell">возврат каретки (CR), можно также <code>\x0d</code></td>
+            <td class="hintcell">возврат каретки (CR), можно также <code>\x0D</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\f</div></td>
-            <td class="hintcell">перевод страницы (FF), можно также <code>\x0c</code></td>
+            <td class="hintcell">перевод страницы (FF), можно также <code>\x0C</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\a</div></td>
@@ -121,7 +124,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">\e</div></td>
-            <td class="hintcell">escape (ESC), можно также <code>\x1b</code></td>
+            <td class="hintcell">escape (ESC), можно также <code>\x1B</code></td>
           </tr>
         </table>
         <p>Примеры:</p>
@@ -168,7 +171,7 @@
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\n-\x0D]</div></td>
-            <td class="hintcell"><code>\x10</code>, <code>\x11</code>, <code>\x12</code> или <code>\x13</code></td>
+            <td class="hintcell">любой из <code>\x0A</code>, <code>\x0B</code>, <code>\x0C</code>, <code>\x0D</code></td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">[\d-t]</div></td>
@@ -203,65 +206,9 @@
       </div>
 
       <div>
-        <h2><a name="meta-line">5.1. Метасимволы - разделители строк</a></h2>
-        <p>Выражения, помогающие указать разделители строк.</p>
-        <table>
-          <tr class="rowcategorytitle"><th colspan="2">Разделители строк</th></tr>
-          <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">^</div></td>
-            <td class="hintcell">начало строки</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">$</div></td>
-            <td class="hintcell">конец строки</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">\A</div></td>
-            <td class="hintcell">начало текста</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">\Z</div></td>
-            <td class="hintcell">конец текста</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">.</div></td>
-            <td class="hintcell">любой символ в строке</td>
-          </tr>
-        </table>
-        <p>Несколько примеров:</p>
-        <table>
-          <tr class="rowcategorytitle"><th colspan="2">Примеры с разделителями строк</th></tr>
-          <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
-            <td class="hintcell">находит <code>foobar</code> только в начале строки</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
-            <td class="hintcell">находит <code>foobar</code> только в конце строки</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
-            <td class="hintcell">находит <code>foobar</code> только если это единственное слово в строке</td>
-          </tr>
-          <tr>
-            <td class="varcell"><div class="firstcolumnaleft">foob.r</div></td>
-            <td class="hintcell">находит <code>foobar</code>, <code>foobbr</code>, <code>foob1r</code> и т.д.</td>
-          </tr>
-        </table>
-
-        <p>Метасимвол <code>^</code> по умолчанию совпадает только с началом входного текста, а метасимвол <code>$</code>&nbsp;&ndash; только с концом текста. Внутренние разделители строк, имеющиеся в тексте, не будут совпадать с <code>^</code> и <code>$</code>.</p>
-        <p>Однако, если вам необходимо работать с текстом как с многострочным, чтобы <code>^</code> совпадал после каждого разделителя строки внутри текста, а <code>$</code>&nbsp;&ndash; перед каждым разделителем, то вы можете включить <a href="#modifiers">модификатор m</a>.</p>
-        <p>Метасимволы <code>\A</code> и <code>\Z</code> аналогичны <code>^</code> и <code>$</code>, но на них не действует <a href="#modifiers">модификатор m</a>, т.е. они всегда совпадают только с началом и концом всего входного текста.</p>
-        <p>Метасимвол <code>.</code> по умолчанию совпадает с любым символом, однако, если вы выключите <a href="#modifiers">модификатор s</a>, то <code>.</code> не будет совпадать с разделителями строк.</p>
-        <p>TRegExpr интерпретирует разделители строк так, как это рекомендовано в технических стандартах юникода (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>):</p>
-        <ul>
-          <li><p><code>^</code> совпадает с началом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно следующей после <code>\x0D\x0A</code>, <code>\x0A</code> или <code>\x0D</code> (с поддержкой юникода: также <code>\x2028</code>, <code>\x2029</code>, <code>\x0B</code>, <code>\x0C</code> или <code>\x85</code>). Обратите внимание, что он не совпадает в промежутке внутри последовательности <code>\x0D\x0A</code>.</p></li>
-          <li><p><code>$</code> совпадает с концом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, с точкой, непосредственно предшествующей <code>\x0D\x0A</code>, <code>\x0A</code> или <code>\x0D</code> (с поддержкой юникода: также <code>\x2028</code>, <code>\x2029</code>, <code>\x0B</code>, <code>\x0C</code> или <code>\x85</code>). Обратите внимание, что он не совпадает в промежутке внутри последовательности <code>\x0D\x0A</code>.</p></li>
-          <li><p><code>.</code> совпадает с любым символом, но если выключен <a href="#modifiers">модификатор s</a>, то <code>.</code> не совпадает с <code>\x0D\x0A</code>, <code>\x0A</code> и <code>\x0D</code> (с поддержкой юникода: также с <code>\x2028</code>, <code>\x2029</code>, <code>\x0B</code>, <code>\x0C</code> и <code>\x85</code>).</p></li>
-        </ul>
-        <p>Обратите внимание, что <code>^.*$</code> (шаблон для пустой строки) не совпадает с пустой строкой вида <code>\x0D\x0A</code>, но совпадает с <code>\x0A\x0D</code>.</p>
+        <h2><a name="meta-dot">5.1. Метасимволы - точка</a></h2>
+        <p>Метасимвол <code>.</code> совпадает с любым символом, но если выключен <a href="#modifiers">модификатор s</a>, то <code>.</code> не совпадает с <code>\x0D\x0A</code>, <code>\x0A</code> и <code>\x0D</code> (с поддержкой юникода: также с <code>\x{2028}</code>, <code>\x{2029}</code>, <code>\x0B</code>, <code>\x0C</code> и <code>\x85</code>).</p>
+        <p>Символ <code>.</code> не действует как метасимвол внутри пользовательских наборов символов: <code>[.]</code> означает буквальную точку.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
 
@@ -295,6 +242,10 @@
             <td class="varcell"><div class="firstcolumnaleft">\S</div></td>
             <td class="hintcell">не <code>\s</code></td>
           </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\R</div></td>
+            <td class="hintcell">любой символ разрыва строки: <code>\x0D\x0A</code>, <code>\x0A</code>, <code>\x0D</code>, <code>\x0B</code>, <code>\x0C</code> (с поддержкой юникода: также <code>\x{2028}</code>, <code>\x{2029}</code> и <code>\x85</code>)</td>
+          </tr>
         </table>
         <p>Стандартные наборы <code>\w</code>, <code>\d</code> и <code>\s</code> можно использовать и внутри <span class="bold">наборов символов</span>.</p>
         <p>Примеры:</p>
@@ -314,7 +265,64 @@
       </div>
 
       <div>
-        <h2><a name="meta-words">5.3. Метасимволы - границы слов</a></h2>
+        <h2><a name="meta-line">5.3. Метасимволы - разделители строк</a></h2>
+        <p>Выражения, помогающие указать разделители строк.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Разделители строк</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^</div></td>
+            <td class="hintcell">начало строки</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">$</div></td>
+            <td class="hintcell">конец строки</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\A</div></td>
+            <td class="hintcell">начало текста</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\Z</div></td>
+            <td class="hintcell">конец текста</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\G</div></td>
+            <td class="hintcell">совпадение нулевой длины в конечной позиции предыдущего совпадения или если не было совпадения, начало строки (<code>^</code>)</td>
+          </tr>
+        </table>
+        <p>Несколько примеров:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Примеры с разделителями строк</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Выражение</th><th class="categorydesccolumn">Результат</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
+            <td class="hintcell">находит <code>foobar</code> только в начале строки</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
+            <td class="hintcell">находит <code>foobar</code> только в конце строки</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
+            <td class="hintcell">находит <code>foobar</code> только если это единственное слово в строке</td>
+          </tr>
+        </table>
+        <p>Метасимвол <code>^</code> по умолчанию совпадает только с началом входного текста, а метасимвол <code>$</code>&nbsp;&ndash; только с концом текста. Внутренние разделители строк, имеющиеся в тексте, не будут совпадать с <code>^</code> и <code>$</code>.</p>
+        <p>Однако, если вам необходимо работать с текстом как с многострочным, чтобы <code>^</code> совпадал после каждого разделителя строки внутри текста, а <code>$</code>&nbsp;&ndash; перед каждым разделителем, то вы можете включить <a href="#modifiers">модификатор m</a>.</p>
+        <p>Метасимволы <code>\A</code> и <code>\Z</code> аналогичны <code>^</code> и <code>$</code>, но на них не действует <a href="#modifiers">модификатор m</a>, т.е. они всегда совпадают только с началом и концом всего входного текста.</p>
+        <p>Метасимвол <code>.</code> по умолчанию совпадает с любым символом, однако, если вы выключите <a href="#modifiers">модификатор s</a>, то <code>.</code> не будет совпадать с разделителями строк.</p>
+        <p>TRegExpr интерпретирует разделители строк так, как это рекомендовано в технических стандартах юникода (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technical Standard #18</a>):</p>
+        <ul>
+          <li><p><code>^</code> совпадает с началом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, непосредственно после <code>\x0D\x0A</code>, <code>\x0A</code> или <code>\x0D</code> (с поддержкой юникода: также <code>\x{2028}</code>, <code>\x{2029}</code>, <code>\x0B</code>, <code>\x0C</code> или <code>\x85</code>). Обратите внимание, что он не совпадает в промежутке внутри последовательности <code>\x0D\x0A</code>.</p></li>
+          <li><p><code>$</code> совпадает с концом входного текста, а также, если включен <a href="#modifiers">модификатор m</a>, непосредственно перед <code>\x0D\x0A</code>, <code>\x0A</code> или <code>\x0D</code> (с поддержкой юникода: также <code>\x{2028}</code>, <code>\x{2029}</code>, <code>\x0B</code>, <code>\x0C</code> или <code>\x85</code>). Обратите внимание, что он не совпадает в промежутке внутри последовательности <code>\x0D\x0A</code>.</p></li>
+        </ul>
+        <p>Обратите внимание, что <code>^.*$</code> (шаблон для пустой строки) не совпадает с пустой строкой вида <code>\x0D\x0A</code>, потому что это неразрывный разделитель строк. Но совпадает с <code>\x0A\x0D</code>, потому что это 2 перевода строки в неправильном порядке.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-words">5.4. Метасимволы - границы слов</a></h2>
         <p>Граница слова (<code>\b</code>)&nbsp;&ndash; позиция между двумя символами, один из которых удовлетворяет <code>\w</code>, а другой&nbsp;&ndash; <code>\W</code> (в любом порядке), при этом перед началом и после конца строки подразумевается <code>\W</code>.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Границы слов</th></tr>
@@ -332,7 +340,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-dup">5.4. Метасимволы - повторения</a></h2>
+        <h2><a name="meta-dup">5.5. Метасимволы - повторения</a></h2>
         <p>После любого элемента регулярного выражения может следовать очень важный тип метасимвола&nbsp;&ndash; повторитель (квантификатор).</p>
         <p>Используя их, вы можете указать число допустимых повторений предшествующего символа, метасимвола или подвыражения.</p>
         <table>
@@ -429,7 +437,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-vars">5.5. Метасимволы - варианты</a></h2>
+        <h2><a name="meta-vars">5.6. Метасимволы - варианты</a></h2>
         <p>Вы можете указать набор <span class="bold">вариантов</span>, используя метасимвол <code>|</code> для их разделения, например <code>fee|fie|foe</code> найдёт или <code>fee</code>, или <code>fie</code>, или <code>foe</code> (так же, как <code>f(e|i|o)e</code>).</p>
         <p>В качестве первого варианта воспринимается всё от предыдущего метасимвола (<code>(</code>, <code>[</code> или от начала выражения) до первого метасимвола <code>|</code>, в качестве последнего&nbsp;&ndash; всё от последнего <code>|</code> до конца выражения или до ближайшего метасимвола <code>)</code>.</p>
         <p>Обычно, чтобы не запутаться, набор вариантов всегда заключают в круглые скобки, даже если без этого можно было бы обойтись.</p>
@@ -450,7 +458,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-sub">5.6. Метасимволы - подвыражения</a></h2>
+        <h2><a name="meta-sub">5.7. Метасимволы - подвыражения</a></h2>
         <p>Метасимволы <code>( ... )</code> могут также использоваться для указания подвыражений&nbsp;&ndash; по завершении поиска выражения вы можете обратиться к любому подвыражению, а также подставлять подвыражения как маску.</p>
         <p>Подвыражения нумеруются слева направо, в порядке появления открывающих круглых скобок.</p>
         <p>Первое подвыражение имеет номер 1, поддерживается до 90 подвыражений (выражение целиком&nbsp;&ndash; 0, к нему можно обращаться как <code>$0</code> или <code>$&amp;</code>).</p>
@@ -483,7 +491,7 @@
       </div>
 
       <div>
-        <h2><a name="meta-back">5.7. Метасимволы - обратные ссылки</a></h2>
+        <h2><a name="meta-back">5.8. Метасимволы - обратные ссылки</a></h2>
         <p>Метасимволы от <code>\1</code> до <code>\9</code> интерпретируются как обратные ссылки. <code>\n</code> совпадает с ранее найденным подвыражением <code>n</code>.</p>
         <p>Несколько примеров:</p>
         <table>
@@ -506,6 +514,16 @@
       </div>
 
       <div>
+        <h2><a name="meta-reset">5.9. Метасимволы - сброс начала совпадения</a></h2>
+        <p>Начало сообщаемого соответствия можно установить с помощью <code>\K</code>.</p>
+        <p>По умолчанию весь текст, покрываемый шаблоном, считается соответствующим. Однако можно явно указать, что будет сообщено.</p>
+        <p>Шаблон <code>a\Kb</code> требует, чтобы текст содержал <code>ab</code>. Но только <code>b</code> будет сообщено как соответствующее. В шаблоне может быть несколько <code>\K</code>. Последний установит позицию начала соответствия. Рассматриваются только <code>\K</code> в активных частях шаблона. Например, <code>a(\Kb)?</code> не будет учитывать <code>\K</code>, если нет <code>b</code>. Захваты могут существовать вне соответствия, установленного через <code>\K</code>. Например, когда шаблон <code>(a)\Kb</code> соответствует <code>ab</code>, для первого подвыражения по-прежнему задаётся значение <code>a</code>.</p>
+        <p>Если используется в других конструкциях, которые могут применяться вне сообщаемого соответствия (например, в просмотре вперед), то позиция, отмеченная <code>\K</code>, должна быть до или в конце сообщаемого соответствия. Если позиция отмечена позже, соответствие считается неудачным.</p>
+        <p><code>\K</code> несколько похож на просмотр назад. В отличие от просмотра назад, часть шаблона перед <code>\K</code> должна находиться после начальной позиции соответствия, если шаблон применяется со смещённой позиции внутри текста.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
         <h2><a name="look">6. Утверждения (просмотр вперёд и назад)</a></h2>
         <p>Просмотр вперёд: <code>foo(?=bar)</code> совпадает с <code>foo</code> только перед <code>bar</code>, при этом <code>bar</code> не войдёт в найденный текст.</p>
         <p>Негативный просмотр вперёд: <code>foo(?!bar)</code> совпадает с <code>foo</code> только если после <code>foo</code> не следует <code>bar</code>.</p>
@@ -513,9 +531,8 @@
         <p>Негативный просмотр назад: <code>(?&lt;!foo)bar</code> совпадает с <code>bar</code> только если перед <code>bar</code> не располагается <code>foo</code>.</p>
         <p>Ограничения:</p>
         <ul>
-          <li><p>Скобки для просмотра вперёд должны быть в самом начале выражения. Не поддерживаются просмотр внутри альтернатив (<code>|</code>) или групп.</p></li>
-         <li><p>Для просмотра назад <code>(?&lt;!foo)bar</code>, выражение <code>foo</code> должно быть фиксированной длины. Допустимы повторы только с фиксированным числом <code>{n}</code> или <code>{n,n}</code>. Разрешено использование классов символов, точки, <code>\b</code> и <code>\B</code>. Не разрешены группы и альтернативы.</p></li>
-          <li><p>Для остальных трёх типов просмотра, выражение в скобках может быть сколь угодно сложным.</p></li>
+          <li><p>Переменная длина выражения при просмотре назад не допускает содержание групп захвата.</p></li>
+          <li><p>Переменная длина выражения при просмотре назад может быть медленной в исполнении, если нет соответствия.</p></li>
         </ul>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -548,7 +565,16 @@
       </div>
 
       <div>
-        <h2><a name="unicode">9. Категории юникода</a></h2>
+        <h2><a name="recursion">9. Рекурсия</a></h2>
+        <p>Синтаксис <code>(?R)</code>, синоним <code>(?0)</code>.</p>
+        <p>Выражение <code>a(?R)?z</code> совпадает с одним или более символом <code>a</code> за которым следует точно такое же число символов <code>z</code>.</p>
+        <p>Основное назначение рекурсии&nbsp;&ndash; сбалансировать обрамление вложенного текста. Общий вид <code>b(?:m|(?R))*e</code>, где <code>b</code>&nbsp;&ndash; это то, что начинает обрамляемый текст, <code>m</code>&nbsp;&ndash; это собственно текст, <code>e</code>&nbsp;&ndash; это то, что завершает обрамление.</p>
+        <p>Если же обрамляемый текст также может встречаться без обрамления, то выражение будет <code>b(?R)*e|m</code>.</p>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="unicode">10. Категории юникода</a></h2>
         <p>В стандарте юникода есть именованные категории символов. Категория обозначается одной буквой, и ёще одна добавляется, чтобы указать подкатегорию. Например <code>L</code>&nbsp;&ndash; это любая буква, <code>Lu</code>&nbsp;&ndash; буква в верхнем регистре, <code>Ll</code>&nbsp;&ndash; в нижнем.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Категории юникода</th></tr>
@@ -604,10 +630,10 @@
       </div>
 
       <div>
-        <h2><a name="modifiers">10. Модификаторы</a></h2>
+        <h2><a name="modifiers">11. Модификаторы</a></h2>
         <p>Синтаксис для одного модификатора: <code>(?i)</code> чтобы включить и <code>(?-i)</code> чтобы выключить. Для большого числа модификаторов используется синтаксис <code>(?msgxr-imsgxr)</code>.</p>
         <p>Модификаторы служат для изменения режимов работы регулярных выражений. Модификатор влияет только на ту часть регулярного выражения, которая следует за оператором <code>(?imsgxr-imsgxr)</code>.</p>
-        <p>Любой модификатор может располагаться внутри регулярного выражения. Если модификатор расположен внутри подвыражения, то он действует только на это подвыражение.</p>
+        <p>Любой модификатор может располагаться внутри регулярного выражения. Если модификатор расположен внутри подвыражения, то он действует только на это подвыражение. Модификаторы также могут быть заданы как часть незахватывающей группы: <code>(?i:выражение)</code>.</p>
         <dl>
           <dt><tt>i</tt></dt>
           <dd>Регистронезависимый режим (используются установленные в вашей системе языковые настройки). По умолчанию выключен.</dd>

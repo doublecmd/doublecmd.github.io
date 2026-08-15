@@ -51,7 +51,8 @@
               <dt>4.11. <a href="#actionselfextract">Configuring the "Create self extracting archive" action</a></dt>
               <dt>4.12. <a href="#configids">Configuring the "ID's"</a></dt>
               <dt>4.13. <a href="#debug">Debugging</a></dt>
-              <dt>4.14. <a href="#other">Menu of the "Other" button</a></dt>
+              <dt>4.14. <a href="#aconfig">Additional settings</a></dt>
+              <dt>4.15. <a href="#other">Menu of the "Other" button</a></dt>
             </dl>
           </dd>
           <dt>5. <a href="#openassociation">Opening an archive file in an associated application</a></dt>
@@ -71,7 +72,7 @@
         <p>Once "inside" the compressed file, we may do some minimal basic functions like viewing the file, copy it to the other panel and some limited function like that.</p>
         <p>The next following image shows us an example where we selected the compressed file "help.rar" and we simply press <kbd>Enter</kbd> in it just like it would be a directory:</p>
         <p class="figure"><img class="largeimage" title="View archive" alt="View archive" src="images/imgDC/archiveimg1.png" width="768" height="454"></p>
-        <p>After calling the view (<kbd>F3</kbd>) or edit (<kbd>F4</kbd>) command, Double Commander will extract the file under the cursor to the system directory for the temporary files and open it. After closing the viewer, the temporary file will be deleted. If the file opened in the editor is changed, Double Commander will offer to pack it back (if the compressed file format and the packer plugin or external archiver support this feature).</p>
+        <p>After calling the view (<kbd>F3</kbd>) or edit (<kbd>F4</kbd>) command, Double Commander will extract the file under the cursor to the system directory for the temporary files and open it. After closing the viewer, the temporary file will be deleted. If the file opened in the editor is changed, Double Commander can pack it back (if the compressed file format and the packer plugin or external archiver support this feature), see <a href="configxml.html">&lt;AutoCopyBackward&gt;</a>.</p>
         <p>When using a double-click or pressing <kbd>Enter</kbd>, Double Commander will show the properties window of the packed file:</p>
         <p class="figure"><img class="largeimage" title="Properties of packed file" alt="Properties of packed file" src="images/imgDC/archiveimg27.png" width="268" height="316"></p>
         <p>The <span class="italic">Packer</span> line displays the name of the packer plugin used or the name of the external archiver.</p>
@@ -115,7 +116,7 @@
           <li>extract one file or a list of file from an archive file.</li>
         </ul>
         <p>This will be done by doing Configuration Options Archiver as illustrated below:</p>
-        <p class="figure"><img class="largeimage" title="Configuration&nbsp;&gt; Archivers" alt="Configuration&nbsp;&gt; Archivers" src="images/imgDC/archiveimg3.png" width="756" height="571"></p>
+        <p class="figure"><img class="largeimage" title="Configuration&nbsp;&gt; Archivers" alt="Configuration&nbsp;&gt; Archivers" src="images/imgDC/archiveimg3.png" width="756" height="575"></p>
         <p>All settings are stored in the <tt>multiarc.ini</tt> file.</p>
         <p>Let's see in the following sections the versatile possibilities Double Commander offers us to properly integrate the usage of an external packer.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -135,7 +136,7 @@
         <br>
         <p>We then need to indicate us a significant description for the archiver, the exact location where is the executable of the archiver and then associated file extension, without the period, to that archiver.</p>
         <p>If we have more than one possible, just add them with a single comma between each one, no space.</p>
-        <p class="figure"><img class="largeimage" title="Add a new external archiver" alt="Add a new external archiver" src="images/imgDC/archiveimg5.png" width="570" height="211"></p>
+        <p class="figure"><img class="largeimage" title="Add a new external archiver" alt="Add a new external archiver" src="images/imgDC/archiveimg5.png" width="570" height="215"></p>
         <p>Note: Double Commander supports double extensions (for example, "tar.gz", "tar.xz" and so on), they must be placed in the beginning of the list of extensions (i.e. "tar.gz" before "gz").</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -507,7 +508,33 @@
       </div>
 
       <div>
-        <h2><a name="other">4.14. Menu of the "Other" button</a></h2>
+        <h2><a name="aconfig">4.14. Additional settings</a></h2>
+        <p>Several parameters that can be added or changed manually in the <tt>multiarc.ini</tt> configuration file directly or by <a href="#other">exporting/importing</a> archiver settings.</p>
+        <br>
+
+        <p><span class="bold">AskHistory0 ... AskHistory50</span></p>
+        <p>The values store additional archiver parameters that we have added in the <a href="help.html#cm_PackFiles">file packaging dialog</a>. We can manually change them, add new ones or delete unnecessary ones.</p>
+        <p>This is a convenient way to store several sets of parameters that are more suitable for different groups of files and tasks.</p>
+        <br>
+
+        <p><span class="bold">FallBackArchivers</span></p>
+        <p>Allows to specify several executable files of archivers separated by commas (full file names or names without path). If the executable file from the "Archiver" field is not found, the application will use the first one found from the <code>FallBackArchivers</code> value.
+        <p>For an example, see using 7-Zip in <tt>multiarc.ini</tt> in the "default" folder.</p>
+        <br>
+
+        <p><span class="bold">IgnoreString0 ... IgnoreString50</span></p>
+        <p>This is a way to specify lines that Double Commander should ignore when parsing the archiver output.</p>
+        <p>If the value starts with the caret symbol ("^"), the text must be in the beginning of the ignored lines. Otherwise, the text can be located anywhere in the line.</p>
+        <br>
+
+        <p><span class="bold">SizeStripChars</span></p>
+        <p>It's rare, but the archiver can display file sizes with digit grouping (for example, "12,345" or "12 345" instead of "12345"). <code>SizeStripChars</code> allows to specify the character that should be removed.</p>
+        <p>If we need to specify several characters (for example, the value may depend on the regional settings of the operating system), they must be listed without a separator.</p>
+        <p class="navback"><a href="#topofpage">(back to top)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="other">4.15. Menu of the "Other" button</a></h2>
         <p>This menu contains several additional functions:</p>
         <ul>
           <li><p><span class="italic">Auto Configure</span>&nbsp;&ndash; Double Commander will check all executable files of archivers: if a file is found, the program will automatically add its full path and enable the archiver, otherwise the archiver will be disabled.</p></li>
@@ -526,7 +553,7 @@
         <p>We can just remove the extension from the settings, but in this case the commands <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> and <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> will become unavailable. Another way:</p>
         <ul>
           <li><p>If a WCX plugin is used, then we can open the plugin settings, select the extension and enable the "Show as normal files (hide packer icon)" flag.</p></li>
-          <li><p>If an external archiver is used to unpack files, then we can fill in the fields for using ID and not specify the file extension.</p></li>
+          <li><p>If an external archiver is used to unpack files, then we can use the "Show as normal files" option or we can fill in the fields for using ID and not specify the file extension. The first method also allows to create new archives.</p></li>
         </ul>
         <p>For such files, Double Commander will use the associated icon instead of the generic archive icon.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>

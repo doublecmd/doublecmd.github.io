@@ -69,6 +69,7 @@
           <p>This setting controls the depth of the search in the filesystem tree. If set to "current dir only", the search will only be conducted in the directory specified in the "Start in directory" field (not in any subdirectories).</p></li>
         </ul>
         <p>The <span class="italic">File mask</span> field sets the mask for the search. Or we can just specify the file name or part of it.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files.</p>
         <p>Additional options:</p>
         <ul>
           <li><p><span class="italic">Search in archives</span>&nbsp;&ndash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>
@@ -113,7 +114,7 @@
         <ul>
           <li><p>compare file names;</p></li>
           <li><p>compare file sizes;</p></li>
-          <li><p>compare file hashes: BLAKE2b (x64) or BLAKE2s checksum will be used;</p></li>
+          <li><p>compare file hashes: BLAKE3 (x86-64), BLAKE2b (other 64-bit processors) or BLAKE2s checksum will be used;</p></li>
           <li><p>compare file content (byte-by-byte comparison).</p></li>
         </ul>
         <p>In the result will be shown file names, group number of matching files and file locations. Also after feed to listbox we can use special selection mode, where we can select only duplicates:
@@ -293,6 +294,7 @@
             <td class="hintcell">string does not match <a href="regexp.html">regular expression</a></td>
           </tr>
         </table>
+        <p>Depending on the type of data returned by the plugin field, a value input assistant will be available: calculator (number) or calendar (date and/or time).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -310,7 +312,8 @@
         <ul>
           <li><p><span class="italic">View</span>&nbsp;&ndash; opens selected file in the viewer (<kbd>F3</kbd>).</p></li>
           <li><p><span class="italic">Edit</span>&nbsp;&ndash; opens selected file in the editor (<kbd>F4</kbd>).</p></li>
-          <li><p><span class="italic">Go to file</span>&nbsp;&ndash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file (<kbd>Enter</kbd> or double click).</p></li>
+          <li><p><span class="italic">Go to file</span>&nbsp;&ndash; closes search window, opens the directory of the selected file in the active file panel and places the cursor on this file (<kbd>Enter</kbd> or double click).<br>
+            To keep the search window open, we can use the <kbd>Space</kbd> key or <a href="configuration.html#ConfigHotKeys">assign any other hotkey</a> for the <tt>cm_GotoFile</tt> command and add <code>close=0</code> in the parameters.</p></li>
           <li><p><span class="italic">Feed to listbox</span>&nbsp;&ndash; transfers a list of the found files in the active file panel.</p></li>
         </ul>
         <p>The context menu is also available:</p>
@@ -323,6 +326,7 @@
         </ul>
         <p>To select several files, we can use the mouse and the <kbd>Ctrl</kbd> and <kbd>Shift</kbd> keys or <kbd>Shift</kbd> and arrows.</p>
         <p>The <kbd>left arrow</kbd> and <kbd>right arrow</kbd> keys switch the focus between the list of search result and the <span class="italic">New search</span> button.</p>
+        <p>The list of found files will be cleared when we start a new search or close the application, this means we can open the search dialog again and view the result of the previous search.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

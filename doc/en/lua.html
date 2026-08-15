@@ -121,7 +121,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
 
       <div>
         <h2><a name="dllrequired">2. DLL required</a></h2>
-        <p>In order to interpret Lua script file, we need to have a Lua DLL file, Double Commander supports versions 5.1 - 5.4.</p>
+        <p>In order to interpret Lua script file, we need to have a Lua DLL file, Double Commander supports versions 5.1 - 5.5.</p>
         <p>We can use DLL file from <a href="https://luajit.org/" target="_blank">LuaJIT project</a>. LuaJIT combines a high-speed interpreter, written in assembler, with a state-of-the-art JIT compiler. Also we get FFI library, which allows calling external C functions and using C data structures from pure Lua code.</p>
         <p>DC distributives for Windows have Lua DLL by default (in DC 0.9.7 and newer from LuaJIT project), in other cases we may find and install it through our packages manager or compile it. If we're using a 64-bits version of DC, the DLL must be the 64-bits version as well.</p>
         <p>By default DC looks for a file with name <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix or GNU/Linux) or <tt>liblua5.1.dylib</tt> (macOS) in its directory and in the system directory. We can change the file name (and path) in the <a href="configuration.html#luapathtolibrary">Lua library file to use</a> parameter.</p>
@@ -160,9 +160,9 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
               <p>Write a message to the log window:</p>
               <ul>
                 <li><var>sMessage</var> : The message text.</li>
-                <li><var>iMsgType</var> : The message type: 0 - information, 1 - success, 2 - error.</li>
-                <li><var>bForce</var> : A boolean, when true, will show the log window if invisible.</li>
-                <li><var>bLogFile</var> : A boolean, when true, will write the message also in the log file.</li>
+                <li><var>iMsgType</var> : The message type: 0 - information (by default), 1 - success, 2 - error.</li>
+                <li><var>bForce</var> : A boolean, when true, will show the log window if invisible. <code>true</code> by default</li>
+                <li><var>bLogFile</var> : A boolean, when true, will write the message also in the log file. <code>false</code> by default</li>
               </ul>
               <p>The internal function of Double Commander for writing to the protocol works asynchronously (see notes in the <a href="#preface">introduction</a>), so messages from <code>DC.LogWrite</code> will not be written to the protocol immediately, but after the script is completed. If it is necessary to write the text immediately, we can try to add the call <code>DC.ExecuteCommand("")</code> after <code>DC.LogWrite</code>.</p>
             </td>

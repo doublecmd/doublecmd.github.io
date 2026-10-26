@@ -1,0 +1,1527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Tastaturbelegung</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="configuration.html">Zurück</a> | <a title="Nächste Seite" href="copymove.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.3. Tastaturbelegung</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#intro">Einführung</a></dt>
+          <dt>2. <a href="#main_window">Hauptfenster</a></dt>
+          <dt>3. <a href="#dcopymove">Kopieren/Verschieben-Dialog</a></dt>
+          <dt>4. <a href="#editdesc">Kommentar bearbeiten</a></dt>
+          <dt>5. <a href="#find">Dateien suchen</a></dt>
+          <dt>6. <a href="#mrename">Mehrfach-Umbenennen</a></dt>
+          <dt>7. <a href="#sync">Verzeichnisse synchronisieren</a></dt>
+          <dt>8. <a href="#viewer">Eingebauter Dateibetrachter</a></dt>
+          <dt>9. <a href="#editor">Eingebauter Editor</a></dt>
+          <dt>10. <a href="#differ">Vergleichswerkzeug</a></dt>
+          <dt>11. <a href="#options">Konfiguration</a></dt>
+          <dd>
+            <dl>
+              <dt>11.1. <a href="#hotkeys">Tasten&nbsp;&gt; Tastenkürzel</a></dt>
+              <dt>11.2. <a href="#favtabs">Favoriten-Registerkarten</a></dt>
+              <dt>11.3. <a href="#dirhotlist">Verzeichnis-Favoriten</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Einführung</a></h2>
+        <p>Die folgenden Tabellen enthalten die voreingestellten Tastenkürzel von Double Commander.</p>
+        <p>Die meisten davon können wir ändern, indem wir Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Tasten&nbsp;&gt; <a href="configuration.html#ConfigHotKeys">Tastenkürzel</a> öffnen (oder wir können den internen Befehl <a href="cmds.html#cm_ConfigHotKeys">cm_ConfigHotKeys</a> verwenden).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="main_window">2. Hauptfenster</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Hauptfenster</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F1</div></td>
+            <td class="hintcell">Programmhilfe öffnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2, Shift+F6</div></td>
+            <td class="hintcell">Datei unter dem Cursor umbenennen.<br>
+              2. Wenn nichts ausgewählt ist und der Cursor auf dem ersten Eintrag („..“) steht:
+              aktuellen Pfad bearbeiten (wie <a href="cmds.html#cm_EditPath">cm_EditPath</a>).</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">1. Bei einer Datei: Datei zur Ansicht im <a href="viewer.html">eingebauten Dateibetrachter</a> öffnen (mehrere Dateien sind ebenfalls möglich).<br>
+              2. Bei einem Verzeichnis: dieses Verzeichnis öffnen.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Nur die Datei unter dem Cursor im eingebauten Dateibetrachter öffnen (wenn mehr als eine Datei ausgewählt ist)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">Datei im Editor öffnen, Einzelheiten <a href="cmds.html#cm_Edit">hier</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">Neue Textdatei erstellen und im eingebauten Editor öffnen oder vorhandene Datei öffnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F5</div></td>
+            <td class="hintcell">Einträge von der Quelle zum Ziel kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F5</div></td>
+            <td class="hintcell">Einträge im selben Verzeichnis kopieren („an Ort und Stelle“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">Einträge umbenennen oder verschieben</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7</div></td>
+            <td class="hintcell">Neues Verzeichnis erstellen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F8, Del</div></td>
+            <td class="hintcell">Ausgewählte Dateien/Ordner in den Papierkorb löschen, siehe <a href="configuration.html#ConfigOperations">In den Papierkorb löschen (die Taste Shift kehrt diese Einstellung um)</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F8, Shift+Del</div></td>
+            <td class="hintcell">Ausgewählte Dateien/Ordner endgültig löschen, siehe <a href="configuration.html#ConfigOperations">In den Papierkorb löschen (die Taste Shift kehrt diese Einstellung um)</a></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">Startet ein Terminal</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F1</div></td>
+            <td class="hintcell">Linkes Laufwerk wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F2</div></td>
+            <td class="hintcell">Rechtes Laufwerk wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F4, Alt+X</div></td>
+            <td class="hintcell">Beenden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F5</div></td>
+            <td class="hintcell">Ausgewählte Dateien packen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F7</div></td>
+            <td class="hintcell">Dateien suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F8</div></td>
+            <td class="hintcell">Kontextmenü des Befehlszeilenverlaufs aufrufen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F9</div></td>
+            <td class="hintcell">Alle Dateien aus dem Archiv unter dem Cursor entpacken</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Ziffer (1..9)</div></td>
+            <td class="hintcell">Registerkarte nach Index aktivieren (siehe <a href="cmds.html#cm_ActivateTabByIndex">cm_ActivateTabByIndex</a>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+0</div></td>
+            <td class="hintcell">Letzte Registerkarte aktivieren (siehe <a href="cmds.html#cm_ActivateTabByIndex">cm_ActivateTabByIndex</a>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">Verzeichnisverlauf</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">Zum vorherigen Eintrag im Verlauf wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">Zum nächsten Eintrag im Verlauf wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+F9</div></td>
+            <td class="hintcell">Integrität des Inhalts der ausgewählten Archivdatei prüfen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
+            <td class="hintcell">Dateieigenschaften</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+Enter</div></td>
+            <td class="hintcell">Größe aller Verzeichnisse berechnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Del</div></td>
+            <td class="hintcell">Datei/Verzeichnis sicher löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+V</div></td>
+            <td class="hintcell">Zeigt ein Fenster mit den gerade laufenden Dateioperationen, falls vorhanden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Z</div></td>
+            <td class="hintcell">Verzeichnis des aktiven Panels im gegenüberliegenden Panel öffnen (Ziel=Quelle)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F1</div></td>
+            <td class="hintcell">Kurzansicht</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F2</div></td>
+            <td class="hintcell">Spaltenansicht</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F1</div></td>
+            <td class="hintcell">Miniaturansicht</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">Nach Name sortieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F4</div></td>
+            <td class="hintcell">Nach Erweiterung sortieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F5</div></td>
+            <td class="hintcell">Nach Datum/Uhrzeit sortieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F6</div></td>
+            <td class="hintcell">Nach Größe sortieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Ziffer (1..9)</div></td>
+            <td class="hintcell">Laufwerk nach Index öffnen (siehe <a href="cmds.html#cm_OpenDriveByIndex">cm_OpenDriveByIndex</a>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Enter</div></td>
+            <td class="hintcell">Startet für die ausgewählte Datei ein Programm über die Dateizuordnungen des Systems</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">Zur nächsten Registerkarte im aktiven Panel wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">Zur vorherigen Registerkarte im aktiven Panel wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Alles auswählen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+B</div></td>
+            <td class="hintcell">Flache Ansicht: durchsucht alle Unterverzeichnisse im aktuellen Verzeichnis des aktiven Panels und zeigt alle Dateien in einer Liste. Ein erneuter Aufruf des Befehls kehrt zum normalen Modus zurück.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+B</div></td>
+            <td class="hintcell">Flache Ansicht: wie <kbd>Ctrl+B</kbd>, aber nur für ausgewählte Dateien und Ordner</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">In die Zwischenablage kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">Verzeichnis-Favoriten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+H</div></td>
+            <td class="hintcell">Dropdown-Menü des Verzeichnisverlaufs aufrufen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+K</div></td>
+            <td class="hintcell">Netzlaufwerk verbinden (siehe <a href="cmds.html#cm_MapNetworkDrive">cm_MapNetworkDrive</a>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">Belegten Speicherplatz berechnen (für ausgewählte Einträge)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+M</div></td>
+            <td class="hintcell">Mehrfach-Umbenennen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
+            <td class="hintcell">Vollbildmodus der Konsole umschalten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">Pfad des aktiven Panels an die Befehlszeile anhängen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Q</div></td>
+            <td class="hintcell">Schnellansicht: Inhalt des ausgewählten Eintrags wird im gegenüberliegenden Panel angezeigt (Einzelheiten <a href="viewer.html">hier</a>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Aktuelles Panel aktualisieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">Schnellsuche (siehe Optionen)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
+            <td class="hintcell">Neue Registerkarte im aktiven Panel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+U</div></td>
+            <td class="hintcell">Panels tauschen (das Verzeichnis im linken Panel tauscht mit dem Verzeichnis im rechten Panel)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">Aus der Zwischenablage einfügen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">Aktuelle Registerkarte schließen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">In die Zwischenablage ausschneiden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Dateikommentar erstellen/bearbeiten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &uarr;</div></td>
+            <td class="hintcell">Ausgewähltes Verzeichnis in einer neuen Registerkarte öffnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &darr;</div></td>
+            <td class="hintcell">Kontextmenü des Befehlszeilenverlaufs aufrufen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &#8592;</div></td>
+            <td class="hintcell">Cursor im rechten Panel, dasselbe Verzeichnis im linken Panel öffnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+ &#8594;</div></td>
+            <td class="hintcell">Cursor im linken Panel, dasselbe Verzeichnis im rechten Panel öffnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+\</div></td>
+            <td class="hintcell">Zum Stammverzeichnis wechseln („/“ unter Unix-ähnlichen Betriebssystemen) oder zum Stamm des aktuellen Laufwerks (Windows).<br>
+              Im Archiv: zum Stamm dieses Archivs wechseln.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+.</div></td>
+            <td class="hintcell">Versteckte Dateien und Systemdateien ein-/ausblenden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Enter</div></td>
+            <td class="hintcell">Ausgewählten Eintrag an die Befehlszeile anhängen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Enter</div></td>
+            <td class="hintcell">Verkettung aus Pfad des aktiven Panels und ausgewähltem Eintrag an die Befehlszeile anhängen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F7</div></td>
+            <td class="hintcell">Neue Suchinstanz</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td>
+            <td class="hintcell">Panel der Baumansicht</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Home</div></td>
+            <td class="hintcell">Zum Benutzerverzeichnis wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+A</div></td>
+            <td class="hintcell">Menü mit einer Liste aller offenen Registerkarten anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
+            <td class="hintcell">Vollständige Namen der ausgewählten Einträge in die Zwischenablage kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+X</div></td>
+            <td class="hintcell">Namen der ausgewählten Einträge in die Zwischenablage kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+D</div></td>
+            <td class="hintcell">Konfiguration der Verzeichnis-Favoriten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+H</div></td>
+            <td class="hintcell">Schaltet die Anordnung der Panels zwischen zwei senkrechten (links/rechts) und zwei waagerechten (oben/unten) um</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
+            <td class="hintcell">1. Wie <kbd>Enter</kbd>.<br>
+              2. Verzeichnis/Archiv öffnen (auch selbstextrahierende Archive).</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgUp</div></td>
+            <td class="hintcell">Wie <kbd>Backspace</kbd></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Num +</div></td>
+            <td class="hintcell">Alles auswählen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Num -</div></td>
+            <td class="hintcell">Auswahl vollständig aufheben</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num +</div></td>
+            <td class="hintcell">Auswahl erweitern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num -</div></td>
+            <td class="hintcell">Auswahl verkleinern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num *</div></td>
+            <td class="hintcell">Auswahl umkehren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Num +</div></td>
+            <td class="hintcell">Alle Dateien im aktuellen Verzeichnis mit derselben Erweiterung wie die fokussierte Datei auswählen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Num -</div></td>
+            <td class="hintcell">Auswahl aller Dateien im aktuellen Verzeichnis mit derselben Erweiterung wie die fokussierte Datei aufheben</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">Fokus auf die Befehlszeile setzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F10</div></td>
+            <td class="hintcell">Kontextmenü für Dateien und Ordner anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F12</div></td>
+            <td class="hintcell">Fenster mit allen internen Befehlen anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
+            <td class="hintcell">Fokus zwischen aktueller Dateiliste und Baumansicht umschalten (falls aktiviert)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Enter</div></td>
+            <td class="hintcell">Befehl im Terminal ausführen (Auswahl unter Optionen..)</td>
+          </tr>
+
+          <tr>
+            <td class="varcell"><div class="shortcutname">Tab</div></td>
+            <td class="hintcell">Zwischen den Panels wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Enter</div></td>
+            <td class="hintcell">1. Der Cursor steht in der Befehlszeile und sie ist nicht leer: den Befehl ausführen.<br>
+              2. Der Cursor steht auf einem Verzeichnis/Archiv: das Verzeichnis/Archiv öffnen.<br>
+              3. Der Cursor steht auf einer ausführbaren Datei: sie starten.<br>
+              4. Der Cursor steht auf einer normalen Datei: in dem zugeordneten Programm öffnen.<br>
+              5. Der Cursor steht auf einer Datei in einem Archiv: den Eigenschaftendialog der gepackten Datei anzeigen oder die Datei aus dem Archiv entpacken und starten oder in dem zugeordneten Programm öffnen.<br>
+              6. Der Cursor steht auf einer Prüfsummendatei: Prüfsummenprüfung ausführen.<br>
+              7. Der Cursor steht im Eingabefeld beim Umbenennen im Dateipanel: den neuen Namen speichern.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Insert</div></td>
+            <td class="hintcell">Datei oder Verzeichnis auswählen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Backspace</div></td>
+            <td class="hintcell">Zum übergeordneten Verzeichnis wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Space</div></td>
+            <td class="hintcell">1. Bei einer Datei – Eintrag auswählen/abwählen.<br>
+              2. Bei einem Verzeichnis – Eintrag auswählen/abwählen und den im Verzeichnis belegten Speicherplatz berechnen.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">alphanumerische Tasten</div></td>
+            <td class="hintcell">Die Aktion hängt von den <a href="configuration.html#ConfigKeys">Einstellungen</a> ab</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Pfeiltasten auf/ab</div></td>
+            <td class="hintcell">1. Beim Umbenennen einer Datei: <a href="help.html#rename_files">fortlaufendes Umbenennen von Dateien</a>.<br>
+              2. In anderen Fällen: die übliche schrittweise Navigation in der Dateiliste nach oben/unten.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Pfeiltasten links/rechts&larr;</div></td>
+            <td class="hintcell">Zum übergeordneten Verzeichnis oder zum ausgewählten Verzeichnis wechseln (wenn <a href="configuration.html#ConfigKeys">Lynx-ähnliche Bewegung</a> aktiviert ist und nur im Vollmodus).<br>
+              Kurz- oder Miniaturansicht: Cursor waagerecht zur vorherigen/nächsten Spalte oder zur vorherigen/nächsten Miniaturansicht bewegen.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Rechte Maustaste</div></td>
+            <td>Kontextmenü mit konfigurierbaren Befehlen anzeigen (aus den <a href="configuration.html#ConfigAssociations">Dateizuordnungen</a>)</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dcopymove">3. Kopieren/Verschieben-Dialog</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Kopieren/Verschieben-Dialog</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">Aufgabe zur Warteschlange der Dateioperationen hinzufügen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F5, F6</div></td>
+            <td class="hintcell">Auswahl im Feld mit Zielverzeichnis und Dateiname im Kreis umschalten:<br>
+              Dateiname ohne Erweiterung&nbsp;&gt; Dateiname mit Erweiterung&nbsp;&gt; Dateierweiterung&nbsp;&gt; Pfad&nbsp;&gt; alles auswählen</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="editdesc">4. Kommentar bearbeiten</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Kommentar bearbeiten</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">Beschreibung speichern</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="find">5. Dateien suchen</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Dateien suchen</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc</div></td>
+            <td class="hintcell">Suche abbrechen und Fenster schließen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Anzeigen (für gefundene Dateien auf der Seite „Ergebnis“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">Bearbeiten (für gefundene Dateien auf der Seite „Ergebnis“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7</div></td>
+            <td class="hintcell">Aktiviert die Suche nach Dateiinhalten und setzt den Fokus</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">Start</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+1, Alt+F7</div></td>
+            <td class="hintcell">Zur Seite „Standard“ wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+2</div></td>
+            <td class="hintcell">Zur Seite „Erweitert“ wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+3</div></td>
+            <td class="hintcell">Zur Seite „Plugins“ wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+4</div></td>
+            <td class="hintcell">Zur Seite „Laden/Speichern“ wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+5</div></td>
+            <td class="hintcell">Zur Seite „Ergebnisse“ wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Tab</div></td>
+            <td class="hintcell">Zur nächsten Seite wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Tab</div></td>
+            <td class="hintcell">Zur vorherigen Seite wechseln</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+F4</div></td>
+            <td class="hintcell">Suche abbrechen, schließen und aus dem Speicher entfernen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">Letzte Suche</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
+            <td class="hintcell">Neue Suche</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+N</div></td>
+            <td class="hintcell">Neue Suche (Filter löschen)</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mrename">6. Mehrfach-Umbenennen</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Mehrfach-Umbenennen</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc</div></td>
+            <td class="hintcell">Schließen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">Liste der Vorlagen anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Namen aus Datei laden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F4</div></td>
+            <td class="hintcell">Namen bearbeiten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F4</div></td>
+            <td class="hintcell">Aktuelle neue Namen bearbeiten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F9</div></td>
+            <td class="hintcell">Umbenennen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F10</div></td>
+            <td class="hintcell">Konfiguration</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F11</div></td>
+            <td class="hintcell">Protokolldatei der Umbenennung anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F12</div></td>
+            <td class="hintcell">Vorlage unter angegebenem Namen speichern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+0</div></td>
+            <td class="hintcell">Letzte Vorlage laden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Ziffer (1..9)</div></td>
+            <td class="hintcell">Vorlage nach Index laden: 1., 2. und so weiter</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F1</div></td>
+            <td class="hintcell">Dateiname: Untermenü mit Plugin-Feldern anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F1</div></td>
+            <td class="hintcell">Erweiterung: Untermenü mit Plugin-Feldern anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F2</div></td>
+            <td class="hintcell">Dateiname: Menü mit Platzhaltern anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F2</div></td>
+            <td class="hintcell">Erweiterung: Menü mit Platzhaltern anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">Dateiname: Untermenü der Platzhalter „Name“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F3</div></td>
+            <td class="hintcell">Erweiterung: Untermenü der Platzhalter „Name“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F4</div></td>
+            <td class="hintcell">Dateiname: Untermenü der Platzhalter „Erweiterung“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F4</div></td>
+            <td class="hintcell">Erweiterung: Untermenü der Platzhalter „Erweiterung“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F5</div></td>
+            <td class="hintcell">Dateiname: Untermenü der Platzhalter „Datum“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F5</div></td>
+            <td class="hintcell">Erweiterung: Untermenü der Platzhalter „Datum“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F6</div></td>
+            <td class="hintcell">Dateiname: Untermenü der Platzhalter „Zeit“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F6</div></td>
+            <td class="hintcell">Erweiterung: Untermenü der Platzhalter „Zeit“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F7</div></td>
+            <td class="hintcell">Dateiname: Untermenü der Platzhalter „Zähler“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+F7</div></td>
+            <td class="hintcell">Erweiterung: Untermenü der Platzhalter „Zähler“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+S</div></td>
+            <td class="hintcell">Vorlagen sortieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">Vorlage löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+I</div></td>
+            <td class="hintcell">Menü „Editor“ anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Alles zurücksetzen (Standardzustand wiederherstellen)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+S</div></td>
+            <td class="hintcell">Geänderte Vorlage speichern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F2</div></td>
+            <td class="hintcell">Vorlagenmenü anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F6</div></td>
+            <td class="hintcell">Vorlage umbenennen</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="sync">7. Verzeichnisse synchronisieren</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Verzeichnisse synchronisieren</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Links anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Rechts anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+F3</div></td>
+            <td class="hintcell">Dateien nach Inhalt vergleichen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+D</div></td>
+            <td class="hintcell">Zum Kopieren auswählen (Standardrichtung)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+L</div></td>
+            <td class="hintcell">Zum Kopieren auswählen -&gt; (von links nach rechts)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Zum Kopieren auswählen &lt;- (von rechts nach links)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+M</div></td>
+            <td class="hintcell">Auswahl entfernen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+W</div></td>
+            <td class="hintcell">Kopierrichtung umkehren</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="viewer">8. Eingebauter Dateibetrachter</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Eingebauter Dateibetrachter</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Q (oder mit einer beliebigen Kombination aus Ctrl, Shift, Alt)</div></td>
+            <td class="hintcell">Schließen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2</div></td>
+            <td class="hintcell">Aktuelle Datei neu laden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F6</div></td>
+            <td class="hintcell">Textcursor ein-/ausblenden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F7, Ctrl+F</div></td>
+            <td class="hintcell">Text suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Weitersuchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Rückwärts suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Enter</div></td>
+            <td class="hintcell">Vollbild</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Alles auswählen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Markierten Text in die Zwischenablage kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Zur angegebenen Zeile springen (nur im Code-Anzeigemodus)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+P</div></td>
+            <td class="hintcell">Drucken</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Rückgängig (nur im Bildansichtsmodus)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">1</div></td>
+            <td class="hintcell">Als Text anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">2</div></td>
+            <td class="hintcell">Als Binär anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">3</div></td>
+            <td class="hintcell">Als Hexadezimal anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">4</div></td>
+            <td class="hintcell">Als Dezimal anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">5</div></td>
+            <td class="hintcell">Als Buch anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">6</div></td>
+            <td class="hintcell">Als Grafik anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">7</div></td>
+            <td class="hintcell">Mit Plugin anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">8</div></td>
+            <td class="hintcell">Office-XML (DOCX und XLSX, ODT und ODS), nur Text</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">9</div></td>
+            <td class="hintcell">Im Code-Anzeigemodus anzeigen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">A</div></td>
+            <td class="hintcell">Kodierung wechseln: ANSI</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">S</div></td>
+            <td class="hintcell">Kodierung wechseln: OEM</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">X</div></td>
+            <td class="hintcell">Kodierung wechseln: UTF-16 LE</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Z</div></td>
+            <td class="hintcell">Kodierung wechseln: UTF-8</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">C</div></td>
+            <td class="hintcell">Bild: in der Fenstermitte platzieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F</div></td>
+            <td class="hintcell">Bild: Bild strecken</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">L</div></td>
+            <td class="hintcell">Bild: nur große strecken</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">N, Alt+ &#8594;</div></td>
+            <td class="hintcell">Nächste Datei bei mehreren Dateien</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">P, Alt+ &#8592;</div></td>
+            <td class="hintcell">Vorherige Datei bei mehreren Dateien</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">W</div></td>
+            <td class="hintcell">Text umbrechen/Umbruch aufheben</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num +</div></td>
+            <td class="hintcell">Vergrößern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Num -</div></td>
+            <td class="hintcell">Verkleinern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">`</div></td>
+            <td class="hintcell">Vorschau ein-/ausblenden</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="editor">9. Eingebauter Editor</a></h2>
+        <p>Einige Tastenkürzel lassen sich nicht anpassen!</p>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Eingebauter Editor</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Esc, Alt+X</div></td>
+            <td class="hintcell">Beenden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F2, Ctrl+S</div></td>
+            <td class="hintcell">Speichern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
+            <td class="hintcell">Text suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Weitersuchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Rückwärts suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Backspace</div></td>
+            <td class="hintcell">Von links löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Backspace</div></td>
+            <td class="hintcell">Von links wortweise löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Del</div></td>
+            <td class="hintcell">Von rechts löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Home</div></td>
+            <td class="hintcell">Cursor an den Zeilenanfang setzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">End</div></td>
+            <td class="hintcell">Cursor an das Zeilenende setzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">PgDn</div></td>
+            <td class="hintcell">Inhalt seitenweise nach unten rollen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">PgUp</div></td>
+            <td class="hintcell">Inhalt seitenweise nach oben rollen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Insert</div></td>
+            <td class="hintcell">Einfüge-/Überschreibmodus umschalten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Backspace</div></td>
+            <td class="hintcell">Rückgängig</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+Backspace</div></td>
+            <td class="hintcell">Wiederholen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Ziffer (0..9)</div></td>
+            <td class="hintcell">Zu einem Lesezeichen springen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Ziffer (0..9)</div></td>
+            <td class="hintcell">Lesezeichen setzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&uarr;</div></td>
+            <td class="hintcell">Den Inhalt zusammen mit dem Textcursor nach oben rollen: Der Cursor bleibt in der untersten sichtbaren Zeile des Editorfensters</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&darr;</div></td>
+            <td class="hintcell">Den Inhalt zusammen mit dem Textcursor nach unten rollen: Der Cursor bleibt in der obersten sichtbaren Zeile des Editorfensters</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&#8592;</div></td>
+            <td class="hintcell">Cursor zum vorherigen Wort bewegen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+&#8594;</div></td>
+            <td class="hintcell">Cursor zum nächsten Wort bewegen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Home</div></td>
+            <td class="hintcell">Cursor an den Dateianfang setzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+End</div></td>
+            <td class="hintcell">Cursor an das Dateiende setzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgDn</div></td>
+            <td class="hintcell">Cursor zur untersten sichtbaren Zeile im Editorfenster bewegen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+PgUp</div></td>
+            <td class="hintcell">Cursor zur obersten sichtbaren Zeile im Editorfenster bewegen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+&#8592;</div></td>
+            <td class="hintcell">Nach links wortweise markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+&#8594;</div></td>
+            <td class="hintcell">Nach rechts wortweise markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Home</div></td>
+            <td class="hintcell">Text bis zum Dateianfang markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+End</div></td>
+            <td class="hintcell">Text bis zum Dateiende markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+PgDn</div></td>
+            <td class="hintcell">Text bis zur untersten sichtbaren Zeile im Editorfenster markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+PgUp</div></td>
+            <td class="hintcell">Text bis zur obersten sichtbaren Zeile im Editorfenster markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+A</div></td>
+            <td class="hintcell">Alles auswählen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+C</div></td>
+            <td class="hintcell">Markierten Text in die Zwischenablage kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Zur angegebenen Zeile springen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+N</div></td>
+            <td class="hintcell">Neue Datei erstellen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+O</div></td>
+            <td class="hintcell">Datei öffnen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Text ersetzen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+T</div></td>
+            <td class="hintcell">Von rechts wortweise löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+V</div></td>
+            <td class="hintcell">Text aus der Zwischenablage einfügen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+X</div></td>
+            <td class="hintcell">Markierten Text in die Zwischenablage ausschneiden</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Y</div></td>
+            <td class="hintcell">Zeile löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Z</div></td>
+            <td class="hintcell">Rückgängig</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Z</div></td>
+            <td class="hintcell">Wiederholen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+C</div></td>
+            <td class="hintcell">Spaltenauswahlmodus</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+L</div></td>
+            <td class="hintcell">Zeilenauswahlmodus</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+N</div></td>
+            <td class="hintcell">Normaler Auswahlmodus</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+B</div></td>
+            <td class="hintcell">Cursor zur passenden Klammer bewegen („()“, „[]“ oder „{}“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+I</div></td>
+            <td class="hintcell">Einrückung für eine Zeile oder einen Textblock hinzufügen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+U</div></td>
+            <td class="hintcell">Einrückung für eine Zeile oder einen Textblock entfernen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Shift+Y</div></td>
+            <td class="hintcell">Text bis zum Zeilenende löschen.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Insert</div></td>
+            <td class="hintcell">Kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&uarr;</div></td>
+            <td class="hintcell">Auswahl bis zur gleichen Spalte in der vorherigen Zeile erweitern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&darr;</div></td>
+            <td class="hintcell">Auswahl bis zur gleichen Spalte in der nächsten Zeile erweitern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&#8592;</div></td>
+            <td class="hintcell">Nach links markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+&#8594;</div></td>
+            <td class="hintcell">Nach rechts markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Home</div></td>
+            <td class="hintcell">Text bis zum Zeilenanfang markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+End</div></td>
+            <td class="hintcell">Text bis zum Zeilenende markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+PgDn</div></td>
+            <td class="hintcell">Eine Seite nach unten markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+PgUp</div></td>
+            <td class="hintcell">Eine Seite nach oben markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Del</div></td>
+            <td class="hintcell">Löschen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shit+Insert</div></td>
+            <td class="hintcell">Einfügen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Tab</div></td>
+            <td class="hintcell">1. Ein Tabulatorzeichen einfügen.<br>
+              2. Wenn <a href="configuration.html#ConfigToolsEditor">Tabulator rückt Blöcke ein</a> aktiviert ist und Text markiert ist: Einrückung für eine Zeile oder einen Textblock hinzufügen.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+Tab</div></td>
+            <td class="hintcell">Wenn <a href="configuration.html#ConfigToolsEditor">Tabulator rückt Blöcke ein</a> aktiviert ist und Text markiert ist: Einrückung für eine Zeile oder einen Textblock entfernen</td>
+          </tr>
+        </table>
+        <p>In einem geöffneten Dokument können Sie eine Kopie des markierten Textes an eine beliebige Stelle im Dokument einfügen, ohne die Zwischenablage zu verwenden: Markieren Sie den Text, bewegen Sie den Mauszeiger an die gewünschte Position und drücken Sie das Mausrad.</p>
+        <p>Der eingebaute Editor unterstützt den Mehrfachcursor-Modus: Mausauswahl mit der Taste <kbd>Alt</kbd>, <kbd>Alt+Shift+Klick</kbd> oder <kbd>Alt+Shift+Pfeiltasten</kbd> für die Spaltenbearbeitung und <kbd>Ctrl+Shift+Klick</kbd> für die Bearbeitung mit mehreren Cursorn.</p>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Tastenkürzel für die Textspaltenauswahl</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&uarr;</div></td>
+            <td class="hintcell">Spalte nach oben markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&darr;</div></td>
+            <td class="hintcell">Spalte nach unten markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&#8592;</div></td>
+            <td class="hintcell">Spalte nach links markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+&#8594;</div></td>
+            <td class="hintcell">Spalte nach rechts markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+Home</div></td>
+            <td class="hintcell">Spalte bis zum Zeilenanfang markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+End</div></td>
+            <td class="hintcell">Spalte bis zum Zeilenende markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+PgDn</div></td>
+            <td class="hintcell">Spalte eine Seite nach unten markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Shift+PgUp</div></td>
+            <td class="hintcell">Spalte eine Seite nach oben markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+Home</div></td>
+            <td class="hintcell">Spalte bis zum Dateianfang markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+End</div></td>
+            <td class="hintcell">Spalte bis zum Dateiende markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+PgDn</div></td>
+            <td class="hintcell">Spalte eine Seite nach unten markieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+Alt+Shift+PgUp</div></td>
+            <td class="hintcell">Spalte eine Seite nach oben markieren</td>
+          </tr>
+        </table>
+        <p>Hinweis: Wenn der Inhalt von mehr als einer Zeile markiert ist, funktionieren die Befehle zum Ändern der Einrückung nicht korrekt. Das ist eine Einschränkung der verwendeten Komponente.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="differ">10. Vergleichswerkzeug</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Vergleichswerkzeug</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F7, Ctrl+F</div></td>
+            <td class="hintcell">Text suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">F3</div></td>
+            <td class="hintcell">Weitersuchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Shift+F3</div></td>
+            <td class="hintcell">Rückwärts suchen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+Home</div></td>
+            <td class="hintcell">Erster Unterschied</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+End</div></td>
+            <td class="hintcell">Letzter Unterschied</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &uarr;</div></td>
+            <td class="hintcell">Vorheriger Unterschied</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &darr;</div></td>
+            <td class="hintcell">Nächster Unterschied</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8592;</div></td>
+            <td class="hintcell">Block nach links kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+ &#8594;</div></td>
+            <td class="hintcell">Block nach rechts kopieren</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Alt+X</div></td>
+            <td class="hintcell">Schließen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+G</div></td>
+            <td class="hintcell">Zur angegebenen Zeile springen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="shortcutname">Ctrl+R</div></td>
+            <td class="hintcell">Dateien neu laden</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="options">11. Konfiguration</a></h2>
+        <p>Auf den Konfigurationsseiten sind viele Aktionen möglich, und einige Tastenkürzel helfen uns, das Nötige schnell zu erledigen.</p>
+        <p>Diese lassen sich nicht neu belegen, sind aber zumindest standardmäßig vorhanden, und die folgende Tabelle führt sie auf.</p>
+        <p>Die Taste <kbd>F1</kbd> öffnet den zugehörigen Abschnitt der Hilfe von Double Commander.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+
+      <div>
+        <h2><a name="hotkeys">11.1. Tasten&nbsp;&gt; Tastenkürzel</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Tasten&nbsp;&gt; Tastenkürzel</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr><td class="varcell"><div class="shortcutname">F4</div></td><td class="hintcell">Tastenkürzel für den Befehl unter dem Cursor bearbeiten</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F5</div></td><td class="hintcell">Aktuellen Satz von Tastenkürzeln kopieren</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F7</div></td><td class="hintcell">Tastenkürzel für den Befehl unter dem Cursor hinzufügen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F8</div></td><td class="hintcell">Aktuellen Satz von Tastenkürzeln löschen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F9</div></td><td class="hintcell">Menü zur Tastenkürzeldatei aufklappen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Del</div></td><td class="hintcell">Tastenkürzel für den Befehl unter dem Cursor löschen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Num +</div></td><td class="hintcell">Nächste Kategorie</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Num -</div></td><td class="hintcell">Vorherige Kategorie</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F3</div></td><td class="hintcell">Befehlsliste nach Befehlsname sortieren</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F4</div></td><td class="hintcell">Befehlsliste nach Tastenkürzeln sortieren (gruppiert)</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F5</div></td><td class="hintcell">Befehlsliste nach Tastenkürzeln sortieren (eines pro Zeile)</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+S</div></td><td class="hintcell">Aktuellen Satz von Tastenkürzeln speichern</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+F6</div></td><td class="hintcell">Aktuellen Satz von Tastenkürzeln umbenennen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+Ctrl+R</div></td><td class="hintcell">DC-Standard wiederherstellen</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="favtabs">11.2. Favoriten-Registerkarten</a></h2>
+        <br>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Favoriten-Registerkarten</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr><td class="varcell"><div class="shortcutname">F2</div></td><td class="hintcell">Nur eine einzelne Gruppe von Einträgen sortieren</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F6</div></td><td class="hintcell">Umbenennen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F7</div></td><td class="hintcell">Untermenü hinzufügen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+F7</div></td><td class="hintcell">Untermenü einfügen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F10</div></td><td class="hintcell">Trenner hinzufügen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Shift+F10</div></td><td class="hintcell">Trenner einfügen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Del</div></td><td class="hintcell">Ausgewählten Eintrag löschen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+X</div></td><td class="hintcell">Ausschneiden</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+V</div></td><td class="hintcell">Einfügen</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dirhotlist">11.3. Verzeichnis-Favoriten</a></h2>
+        <p>Damit wir unsere <a href="directoryhotlist.html">Verzeichnis-Favoriten</a> konfigurieren können, stehen uns zahlreiche Tastenkürzel zur Verfügung.</p>
+        <p>So können wir den Fokus in den unteren drei Feldern behalten, um unsere Namen und unseren Pfad einzugeben, und uns trotzdem im Baum der Verzeichnis-Favoriten bewegen, ohne das Textfeld zu verlassen.</p>
+        <table>
+          <tr class="rowcategorytitle">
+            <th colspan="2">Verzeichnis-Favoriten</th>
+          </tr>
+          <tr class="rowsubtitle">
+            <th class="namecolumn">Taste</th>
+            <th class="categorydesccolumn">Aktion</th>
+          </tr>
+          <tr><td class="varcell"><div class="shortcutname">F2</div></td><td class="hintcell">Setzt den Fokus auf den Baum der Verzeichnis-Favoriten</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F5</div></td><td class="hintcell">Fügt eine Kopie des aktuell ausgewählten Eintrags an der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F7</div></td><td class="hintcell">Fügt ein Untermenü an der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F8</div></td><td class="hintcell">Löscht den aktuellen Eintrag an der Auswahlposition</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F9</div></td><td class="hintcell">Fügt einen Eintrag mit einem Verzeichnis, das wir eingeben, an der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">F10</div></td><td class="hintcell">Fügt eine waagerechte Trennlinie an der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F5</div></td><td class="hintcell">Fügt eine Kopie des aktuell ausgewählten Eintrags unter der aktuellen Position hinzu</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F7</div></td><td class="hintcell">Fügt ein Untermenü unter der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F8</div></td><td class="hintcell">Löscht die ausgewählten Elemente. Trifft der Befehl auf ein Untermenü, wird der Einstiegspunkt des Untermenüs gelöscht, der gesamte Inhalt bleibt jedoch erhalten und rückt eine Ebene näher an die Wurzel</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F9</div></td><td class="hintcell">Fügt einen Eintrag mit einem Verzeichnis, das wir eingeben, unter der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+F10</div></td><td class="hintcell">Fügt eine waagerechte Trennlinie unter der aktuellen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Home</div></td><td class="hintcell">Setzt die Auswahl auf das erste Element der Liste</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+End</div></td><td class="hintcell">Setzt die Auswahl auf den letzten anzeigbaren Eintrag, ohne einen neuen Zweig öffnen zu müssen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &#8592;</div></td><td class="hintcell">Wenn die aktuelle Auswahl ein Untermenüeintrag ist, wird der Zweig geschlossen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &#8594;</div></td><td class="hintcell">Wenn die aktuelle Auswahl ein Untermenüeintrag ist, wird der Zweig geöffnet</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &uarr;</div></td><td class="hintcell">Verschiebt die aktuelle Auswahl über die aktuelle Position</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+ &darr;</div></td><td class="hintcell">Verschiebt die aktuelle Auswahl unter die aktuelle Position</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+F8</div></td><td class="hintcell">Löscht die ausgewählten Elemente und, wenn ein Untermenü getroffen wird, auch dessen gesamten Inhalt</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+Alt+F8</div></td><td class="hintcell">Löscht alle Elemente, unabhängig davon, ob sie ausgewählt sind oder nicht</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+P</div></td><td class="hintcell">Ermöglicht, den Pfad der aktuellen Auswahl zu bearbeiten, um ihn relativ zu etwas zu machen, oder bietet viele weitere Möglichkeiten</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+T</div></td><td class="hintcell">Ermöglicht, den Pfad der aktuellen Auswahl zu bearbeiten, um ihn relativ zu etwas zu machen, oder bietet viele weitere Möglichkeiten</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+V</div></td><td class="hintcell">Entfernt die Einträge, die mit dem unmittelbar danach beschriebenen Befehl in die temporäre Liste gelegt wurden, und fügt sie an der aktuellen neuen Position ein</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">Ctrl+Shift+X</div></td><td class="hintcell">Speichert die aktuelle Auswahl in einer temporären Liste, bereit zum Entfernen und zum Einfügen an einer anderen Stelle mit dem zuvor beschriebenen Befehl dieser Tabelle</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">&uarr;</div></td><td class="hintcell">Setzt die Auswahl auf den Eintrag direkt über dem aktuellen</td></tr>
+          <tr><td class="varcell"><div class="shortcutname">&darr;</div></td><td class="hintcell">Setzt die Auswahl auf den Eintrag direkt unter dem aktuellen</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="configuration.html">Zurück</a> | <a title="Nächste Seite" href="copymove.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

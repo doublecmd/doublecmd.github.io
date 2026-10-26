@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Verzeichnisse synchronisieren</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="multirename.html">Zurück</a> | <a title="Nächste Seite" href="viewer.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.7. Verzeichnisse synchronisieren</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#intro">Einführung</a></dt>
+          <dt>2. <a href="#window">Fenster des Werkzeugs zur Verzeichnissynchronisation</a></dt>
+          <dt>3. <a href="#commands">Befehle</a></dt>
+          <dt>4. <a href="#asettings">Zusätzliche Einstellungen</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Einführung</a></h2>
+        <p>Das Werkzeug zur Verzeichnissynchronisation durchsucht die Verzeichnisse des linken und des rechten Dateipanels, zeigt Unterschiede in ihrem Inhalt an und ermöglicht es, sie anzugleichen.</p>
+        <p>Wir können zwei lokale Verzeichnisse oder ein lokales Verzeichnis und ein Verzeichnis in einem virtuellen Dateisystem synchronisieren (ein geöffnetes Archiv oder ein Verzeichnis in einem Dateisystem-Plugin).</p>
+        <p>Standardmäßig vergleicht das Synchronisationswerkzeug Dateien nach Name, Größe und Änderungsdatum.</p>
+        <p>Die Methode zum Löschen von Dateien (in den Papierkorb oder endgültig) hängt vom Zustand der Option <a href="configuration.html#ConfigOperations">In den Papierkorb löschen (die Shift-Taste kehrt diese Einstellung um)</a> ab.</p>
+        <p>Hinweis: Leere Verzeichnisse werden ignoriert.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="window">2. Fenster des Werkzeugs zur Verzeichnissynchronisation</a></h2>
+        <p class="figure"><img class="largeimage" title="Werkzeug zur Verzeichnissynchronisation" alt="Werkzeug zur Verzeichnissynchronisation" src="../en/images/imgDC/syncdirs.png" width="742" height="446"></p>
+        <p>Oben im Fenster befinden sich Felder mit den aktuellen Verzeichnissen des linken und des rechten Dateipanels. Wir können sie manuell oder über die Schaltfläche zum Auswählen eines Verzeichnisses ändern.</p>
+        <p>Dazwischen liegt ein Feld zum Filtern von Dateien nach Maske (das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen, das Zeichen „?“ für genau ein Zeichen). Dateien, die nicht zur Maske passen, werden ignoriert. Wir können hier mehrere Dateitypen angeben, getrennt durch ein Semikolon „;“ ohne Leerzeichen. Außerdem können wir Suchvorlagen verwenden (<img title="Vorlage ..." alt="Vorlage ..." src="../en/images/imgDC/btemplate.png" width="16" height="16">), einschließlich der Suche mit Inhalts-Plugins. Der Standardwert ist „*“ (alle Dateien).</p>
+        <p>Die Schaltfläche mit einem Pfeil öffnet die Liste der verwendeten Dateimasken (zu beachten ist, dass Double Commander einen gemeinsamen Verlauf der Dateimasken für mehrere Werkzeuge speichert: Dateien suchen, Verzeichnissynchronisation, Entpacken von Archiven, Befehle zum Auswählen einer Dateigruppe). Standardmäßig speichert Double Commander (unabhängig vom Zustand der Option <a href="configuration.html#ConfigDC">Verlauf der Dateimasken</a>) die zuletzt verwendete Dateimaske als Standardmaske für den nächsten Start des Synchronisationswerkzeugs (wenn es keine Suchvorlage ist), siehe <a href="#asettings">Zusätzliche Einstellungen</a>.</p>
+        <p>Um Verzeichnisse und symbolische Verknüpfungen auf Verzeichnisse auszuschließen, können wir die Suchvorlage und das Feld <a href="findfiles.html#standard">Unterverzeichnisse ausschließen</a> verwenden.</p>
+        <p><span class="italic">Vergleichen</span>&nbsp;&ndash; startet den Vergleich der gewählten Verzeichnisse. Bei Bedarf kann der Vorgang mit der Taste <kbd>Esc</kbd> abgebrochen werden.</p>
+        <p>Parameter:</p>
+        <ul>
+          <li><p><span class="italic">nur ausgewählte (im Hauptfenster)</span>&nbsp;&ndash; Wenn aktiviert, werden nur Dateien und Verzeichnisse verglichen, die im Dateipanel ausgewählt wurden. Es genügt, Dateien und Verzeichnisse nur in einem Dateipanel auszuwählen.</p></li>
+          <li><p><span class="italic">asymmetrisch</span>&nbsp;&ndash; Diese Option dient zum Erstellen einer Sicherung: Eine Kopie des Inhalts des linken Panels soll im rechten Panel erzeugt werden. Dateien, die links nicht vorhanden sind, werden rechts zum Löschen markiert. Nicht verfügbar, wenn im Verzeichnis rechts kein Löschen möglich ist (zum Beispiel, weil es ein Archiv ist und das Format keine Änderung unterstützt, oder weil es eine CD/DVD ist).</p></li>
+          <li><p><span class="italic">Unterverzeichnisse</span>&nbsp;&ndash; ermöglicht die rekursive Dateisuche: Double Commander prüft den Inhalt aller Unterverzeichnisse.</p></li>
+          <li><p><span class="italic">nach Inhalt</span>&nbsp;&ndash; Wenn aktiviert, werden Dateien mit gleicher Größe und gleichem Datum nach Inhalt verglichen (ein byteweiser Vergleich). Nicht verfügbar, wenn sich das zweite Verzeichnis in einem virtuellen Dateisystem befindet.</p></li>
+          <li><p><span class="italic">Datum ignorieren</span>&nbsp;&ndash; Standardmäßig bevorzugt Double Commander eine neuere Datei und wählt die Kopierrichtung automatisch. Ist diese Option aktiviert, gelten Dateien mit gleicher Größe als identisch.</p></li>
+        </ul>
+        <p>Nach dem Ändern dieser Optionen müssen wir den Vergleich erneut ausführen.</p>
+        <p><span class="italic">Anzeigen:</span>&nbsp;&ndash; Eine Gruppe von Schaltflächen, die die Anzeige verschiedener Dateigruppen in der Liste ein- oder ausschaltet:</p>
+        <ul>
+          <li><p><span class="italic">&gt;</span>&nbsp;&ndash; Dateien anzeigen, die links kopiert oder gelöscht werden sollen.</p></li>
+          <li><p><span class="italic">=</span>&nbsp;&ndash; Dateien anzeigen, die mit den aktuellen Vergleichsparametern als identisch gelten.</p></li>
+          <li><p><span class="italic">&#8800;</span>&nbsp;&ndash; Nicht identische Dateien anzeigen.</p></li>
+          <li><p><span class="italic">?</span>&nbsp;&ndash; Dateien mit dem Status „unbekannt“ anzeigen (zum Beispiel defekte oder ins Leere zeigende symbolische Verknüpfungen oder Dateien, die beim Vergleich nach Inhalt nicht gelesen werden können)</p></li>
+          <li><p><span class="italic">&lt;</span>&nbsp;&ndash; Dateien anzeigen, die rechts kopiert oder gelöscht werden sollen.</p></li>
+          <li><p><span class="italic">Duplikate</span>&nbsp;&ndash; Dateien anzeigen, die auf beiden Seiten vorhanden sind.</p></li>
+          <li><p><span class="italic">Einzelne</span>&nbsp;&ndash; Dateien anzeigen, die nur auf einer Seite vorhanden sind.</p></li>
+        </ul>
+        <p>Darunter liegt ein Bereich, der in drei Teile gegliedert ist:</p>
+        <ul>
+          <li><p>Links und rechts werden Dateilisten angezeigt. Beide Teile enthalten die Spalten „Name“, „Größe“ und „Datum“. Wir können die Dateien durch Klicken auf die Spaltenüberschriften sortieren.</p></li>
+          <li><p>Die mittlere Spalte zeigt den Status der Dateien oder die vorgesehenen Aktionen.</p></li>
+        </ul>
+        <p>Die Statusleiste zeigt das Gesamtergebnis des Vergleichs.</p>
+        <p>Nach Abschluss des Vergleichs zeigt das Synchronisationswerkzeug den Inhalt der Verzeichnisse in mehreren Farben an:</p>
+        <p class="figure"><img class="largeimage" title="Synchronisationswerkzeug: Vergleich" alt="Synchronisationswerkzeug: Vergleich" src="../en/images/imgDC/syncdirscomp.png" width="742" height="446"></p>
+        <ul>
+          <li><p><span class="italic">Grün</span>&nbsp;&ndash; Dateien, die links zum Kopieren oder Löschen ausgewählt sind.</p></li>
+          <li><p><span class="italic">Blau</span>&nbsp;&ndash; Dateien, die rechts zum Kopieren oder Löschen ausgewählt sind.</p></li>
+          <li><p><span class="italic">Rot</span>&nbsp;&ndash; Dateien mit gleichen Namen, die aber nicht identisch sind.</p></li>
+          <li><p>Für die übrigen Dateien wird die Standardtextfarbe verwendet.</p></li>
+        </ul>
+        <p>Wir können sie im Einstellungsabschnitt <a href="configuration.html#ConfigColor">Farben</a> ändern (Kategorie <span class="italic">Verzeichnisse synchronisieren</span>).</p>
+        <p>Bezeichnungen in der Spalte „&lt;=&gt;“:</p>
+        <ul>
+          <li><p><img title="Unbekannt" alt="Unbekannt" src="../en/images/imgDC/syncdirsstateu.png" width="14" height="14">&nbsp;&ndash; unbekannt;</p></li>
+          <li><p><img title="Identisch" alt="Identisch" src="../en/images/imgDC/syncdirsstatee.png" width="14" height="14">&nbsp;&ndash; identische Dateien;</p></li>
+          <li><p><img title="Nicht identisch" alt="Nicht identisch" src="../en/images/imgDC/syncdirsstatene.png" width="14" height="14">&nbsp;&ndash; nicht identische Dateien;</p></li>
+          <li><p><img title="Nach rechts kopieren" alt="Nach rechts kopieren" src="../en/images/imgDC/syncdirsstatecr.png" width="14" height="14">&nbsp;&ndash; Dateien werden nach rechts kopiert;</p></li>
+          <li><p><img title="Nach links kopieren" alt="Nach links kopieren" src="../en/images/imgDC/syncdirsstatecl.png" width="14" height="14">&nbsp;&ndash; Dateien werden nach links kopiert;</p></li>
+          <li><p><img title="Links löschen" alt="Links löschen" src="../en/images/imgDC/syncdirsstatedl.png" width="14" height="14">&nbsp;&ndash; Dateien werden links gelöscht;</p></li>
+          <li><p><img title="Rechts löschen" alt="Rechts löschen" src="../en/images/imgDC/syncdirsstatedr.png" width="14" height="14">&nbsp;&ndash; Dateien werden rechts gelöscht;</p></li>
+          <li><p><img title="Beide löschen" alt="Beide löschen" src="../en/images/imgDC/syncdirsstatedb.png" width="14" height="14">&nbsp;&ndash; Dateien werden auf beiden Seiten gelöscht;</p></li>
+          <li><p><img title="Nichts tun" alt="Nichts tun" src="../en/images/imgDC/syncdirsstaten.png" width="14" height="14">&nbsp;&ndash; nichts tun.</p></li>
+        </ul>
+        <p>Mit der Maus oder der Taste <kbd>Space</kbd> können wir die Aktion abwählen und Dateien vom Synchronisationsvorgang ausschließen.</p>
+        <p>Ein Doppelklick auf einen Dateinamen ruft den Befehl <a href="help.html#cm_CompareContents">Nach Inhalt vergleichen</a> auf.</p>
+        <p>Mit dem Tastenkürzel <kbd>Ctrl+C</kbd> können wir den Inhalt aller Spalten in die Zwischenablage kopieren.</p>
+        <p><span class="italic">Schließen</span>&nbsp;&ndash; schließt das Synchronisationswerkzeug.</p>
+        <p><span class="italic">Synchronisieren</span>&nbsp;&ndash; öffnet ein Dialogfenster zur Bestätigung der Synchronisation. Das Fenster zeigt einige Einzelheiten zu den bevorstehenden Aktionen:</p>
+        <p class="figure"><img class="largeimage" title="Synchronisationswerkzeug: Bestätigung" alt="Synchronisationswerkzeug: Bestätigung" src="../en/images/imgDC/syncdirsconfirm.png" width="318" height="242"></p>
+        <p>Hier können wir die vorgesehenen Vorgänge nach Art (Kopieren oder Löschen) oder Richtung ausschließen.</p>
+        <p><span class="italic">Überschreiben bestätigen</span>&nbsp;&ndash; Bei einem Namenskonflikt verwendet Double Commander dasselbe Dialogfeld mit einer Auswahl von Aktionen (überspringen, umbenennen und weitere) wie beim üblichen Kopieren oder Verschieben von Dateien.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="commands">3. Befehle</a></h2>
+        <p>Befehle gelten für die Datei unter dem Cursor oder für ausgewählte Dateien. Alle im Synchronisationswerkzeug verfügbaren Befehle wurden dem Menü der rechten Maustaste hinzugefügt. Wir können die Tastenkürzel für diese Befehle im Einstellungsabschnitt <a href="configuration.html#ConfigHotKeys">Tasten&nbsp;&gt; Tastenkürzel</a> zuweisen oder ändern (zur Kategorie <span class="italic">Verzeichnisse synchronisieren</span> wechseln).</p>
+        <ul>
+          <li><p><span class="italic">Zum Kopieren auswählen (Standardrichtung)</span>&nbsp;&ndash; Double Commander prüft die Dateien erneut und versucht, eine Aktion automatisch auszuwählen.</p></li>
+          <li><p><span class="italic">Auswahl aufheben</span>&nbsp;&ndash; hebt die zugewiesene Aktion auf und schließt die Dateien vom Synchronisationsvorgang aus.</p></li>
+          <li><p><span class="italic">Zum Kopieren auswählen -&gt; (von links nach rechts)</span>.</p></li>
+          <li><p><span class="italic">Zum Kopieren auswählen &lt;- (von rechts nach links)</span>.</p></li>
+          <li><p><span class="italic">Kopierrichtung umkehren</span>.</p></li>
+          <li><p><span class="italic">Links anzeigen</span> und <span class="italic">Rechts anzeigen</span>&nbsp;&ndash; öffnen die Datei unter dem Cursor auf der linken oder rechten Seite im <a href="viewer.html">Dateibetrachter</a>.</p></li>
+          <li><p><span class="italic">Vergleichen</span>&nbsp;&ndash; ruft den Befehl <a href="help.html#cm_CompareContents">Nach Inhalt vergleichen</a> für die Dateien unter dem Cursor auf.</p></li>
+          <li><p><span class="italic">Zum Löschen auswählen &lt;- (links)</span>.</p></li>
+          <li><p><span class="italic">Zum Löschen auswählen -&gt; (rechts)</span>.</p></li>
+          <li><p><span class="italic">Zum Löschen auswählen &lt;-&gt; (beide)</span>.</p></li>
+          <li><p><span class="italic">&lt;- Links löschen</span>.</p></li>
+          <li><p><span class="italic">-&gt; Rechts löschen</span>.</p></li>
+          <li><p><span class="italic">Auf beiden Seiten löschen</span>.</p></li>
+        </ul>
+        <p>Die letzten drei Befehle löschen die ausgewählten Dateien sofort, vor dem Synchronisationsvorgang. In diesem Fall zeigt Double Commander eine Bestätigungsanfrage.</p>
+        <p>Hinweis: Die Tastenkürzel für die Befehle <span class="italic">Links anzeigen</span>, <span class="italic">Rechts anzeigen</span> und <span class="italic">Vergleichen</span> sind im Quelltext von Double Commander festgelegt und können nicht geändert werden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">4. Zusätzliche Einstellungen</a></h2>
+        <p>Es gibt <a href="configxml.html">mehrere Parameter</a>, die nur manuell in der Konfigurationsdatei <tt>doublecmd.xml</tt> geändert werden können: <code>&lt;Asymmetric&gt;</code>, <code>&lt;DateTimeFormat&gt;</code>, <code>&lt;FileMask&gt;</code>, <code>&lt;NtfsHourTimeDelay&gt;</code>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="multirename.html">Zurück</a> | <a title="Nächste Seite" href="viewer.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

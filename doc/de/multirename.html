@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Mehrfach-Umbenennen</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="findfiles.html">Zurück</a> | <a title="Nächste Seite" href="syncdirs.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.6. Mehrfach-Umbenennen</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#presentation">Vorstellung</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#recommendation">Empfehlung</a></dt>
+              <dt>1.2. <a href="#overview">Überblick</a></dt>
+            </dl>
+          </dd>
+          <dt>2. <a href="#interface">Oberfläche</a></dt>
+          <dt>3. <a href="#generation">Erzeugung der neuen Dateinamen</a></dt>
+          <dt>4. <a href="#placeholders">Platzhalter</a></dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#basic">Grundlegende Platzhalter</a></dt>
+              <dt>4.2. <a href="#other">Weitere Platzhalter</a></dt>
+              <dt>4.3. <a href="#plugin">Platzhalter mit Plugin</a></dt>
+            </dl>
+          </dd>
+          <dt>5. <a href="#listoffiles">Dateiliste</a></dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#existing">Vorhandene Liste</a></dt>
+              <dt>5.2. <a href="#currentfilename">Liste, die anhand des aktuellen Dateinamens erzeugt wird</a></dt>
+              <dt>5.3. <a href="#newfilename">Liste, die anhand der aktuellen Spalte „Neuer Dateiname“ erzeugt wird</a></dt>
+            </dl>
+          </dd>
+          <dt>6. <a href="#modifiers">Modifikatoren</a></dt>
+          <dd>
+            <dl>
+              <dt>6.1. <a href="#case">Groß-/Kleinschreibung</a></dt>
+              <dt>6.2. <a href="#searchreplace">Suchen und ersetzen</a></dt>
+              <dd>
+                <dl>
+                  <dt>6.2.1. <a href="#singlesearchreplace">Einzelne Zeichenfolge suchen und ersetzen</a></dt>
+                  <dt>6.2.2. <a href="#multiplesearchandreplace">Mehrere Zeichenfolgen ersetzen</a></dt>
+                  <dt>6.2.3. <a href="#multiplepairs">Mehrere Suchen-und-Ersetzen-Paare</a></dt>
+                  <dt>6.2.4. <a href="#searchreplaceregex">Reguläre Ausdrücke verwenden</a></dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>7. <a href="#actualaction">Eigentliches Umbenennen</a></dt>
+          <dt>8. <a href="#log">Protokoll</a></dt>
+          <dt>9. <a href="#presets">Vorgaben</a></dt>
+          <dt>10. <a href="#configuration">Zusätzliche Konfiguration</a></dt>
+          <dd>
+            <dl>
+              <dt>10.1. <a href="#menubar">Menüleiste oben anzeigen</a></dt>
+              <dt>10.2. <a href="#invalidchar">Ungültiges Zeichen im Dateinamen ersetzen durch</a></dt>
+              <dt>10.3. <a href="#presetatlaunch">Vorgabe beim Start</a></dt>
+              <dt>10.4. <a href="#exitmodified">Beenden mit geänderter Vorgabe</a></dt>
+              <dt>10.5. <a href="#renamelog">Umbenennungsprotokoll</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="presentation">1. Vorstellung</a></h2>
+        <p>Mehrfach-Umbenennen ermöglicht es uns, viele ausgewählte Dateien auf einmal auf verschiedene Arten umzubenennen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="recommendation">1.1. Empfehlung</a></h2>
+        <p>Wenn wir mit Mehrfach-Umbenennen noch nicht vertraut sind, ist es ratsam, vor dem eigentlichen Ausprobieren einige Tests mit Kopien echter Dateien in einem temporären Verzeichnis durchzuführen.</p>
+        <p>Wenn wir das Prinzip verstanden haben, können wir Mehrfach-Umbenennen mit den echten Dateien verwenden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="overview">1.2. Überblick</a></h2>
+        <p>Nehmen wir an, wir haben eine Reihe von Podcast-MP3-Dateien heruntergeladen.</p>
+        <p>Wir möchten sie vielleicht umbenennen, damit jede einen aussagekräftigen Namen erhält.</p>
+        <p>Hier ist Mehrfach-Umbenennen nützlich, weil es uns hilft, diese vielen Dateien in einem Vorgang umzubenennen.</p>
+        <br>
+        <p>Wir wählen die Elemente, die wir umbenennen wollen, in einem Panel aus.</p>
+        <p>Dann rufen wir Mehrfach-Umbenennen auf, entweder über</p>
+        <ul>
+          <li>das Hauptmenü <b>Dateien</b>&nbsp;&gt; <b>Mehrfach-Umbenennen</b></li>
+          <li>den internen Befehl <a href="cmds.html#cm_MultiRename">cm_MultiRename</a></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="interface">2. Oberfläche</a></h2>
+        <p>Damit gelangen wir zum Dialogfenster von Mehrfach-Umbenennen, etwa so:</p>
+        <p class="figure"><img class="largeimage" title="Oberfläche" alt="Oberfläche" src="../en/images/imgDC/mulrengeneral.png" width="724" height="434"></p>
+        <p>Oben sehen wir eine Tabelle mit den Dateien, die wir im Quellpanel ausgewählt haben, eine Datei pro Zeile, die umbenannt werden sollen. Wir können die Dateiliste per Ziehen und Ablegen oder mit <kbd>Shift+arrows</kbd> neu ordnen. Um eine Datei aus der Liste zu entfernen, können wir die Taste <kbd>Del</kbd> verwenden (nachdem alle Dateien gelöscht wurden, schließt Double Commander Mehrfach-Umbenennen).</p>
+        <p>Die Tabelle hat drei Spalten:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Vorschautabelle der Dateinamen von Mehrfach-Umbenennen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Spaltenname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Alter Dateiname</div></td><td class="hintcell">Der aktuelle Name der Datei, die die Zeile darstellt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Neuer Dateiname</div></td><td class="hintcell">Wie der neue Dateiname lauten würde, wenn wir das Umbenennen bestätigen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Dateipfad</div></td><td class="hintcell">Aktueller Speicherort der Datei</td></tr>
+        </table>
+
+        <p>Die Idee ist, so lange zu bearbeiten, bis die Spalte <b>Neuer Dateiname</b> die gewünschten neuen Dateinamen zeigt.</p>
+        <p>Dann drücken wir die Schaltfläche <b>Umbenennen</b>, um die Dateien tatsächlich umzubenennen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="generation">3. Erzeugung der neuen Dateinamen</a></h2>
+        <p>Uns stehen Werkzeuge zur Verfügung, um die gewünschten neuen Dateinamen zu erzeugen.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Mögliche Werkzeuge</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Kategorie</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Platzhalter</div></td><td class="hintcell">Einen aktuellen Teil des Dateinamens, seiner Eigenschaften oder seines Inhalts verwenden, um einen Teil der neuen Namen zu erzeugen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Dateilisten</div></td><td class="hintcell">Eine Textdatei mit Namen, einer pro Zeile, die der Reihe nach auf jede Datei in derselben Reihenfolge angewendet werden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Modifikatoren</div></td><td class="hintcell">Die resultierenden Zeichen der möglichen neuen Namen ändern, die aus den obigen Elementen entstehen</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="placeholders">4. Platzhalter</a></h2>
+        <p>Sehen wir uns die Platzhalter an, die wir verwenden können.</p>
+        <p>Hinweis: Platzhalter unterscheiden Groß- und Kleinschreibung!</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="basic">4.1. Grundlegende Platzhalter</a></h2>
+        <p>Wir legen sie in dem Feld links fest, das mit <b>Maske</b> beschriftet ist.</p>
+        <p>Wie wir sehen, legen wir fest, was für den <b>Dateinamen</b> und die <b>Erweiterung</b> unseres gewünschten neuen Namens verwendet wird.</p>
+        <p>Diese Platzhalter stehen in eckigen Klammern.</p>
+        <p>Im Allgemeinen liefert jeder dieser Platzhalter eine Zeichenfolge, die Teil des Dateinamens oder der Erweiterung wird, die wir erzeugen wollen.</p>
+        <p>Wir können mehrere hintereinander angeben; der neue Teil des Dateinamens ist dann das Ergebnis der Verkettung aller dieser Teile.</p>
+        <br>
+        <p>Die grundlegenden Platzhalter sind:</p>
+        <ul>
+          <li><b>[N]</b> steht für den aktuellen Dateinamen</li>
+          <li><b>[E]</b> steht für die aktuelle Dateierweiterung</li>
+        </ul>
+
+        <p>Bei diesen beiden können wir Angaben machen, die einen Zeichenbereich des Dateinamens und/oder der Erweiterung begrenzen, der verwendet wird.</p>
+        <p>Sehen wir uns eine Tabelle an, die das Ergebnis anhand dieser Beispieldatei zeigt:</p>
+        <p class="figure"><img class="largeimage" title="Beispieldatei" alt="Beispieldatei" src="../en/images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">Mögliche Platzhalter</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">Platzhalter</th><th class="categorydesccolumn">Beschreibung</th><th class="categorynamecolumn">Beispiel</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx]</div></td><td class="hintcell">Zeichen an Position x des Dateinamens</td><td class="hintcell"><code>[N9]</code> = T</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x]</div></td><td class="hintcell">dasselbe, aber vom Ende des Dateinamens gezählt</td><td class="hintcell"><code>[N-5]</code> = P</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:y]</div></td><td class="hintcell">Zeichenbereich von Position x bis y im Dateinamen</td><td class="hintcell"><code>[N5:6]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:-y]</div></td><td class="hintcell">dasselbe, aber vom Ende des Dateinamens gezählt</td><td class="hintcell"><code>[N-6:-7]</code> = 06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx:-y]</div></td><td class="hintcell">dasselbe, aber die erste Position vom Anfang und die letzte vom Ende gezählt</td><td class="hintcell"><code>[N10:-6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x:y]</div></td><td class="hintcell">dasselbe, aber die erste Position vom Ende und die letzte vom Anfang gezählt</td><td class="hintcell"><code>[N-16:6]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Nx,y]</div></td><td class="hintcell">der Zeichenbereich beginnt bei x und ist y Zeichen lang</td><td class="hintcell"><code>[N10,6]</code> = 060306</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[N-x,y]</div></td><td class="hintcell">dasselbe, aber vom Ende gezählt und y Zeichen nach links genommen</td><td class="hintcell"><code>[N-8,4]</code> = 0603</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex]</div></td><td class="hintcell">Zeichen an Position x der Erweiterung</td><td class="hintcell"><code>[E1]</code> = m</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x]</div></td><td class="hintcell">dasselbe, aber vom Ende der Erweiterung gezählt</td><td class="hintcell"><code>[E-1]</code> = 3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:y]</div></td><td class="hintcell">Zeichenbereich von Position x bis y in der Erweiterung</td><td class="hintcell"><code>[E2:3]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:-y]</div></td><td class="hintcell">dasselbe, aber vom Ende der Erweiterung gezählt</td><td class="hintcell"><code>[E-3:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex:-y]</div></td><td class="hintcell">dasselbe, aber die erste Position vom Anfang und die letzte vom Ende gezählt</td><td class="hintcell"><code>[E1:-2]</code> = mp</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x:y]</div></td><td class="hintcell">dasselbe, aber die erste Position vom Ende und die letzte vom Anfang gezählt</td><td class="hintcell"><code>[E-2:3]</code> = p3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Ex,y]</div></td><td class="hintcell">der Zeichenbereich beginnt bei x und ist y Zeichen lang</td><td class="hintcell"><code>[E1,3]</code> = mp3</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[E-x,y]</div></td><td class="hintcell">dasselbe, aber vom Ende gezählt und y Zeichen nach links genommen</td><td class="hintcell"><code>[E-1,2]</code> = p3</td></tr>
+        </table>
+        <br>
+        <p>Damit wir uns vergewissern, dass wir das Prinzip verstanden haben, hier ein Beispiel, in dem wir die Maske für den Dateinamen auf <code>[N1,4]-[N5,2]-[N7,2]</code> gesetzt haben.</p>
+        <p>Wir sehen, dass die Spalte <b>Neuer Dateiname</b> entsprechend den oben beschriebenen Ersetzungen aktualisiert wurde.</p>
+        <p class="figure"><img class="largeimage" title="Beispielumbenennung" alt="Beispielumbenennung" src="../en/images/imgDC/mulrensample1.png" width="382" height="284"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="other">4.2. Weitere Platzhalter</a></h2>
+        <p>Hier sind weitere Platzhalter, weiterhin mit derselben Beispieldatei:</p>
+        <p class="figure"><img class="largeimage" title="Beispieldatei" alt="Beispieldatei" src="../en/images/imgDC/mulrensamplefile.png" width="632" height="62"></p>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">Weitere Platzhalter</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">Platzhalter</th><th class="categorydesccolumn">Beschreibung</th><th class="categorynamecolumn">Beispiel</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A]</div></td><td class="hintcell">steht für den vollständigen Dateinamen einschließlich des gesamten Pfads, der Verzeichnistrenner, der Erweiterung, des Doppelpunkts und des Punkts</td><td class="hintcell"><code>[A]</code> =<br><i>Vollständiger Dateiname</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[A...]</div></td><td class="hintcell">der Bereich kann wie zuvor angegeben werden: [Ax], [Ax:y], [A-x:-y] usw.</td><td class="hintcell"><code>[A-9:-5]</code> = P0000</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Y]</div></td><td class="hintcell">das Jahr des Dateidatums, dargestellt durch die letzten 2 Ziffern</td><td class="hintcell"><code>[Y]</code> = 19</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[YYYY]</div></td><td class="hintcell">das Jahr, dargestellt mit 4 Ziffern</td><td class="hintcell"><code>[YYYY]</code> = 2019</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[M]</div></td><td class="hintcell">die Monatszahl des Dateidatums, ohne führende Null</td><td class="hintcell"><code>[M]</code> = 1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[MM]</div></td><td class="hintcell">die Monatszahl, bei Bedarf mit einer Null auf 2 Ziffern aufgefüllt</td><td class="hintcell"><code>[MM]</code> = 01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[MMM]</div></td><td class="hintcell">Abkürzung des Monats wie „jan“, „feb“, „mar“ usw.</td><td class="hintcell"><code>[MMM]</code> = Jan</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[MMMM]</div></td><td class="hintcell">vollständiger Monatsname wie „january“, „february“ usw.</td><td class="hintcell"><code>[MMMM]</code> = January</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[D]</div></td><td class="hintcell">die Tageszahl des Dateidatums, ohne führende Null</td><td class="hintcell"><code>[D]</code> = 2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[DD]</div></td><td class="hintcell">die Tageszahl, bei Bedarf mit einer Null auf 2 Ziffern aufgefüllt</td><td class="hintcell"><code>[DD]</code> = 02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[DDD]</div></td><td class="hintcell">Abkürzung des Wochentags wie „mon“, „tue“, „wed“ usw.</td><td class="hintcell"><code>[DDD]</code> = Wed</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[DDDD]</div></td><td class="hintcell">vollständiger Wochentagsname wie „monday“, „tuesday“ usw.</td><td class="hintcell"><code>[DDDD]</code> = Wednesday</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[h]</div></td><td class="hintcell">die Stundenzahl der Dateizeit, ohne führende Null</td><td class="hintcell"><code>[h]</code> = 9</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[hh]</div></td><td class="hintcell">die Stundenzahl, bei Bedarf mit einer Null auf 2 Ziffern aufgefüllt</td><td class="hintcell"><code>[hh]</code> = 09</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[n]</div></td><td class="hintcell">die Minutenzahl der Dateizeit, ohne führende Null</td><td class="hintcell"><code>[n]</code> = 2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[nn]</div></td><td class="hintcell">die Minutenzahl, bei Bedarf mit einer Null auf 2 Ziffern aufgefüllt</td><td class="hintcell"><code>[nn]</code> = 02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[s]</div></td><td class="hintcell">die Sekundenzahl der Dateizeit, ohne führende Null</td><td class="hintcell"><code>[s]</code> = 7</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[ss]</div></td><td class="hintcell">die Sekundenzahl, bei Bedarf mit einer Null auf 2 Ziffern aufgefüllt</td><td class="hintcell"><code>[ss]</code> = 07</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[G]</div></td><td class="hintcell">eine zur Laufzeit erzeugte GUID der Form:<br>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</td><td class="hintcell"><code>[G]</code> =<br><i>Eine 16-Byte-GUID</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[Px]</div></td><td class="hintcell">benennt direkt die x-te Ebene des vollständigen Pfads, beginnend nahe der Wurzel</td><td class="hintcell"><code>[P2]</code> = TechPodcast</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[P-x]</div></td><td class="hintcell">benennt direkt die x-te Ebene des vollständigen Pfads, beginnend nahe dem Dateinamen</td><td class="hintcell"><code>[P-2]</code> = Download</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[C]</div></td><td class="hintcell">ein automatisch hochzählender Zähler für jeden Durchlauf unter Verwendung der Parameter des Feldes „Zähler“ (negative Zahlen werden ebenfalls unterstützt)</td><td class="hintcell"><code>[C]</code> =<i>Zahl,<br>die für jede<br>Datei hochzählt</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[V:hint]</div></td><td class="hintcell">eine vom Benutzer definierte Variable „hint“, die beim eigentlichen Umbenennen abgefragt wird</td><td class="hintcell"><code>[V:Guest]</code> = <i>Abfrage<br>des Werts von Guest</i></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[[]</div></td><td class="hintcell">öffnende eckige Klammer unverändert einfügen</td><td class="hintcell"><code>[[]</code> = [</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">[]]</div></td><td class="hintcell">schließende eckige Klammer unverändert einfügen</td><td class="hintcell"><code>[]]</code> = ]</td></tr>
+        </table>
+
+        <p>Hier ein weiteres Beispiel, in dem wir einige der obigen Platzhalter verwendet und die Maske gesetzt haben auf</p>
+        <p><code>[C] - [YYYY]-[MM]-[DD] @ [hh]-[nn]-[ss]</code></p>
+        <p class="figure"><img class="largeimage" title="Beispielumbenennung" alt="Beispielumbenennung" src="../en/images/imgDC/mulrensample2.png" width="716" height="452"></p>
+
+        <p>Mit der Zeit, wenn wir es oft verwenden, tippen wir aus dem Gedächtnis, was wir brauchen!</p>
+        <p>Bis dahin können wir die Schaltfläche unter jeder Maske drücken und gelangen zu einem Aufklappmenü, das die Anwendung den benötigten Text für uns einfügen lässt.</p>
+        <p class="figure"><img class="largeimage" title="Verwendung des Helfers" alt="Verwendung des Helfers" src="../en/images/imgDC/mulrenhelpers.png" width="875" height="424"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="plugin">4.3. Platzhalter mit Plugin</a></h2>
+        <p>Wir können auch einen Platzhalter verwenden, der ein Inhalts-Plugin nutzt.</p>
+        <p>Es entnimmt der Datei das gewählte Feld und verwendet es als Teil des gewünschten neuen Namens.</p>
+        <p>Das folgende Beispiel verwendet ein Multimedia-Plugin, um die Länge einer MP3-Podcast-Datei zu ermitteln und sie in Klammern in den Dateinamen einzufügen:</p>
+        <p class="figure"><img class="largeimage" title="Plugin verwenden" alt="Plugin verwenden" src="../en/images/imgDC/mulrenplugin.png" width="660" height="570"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="listoffiles">5. Dateiliste</a></h2>
+        <p>Wir können auch eine Textdatei mit einer Liste von Dateinamen verwenden, um unsere Dateien umzubenennen.</p>
+        <p>Es wird angenommen, dass jede Zeile dieser Textdatei den neuen Dateinamen einschließlich Erweiterung enthält, der der Datei an derselben Position gegeben wird.</p>
+        <br>
+        <p>Diese Liste kann</p>
+        <ul>
+          <li>eine vorhandene Textdatei sein, die Sie zuvor erstellt haben</li>
+          <li>anhand des aktuellen Dateinamens erzeugt werden (Spalte <b>Alter Dateiname</b>)</li>
+          <li>anhand der aktuellen Spalte <b>Neuer Dateiname</b> erzeugt werden</li>
+        </ul>
+        <p>Es ist auch möglich, eine Liste von Dateinamen aus der Zwischenablage zu laden. Um diese Funktion zu verwenden, müssen Sie die <a href="configuration.html#ConfigHotKeys">Tastenkürzel-Einstellungen</a> öffnen, zur Kategorie „Mehrfach-Umbenennen“ wechseln und ein Tastenkürzel für den Befehl <tt>cm_LoadNamesFromClipboard</tt> festlegen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="existing">5.1. Vorhandene Liste</a></h2>
+        <p>Wenn wir eine solche Datei bereits haben, drücken wir die Schaltfläche <b>Editor</b> und <b>Namen aus Datei laden</b>.</p>
+        <p class="figure"><img class="largeimage" title="Vorhandene Liste" alt="Vorhandene Liste" src="../en/images/imgDC/mulrenlstfromfile.png" width="362" height="104"></p>
+        <p>Dann werden wir aufgefordert, unsere Dateiliste anzugeben.</p>
+        <p>Wenn die Datei genauso viele Zeilen enthält wie Elemente umbenannt werden sollen, sehen wir in der Spalte <b>Neuer Dateiname</b>, wie der neue Dateiname jeder Datei lauten würde.</p>
+        <p>Der eigentliche Umbenennungsvorgang findet erst statt, wenn wir die Schaltfläche <b>Umbenennen</b> drücken.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="currentfilename">5.2. Liste, die anhand des aktuellen Dateinamens erzeugt wird</a></h2>
+        <p>Ähnlich wie bei der oben beschriebenen <a href="#existing">vorhandenen Liste</a> kann Double Commander uns anbieten, diese Dateiliste zur Laufzeit zu erzeugen.</p>
+        <p>Wenn wir die Schaltfläche <b>Editor</b> und dann <b>Namen bearbeiten...</b> drücken, erzeugt das Werkzeug eine temporäre Textdatei anhand der ursprünglichen Dateinamen, die wie im vorherigen Punkt verwendet wird.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="newfilename">5.3. Liste, die anhand der aktuellen Spalte „Neuer Dateiname“ erzeugt wird</a></h2>
+        <p>Wie oben, außer dass die Dateinamen in der Liste aus der aktuellen Spalte <b>Neuer Dateiname</b> stammen.</p>
+        <p>Diese Methode ist besonders hilfreich, wenn uns die Platzhalter-Methode „fast“ die gewünschten Dateinamen liefert und wir nur noch einige Nachbesserungen vornehmen müssen, um die Namen anzupassen, die unseren Bedarf noch nicht erfüllen.</p>
+        <p>Das folgende Beispiel zeigt uns den Ablauf bei dieser Methode.</p>
+        <p class="figure"><img class="largeimage" title="Spalte mit neuem Namen bearbeiten" alt="Spalte mit neuem Namen bearbeiten" src="../en/images/imgDC/mulreneditnewnames.png" width="828" height="882"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="modifiers">6. Modifikatoren</a></h2>
+        <p>Unter Beachtung der oben genannten Platzhalter und der Dateiliste, und erst <b>danach</b> angewendet, können wir Modifikatoren einsetzen, um die künftigen neuen Dateinamen zu verändern.</p>
+        <p>Zu diesen Modifikatoren gehören:</p>
+        <ul>
+          <li>Ändern der Groß-/Kleinschreibung von Zeichen</li>
+          <li>Eine Zeichenfolge suchen und durch eine andere ersetzen</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="case">6.1. Groß-/Kleinschreibung</a></h2>
+        <p>Die möglichen Optionen sind die folgenden und wirken sich auf die Groß-/Kleinschreibung der Zeichen der neuen Dateinamen aus:</p>
+        <ul>
+          <li>Keine Änderung</li>
+          <li>GROSSBUCHSTABEN</li>
+          <li>kleinschreibung</li>
+          <li>Erster Buchstabe groß, Rest klein</li>
+          <li>Erster Buchstabe Jedes Wortes Groß</li>
+        </ul>
+        <p>Auch wenn dieser Modifikator im Feld <b>Maske</b> steht, wird er auch angewendet, wenn die Dateinamen aus einer Liste stammen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="searchreplace">6.2. Suchen und ersetzen</a></h2>
+        <p>Die Zeichenfolge im Feld <b>Suchen</b> wird durch die Zeichenfolge im Feld <b>Ersetzen</b> ersetzt. Mehrere zusätzliche Funktionen sind ebenfalls verfügbar, siehe unten. Die Suche unterscheidet NICHT zwischen Groß- und Kleinschreibung!</p>
+        <p>Zusätzliche Optionen:</p>
+        <ul>
+          <li><p><span class="italic">A&#8800;a</span>&nbsp;&ndash; aktiviert die Suche unter Berücksichtigung der Groß-/Kleinschreibung.</p></li>
+          <li><p><span class="italic">1x</span>&nbsp;&ndash; wenn aktiviert, wird unabhängig von der Anzahl der Treffer nur der erste ersetzt.</p></li>
+          <li><p><span class="italic">E</span>&nbsp;&ndash; wenn aktiviert, wird der Suchtext auch in Dateierweiterungen ersetzt.</p></li>
+        </ul>
+        <p>Beide Parameter beeinflussen auch das Verhalten regulärer Ausdrücke.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="singlesearchreplace">6.2.1. Einzelne Zeichenfolge suchen und ersetzen</a></h2>
+        <p>Wir können nach einer einzelnen Zeichenfolge in der Zeichenkette suchen und sie durch eine andere ersetzen.</p>
+        <p class="figure"><img class="largeimage" title="Einfaches Suchen und Ersetzen" alt="Einfaches Suchen und Ersetzen" src="../en/images/imgDC/mulrensrchrpl.png" width="401" height="205"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="multiplesearchandreplace">6.2.2. Mehrere Zeichenfolgen ersetzen</a></h2>
+        <p>Wir können aber auch verschiedene Zeichenfolgen durch eine einzige ersetzen, indem wir die Zeichenfolgen wie in diesem Beispiel zwischen senkrechte Striche setzen. Dabei ersetzt 2020 jedes Vorkommen von 2017, 2018 oder 2019:</p>
+        <p class="figure"><img class="largeimage" title="Mehrfach ersetzen" alt="Mehrfach ersetzen" src="../en/images/imgDC/mulrenrepl3for1.png" width="476" height="230"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="multiplepairs">6.2.3. Mehrere Suchen-und-Ersetzen-Paare</a></h2>
+        <p>Wir können auch mehr als ein Paar von Zeichenfolgen festlegen, indem wir sie zwischen senkrechte Striche setzen.</p>
+        <p>Jede zu suchende Zeichenfolge erhält ihre Ersetzung an derselben Position.</p>
+        <p class="figure"><img class="largeimage" title="Mehrere Suchen-und-Ersetzen-Paare" alt="Mehrere Suchen-und-Ersetzen-Paare" src="../en/images/imgDC/mulrenreplplace.png" width="497" height="263"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="searchreplaceregex">6.2.4. Reguläre Ausdrücke verwenden</a></h2>
+        <p>Wir haben auch die Möglichkeit, <a href="regexp.html">reguläre Ausdrücke</a> für den Suchteil der Zeichenfolge sowie für die Ersetzung zu verwenden (<b>Ersetzung verwenden</b> ermöglicht die Verwendung von <a href="regexp.html#meta-sub">Teilausdrücken</a> im Feld <b>Ersetzen</b>).</p>
+        <p class="figure"><img class="largeimage" title="Reguläre Ausdrücke verwenden" alt="Reguläre Ausdrücke verwenden" src="../en/images/imgDC/mulrenregex.png" width="328" height="304"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actualaction">7. Eigentliches Umbenennen</a></h2>
+        <p>Wenn wir mit den oben genannten Methoden alle gewünschten <b>neuen Dateinamen</b> festgelegt haben, können wir die eigentliche Aktion <b>Umbenennen</b> starten.</p>
+        <p class="figure"><img class="largeimage" title="Eigentliches Umbenennen" alt="Eigentliches Umbenennen" src="../en/images/imgDC/mulrenrename.png" width="140" height="32"></p>
+        <p>Wenn doppelte Namen entdeckt werden, bietet Double Commander an, den Vorgang abzubrechen oder automatisch umzubenennen, indem eine Zahl angehängt wird: „name (1).ext“, „name (2).ext“ usw. Dabei sollten wir im Blick behalten, dass im zweiten Fall das automatische Anhängen einer Zahl nicht in der Spalte „Neuer Dateiname“ angezeigt wird.</p>
+        <p>Nach dem Umbenennen liest die Anwendung die Dateien erneut ein und füllt die obige Tabelle neu.</p>
+        <p>Die Spalte <b>Alter Dateiname</b> zeigt normalerweise das Ergebnis unseres Umbenennungsvorgangs.</p>
+        <p>Die Spalte <b>Neuer Dateiname</b> wird ebenfalls aktualisiert, indem dieselben noch festgelegten Platzhalter, Listen und Modifikatoren erneut angewendet werden.</p>
+        <p>Normalerweise sollten wir dann mehr auf die erste Spalte achten, da sie die neuen tatsächlichen Dateinamen darstellt, die wir gerade umbenannt haben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="log">8. Protokoll</a></h2>
+        <p>Die Anwendung kann eine Protokolldatei erstellen oder an eine vorhandene anhängen, mit dem Ergebnis aller Umbenennungsversuche, die beim Starten des eigentlichen Umbenennens stattfanden.</p>
+        <p>Das kann später nützlich sein, wenn wir den ursprünglichen Dateinamen oder etwas suchen, das wir versehentlich umbenannt haben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="presets">9. Vorgaben</a></h2>
+        <p>Wir müssen vielleicht dieselben Platzhalter und Modifikatoren für dieselbe Art des Mehrfach-Umbenennens wiederverwenden wie in einer früheren Sitzung.</p>
+        <p>Anstatt dieselbe Konfiguration, die wir bereits erstellt haben, immer wieder neu eintippen zu müssen, können wir eine aktuelle Konfiguration als Vorgabe speichern und sie später wiederverwenden.</p>
+        <p>Dazu klicken wir auf die Schaltfläche, die Zugriff auf die Aktionen zu den Vorgaben gibt, und wählen <b>Speichern unter...</b>.</p>
+        <p>Wir vergeben einen aussagekräftigen Namen und haben nun eine Art Konfiguration zu unseren Vorgaben hinzugefügt.</p>
+        <p>Wenn wir sie das nächste Mal für ein stapelweises Umbenennen brauchen, klicken wir auf das Aufklappfeld der Vorgaben, wählen unsere Vorgabe, und die Felder werden mit dem gefüllt, was wir gespeichert haben.</p>
+        <br>
+        <p>Das genannte Menü bietet uns verschiedene Aktionen zu den Vorgaben, etwa Laden, Speichern, Umbenennen, Löschen, Sortieren usw.</p>
+        <p class="figure"><img class="largeimage" title="Vorgaben" alt="Vorgaben" src="../en/images/imgDC/mulrenpreset.png" width="598" height="383"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configuration">10. Zusätzliche Konfiguration</a></h2>
+        <p>Auf den Konfigurationsseiten befinden sich zusätzliche Einstellungen zu Mehrfach-Umbenennen auf einer eigenen Seite.</p>
+        <p class="figure"><img class="largeimage" title="Zusätzliche Konfiguration" alt="Zusätzliche Konfiguration" src="../en/images/imgDC/mulrenconfiguration.png" width="124" height="30"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="menubar">10.1. Menüleiste oben anzeigen</a></h2>
+        <p>Wenn wir lieber eine Menüleiste oben im Fenster haben, die uns Zugriff auf alle zugehörigen Funktionen gibt und sie in einem Menü zeigt, aktivieren wir diese Option.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="invalidchar">10.2. Ungültiges Zeichen im Dateinamen ersetzen durch</a></h2>
+        <p>Es kann vorkommen, dass durch unsere Anpassungen ein für einen Dateinamen ungültiges Zeichen im resultierenden Namen einer Datei erscheint.</p>
+        <p>Um einen Fehler zu vermeiden, ersetzt Double Commander dieses ungültige Zeichen durch das, was wir in dieses Feld eingeben.</p>
+        <p>Wenn wir die ungültigen Zeichen einfach entfernen wollen, lassen wir dieses Feld leer.</p>
+        <p class="figure"><img class="largeimage" title="Ungültiges Zeichen im Dateinamen ersetzen durch" alt="Ungültiges Zeichen im Dateinamen ersetzen durch" src="../en/images/imgDC/mulrenreplacechar.png" width="319" height="31"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="presetatlaunch">10.3. Vorgabe beim Start</a></h2>
+        <p>Diese Einstellung legt fest, welche Standardvorgabe jedes Mal geladen wird, wenn wir Mehrfach-Umbenennen aufrufen.</p>
+        <p class="figure"><img class="largeimage" title="Vorgabe beim Start" alt="Vorgabe beim Start" src="../en/images/imgDC/mulrenpresetlaunch.png" width="512" height="106"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exitmodified">10.4. Beenden mit geänderter Vorgabe</a></h2>
+        <p>Wenn wir eine vorhandene Vorgabe geladen, mindestens eine Einstellung geändert haben und dann versuchen, das Fenster Mehrfach-Umbenennen zu verlassen, ohne unsere geänderte Vorgabe gespeichert zu haben, legt diese Option das Verhalten von Double Commander fest.</p>
+        <p class="figure"><img class="largeimage" title="Beenden mit geänderter Vorgabe" alt="Beenden mit geänderter Vorgabe" src="../en/images/imgDC/mulrenexitmodified.png" width="512" height="106"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="renamelog">10.5. Umbenennungsprotokoll</a></h2>
+        <p>Diese Einstellungen legen fest, wie das Speichern der Umbenennungsprotokolldatei gehandhabt wird.</p>
+        <p>Herkömmlich wurde jede Umbenennungsprotokolldatei in jeder Vorgabe festgelegt.</p>
+        <p>Mit der Option hier können wir Double Commander anweisen, diese Protokolle an dem dort festgelegten einzigen Ort zu speichern, wobei das Ergebnis jeder Umbenennungsaktion an eine Umbenennungsprotokolldatei angehängt wird.</p>
+        <p>Wir können festlegen, das Protokoll in einem eigenen Verzeichnis pro Tag zu speichern.</p>
+        <p class="figure"><img class="largeimage" title="Umbenennungsprotokoll" alt="Umbenennungsprotokoll" src="../en/images/imgDC/mulrenrenamelog.png" width="512" height="159"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="findfiles.html">Zurück</a> | <a title="Nächste Seite" href="syncdirs.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

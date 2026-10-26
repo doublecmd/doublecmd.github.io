@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Befehlszeile</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="lua.html">Zurück</a> | <a title="Nächste Seite" href="configxml.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.16. Befehlszeile</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#presenta">Vorstellung</a></dt>
+          <dt>2. <a href="#tablepos">Mögliche Parameter</a></dt>
+          <dt>3. <a href="#examples">Beispiele</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="presenta">1. Vorstellung</a></h2>
+        <p>Beim Start der Double-Commander-Programmdatei können wir Befehlszeilenparameter angeben, um den Start anzupassen.</p>
+        <p>Zum Beispiel können wir die Verzeichnisse festlegen, die in den Dateipanels angezeigt werden.</p>
+        <p>Außerdem gibt es einige Schalter, die wir verwenden können.</p>
+        <p>Diese Schalter unterscheiden NICHT zwischen Groß- und Kleinschreibung.</p>
+        <br>
+        <p>Kurz zusammengefasst sieht die mögliche Syntax der Befehlszeile so aus:</p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [path1\subpath1] [path2\subpath2]</code></p>
+        <br>
+        <p>Eine alternative Form ist ebenfalls möglich:</p>
+        <p><code>doublecmd.exe [-C] [-T] [-P L|R] [-L path1\subpath1] [-R path2\subpath2]</code></p>
+        <br>
+        <p>Hinweis: Die Befehlszeile unter macOS hat eine Besonderheit. Den Befehl <code>open</code> mit dem vollständigen Programmnamen verwenden („Double Commander“ mit <code>-a</code>) und Parameter über <code>--args</code> übergeben. Für die zweite und jede weitere Instanz <code>-n</code> hinzufügen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="tablepos">2. Mögliche Parameter</a></h2>
+        <p>Das ist die Liste der Parameter, die beim Start von Double Commander vorkommen können.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Befehlszeilenparameter</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Parameter</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft"><var>path1\sub1 [path2\sub2]</var><br><i><small class="firstcolumnaleft">(keine Schalter, direkt ein Pfad)</small></i></div></td>
+            <td class="hintcell">
+              Wird ein Pfad übergeben, wird er in das aktive Panel geladen.<br>
+              Werden zwei Pfade übergeben, kommt der erste ins linke Panel und der zweite ins rechte Panel.<br>
+              Verzeichnisnamen mit Leerzeichen müssen in doppelte Anführungszeichen gesetzt werden.<br>
+              Immer den vollständigen Pfad angeben.
+            </td>
+          </tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-C <i>oder</i> --client</div></td><td class="hintcell">Wenn Double Commander bereits läuft, diese Instanz aktivieren und die Pfade aus der Befehlszeile an sie übergeben.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-L <i>Verzeichnis</i></div></td><td class="hintcell">Verzeichnis festlegen, das im linken Panel angezeigt wird.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-R <i>Verzeichnis</i></div></td><td class="hintcell">Verzeichnis festlegen, das im rechten Panel angezeigt wird.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-P L|R</div></td><td class="hintcell">Legt das aktive Panel beim Programmstart fest:<ul><li><code>-P L</code> für links</li><li><code>-P R</code> für rechts</li></ul></td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">-T</div></td><td class="hintcell">Öffnet die übergebenen Verzeichnisse in neuen Registerkarten.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--config-dir=<i>Pfad</i></div></td><td class="hintcell">Eigenes Verzeichnis mit den Konfigurationsdateien von DC festlegen.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--servername=x</div></td>
+            <td class="hintcell">
+              Legt den Namen der DC-Instanz (des Servers) fest, über den danach Parameter übergeben werden können.<br>
+              Gibt es noch keine Instanz, wird sie erzeugt.<br>
+              Gibt es bereits eine Instanz und die aktuelle ist ein Client, werden die Parameter an den Server gesendet (also an die bestehende Instanz).<br>
+              Gibt es bereits eine Instanz und die aktuelle ist kein Client (das heißt, <i>Nur eine Kopie von DC gleichzeitig erlauben</i> ist aus und es wurden keine Optionen <code>--client</code>/<code>-c</code> angegeben), wird der angegebene Servername verändert: zuerst wird einfach eine nachgestellte Zahl „2“ angehängt.<br>
+              Ist bereits eine nachgestellte Zahl vorhanden, wird sie um 1 erhöht, bis ein Servername gefunden ist, der noch nicht belegt ist. Danach wird die Instanz mit diesem Servernamen erzeugt.
+            </td>
+          </tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--no-splash</div></td><td class="hintcell">Schaltet den Startbildschirm beim Start von DC aus.</td></tr>
+          <tr><td class="cmdcell"><div class="firstcolumnaleft">--debug-log=<i>Datei</i></div></td>
+            <td class="hintcell">
+              Double Commander starten und die Debug-Ausgabe in die angegebene Datei schreiben.<br>
+              Das verwendete Modul (Lazlogger) unterstützt außerdem die Umgebungsvariable <code>xxx_debuglog</code>, wobei <code>xxx</code> der Programmdateiname ohne Erweiterung ist:
+              in diesem Fall also <code>doublecmd_debuglog</code>. Existiert diese Umgebungsvariable, wird die in ihrem Wert angegebene Datei verwendet.<br>
+              Unter Linux ist es vorzuziehen, das Programm in einem Terminal zu starten und die Ausgabe in eine Datei umzuleiten (beide Ströme, stdout und stderr).
+            </td>
+          </tr>
+        </table>
+        <p>Hinweis: Wird statt eines Verzeichnisses ein vollständiger Dateiname angegeben, öffnet Double Commander den Ordner und setzt den Cursor auf diese Datei.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="examples">3. Beispiele</a></h2>
+        <p>Einige Beispiele für gewünschtes Verhalten, das sich beim Start von Double Commander über Befehlszeilenparameter erreichen lässt.</p>
+        <br>
+        <p>Das Verzeichnis <code>e:\Xilinx\ISE DS</code> im linken Panel und das Verzeichnis <code>c:\temp</code> im rechten öffnen:</p>
+        <pre>doublecmd.exe "e:\Xilinx\ISE DS" c:\temp</pre>
+        <br>
+        <p>Das Verzeichnis <code>c:\Logs</code> in einer neuen Registerkarte im aktiven Panel einer bereits laufenden Instanz von Double Commander öffnen:</p>
+        <pre>doublecmd.exe -c -t c:\Logs</pre>
+        <br>
+        <p>Das Programm mit Konfigurationsdateien aus dem Verzeichnis <code>f:\Documents\DC\Job Settings</code> starten und in der Titelleiste den Zusatz <code>JOB</code> anzeigen:</p>
+        <pre>doublecmd.exe --config-dir="f:\Documents\DC\Job Settings" --servername="JOB"</pre>
+        <p class="figure"><img class="largeimage" title="Beispiel für die Befehlszeile" alt="Beispiel für die Befehlszeile" src="../en/images/imgDC/cmdline.png" width="226" height="100"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="lua.html">Zurück</a> | <a title="Nächste Seite" href="configxml.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Häufig gestellte Fragen (FAQ)</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="about.html">Zurück</a> | <a title="Nächste Seite" href="help.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>1.2. Häufig gestellte Fragen (FAQ)</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt><a name="common">1. Allgemeine Fragen</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#whatisit">Was ist Double Commander?</a></dt>
+              <dt>1.2. <a href="#whatsnew">Was ist neu in dieser Version?</a></dt>
+              <dt>1.3. <a href="#linux">Ist es ein Total Commander für Linux?</a></dt>
+              <dt>1.4. <a href="#wincmd">Was ist der Unterschied zwischen diesem Programm und meinem bevorzugten Dateimanager (Total Commander)?</a></dt>
+              <dt>1.5. <a href="#link">Wie kann ich die Entwickler von Double Commander kontaktieren?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="tux">2. Themen zu GNU/Linux</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#version">Welche Version lade ich herunter?</a></dt>
+              <dt>2.2. <a href="#repo">Wo liegt das Projekt-Repository?</a></dt>
+              <dt>2.3. <a href="#plugs">Plugins von Total Commander funktionieren nicht?!</a></dt>
+              <dt>2.4. <a href="#gvfs">Kann ich auf Netzwerkressourcen zugreifen wie in Nautilus oder Thunar?</a></dt>
+              <dt>2.5. <a href="#tray">Ein Klick auf das Symbol im Benachrichtigungsfeld zeigt ein Menü mit den Einträgen „Wiederherstellen“ und „Beenden“, statt das Fenster wiederherzustellen (nur GTK2).</a></dt>
+              <dt>2.6. <a href="#systheme">Warum ändert sich das Aussehen des Programms beim Wechsel des Systemthemas nicht oder nur teilweise? Ich muss das Programm schließen und erneut öffnen.</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="macos">3. Themen zu macOS</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#permissionsOnMacOS">Warum braucht DC Berechtigungen in den Systemeinstellungen von macOS?</a></dt>
+              <dt>3.2. <a href="#reauthorizedOnMacOS">Ich erinnere mich genau, DC zuvor Berechtigungen erteilt zu haben, und ich habe DC in der Berechtigungsliste gefunden. Warum ist DC jetzt trotzdem nicht berechtigt?</a></dt>
+              <dt>3.3. <a href="#shortcutsForMacOS">Wie füge ich Tastenkürzel für bestimmte macOS-Funktionen hinzu?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="interface">4. Konfiguration der Oberfläche</a></dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#color">Wie kann ich die Farbeinstellungen für die Panels ändern?</a></dt>
+              <dt>4.2. <a href="#colorbuttons">Was sind die Schaltflächen <kbd>R</kbd> und <kbd>All</kbd> in den Farbeinstellungen?</a></dt>
+              <dt>4.3. <a href="#columns">Mancher Text in einer Spalte überschreibt den Text einer anderen Spalte!</a></dt>
+              <dt>4.4. <a href="#icons">Wie ordne ich einigen Dateitypen eigene Symbole zu?</a></dt>
+              <dt>4.5. <a href="#splitter">Wie erstelle ich eine Trennlinie auf der Schaltflächenleiste?</a></dt>
+              <dt>4.6. <a href="#theme">Hat DC weitere Symbolthemen?</a></dt>
+              <dt>4.7. <a href="#cs_size">Wie mache ich Funktionstasten, Adressleiste und andere Oberflächenelemente größer?</a></dt>
+              <dt>4.8. <a href="#height">Dateipanels: Wie ändere ich die Höhe der Elemente (Zeilen) und die Abstände dazwischen?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="navigation">5. Themen zu Steuerung und Navigation</a></dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#cursor_down">Ist es möglich, den Cursor nach dem Auswählen mit der Taste <kbd>Space</kbd> automatisch eine Zeile nach unten zu bewegen?</a></dt>
+              <dt>5.2. <a href="#queue">Gibt es die Möglichkeit, eine Warteschlange für Dateioperationen zu erstellen?</a></dt>
+              <dt>5.3. <a href="#hotkeys_default"><kbd>Ctrl+A</kbd> funktioniert nicht. Wie aktiviere ich es?</a></dt>
+              <dt>5.4. <a href="#mouse_unmark">Wenn in einem Verzeichnis alle Dateien ausgewählt sind, gibt es keine Möglichkeit, sie mit der Maus abzuwählen.</a></dt>
+              <dt>5.5. <a href="#context_menu_create">Wie erstelle ich in diesem Programm mein eigenes Kontextmenü?</a></dt>
+              <dt>5.6. <a href="#context_menu_edit">Wie passe ich das Kontextmenü an, zum Beispiel um den Eintrag „Öffnen mit“ hinzuzufügen?</a></dt>
+              <dt>5.7. <a href="#auto_extract">Wie entpacke und starte ich automatisch eine Datei aus einem geöffneten Archiv? Es ist umständlich, jedes Mal die Schaltfläche „Entpacken und ausführen“ im Eigenschaftenfenster der gepackten Datei zu verwenden.</a></dt>
+              <dt>5.8. <a href="#descript_ion">Können die Kommentare (über die Datei descript.ion) kopiert oder verschoben werden, wenn eine Datei von einem Verzeichnis in ein anderes kopiert oder verschoben wird?</a></dt>
+              <dt>5.9. <a href="#set_property">In manchen Fällen sehe ich die Warnung „Kann [Attribute, Datum/Zeit, Eigentümer/Gruppe oder Rechte] für xxx nicht setzen“, wenn ich Dateien kopiere oder verschiebe. Ich möchte, dass DC standardmäßig die Aktion „überspringen“/„alle überspringen“ verwendet. Wie kann ich das tun?</a></dt>
+              <dt>5.10. <a href="#admin_shares">Warum zeigt das Programm keine Liste der administrativen Freigaben?</a></dt>
+              <dt>5.11. <a href="#hotkey_controls">Ich habe die linke und die rechte Pfeiltaste zugewiesen, um in der Verzeichnisgeschichte vor und zurück zu gehen, aber jetzt kann ich sie beim Umbenennen einer Datei nicht verwenden. Wie behebe ich das?</a></dt>
+              <dt>5.12. <a href="#sound_notifications">Gibt es eine Möglichkeit, akustische Hinweise hinzuzufügen, wenn Operationen abgeschlossen sind?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="viewer">6. Themen zum eingebauten Dateibetrachter (<kbd>F3</kbd>) und Editor (<kbd>F4</kbd>)</a></dt>
+          <dd>
+            <dl>
+              <dt>6.1. <a href="#f3_compiz">Fenster des Editors und des Dateibetrachters erscheinen an zufälligen Positionen, wenn Compiz aktiviert ist.</a></dt>
+              <dt>6.2. <a href="#f3_font">Die Schrift sieht seltsam aus (waagerechte Zeichen überschreiben einander usw.) oder die Auswahl funktioniert nicht richtig.</a></dt>
+              <dt>6.3. <a href="#f3_jpg">Der Dateibetrachter funktioniert mit einigen Bildern nicht, mit den meisten aber schon.</a></dt>
+              <dt>6.4. <a href="#f3_hscroll">Bei manchen Textdateien ragen die Zeilen über den Fensterrand hinaus.</a></dt>
+              <dt>6.5. <a href="#f4_colmode">Können Sie eine Spaltenbearbeitung hinzufügen (wie in Notepad++, UltraEdit usw.)?</a></dt>
+              <dt>6.6. <a href="#f34_regutf8">Wie kann ich reguläre Ausdrücke für die Suche in UTF-8 verwenden?</a></dt>
+              <dt>6.7. <a href="#f4_syntax">Wie ändere ich das Schema der Syntaxhervorhebung im internen Editor oder füge neue hinzu?</a></dt>
+              <dt>6.8. <a href="#f4_open">Wie öffne ich eine bestimmte Datei von einem manuell angegebenen Ort im eingebauten Dateibetrachter?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="fv">7. Themen zu den Dateipanels</a></dt>
+          <dd>
+            <dl>
+              <dt>7.1. <a href="#fv_datetime">Ich habe in der Liste kein passendes Datumsformat für die Dateipanels gefunden! Wie füge ich ein eigenes hinzu?</a></dt>
+              <dt>7.2. <a href="#fn_ext">Ich möchte die Dateinamen in der Spalte „Name“ mit Erweiterungen sehen. Geht das?</a></dt>
+              <dt>7.3. <a href="#folder_sort">Ist es möglich, Ordner durch Klick auf die Spaltenüberschrift zu sortieren („Datum“, „Größe“ usw.)?</a></dt>
+              <dt>7.4. <a href="#slinkt">Wie sehe ich die Zielobjekte symbolischer Links?</a></dt>
+              <dt>7.5. <a href="#parent">Wie blende ich den Eintrag „..“ für das übergeordnete Verzeichnis in der Dateiliste aus?</a></dt>
+            </dl>
+          </dd>
+          <dt><a name="plugins">8. Plugins</a></dt>
+          <dd>
+            <dl>
+              <dt>8.1. <a href="#not_valid">Was bedeutet die Meldung „Dies ist kein gültiges Plugin!“?</a></dt>
+              <dt>8.2. <a href="#ftps_reuse">ftp.wfx: Ich versuche FTPS (FTP+SSL) zu verwenden, erhalte aber „522 SSL-Verbindung fehlgeschlagen: Sitzungswiederverwendung erforderlich“.</a></dt>
+              <dt>8.3. <a href="#ftp_openssl">ftp.wfx: Funktioniert mit manchen Servern nicht! Nach dem Verbinden erhalte ich die Fehler „104, Verbindung wurde vom Gegenüber zurückgesetzt“ und „CSOCK-FEHLER Verbindung wurde vom Gegenüber zurückgesetzt“ oder „10060, Zeitüberschreitung der Verbindung“ und „CSOCK-FEHLER Zeitüberschreitung der Verbindung“.</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2>1. Allgemeine Fragen</h2>
+        <p class="bold"><a name="whatisit">F: Was ist Double Commander?</a></p>
+        <p><span class="bold">A:</span> Double Commander ist ein plattformübergreifender Dateimanager mit zwei Panels. Einzelheiten siehe <a href="about.html">hier</a>.</p>
+        <br>
+
+        <p class="bold"><a name="whatsnew">F: Was ist neu in dieser Version?</a></p>
+        <p><span class="bold">A:</span> Das Änderungsverzeichnis finden Sie auf der <a href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki-Seite</a>.
+          Das Projekt wird aber derzeit weiterentwickelt, daher enthalten spätere <a href="https://github.com/doublecmd/snapshots/releases" target="_blank">nächtliche Entwicklungsstände</a> viele neue Funktionen und Verbesserungen.</p>
+        <br>
+
+        <p class="bold"><a name="linux">F: Ist es ein Total Commander für Linux?</a></p>
+        <p><span class="bold">A:</span> Nein, das ist ein anderes Programm von anderen Entwicklern. Es unterstützt inzwischen Windows, GNU/Linux und macOS, und Double Commander ist auch in der FreeBSD-Ports-Sammlung verfügbar.</p>
+        <br>
+
+        <p class="bold"><a name="wincmd">F: Was ist der Unterschied zwischen diesem Programm und meinem bevorzugten Dateimanager (Total Commander)?</a></p>
+        <p><span class="bold">A:</span> Das Ziel des Projekts ist ein Programm, das in der Bedienung TC nahekommt und über die Plugins und Konfigurationsdateien möglichst kompatibel ist.
+          Double Commander hat jedoch einige wichtige Vorteile: Die Nutzung ist kostenlos, es läuft auf verschiedenen Betriebssystemen und ist quelloffen.</p>
+        <br>
+
+        <p class="bold"><a name="link">F: Wie kann ich die Entwickler von Double Commander kontaktieren?</a></p>
+        <p><span class="bold">A:</span> Das <a href="https://doublecmd.h1n.ru/" target="_blank">offizielle Forum</a> des Projekts oder <a href="https://github.com/doublecmd/doublecmd" target="_blank">GitHub</a>.<br>
+          Stellen Sie sicher, dass Sie die neueste Version des Programms verwenden, und es ist eine gute Idee, die Entwicklungsversion (Alpha) zu prüfen, bevor Sie einen Fehler melden oder eine neue Funktion anfragen.
+          Siehe auch <a title="Einen neuen Fehlerbericht anlegen" href="https://github.com/doublecmd/doublecmd/issues/117" target="_blank">#117</a>.<br>
+          Hinweis: Es kann nützlich sein, Double Commander zu starten und Debug-Meldungen zu empfangen, siehe die Beschreibung von <a href="commandline.html">--debug-log</a>. Die Anwendung erlaubt auch, den Inhalt des Meldungsfensters in die Zwischenablage zu kopieren, drücken Sie einfach <kbd>Ctrl+C</kbd>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>2. Themen zu GNU/Linux</h2>
+        <p class="bold"><a name="version">F: Welche Version lade ich herunter?</a></p>
+        <p><span class="bold">A:</span> Wenn Sie KDE, LXQt oder Fly haben, laden Sie eine Qt-Variante herunter; in anderen Fällen (Cinnamon, GNOME, LXDE, MATE oder Xfce) eine Variante für das GTK-Toolkit. Das ist aber keine strenge Regel, und es gibt Wege, Qt-Anwendungen in einer GTK-Umgebung und umgekehrt einigermaßen ähnlich aussehen zu lassen.<br>
+          Ein paar Worte zu einigen Einzelheiten:<br>
+          -&nbsp;Die Bibliothek GTK2 unterstützt Wayland nicht, daher wird Xwayland verwendet, um die Anwendung in einer Wayland-Sitzung auszuführen. Wenn Sie native Wayland-Unterstützung brauchen, versuchen Sie die Qt-Version (Qt5 oder Qt6).<br>
+          -&nbsp;Wenn Sie einen Skalierungsfaktor größer als 1 verwenden (HiDPI oder einfach ein großer Monitor), sieht die Qt-Version (Qt5 oder Qt6) vielleicht annehmbarer aus. Prüfen Sie das.</p>
+        <br>
+
+        <p class="bold"><a name="repo">F: Wo liegt das Projekt-Repository?</a></p>
+        <p><span class="bold">A:</span> Repositories für einige GNU/Linux-Distributionen:</p>
+        <ul>
+          <li>
+            <p>Veröffentlichung:
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              oder
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
+            </p>
+          </li>
+          <li>
+            <p>Alpha („nächtlicher“ Entwicklungsstand):
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              oder
+              <a href="https://software.opensuse.org/download.html?project=home:Alexx2000:doublecmd-svn&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
+            </p>
+          </li>
+          <li>
+            <p>Beta-Version (nur bis zur Veröffentlichung):
+              <a href="https://software.opensuse.org//download.html?project=home:Alexx2000:doublecmd-beta&amp;package=doublecmd-gtk" target="_blank">GTK2</a>,
+              <a href="https://software.opensuse.org//download.html?project=home:Alexx2000:doublecmd-beta&amp;package=doublecmd-qt" target="_blank">Qt5</a>
+              oder
+              <a href="https://software.opensuse.org//download.html?project=home:Alexx2000:doublecmd-beta&amp;package=doublecmd-qt6" target="_blank">Qt6</a>
+            </p>
+          </li>
+        </ul>
+        <p>Außerdem sind portable Versionen verfügbar (Einzelheiten siehe <a href="help.html#usage">hier</a>).</p>
+        <br>
+
+        <p class="bold"><a name="plugs">F: Plugins von Total Commander funktionieren nicht?!</a></p>
+        <p><span class="bold">A:</span> Sie funktionieren, aber nicht alle. Plugins von TC, die für Windows kompiliert wurden, lassen sich nur mit der Windows-Version von Double Commander verwenden.
+          Wenn die Plugins aber offenen Quelltext haben, können Sie versuchen, sie für GNU/Linux zu bauen (oder vielleicht den Plugin-Entwickler bitten, das zu tun :)).<br>
+          Es gibt eine Reihe von Plugins für Linux und plattformübergreifende Plugins (siehe <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins" target="_blank">Wiki</a>, die Repositories <a href="https://github.com/doublecmd/plugins" target="_blank">plugins</a>, <a href="https://github.com/j2969719/doublecmd-plugins" target="_blank">doublecmd-plugins</a> und weitere)
+          sowie mehrere Themen im offiziellen Forum (zum Beispiel <a href="https://doublecmd.h1n.ru/viewtopic.php?f=8&amp;t=4106" target="_blank">eins</a>, <a href="https://doublecmd.h1n.ru/viewtopic.php?f=8&amp;t=3333" target="_blank">zwei</a>).</p>
+        <br>
+
+        <p class="bold"><a name="gvfs">F: Kann ich auf Netzwerkressourcen zugreifen wie in Nautilus oder Thunar?</a></p>
+        <p><span class="bold">A:</span> Ja, DC kann GVfs verwenden. GVfs unterstützt viele Protokolle: NFS, SMB, FTP, SFTP, WebDAV, MTP, Mobiltelefone (Windows, Android, Apple), Medienspieler und weitere.</p>
+        <p>Zuerst sollten die Pakete <tt>gvfs</tt>, <tt>gvfs-backends</tt> und <tt>gvfs-fuse</tt> installiert sein.
+          Beachten Sie, dass manche Distributionen die Pakete <tt>gvfs-backends</tt> und <tt>gvfs-fuse</tt> nicht haben,
+          weil sie Teil des Pakets <tt>gvfs</tt> sind, oder es können mehrere Pakete mit den Namen <tt>gvfs-backends-*</tt> oder <tt>gvfs-*</tt> sein.</p>
+        <p>Geben Sie nun den GVfs-Pfad in die Adressleiste ein: Klicken Sie mit der rechten Maustaste auf die Adressleiste, um sie zu bearbeiten (oder rufen Sie den internen Befehl <tt>cm_EditPath</tt> auf). Alternativ können Sie den internen Befehl <a href="cmds.html#cm_MapNetworkDrive">cm_MapNetworkDrive</a> verwenden.</p>
+        <p>Zum Beispiel der Zugriff auf</p>
+        <ul>
+          <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
+          <li>SMB: <code>smb://servername/sharename/</code></li>
+          <li>WebDAV: <code>davs://servername</code></li>
+        </ul>
+        <p>Eine Liste der unterstützten Protokolle finden Sie in der Dokumentation von GVfs.</p>
+        <p>Für den Zugriff auf FTP (auch für SSH+SCP) können Sie das <a href="plugins.html#ftp.wfx">FTP-Plugin</a> verwenden.</p>
+        <br>
+
+        <p class="bold"><a name="tray">F: Ein Klick auf das Symbol im Benachrichtigungsfeld zeigt ein Menü mit den Einträgen „Wiederherstellen“ und „Beenden“, statt das Fenster wiederherzustellen (nur GTK2).</a></p>
+        <p><span class="bold">A:</span> Fügen Sie eine Bibliothek für die allgemeine Unterstützung des Benachrichtigungsfelds hinzu: zum Beispiel das Paket <tt>libappindicator1</tt> in Debian/Ubuntu oder <tt>libappindicator-gtk2</tt> in Arch Linux.</p>
+        <br>
+
+        <p class="bold"><a name="systheme">F: Warum ändert sich das Aussehen des Programms beim Wechsel des Systemthemas nicht oder nur teilweise? Ich muss das Programm schließen und erneut öffnen.</a></p>
+        <p><span class="bold">A:</span> GTK2-Version? Das ist eine Eigenheit von Lazarus. In diesem Fall aktualisiert es die Farben der Steuerelemente unter GTK2 nicht.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>3. Themen zu macOS</h2>
+        <p class="bold"><a name="permissionsOnMacOS">F: Warum braucht DC Berechtigungen in den Systemeinstellungen von macOS?</a></p>
+        <p><span class="bold">A:</span> Weil macOS bei den Standardberechtigungen von Apps immer strenger wird und DC als Dateimanager auf viele eingeschränkte Dateien zugreifen muss.</p>
+        <ul>
+          <li>Ohne passende Berechtigung arbeitet DC möglicherweise nicht richtig mit Finder-Tags, Schnappschussdateien von Time Machine, iCloud Drive usw.</li>
+          <li>Ein Klick auf das Berechtigungssymbol oben rechts in DC führt Sie zu Systemeinstellungen&nbsp;&gt; Datenschutz &amp; Sicherheit&nbsp;&gt; Datenschutz&nbsp;&gt; Festplattenvollzugriff.</li>
+          <li>Ab DC 1.3 wird das Berechtigungssymbol ausgeblendet, wenn die Berechtigung bereits erteilt wurde.</li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="reauthorizedOnMacOS">F: Ich erinnere mich genau, DC zuvor Berechtigungen erteilt zu haben, und ich habe DC in der Berechtigungsliste gefunden. Warum ist DC jetzt trotzdem nicht berechtigt?</a></p>
+        <p><span class="bold">A:</span> Sie haben wahrscheinlich nach der letzten Berechtigung eine neue Version von DC installiert.</p>
+        <ul>
+          <li>Sie müssen bei jeder Installation einer neuen Version erneut berechtigen.</li>
+          <li>In diesem Fall müssen Sie DC zuerst aus der Liste entfernen und dann wieder hinzufügen.</li>
+          <li>Weil die neue Version andere Fingerabdrücke hat, genügt es nicht, die Kontrollkästchen einfach zu aktivieren.</li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="shortcutsForMacOS">F: Wie füge ich Tastenkürzel für bestimmte macOS-Funktionen hinzu?</a></p>
+        <p><span class="bold">A:</span> Sie können <a href="configuration.html#ConfigHotKeys">ein Tastenkürzel hinzufügen</a> für den Befehl <a href="cmds.html#cm_CallPlatformFunctions">cm_CallPlatformFunctions</a> und den benötigten Parameter angeben (<code>func=AirDrop</code>, <code>func=QuickLook</code>, <code>func=EditFinderTags</code> usw.).<br>
+          Beachten Sie auch den Befehl <a href="cmds.html#cm_OpenVirtualFileSystemList">cm_OpenVirtualFileSystemList</a>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>4. Konfiguration der Oberfläche</h2>
+        <p class="bold"><a name="color">F: Wie kann ich die Farbeinstellungen für die Panels ändern?</a></p>
+        <p><span class="bold">A:</span> Um die Farbe zu ändern, gehen Sie zu Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Farben&nbsp;&gt; Dateipanels.
+          Das sind globale Einstellungen für beide Panels und sie lassen sich überschreiben, siehe Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Dateiansichten&nbsp;&gt; Spalten&nbsp;&gt; Benutzerdefinierte Spalten.</p>
+        <br>
+
+        <p class="bold"><a name="colorbuttons">F: Was sind die Schaltflächen <kbd>R</kbd> und <kbd>All</kbd> in den Farbeinstellungen?</a></p>
+        <p><span class="bold">A:</span> Sie bedeuten Folgendes:</p>
+        <ul>
+          <li><p><kbd>R</kbd>&nbsp;&ndash; Farbe auf den Standard zurücksetzen.</p></li>
+          <li><p><kbd>All</kbd>&nbsp;&ndash; die gewählte Farbe auf alle Spalten anwenden.</p></li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="columns">F: Mancher Text in einer Spalte überschreibt den Text einer anderen Spalte!</a></p>
+        <p><span class="bold">A:</span> Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Dateiansichten&nbsp;&gt; Spalten, aktivieren Sie das Kontrollkästchen „Text auf Spaltenbreite abschneiden“.</p>
+        <br>
+
+        <p class="bold"><a name="icons">F: Wie ordne ich einigen Dateitypen eigene Symbole zu?</a></p>
+        <p><span class="bold">A:</span> Gehen Sie so vor: Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; <a href="configuration.html#ConfigAssociations">Dateizuordnungen</a>.</p>
+        <br>
+
+        <p class="bold"><a name="splitter">F: Wie erstelle ich eine Trennlinie auf der Schaltflächenleiste?</a></p>
+        <p><span class="bold">A:</span> Fügen Sie eine Schaltfläche aus der Kategorie <a href="toolbar.html#catseparator">Trennlinie</a> hinzu.</p>
+        <br>
+
+        <p class="bold"><a name="theme">F: Hat DC weitere Symbolthemen?</a></p>
+        <p><span class="bold">A:</span> Derzeit kennen wir nur ein kleines Thema <a href="https://doublecmd.h1n.ru/viewtopic.php?f=5&amp;t=3658" target="_blank">DoubleMac</a>, die Installationsanleitung ist aber veraltet (siehe unten).<br>
+          Sie können ein Symbolthema selbst erstellen, das ist einfach (wir verwenden den Namen „MyDCTheme“ als Beispiel).</p>
+        <p><span class="uline"><i>So erstellen Sie es:</i></span><br>
+          -&nbsp;öffnen Sie den Ordner von DC und sehen Sie sich die Verzeichnisstruktur von „pixmaps/dctheme“ an;<br>
+          -&nbsp;erstellen Sie eine Kopie von „dctheme“ mit dem Namen „mydctheme“;<br>
+          -&nbsp;öffnen Sie „mydctheme/index.theme“ und ändern Sie den Themenamen: ersetzen Sie „Name=DCTheme“ durch „Name=MyDCTheme“;<br>
+          -&nbsp;ersetzen Sie nun die Symbole.</p>
+        <p><span class="uline"><i>Hinweise:</i></span><br>
+          1. Ersetzen Sie nicht die Standardsymbole! Ihre Symbole würden nach einer Aktualisierung von DC ersetzt.<br>
+          2. Wenn Sie einige vorhandene Standardsymbole behalten wollen, löschen Sie sie einfach in „mydctheme“, und DC verwendet sie aus dem Standardthema.<br>
+          3. Einige ungewöhnliche Symbolgrößen (etwa 40x40, 60x60 und so weiter) werden für HiDPI-Monitore verwendet.<br>
+          4. Siehe auch <a href="configxml.html">&lt;CustomIcons&gt;</a>.</p>
+        <p>Double Commander unterstützt das Packen von Symbolen in eine ZIP-Datei (ohne Komprimierung!): Packen Sie die Ordner <tt>8x8</tt>&nbsp;- <tt>scalable</tt> in das Archiv <tt>icon-theme.zip</tt>, löschen Sie sie und <tt>icon-theme.cache</tt> (falls vorhanden) und starten Sie die Anwendung neu.</p>
+        <p><span class="uline"><i>So installieren Sie es:</i></span></p>
+        <p>1. Portable-Version<br>
+          Kopieren (oder verschieben) Sie Ihren Ordner „mydctheme“ in den Ordner „pixmaps“ neben <tt>doublecmd.exe</tt>, starten Sie DC neu, gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Symbole&nbsp;&gt; Symbolthema, wählen Sie Ihr Thema und starten Sie DC erneut.</p>
+        <p>2. Installierte Version<br>
+          Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Konfiguration&nbsp;&gt; Verzeichnisse&nbsp;&gt; Symbolthemen:. Dort sehen Sie die Liste der möglichen Verzeichnisse.<br>
+          Verwenden Sie nicht <i>/usr/share/doublecmd/pixmaps</i>, <i>C:\Program Files\Double Commander\pixmaps</i> oder ein anderes Systemverzeichnis: Das erfordert Root- bzw. Administratorrechte und wäre außerdem ein Eingriff in die Arbeit der Paketverwaltung unter Linux oder des DC-Installationsprogramms für Windows.
+          DC schlägt gewöhnlich den folgenden zusätzlichen Pfad vor (neben dem Ordner „pixmaps“ bei <tt>doublecmd.exe</tt>):</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\pixmaps</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\pixmaps</i></li>
+          <li>Unix-artige Betriebssysteme: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/pixmaps</i></li>
+        </ul>
+        <p>Wenn das Verzeichnis nicht existiert, erstellen Sie es.<br>
+          Starten Sie nun DC neu, gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Symbole&nbsp;&gt; Symbolthema, wählen Sie Ihr Thema und starten Sie DC erneut.</p>
+        <br>
+
+        <p class="bold"><a name="cs_size">F: Wie mache ich Funktionstasten, Adressleiste und andere Oberflächenelemente größer?</a></p>
+        <p><span class="bold">A:</span> Die Größe hängt von der Schriftgröße ab. Es gibt mehrere Wege:</p>
+        <p>1. Einfach und schnell: Sie können <kbd>Ctrl</kbd>+Mausrad verwenden, siehe <a href="configuration.html#ConfigMouse">Zoom</a>.</p>
+        <p>2. Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Schriftarten.<br>
+          Hinweis: Alle Möglichkeiten gibt es nur in Version 1.0.0 und neuer. Für 0.9.x und älter siehe zusätzlich den dritten Punkt.</p>
+        <p>3. Für die Dateipanels können Sie die internen Befehle <a href="cmds.html#cm_MainFontZoomOut">cm_MainFontZoomOut</a> und <a href="cmds.html#cm_MainFontZoomIn">cm_MainFontZoomIn</a> verwenden. Ähnliche Befehle gibt es im eingebauten Dateibetrachter und Editor.</p>
+        <p>4. Schließen Sie DC&nbsp;&gt; öffnen Sie <tt>doublecmd.xml</tt>&nbsp;&gt; suchen Sie das Tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> und ändern Sie <code>&lt;Size&gt;</code> des Oberflächenelements von Hand.</p>
+        <br>
+
+        <p class="bold"><a name="height">F: Dateipanels: Wie ändere ich die Höhe der Elemente (Zeilen) und die Abstände dazwischen?</a></p>
+        <p><span class="bold">A:</span> Die Ansicht hängt von den folgenden Parametern ab:</p>
+        <ul>
+          <li>Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Schriftarten&nbsp;&gt; Hauptschrift</li>
+          <li>Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Symbole&nbsp;&gt; Symbolgröße&nbsp;&gt; Dateipanel</li>
+          <li><a href="configxml.html">&lt;ExtraLineSpan&gt;</a> (aus <code>&lt;FilesViews&gt;</code>)</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>5. Themen zu Steuerung und Navigation</h2>
+        <p class="bold"><a name="cursor_down">F: Ist es möglich, den Cursor nach dem Auswählen mit der Taste <kbd>Space</kbd> automatisch eine Zeile nach unten zu bewegen?</a></p>
+        <p><span class="bold">A:</span> Gehen Sie so vor: Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Dateiansichten&nbsp;&gt; Beim Auswählen einer Datei mit der Leertaste zur nächsten Datei nach unten gehen (wie mit Einfg).</p>
+        <br>
+
+        <p class="bold"><a name="queue">F: Gibt es die Möglichkeit, eine Warteschlange für Dateioperationen zu erstellen?</a></p>
+        <p><span class="bold">A:</span> Eine Warteschlange für Dateioperationen wurde in Version 0.4.6 Alpha umgesetzt und der nächsten stabilen Veröffentlichung hinzugefügt.</p>
+        <br>
+
+        <p class="bold"><a name="hotkeys_default">F: <kbd>Ctrl+A</kbd> funktioniert nicht. Wie aktiviere ich es?</a></p>
+        <p><span class="bold">A:</span> Gehen Sie so vor: Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Tasten&nbsp;&gt; Tastenkürzel&nbsp;&gt; Blättern Sie in der Kategorie „Haupt“ zum Befehl <tt>cm_MarkMarkAll</tt> und legen Sie dafür das Tastenkürzel <kbd>Ctrl+A</kbd> fest.</p>
+        <br>
+
+        <p class="bold"><a name="mouse_unmark">F: Wenn in einem Verzeichnis alle Dateien ausgewählt sind, gibt es keine Möglichkeit, sie mit der Maus abzuwählen.</a></p>
+        <p><span class="bold">A:</span> Mehrere Wege:</p>
+        <ul>
+          <li>Verwenden Sie den Eintrag „..“ am Anfang der Dateiliste (bei einer langen Dateiliste müssen Sie dafür aber blättern).</li>
+          <li>Verwenden Sie das Hauptmenü: Markieren&nbsp;&gt; Auswahl aufheben.</li>
+          <li>Fügen Sie die Schaltfläche „Auswahl aufheben“ (interner Befehl <tt>cm_MarkUnmarkAll</tt>) zur Werkzeugleiste hinzu.</li>
+          <li>Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Maus&nbsp;&gt; Auswahl mit der Maus&nbsp;&gt; aktivieren Sie „Durch Klick auf das Symbol“: Der erste Klick hebt die Markierung einer Datei auf, klicken Sie nun auf ihren Namen. (Zur Verwendung in der Miniaturansicht siehe die <a href="configuration.html#ConfigMouse">Beschreibung</a> dieses Parameters.)</li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="context_menu_create">F: Wie erstelle ich in diesem Programm mein eigenes Kontextmenü?</a></p>
+        <p><span class="bold">A:</span> Fügen Sie eine Schaltfläche der Kategorie „Menü“ zur Werkzeugleiste hinzu. Ein Beispiel siehe <a href="toolbar.html#catmenu">diesen Abschnitt</a>.</p>
+        <br>
+
+        <p class="bold"><a name="context_menu_edit">F: Wie passe ich das Kontextmenü an, zum Beispiel um den Eintrag „Öffnen mit“ hinzuzufügen?</a></p>
+        <p><span class="bold">A:</span> Das kann in Double Commander aufgenommen worden sein; es ist aber einfach, einen Befehl zum Untermenü „Aktionen“ des Kontextmenüs hinzuzufügen.
+          Hier ein Beispiel, wie Sie ein beliebiges Verzeichnis mit Root-Rechten öffnen:</p>
+        <ol>
+          <li>Klicken Sie unter Dateitypen auf Hinzufügen und geben Sie dann zum Beispiel <code>Dir</code> im Aufklappfenster ein.</li>
+          <li>Klicken Sie unter Erweiterungen auf Hinzufügen und geben Sie zum Beispiel <code>folder</code> im Aufklappfenster ein.</li>
+          <li>Klicken Sie unter Aktionen auf Hinzufügen und geben Sie dann in der Bearbeitungszeile Aktion: darunter die gewünschte Aktion ein, zum Beispiel <code>Open as root</code></li>
+          <li>Geben Sie in der Bearbeitungszeile Befehl den gewünschten Befehl ein: zum Beispiel <code>pkexec doublecmd %p</code></li>
+          <li>Klicken Sie danach einfach mit der rechten Maustaste auf einen beliebigen Ordner, wählen Sie diesen Eintrag und geben Sie das Passwort von root ein. :)</li>
+        </ol>
+        <br>
+
+        <p class="bold"><a name="auto_extract">F: Wie entpacke und starte ich automatisch eine Datei aus einem geöffneten Archiv? Es ist umständlich, jedes Mal die Schaltfläche „Entpacken und ausführen“ im Eigenschaftenfenster der gepackten Datei zu verwenden.</a></p>
+        <p><span class="bold">A:</span> Siehe die Beschreibung von <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>.</p>
+        <br>
+
+        <p class="bold"><a name="descript_ion">F: Können die Kommentare (über die Datei descript.ion) kopiert oder verschoben werden, wenn eine Datei von einem Verzeichnis in ein anderes kopiert oder verschoben wird?</a></p>
+        <p><span class="bold">A:</span> Ja, das ist möglich: Gehen Sie zu Konfiguration&nbsp;&gt; Optionen&nbsp;&gt; Dateioperationen und aktivieren Sie „Kommentare zusammen mit Dateien/Ordnern verarbeiten“.</p>
+        <br>
+
+        <p class="bold"><a name="set_property">F: In manchen Fällen sehe ich die Warnung „Kann [Attribute, Datum/Zeit, Eigentümer/Gruppe oder Rechte] für xxx nicht setzen“, wenn ich Dateien kopiere oder verschiebe. Ich möchte, dass DC standardmäßig die Aktion „überspringen“/„alle überspringen“ verwendet. Wie kann ich das tun?</a></p>
+        <p><span class="bold">A:</span> Starten Sie einen Kopier- oder Verschiebevorgang und ändern Sie den Wert der Option <a href="copymove.html#confirmation">Wenn eine Eigenschaft nicht gesetzt werden kann</a> auf „Ignorieren“. Die Schaltfläche „Diese Optionen als Standard speichern“ erlaubt, diesen Wert für nachfolgende Vorgänge zu verwenden.</p>
+        <br>
+
+        <p class="bold"><a name="admin_shares">F: Warum zeigt das Programm keine Liste der administrativen Freigaben?</a></p>
+        <p><span class="bold">A:</span> Administrative Freigaben sind versteckte Netzwerkfreigaben. Stellen Sie sicher, dass Sie die Anzeige versteckter Dateien und Ordner aktiviert haben (verwenden Sie die <a href="configuration.html#ConfigViewEx">Programmeinstellungen</a> oder den entsprechenden Eintrag im Menü <a href="help.html#mnu_view">Ansicht</a>).</p>
+        <br>
+
+        <p class="bold"><a name="hotkey_controls">F: Ich habe die linke und die rechte Pfeiltaste zugewiesen, um in der Verzeichnisgeschichte vor und zurück zu gehen, aber jetzt kann ich sie beim Umbenennen einer Datei nicht verwenden. Wie behebe ich das?</a></p>
+        <p><span class="bold">A:</span> Beim Zuweisen eines Tastenkürzels erlaubt Double Commander, den Geltungsbereich des Tastenkürzels zu begrenzen, siehe <a href="configuration.html#ConfigHotKeys">Nur für diese Steuerelemente</a>.<br>In diesem Fall müssen Sie „Dateipanel“ aktivieren.</p>
+        <br>
+
+        <p class="bold"><a name="sound_notifications">F: Gibt es eine Möglichkeit, akustische Hinweise hinzuzufügen, wenn Operationen abgeschlossen sind?</a></p>
+        <p><span class="bold">A:</span> Siehe die Beschreibung von <a href="configxml.html">&lt;Sounds&gt;</a>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>6. Themen zum eingebauten Dateibetrachter (<kbd>F3</kbd>) und Editor (<kbd>F4</kbd>)</h2>
+        <p class="bold"><a name="f3_compiz">F: Fenster des Editors und des Dateibetrachters erscheinen an zufälligen Positionen, wenn Compiz aktiviert ist.</a></p>
+        <p><span class="bold">A:</span> Bearbeiten Sie die Compiz-Einstellungen: Fenster platzieren&nbsp;&gt; Fenster mit festen Positionen und Fensterregeln&nbsp;&gt; Fenster mit fester Größe.</p>
+        <pre class="CODE">(class=Doublecmd) &amp; (title=/)</pre>
+        <br>
+
+        <p class="bold"><a name="f3_font">F: Die Schrift sieht seltsam aus (waagerechte Zeichen überschreiben einander usw.) oder die Auswahl funktioniert nicht richtig.</a></p>
+        <p><span class="bold">A:</span> Sie sollten im Dateibetrachter und im Editor dicktengleiche Schriften verwenden.</p>
+        <p>Hinweis: „Monospace“ ist ein Schrift-Alias, und der Wert muss nicht aus der Familie der dicktengleichen Schriften stammen. Wenn Sie ein Problem haben, versuchen Sie, in den Einstellungen von Double Commander eine echte dicktengleiche Schrift anzugeben.</p>
+        <br>
+
+        <p class="bold"><a name="f3_jpg">F: Der Dateibetrachter funktioniert mit einigen Bildern nicht, mit den meisten aber schon.</a></p>
+        <p><span class="bold">A:</span> Eine Komponente, die zum Anzeigen der Bilder verwendet wurde, unterstützte einige JPEG-Dateien nicht.</p>
+        <br>
+
+        <p class="bold"><a name="f3_hscroll">F: Bei manchen Textdateien ragen die Zeilen über den Fensterrand hinaus.</a></p>
+        <p><span class="bold">A:</span> Aktivieren Sie im Dateibetrachter die Option „Text umbrechen“ (im Menü „Ansicht“). Der interne Editor unterstützt keinen Zeilenumbruch.</p>
+        <br>
+
+        <p class="bold"><a name="f4_colmode">F: Können Sie eine Spaltenbearbeitung hinzufügen (wie in Notepad++, UltraEdit usw.)?</a></p>
+        <p><span class="bold">A:</span> Der interne Editor unterstützt Spalten- und Zeilenauswahl sowie mehrere Einfügemarken, siehe die Tastenkürzel <a href="shortcuts.html#editor">hier</a>.</p>
+        <br>
+
+        <p class="bold"><a name="f34_regutf8">F: Wie kann ich reguläre Ausdrücke für die Suche in UTF-8 verwenden?</a></p>
+        <p><span class="bold">A:</span> Diese Funktion wurde in Version 1.0.0 hinzugefügt. Benötigt wird die Bibliothek PCRE2 mit Unterstützung für 8-Bit-Codeeinheiten und aktivierter Unicode-Unterstützung (gewöhnlich standardmäßig aktiviert):</p>
+        <ul>
+          <li><p>Windows: benötigt <tt>libpcre2-8.dll</tt> (die Distribution von Double Commander enthält diese DLL standardmäßig).</p></li>
+          <li><p>Linux: benötigt <tt>libpcre2-8.so.0</tt>. Zum Beispiel das Paket <tt>libpcre2-8-0</tt> in Debian/Ubuntu oder <tt>pcre2</tt> in Arch Linux.</p></li>
+          <li><p>macOS: benötigt <tt>libpcre2-8.dylib</tt>.</p></li>
+        </ul>
+        <br>
+
+        <p class="bold"><a name="f4_syntax">F: Wie ändere ich das Schema der Syntaxhervorhebung im internen Editor oder füge neue hinzu?</a></p>
+        <p><span class="bold">A:</span> DC verwendet zwei Komponenten:</p>
+        <p>1. <i>SynEdit</i> mit eingebauten Syntaxhervorhebungen. Wenn Sie eine Hervorhebung ändern wollen, sollten Sie den Quelltext von DC oder Lazarus ändern.
+          Die verwendeten Farben und die Listen der Dateierweiterungen können Sie aber leicht ändern: Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Werkzeuge&nbsp;&gt; Editor&nbsp;&gt; Hervorhebungen. Vergessen Sie nicht, die Anpassungen für jeden Dateityp zu speichern.</p>
+        <p>2. <i>SynUniHighlighter</i> für eigene Schemas der Syntaxhervorhebung (.hgl), und Sie können versuchen, diese Dateien selbst zu finden oder zu erstellen (siehe unten).</p>
+        <p>Diese Dateien sind gewöhnliche XML-Dateien. Sie können sie in einem Texteditor öffnen und lesen oder ändern. Am Anfang dieser Dateien steht das Tag <code>&lt;General&gt;</code> (innerhalb von <code>&lt;Info&gt;</code>):</p>
+        <p>1) Altes Format: <code>&lt;General&gt;</code> hat Tags<br>
+          -&nbsp;<code>&lt;Name&gt;</code>: Name für das Menü <i>Syntaxhervorhebung</i>;<br>
+          -&nbsp;<code>&lt;FileTypeName&gt;</code>: Liste der unterstützten Dateierweiterungen.</p>
+        <p>2) Neues Format: <code>&lt;General&gt;</code> hat Attribute<br>
+          -&nbsp;<code>Name</code>: Name für das Menü <i>Syntaxhervorhebung</i>;<br>
+          -&nbsp;<code>Extensions</code>: Liste der unterstützten Dateierweiterungen.</p>
+        <p>(DC unterstützt beide Formate.)</p>
+        <p><span class="uline"><i>So erstellen oder bearbeiten Sie sie:</i></span></p>
+        <p>Verwenden Sie den UniHighlighter Editor oder HglEditor (<a href="https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Addons/" target="_blank">Herunterladen</a>). Beide Programme wurden für Windows geschrieben, Sie können aber Wine verwenden. HglEditor speichert die HGL-Datei im neuen Format.<br>
+          Zwei Pakete mit verschiedenen Hervorhebungen sind ebenfalls verfügbar.<br>
+          Im Abschnitt <a href="configuration.html#ConfigToolsEditorHL">Werkzeuge&nbsp;&gt; Editor&nbsp;&gt; Hervorhebungen</a> können Sie die Text- und Hintergrundfarben sowie den Schriftstil ändern.</p>
+        <p><span class="uline"><i>So fügen Sie sie hinzu:</i></span></p>
+        <p>1) Portable-Version<br>
+          Kopieren (oder verschieben) Sie Ihre HGL-Datei(en) in den Ordner „highlighters“ neben <tt>doublecmd.exe</tt> und starten Sie DC neu.</p>
+        <p>2) Installierte Version<br>
+          Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Konfiguration&nbsp;&gt; Verzeichnisse&nbsp;&gt; Hervorhebung:. Dort sehen Sie die Liste der möglichen Verzeichnisse.<br>
+          Verwenden Sie nicht <i>/usr/share/doublecmd/highlighters</i>, <i>C:\Program Files\Double Commander\highlighters</i> oder ein anderes Systemverzeichnis: Das erfordert Root- bzw. Administratorrechte und wäre außerdem ein Eingriff in die Arbeit der Paketverwaltung unter Linux oder des DC-Installationsprogramms für Windows.
+          DC schlägt gewöhnlich den folgenden zusätzlichen Pfad vor (neben dem Ordner „highlighters“ bei <tt>doublecmd.exe</tt>):</p>
+        <ul>
+          <li>Windows XP: <i>C:\Documents and Settings\&lt;UserName&gt;\Local Settings\doublecmd\highlighters</i></li>
+          <li>Windows Vista/7+: <i>C:\Users\&lt;UserName&gt;\AppData\Local\doublecmd\highlighters</i></li>
+          <li>Unix-artige Betriebssysteme: <i>/home/&lt;UserName&gt;/.local/share/doublecmd/highlighters</i></li>
+        </ul>
+        <p>Wenn das Verzeichnis nicht existiert, erstellen Sie es. Starten Sie nun DC neu.</p>
+        <p><span class="uline"><i>Zusätzliche Funktionen:</i></span></p>
+        <p>1) Untermenü <i>Weitere</i></p>
+        <p>Zusätzlicher Menüeintrag <i>Syntaxhervorhebung</i>: Wenn das Menü zu lang ist, können Sie einige Einträge in das Untermenü <i>Weitere</i> verschieben.
+          Fügen Sie einfach das neue Attribut <code>Other</code> mit dem Wert 1 zum Tag <code>&lt;General&gt;</code> hinzu und starten Sie DC neu.<br>
+          Zum Beispiel vorher<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3"/&gt;</code><br>
+          und nachher<br>
+          &nbsp;&nbsp;<code>&lt;General Name="AutoIt v3*" Extensions="AU3" Other="1"/&gt;</code></p>
+        <br>
+
+        <p class="bold"><a name="f4_open">F: Wie öffne ich eine bestimmte Datei von einem manuell angegebenen Ort im eingebauten Dateibetrachter?</a></p>
+        <p><span class="bold">A:</span> Fügen Sie eine Schaltfläche mit einem externen Befehl zur <a href="toolbar.html">Werkzeugleiste</a> hinzu, geben Sie das Makro <a href="configuration.html#ConfigAssociations">{!DC-VIEWER}</a> als Befehl an und fügen Sie den vollständigen Namen der gewünschten Datei im Feld für die Parameter hinzu.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>7. Themen zu den Dateipanels</h2>
+        <p class="bold"><a name="fv_datetime">F: Ich habe in der Liste kein passendes Datumsformat für die Dateipanels gefunden! Wie füge ich ein eigenes hinzu?</a></p>
+        <p><span class="bold">A:</span> Das Datums- und Zeitformat lässt sich leicht konfigurieren: Gehen Sie zu Konfiguration&nbsp;&gt; Optionen &nbsp;&gt; Dateiansichten&nbsp;&gt; Formatierung&nbsp;&gt; Datums- und Zeitformat und verwenden Sie <a href="configuration.html#dt_format">diese Tabelle</a>.</p>
+        <br>
+
+        <p class="bold"><a name="fn_ext">F: Ich möchte die Dateinamen in der Spalte „Name“ mit Erweiterungen sehen. Geht das?</a></p>
+        <p><span class="bold">A:</span> Ja, das ist möglich. Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt; Dateiansichten&nbsp;&gt; Spalten&nbsp;&gt; Benutzerdefinierte Spalten
+          und erstellen Sie nun einen neuen Spaltensatz oder ändern Sie den vorhandenen Standardsatz: Standardmäßig verwendet DC das Feld <code>GETFILENAMENOEXT</code> für den Namen, verwenden Sie stattdessen <code>GETFILENAME</code>.</p>
+        <br>
+
+        <p class="bold"><a name="folder_sort">F: Ist es möglich, Ordner durch Klick auf die Spaltenüberschrift zu sortieren („Datum“, „Größe“ usw.)?</a></p>
+        <p><span class="bold">A:</span> Ja, Sie können diese Funktion aktivieren: Gehen Sie im Hauptmenü zu „Konfiguration“&nbsp;&gt; Optionen...&nbsp;&gt;
+          Dateiansichten&nbsp;&gt; Sortierung&nbsp;&gt; Verzeichnisse sortieren und verwenden Sie „wie Dateien sortieren und zuerst anzeigen“ oder „wie Dateien sortieren“.</p>
+        <br>
+
+        <p class="bold"><a name="slinkt">F: Wie sehe ich die Zielobjekte symbolischer Links?</a></p>
+        <p><span class="bold">A:</span> Zusätzlich zum Dialog der Dateieigenschaften können Sie <code>GETFILELINKTO</code> in einem <a href="configuration.html#ConfigColumns">Spaltensatz</a> oder einer <a href="configuration.html#ConfigTooltips">Kurzinfo</a> verwenden. Im letzten Fall sollten Sie eine Suchvorlage erstellen und <code>l+</code> in den Attributen angeben.<br>
+          Sie können auch <a href="lua.html">Lua verwenden</a> und in das Protokollfenster schreiben.</p>
+        <br>
+
+        <p class="bold"><a name="parent">F: Wie blende ich den Eintrag „..“ für das übergeordnete Verzeichnis in der Dateiliste aus?</a></p>
+        <p><span class="bold">A:</span> Verwenden Sie die <a href="configuration.html#ConfigIgnore">Ignorierliste</a> in den Programmeinstellungen (ein weniger globaler Weg ist ebenfalls möglich, zum Beispiel blendet <code>///Search result/..</code> diesen Eintrag nur in Suchergebnissen aus).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2>8. Plugins</h2>
+        <p class="bold"><a name="not_valid">F: Was bedeutet die Meldung „Dies ist kein gültiges Plugin!“?</a></p>
+        <p><span class="bold">A:</span> Das bedeutet gewöhnlich ein Problem mit Abhängigkeiten: Nicht alle benötigten Bibliotheken sind auf Ihrem System verfügbar. Wenn die Beschreibung des Plugins keine Einzelheiten enthält, Sie den Autor nicht erreichen oder mit Suchmaschinen keine Lösung finden konnten, versuchen Sie Folgendes:</p>
+        <ul>
+          <li>Windows: das Plugin FileInfo oder PEViewer, Hilfsprogramme wie DLL Export Viewer oder Dependency Walker.</li>
+          <li>Linux: verwenden Sie ein Terminal und den Befehl <tt>ldd</tt> (der einfachste Weg, <code>ldd pluginname | grep "not found"</code>), GNU Binutils oder das Plugin AnyELF.</li>
+        </ul>
+        <p>Wenn es ein in Lua geschriebenes WDX-Plugin ist:</p>
+        <p>1. Die Lua-Bibliothek ist nicht verfügbar: siehe <a href="lua.html#dllrequired">Benötigte DLL</a>.</p>
+        <p>2. Das Skript benötigt ein zusätzliches Modul: siehe die Beschreibung des Skripts oder wenden Sie sich an den Autor.</p>
+        <p>3. Fehler im Skript. Zur Fehlersuche können Sie Lua in einem Terminal oder einem fortgeschrittenen Code-Editor bzw. einer IDE verwenden (zum Beispiel ZeroBrane Studio).<br>
+          Wenn Sie die <a href="lua.html#libraries">Funktionen von Double Commander</a> verwenden: Erstellen Sie eine Schaltfläche mit dem internen Befehl <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> und verwenden Sie die verfügbaren Funktionen (<code>DC.LogWrite</code>, <code>Dialogs.MessageBox</code>, <code>Clipbrd.SetAsText</code> oder speichern Sie die Ergebnisse in eine Datei).</p>
+        <br>
+
+        <p class="bold"><a name="ftps_reuse">F: ftp.wfx: Ich versuche FTPS (FTP+SSL) zu verwenden, erhalte aber „522 SSL-Verbindung fehlgeschlagen: Sitzungswiederverwendung erforderlich“.</a></p>
+        <p><span class="bold">A:</span> Dieser Server verlangt Unterstützung für die Sitzungswiederverwendung, und das FTP-Plugin unterstützt das, benötigt aber eine Bibliothek, die die Protokolle SSL und TLS unterstützt (siehe die <a href="plugins.html#ftp.wfx">Beschreibung</a> des Plugins).</p>
+        <br>
+
+        <p class="bold"><a name="ftp_openssl">F: ftp.wfx: Funktioniert mit manchen Servern nicht! Nach dem Verbinden erhalte ich die Fehler „104, Verbindung wurde vom Gegenüber zurückgesetzt“ und „CSOCK-FEHLER Verbindung wurde vom Gegenüber zurückgesetzt“ oder „10060, Zeitüberschreitung der Verbindung“ und „CSOCK-FEHLER Zeitüberschreitung der Verbindung“.</a></p>
+        <p><span class="bold">A:</span> Benötigt wird eine Bibliothek, die die Protokolle SSL und TLS unterstützt (siehe die <a href="plugins.html#ftp.wfx">Beschreibung</a> des Plugins).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="about.html">Zurück</a> | <a title="Nächste Seite" href="help.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

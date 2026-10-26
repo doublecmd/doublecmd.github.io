@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Archive</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="directoryhotlist.html">Zurück</a> | <a title="Nächste Seite" href="toolbar.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.10. Archive</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#workingcomp">Arbeit mit komprimierten Dateien</a></dt>
+          <dt>2. <a href="#withplugin">Arbeit mit Plugins</a></dt>
+          <dt>3. <a href="#archivers">Arbeit mit externen Archivierern</a></dt>
+          <dt>4. <a href="#config">Einbindung externer Archivierer konfigurieren</a></dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#addingnew">Einen neuen externen Archivierer hinzufügen</a></dt>
+              <dt>4.2. <a href="#variables">Variablen für die Schnittstelle zum externen Archivierer</a></dt>
+              <dt>4.3. <a href="#modifiers">Variablenmodifikatoren beim externen Archivierer</a></dt>
+              <dt>4.4. <a href="#actionlist">Die Aktion „Auflisten“ konfigurieren</a></dt>
+              <dt>4.5. <a href="#recuperate">Inhaltsliste zurückholen</a></dt>
+              <dd>
+                <dl>
+                  <dt>4.5.1. <a href="#delimit">Den zu analysierenden Bereich abgrenzen</a></dt>
+                  <dt>4.5.2. <a href="#parsing">Die Inhaltsliste analysieren</a></dt>
+                  <dt>4.5.3. <a href="#standardparsing">Standardsyntax zum Analysieren</a></dt>
+                  <dt>4.5.4. <a href="#standardexample">Beispiel mit der Standardsyntax</a></dt>
+                  <dt>4.5.5. <a href="#advancedparsing">Erweiterte Syntax zum Analysieren</a></dt>
+                  <dt>4.5.6. <a href="#advancedexample">Beispiel mit der erweiterten Syntax</a></dt>
+                </dl>
+              </dd>
+              <dt>4.6. <a href="#actionextract">Die Aktion „Extrahieren“ konfigurieren</a></dt>
+              <dt>4.7. <a href="#actionadding">Die Aktion „Hinzufügen“ konfigurieren</a></dt>
+              <dt>4.8. <a href="#actiondelete">Die Aktion „Löschen“ konfigurieren</a></dt>
+              <dt>4.9. <a href="#actiontest">Die Aktion „Prüfen“ konfigurieren</a></dt>
+              <dt>4.10. <a href="#actionextractnpath">Die Aktion „Ohne Pfad extrahieren“ konfigurieren</a></dt>
+              <dt>4.11. <a href="#actionselfextract">Die Aktion „Selbstextrahierendes Archiv erstellen“ konfigurieren</a></dt>
+              <dt>4.12. <a href="#configids">Die „IDs“ konfigurieren</a></dt>
+              <dt>4.13. <a href="#debug">Fehlersuche</a></dt>
+              <dt>4.14. <a href="#aconfig">Zusätzliche Einstellungen</a></dt>
+              <dt>4.15. <a href="#other">Menü der Schaltfläche „Weitere“</a></dt>
+            </dl>
+          </dd>
+          <dt>5. <a href="#openassociation">Eine Archivdatei in einer zugeordneten Anwendung öffnen</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="workingcomp">1. Arbeit mit komprimierten Dateien</a></h2>
+        <p>Double Commander kann mit komprimierten Dateien arbeiten, als wären es einfache Ordner.</p>
+        <p>Wenn wir zum Beispiel eine ZIP-Datei in einem Panel haben, können wir sie einfach auswählen, <kbd>Enter</kbd> drücken, und das Panel zeigt den Inhalt der ZIP-Datei, als würden wir in ein Verzeichnis wechseln.</p>
+        <p>Double Commander ist vielseitig genug, um externe Programme für komprimierte Dateien über die eigene Oberfläche zu nutzen. Es verwendet zwei verschiedene Prinzipien für komprimierte Dateien:</p>
+        <ul>
+          <li>über Plugins;</li>
+          <li>über eine vorhandene externe Archivierungsanwendung, die über die Befehlszeile steuerbar ist.</li>
+        </ul>
+        <p>Wenn wir versuchen, ein Archiv zu öffnen, prüft Double Commander zuerst die Liste der verfügbaren Packer-Plugins.</p>
+        <p>Sobald wir „in“ der komprimierten Datei sind, können wir einige minimale Grundfunktionen ausführen, etwa die Datei ansehen, sie in das andere Panel kopieren und einige begrenzte Funktionen dieser Art.</p>
+        <p>Das folgende Bild zeigt uns ein Beispiel, in dem wir die komprimierte Datei „help.rar“ ausgewählt haben und einfach <kbd>Enter</kbd> darauf drücken, als wäre sie ein Verzeichnis:</p>
+        <p class="figure"><img class="largeimage" title="Archiv ansehen" alt="Archiv ansehen" src="../en/images/imgDC/archiveimg1.png" width="768" height="454"></p>
+        <p>Nach dem Aufruf des Befehls zum Ansehen (<kbd>F3</kbd>) oder Bearbeiten (<kbd>F4</kbd>) extrahiert Double Commander die Datei unter dem Cursor in das Systemverzeichnis für temporäre Dateien und öffnet sie. Nach dem Schließen des Dateibetrachters wird die temporäre Datei gelöscht. Wenn die im Editor geöffnete Datei geändert wird, kann Double Commander sie zurückpacken (wenn das Format der komprimierten Datei und das Packer-Plugin oder der externe Archivierer diese Funktion unterstützen), siehe <a href="configxml.html">&lt;AutoCopyBackward&gt;</a>.</p>
+        <p>Bei einem Doppelklick oder beim Drücken von <kbd>Enter</kbd> zeigt Double Commander das Eigenschaftenfenster der gepackten Datei:</p>
+        <p class="figure"><img class="largeimage" title="Eigenschaften der gepackten Datei" alt="Eigenschaften der gepackten Datei" src="../en/images/imgDC/archiveimg27.png" width="268" height="316"></p>
+        <p>Die Zeile <span class="italic">Packer</span> zeigt den Namen des verwendeten Packer-Plugins oder den Namen des externen Archivierers.</p>
+        <p>Schaltflächen:</p>
+        <ul>
+          <li><p><span class="italic">Schließen</span>&nbsp;&ndash; schließt das Eigenschaftenfenster.</p></li>
+          <li><p><span class="italic">Entpacken und ausführen</span>&nbsp;&ndash; Double Commander extrahiert die Datei unter dem Cursor in das Systemverzeichnis für temporäre Dateien und ruft die Standardaktion aus den <a href="configuration.html#ConfigAssociations">internen</a> oder den System-Dateizuordnungen auf.</p></li>
+          <li><p><span class="italic">Alles entpacken und ausführen</span>&nbsp;&ndash; wie die vorherige, aber zuerst wird der gesamte Inhalt des Archivs extrahiert.</p></li>
+        </ul>
+        <p>Double Commander erlaubt, das automatische Öffnen einer Datei direkt in der zugeordneten Anwendung zu konfigurieren, verwenden Sie <a href="configxml.html">&lt;AutoExtractOpenMask&gt;</a>.</p>
+        <p>Beim Schließen löscht Double Commander alle temporären Dateien.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="withplugin">2. Arbeit mit Plugins</a></h2>
+        <p>Wir können Double Commander so konfigurieren, dass es externe „Packer-Plugin“-Dateien verwendet, die beim Umgang mit einem komprimierten Archiv helfen.</p>
+        <p>Schon bei der Installation bringt Double Commander bereits <a href="plugins.html#wcx">einige</a> dieser WCX-Plugin-Dateien mit.</p>
+        <p>Außerdem gibt es im Web einige weitere. Wir können einfach nach WCX-Plugins suchen.</p>
+        <p>Denken wir auch daran, dass diejenigen, die für Total Commander gemacht wurden, grundsätzlich auch mit Double Commander funktionieren sollten.</p>
+        <br>
+        <p>Zum Installieren, Aktivieren oder Konfigurieren müssen wir Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Plugins&nbsp;&gt; Plugins WCX öffnen:</p>
+        <p class="figure"><img class="largeimage" title="Konfiguration&nbsp;&gt; Plugins WCX" alt="Konfiguration&nbsp;&gt; Plugins WCX" src="../en/images/imgDC/archiveimg2.png" width="694" height="380"></p>
+        <p><i>Bitte beachten Sie, dass einige Formate nur lesbar sind. Das bedeutet, dass nur das Ansehen des Inhalts, das Entpacken und das Prüfen verfügbar sind.</i></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="archivers">3. Arbeit mit externen Archivierern</a></h2>
+        <p>Manchmal existiert das Plugin für die Art von Dateiarchiv, die wir verwenden wollen, nicht.</p>
+        <p>Oder aus welchem Grund auch immer kann es vorkommen, dass wir ausdrücklich einen externen Packer verwenden wollen, um eine Funktion zu nutzen, die im scheinbar gleichwertigen Plugin nicht vorhanden ist.</p>
+        <p>Double Commander verwendet ein Prinzip der Arbeit mit externen Archivierern, das dem Plugin <a href="http://wcx.sourceforge.net/" target="_blank">MultiArc</a> für Total Commander ähnelt.</p>
+        <p>Um es klar zu sagen: <b>die Verwendung eines externen Archivierers lässt sich so zusammenfassen: Es ist ein Weg, den Archivierer zu starten, mit dem wir vertraut sein mögen, ihn aber von Double Commander steuern zu lassen, indem der Programmdatei des Archivierers die verschiedenen Parameter übergeben werden, die wir brauchen, damit er wie in die Anwendung integriert wirkt</b>.</p>
+        <p>Der Rest dieser Seite behandelt dieses Thema: wie wir Double Commander konfigurieren, damit es den externen Archivierer startet und damit tut, was wir brauchen.</p>
+        <p>Nehmen wir an, wir wollen „rar.exe“ für RAR-Archive verwenden.</p>
+        <p>Wie wir uns denken können, <b>müssen wir im Wesentlichen konfigurieren, wie der externe Archivierer aufzurufen ist, um …</b></p>
+        <ul>
+          <li>die Inhaltsliste einer gegebenen Archivdatei zu erhalten;</li>
+          <li>zu extrahieren;</li>
+          <li>eine Datei oder eine Dateiliste zu einer gegebenen oder noch zu erstellenden Archivdatei hinzuzufügen;</li>
+          <li>eine Datei oder eine Dateiliste aus einer Archivdatei zu extrahieren.</li>
+        </ul>
+        <p>Das geschieht über Konfiguration, Optionen, Archivierer, wie unten gezeigt:</p>
+        <p class="figure"><img class="largeimage" title="Konfiguration&nbsp;&gt; Archivierer" alt="Konfiguration&nbsp;&gt; Archivierer" src="../en/images/imgDC/archiveimg3.png" width="756" height="575"></p>
+        <p>Alle Einstellungen werden in der Datei <tt>multiarc.ini</tt> gespeichert.</p>
+        <p>Sehen wir uns in den folgenden Abschnitten die vielseitigen Möglichkeiten an, die Double Commander uns bietet, um die Verwendung eines externen Packers richtig einzubinden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="config">4. Einbindung externer Archivierer konfigurieren</a></h2>
+        <p>Wir beschreiben hier nicht jedes einzelne Feld, denn sobald wir angefangen haben, ist es ziemlich geradlinig. Wir nehmen uns aber Zeit, ein Beispiel der Einbindung ordentlich zu beschreiben.</p>
+        <p>Wir beschreiben die Einbindung des externen Archivierers „rar.exe“. Nichts ist besser als ein vollständiges Beispiel Schritt für Schritt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addingnew">4.1. Einen neuen externen Archivierer hinzufügen</a></h2>
+        <p>Wir klicken unten auf die Schaltfläche „Hinzufügen“, vergeben einen aussagekräftigen Namen, der in der Liste der Archivierer erscheint, und sind dann bereit, ihn zu konfigurieren.</p>
+        <p class="figure"><img class="largeimage" title="Einen neuen externen Archivierer hinzufügen" alt="Einen neuen externen Archivierer hinzufügen" src="../en/images/imgDC/archiveimg4.png" width="604" height="395"></p>
+        <br>
+        <p>Dann müssen wir eine aussagekräftige Beschreibung für den Archivierer angeben, den genauen Ort der Programmdatei des Archivierers und danach die zugehörige Dateierweiterung ohne den Punkt.</p>
+        <p>Wenn wir mehr als eine mögliche haben, fügen wir sie einfach mit einem einzelnen Komma zwischen jeder hinzu, ohne Leerzeichen.</p>
+        <p class="figure"><img class="largeimage" title="Einen neuen externen Archivierer hinzufügen" alt="Einen neuen externen Archivierer hinzufügen" src="../en/images/imgDC/archiveimg5.png" width="570" height="215"></p>
+        <p>Hinweis: Double Commander unterstützt doppelte Erweiterungen (zum Beispiel „tar.gz“, „tar.xz“ und so weiter). Sie müssen am Anfang der Liste der Erweiterungen stehen (also „tar.gz“ vor „gz“).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="variables">4.2. Variablen für die Schnittstelle zum externen Archivierer</a></h2>
+        <p>Wie zuvor erwähnt müssen wir konfigurieren, wie unsere Programmdatei des externen Archivierers aufzurufen ist, um zu tun, was wir wollen.</p>
+        <p>Um uns dabei zu helfen, bietet Double Commander uns zahlreiche eigene Variablen, um die Konfigurationszeichenfolge für die verschiedenen Aktionen zu füllen, die wir konfigurieren können.</p>
+        <p>Hier folgt eine Tabelle mit den Variablen, die verwendet werden können, und womit sie ersetzt werden:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Befehlsdefinition</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Variablenausdruck</th><th class="categorydesccolumn">Wofür er steht</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%P</div></td><td class="hintcell">Langer Name des Archivierungsprogramms (wie er im Schlüssel „Archiver“ steht)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">Kurzer Name des Archivierungsprogramms (wie er im Schlüssel „Archiver“ steht)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%A</div></td><td class="hintcell">Langer Name der Archivdatei</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%a</div></td><td class="hintcell">Kurzer Name der Archivdatei</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Name der Dateiliste.<br>Die Dateiliste ist die Datei, die die Namen der Dateien enthält, die der externe Archivierer verarbeiten soll.<br>Die Dateinamen sind lang.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%l</div></td><td class="hintcell">Dateiliste mit kurzen Dateinamen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">Der Name einer einzelnen zu verarbeitenden Datei.<br>Der Archivierer wird mehrmals ausgeführt, bis alle Dateinamen aufgebraucht sind.<br>Diese Variable sollte nur verwendet werden, wenn der Zielarchivierer keine Dateilisten auf der Befehlszeile unterstützt.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%V</div></td><td class="hintcell">Die Volumengröße (für ein mehrteiliges Archiv)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%W</div></td><td class="hintcell">Das Passwort</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%E&lt;errorlevel&gt;</div></td><td class="hintcell">Maximal akzeptabler errorlevel des Befehls.<br>Zum Beispiel gibt <code>%E2</code> an, dass die errorlevel 0, 1 und 2 akzeptabel sind.<br>Diese Variable kann an beliebiger Stelle des Befehls angegeben werden.<br>Fehlt sie, gilt nur errorlevel 0 als erfolgreich.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%O&lt;modifier&gt;</div></td><td class="hintcell">Standardmäßig wandelt Double Commander die Ausgabe des Archivierers von der OEM-Kodierung nach UTF-8 um.<br>Damit überschreiben wir die Kodierung. Siehe unten die möglichen Kodierungsmodifikatoren.<br>Kann nur mit der Aktion „Auflisten“ verwendet werden.</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Zielunterverzeichnis IM Archiv</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{}</div></td><td class="hintcell">Wenn eine Variable in geschweiften Klammern steht, wird sie nur hinzugefügt, wenn diese Variable etwas Nichtleeres enthält</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%S</div></td><td class="hintcell">Die Variable gibt die Position für zusätzliche Befehlszeilenparameter an, die wir im <a href="help.html#cm_PackFiles">Dialog zum Packen von Dateien</a> hinzufügen können</td></tr>
+        </table>
+        <p>Keine Sorge, wir geben später ein Beispiel, damit es besser verständlich wird.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="modifiers">4.3. Variablenmodifikatoren beim externen Archivierer</a></h2>
+        <p>Diese Modifikatoren können unmittelbar nach Variablen ohne Leerzeichen angegeben werden.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Variablenmodifikatoren</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Modifikatorbuchstabe</th><th class="categorydesccolumn">Wofür er steht</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">F</div></td><td class="hintcell">in die Dateiliste nur Dateien aufnehmen (kann mit den Variablen <code>%L</code> und <code>%l</code> verwendet werden)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">Namen mit Leerzeichen in Anführungszeichen setzen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">q</div></td><td class="hintcell">alle Namen in Anführungszeichen setzen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">nur den Namen verwenden, ohne Pfad</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">nur den Pfad verwenden, ohne Namen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">A</div></td><td class="hintcell">die ANSI-Systemkodierung unter Windows oder die Standard-Systemkodierung auf unixartigen Systemen verwenden (in GNU/Linux-Distributionen ist das gewöhnlich UTF-8); kann mit den Variablen <code>%L</code> und <code>%O</code> verwendet werden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">UTF-8-Kodierung verwenden; kann mit den Variablen <code>%L</code> und <code>%O</code> verwendet werden</td></tr>
+        </table>
+        <p>Auch hier keine Sorge, wir haben später ein Beispiel.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionlist">4.4. Die Aktion „Auflisten“ konfigurieren</a></h2>
+        <p>Wenn wir wollen, dass Double Commander mit der komprimierten Archivdatei arbeitet, als wäre sie ein Verzeichnis mit Dateien, müssen wir die Liste der Dateien abrufen können, die das Archiv enthält.</p>
+        <p>An diesem Punkt müssen wir nicht entpacken! Nein, es geht nur darum, aufzulisten, was es enthält, damit Double Commander uns den Inhalt zeigt.</p>
+        <p>In unserem Beispiel mit „rar.exe“ gibt es, wenn wir in dessen Dokumentation sehen, den Befehl „v“, mit dem uns die Konsolenanwendung „rar.exe“ die Liste der Dateien im Archiv ausgibt:</p>
+        <p class="figure"><img class="largeimage" title="rar.exe: Startoptionen" alt="rar.exe: Startoptionen" src="../en/images/imgDC/archiveimg6.png" width="568" height="139"></p>
+        <br>
+        <p>Gemäß der Verwendung der Anwendung müssen wir, um die Liste dessen zu erhalten, was im RAR-Archiv ist, „rar.exe“ mit Parametern aufrufen: mit dem Befehl „v“ und dann dem Archivnamen.</p>
+        <p>Testen wir das zuerst von Hand, indem wir versuchen, den Inhalt einer Datei wie „E:\Temp\just.rar“ anzuzeigen.</p>
+        <p class="figure"><img class="largeimage" title="rar.exe: eine Dateiliste im Terminal abrufen" alt="rar.exe: eine Dateiliste im Terminal abrufen" src="../en/images/imgDC/archiveimg7.png" width="800" height="630"></p>
+        <br>
+        <p>Was wir jetzt tun müssen, ist, „Auflisten“ so zu konfigurieren, dass Double Commander gesagt wird, wie „rar.exe“ aufzurufen ist, um den Inhalt des komprimierten Archivs zu erhalten.</p>
+        <p>Dazu schreiben wir dasselbe, was wir gerade getan haben, aber mit der zuvor genannten Variable und dem Variablenmodifikator.</p>
+        <p>So sieht es aus:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Auflisten" alt="Aktion: Auflisten" src="../en/images/imgDC/archiveimg8.png" width="86" height="41"></p>
+        <p>Wir haben <code>%P v %AQ</code> geschrieben, unter Verwendung der zuvor genannten Variable und des Variablenmodifikators.</p>
+        <ul>
+          <li><b>%P</b> wird durch unsere zuvor eingetragene Programmdatei ersetzt, also „E:\Program Files\WinRAR\Rar.exe“.</li>
+          <li><b>v</b> bleibt unverändert und ist der Befehl „v“ des externen Archivierers „rar.exe“, um die Dateiliste anzuzeigen.</li>
+          <li><b>%A</b> ist der Name des Archivs. Wir hängen „Q“ an, um anzugeben, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+        </ul>
+        <p>All das dient dazu, den externen Archivierer mit den richtigen Parametern aufzurufen.</p>
+        <p>Das wird verwendet, wenn wir den internen Befehl <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> verwenden.</p>
+        <p>Ein paar Worte zur Option „Archivnamen ohne Erweiterung als Liste verwenden“: Diese Option ist für Archive gedacht, die nur eine Datei enthalten können und deren Dateiname dem Archivnamen ohne Erweiterung entspricht (Bzip2, XZ und andere). Solche komprimierten Dateien enthalten gewöhnlich nicht den Namen der ursprünglichen Datei.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="recuperate">4.5. Inhaltsliste zurückholen</a></h2>
+        <p>Was wir bisher getan haben, lässt den Archivierer die Liste der Dateien in den Archivdateien ausgeben.</p>
+        <p>Das ist aber noch nicht alles! Wir müssen diese ausgegebenen Daten zurückholen und in unserem Panel anzeigen.</p>
+        <p>Wir brauchen also, dass Double Commander die Ausgabetabelle interpretiert, die der Befehl des Archivierers ausgibt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="delimit">4.5.1. Den zu analysierenden Bereich abgrenzen</a></h2>
+        <p>Wie wir in der vorherigen Aufnahme sehen, ist die Ausgabe von „rar.exe“ zum Inhalt nicht nur reine Daten.</p>
+        <p>Ringsherum stehen störende Angaben, die wir entfernen müssen, um nur die eigentliche Dateiliste zu behalten.</p>
+        <p>Glücklicherweise können wir eine magische Zeichenfolge konfigurieren, sodass Double Commander wartet, bis es diese Zeichenfolge sieht, bevor es beginnt, die folgenden Zeilen zu analysieren.</p>
+        <p>Wir können auch die magische Zeichenfolge konfigurieren, um die Analyse zu beenden.</p>
+        <p>Weil wir davor und danach eine gestrichelte Linie haben, ist es ziemlich einfach, diese beiden Parameter mit den gestrichelten Linien zu setzen:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Listenanfang/Listenende" alt="Aktion: Listenanfang/Listenende" src="../en/images/imgDC/archiveimg9.png" width="360" height="79"></p>
+        <p>Falls ein externes Archiv sofort reine Daten ohne zusätzliche Zeilen ausgibt, lassen wir die beiden Felder einfach leer.</p>
+        <p>Das Zirkumflex („^“) zeigt an, dass die magische Zeichenfolge unbedingt am Zeilenanfang stehen muss, mit nichts davor. Andernfalls kann der Text irgendwo in der Zeile stehen.</p>
+        <p>Wenn nicht sicher ist, dass sie die Zeile beginnt, etwa wenn der externe Archivierer die Zeile mit Datum und Uhrzeit beginnt und danach eine konstante Zeichenfolge folgt, setzen wir die magische Zeichenfolge auf die konstante Zeichenfolge, fügen aber das Zirkumflex nicht hinzu. Das weist Double Commander an, dass die zu suchende Zeichenfolge irgendwo stehen kann.</p>
+        <p>Wenn die Zeichenfolge „Listenende“ mit einem Dateinamen verwechselt werden könnte, könnte die Verarbeitung des Archivinhalts zu früh enden.</p>
+        <p>Deshalb ist es, wenn möglich, gut anzugeben, dass die Zeichenfolge die Zeile beginnen muss.</p>
+        <p>Wenn es außerdem einen Weg gibt, die Zeichenfolge „Listenende“ so lang wie möglich und trotzdem konstant zu setzen, ist das noch besser und sicherer, damit später keine Verwechslung entsteht.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="parsing">4.5.2. Die Inhaltsliste analysieren</a></h2>
+        <p>Nun weiß Double Commander genau, welche Daten zu analysieren sind, um die Dateiliste der Archivdatei zu erhalten.</p>
+        <p>Es wäre leicht gewesen, in der Anwendung fest eine Routine zu hinterlegen, die diese „RAR“-Ausgabe analysiert, um die Dateiliste zu erhalten.</p>
+        <p>Das tut Double Commander aber nicht.</p>
+        <p>Stattdessen ist es äußerst vielseitig, indem es uns die Möglichkeit gibt, selbst zu konfigurieren, wie die Tabelle analysiert wird!</p>
+        <p>Das ist vielleicht etwas aufwendiger, als nichts tun zu müssen, gibt uns aber andererseits ein Höchstmaß an Flexibilität, weil wir externe Archivierer verwenden können, von denen die Entwickler von Double Commander nicht einmal wussten!</p>
+        <p>Um uns beim Analysieren der Ausgabetabelle zu helfen, die der Archivierer uns gibt, haben wir verschiedene Ausdrücke, die durch Buchstaben dargestellt werden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="standardparsing">4.5.3. Standardsyntax zum Analysieren</a></h2>
+        <p>Die folgende Tabelle gibt uns die „Standardsyntax“ zum Analysieren der Inhaltsliste, die das externe Archiv uns erzeugt hat.</p>
+        <p>Wie wir am nächsten Beispiel sehen werden, beruht die „Standardsyntax“ im Wesentlichen auf einer direkteren Ersetzung als die „erweiterte Syntax“.</p>
+        <p>Wenn möglich, versuchen wir diese Syntax zu verwenden, weil ihre Analyseergebnisse schneller vorliegen als bei der folgenden „erweiterten Syntax“.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Analyse mit Standardsyntax</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Wofür er steht</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n</div></td><td class="hintcell">Dateiname</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">entpackte Größe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">Dateibeschreibung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">gepackte Größe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">Tag</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">Monat</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">TTT</div></td><td class="hintcell">dreistelliger Monatsname (Jan, Feb, Mar, ...)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">y</div></td><td class="hintcell">Jahr</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">Stunden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">H</div></td><td class="hintcell">Buchstabe zur Stundenangabe (a&nbsp;&ndash; vormittags, p&nbsp;&ndash; nachmittags)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">m</div></td><td class="hintcell">Minuten</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">Sekunden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">Attribute</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">Dateierweiterung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">?</div></td><td class="hintcell">ein Zeichen überspringen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">*</div></td><td class="hintcell">bis zum ersten Leerzeichen oder Zeilenende überspringen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">für das Namensfeld am Zeilenende: alle Zeichen bis zum Ende der Zeile verwenden</td></tr>
+        </table>
+        <p>Wenn der Archivierer die Angaben zu jeder Datei auf mehr als einer Zeile anzeigt, müssen wir die entsprechende Anzahl von Zeilen angeben, um den Inhalt zu analysieren (Double Commander unterstützt bis zu 50 Zeilen).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="standardexample">4.5.4. Beispiel mit der Standardsyntax</a></h2>
+        <p>Das Schöne daran ist, die verfügbaren Ausdrücke aus der vorherigen Tabelle zu verwenden, um die Zeichenfolge „Listenformat“ zu schreiben, die Double Commander für diesen externen Archivierer konfiguriert, damit er Verzeichnis und Dateinamen, Dateigröße, Attribute, Dateidaten usw. aus dem Archiv erhält.</p>
+        <p>Ein erster Versuch, uns beim Erzeugen dieser Zeile zu helfen, wäre, zum Beispiel im Editor eine Textzeile für eine Datei zu schreiben, die wir zuvor von Hand erzeugt haben, und darunter den passenden Ausdruck aus der vorherigen Tabelle zu schreiben.</p>
+        <p>Hier ein Beispiel dafür:</p>
+        <p class="figure"><img class="largeimage" title="Listenformat: Beispiel mit der Standardsyntax" alt="Listenformat: Beispiel mit der Standardsyntax" src="../en/images/imgDC/archiveimg10.png" width="818" height="150"></p>
+        <p>Wie wir sehen, haben wir den Buchstaben des Analyseausdrucks passend zu jedem Feld an genau derselben Position geschrieben, an der es in der Ausgabe des Archivinhalts steht, die unser externer Archivierer uns geliefert hat:</p>
+        <ul>
+          <li>eine Reihe von „a“ dort, wo die Dateiattribute stehen;</li>
+          <li>eine Reihe von „z“ dort, wo die unkomprimierte Größe der Dateien steht;</li>
+          <li>die Buchstaben für Datum und Uhrzeit für Datum und Uhrzeit der Dateien;</li>
+          <li>eine Reihe von „n“, mehr als genug, dort, wo die eigentlichen Dateinamen stehen.</li>
+        </ul>
+        <p>Und wir müssen nur noch 4 Leerzeichen am Anfang der Zeile ausschließen und sie durch „????“ ersetzen.</p>
+        <p>So konfiguriert wählen wir unser vorheriges Archiv „just.rar“ in einem Panel aus, drücken <kbd>Enter</kbd>, um hineinzugehen, als wäre es ein Verzeichnis, und sehen den Dateiinhalt, der uns zeigt, dass das, was wir getan haben, „im Grunde“ funktioniert hat (wenn wir die letzte Datei ignorieren …):</p>
+        <p class="figure"><img class="largeimage" title="Archiv ansehen: Beispiel mit der Standardsyntax" alt="Archiv ansehen: Beispiel mit der Standardsyntax" src="../en/images/imgDC/archiveimg11.png" width="668" height="570"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advancedparsing">4.5.5. Erweiterte Syntax zum Analysieren</a></h2>
+        <p>Die folgende Tabelle gibt uns die „erweiterte Syntax“ zum Analysieren der Inhaltsliste, die das externe Archiv uns erzeugt hat.</p>
+        <p>Die Elemente dieser Syntax brauchen etwas mehr Zeit zur Verarbeitung als die aus der vorherigen Tabelle.</p>
+        <p>Verwenden wir sie also nur, wenn sich eine problematische Situation mit der vorherigen nicht lösen lässt.</p>
+        <p>Ein Anwendungsbeispiel folgt im nächsten Abschnitt.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Analyse mit erweiterter Syntax</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Wofür er steht</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">für das Namensfeld nicht am Zeilenende: alle Zeichen bis zum nächsten Leerzeichen verwenden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">+</div></td><td class="hintcell">nach einem beliebigen numerischen Feld: alle Ziffern bis zum ersten Zeichen verwenden, das keine Ziffer ist</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n+</div></td><td class="hintcell">alle Zeichen bis zum Ende der Zeile für den Dateinamen verwenden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z+</div></td><td class="hintcell">alle Ziffern bis zum ersten Zeichen, das keine Ziffer ist, für die entpackte Größe verwenden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p+</div></td><td class="hintcell">alle Ziffern bis zum ersten Zeichen, das keine Ziffer ist, für die gepackte Größe verwenden</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">$</div></td><td class="hintcell">alle Leerzeichen/Tabulatoren bis zum nächsten Zeichen oder Zeilenende überspringen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">\</div></td><td class="hintcell">die Daten gehen auf der nächsten Zeile weiter (höchstens 2 Zeilen werden unterstützt)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">x</div></td><td class="hintcell">genau 1 Leerzeichen; wenn an dieser Position ein anderes Zeichen steht, die ganze Zeile ignorieren</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z=1024</div></td><td class="hintcell">entpackte Größe, multipliziert mit dem angegebenen Wert (hier: 1024)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p=1024</div></td><td class="hintcell">gepackte Größe, multipliziert mit dem angegebenen Wert (hier: 1024)</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="advancedexample">4.5.6. Beispiel mit der erweiterten Syntax</a></h2>
+        <p>Das Beispiel mit der „Standardsyntax“ war eine gute Vermutung, aber sie ist nicht perfekt.</p>
+        <p>Es gibt Fälle, in denen sie nicht richtig funktioniert.</p>
+        <p>Bei sehr großen Dateien ist die Dateigröße breiter als erwartet, sodass unser erster Versuch der Auflistung scheitert.</p>
+        <p>Sehen wir uns unsere Datei <code>007 Skyfall.TS</code> an.</p>
+        <p>Wir sehen, dass sie nicht mit den passenden Angaben angezeigt wird. Vergleichen wir:</p>
+        <p class="figure"><img class="largeimage" title="Archiv ansehen: passende Angaben" alt="Archiv ansehen: passende Angaben" src="../en/images/imgDC/archiveimg12.png" width="756" height="122"></p>
+        <p>Wir sehen also, dass es bei Dateiname, Dateigröße, Datum usw. nicht stimmt.</p>
+        <p>Verwenden wir Elemente der „erweiterten Syntax“, um diese problematische Situation zu lösen.</p>
+        <p>Hier etwas, das verwendet werden kann, damit es funktioniert, auch wenn die ausgegebenen Felder nicht *genau* immer dieselbe Breite haben:</p>
+        <p class="figure"><img class="largeimage" title="Listenformat" alt="Listenformat" src="../en/images/imgDC/archiveimg13.png" width="258" height="41"></p>
+        <p>Es ist etwas komplexer, lässt sich aber sehr leicht beschreiben, und am Ende sehen wir, dass es nicht so kompliziert zu erzeugen ist.</p>
+        <p>Hier eine farbige Beschreibung, die uns hilft, die Analyse jedes kleinen Blocks zu sehen:</p>
+        <p class="figure"><img class="largeimage" title="Listenformat: Beispiel mit der erweiterten Syntax" alt="Listenformat: Beispiel mit der erweiterten Syntax" src="../en/images/imgDC/archiveimg14.png" width="748" height="495"></p>
+        <p>Mit dieser Zeichenfolge „Listenformat“ können wir unseren Test nun wiederholen und haben das richtige Ergebnis, auch für die sehr große Datei:</p>
+        <p class="figure"><img class="largeimage" title="Archiv ansehen: Beispiel mit der erweiterten Syntax" alt="Archiv ansehen: Beispiel mit der erweiterten Syntax" src="../en/images/imgDC/archiveimg15.png" width="668" height="570"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionextract">4.6. Die Aktion „Extrahieren“ konfigurieren</a></h2>
+        <p>Mit denselben zuvor genannten <a href="#variables">Variablen</a> und <a href="#modifiers">Variablenmodifikatoren</a> ist dies die Zeile, um zu konfigurieren, wie der externe Archivierer aufzurufen ist, um eine Datei oder alle Dateien aus dem ausgewählten Archiv zu „extrahieren“.</p>
+        <p>Wir setzen unser Beispiel mit „rar.exe“ fort und wissen aus dessen Dokumentation, dass wir den Befehl „x“ verwenden, um anzugeben, dass wir eine Datei oder eine Gruppe von Dateien extrahieren wollen.</p>
+        <p>Bei „rar.exe“ können wir als Parameter auch eine Liste der zu extrahierenden Dateien übergeben.</p>
+        <p>Wir nutzen also die Variable <code>%L</code>, die Double Commander uns bietet. Sie erzeugt eine Textdatei, in der jede ausgewählte Datei steht, die aus dem aktiven Panel extrahiert werden soll, und genau diese eine Listendatei übergeben wir als Parameter.</p>
+        <p>Hier die Zeile, die wir in diesem Beispiel mit „rar.exe“ für das Extrahieren konfigurieren:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Extrahieren" alt="Aktion: Extrahieren" src="../en/images/imgDC/archiveimg16.png" width="146" height="41"></p>
+        <p>Die Beschreibung dieses Beispiels ist:</p>
+        <ul>
+          <li><b>%P</b>&nbsp;&ndash; Wird durch die konfigurierte Programmdatei des externen Archivierers ersetzt.</li>
+          <li><b>x</b>&nbsp;&ndash; Der Befehl für „rar.exe“ zum Extrahieren.</li>
+          <li><b>-y</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um „Bei allen Rückfragen Ja annehmen“, damit vorhandene Dateien überschrieben werden.</li>
+          <li><b>%AQ</b>&nbsp;&ndash; Dateiname des Archivs. „Q“ gibt an, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+          <li><b>@</b>&nbsp;&ndash; Das Zeichen, das „rar.exe“ mitteilt, dass wir eine Liste der zu entpackenden Dateien übergeben.</li>
+          <li><b>%LQA</b>&nbsp;&ndash; Dateiname der Dateiliste mit den Namen der Dateien, die der externe Archivierer verarbeiten soll; „A“ verlangt die ANSI-Kodierung.</li>
+        </ul>
+        <p>Dieser Befehl wird aufgerufen, wenn wir ein Archiv auswählen, um den gesamten Inhalt zu extrahieren, nur eine Datei usw.</p>
+        <p>Wir bemerken es vielleicht nicht sofort, aber wenn wir in das Archiv „hineingehen“, als wäre es ein Verzeichnis, und <kbd>F3</kbd> drücken, um den Inhalt einer Datei im Archiv anzusehen, findet diese Aktion „Extrahieren“ im Hintergrund statt. Die ausgewählte Datei wird nach diesem Muster in das Systemverzeichnis für temporäre Dateien extrahiert, und dann sehen wir uns diese temporäre Datei mit dem über <kbd>F3</kbd> aufgerufenen Dateibetrachter an.</p>
+        <p>Das wird verwendet, wenn wir den internen Befehl <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> verwenden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionadding">4.7. Die Aktion „Hinzufügen“ konfigurieren</a></h2>
+        <p>Mit denselben zuvor genannten <a href="#variables">Variablen</a> und <a href="#modifiers">Variablenmodifikatoren</a> ist dies die Zeile, um zu konfigurieren, wie der externe Archivierer aufzurufen ist, um eine Datei oder alle Dateien in das ausgewählte Archiv zu „packen“.</p>
+        <p>Wir setzen unser Beispiel mit „rar.exe“ fort und wissen aus dessen Dokumentation, dass wir den Befehl „a“ verwenden, um anzugeben, dass wir ein Archiv erstellen oder eine Datei oder eine Gruppe von Dateien zu einem vorhandenen Archiv hinzufügen wollen.</p>
+        <p>Bei „rar.exe“ können wir als Parameter auch eine Liste der hinzuzufügenden Dateien übergeben.</p>
+        <p>Wir nutzen also die Variable <code>%L</code>, die Double Commander uns bietet. Sie erzeugt eine Textdatei, in der jede ausgewählte Datei aus dem aktiven Panel steht, die dem Archiv hinzugefügt werden soll, und genau diese eine Listendatei wird als Parameter übergeben.</p>
+        <p>Hier die Zeile, die wir in diesem Beispiel mit „rar.exe“ für das Erstellen oder Hinzufügen zum Archiv konfigurieren:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Hinzufügen" alt="Aktion: Hinzufügen" src="../en/images/imgDC/archiveimg17.png" width="146" height="41"></p>
+        <p>Die Beschreibung dieses Beispiels ist:</p>
+        <ul>
+          <li><b>%P</b>&nbsp;&ndash; Wird durch die konfigurierte Programmdatei des externen Archivierers ersetzt.</li>
+          <li><b>a</b>&nbsp;&ndash; Der Befehl für „rar.exe“ zum Erstellen eines Archivs oder zum Hinzufügen zu einem vorhandenen.</li>
+          <li><b>-y</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um „Bei allen Rückfragen Ja annehmen“, damit wir nicht gestört werden.</li>
+          <li><b>%AQ</b>&nbsp;&ndash; Dateiname des Archivs. „Q“ gibt an, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+          <li><b>@</b>&nbsp;&ndash; Das Zeichen, das „rar.exe“ mitteilt, dass wir eine Liste der zu packenden Dateien übergeben.</li>
+          <li><b>%LQA</b>&nbsp;&ndash; Dateiname der Dateiliste mit den Namen der Dateien, die der externe Archivierer verarbeiten soll; „A“ verlangt die ANSI-Kodierung.</li>
+        </ul>
+        <p>Dieser Befehl wird aufgerufen, wenn wir eine Datei oder eine Gruppe von Dateien auswählen und verlangen, sie mit dem externen Archivierer „RAR“ zu packen.</p>
+        <p>Das wird verwendet, wenn wir den internen Befehl <a href="cmds.html#cm_PackFiles">cm_PackFiles</a> verwenden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actiondelete">4.8. Die Aktion „Löschen“ konfigurieren</a></h2>
+        <p>Manche Arten komprimierter Dateiformate unterstützen die Möglichkeit, eine Datei direkt in der eigentlichen komprimierten Datei zu löschen.</p>
+        <p>Wenn diese Funktion unterstützt wird, können wir Double Commander konfigurieren und angeben, wie der externe Archivierer dafür aufzurufen ist.</p>
+        <p>Eine typische Situation, in der dieser Befehl verwendet wird, ist, wenn wir in ein Archiv gegangen sind, darin eine Datei ausgewählt haben und auf Löschen klicken.</p>
+        <p>Wenn diese „Löschaktion“ konfiguriert ist, wird sie für die Aktion verwendet.</p>
+        <p>Bitte beachten Sie, dass diese Aktion auf der zweiten Registerkarte der Konfiguration des externen Archivs liegt.</p>
+        <p>Wir setzen unser Beispiel mit „rar.exe“ fort. So können wir diese Aktion konfigurieren:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Löschen" alt="Aktion: Löschen" src="../en/images/imgDC/archiveimg18.png" width="148" height="41"></p>
+        <p>Die Beschreibung dieses Beispiels ist:</p>
+        <ul>
+          <li><b>%P</b>&nbsp;&ndash; Wird durch die konfigurierte Programmdatei des externen Archivierers ersetzt.</li>
+          <li><b>d</b>&nbsp;&ndash; Der Befehl für „rar.exe“, um einen Eintrag im Archiv zu löschen.</li>
+          <li><b>-y</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um „Bei allen Rückfragen Ja annehmen“, damit wir nicht gestört werden.</li>
+          <li><b>%AQ</b>&nbsp;&ndash; Dateiname des Archivs. „Q“ gibt an, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+          <li><b>@</b>&nbsp;&ndash; Das Zeichen, das „rar.exe“ mitteilt, dass wir eine Liste der zu löschenden Dateien übergeben (ja, wir können mehr als eine auf einmal löschen).</li>
+          <li><b>%LQA</b>&nbsp;&ndash; Dateiname der Dateiliste mit den Namen der Dateien, die der externe Archivierer verarbeiten soll; „A“ verlangt die ANSI-Kodierung.</li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actiontest">4.9. Die Aktion „Prüfen“ konfigurieren</a></h2>
+        <p>Manche Archivierer erlauben, die Unversehrtheit einer archivierten Datei zu prüfen, um sicherzustellen, dass kein Fehler darin ist und nichts beschädigt wurde.</p>
+        <p>Wenn diese Funktion unterstützt wird, können wir Double Commander konfigurieren und angeben, wie der externe Archivierer dafür aufzurufen ist.</p>
+        <p>Wir setzen unser Beispiel mit „rar.exe“ fort. So können wir diese Aktion konfigurieren:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Prüfen" alt="Aktion: Prüfen" src="../en/images/imgDC/archiveimg19.png" width="98" height="41"></p>
+        <p>Die Beschreibung dieses Beispiels ist:</p>
+        <ul>
+          <li><b>%P</b>&nbsp;&ndash; Wird durch die konfigurierte Programmdatei des externen Archivierers ersetzt.</li>
+          <li><b>t</b>&nbsp;&ndash; Der Befehl für „rar.exe“, um ein Archiv zu prüfen.</li>
+          <li><b>-y</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um „Bei allen Rückfragen Ja annehmen“, damit wir nicht gestört werden.</li>
+          <li><b>%AQ</b>&nbsp;&ndash; Dateiname des Archivs. „Q“ gibt an, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+        </ul>
+        <p>Das wird verwendet, wenn wir den internen Befehl <a href="cmds.html#cm_TestArchive">cm_TestArchive</a> verwenden.</p>
+        <p>Wenn kein Fehler vorliegt, wird das Prüffenster geschlossen. Wenn ein Fehler vorliegt, erscheint eine Meldung wie die folgende:</p>
+        <p class="figure"><img class="largeimage" title="Archiv prüfen: Fehlermeldung" alt="Archiv prüfen: Fehlermeldung" src="../en/images/imgDC/archiveimg20.png" width="514" height="184"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionextractnpath">4.10. Die Aktion „Ohne Pfad extrahieren“ konfigurieren</a></h2>
+        <p>Wenn wir standardmäßig den internen Befehl <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> aufrufen, um ein Archiv zu entpacken, und die Dateien darin mit einer bestimmten Verzeichnisstruktur angeordnet sind, erzeugt der Archivierer beim Extrahieren dieselbe Struktur neu.</p>
+        <p>Wenn der Archivierer es unterstützt, ist es aber manchmal sinnvoll, alle Dateien an denselben Ort zu extrahieren, ohne die Verzeichnisstruktur neu zu erzeugen.</p>
+        <p>Dafür wird die Aktion „Ohne Pfad extrahieren“ verwendet, wenn sie konfiguriert ist.</p>
+        <p>Beim Beispiel mit „rar.exe“ wird der Befehl dafür so geschrieben:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Ohne Pfad extrahieren" alt="Aktion: Ohne Pfad extrahieren" src="../en/images/imgDC/archiveimg24.png" width="218" height="41"></p>
+        <p>Die Beschreibung dieses Beispiels ist:</p>
+        <ul>
+          <li><b>%P</b>&nbsp;&ndash; Wird durch die konfigurierte Programmdatei des externen Archivierers ersetzt.</li>
+          <li><b>e</b>&nbsp;&ndash; Der Befehl für „rar.exe“, um aus einem Archiv zu extrahieren, aber die Verzeichnisstruktur nicht neu zu erzeugen.</li>
+          <li><b>-y</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um „Bei allen Rückfragen Ja annehmen“, damit wir nicht gestört werden.</li>
+          <li><b>%AQ</b>&nbsp;&ndash; Dateiname des Archivs. „Q“ gibt an, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+          <li><b>@</b>&nbsp;&ndash; Das Zeichen, das „rar.exe“ mitteilt, dass wir eine Liste der aus dem Archiv zu extrahierenden Dateien übergeben.</li>
+          <li><b>%LQA</b>&nbsp;&ndash; Dateiname der Dateiliste mit den Namen der Dateien, die der externe Archivierer verarbeiten soll; „A“ verlangt die ANSI-Kodierung.</li>
+        </ul>
+        <p>Die Wirkung davon ist im Dialog sichtbar, wenn wir verlangen, ein Archiv zu entpacken:</p>
+        <p class="figure"><img class="largeimage" title="Pfadnamen entpacken, wenn sie mit den Dateien gespeichert sind" alt="Pfadnamen entpacken, wenn sie mit den Dateien gespeichert sind" src="../en/images/imgDC/archiveimg23.png" width="464" height="266"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="actionselfextract">4.11. Die Aktion „Selbstextrahierendes Archiv erstellen“ konfigurieren</a></h2>
+        <p>Manche Archivierer können eine „selbstextrahierende“ komprimierte Datei erstellen.</p>
+        <p>Das bedeutet, dass wir am Ende des Vorgangs eine Programmdatei erhalten, die beim Ausführen den Inhalt dessen extrahiert, was gepackt wurde.</p>
+        <p>Das ist nützlich, wenn wir sicher sein wollen, dass die Personen, die den Inhalt der komprimierten Datei brauchen, kein Problem beim Entpacken haben: Es muss nichts installiert werden, die Datei wird einfach ausgeführt, und wir erhalten die unkomprimierten Dateien!</p>
+        <p>Typischerweise wird diese Aktion oft ähnlich wie die „Aktion Hinzufügen“ konfiguriert, und wir fügen nur einen Parameter hinzu, der ein selbstextrahierendes Ergebnis verlangt.</p>
+        <p>Das ist zum Beispiel bei unserem Beispiel mit „rar.exe“ der Fall. So können wir diese Aktion konfigurieren:</p>
+        <p class="figure"><img class="largeimage" title="Aktion: Selbstextrahierendes Archiv erstellen" alt="Aktion: Selbstextrahierendes Archiv erstellen" src="../en/images/imgDC/archiveimg21.png" width="248" height="41"></p>
+        <p>Die Beschreibung dieses Beispiels ist:</p>
+        <ul>
+          <li><b>%P</b>&nbsp;&ndash; Wird durch die konfigurierte Programmdatei des externen Archivierers ersetzt.</li>
+          <li><b>a</b>&nbsp;&ndash; Der Befehl für „rar.exe“ zum Erstellen eines Archivs oder zum Hinzufügen zu einem vorhandenen.</li>
+          <li><b>-y</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um „Bei allen Rückfragen Ja annehmen“, damit wir nicht gestört werden.</li>
+          <li><b>-sfx</b>&nbsp;&ndash; Ein Parameter für „rar.exe“, um anzugeben, dass das Endergebnis eine selbstextrahierende Datei sein soll.</li>
+          <li><b>%AQ</b>&nbsp;&ndash; Dateiname des Archivs. „Q“ gibt an, dass Double Commander den Namen in Anführungszeichen setzen soll, wenn er ein Leerzeichen enthält.</li>
+          <li><b>@</b>&nbsp;&ndash; Das Zeichen, das „rar.exe“ mitteilt, dass wir eine Liste der zu packenden Dateien übergeben.</li>
+          <li><b>%LQA</b>&nbsp;&ndash; Dateiname der Dateiliste mit den Namen der Dateien, die der externe Archivierer verarbeiten soll; „A“ verlangt die ANSI-Kodierung.</li>
+        </ul>
+        <p>Um ein selbstextrahierendes Archiv zu erstellen, beachten Sie bitte, dass der Ablauf derselbe ist wie gewöhnlich beim Erstellen der komprimierten Datei, etwa mit dem internen Befehl <a href="cmds.html#cm_PackFiles">cm_PackFiles</a>, aber im erscheinenden Dialog aktivieren wir die Option „Selbstextrahierendes Archiv erstellen“.</p>
+        <p class="figure"><img class="largeimage" title="Selbstextrahierendes Archiv erstellen" alt="Selbstextrahierendes Archiv erstellen" src="../en/images/imgDC/archiveimg22.png" width="540" height="297"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configids">4.12. Die „IDs“ konfigurieren</a></h2>
+        <p>Wir können Double Commander so konfigurieren, dass es die Dateierweiterung einer Datei ignoriert und versucht, ein komprimiertes Dateiarchiv an seinem inneren Inhalt zu erkennen und dann die oben beschriebenen passenden Befehle zum Auflisten und Entpacken aufzurufen.</p>
+        <p>Hier verwenden wir den internen Befehl <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a>.</p>
+        <p>Ein Beispiel für die Verwendung ist, wenn wir den eigentlichen Inhalt einer selbstextrahierenden EXE-Datei sehen wollen, ohne sie starten zu müssen.</p>
+        <p>Ein weiteres Beispiel wäre, den Inhalt eines Archivs zu sehen, das mit einer anderen Dateierweiterung als das übliche Archiv gespeichert ist, etwa die DOCX-Datei von Microsoft Word, die tatsächlich eine komprimierte ZIP-Datei ist.</p>
+        <p>Im Grunde können wir Double Commander so konfigurieren, dass es das Vorhandensein eines strategischen Datenmusters an einer bestimmten Stelle in der ausgewählten Datei erkennt und so das konfigurierte Archiv erkennt.</p>
+        <p>Diese Muster nennen wir „IDs“, und dieser Abschnitt behandelt ihre Konfiguration.</p>
+        <p>Dafür haben wir drei Einstellungen: ID, ID-Position und ID-Suchbereich.</p>
+        <p>Wir weisen Double Commander an, wo nach einem bestimmten ID-Muster zu suchen ist, um eine Archivart zu erkennen, und dann die konfigurierten Befehle zu verwenden, die zur erkannten Archivart gehören.</p>
+        <p>Beginnen wir mit einem einfachen Beispiel. Hier folgt eine Aufnahme vom Anfang eines 7-Zip-Archivs:</p>
+        <p class="figure"><img class="largeimage" title="Beispiel einer 7-Zip-Datei" alt="Beispiel einer 7-Zip-Datei" src="../en/images/imgDC/archiveimg25.png" width="608" height="122"></p>
+        <p>Wenn wir andere 7-Zip-Dateien ansehen, sehen wir, dass die ersten sechs Bytes immer die Folge 0x37 0x7A 0xBC 0xAF 0x27 0x1C sind.</p>
+        <p>Das nutzen wir, indem wir Double Commander so konfigurieren, dass es eine Datei, die mit dieser Folge beginnt, als 7-Zip-Archiv annimmt.</p>
+        <p>Genau das tun wir mit der folgenden Konfiguration:</p>
+        <p class="figure"><img class="largeimage" title="7-Zip-ID" alt="7-Zip-ID" src="../en/images/imgDC/archiveimg26.png" width="130" height="121"></p>
+        <p>Wir müssen die ID als zweistellige Hexadezimalzahlen schreiben, die durch Leerzeichen getrennt sind.</p>
+        <p>Die ID-Position (optional) ist eine Position der ID im Archiv. Fehlt sie, wird die ID am Anfang des Archivs gesucht. Wir können die Positionen mit dem Zeichen „-“ angeben: In diesem Fall werden die Positionen vom Ende der Datei berechnet. Der besondere Wert &lt;SeekID&gt; bestimmt die Suche nach der ID, wenn sie über die numerischen Werte der ID-Position nicht gefunden wird. Gesucht wird im Bereich „0 .. Größe der Datei“ oder „0 .. ID-Suchbereich“. Werte können dezimal (12345) oder hexadezimal (0x3039) geschrieben werden. Für negative Werte verwenden wir die Schreibweise 0xFFFFFFFF (-1).</p>
+        <p>Der ID-Suchbereich (optional) ist eine Anzahl von Bytes, in denen die ID gesucht wird, wenn &lt;SeekID&gt; festgelegt ist. Standardmäßig ist es 1 MB.</p>
+        <p><b>Hinweis:</b> Alle obigen Parameter können mit mehreren Werten festgelegt werden. Wir können ein Komma verwenden, um diese mehreren Werte zu trennen.</p>
+        <p>In unserem Beispiel mit dem 7-Zip-Archiv genügen ID und ID-Position (0, weil am Anfang der Datei).</p>
+        <p>Wenn wir also den internen Befehl <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> aufrufen, durchsucht Double Commander den Inhalt der Datei, und wenn es das Muster „0x37 0x7A 0xBC 0xAF 0x27 0x1C“ am Offset 0 in der Datei erkennt, verarbeitet es sie als unseren konfigurierten Dateityp 7Z und verwendet dann die zugehörigen konfigurierten Befehle und Parameter zum Auflisten, Extrahieren usw.</p>
+        <p>In den meisten Fällen ist es nicht nötig, Dateien in hexadezimaler Darstellung zu untersuchen: Die Dateisignatur findet sich in der Formatspezifikation, oder wir verwenden vorhandene Listen, Datenbanken oder Hilfsprogramme (zum Beispiel <a href="https://en.wikipedia.org/wiki/List_of_file_signatures" target="_blank">diese Wikipedia-Seite</a> oder die <a href="https://freedesktop.org/wiki/Software/shared-mime-info/" target="_blank">MIME-Datenbank von FreeDesktop.org</a>).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="debug">4.13. Fehlersuche</a></h2>
+        <p>Die oben beschriebenen Schritte genügen gewöhnlich, um einen externen Archivierer zu verwenden, aber für den Fall haben wir noch ein paar weitere Optionen:</p>
+        <ul>
+          <li><p><span class="italic">Konsolenausgabe anzeigen</span>&nbsp;&ndash; Wenn aktiviert, schreibt Double Commander (Zeile für Zeile) das Ergebnis der Arbeit des externen Archivierers und des Analysierers in das Protokollfenster.</p></li>
+          <li><p><span class="italic">Debug-Modus</span>&nbsp;&ndash; Ähnlich wie die vorherige Option, aber das Ergebnis der Arbeit wird auch in die Debug-Meldungen von Double Commander ausgegeben (siehe die Beschreibung von <a href="commandline.html">--debug-log</a>). In diesem Fall wird die temporäre Datei mit der Dateiliste (<code>%L</code> in unserem Beispiel) nach Abschluss des Vorgangs nicht automatisch gelöscht.</p></li>
+        </ul>
+        <p>Wenn die Anzeige des Protokollfensters in den <a href="configuration.html#ConfigLayout">Einstellungen</a> deaktiviert ist, wird es zwangsweise gezeigt und ausgeblendet, wenn Double Commander geschlossen wird. Meldungen werden nicht in der Protokolldatei gespeichert.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="aconfig">4.14. Zusätzliche Einstellungen</a></h2>
+        <p>Mehrere Parameter, die von Hand direkt in der Konfigurationsdatei <tt>multiarc.ini</tt> oder durch <a href="#other">Exportieren/Importieren</a> der Archivierer-Einstellungen hinzugefügt oder geändert werden können.</p>
+        <br>
+
+        <p><span class="bold">AskHistory0 ... AskHistory50</span></p>
+        <p>Die Werte speichern zusätzliche Parameter des Archivierers, die wir im <a href="help.html#cm_PackFiles">Dialog zum Packen von Dateien</a> hinzugefügt haben. Wir können sie von Hand ändern, neue hinzufügen oder unnötige löschen.</p>
+        <p>Das ist ein bequemer Weg, mehrere Parametersätze zu speichern, die für verschiedene Gruppen von Dateien und Aufgaben besser geeignet sind.</p>
+        <br>
+
+        <p><span class="bold">FallBackArchivers</span></p>
+        <p>Erlaubt, mehrere Programmdateien von Archivierern anzugeben, getrennt durch Kommas (vollständige Dateinamen oder Namen ohne Pfad). Wenn die Programmdatei aus dem Feld „Archiver“ nicht gefunden wird, verwendet die Anwendung die erste gefundene aus dem Wert <code>FallBackArchivers</code>.
+        <p>Ein Beispiel siehe die Verwendung von 7-Zip in <tt>multiarc.ini</tt> im Ordner „default“.</p>
+        <br>
+
+        <p><span class="bold">IgnoreString0 ... IgnoreString50</span></p>
+        <p>Das ist ein Weg, Zeilen anzugeben, die Double Commander beim Analysieren der Ausgabe des Archivierers ignorieren soll.</p>
+        <p>Wenn der Wert mit dem Zirkumflex („^“) beginnt, muss der Text am Anfang der ignorierten Zeilen stehen. Andernfalls kann der Text irgendwo in der Zeile stehen.</p>
+        <br>
+
+        <p><span class="bold">SizeStripChars</span></p>
+        <p>Es ist selten, aber der Archivierer kann Dateigrößen mit Zifferngruppierung anzeigen (zum Beispiel „12,345“ oder „12 345“ statt „12345“). <code>SizeStripChars</code> erlaubt, das Zeichen anzugeben, das entfernt werden soll.</p>
+        <p>Wenn wir mehrere Zeichen angeben müssen (der Wert kann zum Beispiel von den regionalen Einstellungen des Betriebssystems abhängen), müssen sie ohne Trennzeichen aufgeführt werden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="other">4.15. Menü der Schaltfläche „Weitere“</a></h2>
+        <p>Dieses Menü enthält mehrere zusätzliche Funktionen:</p>
+        <ul>
+          <li><p><span class="italic">Automatisch konfigurieren</span>&nbsp;&ndash; Double Commander prüft alle Programmdateien der Archivierer: Wenn eine Datei gefunden wird, fügt das Programm automatisch ihren vollständigen Pfad hinzu und aktiviert den Archivierer, andernfalls wird der Archivierer deaktiviert.</p></li>
+          <li><p><span class="italic">Änderungen verwerfen</span>&nbsp;&ndash; setzt alle ungespeicherten Einstellungsänderungen zurück.</p></li>
+          <li><p><span class="italic">Archivierer sortieren</span>&nbsp;&ndash; sortiert die Liste der Archivierer alphabetisch.</p></li>
+          <li><p><span class="italic">Alle deaktivieren</span> und <span class="italic">Alle aktivieren</span>&nbsp;&ndash; alle Archivierer aktivieren oder deaktivieren.</p></li>
+          <li><p><span class="italic">Exportieren...</span> und <span class="italic">Importieren...</span>&nbsp;&ndash; erlauben uns, die Einstellungen der Archivierer zu exportieren und zu importieren (alle Archivierer oder einen Teil davon).</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="openassociation">5. Eine Archivdatei in einer zugeordneten Anwendung öffnen</a></h2>
+        <p>Standardmäßig werden Dateien, deren Erweiterungen in den Einstellungen der WCX-Plugins und der externen Archivierer angegeben sind, als Ordner geöffnet. Um sie in einer zugeordneten Anwendung zu öffnen, können wir den Eintrag „Öffnen“ im <a href="help.html#cm_ContextMenu">Kontextmenü</a> der Datei verwenden (in diesem Fall werden aber nur die System-Dateizuordnungen verwendet), oder wir können die gewünschte Aktion zum Menü „Aktionen“ hinzufügen.</p>
+        <p>Um die Taste <kbd>Enter</kbd> oder den Doppelklick zu verwenden, müssen wir die Einstellungen ändern.</p>
+        <p>Wir können die Erweiterung einfach aus den Einstellungen entfernen, aber dann werden die Befehle <a href="cmds.html#cm_OpenArchive">cm_OpenArchive</a> und <a href="cmds.html#cm_ExtractFiles">cm_ExtractFiles</a> nicht mehr verfügbar. Ein anderer Weg:</p>
+        <ul>
+          <li><p>Wenn ein WCX-Plugin verwendet wird, können wir die Plugin-Einstellungen öffnen, die Erweiterung auswählen und die Option „Als normale Dateien anzeigen (Packersymbol ausblenden)“ aktivieren.</p></li>
+          <li><p>Wenn ein externer Archivierer zum Entpacken von Dateien verwendet wird, können wir die Option „Als normale Dateien anzeigen“ verwenden oder die Felder für die Verwendung der ID ausfüllen und die Dateierweiterung nicht angeben. Die erste Methode erlaubt auch, neue Archive zu erstellen.</p></li>
+        </ul>
+        <p>Für solche Dateien verwendet Double Commander das zugeordnete Symbol statt des allgemeinen Archivsymbols.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="directoryhotlist.html">Zurück</a> | <a title="Nächste Seite" href="toolbar.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

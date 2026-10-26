@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Eingebauter Dateibetrachter</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="syncdirs.html">Zurück</a> | <a title="Nächste Seite" href="directoryhotlist.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.8. Eingebauter Dateibetrachter</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#intro">Einführung</a></dt>
+          <dt>2. <a href="#mainmenu">Hauptmenü</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#mnu_file">„Datei“</a></dt>
+              <dt>2.2. <a href="#mnu_edit">„Bearbeiten“</a></dt>
+              <dt>2.3. <a href="#mnu_view">„Ansicht“</a></dt>
+              <dt>2.4. <a href="#mnu_plug">„Plugins“</a></dt>
+              <dt>2.5. <a href="#mnu_enc">„Kodierung“</a></dt>
+              <dt>2.6. <a href="#mnu_image">„Bild“</a></dt>
+              <dt>2.7. <a href="#mnu_about">„Über“</a></dt>
+            </dl>
+          </dd>
+          <dt>3. <a href="#toolbar">Werkzeugleiste</a></dt>
+          <dt>4. <a href="#statusbar">Statusleiste</a></dt>
+          <dt>5. <a href="#preview">Vorschau</a></dt>
+          <dt>6. <a href="#copymove">Dateien kopieren/verschieben</a></dt>
+          <dt>7. <a href="#quick">Schnellansicht</a></dt>
+          <dt>8. <a href="#asettings">Zusätzliche Einstellungen</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Einführung</a></h2>
+        <p>Der eingebaute Dateibetrachter ist dafür vorgesehen, Dateien beliebiger Größe im Text-, Hexadezimal- oder Binärformat sowie Bilddateien anzuzeigen.</p>
+        <p class="figure"><img class="largeimage" title="Eingebauter Dateibetrachter" alt="Eingebauter Dateibetrachter" src="../en/images/imgDC/viewer.png" width="792" height="432"></p>
+        <p>Der ausgewählte Text wird automatisch in die Zwischenablage kopiert. Zum Abschalten können wir den Parameter <a href="configxml.html">&lt;AutoCopy&gt;</a> verwenden.</p>
+        <p>Standardmäßig ist der Aufruf des Dateibetrachters (interner Befehl <tt>cm_View</tt>) der Taste <kbd>F3</kbd> zugeordnet. Sind mehrere Dateien ausgewählt, wird die erste ausgewählte Datei geöffnet, und wir können diese Dateien mit den Befehlen <span class="italic">Vorherige Datei</span> und <span class="italic">Nächste Datei</span> wechseln (andernfalls laden diese Befehle Dateien im aktuellen Verzeichnis). Um trotzdem die Datei unter dem Cursor zu öffnen, können wir <kbd>Shift+F3</kbd> verwenden. Wir können die Tastenkürzel im Einstellungsabschnitt <a href="configuration.html#ConfigHotKeys">Tasten&nbsp;&gt; Tastenkürzel</a> ändern.</p>
+        <p>Unterstützte Bildformate: BMP, CUR, GIF, ICNS, ICO, JPEG, PNG, PNM (PBM, PGM und PPM), PSD, SVG/SVGZ, TIFF, XPM. Zusätzlich, wenn die benötigten Bibliotheken vorhanden sind:</p>
+        <ul>
+          <li><p>HEIF/HEIC und AVIF: <tt>libheif.dll</tt> (Windows) oder <tt>libheif.so.1</tt> (Linux und andere Unix-ähnliche Systeme).</p></li>
+          <li><p>JPEG XL: <tt>libjxl.dll</tt> und <tt>libjxl_threads.dll</tt> (Windows) oder <tt>libjxl.so.0.n</tt> und <tt>libjxl_threads.so.0.N</tt> (Linux, „N“ ist eine Versionsnummer).</p></li>
+          <li><p>SVG/SVGZ: <tt>librsvg-2-2.dll</tt>, <tt>libcairo-2.dll</tt> und <tt>libgobject-2.0-0.dll</tt> (Windows) oder <tt>librsvg-2.so.2</tt>, <tt>libcairo.so.2</tt> und <tt>libgobject-2.0.so.0</tt> (Linux und andere Unix-ähnliche Systeme). Sind diese Dateien vorhanden, verwendet Double Commander die Bibliothek librsvg anstelle der eingebauten Grafikbibliothek Image32.</p></li>
+          <li><p>WebP: <tt>libwebp.so.N</tt>, wobei „N“ 7, 6 oder 5 ist (Linux und andere Unix-ähnliche Systeme).</p></li>
+          <li><p>Double Commander unterstützt die Bibliothek TurboJPEG, einen JPEG-Codec, der SIMD-Befehle nutzt, um das Dekodieren und Kodieren von Bildern zu beschleunigen: <tt>libturbojpeg.dll</tt> (Windows), <tt>libturbojpeg.so.0</tt> (Linux und andere Unix-ähnliche Systeme) oder <tt>libturbojpeg.dylib</tt> (macOS).</p></li>
+        </ul>
+        <p>Hinweis: Unter Windows müssen die Bibliotheken neben der Programmdatei von Double Commander, im Unterverzeichnis <tt>plugins\dll</tt> neben der Programmdatei oder im Windows-Systemverzeichnis liegen.</p>
+        <p>Double Commander unterstützt die Windows Imaging Component (Windows Vista und neuer): Die Windows Imaging Component (WIC) stellt ein erweiterbares Rahmenwerk für die Arbeit mit Bildern bereit. WIC enthält mehrere eingebaute Codecs (BMP, DDS, GIF, ICO, JPEG, JPEG XR, PNG und TIFF) sowie zusätzlich verfügbare externe Codecs für freie und proprietäre RAW-Bildformate, HEIF/HEIC und WebP. Double Commander überspringt die Codecs für BMP, GIF, ICO, JPEG, PNG und TIFF, weil diese Formate bereits unterstützt werden.</p>
+        <p>Unter Windows kann Double Commander den eingebauten HEIC-Decoder verwenden (Windows 11 24H2 und neuer).</p>
+        <p>Der eingebaute Dateibetrachter unterstützt das Speichern in den folgenden Bildformaten: BMP, ICO, JPEG (wir können die Qualität von 1 bis 100 wählen; standardmäßig 80, siehe <a href="configxml.html">&lt;JpegQuality&gt;</a>), PNG (Double Commander verwendet dieselbe Farbtiefe wie im Originalbild) und PNM (Double Commander verwendet Binärformate, die Farbtiefe wird automatisch gesetzt: 1, 8 oder 24 Bit pro Pixel).</p>
+        <p>Hinweis: Wenn wir ein Bild ändern, müssen wir alle Änderungen mit den Befehlen <span class="italic">Speichern</span> oder <span class="italic">Speichern unter</span> sichern: Double Commander prüft den Status der Datei (geändert oder nicht) beim Schließen des Dateibetrachterfensters oder beim Wechsel zu einer anderen Datei nicht.</p>
+        <p>Für Ordner zeigt der Dateibetrachter (wenn kein passendes Plugin gefunden wird) den vollständigen Namen des Verzeichnisses unter dem Cursor, die Anzahl der Unterverzeichnisse, der Dateien und deren Gesamtgröße an (das Ergebnis entspricht der Aktion des Befehls <a href="help.html#cm_CalculateSpace">Belegten Speicherplatz berechnen</a>).</p>
+        <p>Wir können die Tastenkürzel für die im Dateibetrachter verfügbaren Befehle im Einstellungsabschnitt <a href="configuration.html#ConfigHotKeys">Tasten&nbsp;&gt; Tastenkürzel</a> zuweisen oder ändern (zur Kategorie <span class="italic">Dateibetrachter</span> wechseln). Tastenkürzel können getrennt für den Textmodus und den Bildmodus festgelegt werden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mainmenu">2. Hauptmenü</a></h2>
+        <p>Aussehen und Inhalt des Hauptmenüs hängen vom Anzeigemodus ab: Text, Bild oder <a href="configuration.html#ConfigPlugins">WLX-Plugin</a>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_file">2.1. „Datei“</a></h2>
+        <p>Die Einträge <span class="italic">Vorherige</span> und <span class="italic">Nächste</span> laden die vorherige oder nächste Datei im Verzeichnis. Sind mehrere Dateien ausgewählt, laden die Befehle diese Dateien. Verwendet wird die Sortierreihenfolge im Dateipanel.</p>
+        <p>Die Einträge <span class="italic">Speichern</span> und <span class="italic">Speichern unter ...</span> sind nur beim Anzeigen von Bildern verfügbar.</p>
+        <p><span class="italic">Drucken ...</span>&nbsp;&ndash; öffnet einen Systemdialog, um eine Datei zum Drucken zu senden. Drucken ist nur verfügbar, wenn mit Plugins angezeigt wird, die das Drucken von Dateien unterstützen.</p>
+        <p><span class="italic">Druckeinrichtung ...</span>&nbsp;&ndash; öffnet einen Dialog zum Festlegen der Druckränder (linker, rechter, oberer und unterer Seitenrand).</p>
+        <p><span class="italic">Neu laden</span>&nbsp;&ndash; Double Commander liest die Datei zwangsweise neu ein, ohne das Fenster des Dateibetrachters zu schließen. Das ist praktisch, wenn die Datei von einem externen Programm geändert wurde.</p>
+        <p><span class="italic">Automatisch neu laden</span>&nbsp;&ndash; nur für den Textmodus: Wenn aktiviert, prüft Double Commander alle 2 Sekunden die Dateigröße und liest die Datei neu ein und rollt ihren Inhalt ans Ende, wenn sie sich ändert. Das ist praktisch, um ständig aktualisierte Protokolldateien anzuzeigen. Dieser Modus gilt nur für die aktuelle Datei und wird beim Wechsel zu einer anderen Datei oder beim Schließen des Dateibetrachterfensters ausgeschaltet. Wenn aktiviert, zeigt Double Commander in der Statusleiste vor dem Dateinamen ein Sternchen „*“ an.</p>
+        <p><span class="italic">Beenden</span>&nbsp;&ndash; Schließt das Fenster des Dateibetrachters.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_edit">2.2. „Bearbeiten“</a></h2>
+        <p>Das Menü enthält Befehle zum Auswählen und Kopieren von Text sowie Befehle zum Suchen im Inhalt der angezeigten Datei: <span class="italic">Suchen</span>, <span class="italic">Weitersuchen</span> und <span class="italic">Rückwärts suchen</span>.</p>
+        <p>Suchoptionen:</p>
+        <ul>
+          <li><p><span class="italic">Groß-/Kleinschreibung beachten</span>&nbsp;&ndash; gibt an, dass Groß- und Kleinbuchstaben unterschieden werden, zum Beispiel wären „Fallout“ und „fallout“ verschieden.</p></li>
+          <li><p><span class="italic">Hexadezimal</span>&nbsp;&ndash; sucht nach Hexadezimalzeichen (ohne Unterscheidung der Groß-/Kleinschreibung, mit oder ohne Leerzeichen zwischen den Zeichen, zum Beispiel „C0&nbsp;C1&nbsp;C2“ oder „c0c1c2“).</p></li>
+          <li><p><span class="italic">Reguläre Ausdrücke</span>&nbsp;&ndash; wenn aktiviert, können wir <a href="regexp.html">reguläre Ausdrücke</a> verwenden.</p></li>
+          <li><p><span class="italic">Rückwärts</span>&nbsp;&ndash; kehrt die Suchrichtung um: Suche vom Ende der Datei statt vom Anfang.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_view">2.3. „Ansicht“</a></h2>
+        <p>Dieses Menü dient zum Umschalten des Anzeigemodus und enthält mehrere zusätzliche Optionen.</p>
+        <p><span class="italic">Vorschau</span>&nbsp;&ndash; Blendet das <a href="#preview">Vorschau</a>-Panel ein oder aus.</p>
+        <p>Das Programm wählt den passenden Anzeigemodus automatisch. Die folgenden Einträge erlauben, ihn zwangsweise umzuschalten:</p>
+        <ul>
+          <li><p><span class="italic">Als Text anzeigen</span>&nbsp;&ndash; Zeigt den Dateiinhalt (oder die Ausgabe eines Konsolenbefehls, siehe <a href="configuration.html#ConfigAssociations">Dateizuordnungen</a>) als einfachen Text. Wir können die Höchstzahl der Zeichen festlegen, die in einer Textzeile angezeigt werden, bevor sie in die nächste umbrochen wird (standardmäßig 1024).</p></li>
+          <li><p><span class="italic">Als Binär anzeigen</span>&nbsp;&ndash; Zeigt den Dateiinhalt so, wie er ist. Nicht druckbare Zeichen werden als Punkte angezeigt, beim Kopieren von Text werden Steuerzeichen (Zeilenvorschub, Wagenrücklauf, Tabulator und so weiter) jedoch berücksichtigt. Verwendet wird eine feste Zeilenbreite von 80 Zeichen.</p></li>
+          <li><p><span class="italic">Als Hex anzeigen</span>&nbsp;&ndash; Das Fenster zeigt drei Spalten: den Abstand vom Dateianfang (in Byte), 16 Zeichen in hexadezimaler Darstellung und dieselben 16 Zeichen als einfachen Text. Nicht druckbare Zeichen werden als Punkte angezeigt. Beim Auswählen von Werten in der zweiten Spalte werden die entsprechenden Zeichen in der dritten Spalte ausgewählt (und umgekehrt).</p></li>
+          <li><p><span class="italic">Als Dezimal anzeigen</span>&nbsp;&ndash; Wie zuvor, aber die Bytes werden in dezimaler Schreibweise dargestellt.</p></li>
+          <li><p><span class="italic">Als Buch anzeigen</span>&nbsp;&ndash; Ein besonderer Anzeigemodus: Der Text wird in mehreren Spalten angezeigt (wie eine Buchdoppelseite oder eine Zeitung). Wir können Schriftart und Größe, Text- und Hintergrundfarbe sowie die Anzahl der Spalten (1, 2 oder 3) festlegen.</p></li>
+          <li><p><span class="italic">Grafik</span>&nbsp;&ndash; wechselt zur Bildanzeige. Die Liste der unterstützten Bildformate steht am <a href="#intro">Anfang der Seite</a>.</p></li>
+          <li><p><span class="italic">Plugins</span>&nbsp;&ndash; Anzeige mit WLX-Plugins. Kann die ausgewählte Datei von mehreren installierten Plugins geöffnet werden, schalten wiederholte Aufrufe dieses Befehls sie im Kreis weiter.</p></li>
+          <li><p><span class="italic">Office-XML (nur Text)</span>&nbsp;&ndash; Der Dateibetrachter zeigt Text aus XML-basierten Office-Dokumenten: Microsoft Office (DOCX, XLSX) und OpenOffice/LibreOffice (ODT, ODS). Ohne Textformatierung, aber unter Beibehaltung der Absätze.</p></li>
+          <li><p><span class="italic">Code</span>&nbsp;&ndash; Der Dateibetrachter zeigt die ausgewählte Datei in der Codeansicht: mit Syntaxhervorhebung und Zeilennummern. Es werden dieselben Hervorhebungsregeln und Erweiterungslisten verwendet wie für den eingebauten Texteditor (weitere Einzelheiten <a href="configuration.html#ConfigToolsEditorHL">hier</a>). In diesem Modus verwendet der Dateibetrachter die <a href="configuration.html#ConfigToolsEditor">Einstellungen des eingebauten Editors</a>, siehe auch die Beschreibung von <a href="configxml.html">&lt;SynEditMask&gt;</a>.</p></li>
+        </ul>
+        <p>Plugins haben Vorrang vor anderen unterstützten Anzeigemodi.</p>
+        <p><span class="italic">Text umbrechen</span>&nbsp;&ndash; schaltet den Umbruch von Zeilen ein oder aus, die nicht in das Fenster passen (an Wortgrenzen).</p>
+        <p><span class="italic">Textcursor anzeigen</span>&nbsp;&ndash; schaltet die Anzeige eines blinkenden Textcursors ein.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_plug">2.4. „Plugins“</a></h2>
+        <p>Das Menü enthält eine Liste aller hinzugefügten und aktivierten WLX-Plugins. Der erste Teil des Menüs enthält Plugins, die für die aktuelle Datei geeignet sind (Double Commander prüft die Erkennungszeichenkette), alle übrigen werden im zweiten Teil aufgeführt.</p>
+        <p>Ohne Sortierung wird dieselbe Reihenfolge verwendet, in der die Plugins im entsprechenden Einstellungsabschnitt hinzugefügt wurden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_enc">2.5. „Kodierung“</a></h2>
+        <p>Beim Anzeigen von Dateien in Textmodi: Menü mit einer Liste der verfügbaren Textkodierungen, die automatische Erkennung ist standardmäßig aktiviert.</p>
+        <p>Bei der Verwendung von Plugins enthält dieses Menü nur drei Einträge:</p>
+        <ul>
+          <li><p><span class="italic">Automatisch erkennen</span>&nbsp;&ndash; automatische Erkennung der Kodierung.</p></li>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; standardmäßige ANSI-Kodierung des Systems (hängt vom Systemgebietsschema ab).</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; standardmäßige OEM-Kodierung (DOS) des Systems (hängt vom Systemgebietsschema ab).</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_image">2.6. „Bild“</a></h2>
+        <p>Das Menü <span class="italic">Bild</span> ist beim Anzeigen von GIF-Dateien nicht verfügbar.</p>
+        <p><span class="italic">Einpassen</span>&nbsp;&ndash; ändert die Bildgröße so, dass es das Fenster des Dateibetrachters ausfüllt (das Seitenverhältnis wird automatisch beibehalten).</p>
+        <p><span class="italic">Nur große einpassen</span>&nbsp;&ndash; ändert die Bildgröße nur, wenn es größer als das aktuelle Fenster ist (das Seitenverhältnis wird automatisch beibehalten).</p>
+        <p><span class="italic">Zentrieren</span>&nbsp;&ndash; Das Bild wird in der Mitte des Dateibetrachterfensters angezeigt statt in der oberen linken Ecke.</p>
+        <p><span class="italic">Transparenz anzeigen</span>&nbsp;&ndash; schaltet die Verwendung eines Schachbrettmusters als Hintergrund für transparente Bildteile ein.</p>
+        <p>Das Untermenü <span class="italic">Drehen</span> enthält mehrere ähnliche Aktionen:</p>
+        <ul>
+          <li><p>Die ersten drei Befehle drehen das Bild um eine angegebene Gradzahl um seinen Mittelpunkt: <span class="italic">+ 90</span> (90 Grad nach rechts), <span class="italic">+ 180</span> und <span class="italic">- 90</span> (90 Grad nach links).</p></li>
+          <li><p><span class="italic">Horizontal spiegeln</span>&nbsp;&ndash; spiegelt das Bild horizontal, das heißt von links nach rechts.</p></li>
+          <li><p><span class="italic">Vertikal spiegeln</span>&nbsp;&ndash; spiegelt das Bild vertikal, das heißt von oben nach unten.</p></li>
+        </ul>
+        <p><span class="italic">Vergrößern</span> und <span class="italic">Verkleinern</span>&nbsp;&ndash; Befehle zum Ändern des Bildmaßstabs (oder wir können <kbd>Ctrl</kbd>+Mausrad verwenden).</p>
+        <p><span class="italic">Vollbild</span>&nbsp;&ndash; schaltet das Fenster in den Vollbildmodus (der Fensterinhalt ohne die übliche Fensterumrahmung des Betriebssystems). Dieser Modus ist nicht nur beim Anzeigen von Bildern verfügbar, es genügt, die Tastenkürzel zu verwenden (standardmäßig <kbd>Alt+Enter</kbd>).</p>
+        <p>Das Untermenü <span class="italic">Bildschirmfoto</span>&nbsp;&ndash; erstellt ein Bildschirmfoto der Arbeitsfläche, sofort oder mit Verzögerung (3 oder 5 Sekunden).</p>
+        <p>Bei der Verwendung von Plugins enthält dieses Menü nur drei Einträge: <span class="italic">Einpassen</span>, <span class="italic">Nur große einpassen</span> und <span class="italic">Zentrieren</span>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mnu_about">2.7. „Über“</a></h2>
+        <p>Nur der Name des Dateibetrachters.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbar">3. Werkzeugleiste</a></h2>
+        <p>Mehrere Befehle des internen Dateibetrachters und zusätzliche Werkzeuge, zusammengefasst in der Werkzeugleiste. Nur beim Anzeigen von Bildern.</p>
+        <p class="figure"><img class="largeimage" title="Werkzeugleiste" alt="Werkzeugleiste" src="../en/images/imgDC/viewertoolbar.png" width="834" height="33"></p>
+        <p><span class="italic">Aktuelle Datei neu laden</span>&nbsp;&ndash; Double Commander liest die Datei zwangsweise neu ein, ohne das Fenster des Dateibetrachters zu schließen. Das ist praktisch, wenn die Datei von einem externen Programm geändert wurde.</p>
+        <p>Die Schaltflächen <span class="italic">Vorherige Datei laden</span> und <span class="italic">Nächste Datei laden</span> laden die vorherige oder nächste Datei im Verzeichnis. Verwendet wird die Sortierreihenfolge im Dateipanel.</p>
+        <p><span class="italic">Datei kopieren</span>&nbsp;&ndash; siehe <a href="#copymove">Dateien kopieren/verschieben</a>.</p>
+        <p><span class="italic">Datei verschieben</span>&nbsp;&ndash; siehe <a href="#copymove">Dateien kopieren/verschieben</a>.</p>
+        <p><span class="italic">Datei löschen</span>&nbsp;&ndash; löscht die angezeigte Datei nach einer Bestätigungsanfrage.</p>
+        <p><span class="italic">Vergrößern</span> und <span class="italic">Verkleinern</span>&nbsp;&ndash; Befehle zum Ändern des Bildmaßstabs (oder wir können <kbd>Ctrl</kbd>+Mausrad verwenden).</p>
+        <p><span class="italic">Um -90 Grad drehen</span>&nbsp;&ndash; dreht das Bild um 90 Grad nach links um seinen Mittelpunkt.</p>
+        <p><span class="italic">Um +90 Grad drehen</span>&nbsp;&ndash; dreht das Bild um 90 Grad nach rechts um seinen Mittelpunkt.</p>
+        <p><span class="italic">Spiegeln</span>&nbsp;&ndash; Der Befehl <span class="italic">Horizontal spiegeln</span>: spiegelt das Bild horizontal, das heißt von links nach rechts.</p>
+        <p>Die nächste Gruppe gilt nur für GIF-Animationen und ICO-Dateien:</p>
+        <ul>
+          <li><p><span class="italic">Pause/Wiedergabe</span>&nbsp;&ndash; hält die Wiedergabe der Animation an.</p></li>
+          <li><p><span class="italic">Vorheriges Einzelbild</span> und <span class="italic">Nächstes Einzelbild</span>&nbsp;&ndash; schalten die Einzelbilder der Animation vor und zurück. Ist eine ICO-Datei geöffnet, erlauben diese Befehle, zwischen den in der Datei enthaltenen Bildern zu wechseln.</p></li>
+          <li><p><span class="italic">Einzelbild exportieren</span>&nbsp;&ndash; ermöglicht, das aktuelle Einzelbild der Animation zu speichern.</p></li>
+        </ul>
+        <p>Die nächste Schaltflächengruppe betrifft die Auswahl:</p>
+        <ul>
+          <li><p><span class="italic">Hervorheben</span>&nbsp;&ndash; schaltet das Auswahlwerkzeug (Rechteck) ein.</p></li>
+          <li><p><span class="italic">Zuschneiden</span>&nbsp;&ndash; schneidet das Bild anhand der Auswahl zu.</p></li>
+          <li><p><span class="italic">Rote Augen</span>&nbsp;&ndash; Funktion zum Entfernen roter Augen.</p></li>
+        </ul>
+        <p>Die nächste Schaltflächengruppe betrifft das Zeichnen:</p>
+        <ul>
+          <li><p><span class="italic">Zeichnen</span>&nbsp;&ndash; schaltet die Zeichenwerkzeuge ein.</p></li>
+          <li><p><span class="italic">Rückgängig</span>&nbsp;&ndash; macht die letzte Aktion rückgängig.</p></li>
+          <li><p>Menü zur Auswahl eines Zeichenwerkzeugs: <span class="italic">Stift</span>, <span class="italic">Rechteck</span> und <span class="italic">Ellipse</span>.</p></li>
+          <li><p><span class="italic">Breite</span>&nbsp;&ndash; Menü zur Auswahl der Linienbreite (von 1 bis 25 Pixel).</p></li>
+          <li><p><span class="italic">Farbe</span>&nbsp;&ndash; ermöglicht, die Farbe der Linie festzulegen.</p></li>
+        </ul>
+        <p><span class="italic">Größe ändern</span>&nbsp;&ndash; Das Werkzeug zum Ändern der Bildgröße ermöglicht, Breite und Höhe in Pixeln anzugeben (das Seitenverhältnis wird automatisch beibehalten).</p>
+        <p><span class="italic">Vollbild</span>&nbsp;&ndash; schaltet das Fenster in den Vollbildmodus (der Fensterinhalt ohne die übliche Fensterumrahmung des Betriebssystems) und zurück. Dieser Modus ist nicht nur beim Anzeigen von Bildern verfügbar, es genügt, die Tastenkürzel zu verwenden (standardmäßig <kbd>Alt+Enter</kbd>).</p>
+        <p>Wenn das Fenster auf den ganzen Bildschirm vergrößert ist, wird eine zusätzliche Schaltfläche <span class="italic">Diaschau</span> verfügbar: Wir können das automatische Laden des nächsten Bildes im aktuellen Verzeichnis einschalten und die Anzeigedauer der Datei festlegen (von 1 bis 25 Sekunden).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="statusbar">4. Statusleiste</a></h2>
+        <p>Aussehen und Inhalt der Statusleiste hängen vom Anzeigemodus ab: Text, Bild oder WLX-Plugin.</p>
+        <p>Am Anfang der Statusleiste werden die Nummer der geöffneten Datei und die Gesamtzahl der Dateien im aktuellen Verzeichnis angezeigt.</p>
+        <p>Text: Position im Dateiinhalt (in Byte und Prozent), Dateigröße und Textkodierung.</p>
+        <p class="figure"><img class="largeimage" title="Statusleiste: Text" alt="Statusleiste: Text" src="../en/images/imgDC/viewerstatus1.png" width="642" height="24"></p>
+        <p>Bild: aktuelle Auflösung (in Pixeln und Prozent), tatsächliche Dateiauflösung und Größe der Auswahl (bei Verwendung des Auswahlwerkzeugs).</p>
+        <p class="figure"><img class="largeimage" title="Statusleiste: Bild" alt="Statusleiste: Bild" src="../en/images/imgDC/viewerstatus2.png" width="642" height="24"></p>
+        <p>Bei ICO-Dateien werden zusätzlich die Gesamtzahl der Bilder in der Datei, die Nummer des aktuellen Bildes und seine Größe angezeigt.</p>
+        <p>WLX-Plugin: Plugin-Name und Kodierung.</p>
+        <p class="figure"><img class="largeimage" title="Statusleiste: WLX-Plugin" alt="Statusleiste: WLX-Plugin" src="../en/images/imgDC/viewerstatus3.png" width="642" height="24"></p>
+        <p>Am Ende der Statusleiste wird der vollständige Name der angezeigten Datei angezeigt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="preview">5. Vorschau</a></h2>
+        <p>Panel im linken Teil des Fensters. Die aufgelisteten Dateien werden als Miniaturansichten angezeigt (mit dem Dateinamen unter der Miniaturansicht). Es sieht aus wie der <a href="help.html#iface_files">Miniaturmodus</a> im Dateipanel.</p>
+        <p class="figure"><img class="largeimage" title="Vorschau" alt="Vorschau" src="../en/images/imgDC/viewerpreview.png" width="720" height="418"></p>
+        <p>Verwendet wird die Sortierreihenfolge im Dateipanel. Die Datei, mit der der Dateibetrachter gestartet wurde, steht immer an erster Stelle der Liste.</p>
+        <p>Das Vorschau-Panel kann verbreitert werden, um eine Liste von Miniaturansichten in mehreren Spalten anzuzeigen.</p>
+        <p>Eigene Werkzeugleiste mit mehreren häufig verwendeten Funktionen: <span class="italic">Aktuelle Datei neu laden</span>, <span class="italic">Vorherige Datei laden</span>, <span class="italic">Nächste Datei laden</span>, <span class="italic">Datei kopieren</span>, <span class="italic">Datei löschen</span> und <span class="italic">Datei verschieben</span>, siehe die Beschreibung der ähnlichen Schaltflächen <a href="#toolbar">oben</a>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="copymove">6. Dateien kopieren/verschieben</a></h2>
+        <p>Der Dateibetrachter kann die angezeigte Datei über Tastenkürzel oder Schaltflächen auf der Werkzeugleiste oder auf dem Vorschau-Panel kopieren oder verschieben (interne Befehle des Dateibetrachters <tt>cm_CopyFile</tt> und <tt>cm_MoveFile</tt>). Wir können bis zu 5 Verzeichnisse angeben und zwischen ihnen wechseln:</p>
+        <p class="figure"><img class="largeimage" title="Dateien kopieren/verschieben" alt="Dateien kopieren/verschieben" src="../en/images/imgDC/viewercopymove.png" width="322" height="234"></p>
+        <p>Das ist praktisch, wenn wir die angezeigten Dateien in verschiedene Verzeichnisse legen oder eine zusätzliche Kopie anlegen müssen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="quick">7. Schnellansicht</a></h2>
+        <p>Zusätzlicher Anzeigemodus für Dateien (standardmäßig <kbd>Ctrl+Q</kbd>): Statt in einem eigenen Fenster wird der Inhalt der Datei unter dem Cursor im gegenüberliegenden (inaktiven) Dateipanel angezeigt. Wenn wir zum nächsten Eintrag wechseln, wird der angezeigte Inhalt aktualisiert. So lässt sich der Inhalt von Dateien einfach durch Bewegen des Cursors im Dateipanel ansehen.</p>
+        <p>In den Einstellungen der <a href="configuration.html#ConfigAssociations">Dateizuordnung</a> hinzugefügte Aktionen „Anzeigen“ werden ignoriert, außer bei Anwendungen, die mit dem Makro <tt>{!DC-VIEWER}</tt> gestartet werden.</p>
+        <p>Für Ordner arbeitet dieser Modus ähnlich wie das gewöhnliche Fenster des Dateibetrachters, aber auf dem Eintrag „..“ zeigt Double Commander Informationen über das übergeordnete Verzeichnis an.</p>
+        <p>Die Schnellansicht kann durch erneutes Drücken von <kbd>Ctrl+Q</kbd> ausgeschaltet werden. Sie wird außerdem ausgeschaltet, wenn ein beliebiges Panel (aktiv oder inaktiv) zu einer anderen Registerkarte wechselt.</p>
+        <p>Nicht alle Befehle des Dateibetrachters können in diesem Modus arbeiten, zum Beispiel die Befehle zum Laden der vorherigen oder nächsten Datei im Verzeichnis (standardmäßig <kbd>P</kbd> und <kbd>N</kbd>).</p>
+        <p>Ein Rechtsklick auf die Statusleiste öffnet ein Menü, das mehrere Untermenüs enthält (abhängig vom aktuellen Modus):</p>
+        <ul>
+          <li><p>Modus „Plugins“: „Ansicht“, „Plugins“, „Kodierung“ und „Bild“;</p></li>
+          <li><p>Modus „Grafik“: „Ansicht“, „Plugins“ und „Bild“;</p></li>
+          <li><p>andere Modi: „Ansicht“, „Plugins“ und „Kodierung“.</p></li>
+        </ul>
+        <p>(Siehe Beschreibung oben.)</p>
+        <p>Einige Elemente der Oberfläche können ausgeblendet sein (zum Beispiel blendet Double Commander beim Anzeigen von Bildern im Modus „Grafik“ die Werkzeugleiste aus). Für Plugins gibt es keine allgemeine Regel oder Empfehlung, die Entscheidung trifft der Autor des Plugins.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="asettings">8. Zusätzliche Einstellungen</a></h2>
+        <p>Siehe die Beschreibung der Einstellungsabschnitte von Double Commander: <a href="configuration.html#ConfigToolsViewer">Werkzeuge&nbsp;&gt; Dateibetrachter</a> und <a href="configuration.html#ConfigColor">Farben</a> (Kategorie <span class="italic">Dateibetrachter</span>). Es gibt <a href="configxml.html">mehrere Parameter</a>, die nur manuell in der Konfigurationsdatei <tt>doublecmd.xml</tt> geändert werden können.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="syncdirs.html">Zurück</a> | <a title="Nächste Seite" href="directoryhotlist.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

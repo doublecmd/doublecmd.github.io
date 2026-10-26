@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Variablen in Parametern</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="toolbar.html">Zurück</a> | <a title="Nächste Seite" href="cmds.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.12. Variablen in Parametern</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#quickpres">Kurze Vorstellung</a></dt>
+          <dt>2. <a href="#basicvar">Grundlegende Parametervariablen</a></dt>
+          <dt>3. <a href="#basicsuffix">Grundlegendes Suffix</a></dt>
+          <dt>4. <a href="#numsuffix">Nummeriertes Suffix</a></dt>
+          <dt>5. <a href="#prefixpostfix">Präfix und Postfix für jede Datei festlegen</a></dt>
+          <dt>6. <a href="#pathpanel">Pfad der Panels</a></dt>
+          <dt>7. <a href="#quotation">Anführungszeichen im Ergebnis oder nicht</a></dt>
+          <dt>8. <a href="#trailingdelim">Abschließendes Pfadtrennzeichen oder nicht</a></dt>
+          <dt>9. <a href="#listoffiles">Dateiliste</a></dt>
+          <dt>10. <a href="#suffixforlist">Suffix für die Dateiliste</a></dt>
+          <dt>11. <a href="#combsuffixlist">Kombinationen von Suffixen für die Dateiliste</a></dt>
+          <dt>12. <a href="#executeterm">Im Terminal ausführen</a></dt>
+          <dt>13. <a href="#interaction">Interaktion</a></dt>
+          <dt>14. <a href="#miscellaneous">Sonstige Variablen</a></dt>
+          <dt>15. <a href="#summaryall">Übersichtstabelle aller Variablen</a></dt>
+          <dt>16. <a href="#envvariables">Umgebungsvariablen</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="quickpres">1. Kurze Vorstellung</a></h2>
+        <p>Variablen helfen uns beim Konfigurieren der <a href="toolbar.html">Schaltflächen der Werkzeugleiste</a> sowie beim Festlegen von Aktionen für <a href="configuration.html#ConfigAssociations">Dateizuordnungen</a> und <a href="configuration.html#ConfigHotKeys">Tastenkürzel</a>.</p>
+        <p>Wir verwenden sie im Wesentlichen dann, wenn einem Befehl ein Parameter übergeben werden soll, der von den aktuell ausgewählten Dateien, dem Verzeichnis, in dem wir uns befinden, und anderem abhängt, das mit dem Kontext dessen zusammenhängt, was wir in den Panels anzeigen.</p>
+        <p>Hier ein einfaches Beispiel. Jemand hat eine Schaltfläche konfiguriert, die IrfanView startet und als Parameter die Variable <code>%p</code> verwendet.</p>
+        <p class="image"><img title="Beispiel für eine Variable" alt="Beispiel für eine Variable" src="../en/images/imgDC/variablesample.png" width="610" height="229"></p>
+        <p>Wenn die Person auf diese Schaltfläche klickt, wird IrfanView gestartet und die Variable <code>%p</code> durch die aktuell ausgewählte Datei im aktiven Panel ersetzt.</p>
+        <p>Darum geht es bei den <b>Variablen</b>, die auf dieser Seite beschrieben werden.</p>
+        <p>Wie Sie sehen werden, beginnen die meisten mit dem Prozentzeichen <code>%</code>.</p>
+        <p>Hinweis: Bei Variablen und Suffixen wird zwischen Groß- und Kleinschreibung unterschieden!</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="basicvar">2. Grundlegende Parametervariablen</a></h2>
+        <p>Das sind die grundlegenden Variablen, die sich verwenden lassen und die mit der aktuellen Auswahl zusammenhängen.</p>
+        <p>Standardmäßig werden Variablenwerte, die Leerzeichen und/oder Sonderzeichen enthalten, automatisch maskiert: Der Wert wird in doppelte Anführungszeichen gesetzt (unter Windows), oder solchen Zeichen wird „\“ vorangestellt (unter Unix-ähnlichen Systemen). Wenn Sie sie ohne Anführungszeichen benötigen, siehe den Abschnitt <a href="#quotation">Anführungszeichen im Ergebnis oder nicht</a>.</p>
+        <p><i>Für jedes Beispiel wird angenommen, dass wir auf die Datei C:\Users\UserName\Desktop\comment.png zeigen.</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Grundlegende Variablen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Variablen</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%p</div></td>
+            <td class="hintcell">Vollständiger Dateiname, Pfad + Dateiname<br><code>Example: %p = "C:\Users\UserName\Desktop\comment.png"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%f</div></td>
+            <td class="hintcell">Nur der Dateiname, einschließlich Erweiterung<br><code>Example: %f = "comment.png"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%d</div></td>
+            <td class="hintcell">Nur der Pfad, ohne abschließendes Verzeichnistrennzeichen<br><code>Example: %d = "C:\Users\UserName\Desktop"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%z</div></td>
+            <td class="hintcell">Name des letzten Verzeichnisses im Pfad<br><code>Example: %z = "Desktop"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%o</div></td>
+            <td class="hintcell">Nur der Dateiname ohne Erweiterung<br><code>Example: %o = "comment"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%e</div></td>
+            <td class="hintcell">Nur die Erweiterung, ohne den Punkt<br><code>Example: %e = "png"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%v</div></td>
+            <td class="hintcell">Relativer Dateiname, bezogen auf das aktuell aktive Verzeichnis<br>Das ist zum Beispiel relevant, wenn Sie den internen Befehl <a href="cmds.html#cm_flatview">cm_FlatView</a> aufgerufen haben.<br>Wenn wir eine flache Ansicht aus dem Verzeichnis <code>"C:\Users\UserName"</code> erzeugt haben, ergibt <code>%v</code> den Wert <code>"Desktop\comment.png"</code></td>
+          </tr>
+        </table>
+        <p>Die Variable <code>%a</code> steht für das virtuelle Dateisystem zur Verfügung (ein geöffnetes Archiv oder ein Dateisystem-Plugin): Die Zeichenkette enthält den Pfad zum virtuellen Dateisystem (den vollständigen Namen des Archivs oder den Namen des WFX-Plugins mit „wfx://“) und den vollständigen Dateinamen relativ zur Wurzel des virtuellen Dateisystems.</p>
+        <p>Wenn mehrere Dateien ausgewählt sind, liefern diese Variablen die Werte aller ausgewählten Dateien in einer Zeile. Um in jedem Fall nur den Wert der Datei unter dem Cursor zu erhalten, können wir das <a href="#numsuffix">nummerierte Suffix 0</a> verwenden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="basicsuffix">3. Grundlegendes Suffix</a></h2>
+        <p>Nach dem oben genannten Variablenbuchstaben können wir einen weiteren Buchstaben anhängen, um genauer festzulegen, was wir verwenden möchten.</p>
+        <p><i>Für jedes Beispiel wird angenommen:<br>Im linken Panel zeigen wir auf die Datei „C:\LeftFolder\File.lft“<br>Im rechten Panel zeigen wir auf „C:\RightFolder\File.rgh“<br>Das aktuell aktive Panel ist das rechte.</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Grundlegendes Suffix</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Suffix</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">s</div></td>
+            <td class="hintcell">Das Quell- oder aktive Panel (unabhängig davon, ob es links oder rechts ist)<br><code>Example: %ps = "C:\RightFolder\File.rgh"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">t</div></td>
+            <td class="hintcell">Das Ziel- oder inaktive Panel (unabhängig davon, ob es links oder rechts ist)<br><code>Example: %pt = "C:\LeftFolder\File.lft"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">l</div></td>
+            <td class="hintcell">Linkes Panel<br><code>Example: %pl = "C:\LeftFolder\File.lft"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">r</div></td>
+            <td class="hintcell">Rechtes Panel<br><code>Example: %pr = "C:\RightFolder\File.rgh"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell">
+              <div class="firstcolumnaleft">p</div></td>
+            <td class="hintcell">Beide Panels, zuerst das aktive, dann ein Leerzeichen, dann das inaktive<br><code>Example: %pp = "C:\RightFolder\File.rgh" "C:\LeftFolder\File.lft"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">b</div></td>
+            <td class="hintcell">Beide Panels, zuerst das linke, dann ein Leerzeichen, dann das rechte<br><code>Example: %pb = "C:\LeftFolder\File.lft" "C:\RightFolder\File.rgh"</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="numsuffix">4. Nummeriertes Suffix</a></h2>
+        <p>Wenn wir derzeit viele Dateien ausgewählt haben, können wir an das zuvor genannte Suffix eine Nummer anhängen, um genau anzugeben, welche wir verwenden möchten.</p>
+        <p><i>Für jedes Element der Tabelle nehmen wir an, dass das Quellpanel auf „C:\temp\“ zeigt und wir sechsundzwanzig Dateien ausgewählt haben, die „FileA.txt“, „FileB.txt“ usw. bis „FileZ.txt“ heißen.</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Nummeriertes Suffix</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Suffix</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0</div></td>
+            <td class="hintcell">Die Datei unter dem Cursor<br><code>Example: %ps0 = "C:\temp\FileY.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">1</div></td>
+            <td class="hintcell">Die erste ausgewählte Datei<br><code>Example: %ps1 = "C:\temp\FileA.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">2</div></td>
+            <td class="hintcell">Die zweite ausgewählte Datei<br><code>Example: %ps2 = "C:\temp\FileB.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">3</div></td>
+            <td class="hintcell">Die dritte ausgewählte Datei<br><code>Example: %ps3 = "C:\temp\FileC.txt"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">21</div></td>
+            <td class="hintcell">Die einundzwanzigste ausgewählte Datei<br><code>Example: %ps21 = "C:\temp\FileU.txt"</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="prefixpostfix">5. Präfix und Postfix für jede Datei festlegen</a></h2>
+        <p>Manchmal müssen wir, wenn wir einer ausführbaren Datei Parameter übergeben, etwas vor die Dateinamen setzen.</p>
+        <p>Ein anderes Mal möchten wir etwas unmittelbar vor und unmittelbar nach den Dateinamen einfügen.</p>
+        <p>Bitte beachten Sie, dass das Folgende für jeden einzelnen ausgewählten Eintrag gilt.</p>
+        <p><i>Für jedes Element der Tabelle nehmen wir an, dass wir uns aktuell in „C:\Windows\Fonts“ befinden und drei Dateien namens „courrier.ttf“, „fixedsys.ttf“ und „terminal.ttf“ ausgewählt haben.</i></p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Präfix und Postfix</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Präfix und Postfix</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{}</div></td>
+            <td class="hintcell">Ein Paar geschweifter Klammern fügt den Text zwischen den Klammern vor jedem einzelnen ausgewählten Eintrag ein<br><code>Example: %fs{+} = "+courrier.ttf" "+fixedsys.ttf" "+terminal.ttf"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{}{}</div></td>
+            <td class="hintcell">Zwei Paare geschweifter Klammern setzen den Text zwischen den Klammern jeweils vor und nach jedem einzelnen ausgewählten Eintrag.<br><code>Example: %fs{[}{]} = "[courrier.ttf]" "[fixedsys.ttf]" "[terminal.ttf]"</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="pathpanel">6. Pfad der Panels</a></h2>
+        <p>Bisher haben wir Variablen angegeben, die sich auf die aktuell ausgewählten Einträge im Panel beziehen.</p>
+        <p>Wir können aber auch die Variable <code>%D</code> verwenden, um anzugeben, dass wir uns auf den Verzeichnisnamen eines Panels beziehen möchten.</p>
+        <p>An diese Variable können wir denselben <a href="#basicsuffix">Suffixbuchstaben</a> wie oben anhängen, um genau anzugeben, auf welches Panel wir uns beziehen möchten.</p>
+        <p><i>Für jedes Beispiel wird angenommen:<br>Im linken Panel befinden wir uns in „C:\Reference“<br>Im rechten Panel zeigen wir auf „E:\Work“<br>Das aktuell aktive Panel ist das rechte.</i></p>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Pfad der Panels</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Variable</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%D</div></td>
+            <td class="hintcell">Allein, ohne Suffix, liefert den Pfad des aktuell aktiven Panels<br><code>Example: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Ds</div></td>
+            <td class="hintcell">Verzeichnis des aktuell aktiven oder des Quellpanels (unabhängig davon, ob es links oder rechts ist)<br><code>Example: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Dt</div></td>
+            <td class="hintcell">Verzeichnis des inaktiven oder des Zielpanels (unabhängig davon, ob es links oder rechts ist)<br><code>Example: "C:\Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Dl</div></td>
+            <td class="hintcell">Verzeichnis des linken Panels<br><code>Example: "C:\Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Dr</div></td>
+            <td class="hintcell">Verzeichnis des rechten Panels<br><code>Example: "E:\Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Z</div></td>
+            <td class="hintcell">Allein, ohne Suffix, liefert den letzten Verzeichnisnamen im Pfad des aktuell aktiven Panels<br><code>Example: "Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zs</div></td>
+            <td class="hintcell">Letzter Verzeichnisname im Pfad des aktuell aktiven Panels (unabhängig davon, ob es links oder rechts ist)<br><code>Example: "Work"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zt</div></td>
+            <td class="hintcell">Letzter Verzeichnisname im Pfad des inaktiven Panels (unabhängig davon, ob es links oder rechts ist)<br><code>Example: "Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zl</div></td>
+            <td class="hintcell">Letzter Verzeichnisname im Pfad des linken Panels<br><code>Example: "Reference"</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%Zr</div></td>
+            <td class="hintcell">Letzter Verzeichnisname im Pfad des rechten Panels<br><code>Example: "Work"</code></td>
+          </tr>
+        </table>
+        <p>Die Variable <code>%A</code> steht für das virtuelle Dateisystem zur Verfügung (ein geöffnetes Archiv oder ein Dateisystem-Plugin): der vollständige Name des Archivs oder der Name des WFX-Plugins mit „wfx://“.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="quotation">7. Anführungszeichen im Ergebnis oder nicht</a></h2>
+        <p>Wie Sie zuvor gesehen haben, gibt DC das Ergebnis aus historischen Gründen und aus Gründen der Abwärtskompatibilität in Anführungszeichen zurück.</p>
+        <p>Das war anfangs nützlich, wenn Dateinamen Leerzeichen enthielten und wir den Dateinamen als Parameter übergeben wollten und das Ganze funktionieren sollte.</p>
+        <p>Als jedoch neue Variablen hinzukamen, wurde deutlich, dass wir eine Möglichkeit für ein Ergebnis ohne Anführungszeichen brauchten. Ein typisches Beispiel ist der Fall, dass wir einen Quelldateinamen aneinanderhängen möchten, aber nur den Dateinamen ohne Erweiterung, mit einer neuen bestimmten Erweiterung, die wir selbst in der Zeile angeben.</p>
+        <p>Statt neue Variablen einzuführen, die dasselbe ohne Anführungszeichen liefern, können wir weiterhin dieselben Variablen in derselben Bedeutung verwenden und müssen nur zuvor in der Parameterzeile etwas wie <code>%"0</code> setzen. Das weist DC an, von dieser Stelle an bis zum Ende der Zeile, die wir auswerten, das Ergebnis nicht in Anführungszeichen zu setzen.</p>
+        <p>Grundsätzlich gilt:</p>
+        <dl>
+          <dt><code>%"0</code> : ab dieser Stelle wird der resultierende Dateiname nicht in Anführungszeichen gesetzt</dt>
+          <dt><code>%"1</code> : ab dieser Stelle wird der resultierende Dateiname in Anführungszeichen gesetzt</dt>
+          <dt><code>%" </code>&nbsp;: wird ebenfalls akzeptiert, um den Standard wiederherzustellen, nämlich ein Ergebnis in Anführungszeichen</dt>
+        </dl>
+
+        <p>Die folgende Tabelle gibt uns ein Beispiel für den Fall, dass wir eine Datei namens „Client List.mdb“ ausgewählt haben, und zeigt das Ergebnis der verschiedenen Kombinationen mit und ohne Anführungszeichen.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiele mit und ohne Anführungszeichen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%o.zip</div></td>
+            <td class="hintcell">"Client List".zip</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%"0%o.zip</div></td>
+            <td class="hintcell">Client List.zip</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%"0"%o.zip"</div></td>
+            <td class="hintcell">"Client List.zip"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%"0"%o.zip" %"1%f</div></td>
+            <td class="hintcell">"Client List.zip" "Client List.mdb"</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="trailingdelim">8. Abschließendes Pfadtrennzeichen oder nicht</a></h2>
+        <p>Wie Sie zuvor gesehen haben, liefert DC einen Pfad aus historischen Gründen und aus Gründen der Abwärtskompatibilität ohne abschließendes Pfadtrennzeichen.</p>
+        <p>Das lässt sich mit einer Variable ändern, die festlegt, ob die folgende Pfadvariable in der Zeile mit oder ohne abschließendes Pfadtrennzeichen geliefert wird.</p>
+        <p>Grundsätzlich gilt:</p>
+        <dl>
+          <dt><code>%/0</code> : der zurückgegebene Pfad ist ohne abschließendes Trennzeichen</dt>
+          <dt><code>%/1</code> : der zurückgegebene Pfad ist mit abschließendem Trennzeichen</dt>
+          <dt><code>%/ </code>&nbsp;: wird ebenfalls akzeptiert; Standard, der zurückgegebene Pfad ist ohne abschließendes Trennzeichen</dt>
+        </dl>
+
+        <p>Die folgende Tabelle gibt uns ein Beispiel für den Fall, dass wir das Verzeichnis „C:\Users\UserName\Desktop“ ausgewählt haben, und zeigt das Ergebnis der verschiedenen Kombinationen der Variable für das abschließende Pfadtrennzeichen:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiele für die Variable des abschließenden Pfadtrennzeichens</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%/0%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%/1%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop\"</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%/%D</div></td>
+            <td class="hintcell">"C:\Users\UserName\Desktop"</td>
+          </tr>
+        </table>
+        <p>Diese Variable ist nützlich, wenn ein Name aus mehreren Variablen zusammengesetzt wird. Unter Windows funktioniert zum Beispiel <code>%Dt\%f0</code> (mit einem von Hand eingefügten Verzeichnistrennzeichen) statt <code>%/1%Dt%f0</code> innerhalb von Verzeichnissen korrekt. Ist im inaktiven Panel jedoch die Wurzel eines Laufwerks geöffnet, liefert Double Commander einen falschen Pfad mit zwei Verzeichnistrennzeichen nach dem Laufwerksbuchstaben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="listoffiles">9. Dateiliste</a></h2>
+        <p>Manche Anwendungen akzeptieren einen einzelnen Dateinamen als Parameter und gehen davon aus, dass diese Datei eine Textdatei mit einer Liste von Dateinamen ist.</p>
+        <p>Double Commander bietet uns Variablen, die eine temporäre Textdatei (im Systemverzeichnis für temporäre Dateien) mit der Liste aller angegebenen ausgewählten Einträge erzeugen. Der Dateiname der erzeugten temporären Datei wird anstelle der Variable eingesetzt.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Variable für die Dateiliste</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%L</div></td>
+            <td class="hintcell">Dateiname der Dateiliste der ausgewählten Einträge mit dem vollständigen Dateinamen (Pfad + Dateiname)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%F</div></td>
+            <td class="hintcell">Dateiname der Dateiliste der ausgewählten Einträge mit nur dem Dateinamen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%R</div></td>
+            <td class="hintcell">Dateiname der Dateiliste der ausgewählten Einträge mit nur ihrem relativen Pfadnamen</td>
+          </tr>
+        </table>
+        <p>Double Commander verwendet unter Windows die ANSI-Systemkodierung und unter Unix-ähnlichen Systemen die Standard-Systemkodierung (in GNU/Linux-Distributionen ist das üblicherweise UTF-8).</p>
+        <p>Beim Beenden löscht Double Commander alle solchen temporären Dateien.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="suffixforlist">10. Suffix für die Dateiliste</a></h2>
+        <p>Standardmäßig stehen die oben genannten Dateinamen in der Dateiliste ohne Anführungszeichen. Es gibt jedoch ein Suffix, das Sie bei Bedarf hinzufügen können, um das zu ändern.</p>
+        <p>Außerdem gibt es Suffixe, mit denen Sie festlegen, ob diese Dateiliste in UTF-8 oder UTF-16 kodiert werden soll.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Suffix zur Variable der Dateiliste</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">Q</div></td>
+            <td class="hintcell">Dateinamen in der Liste werden in Anführungszeichen gesetzt</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">U</div></td>
+            <td class="hintcell">Die Liste wird im UTF-8-Format kodiert</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">W</div></td>
+            <td class="hintcell">Die Liste wird im UTF-16-Format kodiert</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="combsuffixlist">11. Kombinationen von Suffixen für die Dateiliste</a></h2>
+        <p>Sie können außerdem ein weiteres Suffix anhängen, um mit dem zuvor genannten Suffixbuchstaben anzugeben, aus welchem Panel die Dateiliste stammen soll.</p>
+        <p>Hier einige Beispiele dafür, was möglich ist:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Kombination von Suffixen zur Variable der Dateiliste</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%LQt</div></td>
+            <td class="hintcell">Vollständige Dateinamen, in Anführungszeichen, mit ausgewählten Dateien aus dem Zielpanel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%FUs</div></td>
+            <td class="hintcell">Nur Dateinamen, im UTF-8-Format, mit ausgewählten Dateien aus dem Quellpanel</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%RQW</div></td>
+            <td class="hintcell">Dateinamen mit relativem Pfad, in Anführungszeichen, im UTF-16-Format, Dateien des Quellpanels (Standard)</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="executeterm">12. Im Terminal ausführen</a></h2>
+        <p>Sie können in einem Parameter angeben, ob die Befehlszeile, die Sie konfigurieren, in einem Terminal ausgeführt werden soll.</p>
+        <p>Dazu verwenden Sie die Variable <code>%t</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Im Terminal ausführen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%t0</div></td>
+            <td class="hintcell">Im Terminal ausführen und es am Ende schließen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%t1</div></td>
+            <td class="hintcell">Im Terminal ausführen und es am Ende geöffnet lassen</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="interaction">13. Interaktion</a></h2>
+        <p>Hier zwei Variablen, mit denen sich eine Meldung anzeigen und zur Laufzeit ein Parameter mit einem vorgeschlagenen Vorgabewert abfragen lässt:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Interaktion</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td>
+            <td class="hintcell">Zeigt ein Meldungsfenster mit dem Text zwischen den Klammern</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[message;default_val]</div></td>
+            <td class="hintcell">Fordert den Benutzer auf, einen Wert einzugeben, und gibt dafür einen Vorgabewert vor</td>
+          </tr>
+        </table>
+        <p>Beispiel für eine Interaktion:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für Interaktionen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[Stellen Sie sicher, dass ThisFile.ext geschlossen ist!]</div></td>
+            <td class="hintcell">Zeigt vor dem Ausführen der Aktion die Meldung „Stellen Sie sicher, dass ThisFile.ext geschlossen ist!“ an.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%[Geben Sie den Wert BREITE für die Bildumwandlung ein;1024]</div></td>
+            <td class="hintcell">Fordert den Benutzer auf, einen Wert einzugeben, und zeigt den Text „Geben Sie den Wert BREITE für die Bildumwandlung ein“. Vorgeschlagen ist standardmäßig 1024, der Benutzer kann aber etwas anderes eingeben. Das, was der Benutzer eingegeben hat, wird in der Befehlszeile an der Stelle eingesetzt, an der der Ausdruck stand.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="miscellaneous">14. Sonstige Variablen</a></h2>
+        <p>In diesem letzten Abschnitt zeigen wir die Variablen, die noch nicht vorgestellt wurden.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Sonstige Variablen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%%</div></td>
+            <td class="hintcell">Wird einfach durch ein einzelnes Zeichen % ersetzt</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%#</div></td>
+            <td class="hintcell">Ab dieser Stelle wird das Zeichen # wie % behandelt</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">#%</div></td>
+            <td class="hintcell">Hebt den zuvor genannten Zustand auf und sorgt dafür, dass % wieder als Variablenpräfix behandelt wird</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%?</div></td>
+            <td class="hintcell">Zeigt die Befehlszeile an, die ausgeführt werden soll.</td>
+          </tr>
+        </table>
+        <p>Der Nutzen von <code>%%</code> liegt darin, dass Sie in Ihren Parametern ein Zeichen % benötigen, es aber nicht durch etwas anderes ersetzt werden soll, weil danach zum Beispiel ein Buchstabe steht und sich daraus eine tatsächlich gültige Variable ergeben würde.</p>
+        <p>Die Variable <code>%?</code> ist besonders hilfreich, wenn Sie zum Beispiel eine neue Werkzeugschaltfläche konfigurieren und sicherstellen möchten, was als ersetzter Parameter verwendet wird.</p>
+        <p>Mit <code>%?</code> lässt DC Sie den tatsächlichen Befehl und den Parameter sehen, mit denen etwas gestartet wird.</p>
+        <p>Darüber hinaus können Sie sogar in letzter Minute etwas ändern, wenn etwas gestartet wird.</p>
+        <p>Das ist besonders hilfreich, wenn Sie unsicher sind, welche Parameter an die Anwendung übergeben werden sollen, auf die Sie eine Aktion ausrichten.</p>
+        <p>Manchmal kann die Kombination aus dem Prozentzeichen und einem Buchstaben der Variable mit einer Systemvariable kollidieren.</p>
+        <p>Wenn Sie zum Beispiel <code>%os%ot</code> eingeben und erwarten, dass nur die Dateierweiterungen des aktiven und des inaktiven Panels aneinandergehängt werden, werden Sie möglicherweise überrascht feststellen, dass das unter Windows nicht funktioniert.</p>
+        <p>Die Folge <code>%os%</code> wird oft durch den Namen des Betriebssystems ersetzt, weil <code>%os%</code> eine Systemvariable ist, die den Namen des Betriebssystems darstellt.</p>
+        <p>Hier hilft <code>%#</code>.</p>
+        <p>In einem solchen Beispiel geben Sie <code>%##os#ot</code> ein.</p>
+        <p><code>%#</code> weist DC an, dass von nun an <code>#</code> dem Prozentzeichen entspricht. So kommt es nicht zu Konflikten mit möglichen Systemvariablen.</p>
+        <p>Das wird selten benötigt, aber Sie werden froh sein zu wissen, dass es bei Bedarf vorhanden ist!</p>
+        <p>Danach stellt <code>#%</code> bei Bedarf wieder her, dass <code>%</code> das eigentliche Prozentzeichen für Variablen ist.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="summaryall">15. Übersichtstabelle aller Variablen</a></h2>
+        <p>In diesem Abschnitt steht nichts Neues, aber wir stellen in genau EINER Tabelle eine Übersicht aller unterstützten Variablen und ihrer Bedeutung zusammen.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Sonstige Variablen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%p</div></td><td class="hintcell">der vollständige Dateiname einschließlich Pfad</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%f</div></td><td class="hintcell">nur der Dateiname mit Erweiterung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%d</div></td><td class="hintcell">nur der Pfad</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%z</div></td><td class="hintcell">letztes Verzeichnis im Pfad</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%o</div></td><td class="hintcell">nur der Dateiname ohne Erweiterung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%e</div></td><td class="hintcell">nur die Dateierweiterung ohne den Punkt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%v</div></td><td class="hintcell">der relative Dateiname, bezogen auf das aktuell aktive Verzeichnis</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">Suffix für das Quell- oder aktive Panel (Beispiel: %ps)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">Suffix für das Ziel- oder inaktive Panel (Beispiel: %pt)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">Suffix für das linke Panel (Beispiel: %pl)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">Suffix für das rechte Panel (Beispiel: %pr)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">Suffix für beide Panels, zuerst das aktive, dann das inaktive (Beispiel: %pp)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">Suffix für beide Panels, zuerst das linke, dann das rechte (Beispiel: %pb)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">0</div></td><td class="hintcell">Datei unter dem Cursor (Beispiel: %ps0)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">1</div></td><td class="hintcell">erste ausgewählte Datei (Beispiel: %ps1)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">2</div></td><td class="hintcell">zweite ausgewählte Datei, falls vorhanden (Beispiel: %ps2)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">3</div></td><td class="hintcell">dritte ausgewählte Datei, falls vorhanden (Beispiel: %ps3)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">21</div></td><td class="hintcell">einundzwanzigste ausgewählte Datei, falls vorhanden (Beispiel: %ps21)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}</div></td><td class="hintcell">{} einmal angegeben, legt das Präfix fest, das vor dem Dateinamen eingefügt wird (z. B. %f{+})</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">{prefix}{suffix}</div></td><td class="hintcell">{} zweimal angegeben, legt Präfix und Suffix fest, vor und nach dem Dateinamen (z. B. %f{[}{]})</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%D</div></td><td class="hintcell">Standard, der Pfad des aktiven (Quell-)Panels</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Ds</div></td><td class="hintcell">ausdrücklich der Pfad des aktiven (Quell-)Panels</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Dt</div></td><td class="hintcell">der Pfad des inaktiven (Ziel-)Panels</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Dl</div></td><td class="hintcell">der Pfad des linken Panels, unabhängig davon, welches aktiv ist</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Dr</div></td><td class="hintcell">der Pfad des rechten Panels, unabhängig davon, welches aktiv ist</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Z</div></td><td class="hintcell">Standard, der letzte Verzeichnisname im Pfad des aktiven (Quell-)Panels</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zs</div></td><td class="hintcell">ausdrücklich der letzte Verzeichnisname im Pfad des aktiven (Quell-)Panels</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zt</div></td><td class="hintcell">der letzte Verzeichnisname im Pfad des inaktiven (Ziel-)Panels</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zl</div></td><td class="hintcell">der letzte Verzeichnisname im Pfad des linken Panels, unabhängig davon, welches aktiv ist</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%Zr</div></td><td class="hintcell">der letzte Verzeichnisname im Pfad des rechten Panels, unabhängig davon, welches aktiv ist</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%"0</div></td><td class="hintcell">ab dieser Stelle wird der resultierende Dateiname nicht in Anführungszeichen gesetzt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%"1</div></td><td class="hintcell">ab dieser Stelle wird der resultierende Dateiname in Anführungszeichen gesetzt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%"</div></td><td class="hintcell">wird ebenfalls akzeptiert, damit der resultierende Dateiname wieder in Anführungszeichen steht</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%/0</div></td><td class="hintcell">Standard, der zurückgegebene Pfad ist ohne abschließendes Trennzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%/1</div></td><td class="hintcell">der zurückgegebene Pfad ist mit abschließendem Trennzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%/</div></td><td class="hintcell">wird ebenfalls akzeptiert; Standard, der zurückgegebene Pfad ist ohne abschließendes Trennzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%L</div></td><td class="hintcell">Dateiname der Dateiliste der ausgewählten Einträge mit nur dem vollständigen Dateinamen (Pfad + Dateiname)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%F</div></td><td class="hintcell">Dateiname der Dateiliste der ausgewählten Einträge mit nur dem Dateinamen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%R</div></td><td class="hintcell">Dateiname der Dateiliste der ausgewählten Einträge mit nur ihrem relativen Pfadnamen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Q</div></td><td class="hintcell">Suffix für %L, %F oder %R, um Dateinamen in Anführungszeichen anzufordern</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">U</div></td><td class="hintcell">Suffix für %L, %F oder %R, um das UTF-8-Dateiformat für die Liste anzufordern</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">W</div></td><td class="hintcell">Suffix für %L, %F oder %R, um das UTF-16-Dateiformat für die Liste anzufordern</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%t0</div></td><td class="hintcell">im Terminal ausführen und es am Ende schließen lassen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%t1</div></td><td class="hintcell">im Terminal ausführen und es am Ende geöffnet lassen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%[message to show]</div></td><td class="hintcell">zeigt ein Meldungsfenster mit dem Text zwischen den Klammern</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%[message;default_val]</div></td><td class="hintcell">fordert den Benutzer auf, einen Wert einzugeben, und schlägt dafür einen Wert vor</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%%</div></td><td class="hintcell">wird einfach durch ein einzelnes Zeichen % ersetzt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%#</div></td><td class="hintcell">ab dieser Stelle wird das Zeichen # wie % behandelt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">#%</div></td><td class="hintcell">hebt den zuvor genannten Zustand auf und behandelt % wieder als Variablenpräfix</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">%?</div></td><td class="hintcell">zeigt die Befehlszeile an, die ausgeführt werden soll</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="envvariables">16. Umgebungsvariablen</a></h2>
+        <p>Wir können Umgebungsvariablen in den Einstellungen von Double Commander verwenden: in den Namen ausführbarer Dateien und Symbole auf der Werkzeugleiste, in den Namen von Plugins, Favoritenverzeichnissen und so weiter. Das ist eine bequeme Möglichkeit, einen Pfad anzugeben, wenn wir keine absoluten Pfade verwenden möchten.</p>
+        <p>Double Commander unterstützt Systemumgebungsvariablen und stellt mehrere eigene Umgebungsvariablen bereit:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Umgebungsvariablen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Variable</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_EXE%</div></td>
+            <td class="hintcell">Der vollständige Name (Pfad + Dateiname) der Programmdatei von Double Commander (ein symbolischer Link wird durch die echte Datei ersetzt)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_PATH%</div></td>
+            <td class="hintcell">Das Verzeichnis, in dem die Programmdatei von Double Commander liegt</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_DRIVE%</div></td>
+            <td class="hintcell">Das Laufwerk, auf dem sich der Ordner von Double Commander befindet:<br>- Windows: Laufwerksbuchstabe (mit Doppelpunkt);<br>- Unix-ähnliche Systeme: Einhängepunkt.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI%</div></td>
+            <td class="hintcell">Der vollständige Name (Pfad + Dateiname) der Hauptkonfigurationsdatei (<tt>doublecmd.xml</tt>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%COMMANDER_INI_PATH%</div></td>
+            <td class="hintcell">Das Verzeichnis, in dem die Konfigurationsdateien von Double Commander liegen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">%DC_CONFIG_PATH%</div></td>
+            <td class="hintcell">Das Verzeichnis, in dem die Konfigurationsdateien von Double Commander liegen</td>
+          </tr>
+        </table>
+        <p>Die Variablennamen <code>%COMMANDER_PATH%</code> und <code>%DC_CONFIG_PATH%</code> unterscheiden nicht zwischen Groß- und Kleinschreibung, und wir können das Prozentzeichen <code>%</code> unabhängig von der Betriebssystemfamilie verwenden (aus Gründen der Abwärtskompatibilität ist das für eine plattformübergreifende Anwendung praktisch). Unter Unix-ähnlichen Systemen unterscheiden die Namen von Umgebungsvariablen jedoch zwischen Groß- und Kleinschreibung und werden üblicherweise in Großbuchstaben geschrieben. Die herkömmliche Schreibweise zu verwenden, kann deshalb eine gute Gewohnheit sein.</p>
+        <p>Unter Windows können wir zusätzlich Pseudo-Umgebungsvariablen im Format <code>%$Name%</code> verwenden, die den Standard-Systemordnern von Windows entsprechen (um die Werte zu ermitteln, verwendet Double Commander die Funktionen <tt>SHGetSpecialFolderPath</tt> und <tt>SHGetKnownFolderPath</tt> aus der Windows-API). Das sind keine normalen Umgebungsvariablen, und sie stehen Kindprozessen nicht zur Verfügung (Anwendungen, die aus Double Commander gestartet werden). Ansonsten können wir sie ähnlich wie Umgebungsvariablen verwenden. Alle diese Variablen sind im Assistentenmenü zur Pfadauswahl zusammengefasst: Rechts neben den Schaltflächen zur Datei- oder Verzeichnisauswahl befindet sich die Schaltfläche <span class="italic">Einige Funktionen zur Auswahl eines passenden Pfads</span> <img title="Einige Funktionen zur Auswahl eines passenden Pfads" alt="Einige Funktionen zur Auswahl eines passenden Pfads" src="../en/images/imgDC/bhelper.png" width="16" height="16">, die Beschreibung steht <a href="directoryhotlist.html#helperpath">hier</a>.</p>
+        <p>Alle diese Variablen wurden dem Menü <a href="directoryhotlist.html">Verzeichnis-Favoriten</a> hinzugefügt (Untermenü <span class="italic">Spezielle Verzeichnisse</span>).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <br>
+        <p><small>Ursprünglich erstellt von Rustem (dok_rust@bk.ru)</small></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="toolbar.html">Zurück</a> | <a title="Nächste Seite" href="cmds.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

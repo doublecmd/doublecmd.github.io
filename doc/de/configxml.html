@@ -1,0 +1,809 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Einstellungen in doublecmd.xml</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="commandline.html">Zurück</a> | <a title="Nächste Seite" href="plugins.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.17. Einstellungen in doublecmd.xml</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#presenta">Vorstellung</a></dt>
+          <dt>2. <a href="#location">Speicherort</a></dt>
+          <dt>3. <a href="#manualed">Manuell zu ändernde Optionen</a></dt>
+          <dt>4. <a href="#index">Index</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="presenta">1. Vorstellung</a></h2>
+        <p>Die wichtigsten Einstellungen von Double Commander werden in einer <a href="https://en.wikipedia.org/wiki/XML" target="_blank">XML</a>-Datei namens <tt>doublecmd.xml</tt> gespeichert und daraus wiederhergestellt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="location">2. Speicherort</a></h2>
+        <p>Der Speicherort dieser Datei <tt>doublecmd.xml</tt> kann unterschiedlich sein:</p>
+        <ul>
+          <li>Sie kann so eingestellt sein, dass sie im Benutzerverzeichnis liegt.</li>
+          <li>Sie kann so eingestellt sein, dass sie im Ordner „settings“ im Programmverzeichnis selbst liegt, was bei einer portablen Verwendung üblich ist.</li>
+          <li>Wir können ihren Speicherort über einen Befehlszeilenparameter festlegen, wenn wir die Anwendung starten.</li>
+        </ul>
+        <p>Wir folgen <a href="commandline.html">diesem Link</a>, wenn wir den Speicherort mit dem Befehlszeilenparameter <code>--config-dir</code> angeben möchten.</p>
+        <p>Andernfalls gehen wir zu Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; wählen im Baum <img src="../en/images/imgDC/optionconfiguration.png" alt="Double Commander" width="100" height="20" border="1px">&nbsp;&gt; und setzen die Option <i>Speicherort der Konfigurationsdateien</i>.</p>
+        <p class="figure"><img class="largeimage" title="Speicherort der Konfigurationsdatei" alt="Speicherort der Konfigurationsdatei" src="../en/images/imgDC/configlocation.png" width="556" height="138"></p>
+        <p>Eine weitere Möglichkeit, schnell herauszufinden, wo die <tt>doublecmd.xml</tt> liegt, die die aktuelle Instanz von Double Commander verwendet, sind die <a href="directoryhotlist.html">Verzeichnis-Favoriten</a>. Am Ende gibt es einen Unterabschnitt namens „Spezielle Verzeichnisse“. Dann wählen wir „Zum besonderen Pfad von Double Commander wechseln“ und danach „%DC_CONFIG_PATH%“. Dort finden wir die <tt>doublecmd.xml</tt>, die die Anwendung gerade verwendet.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="manualed">3. Manuell zu ändernde Optionen</a></h2>
+        <p>Die große Mehrheit der möglichen Einstellungen in Double Commander lässt sich in der Anwendung selbst über die verschiedenen Optionskategorien festlegen.</p>
+        <p>Wir klicken einfach in der Hauptmenüleiste auf Konfiguration&nbsp;&gt; Optionen, und die verschiedenen Einstellungen, die wir dort vornehmen, werden beim Schließen der Anwendung in der Datei <tt>doublecmd.xml</tt> gespeichert. Beim nächsten Start der Anwendung werden sie wiederhergestellt.</p>
+        <p><span class="uline">Im Allgemeinen müssen wir den Inhalt der Konfigurationsdatei also nicht von Hand bearbeiten</span>.</p>
+        <p>Es gibt aber einige sehr seltene, besondere Einstellungen, die von Hand in der Konfigurationsdatei geändert werden müssen, wenn wir die Anwendung feiner abstimmen möchten.</p>
+        <br>
+        <p><b>WARNUNG:</b> Wir bearbeiten diese Datei nicht, WÄHREND Double Commander läuft! Nicht nur, weil die Werte ohnehin nur beim Start gelesen werden, sondern auch, weil die von uns geschriebenen Werte beim Schließen der Anwendung überschrieben werden, wenn wir die Datei bearbeiten, während DC läuft: Die Anwendung speichert ihren aktuellen Zustand für die nächste Sitzung erneut. Wenn wir die Datei <tt>doublecmd.xml</tt> bearbeiten müssen, schließen wir Double Commander, bearbeiten dann die Datei und starten die Anwendung danach neu.<br>
+          Es gibt eine alternative Lösung, weitere Einzelheiten <a href="configuration.html#ConfigDC">hier</a> (um Änderungen an einigen Optionen anzuwenden, müssen Sie die Anwendung möglicherweise trotzdem neu starten).</p>
+        <br>
+        <p>Die folgende Tabelle nennt diese seltenen, besonderen Einstellungen, für die wir die Datei von Hand bearbeiten müssen, wenn wir sie ändern wollen.</p>
+        <br>
+
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Einstellung, die bei Bedarf manuell geändert werden muss</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Tag</th><th class="categorydesccolumn">Beschreibung</th></tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;AutoRefresh&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Mode">&lt;Mode&gt;</a></div></td>
+            <td class="hintcell">
+              Die Möglichkeit, überwachte Verzeichnisse zu löschen.<br>Ein „überwachtes Verzeichnis“ ist ein Verzeichnis, an dem Double Commander eine Art Überwachung eingerichtet hat, um jede Änderung darin zu bemerken.<br>So kann die Anzeige aktualisiert werden, wenn sich der Inhalt geändert hat.<br>
+              Diese Einstellung legt fest, wie Double Commander reagiert, wenn wir versuchen, eines dieser „überwachten Verzeichnisse“ zu löschen, das gerade in einem Panel angezeigt wird, auch in einer nicht aktiven Registerkarte.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell">Verhindert das Löschen überwachter Verzeichnisse.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Verhindert das Löschen überwachter Verzeichnisse nicht (Standard).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">Überwacht ganze Laufwerke statt einzelner Verzeichnisse, um Probleme beim Löschen überwachter Verzeichnisse zu vermeiden.</td>
+                </tr>
+              </table>
+              <i>Beispiel:</i> <code>&lt;Mode&gt;1&lt;/Mode&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Behaviours&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ActiveRight">&lt;ActiveRight&gt;</a></div></td>
+            <td class="hintcell">
+              Das rechte Panel ist aktiv, wenn Double Commander startet.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Rechtes Panel</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Linkes Panel (Standard)</td>
+                </tr>
+              </table>
+              <i>Beispiel:</i> <code>&lt;ActiveRight&gt;True&lt;/ActiveRight&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ConfirmQuit">&lt;ConfirmQuit&gt;</a></div></td>
+            <td class="hintcell">Schließen von Double Commander bestätigen (<code>True</code>) oder nicht (<code>False</code>). Standardmäßig <code>False</code>.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Colors&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="gBorderFrameWidth">&lt;gBorderFrameWidth&gt;</a></div></td>
+            <td class="hintcell">
+              Wir können DC so einstellen, dass beim Durchblättern der Einträge in einem Panel ein Rechteck um den aktiven Eintrag gezeichnet wird.<br>
+              <code>&lt;gBorderFrameWidth&gt;</code> legt die Breite der Linien fest, mit denen das Rechteck um den aktuell aktiven Eintrag gezeichnet wird.<br>
+              Damit das Rechteck sichtbar ist, gehen wir zu Konfiguration&nbsp;&gt; Optionen...&nbsp;&gt; Farben&nbsp;&gt; Dateipanels und aktivieren die Option <i>Rahmenzeiger verwenden</i>.<br>
+              <i>Beispiel:</i> <code>&lt;gBorderFrameWidth&gt;1&lt;/gBorderFrameWidth&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Editor&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="FindWordAtCursor">&lt;FindWordAtCursor&gt;</a></div></td>
+            <td class="hintcell">Interner Editor und Vergleichswerkzeug: Ist nichts ausgewählt, verwendet der Dialog zum Suchen und Ersetzen das Wort unter dem Cursor (<code>True</code>) oder Text aus dem Suchverlauf (<code>False</code>). Standardmäßig <code>True</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditSpecialChars">&lt;SynEditSpecialChars&gt;</a></div></td>
+            <td class="hintcell">
+              Ermöglicht, die Darstellung von Leerraumzeichen zu ändern, wenn <a href="configuration.html#ConfigToolsEditor">Sonderzeichen anzeigen</a> aktiviert ist. Die Option wird auf eine einzelne Zahl gesetzt, die der Summe der Zahlen aus der folgenden Tabelle entspricht, je nach unseren Vorlieben:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell">Leerzeichen werden als Mittelpunkte dargestellt („&#xB7;“, U+00B7).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell">Tabulatorzeichen werden als langer Leerraum dargestellt (siehe <a href="configuration.html#ConfigToolsEditor">Tabulatorbreite</a>) mit einem doppelten spitzen Anführungszeichen nach rechts („&raquo;“, U+00BB) am Anfang.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">4</td>
+                  <td class="innerdescdesccell">Tabulatorzeichen werden als langer Leerraum dargestellt (siehe <a href="configuration.html#ConfigToolsEditor">Tabulatorbreite</a>) mit einem doppelten spitzen Anführungszeichen nach rechts („&raquo;“, U+00BB) am Ende.</td>
+                </tr>
+              </table>
+              Der Standardwert ist 5.
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;FileOperations&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoCopyBackward">&lt;AutoCopyBackward&gt;</a></div></td>
+            <td class="hintcell">Legt das Verhalten für Dateien fest, die im Editor (eingebaut oder extern) aus einem Archiv oder einem WFX-Plugin geöffnet werden.<br>
+              Dateien aus dem virtuellen Dateisystem werden vor dem Öffnen automatisch in das Systemverzeichnis für temporäre Dateien kopiert. Wurde eine Datei geändert, fordert Double Commander zum Zurückkopieren auf (<code>False</code>) oder kopiert sie automatisch zurück (<code>True</code>). Standardmäßig <code>True</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoExtractOpenMask">&lt;AutoExtractOpenMask&gt;</a></div></td>
+            <td class="hintcell">
+               Angenommen, wir sind in eine komprimierte Datei „hineingegangen“ und durchsuchen ihren Inhalt im aktiven Panel. Dateien mit der hier angegebenen Erweiterung werden automatisch aus dem Archiv entpackt, wenn wir <kbd>Enter</kbd> drücken oder doppelklicken, statt das Eigenschaftenfenster anzuzeigen.<br>
+              <i>Beispiel:</i> <code>&lt;AutoExtractOpenMask&gt;*.txt;*.mp3;*.mp4&lt;/AutoExtractOpenMask&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DefaultDropEffect">&lt;DefaultDropEffect&gt;</a></div></td>
+            <td class="hintcell">Die Standardaktion beim <a href="help.html#draganddrop">Ziehen und Ablegen von Dateien</a> mit der Maus: Dateien kopieren (<code>True</code>) oder verschieben (<code>False</code>). Standardmäßig <code>True</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="LongNameAlert">&lt;LongNameAlert&gt;</a></div></td>
+            <td class="hintcell">Warnung, wenn der Zielpfad länger als die maximale Pfadlänge ist (einige Programme können dann nicht auf eine Datei oder ein Verzeichnis mit einem so langen Namen zugreifen). Unter Windows ist dieser Wert (MAX_PATH) als 260 Zeichen festgelegt. Standardmäßig <code>True</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="NtfsHourTimeDelay">&lt;NtfsHourTimeDelay&gt;</a></div></td>
+            <td class="hintcell">
+              Zeitunterschied von genau einer Stunde zwischen Einträgen beim Vergleich von Datum und Uhrzeit ignorieren.<br>
+              Das gilt bei den internen Befehlen <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> oder <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>.<br>
+              Es ist nützlich, wenn Einträge auf einer NTFS-Partition mit solchen auf einer anderen Partition verglichen werden.<br>
+              Da sich <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">der Zeitstempel einer Datei auf einer NTFS-Partition</a> beim Wechsel zur Sommerzeit ändert, nicht aber bei derselben Datei auf FAT32, sollen die beiden Dateien als identisch gelten, auch wenn wir sichtbar einen Unterschied von einer Stunde sehen.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">True</td>
+                  <td class="innerdescdesccell">Aktiviert; ein Unterschied von genau einer Stunde gilt als dieselbe Zeit</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">False</td>
+                  <td class="innerdescdesccell">Deaktiviert (Standard)</td>
+                </tr>
+              </table>
+              <i>Beispiel:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Sounds">&lt;Sounds&gt;</a></div></td>
+            <td class="hintcell">
+              Aktiviert akustische Hinweise, wenn Dateioperationen abgeschlossen sind. Mögliche vollständige Inhalte des Tags <code>&lt;Sounds&gt;</code>:<br>
+            <pre>
+&lt;Sounds Duration="-1"&gt;
+  &lt;Copy&gt;C:\Windows\Media\Alarm01.wav&lt;/Copy&gt;
+  &lt;Move&gt;C:\Windows\Media\Alarm01.wav&lt;/Move&gt;
+  &lt;Wipe&gt;C:\Windows\Media\Alarm01.wav&lt;/Wipe&gt;
+  &lt;Delete&gt;C:\Windows\Media\Alarm01.wav&lt;/Delete&gt;
+  &lt;Split&gt;C:\Windows\Media\Alarm01.wav&lt;/Split&gt;
+  &lt;Combine&gt;C:\Windows\Media\Alarm01.wav&lt;/Combine&gt;
+&lt;/Sounds&gt;</pre>
+              <code>Duration</code> ist die Mindestzeit (in Sekunden), die eine Dateioperation dauern soll. Weitere Werte: 0&nbsp;&ndash; immer an, -1 deaktiviert akustische Hinweise.<br>
+              Dateioperationen: Kopieren, Verschieben, sicheres Löschen, Dateien löschen, Datei teilen und Dateien zusammenfügen. Wird für eine Operation kein akustischer Hinweis benötigt, entfernen wir einfach die entsprechende Zeile (oder fügen sie nicht hinzu). <a href="variables.html#envvariables">Umgebungsvariablen</a> werden unterstützt.<br>
+              Unterstützte Audioformate:<br>
+              - Windows (die Funktion <tt>sndPlaySoundW</tt> aus der Windows-API): .wav.<br>
+              - macOS (die Core-Audio-API): .aac, .adts, .ac3, .caf, .mp3, .m4a und .mp4 (mit AAC oder ALAC), .wav.<br>
+              - Linux und andere Unix-ähnliche Systeme: Double Commander kann die Bibliothek GStreamer (vor allem <tt>libgstreamer-1.0.so.0</tt>) oder die Bibliothek SDL2 (<tt>libSDL2-2.0.so.0</tt>) verwenden. GStreamer unterstützt die meisten gängigen Audioformate, mit SDL2 können wir nur .wav verwenden. Unter Haiku kann nur SDL2 verwendet werden.
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;FileOperations&gt;&lt;Options&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CopyAttributes">&lt;CopyAttributes&gt;</a></div></td>
+            <td class="hintcell">
+              Windows: Bei <code>True</code> werden die Attribute der Quelldatei beim Kopieren/Verschieben von Dateien kopiert; bei <code>False</code> werden die Attribute der Quelldatei ebenfalls kopiert und Double Commander setzt das Attribut „Archiv“.<br>
+              Linux und andere: die Option <span class="italic">Attribute kopieren</span> im <a href="copymove.html">Dialogfenster zum Kopieren/Verschieben</a> verwenden.<br>
+              Standardmäßig <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CopyTime">&lt;CopyTime&gt;</a></div></td>
+            <td class="hintcell">
+              Windows: Bei <code>True</code> werden die Zeitstempel der Quelldatei beim Kopieren/Verschieben von Dateien kopiert (Erstellungsdatum, Änderungsdatum, Datum des letzten Zugriffs), andernfalls wird nur das Änderungsdatum kopiert und für die übrigen das aktuelle Datum verwendet.<br>
+              Linux und andere: die Option <span class="italic">Datum/Uhrzeit kopieren</span> im <a href="copymove.html">Dialogfenster zum Kopieren/Verschieben</a> verwenden.<br>
+              Standardmäßig <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CopyXattributes">&lt;CopyXattributes&gt;</a></div></td>
+            <td class="hintcell">
+              Erweiterte Dateisystemattribute beim Kopieren/Verschieben von Dateien kopieren oder nicht.<br>
+              Windows: Bei <code>True</code> werden auch die Attribute komprimiert und verschlüsselt kopiert.<br>
+              Linux und andere Unix-ähnliche Systeme: Bei <code>True</code> kopiert Double Commander die erweiterten Dateisystemattribute (xattr, also die benannten Attribute).<br>
+              Standardmäßig <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;FilesViews&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ExtraLineSpanF">&lt;ExtraLineSpan&gt;</a></div></td>
+            <td class="hintcell">
+              Diese Einstellung erlaubt es, der für jeden im Dateipanel angezeigten Eintrag zulässigen Höhe einige zusätzliche Pixel hinzuzufügen. Der Wert wird direkt in Pixeln interpretiert.<br>
+              Der Standardwert ist 2.<br>
+              <i>Beispiel:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="FolderPrePostfix">&lt;FolderPrefix&gt; <small>und</small> &lt;FolderPostfix&gt;</a></div></td>
+            <td class="hintcell">
+              Standardmäßig zeigt DC eckige Klammern um Verzeichnisnamen (optionale Einstellung unter Dateiansichten&nbsp;&gt; Dateiansichten extra), aber wir können stattdessen beliebige Zeichen verwenden.<br>
+              Hinweis: In XML sind einige Sonderzeichen als Teil der Auszeichnung reserviert und wir können sie nicht unverändert verwenden. Es gibt fünf vordefinierte Entitäten: <code>&lt;</code> muss als <code>&amp;lt;</code> geschrieben werden, <code>&gt;</code> als <code>&amp;gt;</code>, <code>&amp;</code> als <code>&amp;amp;</code>, <code>'</code> als <code>&amp;apos;</code> und <code>"</code> als <code>&amp;quot;</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="RenameConfirmMouse">&lt;RenameConfirmMouse&gt;</a></div></td>
+            <td class="hintcell">
+              Diese Option ändert die Aktion eines Mausklicks beim Umbenennen der Datei unter dem Cursor: Bei <code>True</code> bestätigt ein Mausklick außerhalb des Namensfeldes das Umbenennen (wie im Windows-Explorer), andernfalls wirkt der Mausklick wie die Taste <kbd>Esc</kbd>.<br>
+              Standardmäßig <code>False</code>.<br>
+              In beiden Fällen können wir die Schaltfläche rechts neben dem Eingabefeld weiterhin verwenden, um die Operation zu bestätigen.
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;FilesViews&gt;&lt;ColumnsView&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoSaveWidth">&lt;AutoSaveWidth&gt;</a></div></td>
+            <td class="hintcell">
+              Wenn wir die Spaltenbreite von Hand mit der Maus ändern, ändert DC sie standardmäßig für beide Panels und speichert den neuen Wert für die nächsten Starts.<br>
+              Wenn wir dieses Verhalten abschalten und den neuen Wert nur in der aktuellen Sitzung verwenden möchten, ersetzen wir <code>True</code> durch <code>False</code>, also <code>&lt;AutoSaveWidth&gt;False&lt;/AutoSaveWidth&gt;</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="LongInStatus">&lt;LongInStatus&gt;</a></div></td>
+            <td class="hintcell">Ist die Spaltenansicht eingestellt und sind keine Dateien ausgewählt, zeigt die Statusleiste den Dateinamen unter dem Cursor (<code>True</code>) oder die Anzahl der Dateien (<code>False</code>, Standard).<br>
+              Bei <code>True</code> zeigt die Statusleiste die Anzahl der Dateien auch, wenn der Cursor auf dem Eintrag „..“ steht. Bei Verknüpfungen werden zusätzlich die Ziele angezeigt.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="TitleStyle">&lt;TitleStyle&gt;</a></div></td>
+            <td class="hintcell">
+              Ändert das Aussehen der Spaltenüberschriftenleiste.<br>Der Standardwert hängt von Ihrem Betriebssystem ab.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell"><b>tsLazarus</b>: Das Standardaussehen von Lazarus.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell"><b>tsStandard</b>: Ein kontrastreicheres Aussehen, wie bei Delphi-Tabellen.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell"><b>tsNative</b>: Versucht ein Aussehen, das zum aktuellen Widgetset-Thema passt.</td>
+                </tr>
+              </table>
+              <i>Beispiel:</i> <code>&lt;TitleStyle&gt;2&lt;/TitleStyle&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus mehreren Tags &lt;Fonts&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Quality">&lt;Quality&gt;</a></div></td>
+            <td class="hintcell">
+              Legt fest, welche Art der <a href="https://en.wikipedia.org/wiki/Font_rasterization" target="_blank">Schriftrasterung</a> verwendet wird. Mit anderen Worten: die Schriftqualität.<br>
+              Es gibt viele Tags, bei denen das jeweils einzeln gilt.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0</td>
+                  <td class="innerdescdesccell"><b>Default</b>: Die Qualität wird durch die Systemeinstellungen bestimmt (Standard).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1</td>
+                  <td class="innerdescdesccell"><b>Draft</b>: Bei Rasterschriften ist die Skalierung aktiviert; die Schriftgröße kann vergrößert werden, die Qualität kann aber geringer sein.<br>Die Schrift unterstützt bei Bedarf außerdem Fett, Kursiv, Unterstrichen oder Durchgestrichen.<br>Die Qualität ist weniger wichtig als bei Proof.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">2</td>
+                  <td class="innerdescdesccell"><b>Proof</b>: Die Qualität der Zeichen ist wichtig, deshalb ist bei Rasterschriften die Skalierung deaktiviert und es wird die Schrift mit der nächstliegenden Größe gewählt.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">3</td>
+                  <td class="innerdescdesccell"><b>NonAntialiased</b>: Die Schrift wird nie geglättet.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">4</td>
+                  <td class="innerdescdesccell"><b>Antialiased</b>: Die Schrift wird immer geglättet, wenn sie das unterstützt.<br>Die Schriftgröße darf nicht zu klein und nicht zu groß sein.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">5</td>
+                  <td class="innerdescdesccell"><b>ClearType</b>: Die Schrift wird mit dem Glättungsverfahren <a href="https://en.wikipedia.org/wiki/ClearType" target="_blank">ClearType</a> dargestellt.</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">6</td>
+                  <td class="innerdescdesccell"><b>ClearTypeNatural</b>: Die Schrift wird mit dem Glättungsverfahren Natural ClearType dargestellt.</td>
+                </tr>
+              </table>
+              <i>Beispiel:</i> <code>&lt;Quality&gt;1&lt;/Quality&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;History&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxStringItems">Attribut <i>MaxStringItems</i><br><small>aus &lt;History&gt;</small></a></div></td>
+            <td class="hintcell">Das Attribut <code>MaxStringItems</code> legt die maximale Anzahl der Einträge im <a href="configuration.html#ConfigDC">gespeicherten Verlauf</a> fest. Der Standardwert ist 50.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="Count">Attribut <i>Count</i><br><small>aus &lt;History&gt;&lt;DirHistory&gt;</small></a></div></td>
+            <td class="hintcell">
+              Das Attribut <code>Count</code> legt fest, wie viele Einträge aus der Liste der besuchten Verzeichnisse im Aufklappmenü angezeigt werden (Befehl <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>). Der Standardwert ist 30.<br>
+              Bei Verwendung des Baumansichtsmenüs wird der Attributwert ignoriert.
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Icons&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="CustomIcons">&lt;CustomIcons&gt;</a></div></td>
+            <td class="hintcell">
+              Diese Option hilft zu bestimmen, ob die Symbole für Laufwerke, Ordner oder Archive die Standardsymbole des Systems sind oder eigene Symbole, die wir selbst festlegen können.<br>
+              Die Option <code>CustomIcons</code> wird auf eine einzelne Zahl gesetzt, die der Summe der Zahlen aus der folgenden Tabelle entspricht, je nach unseren Vorlieben:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Element</th>
+                  <th class="innerdescheader">Vom System</th>
+                  <th class="innerdescheader">Benutzerdefiniert</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Laufwerke</td>
+                  <td class="innerdescdesccell">0</td>
+                  <td class="innerdescdesccell">1 (nur Windows)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Ordner</td>
+                  <td class="innerdescdesccell">0</td>
+                  <td class="innerdescdesccell">2 (alle außer Haiku)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Archive</td>
+                  <td class="innerdescdesccell">0</td>
+                  <td class="innerdescdesccell">4 (Windows, Linux und FreeBSD)</td>
+                </tr>
+              </table>
+              <br>
+              <i>
+                Wenn wir möchten …<br>
+                … alles vom System: 0 + 0 + 0 = 0, also <code>&lt;CustomIcons&gt;0&lt;/CustomIcons&gt;</code><br>
+                … alles benutzerdefiniert: 1 + 2 + 4 = 7, also <code>&lt;CustomIcons&gt;7&lt;/CustomIcons&gt;</code><br>
+                … Laufwerk benutzerdefiniert, der Rest vom System: 1 + 0 + 0 = 1, also <code>&lt;CustomIcons&gt;1&lt;/CustomIcons&gt;</code><br>
+                usw. …
+              </i>
+              <br><br>
+              Wenn wir eigene Symbole verwenden möchten, liegen sie an diesen Orten:<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Element</th>
+                  <th class="innerdescheader">Speicherort</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Laufwerke</td>
+                  <td class="innerdescdesccell">%commander_path%\pixmaps\theme\XxX\devices\</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Ordner</td>
+                  <td class="innerdescdesccell">%commander_path%\pixmaps\theme\XxX\places\folder.png</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">Archive</td>
+                  <td class="innerdescdesccell"><small>%commander_path%\pixmaps\theme\XxX\mimetypes\package-x-generic.png</small></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DiskAlpha">&lt;DiskAlpha&gt;</a></div></td>
+            <td class="hintcell">
+              Option für die Transparenzstufe der Symbole nicht eingebundener Laufwerke.<br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">1 bis 99</td>
+                  <td class="innerdescdesccell">Gültige Transparenzstufe (Standard ist 50).</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0 oder 100</td>
+                  <td class="innerdescdesccell">Deaktiviert die Funktion.</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ToolSize">&lt;ToolSize&gt;</a></div></td>
+            <td class="hintcell">Größe der Symbole in der Werkzeugleiste des internen Editors, des Dateibetrachters und des Vergleichswerkzeugs, unterstützte Werte: 16, 24 oder 32.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Layout&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DriveBarFreeSpace">&lt;DriveBarFreeSpace&gt;</a></div></td>
+            <td class="hintcell">Erlaubt uns, die Position der Anzeige des freien Speicherplatzes zu ändern, wenn die Schaltfläche der Laufwerksliste deaktiviert ist: Standardmäßig (<code>False</code>) bleiben ihr Panel und die Anzeige des freien Speicherplatzes an derselben Stelle, wenn wir die Schaltfläche der Laufwerksliste deaktivieren; andernfalls (<code>True</code>) wird das Panel ausgeblendet und die Anzeige des freien Speicherplatzes nach oben in das Panel der Laufwerksschaltflächen verschoben, sodass mehr Platz für die Dateiliste bleibt.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ShowColonAfterDrive">&lt;ShowColonAfterDrive&gt;</a></div></td>
+            <td class="hintcell">Nur Windows: Doppelpunkt nach den Laufwerksbuchstaben in der <a href="help.html#iface_drive_pane">Laufwerksschaltflächenleiste</a> und in der <a href="help.html#iface_drive_btn">Laufwerksliste</a> anzeigen. Standardmäßig <code>False</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="UppercaseDriveLetter">&lt;UppercaseDriveLetter&gt;</a></div></td>
+            <td class="hintcell">
+              Nur Windows: Großbuchstaben in der <a href="help.html#iface_drive_pane">Laufwerksschaltflächenleiste</a> und in der <a href="help.html#iface_drive_btn">Laufwerksliste</a> verwenden. Standardmäßig <code>False</code>.<br>
+              Hinweis: Diese Option ändert die Laufwerksbuchstaben nicht in bereits gespeichertem Verlauf und gespeicherten Einstellungen (Favoriten, Schaltflächen und so weiter).
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Miscellaneous&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DecimalSeparator">&lt;DecimalSeparator&gt;</a></div></td>
+            <td class="hintcell">Die Option erlaubt es, das bevorzugte Dezimaltrennzeichen festzulegen (also das Trennzeichen zwischen ganzzahligem und gebrochenem Teil einer Zahl) statt des Wertes aus Ihren regionalen Einstellungen. Wir können jedes Zeichen aus der ASCII-Tabelle mit einem Code von U+0000 bis U+007F angeben (gemeint sind druckbare Zeichen, also von U+0020 bis U+007E).</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DoubleClickEditPath">&lt;DoubleClickEditPath&gt;</a></div></td>
+            <td class="hintcell">Die Option erlaubt es, die Aktion eines Doppelklicks auf die <a href="help.html#iface_dir">Leiste des aktuellen Verzeichnisses</a> zu wählen: Verzeichnis-Favoriten anzeigen (<code>False</code>, Standard) oder den aktuellen Pfad bearbeiten (<code>True</code>).</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SystemItemProperties">&lt;SystemItemProperties&gt;</a></div></td>
+            <td class="hintcell">Linux/FreeBSD: Der Wert <code>True</code> erlaubt es, das Dateieigenschaften-Fenster des Dateimanagers zu verwenden, der in den Einstellungen der Arbeitsumgebung als Standardprogramm festgelegt ist (sofern das möglich ist); andernfalls verwendet Double Commander sein eigenes <a href="help.html#cm_FileProperties">Eigenschaftenfenster</a>. Standardmäßig <code>False</code>.</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;SyncDirs&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DateTimeFormat">&lt;DateTimeFormat&gt;</a></div></td>
+            <td class="hintcell">Diese Einstellung erlaubt es, das bevorzugte Datums- und Uhrzeitformat im <a href="syncdirs.html">Werkzeug zur Verzeichnissynchronisierung</a> festzulegen. Die Formatzeichen für Datum und Uhrzeit sind <a href="configuration.html#dt_format">hier</a> beschrieben.<br>Der Standardwert ist <code>yyyy.mm.dd hh:nn:ss</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SaveAsymmetric">Attribut <i>Save</i><br><small>aus &lt;SyncDirs&gt;&lt;Asymmetric&gt;</small></a></div></td>
+            <td class="hintcell">
+              Verzeichnisse synchronisieren: den asymmetrischen Modus standardmäßig speichern oder nicht.<br>
+              Wenn wir den Zustand des Modus speichern möchten, dann <code>&lt;Asymmetric Save="True"&gt;</code>,
+              andernfalls <code>&lt;Asymmetric Save="False"&gt;</code> (Standard).
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SaveFileMask">Attribut <i>Save</i><br><small>aus &lt;SyncDirs&gt;&lt;FileMask&gt;</small></a></div></td>
+            <td class="hintcell">
+              Verzeichnisse synchronisieren: Standardmäßig speichert Double Commander die zuletzt verwendete Dateimaske als Maske für den nächsten Start des Synchronisierungswerkzeugs (wenn es keine Suchvorlage ist).
+              Um dieses Verhalten abzuschalten, können wir <code>True</code> durch <code>False</code> ersetzen (<code>&lt;FileMask Save="False"&gt;</code>) und die bevorzugte Dateimaske oder „*“ (also alle Dateien) als Wert von <code>&lt;FileMask&gt;</code> angeben.
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="subsection"><div class="subsection">aus &lt;Viewer&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoCopy">&lt;AutoCopy&gt;</a></div></td>
+            <td class="hintcell">Aktiviert (<code>True</code>) oder deaktiviert (<code>False</code>) für den internen Dateibetrachter das automatische Kopieren des ausgewählten Textes in die Zwischenablage. Standardmäßig <code>True</code>.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ExtraLineSpanV">&lt;ExtraLineSpan&gt;</a></div></td>
+            <td class="hintcell">
+              Für den internen Dateibetrachter erlaubt diese Einstellung, der für jede Zeile zulässigen Höhe einige zusätzliche Pixel hinzuzufügen. Der Wert wird direkt in Pixeln interpretiert.<br>
+              Der Standardwert ist 0.<br>
+              <i>Beispiel:</i> <code>&lt;ExtraLineSpan&gt;2&lt;/ExtraLineSpan&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="ImageExifRotate">&lt;ImageExifRotate&gt;</a></div></td>
+            <td class="hintcell">
+              Double Commander kann das Metadatenformat <a href="https://en.wikipedia.org/wiki/Exif" target="_blank">EXIF</a> erkennen, das in einer JPEG-Bilddatei enthalten sein kann.<br>
+              In diesen Metadaten gibt es eine <a href="https://www.impulseadventure.com/photo/exif-orientation.html" target="_blank">Ausrichtungskennung</a>, mit der das Bild in derselben Ausrichtung angezeigt werden kann, in der es aufgenommen wurde, etwa Hochformat, Querformat, auf dem Kopf oder gespiegelt.<br>
+              Der Tag <code>ImageExifRotate</code> legt fest, ob der Dateibetrachter das Bild anhand dieser Information anzeigen soll (<code>True</code>) oder nicht (<code>False</code>). Standardmäßig <code>True</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="JpegQuality">&lt;JpegQuality&gt;</a></div></td>
+            <td class="hintcell">Für den internen Dateibetrachter der Qualitätswert, den Double Commander standardmäßig beim Speichern im JPEG-Format verwendet (die Befehle <span class="italic">Speichern</span> und <span class="italic">Speichern unter...</span>). Standardmäßig 80.</td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="LeftMargin">&lt;LeftMargin&gt;</a></div></td>
+            <td class="hintcell">
+              Für den internen Dateibetrachter erlaubt diese Option, Abstand zwischen dem linken Fensterrand und dem Textrand einzufügen. Der Wert wird direkt in Pixeln interpretiert.<br>
+              Der Standardwert ist 4.<br>
+              <i>Beispiel:</i> <code>&lt;LeftMargin&gt;4&lt;/LeftMargin&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxCodeSize">&lt;MaxCodeSize&gt;</a></div></td>
+            <td class="hintcell">
+              Für den internen Dateibetrachter begrenzt dies die maximale Dateigröße für die automatische Wahl des Code-Anzeigemodus (Text mit Syntaxhervorhebung darzustellen braucht mehr Ressourcen als einfachen Text). Der Optionswert wird ignoriert, wenn wir den Code-Anzeigemodus im Fenster des Dateibetrachters erzwingen.<br>
+              Die Größe wird in Megabyte angegeben, der Standardwert ist 128.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxTextWidth">&lt;MaxTextWidth&gt;</a></div></td>
+            <td class="hintcell">
+              Für den internen Dateibetrachter die maximale Anzahl der Zeichen, die in einer Textzeile angezeigt werden, bevor der Text in die nächste Zeile umbrochen wird.<br>
+              Der gültige Bereich reicht von 80 bis 16384, der Standardwert ist 1024.<br>
+              <i>Beispiel:</i> <code>&lt;MaxTextWidth&gt;1024&lt;/MaxTextWidth&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="SynEditMask">&lt;SynEditMask&gt;</a></div></td>
+            <td class="hintcell">
+              Für den internen Dateibetrachter erlaubt diese Option, die Liste der Dateierweiterungen für den Code-Anzeigemodus zu verwalten (natürlich innerhalb der verfügbaren Liste).
+              Wir können Dateimasken angeben (durch Semikolons „;“ ohne Leerzeichen getrennt), die automatisch in diesem Modus statt als einfacher Text geöffnet werden, oder den Namen einer Suchvorlage (mit dem Zeichen „&gt;“ vor dem Namen), um sie auszuschließen. Wir können das automatische Öffnen von Dateien in diesem Modus auch abschalten, indem wir eine leere Zeichenkette setzen.
+              Der Standardwert ist „*“.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="TabSpaces">&lt;TabSpaces&gt;</a></div></td>
+            <td class="hintcell">
+              Für den internen Dateibetrachter die Breite der zu verwendenden Tabulatorstopps festlegen.<br>
+              Der gültige Bereich reicht von 1 bis 32, der Standardwert ist 8.<br>
+              <i>Beispiel:</i> <code>&lt;TabSpaces&gt;4&lt;/TabSpaces&gt;</code>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="index">4. Index</a></h2>
+        <table class="index">
+          <tr>
+            <td class="indexcell">
+              <p>
+                <a href="#Count">Attribut <i>Count</i> (&lt;DirHistory&gt;)</a><br>
+                <a href="#MaxStringItems">Attribut <i>MaxStringItems</i> (&lt;History&gt;)</a><br>
+                <a href="#SaveAsymmetric">Attribut <i>Save</i> (&lt;Asymmetric&gt;)</a><br>
+                <a href="#SaveFileMask">Attribut <i>Save</i> (&lt;FileMask&gt;)</a><br><br>
+                <a href="#ActiveRight">ActiveRight</a><br>
+                <a href="#AutoCopy">AutoCopy</a><br>
+                <a href="#AutoCopyBackward">AutoCopyBackward</a><br>
+                <a href="#AutoExtractOpenMask">AutoExtractOpenMask</a><br>
+                <a href="#AutoSaveWidth">AutoSaveWidth</a><br>
+                <a href="#ConfirmQuit">ConfirmQuit</a><br>
+                <a href="#CopyAttributes">CopyAttributes</a><br>
+                <a href="#CopyTime">CopyTime</a><br>
+                <a href="#CopyXattributes">CopyXattributes</a><br>
+                <a href="#CustomIcons">CustomIcons</a><br>
+                <a href="#DateTimeFormat">DateTimeFormat</a>
+              </p>
+            </td>
+            <td class="indexcell">
+              <p>
+                <a href="#DecimalSeparator">DecimalSeparator</a><br>
+                <a href="#DefaultDropEffect">DefaultDropEffect</a><br>
+                <a href="#DiskAlpha">DiskAlpha</a><br>
+                <a href="#DoubleClickEditPath">DoubleClickEditPath</a><br>
+                <a href="#DriveBarFreeSpace">DriveBarFreeSpace</a><br>
+                <a href="#ExtraLineSpanF">ExtraLineSpan (&lt;FilesViews&gt;)</a><br>
+                <a href="#ExtraLineSpanV">ExtraLineSpan (&lt;Viewer&gt;)</a><br>
+                <a href="#FindWordAtCursor">FindWordAtCursor</a><br>
+                <a href="#FolderPrePostfix">FolderPrefix und FolderPostfix</a><br>
+                <a href="#gBorderFrameWidth">gBorderFrameWidth</a><br>
+                <a href="#ImageExifRotate">ImageExifRotate</a><br>
+                <a href="#JpegQuality">JpegQuality</a><br>
+                <a href="#LeftMargin">LeftMargin</a><br>
+                <a href="#LongInStatus">LongInStatus</a><br>
+                <a href="#LongNameAlert">LongNameAlert</a><br>
+                <a href="#MaxCodeSize">MaxCodeSize</a>
+              </p>
+            </td>
+            <td class="indexcell">
+              <p>
+                <a href="#MaxTextWidth">MaxTextWidth</a><br>
+                <a href="#Mode">Mode</a><br>
+                <a href="#NtfsHourTimeDelay">NtfsHourTimeDelay</a><br>
+                <a href="#Quality">Quality</a><br>
+                <a href="#RenameConfirmMouse">RenameConfirmMouse</a><br>
+                <a href="#ShowColonAfterDrive">ShowColonAfterDrive</a><br>
+                <a href="#Sounds">Sounds</a><br>
+                <a href="#SynEditMask">SynEditMask</a><br>
+                <a href="#SynEditSpecialChars">SynEditSpecialChars</a><br>
+                <a href="#SystemItemProperties">SystemItemProperties</a><br>
+                <a href="#TabSpaces">TabSpaces</a><br>
+                <a href="#TitleStyle">TitleStyle</a><br>
+                <a href="#ToolSize">ToolSize</a><br>
+                <a href="#UppercaseDriveLetter">UppercaseDriveLetter</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="commandline.html">Zurück</a> | <a title="Nächste Seite" href="plugins.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

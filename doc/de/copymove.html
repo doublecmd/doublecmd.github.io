@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Dateien kopieren/verschieben</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="shortcuts.html">Zurück</a> | <a title="Nächste Seite" href="findfiles.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.4. Dateien kopieren/verschieben</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#confirmation">Dialogfenster zum Kopieren/Verschieben</a></dt>
+          <dt>2. <a href="#clipboard">Die Zwischenablage verwenden</a></dt>
+          <dt>3. <a href="#progress">Dialog des Vorgangsfortschritts</a></dt>
+          <dt>4. <a href="#collisions">Namenskonflikte</a></dt>
+          <dt>5. <a href="#aconfig">Zusätzliche Einstellungen</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="confirmation">1. Dialogfenster zum Kopieren/Verschieben</a></h2>
+        <p>Bestätigungsfenster zum Kopieren oder Verschieben von Dateien, in dem sich einige Parameter ändern lassen. Die Fenster für beide Vorgänge unterscheiden sich nur in wenigen Parametern und werden deshalb gemeinsam beschrieben.</p>
+        <p class="figure"><img class="largeimage" title="Dateien kopieren/verschieben" alt="Dateien kopieren/verschieben" src="../en/images/imgDC/copymove1.png" width="692" height="408"></p>
+        <p>Es lässt sich mit den Tasten <kbd>F5</kbd> (Kopieren), <kbd>Shift+F5</kbd> (im selben Verzeichnis kopieren) und <kbd>F6</kbd> (Verschieben), mit Schaltflächen auf der Leiste der Funktionstasten oder mit internen Befehlen aufrufen (<a href="cmds.html#cm_Copy">cm_Copy</a>, <a href="cmds.html#cm_CopySamePanel">cm_CopySamePanel</a> und <a href="cmds.html#cm_Rename">cm_Rename</a>). Dieses Dialogfenster erscheint außerdem, wenn wir Dateien ziehen und ablegen (wenn <a href="configuration.html#ConfigMouseDD">Bestätigungsdialog nach dem Ablegen anzeigen</a> aktiviert ist).</p>
+        <p>Das Fenster zeigt ein bearbeitbares Feld mit dem Zielverzeichnis und einer Dateimaske (oder einem Dateinamen, wenn es nur eine Datei ist). Wir können Zielpfad und Dateinamen manuell ändern. Mit <kbd>F5</kbd> oder <kbd>F6</kbd> können wir die Auswahl in dieser Reihenfolge umschalten: Basisdateiname, Dateiname, Erweiterung, Pfad, alles. Ist kein Zielverzeichnis angegeben (<tt>cm_CopySamePanel</tt> oder manuelle Bearbeitung), werden die Dateien in das Quellverzeichnis kopiert.</p>
+        <p>Die Dateimaske legt fest, wie Dateien beim Kopieren oder Verschieben umbenannt werden (das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen, das Zeichen „?“ für genau ein Zeichen). Zum Beispiel können wir <code>*.*.bak</code> angeben, um allen kopierten Dateien die Erweiterung <code>.bak</code> hinzuzufügen. Mit <code>*.ext</code> können wir die Erweiterungen aller kopierten Dateien durch <code>ext</code> ersetzen. Oder wir verwenden zum Beispiel <code>????.*</code> und kürzen die Namen auf die ersten vier Zeichen. Zeichen vor <code>*.*</code> ersetzen Zeichen im Namen (beginnend beim ersten Zeichen). Ist die Maske nicht anwendbar, bleiben die Namen unverändert.</p>
+        <p>Mehrere Schaltflächen:</p>
+        <ul>
+          <li><p><span class="italic">Starten</span> und <span class="italic">Abbrechen</span>&nbsp;&ndash; starten oder brechen den Vorgang ab.</p></li>
+          <li><p><span class="italic">Zur Warteschlange hinzufügen</span>&nbsp;&ndash; fügt eine Aufgabe zur Warteschlange der Dateivorgänge hinzu. Das ist praktisch, wenn wir mehrere Aufgaben gleichzeitig ausführen: Wir können die Reihenfolge der Vorgänge in der Warteschlange ändern, eine Aufgabe anhalten oder pausieren. Das Fenster mit der Liste der Dateivorgänge lässt sich auf zwei Arten aufrufen: über den Eintrag <span class="italic">Operationsanzeige</span> im Menü <span class="italic">Ansicht</span> oder mit <kbd>Alt+V</kbd> (interner Befehl <tt>cm_OperationsViewer</tt>).</p></li>
+          <li><p><span class="italic">Optionen</span>&nbsp;&ndash; klappt zusätzliche Optionen auf.</p></li>
+        </ul>
+        <p>Die erste Optionsgruppe legt die Aktion fest, die bei einem Namenskonflikt oder wenn Dateieigenschaften nicht gesetzt werden können, ausgeführt wird:</p>
+        <ul>
+          <li><p><span class="italic">Wenn die Datei vorhanden ist</span>&nbsp;&ndash; Wenn im Zielverzeichnis bereits eine Datei mit demselben Namen vorhanden ist. Aktionen: <span class="italic">Fragen</span>, <span class="italic">Überschreiben</span>, <span class="italic">Ältere überschreiben</span>, <span class="italic">Überspringen</span>.</p></li>
+          <li><p><span class="italic">Wenn das Verzeichnis vorhanden ist</span>&nbsp;&ndash; Wenn im Zielverzeichnis bereits ein Ordner mit demselben Namen vorhanden ist. Aktionen: <span class="italic">Fragen</span>, <span class="italic">Zusammenführen</span>, <span class="italic">Überspringen</span>.</p></li>
+          <li><p><span class="italic">Wenn Eigenschaften nicht gesetzt werden können</span>&nbsp;&ndash; Was geschehen soll, wenn Dateizeit, Attribute und Ähnliches nicht gesetzt werden können, zum Beispiel wegen Einschränkungen des Dateisystems im Zielverzeichnis. Aktionen: <span class="italic">Fragen</span>, <span class="italic">Nicht mehr setzen</span>, <span class="italic">Fehler ignorieren</span>.</p></li>
+        </ul>
+        <p><span class="italic">Fragen</span> (standardmäßig) bietet weitere mögliche Aktionen (siehe unten).</p>
+        <p>Die nächste Gruppe ist ein Filter, mit dem sich festlegen lässt, welche Dateien kopiert oder verschoben werden (Dateimasken, Alter und so weiter). Hier sehen wir die ausgewählte Vorlage und:</p>
+        <ul>
+          <li><p>Die Schaltfläche <span class="italic">Vorlage wählen</span> (<img title="Vorlage ..." alt="Vorlage ..." src="../en/images/imgDC/btemplate.png" width="16" height="16">) öffnet ein Fenster mit einer Liste gespeicherter Vorlagen und der Möglichkeit, eine neue hinzuzufügen.</p></li>
+          <li><p><span class="italic">Leere Verzeichnisse ausschließen</span>&nbsp;&ndash; Wenn aktiviert, werden nur nicht leere Verzeichnisse kopiert oder verschoben. Wirkt nur mit Vorlagen.</p></li>
+        </ul>
+        <p>Die Liste der folgenden Parameter hängt von der Art des Dateivorgangs und der Betriebssystemfamilie ab.</p>
+        <ul>
+          <li><p><span class="italic">Prüfen</span>&nbsp;&ndash; Wenn aktiviert, vergleicht Double Commander die Quelldatei und die kopierte Datei im Zielverzeichnis: ein byteweiser Vergleich (Windows) oder Prüfsummen (Linux und andere: BLAKE3 (x86-64), BLAKE2b (andere 64-Bit-Prozessoren) oder BLAKE2s). Double Commander versucht, die Auswirkungen des Festplattenzwischenspeichers zu verringern (unterstützt das Dateisystem keine direkte Ein-/Ausgabe, meldet das Programm einen Fehlschlag der Prüfung). Zu beachten ist, dass diese Funktion die Geschwindigkeit des Vorgangs deutlich verringert. Jede Datei wird zweimal gelesen, deshalb verdoppelt sich die Gesamtgröße der Dateien in der Fortschrittsanzeige. Unter macOS ist diese Funktion experimentell verfügbar.</p></li>
+          <li><p><span class="italic">Freien Speicherplatz prüfen</span>&nbsp;&ndash; Vor dem Kopieren der Datei prüft Double Commander, ob im Zielverzeichnis genug freier Speicherplatz vorhanden ist.</p></li>
+          <li><p><span class="italic">Speicherplatz reservieren</span>&nbsp;&ndash; Wenn aktiviert, reserviert Double Commander den Speicherplatz im Voraus. Das verringert die Wahrscheinlichkeit einer Dateifragmentierung. Außerdem werden Dateien so schneller angelegt. Unter Windows reserviert Double Commander den Speicherplatz immer. Unter Linux funktioniert das auf Partitionen mit dem Dateisystem FAT32 nicht.</p></li>
+          <li><p><span class="italic">Verknüpfungen folgen</span>&nbsp;&ndash; Wenn aktiviert, behandelt Double Commander symbolische Verknüpfungen auf Ordner als gewöhnliche Ordner und kopiert ihren Inhalt; statt Dateiverknüpfungen werden die Zieldateien dieser Verknüpfungen kopiert. Unbestimmter Zustand des Kontrollkästchens (drei Zustände): Das Programm fragt jedes Mal, was es tun soll.</p></li>
+          <li><p><span class="italic">Verknüpfungen korrigieren</span>&nbsp;&ndash; Wenn aktiviert, prüft Double Commander die Verknüpfungen und korrigiert bei Bedarf ihren Zielpfad anhand des Zielverzeichnisses. Ist ein relativer Pfad angegeben, wird auch der korrigierte Pfad relativ geschrieben.</p></li>
+          <li><p><span class="italic">Attribute kopieren</span>&nbsp;&ndash; Wenn aktiviert, werden die Attribute der Quelldatei kopiert, andernfalls werden die Standardwerte für den aktuellen Benutzer verwendet, üblicherweise 664 (Dateien) oder 775 (Ordner). Siehe auch die Beschreibung von <a href="configxml.html">&lt;CopyXattributes&gt;</a>. Für Windows: siehe die Beschreibung von <a href="configxml.html">&lt;CopyAttributes&gt;</a>.</p></li>
+          <li><p><span class="italic">Schreibschutzattribut entfernen</span>&nbsp;&ndash; Wenn aktiviert, fügt Double Commander das Attribut „w“ hinzu (Linux).</p></li>
+          <li><p><span class="italic">Datum/Uhrzeit kopieren</span>&nbsp;&ndash; Wenn aktiviert, wird das Änderungsdatum der Quelldatei kopiert, andernfalls wird das aktuelle Datum verwendet. Für Windows: siehe die Beschreibung von <a href="configxml.html">&lt;CopyTime&gt;</a>.</p></li>
+          <li><p><span class="italic">Besitzer kopieren</span>&nbsp;&ndash; Wenn nicht aktiviert, ist der Besitzer der Benutzer, in dessen Namen das Programm gestartet wurde.</p></li>
+          <li><p><span class="italic">Berechtigungen kopieren</span>&nbsp;&ndash; ermöglicht das Kopieren von Berechtigungen, die für das Dateisystem NTFS gelten; andernfalls werden die Rechte des aktuellen Benutzers verwendet (des Benutzers, in dessen Namen das Programm gestartet wurde). Nur Windows.</p></li>
+          <li><p><span class="italic">Kopieren beim Schreiben</span> (nur Linux)&nbsp;&ndash; Unterstützung für eine Funktion des Dateisystems Btrfs: Standardmäßig verwendet Btrfs für alle lokalen Dateien das Prinzip des Kopierens beim Schreiben (Copy-on-Write, COW). Ist die Option aktiviert, das Kopieren beim Schreiben aber nicht verfügbar, fordert Double Commander dazu auf, das Kopieren der Dateien zu überspringen oder den Vorgang abzubrechen. Bei Bedarf ist der unbestimmte Zustand des Kontrollkästchens (drei Zustände) sicherer: Wenn möglich, werden Datenblöcke nur bei einer Änderung kopiert, andernfalls erfolgt ein gewöhnliches Kopieren (wie bei der Verwendung von „<tt>cp --reflink=auto</tt>“).</p></li>
+        </ul>
+        <p>Hinweis: Beim Kopieren von Dateien aus Archiven ist nur der Parameter <span class="italic">Wenn die Datei vorhanden ist</span> verfügbar. Beim Kopieren von Dateien aus Dateisystem-Plugins (WFX) stehen mehrere Parameter zur Verfügung: <span class="italic">Wenn die Datei vorhanden ist</span>, <span class="italic">Datum/Uhrzeit kopieren</span> und <span class="italic">Im Hintergrund arbeiten (eigene Verbindung)</span>. Der letzte Parameter verhindert, dass das Fortschrittsfenster des Dateivorgangs das Hauptfenster von Double Commander blockiert.</p>
+        <p><span class="italic">Diese Optionen als Standard speichern</span>&nbsp;&ndash; übernimmt die aktuellen Werte als Vorgabe für die nächsten Kopier- und Verschiebevorgänge.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="clipboard">2. Die Zwischenablage verwenden</a></h2>
+        <p>Eine weitere Möglichkeit, Dateien zu kopieren oder zu verschieben: Wir können die Befehle <span class="italic">Kopieren</span> und <span class="italic">Einfügen</span> oder <span class="italic">Ausschneiden</span> und <span class="italic">Einfügen</span> über die Tastatur (standardmäßig <kbd>Ctrl+C</kbd>/<kbd>Ctrl+V</kbd> oder <kbd>Ctrl+X</kbd>/<kbd>Ctrl+V</kbd>) oder die entsprechenden Einträge im <a href="help.html#cm_ContextMenu">Kontextmenü</a> verwenden.</p>
+        <p>In diesem Fall startet der Vorgang ohne Bestätigungsdialog. Double Commander verwendet die als Standard gespeicherten Vorgangseinstellungen, mit Ausnahme des Parameters <span class="italic">Prüfen</span> (siehe Beschreibung oben).</p>
+        <p>Wird eine Datei kopiert und in das aktive Panel eingefügt (im selben Verzeichnis), werden Duplikate mit automatischer Umbenennung anhand der Vorlage aus den <a href="configuration.html#ConfigOperations">Einstellungen der Dateioperationen</a> erzeugt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="progress">3. Dialog des Vorgangsfortschritts</a></h2>
+        <p>Dieses Dialogfeld zeigt die Einzelheiten zum Fortschritt des Vorgangs: zwei Fortschrittsbalken (für die aktuell bearbeitete Datei und den Gesamtvorgang), den Fortschritt in Prozent (in der Titelleiste), die Gesamtzahl der Dateien und die Zahl der bearbeiteten Dateien, den vollständigen Namen der aktuellen Datei und den Namen im Zielverzeichnis, Größe, Geschwindigkeit und verbleibende Zeit.</p>
+        <p>Schaltflächen:</p>
+        <ul>
+          <li><p><span class="italic">Pause/Fortsetzen</span>&nbsp;&ndash; ermöglicht, den Vorgang anzuhalten oder fortzusetzen.</p></li>
+          <li><p><span class="italic">Abbrechen</span>&nbsp;&ndash; bricht den Vorgang ab und schließt das Dialogfeld.</p></li>
+          <li><p><span class="italic">Ins Panel</span>&nbsp;&ndash; verkleinert dieses Dialogfeld zum <a href="configuration.html#ConfigOperations">Panel der Dateivorgänge</a>.</p></li>
+          <li><p><span class="italic">Alle anzeigen</span>&nbsp;&ndash; ruft das Fenster <span class="italic">Operationsanzeige</span> auf.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="collisions">4. Namenskonflikte</a></h2>
+        <p>Wenn im Zielverzeichnis bereits eine Datei mit dem Namen der zu kopierenden Datei vorhanden ist, bietet Double Commander mehrere Aktionen an. Die Wahl der Aktion, die automatisch (ohne Eingriff des Benutzers) verwendet werden soll, wird für spätere Aufrufe des Kopier- oder Verschiebevorgangs nicht gespeichert.</p>
+        <p>Wenn ein Ordner mit demselben Namen vorhanden ist:</p>
+        <ul>
+          <li><p><span class="italic">Zusammenführen</span>&nbsp;&ndash; Der Inhalt des Ordners wird in den gleichnamigen Ordner im Zielverzeichnis kopiert.</p></li>
+          <li><p><span class="italic">Alle zusammenführen</span>&nbsp;&ndash; Dasselbe wie zuvor wird bei späteren Namenskonflikten automatisch verwendet.</p></li>
+          <li><p><span class="italic">Überspringen</span>&nbsp;&ndash; Double Commander kopiert diesen Ordner nicht.</p></li>
+          <li><p><span class="italic">Alle überspringen</span>&nbsp;&ndash; Dasselbe wie zuvor wird bei späteren Namenskonflikten automatisch verwendet.</p></li>
+        </ul>
+        <p>Wenn eine Datei mit demselben Namen vorhanden ist:</p>
+        <ul>
+          <li><p><span class="italic">Überschreiben</span>&nbsp;&ndash; Der Inhalt der Datei im Zielverzeichnis wird durch den Inhalt der Datei aus dem Quellverzeichnis ersetzt.</p></li>
+          <li><p><span class="italic">Alle überschreiben</span>&nbsp;&ndash; Dasselbe wie zuvor wird bei späteren Namenskonflikten automatisch verwendet.</p></li>
+          <li><p><span class="italic">Alle älteren überschreiben</span>&nbsp;&ndash; Automatisch ersetzt werden nur Dateien, die nach dem Änderungsdatum älter sind.</p></li>
+          <li><p><span class="italic">Überspringen</span>&nbsp;&ndash; Double Commander kopiert diese Datei nicht.</p></li>
+          <li><p><span class="italic">Alle überspringen</span>&nbsp;&ndash; Dasselbe wie zuvor wird bei späteren Namenskonflikten automatisch verwendet.</p></li>
+          <li><p><span class="italic">Umbenennen</span>&nbsp;&ndash; Double Commander zeigt ein Dialogfeld mit einem Eingabefeld, und wir können den Dateinamen aus dem Quellverzeichnis sofort manuell ändern.</p></li>
+          <li><p><span class="italic">Fortsetzen</span>&nbsp;&ndash; Ist die Zieldatei kleiner als die Quelldatei oder leer, wird die Differenz an das Ende der Zieldatei angehängt. Das kann bequemer und schneller sein, wenn zum Beispiel ein Download oder ein Kopiervorgang durch einen Programmabsturz abgebrochen wurde und die Quelldatei von einem anderen Ort stammt. Diese Funktion ist nicht verfügbar, wenn <span class="italic">Speicherplatz reservieren</span> aktiviert ist.</p></li>
+          <li><p><span class="italic">Andere</span>&nbsp;&ndash; Menü mit weiteren Aktionen:</p>
+            <ul>
+              <li><p><span class="italic">Nach Inhalt vergleichen</span>&nbsp;&ndash; ruft den Befehl <a href="help.html#cm_CompareContents">Nach Inhalt vergleichen</a> auf.</p></li>
+              <li><p><span class="italic">Anhängen</span>&nbsp;&ndash; Der Inhalt der Datei wird an das Ende der Datei im Zielverzeichnis angehängt.</p></li>
+              <li><p><span class="italic">Alle kleineren überschreiben</span>&nbsp;&ndash; Automatisch ersetzt werden nur kleinere Dateien.</p></li>
+              <li><p><span class="italic">Alle größeren überschreiben</span>&nbsp;&ndash; Automatisch ersetzt werden nur größere Dateien.</p></li>
+              <li><p><span class="italic">Quelldateien automatisch umbenennen</span>&nbsp;&ndash; Double Commander benennt die Dateien, die wir kopieren, automatisch anhand der Vorlage aus den <a href="configuration.html#ConfigOperations">Einstellungen der Dateioperationen</a> um.</p></li>
+              <li><p><span class="italic">Zieldateien automatisch umbenennen</span>&nbsp;&ndash; Wie zuvor, aber umbenannt werden die Dateien im Zielverzeichnis.</p></li>
+            </ul>
+          </li>
+        </ul>
+        <p>Die Schaltfläche <span class="italic">Abbrechen</span> bricht den Vorgang ab.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="aconfig">5. Zusätzliche Einstellungen</a></h2>
+        <p>Weitere Optionen zu Kopier- und Verschiebevorgängen stehen auf der Einstellungsseite <a href="configuration.html#ConfigOperations">Dateioperationen</a>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="shortcuts.html">Zurück</a> | <a title="Nächste Seite" href="findfiles.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

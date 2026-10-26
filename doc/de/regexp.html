@@ -1,0 +1,775 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Syntax regulärer Ausdrücke</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="cmds.html">Zurück</a> | <a title="Nächste Seite" href="lua.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.14. Syntax regulärer Ausdrücke</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#preface">Einführung</a></dt>
+          <dt>2. <a href="#compare">Einfache Übereinstimmungen</a></dt>
+          <dt>3. <a href="#esc">Escape-Sequenzen</a></dt>
+          <dt>4. <a href="#symbols">Zeichenklassen</a></dt>
+          <dt>5. <a href="#meta">Metazeichen</a></dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#meta-dot">Metazeichen – Punkt</a></dt>
+              <dt>5.2. <a href="#meta-std">Metazeichen – vordefinierte Klassen</a></dt>
+              <dt>5.3. <a href="#meta-line">Metazeichen – Zeilentrennzeichen</a></dt>
+              <dt>5.4. <a href="#meta-words">Metazeichen – Wortgrenzen</a></dt>
+              <dt>5.5. <a href="#meta-dup">Metazeichen – Quantoren</a></dt>
+              <dt>5.6. <a href="#meta-vars">Metazeichen – Alternativen</a></dt>
+              <dt>5.7. <a href="#meta-sub">Metazeichen – Teilausdrücke</a></dt>
+              <dt>5.8. <a href="#meta-back">Metazeichen – Rückverweise</a></dt>
+              <dt>5.9. <a href="#meta-reset">Metazeichen – Zurücksetzen des Trefferbeginns</a></dt>
+            </dl>
+          </dd>
+          <dt>6. <a href="#look">Zusicherungen (Vorausschau und Rückschau)</a></dt>
+          <dt>7. <a href="#noncapt">Nicht-erfassende Gruppen</a></dt>
+          <dt>8. <a href="#agroups">Atomare Gruppen</a></dt>
+          <dt>9. <a href="#recursion">Rekursion</a></dt>
+          <dt>10. <a href="#unicode">Unicode-Kategorien</a></dt>
+          <dt>11. <a href="#modifiers">Modifikatoren</a></dt>
+        </dl>
+      </div>
+
+      <p>Double Commander verwendet die freie Bibliothek <a href="https://regex.sorokin.engineer/" target="_blank">TRegExpr</a> von Andrey Sorokin.</p>
+      <p>Die meisten Erläuterungen stammen aus der Hilfedatei dieser Bibliothek.</p>
+
+      <div>
+        <h2><a name="preface">1. Einführung</a></h2>
+        <p>Reguläre Ausdrücke sind ein weit verbreitetes Verfahren, um Muster von Text anzugeben, nach dem gesucht werden soll. Sonderzeichen (<span class="bold">Metazeichen</span>) erlauben uns beispielsweise anzugeben, dass eine bestimmte Zeichenkette, nach der wir suchen, am Anfang oder Ende einer Zeile steht oder <span class="bold">n</span> Wiederholungen eines bestimmten Zeichens oder einer Zeichengruppe enthält.</p>
+        <p>Double Commander unterstützt reguläre Ausdrücke in den folgenden Funktionen:</p>
+        <ul>
+          <li><a href="findfiles.html">Dateien suchen</a> (Suche nach Dateinamen oder Inhalt)</li>
+          <li>Im Werkzeug <a href="multirename.html">Mehrfach-Umbenennen</a></li>
+          <li>Im internen Editor</li>
+          <li>Im internen Dateibetrachter</li>
+        </ul>
+        <p>Die Bibliothek TRegExp unterstützt zwei Arbeitsweisen: ANSI und Unicode. Bei der Suche in Textdateien verwendet Double Commander beide (abhängig von der Dateikodierung). Bei der Suche nach dem Namen wird Unicode verwendet.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="compare">2. Einfache Übereinstimmungen</a></h2>
+        <p>Jedes einzelne Zeichen passt auf sich selbst, sofern es kein Metazeichen mit einer unten beschriebenen besonderen Bedeutung ist.</p>
+        <p>Eine Folge von Zeichen passt auf diese Folge von Zeichen in der Zielzeichenkette, das Muster <code>bluh</code> passt also auf <code>bluh</code> in der Zielzeichenkette.</p>
+        <p>Wir können erreichen, dass Zeichen, die normalerweise als Metazeichen oder <span class="bold">Escape-Sequenzen</span> dienen, wörtlich interpretiert werden, indem wir sie maskieren, das heißt ihnen einen Rückwärtsschrägstrich <code>\</code> voranstellen. Zum Beispiel: Das Metazeichen <code>^</code> passt auf den Anfang der Zeichenkette, <code>\^</code> passt aber auf das Zeichen <code>^</code>, <code>\\</code> passt auf <code>\</code> und so weiter.</p>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für eine einfache Übereinstimmung</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foobar</div></td>
+            <td class="hintcell">passt auf die Zeichenkette <code>foobar</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\^FooBarPtr</div></td>
+            <td class="hintcell">passt auf <code>^FooBarPtr</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="esc">3. Escape-Sequenzen</a></h2>
+        <p>Zeichen lassen sich mit einer Syntax für Escape-Sequenzen angeben, die der in C und Perl verwendeten sehr ähnlich ist: <code>\n</code> passt auf einen Zeilenumbruch, <code>\t</code> auf einen Tabulator usw.</p>
+        <p>Allgemeiner passt <code>\xnn</code>, wobei <code>nn</code> eine Zeichenkette aus hexadezimalen Ziffern ist, auf das Zeichen, dessen ASCII-Wert <code>nn</code> ist.</p>
+        <p>Wenn Sie einen breiten (Unicode-)Zeichencode benötigen, können Sie <code>\x{nnnn}</code> verwenden, wobei <code>nnnn</code>&nbsp;&ndash; eine oder mehrere hexadezimale Ziffern sind.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Escape-Sequenzen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\xnn</div></td>
+            <td class="hintcell">Zeichen mit Hexadezimalcode <code>nn</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\x{nnnn}</div></td>
+            <td class="hintcell">Zeichen mit Hexadezimalcode <code>nnnn</code> (ein Byte für einfachen Text und zwei Bytes für Unicode)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\t</div></td>
+            <td class="hintcell">Tabulator (HT/TAB), dasselbe wie <code>\x09</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\n</div></td>
+            <td class="hintcell">Zeilenvorschub (NL/LF), dasselbe wie <code>\x0A</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\r</div></td>
+            <td class="hintcell">Wagenrücklauf (CR), dasselbe wie <code>\x0D</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\f</div></td>
+            <td class="hintcell">Seitenvorschub (FF), dasselbe wie <code>\x0C</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\a</div></td>
+            <td class="hintcell">Alarm (Glocke) (BEL), dasselbe wie <code>\x07</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\e</div></td>
+            <td class="hintcell">Escape (ESC), dasselbe wie <code>\x1B</code></td>
+          </tr>
+        </table>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für Escape-Sequenzen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foo\x20bar</div></td>
+            <td class="hintcell">passt auf <code>foo bar</code> (beachten Sie das Leerzeichen in der Mitte)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\tfoobar</div></td>
+            <td class="hintcell">passt auf <code>foobar</code>, dem ein Tabulator vorangestellt ist</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="symbols">4. Zeichenklassen</a></h2>
+        <p>Sie können eine Zeichenklasse angeben, indem Sie eine Liste von Zeichen in <code>[]</code> einschließen. Sie passt auf jedes <span class="bold">einzelne</span> Zeichen aus der Liste.</p>
+        <p>Wenn das erste Zeichen nach dem <code>[</code> ein <code>^</code> ist, passt die Klasse auf jedes Zeichen, das <span class="bold">nicht</span> in der Liste steht.</p>
+        <p>Innerhalb einer Liste gibt das Zeichen <code>-</code> einen <span class="bold">Bereich</span> an, sodass <code>a-z</code> alle Zeichen von <code>a</code> bis <code>z</code> einschließlich darstellt.</p>
+        <p>Wenn <code>-</code> selbst zur Klasse gehören soll, setzen Sie es an den Anfang oder das Ende der Liste oder maskieren Sie es mit einem Rückwärtsschrägstrich.</p>
+        <p>Wenn Sie <code>]</code> möchten, können Sie es an den Anfang der Liste setzen oder mit einem Rückwärtsschrägstrich maskieren.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Zeichenklassen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[-az]</div></td>
+            <td class="hintcell">passt auf <code>a</code>, <code>z</code> und <code>-</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[az-]</div></td>
+            <td class="hintcell">passt auf <code>a</code>, <code>z</code> und <code>-</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[a\-z]</div></td>
+            <td class="hintcell">passt auf <code>a</code>, <code>z</code> und <code>-</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[a-z]</div></td>
+            <td class="hintcell">passt auf alle sechsundzwanzig Kleinbuchstaben von <code>a</code> bis <code>z</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[\n-\x0D]</div></td>
+            <td class="hintcell">passt auf jedes von <code>\x0A</code>, <code>\x0B</code>, <code>\x0C</code>, <code>\x0D</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[\d-t]</div></td>
+            <td class="hintcell">passt auf jede Ziffer, <code>-</code> oder <code>t</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">[]-a]</div></td>
+            <td class="hintcell">passt auf jedes Zeichen von <code>]</code>..<code>a</code></td>
+          </tr>
+        </table>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für Zeichenklassen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob[aeiou]r</div></td>
+            <td class="hintcell">findet die Zeichenketten <code>foobar</code>, <code>foober</code> usw., aber nicht <code>foobbr</code>, <code>foobcr</code> usw.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob[^aeiou]r</div></td>
+            <td class="hintcell">findet die Zeichenketten <code>foobbr</code>, <code>foobcr</code> usw., aber nicht <code>foobar</code>, <code>foober</code> usw.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta">5. Metazeichen</a></h2>
+        <p>Metazeichen sind Sonderzeichen, die das Wesen regulärer Ausdrücke ausmachen.</p>
+        <p>Es gibt verschiedene Arten von Metazeichen, die unten beschrieben werden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-dot">5.1. Metazeichen – Punkt</a></h2>
+        <p>Das Metazeichen <code>.</code> passt auf jedes Zeichen. Wenn Sie jedoch den <a href="#modifiers">Modifikator s</a> ausschalten, passt <code>.</code> nicht auf <code>\x0D\x0A</code> und <code>\x0A</code> und <code>\x0D</code> (mit Unicode-Unterstützung: außerdem <code>\x{2028}</code> und <code>\x{2029}</code> und <code>\x0B</code> und <code>\x0C</code> und <code>\x85</code>).</p>
+        <p>Das Zeichen <code>.</code> wirkt innerhalb benutzerdefinierter Zeichenklassen nicht als Metazeichen: <code>[.]</code> bedeutet einen wörtlichen Punkt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-std">5.2. Metazeichen – vordefinierte Klassen</a></h2>
+        <p>Einige Ausdrücke helfen dabei, Gruppen von Zeichen zu erkennen.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Vordefinierte Klassen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\w</div></td>
+            <td class="hintcell">ein alphanumerisches Zeichen (einschließlich <code>_</code>), also <code>[0-9A-Za-z_]</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\W</div></td>
+            <td class="hintcell">ein nicht alphanumerisches Zeichen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\d</div></td>
+            <td class="hintcell">ein numerisches Zeichen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\D</div></td>
+            <td class="hintcell">ein nicht numerisches Zeichen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\s</div></td>
+            <td class="hintcell">jedes Leerzeichen (dasselbe wie <code>[ \t\n\r\f]</code>)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\S</div></td>
+            <td class="hintcell">ein Nicht-Leerzeichen</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\R</div></td>
+            <td class="hintcell">jedes Zeilenumbruchzeichen: <code>\x0D\x0A</code>, <code>\x0A</code>, <code>\x0D</code>, <code>\x0B</code>, <code>\x0C</code> (mit Unicode-Unterstützung: außerdem <code>\x{2028}</code>, <code>\x{2029}</code> und <code>\x85</code>)</td>
+          </tr>
+        </table>
+        <p>Sie können <code>\w</code>, <code>\d</code> und <code>\s</code> innerhalb eigener <span class="bold">Zeichenklassen</span> verwenden.</p>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für vordefinierte Klassen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob\dr</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foob1r</code>, <code>foob6r</code> und so weiter, aber nicht auf <code>foobar</code>, <code>foobbr</code> und so weiter</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob[\w\s]r</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foobar</code>, <code>foob r</code>, <code>foobbr</code> und so weiter, aber nicht auf <code>foob=r</code> und so weiter</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-line">5.3. Metazeichen – Zeilentrennzeichen</a></h2>
+        <p>Einige Ausdrücke helfen dabei, eine Zeilentrennung zu erkennen.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Zeilentrennzeichen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^</div></td>
+            <td class="hintcell">Zeilenanfang</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">$</div></td>
+            <td class="hintcell">Zeilenende</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\A</div></td>
+            <td class="hintcell">Textanfang</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\Z</div></td>
+            <td class="hintcell">Textende</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\G</div></td>
+            <td class="hintcell">Treffer der Länge null an der Endposition des vorherigen Treffers oder, wenn es keinen vorherigen Treffer gab, am Zeilenanfang (<code>^</code>)</td>
+          </tr>
+        </table>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel mit Zeilentrennzeichen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar</div></td>
+            <td class="hintcell">passt auf die Zeichenkette <code>foobar</code> nur, wenn sie am Zeilenanfang steht</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foobar$</div></td>
+            <td class="hintcell">passt auf die Zeichenkette <code>foobar</code> nur, wenn sie am Zeilenende steht</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">^foobar$</div></td>
+            <td class="hintcell">passt auf die Zeichenkette <code>foobar</code> nur, wenn sie die einzige Zeichenkette in der Zeile ist</td>
+          </tr>
+        </table>
+        <p>Das Metazeichen <code>^</code> passt standardmäßig nur am Anfang der Eingabezeichenkette bzw. des Textes zuverlässig, das Metazeichen <code>$</code> nur am Ende. Eingebettete Zeilentrennzeichen werden von <code>^</code> oder <code>$</code> nicht erkannt.</p>
+        <p>Sie können eine Zeichenkette jedoch als mehrzeiligen Puffer behandeln, sodass <code>^</code> nach jedem Zeilentrennzeichen innerhalb der Zeichenkette passt und <code>$</code> vor jedem Zeilentrennzeichen. Das erreichen Sie, indem Sie den <a href="#modifiers">Modifikator m</a> einschalten.</p>
+        <p><code>\A</code> und <code>\Z</code> entsprechen <code>^</code> und <code>$</code>, außer dass sie nicht mehrfach passen, wenn der <a href="#modifiers">Modifikator m</a> verwendet wird, während <code>^</code> und <code>$</code> an jedem inneren Zeilentrennzeichen passen.</p>
+        <p>Das Metazeichen <code>.</code> passt standardmäßig auf jedes Zeichen. Wenn Sie jedoch den <a href="#modifiers">Modifikator s</a> ausschalten, passt <code>.</code> nicht auf eingebettete Zeilentrennzeichen.</p>
+        <p>TRegExpr behandelt Zeilentrennzeichen so, wie es die technischen Unicode-Standards empfehlen (<a href="https://www.unicode.org/reports/tr18/" target="_blank">Technischer Standard Nr. 18</a>):</p>
+        <ul>
+          <li><p><code>^</code> steht am Anfang einer Eingabezeichenkette und, wenn der <a href="#modifiers">Modifikator m</a> eingeschaltet ist, auch unmittelbar nach jedem Vorkommen von <code>\x0D\x0A</code> oder <code>\x0A</code> oder <code>\x0D</code> (mit Unicode-Unterstützung: außerdem <code>\x{2028}</code> oder <code>\x{2029}</code> oder <code>\x0B</code> oder <code>\x0C</code> oder <code>\x85</code>). Beachten Sie, dass es innerhalb der Folge <code>\x0D\x0A</code> keine leere Zeile gibt.</p></li>
+          <li><p><code>$</code> steht am Ende einer Eingabezeichenkette und, wenn der <a href="#modifiers">Modifikator m</a> eingeschaltet ist, auch unmittelbar vor jedem Vorkommen von <code>\x0D\x0A</code> oder <code>\x0A</code> oder <code>\x0D</code> (mit Unicode-Unterstützung: außerdem <code>\x{2028}</code> oder <code>\x{2029}</code> oder <code>\x0B</code> oder <code>\x0C</code> oder <code>\x85</code>). Beachten Sie, dass es innerhalb der Folge <code>\x0D\x0A</code> keine leere Zeile gibt.</p></li>
+        </ul>
+        <p>Beachten Sie, dass <code>^.*$</code> (ein Muster für eine leere Zeile) nicht auf die leere Zeichenkette innerhalb der Folge <code>\x0D\x0A</code> passt, weil das ein untrennbares Zeilentrennzeichen ist. Es passt aber auf die leere Zeichenkette innerhalb der Folge <code>\x0A\x0D</code>, weil das zwei Zeilenumbrüche in der falschen Reihenfolge sind.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-words">5.4. Metazeichen – Wortgrenzen</a></h2>
+        <p>Eine Wortgrenze (<code>\b</code>) ist eine Stelle zwischen zwei Zeichen, die auf der einen Seite ein <code>\w</code> und auf der anderen Seite ein <code>\W</code> hat (in beliebiger Reihenfolge). Die gedachten Zeichen vor dem Anfang und nach dem Ende der Zeichenkette zählen dabei als passend auf ein <code>\W</code>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Wortgrenzen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\b</div></td>
+            <td class="hintcell">passt auf eine Wortgrenze</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">\B</div></td>
+            <td class="hintcell">passt auf eine Nicht-Wortgrenze</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-dup">5.5. Metazeichen – Quantoren</a></h2>
+        <p>Auf jedes Element eines regulären Ausdrucks kann eine weitere Art von Metazeichen folgen&nbsp;&ndash; Quantoren.</p>
+        <p>Mit diesen Metazeichen können Sie die Anzahl der Vorkommen des vorherigen Zeichens, Metazeichens oder Teilausdrucks angeben.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Quantoren</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">*</div></td>
+            <td class="hintcell">null oder mehr („gierig“), ähnlich wie <code>{0,}</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">+</div></td>
+            <td class="hintcell">eins oder mehr („gierig“), ähnlich wie <code>{1,}</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">?</div></td>
+            <td class="hintcell">null oder eins („gierig“), ähnlich wie <code>{0,1}</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{n}</div></td>
+            <td class="hintcell">genau <code>n</code>-mal („gierig“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{n,}</div></td>
+            <td class="hintcell">mindestens <code>n</code>-mal („gierig“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{n,m}</div></td>
+            <td class="hintcell">mindestens <code>n</code>-mal, aber nicht mehr als <code>m</code>-mal („gierig“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">*?</div></td>
+            <td class="hintcell">null oder mehr („nicht gierig“), ähnlich wie <code>{0,}?</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">+?</div></td>
+            <td class="hintcell">eins oder mehr („nicht gierig“), ähnlich wie <code>{1,}?</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">??</div></td>
+            <td class="hintcell">null oder eins („nicht gierig“), ähnlich wie <code>{0,1}?</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{n}?</div></td>
+            <td class="hintcell">genau <code>n</code>-mal („nicht gierig“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{n,}?</div></td>
+            <td class="hintcell">mindestens <code>n</code>-mal („nicht gierig“)</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">{n,m}?</div></td>
+            <td class="hintcell">mindestens <code>n</code>-mal, aber nicht mehr als <code>m</code>-mal („nicht gierig“)</td>
+          </tr>
+        </table>
+        <p>Ziffern in geschweiften Klammern der Form <code>{n,m}</code> geben also die <span class="bold">Mindestanzahl</span> der Treffer für das Element <code>n</code> und die <span class="bold">Höchstanzahl</span> <code>m</code> an.</p>
+        <p>Die Form <code>{n}</code> entspricht <code>{n,n}</code> und passt genau <code>n</code>-mal.</p>
+        <p>Die Form <code>{n,}</code> passt <code>n</code>-mal oder öfter.</p>
+        <p>Die Größe von <code>n</code> oder <code>m</code> ist nicht begrenzt, aber große Zahlen verlangsamen die Ausführung und verbrauchen mehr Speicher.</p>
+        <p>Kommt eine geschweifte Klammer in einem anderen Zusammenhang vor, wird sie als gewöhnliches Zeichen behandelt.</p>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für Quantoren</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob.*r</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foobar</code>, <code>foobalkjdflkj9r</code> und <code>foobr</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob.+r</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foobar</code>, <code>foobalkjdflkj9r</code>, aber nicht auf <code>foobr</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob.?r</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foobar</code>, <code>foobbr</code> und <code>foobr</code>, aber nicht auf <code>foobalkj9r</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">fooba{2}r</div></td>
+            <td class="hintcell">passt auf die Zeichenkette <code>foobaar</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">fooba{2,}r</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foobaar</code>, <code>foobaaar</code>, <code>foobaaaar</code> usw.</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">fooba{2,3}r</div></td>
+            <td class="hintcell">passt auf Zeichenketten wie <code>foobaar</code> oder <code>foobaaar</code>, aber nicht auf <code>foobaaaar</code></td>
+          </tr>
+        </table>
+        <p>Eine kurze Erklärung zur „Gierigkeit“.</p>
+        <p>„Gierig“ nimmt so viele wie möglich, „nicht gierig“ so wenige wie möglich.</p>
+        <p>Zum Beispiel liefern <code>b+</code> und <code>b*</code>, angewendet auf die Zeichenkette <code>abbbbc</code>, das Ergebnis <code>bbbb</code>, <code>b+?</code> liefert <code>b</code>, <code>b*?</code> liefert die leere Zeichenkette, <code>b{2,3}?</code> liefert <code>bb</code>, <code>b{2,3}</code> liefert <code>bbb</code>.</p>
+        <p>Sie können alle Quantoren in den Modus „nicht gierig“ schalten (siehe den <a href="#modifiers">Modifikator g</a>).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-vars">5.6. Metazeichen – Alternativen</a></h2>
+        <p>Sie können für ein Muster eine Reihe von <span class="bold">Alternativen</span> angeben und sie mit <code>|</code> trennen, sodass <code>fee|fie|foe</code> auf jedes von <code>fee</code>, <code>fie</code> oder <code>foe</code> in der Zielzeichenkette passt (ebenso wie <code>f(e|i|o)e</code>).</p>
+        <p>Die erste Alternative umfasst alles vom letzten Musterbegrenzer (<code>(</code>, <code>[</code> oder dem Anfang des Musters) bis zum ersten <code>|</code>, und die letzte Alternative enthält alles vom letzten <code>|</code> bis zum nächsten Musterbegrenzer.</p>
+        <p>Deshalb ist es üblich, Alternativen in Klammern zu setzen, damit weniger unklar ist, wo sie beginnen und enden.</p>
+        <p>Alternativen werden von links nach rechts ausprobiert, sodass die erste Alternative gewählt wird, für die der gesamte Ausdruck passt.</p>
+        <p>Das bedeutet, dass Alternativen nicht unbedingt gierig sind.</p>
+        <p>Zum Beispiel: Beim Vergleich von <code>foo|foot</code> mit <code>barefoot</code> passt nur der Teil <code>foo</code>, weil das die erste ausprobierte Alternative ist und sie erfolgreich auf die Zielzeichenkette passt. (Das mag unwichtig erscheinen, ist aber wichtig, wenn Sie übereinstimmenden Text mit Klammern erfassen.)</p>
+        <p>Denken Sie auch daran, dass <code>|</code> innerhalb eckiger Klammern wörtlich interpretiert wird. Wenn Sie also <code>[fee|fie|foe]</code> schreiben, passt das in Wirklichkeit nur auf <code>[feio|]</code>.</p>
+        <p>Beispiel:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiel für Alternativen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foo(bar|foo)</div></td>
+            <td class="hintcell">passt auf die Zeichenketten <code>foobar</code> oder <code>foofoo</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-sub">5.7. Metazeichen – Teilausdrücke</a></h2>
+        <p>Das Klammerkonstrukt <code>( ... )</code> kann auch dazu verwendet werden, Teilausdrücke eines regulären Ausdrucks zu definieren.</p>
+        <p>Nach der Suche können Sie jeden Teilausdruck abrufen, und Sie können Teilausdrücke auch als Masken verwenden.</p>
+        <p>Teilausdrücke werden anhand der Reihenfolge ihrer öffnenden Klammern von links nach rechts nummeriert.</p>
+        <p>Der erste Teilausdruck hat die Nummer 1, es werden bis zu 90 Teilausdrücke unterstützt (der Treffer des gesamten regulären Ausdrucks hat die Nummer 0&nbsp;&ndash; Sie können ihn als <code>$0</code> oder <code>$&amp;</code> einsetzen).</p>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Teilausdrücke</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(foobar){8,10}</div></td>
+            <td class="hintcell">passt auf Zeichenketten, die 8, 9 oder 10 Vorkommen von <code>foobar</code> enthalten</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">foob([0-9]|a+)r</div></td>
+            <td class="hintcell">passt auf <code>foob0r</code>, <code>foob1r</code> , <code>foobar</code>, <code>foobaar</code>, <code>foobaar</code> usw.</td>
+          </tr>
+        </table>
+        <br>
+        <p><span class="bold">Hinweise zu Vorlagen für „Ersetzen durch“:</span></p>
+        <ul>
+          <li>Wenn Sie ein wörtliches <code>$</code> oder <code>\</code> in die Vorlage setzen möchten, verwenden Sie das Präfix <code>\</code>.<br>
+              Beispiel: <code>1\$ is $2\\rub\\</code> ergibt <code>1$ is &lt;subexpr2&gt;\rub\</code>.</li>
+          <li>Wenn Sie nach <code>$n</code> eine wörtliche Ziffer setzen möchten, müssen Sie <code>n</code> mit geschweiften Klammern <code>{}</code> begrenzen.<br>
+              Zum Beispiel ergibt <code>a$12bc</code> den Wert <code>a&lt;subexpr12&gt;bc</code>, <code>a${1}2bc</code> ergibt dagegen <code>a&lt;subexpr1&gt;2bc</code>.</li>
+        </ul>
+        <p>Beispiel:</p>
+        <p>Kehren wir das Datum <code>21.01.2018</code> &gt; <code>2018.01.21</code> um:<br>
+          &nbsp;&nbsp;suchen nach: <code>(\d{2})\.(\d{2})\.(\d{4})</code><br>
+          &nbsp;&nbsp;ersetzen durch: <code>$3.$2.$1</code></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-back">5.8. Metazeichen – Rückverweise</a></h2>
+        <p>Die Metazeichen <code>\1</code> bis <code>\9</code> werden als Rückverweise interpretiert. <code>\n</code> passt auf den zuvor gepassten Teilausdruck <code>n</code>.</p>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiele für Rückverweise</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(.)\1+</div></td>
+            <td class="hintcell">passt auf <code>aaaa</code> und <code>cc</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(.+)\1+</div></td>
+            <td class="hintcell">passt außerdem auf <code>abab</code> und <code>123123</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(['"]?)(\d+)\1</div></td>
+            <td class="hintcell">passt auf <code>"13"</code> (in doppelten Anführungszeichen), auf <code>'4'</code> (in einfachen Anführungszeichen) oder auf <code>77</code> (ohne Anführungszeichen) usw.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="meta-reset">5.9. Metazeichen – Zurücksetzen des Trefferbeginns</a></h2>
+        <p>Der Anfang des gemeldeten Treffers lässt sich mit <code>\K</code> festlegen.</p>
+        <p>Standardmäßig gilt der gesamte vom Muster erfasste Text als Treffer. Es ist jedoch möglich, ausdrücklich festzulegen, was gemeldet wird.</p>
+        <p>Das Muster <code>a\Kb</code> verlangt, dass der Text <code>ab</code> enthält. Gemeldet wird aber nur <code>b</code> als Treffer. In einem Muster kann es mehrere <code>\K</code> geben, das letzte legt die Anfangsposition des Treffers fest. Berücksichtigt werden nur <code>\K</code> in aktiven Teilen des Musters. Zum Beispiel berücksichtigt <code>a(\Kb)?</code> das <code>\K</code> nicht, wenn kein <code>b</code> vorhanden ist. Erfassungen können außerhalb des durch <code>\K</code> gesetzten Treffers liegen. Wenn zum Beispiel das Muster <code>(a)\Kb</code> auf <code>ab</code> passt, ist der erste Teilausdruck weiterhin auf <code>a</code> gesetzt.</p>
+        <p>Wird es in anderen Konstrukten verwendet, die außerhalb des gemeldeten Treffers gelten können (wie die Vorausschau), muss die von <code>\K</code> markierte Position vor oder am gemeldeten Ende des Treffers liegen. Wird die Position später markiert, gilt der Treffer als fehlgeschlagen.</p>
+        <p><code>\K</code> ähnelt ein wenig einer Rückschau. Anders als bei einer Rückschau muss der Teil des Musters vor dem <code>\K</code> hinter der Startposition des Vergleichs liegen, wenn das Muster ab einer versetzten Position im Text angewendet wird.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="look">6. Zusicherungen (Vorausschau und Rückschau)</a></h2>
+        <p>Positive Vorausschau: <code>foo(?=bar)</code> passt auf <code>foo</code> nur vor <code>bar</code>, und <code>bar</code> gehört nicht zum Treffer.</p>
+        <p>Negative Vorausschau: <code>foo(?!bar)</code> passt auf <code>foo</code> nur, wenn darauf nicht <code>bar</code> folgt.</p>
+        <p>Positive Rückschau: <code>(?&lt;=foo)bar</code> passt auf <code>bar</code> nur nach <code>foo</code>, und <code>foo</code> gehört nicht zum Treffer.</p>
+        <p>Negative Rückschau: <code>(?&lt;!foo)bar</code> passt auf <code>bar</code> nur, wenn ihm nicht <code>foo</code> vorangestellt ist.</p>
+        <p>Einschränkungen:</p>
+        <ul>
+          <li><p>Rückschauen variabler Länge dürfen keine Erfassungsgruppen enthalten.</p></li>
+          <li><p>Rückschauen variabler Länge können langsam sein, wenn sie nicht passen.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="noncapt">7. Nicht-erfassende Gruppen</a></h2>
+        <p>Syntax: <code>(?:expr)</code>.</p>
+        <p>Solche Gruppen haben keinen „Index“ und sind für Rückverweise unsichtbar. Nicht-erfassende Gruppen werden verwendet, wenn Sie einen Teilausdruck gruppieren möchten, ihn aber nicht als übereinstimmenden bzw. erfassten Teil der Zeichenkette speichern möchten. Nicht-erfassende Gruppen können die Arbeit eines regulären Ausdrucks beschleunigen.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Nicht-erfassende Gruppen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(https?|ftp)://([^/\r\n]+)</div></td>
+            <td class="hintcell">passt in <code>https://doublecmd.sourceforge.io</code> auf <code>https</code> und <code>doublecmd.sourceforge.io</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(?:https?|ftp)://([^/\r\n]+)</div></td>
+            <td class="hintcell">passt in <code>https://doublecmd.sourceforge.io</code> nur auf <code>doublecmd.sourceforge.io</code></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="agroups">8. Atomare Gruppen</a></h2>
+        <p>Syntax: <code>(?&gt;expr|expr|...)</code>.</p>
+        <p>Atomare Gruppen sind ein Sonderfall nicht-erfassender Gruppen: Diese Gruppierung schaltet die Rückverfolgung für eine geklammerte Gruppe ab, wenn ein Teil des Musters bereits gefunden wurde. Eine atomare Gruppe arbeitet schneller und ist nützlich, wenn Gruppen mit vielen verschiedenen Ausdrücken optimiert werden.</p>
+        <p>Zum Beispiel passt <code>a(bc|b)c</code> auf <code>abcc</code> und <code>abc</code>, <code>a(?&gt;bc|b)c</code> passt auf <code>abcc</code>, aber nicht auf <code>abc</code>, weil die Engine die Rückverfolgung nicht ausführen und die Gruppe nicht als <code>b</code> setzen darf.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="recursion">9. Rekursion</a></h2>
+        <p>Die Syntax ist <code>(?R)</code>, der Alias ist <code>(?0)</code>.</p>
+        <p>Der reguläre Ausdruck <code>a(?R)?z</code> passt auf einen oder mehrere Buchstaben <code>a</code>, gefolgt von genau derselben Anzahl Buchstaben <code>z</code>.</p>
+        <p>Der Hauptzweck der Rekursion ist es, ausgewogene oder verschachtelte Konstrukte zu treffen. Der allgemeine reguläre Ausdruck ist <code>b(?:m|(?R))*e</code>, wobei <code>b</code> das ist, was das Konstrukt beginnt, <code>m</code> das, was in der Mitte des Konstrukts vorkommen kann, und <code>e</code> das, was am Ende des Konstrukts steht.</p>
+        <p>Wenn das, was in der Mitte des ausgewogenen Konstrukts erscheinen kann, auch für sich allein ohne den Anfangs- und den Endteil vorkommen kann, lautet der allgemeine reguläre Ausdruck <code>b(?R)*e|m</code>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="unicode">10. Unicode-Kategorien</a></h2>
+        <p>Der Unicode-Standard hat Namen für Zeichenkategorien. Das sind Zeichenketten aus zwei Buchstaben. Zum Beispiel steht <code>Lu</code> für Großbuchstaben und <code>Ll</code> für Kleinbuchstaben. Und die größere Kategorie aus einem Buchstaben <code>L</code> steht für alle Buchstaben.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Unicode-Kategorien</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Kategorie</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">L</div></td><td class="hintcell">Buchstabe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lu</div></td><td class="hintcell">Großbuchstabe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Ll</div></td><td class="hintcell">Kleinbuchstabe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lt</div></td><td class="hintcell">Titelbuchstabe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lm</div></td><td class="hintcell">Modifizierender Buchstabe</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Lo</div></td><td class="hintcell">Sonstiger Buchstabe</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">M</div></td><td class="hintcell">Markierung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Mn</div></td><td class="hintcell">Nichtabstandsmarkierung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Mc</div></td><td class="hintcell">Abstandskombinierende Markierung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Me</div></td><td class="hintcell">Umschließende Markierung</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">N</div></td><td class="hintcell">Zahl</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Nd</div></td><td class="hintcell">Dezimalziffer</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Nl</div></td><td class="hintcell">Buchstabenzahl</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">No</div></td><td class="hintcell">Sonstige Zahl</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">P</div></td><td class="hintcell">Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pc</div></td><td class="hintcell">Verbindende Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pd</div></td><td class="hintcell">Strich-Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Ps</div></td><td class="hintcell">Öffnende Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pe</div></td><td class="hintcell">Schließende Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pi</div></td><td class="hintcell">Einleitende Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Pf</div></td><td class="hintcell">Abschließende Interpunktion</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Po</div></td><td class="hintcell">Sonstige Interpunktion</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">S</div></td><td class="hintcell">Symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sm</div></td><td class="hintcell">Mathematisches Symbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sc</div></td><td class="hintcell">Währungssymbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Sk</div></td><td class="hintcell">Modifikatorsymbol</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">So</div></td><td class="hintcell">Sonstiges Symbol</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Z</div></td><td class="hintcell">Trennzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Zs</div></td><td class="hintcell">Leerzeichen-Trennzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Zl</div></td><td class="hintcell">Zeilentrennzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Zp</div></td><td class="hintcell">Absatztrennzeichen</td></tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">C</div></td><td class="hintcell">Sonstiges</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cc</div></td><td class="hintcell">Steuerzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cf</div></td><td class="hintcell">Formatzeichen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cs</div></td><td class="hintcell">Surrogat</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Co</div></td><td class="hintcell">Privater Gebrauch</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">Cn</div></td><td class="hintcell">Nicht zugewiesen</td></tr>
+        </table>
+        <p>Das Metazeichen <code>\p</code> bezeichnet ein Unicode-Zeichen der angegebenen Kategorie. Syntax: <code>\pL</code> und <code>\p{L}</code> für einen Namen aus einem Buchstaben, <code>\p{Lu}</code> für Namen aus zwei Buchstaben.</p>
+        <p>Das Metazeichen <code>\P</code> ist invertiert und bezeichnet ein Unicode-Zeichen, das nicht in der angegebenen Kategorie liegt.</p>
+        <p>Diese Metazeichen werden auch innerhalb von Zeichenklassen unterstützt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="modifiers">11. Modifikatoren</a></h2>
+        <p>Syntax für einen Modifikator: <code>(?i)</code> zum Einschalten und <code>(?-i)</code> zum Ausschalten. Mehrere Modifikatoren sind so erlaubt: <code>(?msgxr-imsgxr)</code>.</p>
+        <p>Modifikatoren ändern das Verhalten regulärer Ausdrücke. Ein Modifikator wirkt nur auf den Teil des regulären Ausdrucks, der auf den Operator <code>(?imsgxr-imsgxr)</code> folgt.</p>
+        <p>Jeder dieser Modifikatoren kann in den regulären Ausdruck selbst eingebettet werden. Ist ein Modifikator in einen Teilausdruck eingesetzt, wirkt er nur in diesem Teilausdruck. Modifikatoren können auch Teil einer nicht-erfassenden Gruppe sein: <code>(?i:expr)</code>.</p>
+        <dl>
+          <dt><tt>i</tt></dt>
+          <dd>Führt den Mustervergleich ohne Unterscheidung der Groß-/Kleinschreibung durch (anhand der auf Ihrem System installierten Locale-Einstellungen). Standardmäßig ausgeschaltet.</dd>
+          <dt><tt>m</tt></dt>
+          <dd>Behandelt die Zeichenkette als mehrere Zeilen. Das heißt, <code>^</code> und <code>$</code> passen nicht mehr nur ganz am Anfang oder Ende der Zeichenkette, sondern am Anfang oder Ende jeder Zeile an beliebiger Stelle innerhalb der Zeichenkette, siehe auch <a href="#meta-line">Zeilentrennzeichen</a>. Standardmäßig ausgeschaltet.</dd>
+          <dt><tt>s</tt></dt>
+          <dd>Behandelt die Zeichenkette als eine einzige Zeile. Das heißt, <code>.</code> passt auf jedes beliebige Zeichen, auch auf ein Zeilentrennzeichen (siehe auch <a href="#meta-line">Zeilentrennzeichen</a>), auf das es normalerweise nicht passen würde. Standardmäßig eingeschaltet.</dd>
+          <dt><tt>g</tt></dt>
+          <dd>Nicht standardisierter Modifikator. Wenn Sie ihn ausschalten, schalten Sie alle folgenden Operatoren in den nicht gierigen Modus (standardmäßig ist dieser Modifikator eingeschaltet). Wenn der Modifikator <code>g</code> also ausgeschaltet ist, wirkt <code>+</code> wie <code>+?</code>, <code>*</code> wie <code>*?</code> und so weiter.</dd>
+          <dt><tt>x</tt></dt>
+          <dd>Erhöht die Lesbarkeit Ihres Musters, indem Leerraum und Kommentare erlaubt werden (siehe die Erklärung unten). Standardmäßig ausgeschaltet.</dd>
+          <dt><tt>r</tt></dt>
+          <dd>Nicht standardisierter Modifikator. Wenn er gesetzt ist, umfasst der Bereich <code>а-я</code> zusätzlich den russischen Buchstaben <code>ё</code>, <code>А-Я</code> zusätzlich <code>Ё</code>, und <code>а-Я</code> das gesamte russische Alphabet. Standardmäßig eingeschaltet.</dd>
+          <dt><tt>#</tt></dt>
+          <dd><tt>(?#text)</tt>: Ein Kommentar, der <code>text</code> wird ignoriert. Beachten Sie, dass TRegExpr den Kommentar schließt, sobald es ein <code>)</code> sieht. Es gibt deshalb keine Möglichkeit, ein wörtliches <code>)</code> in den Kommentar zu setzen.</dd>
+        </dl>
+        <p>Hier einige Beispiele:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Beispiele für Perl-Erweiterungen</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Ausdruck</th><th class="categorydesccolumn">Ergebnis</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(?i)Saint-Petersburg</div></td>
+            <td class="hintcell">passt auf <code>Saint-petersburg</code> und <code>Saint-Petersburg</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(?i)Saint-(?-i)Petersburg</div></td>
+            <td class="hintcell">passt auf <code>Saint-Petersburg</code>, aber nicht auf <code>Saint-petersburg</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">(?i)(Saint-)?Petersburg</div></td>
+            <td class="hintcell">passt auf <code>Saint-petersburg</code> und <code>saint-petersburg</code></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">((?i)Saint-)?Petersburg</div></td>
+            <td class="hintcell">passt auf <code>saint-Petersburg</code>, aber nicht auf <code>saint-petersburg</code></td>
+          </tr>
+        </table>
+        <br>
+        <p>Der Modifikator <code>x</code> braucht selbst eine etwas ausführlichere Erklärung.</p>
+        <p>Er weist an, Leerraum zu ignorieren, der weder mit einem Rückwärtsschrägstrich maskiert noch innerhalb einer Zeichenklasse steht.</p>
+        <p>Damit können Sie Ihren regulären Ausdruck in (etwas) besser lesbare Teile zerlegen.</p>
+        <p>Das Zeichen <code>#</code> wird außerdem als Metazeichen behandelt, das einen Kommentar einleitet, zum Beispiel:</p>
+        <pre class="code">
+(
+  (abc) # comment 1
+    |   # You can use spaces to format r.e. - TRegExpr ignores it
+  (efg) # comment 2
+)</pre>
+        <p>Das bedeutet auch: Wenn Sie echten Leerraum oder Zeichen <code>#</code> im Muster haben möchten (außerhalb einer Zeichenklasse, wo sie von <code>x</code> nicht beeinflusst werden), müssen Sie sie entweder maskieren oder mit hexadezimalen Escape-Sequenzen kodieren.</p>
+        <p>Zusammengenommen tragen diese Möglichkeiten erheblich dazu bei, den Text regulärer Ausdrücke besser lesbar zu machen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="cmds.html">Zurück</a> | <a title="Nächste Seite" href="lua.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

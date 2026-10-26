@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Werkzeugleisten</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="multiarc.html">Zurück</a> | <a title="Nächste Seite" href="variables.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.11. Werkzeugleiste</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#toolbardefinition">Was die Werkzeugleiste ist und wie sie verwendet werden kann</a></dt>
+          <dt>2. <a href="#toolbarshowit">Wie sie angezeigt wird</a></dt>
+          <dt>3. <a href="#toolbarelementlist">Was die Werkzeugleiste enthalten kann</a></dt>
+          <dt>4. <a href="#toolbarconfig">Wie die Werkzeugleiste konfiguriert wird</a></dt>
+          <dt>5. <a href="#toolbardescription">Beschreibung der Elemente</a></dt>
+          <dd>
+            <dl>
+              <dd>5.1. <a href="#catseparator">Trennzeichen</a></dd>
+              <dd>5.2. <a href="#catinternal">Interner Befehl</a></dd>
+              <dd>5.3. <a href="#catexternal">Externer Befehl</a></dd>
+              <dd>5.4. <a href="#catmenu">Menü</a></dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="toolbardefinition">1. Was die Werkzeugleiste ist und wie sie verwendet werden kann</a></h2>
+        <p>Wer intensiv mit einem Dateimanager mit zwei Panels wie Double Commander arbeitet, kommt irgendwann an den Punkt, an dem es nützlicher ist, die Anwendung, die wir verwenden, direkt aus unserem Dateimanager zu starten, statt eine Verknüpfung auf dem Desktop, in einer Taskleiste oder in einem Startmenü aufzusuchen.</p>
+        <p>Das gilt besonders für Aufgaben, die wir oft erledigen.</p>
+        <p>Die Werkzeugleiste soll es jedem ermöglichen, Schaltflächen in einer Leiste für Funktionen anzupassen, die wir oft benötigen.</p>
+        <p>Double Commander bietet außerdem zahlreiche mögliche Parameter an, die auf den aktuell angezeigten oder ausgewählten Dateien beruhen, damit wir sie der zu startenden Anwendung als Parameter übergeben können.</p>
+        <p>Es folgt die Standard-Werkzeugleiste von DC, die nach einer Standardinstallation über den Dateipanels angezeigt wird. Keine Sorge: Sie können sie so einrichten, wie es Ihren Anforderungen und Ihrem Geschmack entspricht.</p>
+        <p class="figure"><img class="largeimage" title="Beispiel einer Werkzeugleiste" alt="Beispiel einer Werkzeugleiste" src="../en/images/imgDC/toolbarsample.png" width="756" height="38"></p>
+        <p>Es gibt außerdem die mittlere Werkzeugleiste, sie liegt zwischen den Dateipanels. Die Möglichkeiten und der Ablauf der Konfiguration der mittleren Werkzeugleiste entsprechen denen der Hauptwerkzeugleiste.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarshowit">2. Wie sie angezeigt wird</a></h2>
+        <p>Ob die Werkzeugleiste angezeigt wird, hängt davon ab, was in den Konfigurationseinstellungen <a href="#ConfigLayout">Layout</a> festgelegt ist.</p>
+        <p>Zum Aktivieren stellen wir lediglich sicher, dass wir die Option <span class="italic">Werkzeugleiste anzeigen</span> gesetzt haben.</p>
+        <p class="figure"><img class="largeimage" title="Werkzeugleiste anzeigen" alt="Werkzeugleiste anzeigen" src="../en/images/imgDC/toolbarshowit.png" width="640" height="165"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarelementlist">3. Was die Werkzeugleiste enthalten kann</a></h2>
+        <p>Hier ist eine Tabelle dessen, was eine Werkzeugleiste enthalten kann.</p>
+        <table class="category">
+          <tr class="rowcategorytable"><th colspan="2">Mögliche Elemente in einer Werkzeugleiste</th></tr>
+          <tr class="rowcategorysubtitle"><th class="categorynamecolumn">Elemente</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catseparator">Trennzeichen</a></div></td>
+            <td class="categorydesc">Senkrechter Strich, der uns hilft, ähnliche Funktionen und/oder einen ähnlichen Zusammenhang zu gruppieren.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catinternal">Interner Befehl</a></div></td>
+            <td class="categorydesc">Ruft einen internen Befehl von Double Commander auf.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catexternal">Externer Befehl</a></div></td>
+            <td class="categorydesc">Startet eine externe Anwendung, eine Programmdatei, ein Skript und Ähnliches.</td>
+          </tr>
+          <tr>
+            <td class="categorycell"><div class="categoryname"><a href="#catmenu">Menü</a></div></td>
+            <td class="categorydesc">Konfiguriert weitere Elemente der Werkzeugleiste, die als Aufklappmenü der Hauptwerkzeugleiste angezeigt werden.</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="toolbarconfig">4. Wie die Werkzeugleiste konfiguriert wird</a></h2>
+        <p>Um festzulegen, was in unserer Werkzeugleiste vorhanden sein soll, müssen wir sie konfigurieren.</p>
+        <p>Wir können selbstverständlich zur Hauptkonfiguration von Double Commander gehen, in der linken Spalte blättern und „Werkzeugleiste“ auswählen, dann haben wir Zugriff darauf.</p>
+        <p class="figure"><img class="largeimage" title="Konfiguration der Werkzeugleiste" alt="Konfiguration der Werkzeugleiste" src="../en/images/imgDC/toolbarconfig1.png" width="646" height="156"></p>
+        <p>Der andere schnelle Weg zur Konfiguration ist ein Rechtsklick in einen leeren Bereich der Werkzeugleiste und die Auswahl von <span class="italic">Bearbeiten</span>.</p>
+        <p class="figure"><img class="largeimage" title="Konfiguration der Werkzeugleiste" alt="Konfiguration der Werkzeugleiste" src="../en/images/imgDC/toolbarconfig2.png" width="200" height="72"></p>
+        <p>Wenn wir uns mit der Werkzeugleiste vertraut machen, klicken wir wahrscheinlich auch direkt mit der rechten Maustaste auf eine Schaltfläche der Werkzeugleiste, um nicht nur den Editor der Werkzeugleiste zu öffnen, sondern sofort die zugehörige Aktion der Schaltfläche zu bearbeiten, auf die wir mit der rechten Maustaste geklickt haben.</p>
+        <p class="figure"><img class="largeimage" title="Konfiguration der Werkzeugleiste" alt="Konfiguration der Werkzeugleiste" src="../en/images/imgDC/toolbarconfig3.png" width="618" height="254"></p>
+        <p>Außerdem ermöglicht das Kontextmenü, die ausgewählte Schaltfläche zu löschen, sie in die Zwischenablage auszuschneiden oder zu kopieren oder eine Schaltfläche aus der Zwischenablage einzufügen.</p>
+        <p>Wir können die Reihenfolge der Werkzeugleistenelemente auch ändern, ohne das Einstellungsfenster zu öffnen: Double Commander unterstützt das Ziehen von Schaltflächen mit der Maus bei gedrückter Taste <kbd>Shift</kbd>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="catseparator">5.1. Beschreibung der Elemente – Trennzeichen</a></h2>
+        <p>Das Trennzeichen hat keine eigentliche Funktion, es dient nur der übersichtlichen Gestaltung. Es kann Schaltflächengruppen trennen, damit zusammengehörige Aktionen beieinanderstehen.</p>
+        <p>Die folgenden Stile sind verfügbar:</p>
+        <ul>
+          <li><p><span class="italic">Trennzeichen</span>&nbsp;&ndash; ist einfach ein senkrechter Strich (waagerecht in der mittleren Werkzeugleiste).</p></li>
+          <li><p><span class="italic">Leerraum</span>&nbsp;&ndash; fügt einen leeren Zwischenraum ein, dessen Breite der Größe der Schaltfläche entspricht.</p></li>
+          <li><p><span class="italic">Zeilenumbruch</span>&nbsp;&ndash; alle folgenden Schaltflächen stehen in einer neuen Zeile der Werkzeugleiste.</p></li>
+        </ul>
+        <p>Das Menü verwendet immer das erste, unabhängig vom gewählten Stil.</p>
+        <p>Im folgenden Beispiel wurden Trennzeichen verwendet, um Funktionen zum Vergleichen zusammenzufassen, danach die zur Zwischenablage und so weiter.</p>
+        <p class="figure"><img class="largeimage" title="Beispiel eines Trennzeichens" alt="Beispiel eines Trennzeichens" src="../en/images/imgDC/toolbarseparator.png" width="420" height="192"></p>
+      </div>
+      <br>
+
+      <div>
+        <h2><a name="catinternal">5.2. Beschreibung der Elemente – Interner Befehl</a></h2>
+        <p>Die internen Befehle betreffen Aktionen, die Double Commander selbst ausführt und für die keine externe Anwendung aufgerufen werden muss.</p>
+        <p>Die Befehle sind sehr vielfältig. Siehe <a href="cmds.html">diese Seite</a>, auf der alle internen Befehle beschrieben sind.</p>
+        <p>Wenn wir zum Beispiel eine Schaltfläche der Werkzeugleiste zum Starten einer Suche möchten, wählen wir einfach den Befehl <tt>cm_Search</tt> aus der Auswahlliste der Befehle.</p>
+        <p>Wie wir im folgenden Bild sehen, können wir ein eigenes Symbol dafür wählen. In der Regel genügt es jedoch, den Befehl aus der Auswahlliste zu wählen, und der Befehl hat bereits ein zugehöriges internes Symbol.</p>
+        <p>Die Kurzinfo ist ebenfalls vorhanden, damit wir wenige leicht zu merkende Wörter eintragen können, die uns an die Aufgabe der Schaltfläche erinnern, wenn wir den Mauszeiger darüber bewegen.</p>
+        <p>Hier ist ein Beispiel mit dem Befehl <a href="cmds.html#cm_Search">cm_Search</a>:</p>
+        <p class="figure"><img class="largeimage" title="Beispiel eines internen Befehls ohne Parameter" alt="Beispiel eines internen Befehls ohne Parameter" src="../en/images/imgDC/toolbarinternal1.png" width="610" height="289"></p>
+        <p>Manche internen Befehle akzeptieren Parameter, um ihre Aktionen zu konfigurieren. Wenn das nötig ist, schreiben wir den Parameter einfach in das Parameterfeld: Die meisten Parameter müssen als <i>parameter=value</i> angegeben werden (sofern nichts anderes genannt ist), jeder in einer eigenen Zeile, ohne Anführungszeichen und ohne andere Arten, Sonderzeichen und Leerzeichen zu maskieren.</p>
+        <p>Im folgenden Beispiel verwenden wir den internen Befehl <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a> und geben zwei Parameter an, die festlegen, welches Verzeichnis in jedem Panel geladen und angezeigt werden soll.</p>
+        <p class="figure"><img class="largeimage" title="Beispiel eines internen Befehls mit Parametern" alt="Beispiel eines internen Befehls mit Parametern" src="../en/images/imgDC/toolbarinternal2.png" width="610" height="210"></p>
+      </div>
+      <br>
+
+      <div>
+        <h2><a name="catexternal">5.3. Beschreibung der Elemente – Externer Befehl</a></h2>
+        <p>Die externen Befehle betreffen Aktionen, für die ein externes Programm aufgerufen werden muss.</p>
+        <p>Für die externen Befehle können wir einige weitere Einstellungen vornehmen, mit denen wir genau festlegen, welchen Befehl wir starten möchten, in welchem Verzeichnis wir ihn starten möchten und welche Parameter wir dem Befehl bei Bedarf übergeben möchten.</p>
+        <p>Das Feld „Befehl“ ist nur für die Programmdatei bestimmt (so wie sie ist, ohne Anführungszeichen): Wir können den Dateinamen oder den Dateinamen mit dem vollständigen Pfad angeben, wir können auch <a href="variables.html#envvariables">Umgebungsvariablen</a> verwenden.</p>
+        <p>Bei den Parametern können wir Benutzervariablen wählen, die anhand der aktuell ausgewählten Datei des aktiven Panels und so weiter durch ihren tatsächlichen Wert ersetzt werden. Die Seite der möglichen Variablen, die als Parameter verwendet werden können, steht unter <a href="variables.html">diesem Link</a> (zu beachten ist die Verwendung von <a href="variables.html#quotation">Anführungszeichen</a>). Um einen Befehl im Terminal auszuführen, können wir die Variablen <a href="variables.html#executeterm">%t0 und %t1</a> verwenden.</p>
+        <p>Im folgenden Beispiel haben wir eine Schaltfläche der Werkzeugleiste eingerichtet, die die Anwendung GIMP startet. <code>%p</code> als Parameter bedeutet, dass beim Klick auf die Schaltfläche zum Starten von GIMP der vollständige Dateiname der aktuell ausgewählten Datei im aktiven Panel als Parameter übergeben wird, denn genau dafür steht <code>%p</code>.</p>
+        <p class="figure"><img class="largeimage" title="Beispiel eines externen Befehls" alt="Beispiel eines externen Befehls" src="../en/images/imgDC/toolbarexternal.png" width="610" height="229"></p>
+        <p>Wenn wir das Arbeitsverzeichnis nicht ausdrücklich angeben müssen, können wir das Feld „Startpfad“ leer lassen. In diesem Fall ist das Arbeitsverzeichnis das aktuelle Verzeichnis des aktiven Dateipanels. Hier können wir die Variable <a href="variables.html#pathpanel">%D</a>, <a href="variables.html#basicvar">%d</a> oder <a href="variables.html#envvariables">Umgebungsvariablen</a> verwenden.</p>
+      </div>
+      <br>
+
+      <div>
+        <h2><a name="catmenu">5.4. Beschreibung der Elemente – Menü</a></h2>
+        <p>Wenn wir viele Schaltflächen der Werkzeugleiste konfigurieren, kann uns der Platz ausgehen, um alle unsere Schaltflächen in derselben waagerechten Zeile unterzubringen.</p>
+        <p>Damit wir weitere Schaltflächen hinzufügen können, können wir einen besonderen Schaltflächentyp hinzufügen, der unter der Schaltfläche ein Aufklappmenü erscheinen lässt und uns Zugang zu etwas Ähnlichem wie einer Werkzeugleiste aus Schaltflächen verschafft, dargestellt als Aufklappmenü.</p>
+        <p>Siehe das folgende Beispiel, in dem wir einen Schaltflächentyp „Menü“ hinzugefügt haben.</p>
+        <p>Dadurch erscheint darunter eine neue Unterwerkzeugleiste, die wir nach Bedarf mit neuen Schaltflächen für verschiedene Aufgaben füllen können.</p>
+        <p>Dieses Beispiel zeigt uns auch, dass es helfen kann, Schaltflächen zu gruppieren, die zu denselben Projekten und denselben Bereichen gehören.</p>
+        <p>In diesem Beispiel enthält die Unterwerkzeugleiste Funktionen zu verschiedenen Arten von Betriebssystemen, die in virtuellen Maschinen installiert sind.</p>
+        <p class="figure"><img class="largeimage" title="Beispiel eines Menüs" alt="Beispiel eines Menüs" src="../en/images/imgDC/toolbarmenu.png" width="610" height="318"></p>
+        <p>Unten ist dargestellt, wie die konfigurierte Unterwerkzeugleiste in der Anwendung erscheint:</p>
+        <p class="figure"><img class="largeimage" title="Beispiel eines Aufklappmenüs" alt="Beispiel eines Aufklappmenüs" src="../en/images/imgDC/toolbarmenudrop.png" width="250" height="342"></p>
+        <p>Die so konfigurierte Unterwerkzeugleiste kann dieselben Schaltflächentypen enthalten, die zuvor vorgestellt wurden.</p>
+        <p>Wir können sogar eine Unterwerkzeugleiste innerhalb einer Unterwerkzeugleiste haben und so weiter.</p>
+        <p>In der Anwendung wird das einfach als Untermenü eines Menüelements angezeigt.</p>
+        <p>Unten steht ein Beispiel:</p>
+        <p class="figure"><img class="largeimage" title="Beispiel einer Werkzeugleiste in einer Werkzeugleiste" alt="Beispiel einer Werkzeugleiste in einer Werkzeugleiste" src="../en/images/imgDC/toolbarinbar.png" width="732" height="558"></p>
+      </div>
+
+      <div>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="multiarc.html">Zurück</a> | <a title="Nächste Seite" href="variables.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

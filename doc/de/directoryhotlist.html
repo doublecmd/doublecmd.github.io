@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Verzeichnis-Favoriten</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="viewer.html">Zurück</a> | <a title="Nächste Seite" href="multiarc.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.9. Verzeichnis-Favoriten</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#intro">Einführung</a></dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#definition">Definition</a></dt>
+              <dt>1.2. <a href="#overview">Überblick</a></dt>
+            </dl>
+          </dd>
+
+          <dt>2. <a href="#usage">Verwendung der Verzeichnis-Favoriten</a></dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#access">So greifen Sie auf die Verzeichnis-Favoriten zu</a></dt>
+              <dt>2.2. <a href="#otheraccess">Eine weitere Möglichkeit, auf die Verzeichnis-Favoriten zuzugreifen</a></dt>
+              <dt>2.3. <a href="#configure">So konfigurieren Sie die Verzeichnis-Favoriten</a></dt>
+              <dt>2.4. <a href="#otherconfigure">Weitere Möglichkeiten, die Konfiguration der Verzeichnis-Favoriten zu öffnen</a></dt>
+              <dt>2.5. <a href="#addentry">So fügen Sie ein Verzeichnis zu den Verzeichnis-Favoriten hinzu</a></dt>
+              <dt>2.6. <a href="#personalize">Einen neu hinzugefügten Eintrag in den Verzeichnis-Favoriten anpassen</a></dt>
+              <dt>2.7. <a href="#settarget">Auch das Ziel festlegen</a></dt>
+              <dt>2.8. <a href="#definesort">Die Sortierreihenfolge nach dem Verzeichniswechsel festlegen</a></dt>
+              <dt>2.9. <a href="#helperpath">Helfer bei Pfad- und Zielangabe</a></dt>
+              <dt>2.10. <a href="#changeorder">Die Reihenfolge der Einträge ändern</a></dt>
+              <dt>2.11. <a href="#cutandpaste">„Ausschneiden“ und „Einfügen“ zum Umordnen verwenden</a></dt>
+              <dt>2.12. <a href="#organizetree">Einträge in einer Baumansicht organisieren</a></dt>
+              <dt>2.13. <a href="#addseperator">Trennlinien zur besseren Übersicht hinzufügen</a></dt>
+              <dt>2.14. <a href="#sorting">Die Einträge sortieren</a></dt>
+            </dl>
+          </dd>
+
+          <dt>3. <a href="#expert">„Experten“-Funktionen</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#backup">Sichern und aus einer Sicherung wiederherstellen</a></dt>
+              <dt>3.2. <a href="#exportimportsimple">Eine Verzeichnis-Favoritenliste (oder einen Teil davon) exportieren/importieren</a></dt>
+              <dt>3.3. <a href="#exportimporttc">Nach/von Total Commander exportieren/importieren</a></dt>
+              <dt>3.4. <a href="#scanpresence">Die Verzeichnis-Favoriten durchsuchen, um fehlende Verzeichnisse zu finden</a></dt>
+              <dt>3.5. <a href="#addingmanyatthetime">Mehr als ein Verzeichnis auf einmal zur Favoritenliste hinzufügen</a></dt>
+              <dt>3.6. <a href="#notthetarget">Kein Wechsel im inaktiven Rahmen, auch wenn ein Ziel konfiguriert ist</a></dt>
+              <dt>3.7. <a href="#directconfig">Einen Eintrag direkt aus dem Aufklappmenü konfigurieren</a></dt>
+              <dt>3.8. <a href="#showpopup">Vollständigen Pfad im Aufklappmenü anzeigen</a></dt>
+              <dt>3.9. <a href="#smartenv">Nur Umgebungsvariablen behalten, die wie ein Verzeichnis aussehen</a></dt>
+            </dl>
+          </dd>
+
+          <dt>4. <a href="#otherfunctions">Weitere Funktionen</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="intro">1. Einführung</a></h2>
+        <p>Einführung in die Verzeichnis-Favoriten</p>
+      </div>
+
+      <div>
+        <h2><a name="definition">1.1. Definition</a></h2>
+        <p>Eine Verzeichnis-Favoritenliste ist eine nutzbare Liste der Verzeichnisse, die Sie am häufigsten verwenden.</p>
+        <p>Sie erzeugt nichts auf dem Datenträger, sie ist einfach eine Liste von Verknüpfungen, um schnell auf die „heißen“ Verzeichnisse zuzugreifen.</p>
+        <p>Wenn Sie darüber zu einem Verzeichnis springen, müssen Sie nicht ständig wie ein Affe von einem Ast zum anderen im Baum hüpfen.</p>
+        <p>Auch für die wichtigen Verzeichnisse, die Sie nicht vergessen wollen, ist es gut, einen Bereich mit Verknüpfungen dorthin zu haben.</p>
+        <p>Selbst wenn Sie sie nicht oft öffnen, sparen Sie Zeit, wenn Sie sie brauchen, weil Sie nicht danach suchen müssen.</p>
+        <p>Double Commander erlaubt, ein Verzeichnis im lokalen Dateisystem, einen Netzwerkpfad oder ein WFX-Plugin anzugeben (als „wfx://PluginName“).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="overview">1.2. Überblick</a></h2>
+        <p>Vom Hauptpanel aus können Sie die Verzeichnis-Favoriten als Aufklappmenü sehen.</p>
+        <p>Klicken Sie auf einen der Einträge, und Sie gelangen sofort zum zugehörigen, festgelegten Verzeichnis.</p>
+        <p>Sie müssen nicht von Ordner zu Ordner wechseln, um dieses Ziel zu erreichen.</p>
+        <p class="figure"><img class="largeimage" title="Überblick" alt="Überblick" src="../en/images/imgDC/dirhotoverview.png" width="792" height="218"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="usage">2. Verwendung der Verzeichnis-Favoriten</a></h2>
+        <p>Im Folgenden die üblichen Aktionen im Zusammenhang mit der Favoritenliste</p>
+      </div>
+
+      <div>
+        <h2><a name="access">2.1. So greifen Sie auf die Verzeichnis-Favoriten zu</a></h2>
+        <p>
+          In der Menüleiste wählen Sie „<b>Befehle</b>“ und dann „<b>Verzeichnis-Favoriten</b>“.<br>
+          Es erscheint als Aufklappmenü. Sie klicken den Eintrag an, und es bringt Sie zu dem Verzeichnis, das der von Ihnen festgelegte Eintrag definiert.
+        </p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="otheraccess">2.2. Eine weitere Möglichkeit, auf die Verzeichnis-Favoriten zuzugreifen</a></h2>
+        <ul>
+          <li><p>Sie können auf die Schaltfläche mit einem Stern oben rechts im aktiven Dateipanel klicken.</p></li>
+          <li><p>Sie können eine Schaltfläche in der Werkzeugleiste hinzufügen, die dem internen Befehl <a href="cmds.html#cm_DirHotList">cm_DirHotList</a> zugeordnet ist.</p></li>
+          <li><p>Sie können <a href="configuration.html#ConfigHotKeys">ein Tastenkürzel festlegen</a> für den Befehl <tt>cm_DirHotList</tt> (standardmäßig <kbd>Ctrl+D</kbd>).</p></li>
+          <li><p>Sie können einen Doppelklick oder einen Klick mit der mittleren Maustaste auf der Leiste des aktuellen Verzeichnisses der aktiven Registerkarte verwenden.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="configure">2.3. So konfigurieren Sie die Verzeichnis-Favoriten</a></h2>
+        <p>In der Menüleiste können Sie „<b>Konfiguration</b>“ und dann „<b>Verzeichnis-Favoriten</b>“ wählen.</p>
+        <p>Der Baum, den Sie dort sehen, zeigt dasselbe wie die Verzeichnis-Favoriten als Aufklappmenü im Hauptpanel.</p>
+        <p>Statt es als Aufklappmenü zu sehen, sehen Sie es als Baum mit vielen Funktionen zum Bearbeiten, Verschieben usw., wie Sie in diesem Hilfedokument sehen können.</p>
+        <p class="figure"><img class="largeimage" title="Konfiguration" alt="Konfiguration" src="../en/images/imgDC/dirhotconfigure.png" width="886" height="598"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="otherconfigure">2.4. Weitere Möglichkeiten, die Konfiguration der Verzeichnis-Favoriten zu öffnen</a></h2>
+        <ul>
+          <li><p>Am unteren Ende des Aufklappmenüs der Verzeichnis-Favoriten gibt es immer eine Menüverknüpfung, die Sie zum Konfigurationsfenster der Verzeichnis-Favoriten bringt.</p></li>
+          <li><p>Sie können eine Werkzeugschaltfläche mit dem internen Befehl <a href="cmds.html#cm_ConfigDirHotList">cm_ConfigDirHotList</a> hinzufügen.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addentry">2.5. So fügen Sie ein Verzeichnis zu den Verzeichnis-Favoriten hinzu</a></h2>
+        <p>Der einfachste Weg ist dieser:</p>
+        <ul>
+          <li>1. Wechseln Sie im aktiven Panel in das Verzeichnis, das Sie hinzufügen wollen.</li>
+          <li>2. Lassen Sie dann die Verzeichnis-Favoriten erscheinen (zum Beispiel über das Menü „<b>Befehle</b>“&nbsp;&gt; „<b>Verzeichnis-Favoriten</b>“).</li>
+          <li>3. Klicken Sie dann auf „<b>Aktuelles Verzeichnis hinzufügen: Ihr_Verzeichnisname</b>“.</li>
+          <li>4. Danach zeigt es Ihnen das Konfigurationsfenster der Verzeichnis-Favoriten und bestätigt, dass das Verzeichnis hinzugefügt wurde.</li>
+          <li>5. Der Fokus liegt darauf, damit Sie erkennen, welcher Eintrag es ist.</li>
+        </ul>
+        <p class="figure"><img class="largeimage" title="Einen Eintrag hinzufügen" alt="Einen Eintrag hinzufügen" src="../en/images/imgDC/dirhotaddentry.png" width="764" height="344"></p>
+        <p>Später werden wir sehen, dass es noch viele weitere Möglichkeiten gibt, einen Eintrag zu den Verzeichnis-Favoriten hinzuzufügen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="personalize">2.6. Den neu hinzugefügten Eintrag in den Verzeichnis-Favoriten anpassen</a></h2>
+        <p>Standardmäßig ist beim Hinzufügen eines Verzeichnisses zu den Verzeichnis-Favoriten der Eintragsname der Name des letzten Verzeichnisses.</p>
+        <p>Wenn Sie wollen, können Sie ihn umbenennen. Wählen Sie einfach das Feld „<b>Name</b>“ und geben Sie einen leicht zu merkenden Bezugsnamen ein.</p>
+        <p>In diesem Beispiel heißt der Ordner „doc“, der dem Eintrag gegebene Name aber „Documentation“.</p>
+        <p>So sehen Sie ihn auch im Aufklappmenü der Verzeichnis-Favoriten.</p>
+        <p class="figure"><img class="largeimage" title="Anpassung" alt="Anpassung" src="../en/images/imgDC/dirhotpersonalize.png" width="764" height="464"></p>
+        <p>Das Und-Zeichen „&amp;“ in einem Namen hat eine besondere Bedeutung. Wir können es verwenden, um ein Verzeichnis im Menü schnell mit der Tastatur auszuwählen: Wir setzen einfach ein Und-Zeichen vor einen der Buchstaben. Um dieses Zeichen unverändert zu verwenden, müssen wir es verdoppeln („&amp;&amp;“).</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="settarget">2.7. Auch das Ziel festlegen</a></h2>
+        <p>Sie können nicht nur das Verzeichnis hinzufügen, zu dem gewechselt wird, sondern auch das „<b>Zielverzeichnis</b>“ wählen, das sich im inaktiven Panel des Hauptfensters befindet.</p>
+        <p>Bei häufig wiederkehrenden Aktionen, wenn Sie etwas aus Verzeichnis „A“ nach Verzeichnis „B“ kopieren müssen, wählen Sie den Eintrag einfach im Menü der Verzeichnis-Favoriten, ganz gleich, in welchem Ordner Sie vorher waren. Beide Seiten werden auf die festgelegten Verzeichnisse gesetzt und sind bereit für die Aktion.</p>
+        <p>Um das Zielverzeichnis festzulegen, das beim Auswählen des Eintrags der Verzeichnis-Favoriten verwendet wird, setzen Sie einfach das Feld „<b>Ziel</b>“.</p>
+        <p>Das folgende Beispiel zeigt „Verzeichnis A“ mit „Verzeichnis B“ als Ziel, wie hier vorgeschlagen.</p>
+        <p class="figure"><img class="largeimage" title="Das Ziel festlegen" alt="Das Ziel festlegen" src="../en/images/imgDC/dirhotsettarget.png" width="802" height="308"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="definesort">2.8. Die Sortierreihenfolge nach dem Verzeichniswechsel festlegen</a></h2>
+        <p>Am Ende der Felder „<b>Pfad</b>“ und „<b>Ziel</b>“ eines Eintrags gibt es ein Aufklappfeld.</p>
+        <p>Verwenden Sie dieses Aufklappfeld, wenn Sie vorgeben wollen, welche Sortierreihenfolge das Panel beim Auswählen des Eintrags der Verzeichnis-Favoriten haben soll.</p>
+        <p>Wenn Sie es auf „<b>Datum 9-0</b>“ setzen, verschiebt die Verwendung der Verzeichnis-Favoriten nicht nur den aktiven Pfad auf den festgelegten, sondern sortiert das Panel unabhängig von der vorherigen Sortierung in umgekehrter chronologischer Reihenfolge.</p>
+        <p>Lassen Sie dieses Feld auf „keine“, wenn die Auswahl eines neuen Pfads aus den Verzeichnis-Favoriten nichts ändern soll.</p>
+        <p class="figure"><img class="largeimage" title="Verzeichnissortierung festlegen" alt="Verzeichnissortierung festlegen" src="../en/images/imgDC/dirhotdefinesort.png" width="428" height="201"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="helperpath">2.9. Helfer bei Pfad- und Zielangabe</a></h2>
+        <p>Sie können durchaus mit einem absoluten Pfad arbeiten, und auf DIESEM Rechner funktioniert das einwandfrei.</p>
+        <p>Nehmen wir aber an, Sie haben Double Commander zusammen mit zahlreichen anderen Werkzeugen auf Ihrem Schweizer-Messer-USB-Stick.</p>
+        <p>Dann wollen Sie vielleicht relative Pfade für portable Installationen.</p>
+        <p>Ich meine hier zum Beispiel relativ zum Pfad von Double Commander.</p>
+        <p>Sie können also diesen Pfad „<b>E:\PortableApps\Notepad++Portable\Data\Config\</b>“ haben, und er funktioniert.</p>
+        <p>Sie können ihn aber auch relativ zum aktuellen Pfad von „Double Commander“ machen und „<b>%commander_path%\..\..\Notepad++Portable\Data\Config\</b>“ verwenden.</p>
+        <p>Damit Sie herausfinden, was Sie eingeben müssen (mit anderen Worten, wie viele „..\“ Sie verwenden!), gibt es rechts neben den Feldern „<b>Pfad</b>“ und „<b>Ziel</b>“ eine kleine Schaltfläche <img title="Einige Funktionen, um den passenden Pfad zu wählen" alt="Einige Funktionen, um den passenden Pfad zu wählen" src="../en/images/imgDC/bhelper.png" width="16" height="16">, die ein Aufklappmenü mit verschiedenen kleinen Werkzeugen öffnet, um den Pfad so zu bearbeiten und anzuordnen, wie Sie es wünschen.</p>
+        <p>Das ist aber nur eine der möglichen Verwendungen dieser Schaltfläche.</p>
+        <p>Hier eine vollständige Übersicht dessen, was Sie dort finden:</p>
+        <ul>
+          <li><b>Speziellen Pfad von Double Commander verwenden</b>&nbsp;&ndash; Zeigt direkt auf den Pfad der Programmdatei, den Konfigurationspfad usw.</li>
+          <li><b>Speziellen Windows-Ordner verwenden (TC)</b>&nbsp;&ndash; Nur Windows: enthält eine Liste von <a href="variables.html#envvariables">Pseudo-Umgebungsvariablen</a>.<br>
+            Hinweis: Diese Liste entspricht der Liste der Variablen, die Total Commander unterstützt, und wird auch für den Import aus Total Commander und den Export der Verzeichnis-Favoriten (siehe <a href="#exportimporttc">unten</a>) und der <a href="toolbar.html">Werkzeugleiste</a> verwendet.</li>
+          <li><b>Anderen speziellen Windows-Ordner verwenden</b>&nbsp;&ndash; Zusätzliche Pseudo-Umgebungsvariablen.</li>
+          <li><b>Umgebungsvariable verwenden</b>&nbsp;&ndash; Manche Werte sind dort sicher nicht wirklich gültig und nützlich, aber die, die es sein könnten, verwenden wir!</li>
+          <li><b>Pfad eines Favoritenverzeichnisses verwenden</b>&nbsp;&ndash; Das ist reine Vielseitigkeit: Sie können Verzeichnis-Favoriten hinzufügen … aus den Verzeichnis-Favoriten!</li>
+          <li><b>Relativ machen zu...</b>&nbsp;&ndash; Dasselbe für jeden der obigen Punkte, ABER statt den Pfad einfach HINZUZUFÜGEN, wird der aktuell eingetragene relativ zu dem gemacht, den Sie auswählen.</li>
+          <li><b>Pfad absolut machen</b>&nbsp;&ndash; Das Gegenteil: Wenn Sie einen relativen Pfad haben, wird er in seine absolute Form gebracht.</li>
+          <li><b>Pfad aus dem aktiven Rahmen hinzufügen</b>&nbsp;&ndash; Der hinzugefügte Pfad ist direkt der aus dem Hauptpanel, aus dem aktiven Rahmen.</li>
+          <li><b>Pfad aus dem inaktiven Rahmen hinzufügen</b>&nbsp;&ndash; Wie oben, aber wie gesagt aus dem inaktiven Rahmen.</li>
+          <li><b>Durchsuchen und gewählten Pfad verwenden</b>&nbsp;&ndash; Öffnet einen Verzeichnisbrowser, in dem Sie das gewünschte Verzeichnis einfach auswählen können.</li>
+        </ul>
+        <p class="figure"><img class="largeimage" title="Helfer für den Pfad" alt="Helfer für den Pfad" src="../en/images/imgDC/dirhothelperpath.png" width="558" height="362"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="changeorder">2.10. Die Reihenfolge der Einträge ändern</a></h2>
+        <p>Mit der Zeit kann die Liste der Verzeichnis-Favoriten länger und ungeordnet werden.</p>
+        <p>Sie können die Reihenfolge einfach ändern, indem Sie den ausgewählten Eintrag an eine neue Position ziehen, die für Sie sinnvoller ist.</p>
+        <p>Mit der Taste <kbd>Ctrl</kbd> auf der Tastatur können Sie auch mehr als einen Eintrag auf einmal auswählen und verschieben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="cutandpaste">2.11. „Ausschneiden“ und „Einfügen“ ebenfalls zum Umordnen verwenden</a></h2>
+        <p>Wenn Sie eine sehr lange Verzeichnisliste haben, eignet sich Ziehen und Ablegen vielleicht nicht, weil Quelle und Ziel zu weit auseinanderliegen.</p>
+        <p>Wählen Sie dann die Einträge, die Sie verschieben wollen, klicken Sie auf die Schaltfläche „Verschiedenes“, um das Aufklappmenü aufzurufen, und wählen Sie „<b>Auswahl der Einträge ausschneiden</b>“.</p>
+        <p>Dann blättern Sie in der Liste zur Zielposition, an der Sie die ausgewählten Einträge ablegen wollen.</p>
+        <p>Dann klicken Sie erneut auf die Schaltfläche „Verschiedenes“ und wählen „<b>Ausgeschnittenes einfügen</b>“, um die zuvor ausgewählten Einträge einzufügen.</p>
+        <p>Mit der Taste <kbd>Ctrl</kbd> können Sie mehr als einen Eintrag auf einmal zum Ausschneiden und Einfügen auswählen.</p>
+        <p class="figure"><img class="largeimage" title="Ausschneiden und Einfügen" alt="Ausschneiden und Einfügen" src="../en/images/imgDC/dirhotcutandpaste.png" width="874" height="568"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="organizetree">2.12. Einträge im Baum organisieren</a></h2>
+        <p>Wenn Sie ein Freund der Verzeichnis-Favoriten sind, wie der Verfasser dieser Zeilen, reicht eine eindimensionale Liste der Verzeichnis-Favoriten nicht aus!</p>
+        <p>Hier hilft Double Commander. Sie können Untermenüs in Ihren Verzeichnis-Favoriten anlegen und organisieren.</p>
+        <p>Darüber hinaus können Sie Untermenüs innerhalb anderer Untermenüs haben.</p>
+        <p>Das heißt, Sie können sich wirklich gut organisierte Verzeichnis-Favoriten einrichten.</p>
+        <p>Um ein Untermenü hinzuzufügen, verwenden Sie die Schaltfläche „<b>Einfügen</b>“ (an der aktuellen Position hinzufügen) oder „<b>Hinzufügen</b>“ (darunter hinzufügen). Sie können auch <a href="shortcuts.html#dirhotlist">Tastenkürzel</a> verwenden.</p>
+        <p>Es wird ein Untermenü mit dem Namen „Name des Untermenüs“ erstellt, das einen Eintrag mit dem Namen „Name des Favoritenverzeichnisses“ enthält.</p>
+        <p>Mit den Feldern darunter können Sie dem Untermenü selbstverständlich einen aussagekräftigen Namen geben.</p>
+        <p>Von dort aus können Sie einen neuen Eintrag hinzufügen, andere Einträge in dieses neue Untermenü verschieben usw.</p>
+        <p>Beachten Sie, dass Sie ein Untermenü verschieben oder ausschneiden und einfügen können. Das erleichtert das Umordnen Ihrer Verzeichnis-Favoriten.</p>
+        <p class="figure"><img class="largeimage" title="Baum organisieren" alt="Baum organisieren" src="../en/images/imgDC/dirhotorganizetree.png" width="240" height="248"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addseperator">2.13. Trennlinien zur besseren Übersicht hinzufügen</a></h2>
+        <p>Viele Einträge hintereinander sind praktisch, aber Trennlinien zum Bilden von Kategorien können Ordnung in Ihre Liste bringen.</p>
+        <p>Um eine Trennlinie hinzuzufügen, verwenden Sie die Schaltfläche „<b>Einfügen</b>“ (an der aktuellen Position hinzufügen) oder „<b>Hinzufügen</b>“ (darunter hinzufügen). Sie können auch <a href="shortcuts.html#dirhotlist">Tastenkürzel</a> verwenden.</p>
+        <p>Im Konfigurationsbaum der Verzeichnis-Favoriten sehen Sie eine Zeile mit Punkten. Im Hauptpanel im Aufklappmenü der Verzeichnis-Favoriten sehen Sie eine saubere Menütrennlinie.</p>
+        <p class="figure"><img class="largeimage" title="Trennlinie hinzufügen" alt="Trennlinie hinzufügen" src="../en/images/imgDC/dirhotaddseperator.png" width="704" height="451"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="sorting">2.14. Die Einträge sortieren</a></h2>
+        <p>Wie oben beschrieben können Sie die Einträge der Verzeichnis-Favoriten mit Ziehen und Ablegen sowie mit Ausschneiden und Einfügen sicher so anordnen, wie Sie es wünschen.</p>
+        <p>Wenn Sie aber mit alphabetischen Namen arbeiten wollen, können Sie die eingebauten Sortierfunktionen verwenden.</p>
+        <p>Die Idee der Sortierung ist einfach: Setzen Sie die aktuelle Auswahl dorthin, wo Sie sortieren wollen, und wählen Sie dann die gewünschte Sortierfunktion, indem Sie die Schaltfläche „<b>Sortieren...</b>“ drücken, die ein Aufklappmenü öffnet.</p>
+        <p>Die fünf verfügbaren Möglichkeiten geben Ihnen alle Freiheit, die Sie in dieser Sache wünschen:</p>
+        <ul>
+          <li><b>Nur eine einzelne Gruppe von Einträgen</b>&nbsp;&ndash; Sortiert den Bereich neben dem aktuell ausgewählten Eintrag. Mit „Bereich“ sind die Einträge zwischen zwei Trennlinien, dem Anfang eines Menüs oder dem Ende eines Menüs gemeint.</li>
+          <li><b>Nur die aktuelle Ebene der ausgewählten Einträge</b>&nbsp;&ndash; Nicht nur der Bereich der aktuellen Auswahl, sondern auch die Geschwister auf demselben Zweig. Es wird sortiert, aber der Bereich der Einträge wird beachtet, sodass ein Eintrag einer Gruppe eine vorhandene Trennlinie nicht überschreitet.</li>
+          <li><b>Inhalt der ausgewählten Untermenüs, ohne Unterebene</b>&nbsp;&ndash; Sortiert die unmittelbaren „Kinder“ eines Untermenüs, das Sie ausgewählt haben, geht aber nicht in mögliche weitere Untermenüs darin, um diese zu sortieren.</li>
+          <li><b>Inhalt der ausgewählten Untermenüs und aller Unterebenen</b>&nbsp;&ndash; Wie die zuvor genannte Option, sortiert diesmal aber auch alle Untermenüs innerhalb dieses Zweigs.</li>
+          <li><b>Alles, von A bis Z!</b>&nbsp;&ndash; Ahhh! Der Favorit des Verfassers dieser Zeilen: Wie der Name andeutet, wird einfach alles sortiert, aber der Bereich jedes Eintrags wird weiterhin beachtet, sodass kein Eintrag von einem Zweig in einen anderen verschoben wird.</li>
+        </ul>
+        <p>Wie zuvor beschrieben verschiebt keine Sortierung einen Eintrag über eine Trennlinie hinweg.</p>
+        <p>Damit Sie sehen, was es bedeutet, beim Sortieren eine Trennlinie nicht zu überschreiten, sehen Sie das folgende Beispiel.</p>
+        <p>Der Ordner „Root“ bleibt nach der Sortierung immer über den anderen, *weil* dort eine Trennlinie ist.</p>
+        <p>Die Trennlinien sind dafür wirklich nützlich.</p>
+        <p>Sie machen die Sache nicht nur übersichtlicher, sie sind auch als Begrenzer beim Sortieren nützlich!</p>
+        <p class="figure"><img class="largeimage" title="Einträge sortieren" alt="Einträge sortieren" src="../en/images/imgDC/dirhotsorting.png" width="478" height="297"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="expert">3. „Experten“-Funktionen</a></h2>
+        <p>Im Folgenden seltenere Aktionen zu den Verzeichnis-Favoriten, die aber trotzdem nützlich zu kennen sind.</p>
+      </div>
+
+      <div>
+        <h2><a name="backup">3.1. Sichern und aus einer Sicherung wiederherstellen</a></h2>
+        <p>Wenn Ihre Verzeichnis-Favoriten an Zahl der Verzeichnisverknüpfungen wachsen, wollen Sie sie vielleicht „für den Fall der Fälle“ sichern, damit bei einem Unfall diese wertvollen Verknüpfungen nicht verloren gehen.</p>
+        <p>Dazu gibt es rechts im Konfigurationsfenster eine Schaltfläche namens „<b>Sichern</b>“. Drücken Sie sie und wählen Sie im Menü „<b>Eine Sicherung der aktuellen Verzeichnis-Favoriten speichern</b>“.</p>
+        <p>Dann wird die aktuelle Liste in eine Datei in einem Ordner „Backup“ gespeichert, der im festgelegten Konfigurationsverzeichnis von Double Commander liegt. Der Dateiname enthält das aktuelle Datum und die aktuelle Uhrzeit. Beachten Sie auch die Dateierweiterung „.hotlist“.</p>
+        <p>Zum Wiederherstellen wählen Sie „<b>Eine Sicherung der Verzeichnis-Favoriten wiederherstellen</b>“ im selben Menü. Wählen Sie in der Dateiauswahl, die erscheint, die Sicherung, die Sie wiederherstellen wollen.</p>
+        <p>Wenn Sie eine Sicherung wiederherstellen, wird zuerst die aktuelle Verzeichnis-Favoritenliste gelöscht und dann die Einträge aus der Sicherungsdatei hinzugefügt.</p>
+        <p>Wenn Sie nur bestimmte Einträge aus der Sicherungsdatei wiederherstellen wollen, können Sie „<b>Importieren</b>“ wählen und die Sicherungsdatei angeben. Double Commander fordert Sie dann auf anzugeben, welche Einträge aus der Sicherungsdatei Sie wiederherstellen wollen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exportimportsimple">3.2. Eine Verzeichnis-Favoritenliste (oder einen Teil davon) exportieren/importieren</a></h2>
+        <p>Wenn Sie mehr als einen Computer haben oder wenn jemand dieselben Server nutzt wie Sie, wollen Sie Ihre Verzeichnis-Favoriten oder einen Teil davon vielleicht exportieren, damit Sie auf dem anderen Computer dieselben Verzeichnisverknüpfungen haben, ohne sie einzeln eingeben zu müssen.</p>
+        <p>Klicken Sie dazu zuerst auf die Schaltfläche „<b>Exportieren</b>“ und wählen Sie dann „<b>...in eine Verzeichnis-Favoriten-Datei (.hotlist)</b>“.</p>
+        <p>Sie werden dann aufgefordert, den Dateinamen und den Speicherort der Exportdatei einzugeben, die Sie erstellen wollen.</p>
+        <p>Dann werden Sie gefragt, was Sie exportieren wollen.</p>
+        <p>Sie können den gesamten Baum exportieren oder die Einträge einzeln auswählen.</p>
+        <p>Sie können auch ein ganzes Untermenü auswählen, indem Sie den Namen des Untermenüs wählen, ohne die Einträge darin auswählen zu müssen.</p>
+        <p>Halten Sie beim Klicken die Taste <kbd>Ctrl</kbd> auf der Tastatur gedrückt, um die verschiedenen Einträge auszuwählen, die Sie exportieren wollen.</p>
+        <br>
+        <p>Auf dem anderen Computer klicken Sie dann auf die Schaltfläche „<b>Importieren</b>“ und wählen den Menüeintrag „<b>aus einer Verzeichnis-Favoriten-Datei (.hotlist)</b>“.</p>
+        <p>Geben Sie in der Dateiauswahl die zu importierende Datei an.</p>
+        <p>Ähnlich wie beim Export können Sie alles importieren, es wird Ihnen aber auch angeboten, bestimmte Einträge auszuwählen, die Sie importieren wollen.</p>
+        <p>Die Einträge, die Sie importieren, werden am Ende Ihrer eigenen angefügt.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exportimporttc">3.3. Nach/von Total Commander exportieren/importieren</a></h2>
+        <p>Double Commander kann Verzeichnis-Favoriten auch nach und von denen von Total Commander exportieren und importieren.</p>
+        <p>Nehmen wir an, Sie wollen einige Einträge aus Total Commander importieren. Gehen Sie so vor.</p>
+        <p>Klicken Sie im Konfigurationsfenster der Verzeichnis-Favoriten auf die Schaltfläche „<b>Importieren...</b>“ und wählen Sie „<b>...aus der „wincmd.ini“ von TC</b>“.</p>
+        <p>Wählen Sie dann in der Dateiauswahl den Speicherort der Datei „wincmd.ini“ Ihres Total Commander.</p>
+        <p>Wenn Sie nicht wissen, wo diese Datei liegt, klicken Sie in Total Commander auf das Menü „<b>Hilfe</b>“ und dann auf „<b>Über Total Commander...</b>“.</p>
+        <p>Dort steht der Speicherort der INI-Datei.</p>
+        <p>Dann erscheint ein Baum mit den Verzeichniseinträgen, die aus der INI-Datei von Total Commander gelesen wurden.</p>
+        <p>Aus diesem Baum können Sie ALLE Einträge importieren oder sie einzeln auswählen, ganz wie Sie wollen.</p>
+        <p>Halten Sie beim Klicken die Taste <kbd>Ctrl</kbd> auf der Tastatur gedrückt, um die verschiedenen Einträge auszuwählen, die Sie importieren wollen.</p>
+        <p>Die Einträge, die Sie importieren, werden am Ende Ihrer eigenen angefügt.</p>
+        <p class="figure"><img class="largeimage" title="Import aus TC" alt="Import aus TC" src="../en/images/imgDC/dirhotimportfromtc.png" width="736" height="582"></p>
+        <p>Umgekehrt können Sie alle oder einen Teil Ihrer Verzeichnis-Favoriten von Double Commander in die von Total Commander exportieren.</p>
+        <p>Klicken Sie dazu auf die Schaltfläche „<b>Exportieren...</b>“ und wählen Sie eine der beiden möglichen Exportarten nach Total Commander.</p>
+        <p>Wenn Sie wissen, was Sie tun, und akzeptieren, alle Einträge der Verzeichnis-Favoriten von Total Commander zu ersetzen, können Sie „<b>in eine „wincmd.ini“ von TC (Vorhandenes löschen)</b>“ wählen.</p>
+        <p>Auch hier können Sie wählen, ob Sie alles exportieren oder nur die gewünschten Einträge auswählen.</p>
+        <p>Halten Sie beim Klicken die Taste <kbd>Ctrl</kbd> auf der Tastatur gedrückt, um die verschiedenen Einträge auszuwählen, die Sie exportieren wollen.</p>
+        <p>Vielleicht sollten Sie Total Commander dabei geschlossen halten, ihn danach wieder öffnen und nachsehen, was Sie erhalten haben.</p>
+        <p>Total Commander bietet Ihnen nicht so einfache Möglichkeiten, die Einträge der Verzeichnis-Favoriten zu gliedern und zu sortieren, wie Double Commander es tut.</p>
+        <p>Sie können also die Verzeichnis-Favoriten von Total Commander nach Double Commander importieren, sie dann umordnen, sortieren, gliedern usw. und anschließend zurück nach Total Commander exportieren!</p>
+        <br>
+        <p><b>*Hinweis: Es wurden Aufwand und Tests betrieben, damit die Anwendung die INI-Konfigurationsdatei von Total Commander nicht beschädigt.</b></p>
+        <p><b>Eine Sicherung dieser Datei vor dem Export einiger Einträge dorthin ist aber sicher eine gute Praxis und wird empfohlen.</b></p>
+        <p><b>Sie tun dies selbstverständlich auf eigenes Risiko!</b></p>
+        <p><b>...ein Risiko, ein nettes Programm wie Double Commander zu entdecken!</b></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="scanpresence">3.4. Die Verzeichnis-Favoriten durchsuchen, um fehlende Verzeichnisse zu finden</a></h2>
+        <p>Mit der Zeit kann es vorkommen, dass Ihre Verzeichnis-Favoriten Einträge enthalten, die auf Verzeichnisse zeigen, die es nicht mehr gibt.</p>
+        <p>Um diese Einträge zu finden, klicken Sie im Konfigurationsfenster der Verzeichnis-Favoriten auf die Schaltfläche „<b>Verschiedenes</b>“.</p>
+        <p>Wählen Sie dann „<b>Alle Pfade der Favoritenverzeichnisse prüfen, um die tatsächlich vorhandenen zu bestätigen</b>“.</p>
+        <p>Dadurch lässt die Anwendung alle Verzeichnisse durchsuchen, auf die Ihre Verknüpfungen zeigen.</p>
+        <p>Fehlt eines, wird links neben dem Eintrag ein Symbol für „fehlend“ angezeigt.</p>
+        <p>Ein Untermenüzweig mit mindestens einem fehlenden Eintrag zeigt ebenfalls ein besonderes Symbol, das auf einen fehlenden Eintrag hinweist.</p>
+        <p class="figure"><img class="largeimage" title="Nach tatsächlichem Vorhandensein suchen" alt="Nach tatsächlichem Vorhandensein suchen" src="../en/images/imgDC/dirhotscanexist.png" width="540" height="476"></p>
+
+        <p>Von dort aus können Sie die Einträge entweder löschen, weil das Verzeichnis, auf das sie zeigen, nicht mehr existiert, oder sie behalten.</p>
+        <p>Warum behalten? Ganz einfach. Wenn Double Commander auf einem USB-Stick von einem Computer zum anderen verwendet wird, kann es völlig normal sein, dass Verzeichnisse auf einem Computer fehlen, die auf dem vorherigen vorhanden waren.</p>
+        <p>Wie hilft Ihnen dann die Funktion „<b>Alle Pfade der Favoritenverzeichnisse prüfen, um die tatsächlich vorhandenen zu bestätigen</b>“?</p>
+        <p>Weil dadurch diese Einträge auch aus dem Aufklappmenü der Verzeichnis-Favoriten im Hauptpanel entfernt werden.</p>
+        <p>Diese Einträge, die auf nicht vorhandene Ordner verweisen, werden nicht angezeigt!</p>
+        <p>Sie werden nicht dauerhaft aus der internen Liste der Verzeichnis-Favoriten gelöscht.</p>
+        <p>Sie werden für die Sitzung einfach nicht im Aufklappmenü angezeigt.</p>
+        <p>Sehen Sie das Ergebnis des vorherigen Beispiels.</p>
+        <p class="figure"><img class="largeimage" title="Ein aufgeräumtes Aufklappmenü" alt="Ein aufgeräumtes Aufklappmenü" src="../en/images/imgDC/dirhotcleanedmenu.png" width="514" height="508"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="addingmanyatthetime">3.5. Mehr als ein Verzeichnis auf einmal zu den Verzeichnis-Favoriten hinzufügen</a></h2>
+        <p>Wenn Sie Ihre Verzeichnis-Favoriten für eine neue Situation einrichten, möchten Sie vielleicht viele Verzeichnisse auf einmal zu den Verzeichnis-Favoriten hinzufügen.</p>
+        <p>Dafür gibt es zwei Wege.</p>
+        <p><b>Erste Methode: direkt aus dem Hauptrahmen mit der Auswahl</b></p>
+        <p>Das ist einfach: Sie wählen die Verzeichnisse aus, die Sie hinzufügen wollen, rufen das Aufklappmenü der Verzeichnis-Favoriten auf und wählen am Ende „<b>x ausgewählte Verzeichnisse hinzufügen</b>“.</p>
+        <p>Die Verzeichnisse werden an der konfigurierten Einfügeposition hinzugefügt.</p>
+        <p>Wenn Sie das Hinzufügen über die Methode „<b>intelligent</b>“ konfiguriert haben, sieht man gut, wie passend sie platziert werden!</p>
+        <p class="figure"><img class="largeimage" title="Mehr als eines auf einmal hinzufügen" alt="Mehr als eines auf einmal hinzufügen" src="../en/images/imgDC/dirhotaddmanyatonce.png" width="880" height="500"></p>
+
+        <p><b>Zweite Methode: ähnlich wie die erste, aber mit gleichzeitig sichtbarem Konfigurationsfenster der Verzeichnis-Favoriten und Hauptpanel</b></p>
+        <p>Auch das ist einfach: Sie öffnen zuerst das Konfigurationsfenster der Verzeichnis-Favoriten.</p>
+        <p>Dann setzen Sie die Auswahl dorthin, wo die neuen Verzeichnisse hinzugefügt werden sollen.</p>
+        <p>Dann drücken Sie die Schaltfläche „<b>Einfügen</b>“ (an der aktuellen Position hinzufügen) oder „<b>Hinzufügen</b>“ (darunter hinzufügen) und klicken auf „<b>Aktuell ausgewählte oder aktive Verzeichnisse des aktiven Rahmens</b>“.</p>
+        <p>Sie sehen sie hinzugefügt oder eingefügt und bereit, nach Ihren Wünschen sortiert, umbenannt und angeordnet zu werden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="notthetarget">3.6. Kein Wechsel im inaktiven Rahmen, auch wenn ein Ziel konfiguriert ist</a></h2>
+        <p>Das ist fast eine versteckte Funktion.</p>
+        <p>Wie in <a href="#settarget">Punkt 2.7 dieser Seite</a> beschrieben, haben Sie den Eintrag der Verzeichnis-Favoriten vielleicht so konfiguriert, dass auch das Verzeichnis des inaktiven Rahmens zu einem angegebenen Zielverzeichnis wechselt.</p>
+        <p>Manchmal ist es aber wünschenswert, dass der Zielordner nicht wechselt, sondern nur der aktive Hauptrahmen.</p>
+        <p>Das können Sie mit einem kleinen Trick vermeiden: Halten Sie die Taste <kbd>Ctrl</kbd> auf der Tastatur gedrückt, wenn Sie die Verknüpfung im Aufklappmenü der Verzeichnis-Favoriten anklicken.</p>
+        <p>Wenn die Taste <kbd>Ctrl</kbd> im Moment des Klicks auf die Verknüpfung gehalten wird, wechselt nur der aktive Rahmen, das Ziel nicht.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="directconfig">3.7. Einen Eintrag direkt aus dem Aufklappmenü konfigurieren</a></h2>
+        <p>Auch das ist fast eine versteckte Funktion.</p>
+        <p>Wenn Sie im Aufklappmenü der Verzeichnis-Favoriten blättern, kommt es vor, dass Sie einen Tippfehler sehen, den Sie korrigieren wollen, oder etwas, das nicht so geordnet ist, wie Sie es wünschen.</p>
+        <p>Sie können dann weiter unten klicken, um in die Konfiguration zu gelangen, im Baum suchen, wo der Eintrag war, und dann Ihre Korrektur vornehmen.</p>
+        <p>Es gibt aber einen kleinen Trick, um es besser, schneller und einfacher zu machen.</p>
+        <p>Halten Sie im Aufklappmenü der Verzeichnis-Favoriten die Taste <kbd>Shift</kbd> auf der Tastatur gedrückt, wenn Sie den Menüeintrag anklicken, zu dem Sie direkt im Konfigurationsfenster gelangen wollen, um ihn nach Ihrem Geschmack einzurichten.</p>
+        <p>Wenn die Taste <kbd>Shift</kbd> im Moment des Klicks auf die Verknüpfung gehalten wird, bringt DC Sie zum Konfigurationsfenster, und die Auswahl ist bereit, nach Ihrem Wunsch bearbeitet zu werden.</p>
+        <p>Sie müssen nicht in der Liste danach suchen!</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="showpopup">3.8. Vollständigen Pfad im Aufklappmenü anzeigen</a></h2>
+        <p>Im Konfigurationsfenster der Verzeichnis-Favoriten gibt es ein Kontrollkästchen namens „<b>Im Aufklappmenü auch [Pfad] anzeigen</b>“.</p>
+        <p>Wenn diese Option aktiviert ist, weist sie Double Commander an, direkt im Eintrag des Aufklappmenüs den vollständigen Pfad anzuzeigen, auf den die Verknüpfung zeigt.</p>
+        <p>Sie sehen also nicht nur den Namen des Favoritenverzeichnisses, den Sie vergeben haben, sondern auch den vollständigen Pfad, zu dem gewechselt wird, wenn Sie klicken.</p>
+        <p>Das kann stören, weil es viel Text auf dem Bildschirm hinzufügt und wir es irgendwann leid sein können, das zu sehen.</p>
+        <p>In manchen Situationen aber, besonders bei den speziellen Verzeichnissen zu den von Windows definierten Ordnern und auch bei den Umgebungsvariablen, die auf Verzeichnisse zeigen.</p>
+        <p>Es ist praktisch, direkt zu sehen, wohin jeder Eintrag zeigt.</p>
+        <p class="figure"><img class="largeimage" title="Vollständigen Pfad anzeigen" alt="Vollständigen Pfad anzeigen" src="../en/images/imgDC/dirhotshowfullpath.png" width="620" height="574"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="smartenv">3.9. Nur Umgebungsvariablen behalten, die wie ein Verzeichnis aussehen</a></h2>
+        <p>Im Abschnitt „Spezielle Verzeichnisse“ des Aufklappmenüs der Verzeichnis-Favoriten sehen Sie, dass Sie Umgebungsvariablen haben können.</p>
+        <p>Nicht unbedingt ALLE Variablen sind tatsächlich ein Verzeichnis.</p>
+        <p>In der Konfiguration der Verzeichnis-Favoriten können Sie die Option „<b>Nur gültige %env_var% anzeigen</b>“ aktivieren.</p>
+        <p>Wenn diese Option aktiviert ist, versucht DC, aus dem Menü die Umgebungsvariablen zu entfernen, die nicht wie ein gültiger Pfad aussehen, zumindest am Anfang.</p>
+        <p>Es wird nicht unbedingt suchen und prüfen, ob der Pfad tatsächlich vorhanden ist, um nicht ohne wirklichen Bedarf zu verlangsamen, sondern die offensichtlich unpassenden schnell aussortieren.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="otherfunctions">4. Weitere Funktionen</a></h2>
+        <p>Es gibt vielleicht noch einige weitere kleine Möglichkeiten und Funktionen der Verzeichnis-Favoriten von Double Commander, die in der Anwendung vorhanden und hier nicht beschrieben sind.</p>
+        <p>Es ist schwer (und manchmal lästig, auch wenn es nötig bleibt), eine Hilfedatei wie diese auf dem neuesten Stand zu halten.</p>
+        <p>Sie werden das meiste aber sicher herausfinden, und dieser Hilfeabschnitt deckt zumindest die wichtigsten Punkte des Themas ab.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="viewer.html">Zurück</a> | <a title="Nächste Seite" href="multiarc.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

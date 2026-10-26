@@ -1,0 +1,1238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Konfiguration</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="help.html">Zurück</a> | <a title="Nächste Seite" href="shortcuts.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.2. Konfiguration</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#config_files">Konfigurationsdateien</a></dt>
+          <dt>2. <a href="#settings">Konfiguration</a>:</dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#ConfigLang">Sprache</a></dt>
+              <dt>2.2. <a href="#ConfigBehaviors">Verhalten</a></dt>
+              <dt>2.3. <a href="#ConfigTools">Werkzeuge</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.3.1. <a href="#ConfigToolsViewer">Dateibetrachter</a></dt>
+                  <dt>2.3.2. <a href="#ConfigToolsEditor">Editor</a></dt>
+                  <dd>
+                    <dl>
+                      <dt>2.3.2.1. <a href="#ConfigToolsEditorHL">Hervorhebungen</a></dt>
+                    </dl>
+                  </dd>
+                  <dt>2.3.3. <a href="#ConfigToolsDiffer">Vergleich</a></dt>
+                  <dt>2.3.4. <a href="#ConfigToolsTerminal">Terminal</a></dt>
+                </dl>
+              </dd>
+              <dt>2.4. <a href="#ConfigFonts">Schriftarten</a></dt>
+              <dt>2.5. <a href="#ConfigColor">Farben</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.5.1. <a href="#ConfigColorPanels">Dateipanels</a></dt>
+                  <dt>2.5.2. <a href="#ConfigColorFiles">Dateitypen</a></dt>
+                </dl>
+              </dd>
+              <dt>2.6. <a href="#ConfigKeys">Tasten</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.6.1. <a href="#ConfigHotKeys">Tastenkürzel</a></dt>
+                </dl>
+              </dd>
+              <dt>2.7. <a href="#ConfigMouse">Maus</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.7.1. <a href="#ConfigMouseDD">Ziehen und Ablegen</a></dt>
+                </dl>
+              </dd>
+              <dt>2.8. <a href="#ConfigView">Dateiansichten</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.8.1. <a href="#ConfigViewEx">Dateiansichten extra</a></dt>
+                  <dt>2.8.2. <a href="#ConfigViewBrief">Kurz</a></dt>
+                  <dt>2.8.3. <a href="#ConfigViewFull">Spalten</a></dt>
+                  <dd>
+                    <dl>
+                      <dt>2.8.3.1. <a href="#ConfigColumns">Benutzerdefinierte Spalten</a></dt>
+                    </dl>
+                  </dd>
+                </dl>
+              </dd>
+              <dt>2.9. <a href="#ConfigPlugins">Plugins</a></dt>
+              <dt>2.10. <a href="#ConfigLayout">Layout</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.10.1. <a href="#ConfigDrivesList">Schaltfläche der Laufwerksliste</a></dt>
+                  <dt>2.10.2. <a href="#ConfigTreeMenu">Baumansichtsmenü</a></dt>
+                  <dt>2.10.3. <a href="#ConfigTreeMenuColor">Farben des Baumansichtsmenüs</a></dt>
+                </dl>
+              </dd>
+              <dt>2.11. <a href="#ConfigToolbar">Werkzeugleiste</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.11.1. <a href="#ConfigToolbar">Mittlere Werkzeugleiste</a></dt>
+                  <dt>2.11.2. <a href="#ConfigToolbarEx">Werkzeugleiste extra</a></dt>
+                </dl>
+              </dd>
+              <dt>2.12. <a href="#ConfigOperations">Dateioperationen</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.12.1. <a href="#ConfigSearch">Dateisuche</a></dt>
+                  <dt>2.12.2. <a href="#ConfigRename">Mehrfach-Umbenennen</a></dt>
+                </dl>
+              </dd>
+              <dt>2.13. <a href="#ConfigTabs">Ordner-Registerkarten</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.13.1. <a href="#ConfigFavoriteTabs">Favoriten-Registerkarten</a></dt>
+                  <dt>2.13.2. <a href="#ConfigTabsEx">Ordner-Registerkarten extra</a></dt>
+                </dl>
+              </dd>
+              <dt>2.14. <a href="#ConfigLog">Protokoll</a></dt>
+              <dt>2.15. <a href="#ConfigDC">Konfiguration</a></dt>
+              <dt>2.16. <a href="#ConfigQuick">Schnellsuche/Filter</a></dt>
+              <dt>2.17. <a href="#ConfigMisc">Verschiedenes</a></dt>
+              <dt>2.18. <a href="#ConfigRefresh">Automatische Aktualisierung</a></dt>
+              <dt>2.19. <a href="#ConfigiCloud">iCloud</a></dt>
+              <dt>2.20. <a href="#ConfigIcons">Symbole</a></dt>
+              <dt>2.21. <a href="#ConfigIgnore">Ignorierliste</a></dt>
+              <dt>2.22. <a href="#ConfigArchivers">Packprogramme</a></dt>
+              <dt>2.23. <a href="#ConfigTooltips">Kurzinfos</a></dt>
+              <dt>2.24. <a href="#ConfigAssociations">Dateizuordnungen</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.24.1. <a href="#ConfigAssocEx">Dateizuordnungen extra</a></dt>
+                </dl>
+              </dd>
+              <dt>2.25. <a href="#ConfigDirHotlist">Verzeichnis-Favoriten</a></dt>
+              <dd>
+                <dl>
+                  <dt>2.25.1. <a href="#ConfigDirHotlistEx">Verzeichnis-Favoriten extra</a></dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="config_files">1. Konfigurationsdateien</a></h2>
+        <p>Double Commander speichert seine Konfigurationseinstellungen in Dateien. Den Speicherort dieser Konfigurationsdateien können Sie im Abschnitt <a href="#ConfigDC">Konfiguration</a> festlegen. Normalerweise besteht kein Bedarf, diese Dateien von Hand zu bearbeiten, denn mit seltenen Ausnahmen sind die Parameter von Double Commander über die Programmoberfläche erreichbar.</p>
+        <p>Die wichtigsten Dateien sind:</p>
+        <ul>
+          <li><p><tt>doublecmd.xml</tt>&nbsp;&ndash; alle wichtigen Programmeinstellungen;</p></li>
+          <li><p><tt>doublecmd.cfg</tt>&nbsp;&ndash; Einstellungen, die vor der Initialisierung aller Programmkomponenten und vor dem Laden von <tt>doublecmd.xml</tt> angewendet werden;</p></li>
+          <li><p><tt>colors.json</tt>&nbsp;&ndash; alle Farbeinstellungen; Double Commander speichert Farbwerte in den Profilen „Light“ und „Dark“ und wählt das Profil automatisch je nach aktuellem Thema (helles oder dunkles Thema);</p></li>
+          <li><p><tt>extassoc.xml</tt>&nbsp;&ndash; Konfiguration der Zuordnung von Dateierweiterungen;</p></li>
+          <li><p><tt>favoritetabs.xml</tt>&nbsp;&ndash; Favoriten-Registerkarten;</p></li>
+          <li><p><tt>history.xml</tt>&nbsp;&ndash; Verlauf der Befehlszeile und der Verzeichnisse, Suchen und Ersetzen usw.;</p></li>
+          <li><p><tt>localconfig.xml</tt>&nbsp;&ndash; Verzeichnis-Favoriten;</p></li>
+          <li><p><tt>multiarc.ini</tt>&nbsp;&ndash; externe Packprogramme;</p></li>
+          <li><p><tt>pixmaps.txt</tt>&nbsp;&ndash; ordnet Dateierweiterungen den Symbolnamen der MIME-Typen zu;</p></li>
+          <li><p><tt>session.ini</tt>&nbsp;&ndash; Größe, Position und Zustand der untergeordneten Programmfenster (diese Einstellungen werden für jede Bildschirmauflösung getrennt gespeichert);</p></li>
+          <li><p><tt>shortcuts.scf</tt>&nbsp;&ndash; Einstellungen der Tastaturbelegung;</p></li>
+          <li><p><tt>tabs.xml</tt>&nbsp;&ndash; Liste der geöffneten Registerkarten;</p></li>
+          <li><p>einige weitere …&nbsp;&ndash; usw. …</p></li>
+        </ul>
+        <p>Die Dateien werden automatisch erzeugt, außer <tt>multiarc.ini</tt> und <tt>pixmaps.txt</tt>: Sie gehören zur Distribution von Double Commander (im Ordner „default“) und werden beim ersten Start des Programms in das Verzeichnis der Konfigurationsdateien kopiert.</p>
+        <p>Die Konfigurationsversion in <tt>doublecmd.xml</tt> legt das Speicherformat fest: Hat sie sich in der neuen Programmversion geändert (zum Beispiel wurden neue Parameter hinzugefügt oder bestehende geändert), aktualisiert Double Commander beim ersten Start die Konfigurationsdateien. Dabei wird die vorherige Version von <tt>doublecmd.xml</tt> gesichert.</p>
+      </div>
+
+      <div>
+        <h2><a name="settings">2. Konfiguration</a></h2>
+        <p>Das Fenster „Optionen“ erlaubt es, fast alle Optionen in Double Commander einzustellen, aber es gibt <a href="configxml.html">mehrere Parameter</a>, die sich nur von Hand in der Konfigurationsdatei <tt>doublecmd.xml</tt> ändern lassen.</p>
+        <p>Unten im Fenster gibt es einen Filter nach Parametername: Das Programm zeigt nur die Abschnitte an, die einen passenden Parameter enthalten. Um den entsprechenden Abschnitt in der Programmhilfe zu öffnen, können Sie die Schaltfläche <span class="italic">Hilfe</span> oder die Taste <kbd>F1</kbd> verwenden.</p>
+        <p>Double Commander hat mehrere <a href="cmds.html#catconfiguration">interne Befehle</a>, um den Konfigurationsdialog zu öffnen und schnell zum gewünschten Abschnitt zu springen.</p>
+        <p>Double Commander unterstützt den Import und Export einiger Einstellungen: Verzeichnis-Favoriten, Favoriten-Registerkarten, externe Packprogramme, Werkzeugleiste (Hauptleiste und mittlere Leiste), Kurzinfos. Außerdem kann die Liste der Tastenkürzel in einer neuen Datei gespeichert werden, und Sie können zwischen ihnen wechseln.</p>
+        <p>Hinweis: Rechts neben den Schaltflächen zur Auswahl einer Datei oder eines Verzeichnisses liegt die Schaltfläche <span class="italic">Einige Funktionen zur Auswahl eines passenden Pfades</span> <img title="Einige Funktionen zur Auswahl eines passenden Pfades" alt="Einige Funktionen zur Auswahl eines passenden Pfades" src="../en/images/imgDC/bhelper.png" width="16" height="16">: Das Aufklappmenü enthält Listen von Variablen (einschließlich Umgebungsvariablen) und einige zusätzliche Funktionen, die Beschreibung finden Sie <a href="directoryhotlist.html#helperpath">hier</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLang">2.1. Sprache</a></span></p>
+        <p>Das sind die verschiedenen Übersetzungen, die für Double Commander verfügbar sind. Sie können Ihre bevorzugte Sprache wählen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigBehaviors">2.2. Verhalten</a></span></p>
+        <p>Es gibt mehrere Parameter, die bestimmtes Verhalten von Double Commander beeinflussen.</p>
+        <p class="figure"><img class="largeimage" title="Verhalten" alt="Verhalten" src="../en/images/imgDC/pic58.png" width="578" height="220"></p>
+        <p><span class="italic">Nur eine Kopie von DC gleichzeitig erlauben</span>&nbsp;&ndash; Wenn aktiviert, kann nur eine Kopie des Programms laufen. Wenn Sie versuchen, eine zweite Kopie von Double Commander zu starten, wird die erste Kopie aktiviert.</p>
+        <p><span class="italic">Symbol beim Minimieren in den Infobereich verschieben</span>&nbsp;&ndash; Minimiert zeigt Double Commander sein Symbol im Infobereich (Benachrichtigungsbereich) statt im Panel (oder in der Windows-Taskleiste).</p>
+        <p><span class="italic">Infobereichssymbol immer anzeigen</span>&nbsp;&ndash; Wenn aktiviert, zeigt es zusätzlich zur Fensterschaltfläche von Double Commander im Panel (oder in der Windows-Taskleiste) das Symbol im Infobereich.</p>
+        <p><span class="italic">Laufwerkssperrliste</span>&nbsp;&ndash; Damit blenden Sie bestimmte Laufwerke im Menü des Laufwerkspanels aus. Jeder Eintrag muss den vollständigen Pfad zum Laufwerk bzw. Einhängepunkt enthalten. Mehrere Laufwerke mit Semikolons „;“ ohne Leerzeichen trennen. Beispiele: <code>/media/cdrom;/mnt/win_c</code> (Linux) oder <code>a:\;b:\;d:\</code> (Windows). Unter Unix/Linux können Sie außerdem eine Maske mit Platzhaltern verwenden, Beispiel für AppImage-Dateien: <code>/tmp/.mount_*</code>. Ausgeblendete Laufwerke bleiben erreichbar, zum Beispiel können Sie sie über das Menü der Verzeichnis-Favoriten öffnen oder den Pfad von Hand ändern.</p>
+        <p><span class="italic">Nicht eingehängte Geräte automatisch ausblenden</span>&nbsp;&ndash; Ein nicht eingehängtes Gerät wird automatisch aus der <a href="help.html#iface_drive_pane">Laufwerksschaltflächenleiste</a> und aus der <a href="help.html#iface_drive_btn">Laufwerksliste</a> entfernt.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTools">2.3. Werkzeuge</a></span></p>
+        <p>Dieser Abschnitt enthält die Einstellungen der eingebauten Werkzeuge von Double Commander (Editor (<kbd>F4</kbd>), Dateibetrachter (<kbd>F3</kbd>) und Dateivergleich) sowie Befehle zum Starten des Terminals.</p>
+        <p>Sie können externe Programme zum Bearbeiten, Betrachten und zum Suchen von Unterschieden angeben. Diese externen Programme werden statt der internen Werkzeuge verwendet.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsViewer">2.3.1. Werkzeuge&nbsp;&gt; Dateibetrachter</a></span></p>
+        <p>In diesem Abschnitt gibt es zwei Gruppen von Parametern:</p>
+        <p class="figure"><img class="largeimage" title="Dateibetrachter" alt="Dateibetrachter" src="../en/images/imgDC/pic50.png" width="578" height="274"></p>
+        <p>Die erste Gruppe erlaubt es, ein externes Programm zum Betrachten von Dateien anzugeben. Double Commander hängt den vollständigen Dateinamen bei jedem Aufruf des Dateibetrachters automatisch als letzten Startparameter an.</p>
+        <p>Zusätzlich: <span class="italic">Im Terminal ausführen</span> und <span class="italic">Terminalfenster nach dem Ausführen des Programms offen halten</span> können nützlich sein, wenn Sie ein Konsolenprogramm verwenden und/oder die Terminalausgabe des Programms wichtig ist (oder nur vorübergehend zur Fehlersuche).</p>
+        <p>Die nächste Parametergruppe ist <span class="italic">Optionen des internen Dateibetrachters</span>, fast alle Parameter und Schalter sind jedoch im Fenster des <a href="viewer.html">eingebauten Dateibetrachters</a> verfügbar.</p>
+        <p><span class="italic">Anzahl der Spalten im Buchbetrachter</span>&nbsp;&ndash; die Beschreibung dieses Modus finden Sie <a href="viewer.html#mnu_view">hier</a>.</p>
+        <p>Es gibt außerdem <a href="configxml.html">mehrere Parameter</a>, die sich nur von Hand in der Konfigurationsdatei <tt>doublecmd.xml</tt> ändern lassen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsEditor">2.3.2. Werkzeuge&nbsp;&gt; Editor</a></span></p>
+        <p class="figure"><img class="largeimage" title="Editor" alt="Editor" src="../en/images/imgDC/pic51.png" width="578" height="362"></p>
+        <p>Die erste Parametergruppe erlaubt es, ein externes Programm zum Bearbeiten von Textdateien anzugeben. Double Commander hängt den vollständigen Dateinamen bei jedem Aufruf des Editors automatisch als letzten Startparameter an.</p>
+        <p>Zusätzlich: <span class="italic">Im Terminal ausführen</span> und <span class="italic">Terminalfenster nach dem Ausführen des Programms offen halten</span> können nützlich sein, wenn Sie ein Konsolenprogramm verwenden und/oder die Terminalausgabe des Programms wichtig ist (oder nur vorübergehend zur Fehlersuche).</p>
+        <p>Optionen des internen Editors:</p>
+        <p><span class="italic">Automatisch einrücken</span>&nbsp;&ndash; Rückt die Einfügemarke ein, wenn mit <kbd>Enter</kbd> eine neue Zeile erzeugt wird, und übernimmt dabei denselben führenden Leerraum wie die vorherige Zeile.</p>
+        <p><span class="italic">Nachgestellte Leerzeichen löschen</span>&nbsp;&ndash; Löscht nachgestellte Leerzeichen automatisch, gilt nur für bearbeitete Zeilen.</p>
+        <p><span class="italic">Einfügemarke hinter dem Zeilenende</span>&nbsp;&ndash; Erlaubt der Einfügemarke, in den leeren Bereich hinter der Position des Zeilenendes zu gehen.</p>
+        <p><span class="italic">Sonderzeichen anzeigen</span>&nbsp;&ndash; Zeigt Sonderzeichen für Leerzeichen und Tabulatoren.</p>
+        <p><span class="italic">Leerzeichen statt Tabulatorzeichen verwenden</span>&nbsp;&ndash; Wandelt Tabulatorzeichen beim Eingeben in eine festgelegte Anzahl von Leerzeichen um.</p>
+        <p><span class="italic">Tabulator rückt Blöcke ein</span>&nbsp;&ndash; Wenn aktiviert, wirken <kbd>Tab</kbd> und <kbd>Shift+Tab</kbd> bei ausgewähltem Text als Block einrücken und ausrücken.</p>
+        <p><span class="italic">Intelligente Tabulatoren</span>&nbsp;&ndash; Beim Drücken der Taste <kbd>Tab</kbd> springt die Einfügemarke zum nächsten Zeichen, das kein Leerzeichen ist, in der vorherigen Zeile.</p>
+        <p><span class="italic">Gruppiertes Rückgängig</span>&nbsp;&ndash; Wenn aktiviert, werden alle aufeinanderfolgenden Änderungen derselben Art in einem Aufruf des Befehls Rückgängig oder Wiederholen verarbeitet, statt jede einzelne Textänderung einzeln rückgängig zu machen oder zu wiederholen.</p>
+        <p><span class="italic">Tabulatorbreite</span>&nbsp;&ndash; Die Breite des Tabulatorzeichens (in Anzahl der Zeichen). Ist <span class="italic">Leerzeichen statt Tabulatorzeichen verwenden</span> aktiviert, fügt die Taste <kbd>Tab</kbd> die angegebene Anzahl Leerzeichen ein. Diese Einstellung gilt nicht, wenn die Option <span class="italic">Intelligente Tabulatoren</span> aktiviert ist.</p>
+        <p><span class="italic">Blockeinzug</span>&nbsp;&ndash; legt fest, um wie viele Zeichen der Einzug zunimmt oder abnimmt, wenn die entsprechenden Befehle verwendet werden.</p>
+        <p><span class="italic">Rechter Rand</span>&nbsp;&ndash; Markierung der Zeilenlänge, eine dünne senkrechte Linie an der angegebenen Position: Zeilen werden nicht mit einem erzwungenen Zeilenumbruch abgeschnitten, es ist nur ein visueller Hinweis. Nützlich, wenn empfohlen wird, die Länge von Zeichenketten zu begrenzen (zum Beispiel 80 oder 120 Zeichen).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsEditorHL">2.3.2.1. Werkzeuge&nbsp;&gt; Editor&nbsp;&gt; Hervorhebungen</a></span></p>
+        <p>Für den eingebauten Editor wird die Komponente SynEdit verwendet. Einige Einstellungen der Syntaxhervorhebungsregeln, die zu SynEdit gehören, sind in diesem Abschnitt verfügbar.</p>
+        <p class="figure"><img class="largeimage" title="Syntaxhervorhebung" alt="Syntaxhervorhebung" src="../en/images/imgDC/pic52.png" width="578" height="428"></p>
+        <p>Oben im Fenster gibt es ein Aufklappmenü mit Dateitypen (einfacher Text, Programmier- und Auszeichnungssprachen) und ein Feld für die Liste der Dateierweiterungen. Schaltflächen:</p>
+        <ul>
+          <li><p><span class="italic">Speichern</span>&nbsp;&ndash; speichert die Änderungen in der Liste der Dateierweiterungen.</p></li>
+          <li><p><span class="italic">Zurücksetzen</span>&nbsp;&ndash; setzt die Liste auf den Standardwert zurück.</p></li>
+        </ul>
+        <p>Links im Fenster steht eine Liste der verfügbaren Elemente für den gewählten Dateityp, rechts ein Vorschaubereich.</p>
+        <p>Sie können Text- und Hintergrundfarbe sowie den Schriftstil (unterstrichen, fett, kursiv und durchgestrichen) für Schlüsselwörter, Zeichenketten, Zahlen, Operatoren und so weiter ändern. Für den Standardtext sind nur Text- und Hintergrundfarbe verfügbar.</p>
+        <p><span class="italic">Textmarkierung</span> dient dazu, einen Rahmen um das Element zu legen: Sie können die Farbe, die Art des Rahmens und die Art der Linie wählen.</p>
+        <p><span class="italic">Globale Schemaeinstellungen verwenden (und bearbeiten)</span> und <span class="italic">Lokale Schemaeinstellungen verwenden</span> gelten nur für den Standardtext: Sie können die Farben für alle Dateitypen auf einmal ändern oder nur für einige.</p>
+        <p>Alle Einstellungen werden in der Datei <tt>colors.json</tt> gespeichert.</p>
+        <p>Hinweis: Mögliche Wege, das Einlesen von Dateien (syntaktische Analyse), Schlüsselwortlisten und so weiter zu ändern (zu korrigieren oder zu verbessern):</p>
+        <ul>
+          <li>Änderungen beim Lazarus-Projekt vorschlagen (der beste Weg);</li>
+          <li>den Quelltext der Komponente SynEdit selbst ändern und Double Commander kompilieren.</li>
+        </ul>
+        <p>Außerdem verwendet Double Commander die Komponente SynUniHighlighter für die Syntaxhervorhebung, Einzelheiten stehen in den <a href="faq.html#f4_syntax">häufig gestellten Fragen</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsDiffer">2.3.3. Werkzeuge&nbsp;&gt; Vergleich</a></span></p>
+        <p>Fast alle Parameter und Schalter sind im Fenster des eingebauten Vergleichs verfügbar, in diesem Abschnitt gibt es nur zwei Parametergruppen.</p>
+        <p class="figure"><img class="largeimage" title="Vergleich" alt="Vergleich" src="../en/images/imgDC/pic53.png" width="578" height="277"></p>
+        <p>Die erste Gruppe erlaubt es, ein externes Programm zum Dateivergleich anzugeben. Double Commander hängt die vollständigen Dateinamen bei jedem Aufruf des Vergleichswerkzeugs automatisch als letzte Startparameter an.</p>
+        <p>Zusätzlich: <span class="italic">Im Terminal ausführen</span> und <span class="italic">Terminalfenster nach dem Ausführen des Programms offen halten</span> können nützlich sein, wenn Sie ein Konsolenprogramm verwenden und/oder die Terminalausgabe des Programms wichtig ist (oder nur vorübergehend zur Fehlersuche).</p>
+        <p><span class="italic">Position des Panels nach dem Vergleich</span>&nbsp;&ndash; legt die Reihenfolge fest, in der die Dateinamen an das Vergleichsprogramm (eingebaut oder extern) übergeben werden:</p>
+        <ul>
+          <li><p><span class="italic">Aktives Panel links, inaktives rechts</span>&nbsp;&ndash; Die Datei aus dem aktiven Dateipanel wird im linken Panel des Vergleichsprogramms geöffnet, die zweite Datei im rechten Panel.</p></li>
+          <li><p><span class="italic">Linkes Panel links, rechtes rechts</span>&nbsp;&ndash; Die Datei aus dem linken Dateipanel wird im linken Panel des Vergleichsprogramms geöffnet, die zweite Datei im rechten Panel.</p></li>
+        </ul>
+        <p>Sind im aktiven Panel zwei Dateien ausgewählt, wird die erste Datei im linken Panel des Vergleichsprogramms geöffnet.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolsTerminal">2.3.4. Werkzeuge&nbsp;&gt; Terminal</a></span></p>
+        <p>Dieser Abschnitt enthält Parameter zum Starten des Terminals:</p>
+        <p class="figure"><img class="largeimage" title="Start des Terminals" alt="Start des Terminals" src="../en/images/imgDC/pic54.png" width="578" height="291"></p>
+        <p>Die ersten beiden Gruppen dienen dazu, Befehle im Terminal auszuführen (um die Position der auszuführenden Befehle in der Befehlszeile anzugeben, verwenden Sie <code>{command}</code> im Parameterfeld). Sie können in Schaltflächen der Werkzeugleiste, in internen Dateizuordnungen und zum Starten externer Anwendungen verwendet werden, die den eingebauten Texteditor, den Dateibetrachter und das Dateivergleichswerkzeug <a href="#ConfigTools">ersetzen</a>. Diese Aktionen <a href="#ConfigAssocEx">können Sie</a> dem Dateikontextmenü hinzufügen (dem Untermenü „Aktionen“).</p>
+        <p>Außerdem wird die erste Gruppe verwendet, um eine Datei unter dem Cursor mit <kbd>Shift+Enter</kbd> im Terminal zu öffnen und einen Befehl aus der Befehlszeile auszuführen (ist jedoch das <a href="help.html#iface_console">Terminalfenster</a> aktiviert, wird der Befehl darin ausgeführt).</p>
+        <p>Die dritte Gruppe erlaubt es, den Befehl anzugeben, der ausgeführt wird, wenn das Terminal aufgerufen wird (interner Befehl <a href="cmds.html#cm_RunTerm">cm_RunTerm</a>, standardmäßig <kbd>F9</kbd>).</p>
+        <p>Standardwerte:</p>
+        <ul>
+          <li><p>Windows: <tt>cmd.exe</tt></p></li>
+          <li><p>macOS: Double Commander erkennt automatisch das in den Systemeinstellungen angegebene Programm.</p></li>
+          <li><p>Linux und andere Unix-ähnliche Systeme:</p>
+            <ul>
+              <li><p>Für Debian und auf Debian aufbauende Distributionen (Ubuntu, Linux Mint, antiX, Devuan und andere) wird <tt>x-terminal-emulator</tt> verwendet: Das ist eine symbolische Verknüpfung auf das Terminal, das in diesen Systemen standardmäßig verwendet wird.</p></li>
+              <li><p>Andernfalls versucht Double Commander, den Wert aus den Einstellungen der Arbeitsumgebung zu lesen: Cinnamon, GNOME, KDE, LXDE, LXQt, MATE oder Xfce.</p></li>
+              <li><p>Schlägt die automatische Erkennung fehl, verwendet Double Commander <tt>xterm</tt>.</p></li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigFonts">2.4. Schriftarten</a></span></p>
+        <p class="figure"><img class="largeimage" title="Schriftarten" alt="Schriftarten" src="../en/images/imgDC/pic28.png" width="578" height="300"></p>
+        <p>Sie können Schriftarten für den Editor (<kbd>F4</kbd>), den Dateibetrachter (<kbd>F3</kbd>), die Dateipanels (<span class="italic">Hauptschrift</span>) und andere Elemente der Oberfläche von Double Commander wählen, außerdem ihre Größe. Die untere Zeile bei jedem Eintrag zeigt, wie die gewählte Schrift dargestellt wird. Ein wichtiger Hinweis: Die Schriften für Editor und Dateibetrachter müssen <span class="red">DICKTENGLEICH</span> sein. Die Abbildung unten zeigt oben eine Proportionalschrift (achten Sie auf die merkwürdigen Abstände) und unten eine dicktengleiche Schrift, die richtig ausgerichtet erscheint. Bei manchen Proportionalschriften können sich die Zeichen außerdem überdecken und recht merkwürdig aussehen.</p>
+        <p class="figure"><img class="largeimage" title="Schriftunterschiede" alt="Schriftunterschiede" src="../en/images/imgDC/pic29.png" width="576" height="360"></p>
+        <p>Oben eine normale (proportionale) Schrift, unten eine dicktengleiche.</p>
+        <p>Außerdem können Sie mit <kbd>Ctrl</kbd> und dem Mausrad die Schriftgröße ändern, Einzelheiten stehen im Abschnitt <a href="#ConfigMouse">Maus</a>.</p>
+        <p>Sie können auch die Art der Schriftrasterung wählen (unabhängig von den Systemeinstellungen), siehe die Beschreibung von <a href="configxml.html">&lt;Quality&gt;</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColor">2.5. Farben</a></span></p>
+        <p>Dieser Abschnitt enthält Farbeinstellungen, die nicht in anderen Einstellungsabschnitten enthalten sind. Die Parameter sind nach Kategorien gruppiert.</p>
+        <p class="figure"><img class="largeimage" title="Farben: Dunkler Modus" alt="Farben: Dunkler Modus" src="../en/images/imgDC/pic59.png" width="578" height="155"></p>
+        <p>1. <span class="italic">Dunkler Modus</span>&nbsp;&ndash; aktiviert oder deaktiviert die Unterstützung des dunklen Modus (nur macOS und Windows 10 1809 und neuer). Zustand:</p>
+        <ul>
+          <li><p><span class="italic">Automatisch</span>&nbsp;&ndash; die Systemeinstellungen werden verwendet.</p></li>
+          <li><p><span class="italic">Aktiviert</span>&nbsp;&ndash; zwangsweise einschalten.</p></li>
+          <li><p><span class="italic">Deaktiviert</span>&nbsp;&ndash; zwangsweise ausschalten.</p></li>
+        </ul>
+         <p>2. <span class="italic">Dateibetrachter</span>&nbsp;&ndash; Farbeinstellungen, die der eingebaute <a href="viewer.html">Dateibetrachter</a> verwendet (Beschreibung der Ansichtsmodi <a href="viewer.html#mnu_view">hier</a>):</p>
+        <p><span class="italic">Buchmodus</span>&nbsp;&ndash; für den Ansichtsmodus „Buch“ können Sie die Textfarbe und die Hintergrundfarbe festlegen.</p>
+        <p><span class="italic">Bildmodus</span>:</p>
+        <ul>
+          <li><p><span class="italic">Hintergrund 1:</span>&nbsp;&ndash; legt die Hintergrundfarbe des Fensters beim Betrachten von Bildern fest.</p></li>
+          <li><p><span class="italic">Hintergrund 2:</span>&nbsp;&ndash; ist <a href="viewer.html#mnu_image">Transparenz anzeigen</a> aktiviert, kennzeichnet der interne Dateibetrachter Transparenz durch ein Schachbrettmuster als Hintergrund, und <span class="italic">Hintergrund 2</span> legt die Farbe der Quadrate fest. Ist nichts gesetzt, berechnet der Dateibetrachter den Wert automatisch: Bei dunklem Hintergrund werden helle Quadrate verwendet und umgekehrt.</p></li>
+        </ul>
+        <p>3. <span class="italic">Vergleich</span>&nbsp;&ndash; für das interne <a href="help.html#cm_CompareContents">Vergleichswerkzeug</a>: Sie können die Farben für hinzugefügte, gelöschte und geänderte Zeilen ändern sowie die Farbe für unterschiedliche Zeichen im Binärmodus.</p>
+        <p>4. <span class="italic">Protokoll</span>&nbsp;&ndash; Optionen, die die Textfarben im Protokollfenster für Hinweis-, Fehler- und Erfolgsmeldungen festlegen. Diese Farben werden auch im Fenster mit dem Ergebnis der <a href="help.html#cm_CheckSumVerify">Prüfsummenprüfung</a> verwendet.</p>
+        <p>5. <span class="italic">Verzeichnisse synchronisieren</span>&nbsp;&ndash; für das interne Werkzeug zur <a href="syncdirs.html">Verzeichnissynchronisierung</a>:</p>
+        <ul>
+          <li><p><span class="italic">Links:</span>&nbsp;&ndash; Dateien, die links zum Kopieren oder Löschen ausgewählt sind.</p></li>
+          <li><p><span class="italic">Rechts:</span>&nbsp;&ndash; Dateien, die rechts zum Kopieren oder Löschen ausgewählt sind.</p></li>
+          <li><p><span class="italic">Unbekannt:</span>&nbsp;&ndash; Dateien mit denselben Namen, die aber nicht identisch sind.</p></li>
+          <li><p><span class="italic">Auswahl:</span>&nbsp;&ndash; Hintergrundfarbe für die Datei unter dem Cursor oder für ausgewählte Dateien.</p></li>
+        </ul>
+        <p>6. <span class="italic">Anzeige des freien Speicherplatzes</span>&nbsp;&ndash; hier können Sie das Aussehen der Anzeige des freien Speicherplatzes ändern:</p>
+        <p class="figure"><img class="largeimage" title="Farben: Anzeige des freien Speicherplatzes" alt="Farben: Anzeige des freien Speicherplatzes" src="../en/images/imgDC/pic81.png" width="578" height="196"></p>
+        <p>Double Commander kann einen Farbverlauf (von Grün nach Rot) oder eine einfache einfarbige Anzeige darstellen; im zweiten Fall können Sie die Farbe und den Hintergrund wählen. <span class="italic">Schwellenfarbe der Anzeige</span> wird verwendet, wenn der freie Speicherplatz unter 10&nbsp;% liegt.</p>
+        <p>Das Anzeigebeispiel ist anklickbar, sodass Sie sehen können, wie es aussehen wird.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColorPanels">2.5.1. Farben&nbsp;&gt; Dateipanels</a></span></p>
+        <p>Dieser Abschnitt enthält Einstellungen für das Aussehen der Dateipanels:</p>
+        <p class="figure"><img class="largeimage" title="Farbeinstellungen" alt="Farbeinstellungen" src="../en/images/imgDC/pic30.png" width="804" height="459"></p>
+        <p>Die Farbeinstellungen hier sind globale Einstellungen für beide Dateipanels. Diese Einstellungen lassen sich überschreiben, indem Sie einen eigenen Spaltenstil anlegen, der eigene Farbeinstellungen und mehr für jede Registerkarte im Panel haben kann! Siehe <a href="#ConfigColumns">Dateiansichten&nbsp;&gt; Spalten&nbsp;&gt; Benutzerdefinierte Spalten</a>, wie das geht. Sie sollten den aktuellen Spaltenstil anpassen (<span class="italic">Standard</span> ist voreingestellt) oder einen eigenen Stil anlegen und ihn auf eine beliebige Registerkarte anwenden.</p>
+        <p>Hier können Sie Farben wählen, mit denen die Dateipanels dargestellt werden: <span class="italic">Textfarbe</span>, <span class="italic">Hintergrund</span>, <span class="italic">Hintergrund 2</span>, <span class="italic">Markierungsfarbe</span>, <span class="italic">Cursorfarbe</span>, <span class="italic">Cursortext</span>, <span class="italic">Inaktive Cursorfarbe</span>, <span class="italic">Inaktive Markierungsfarbe</span> und außerdem <span class="italic">Cursorrand</span> (wenn Sie keinen Rahmenzeiger verwenden). Mit den beiden Hintergrundoptionen können Sie in den Panels abwechselnde Streifen erzeugen, wie auf manchen Bildschirmfotos.</p>
+        <p><span class="italic">Invertierte Auswahl verwenden</span>&nbsp;&ndash; kehrt die Farben von markiertem Text und von markiertem Text unter dem Cursor um.</p>
+        <p><span class="italic">Inaktive Auswahlfarbe verwenden</span>&nbsp;&ndash; zeigt den Cursor auch im inaktiven Panel an.</p>
+        <p><span class="italic">Rahmenzeiger verwenden</span>&nbsp;&ndash; Double Commander verwendet einen Rahmen statt eines ausgefüllten Rechtecks.</p>
+        <p><span class="italic">Überfärben erlauben</span> schaltet die Möglichkeit ein, für Dateinamen eine andere Farbe als die Standardfarbe zu verwenden (siehe Abschnitt <a href="#ConfigColorFiles">Farben&nbsp;&gt; Dateitypen</a>).</p>
+        <p>In der Parametergruppe <span class="italic">Aktueller Pfad</span> können Sie Textfarbe und Hintergrundfarbe der <a href="help.html#iface_dir">Leiste des aktuellen Verzeichnisses</a> für das aktive und das inaktive Dateipanel ändern.</p>
+        <p>Außerdem können Sie hier die Helligkeit des inaktiven Panels verringern.</p>
+        <p>Unten im Fenster gibt es einen Vorschaubereich, sodass Sie alle Änderungen auf einmal sehen.</p>
+        <p>Die Schaltfläche <span class="italic">Auf DC-Standard zurücksetzen</span> setzt alle Parameter auf ihre Standardwerte zurück.</p>
+        <p>Die Gitterfarbe lässt sich ebenfalls ändern, aber nur von Hand. Sie müssen die Anwendung schließen, die Datei <a href="#config_files">colors.json</a> öffnen und den Wert des Schlüssels <code>GridLine</code> im Objekt <code>FilePanel</code> ersetzen. (Denken Sie daran, dass die Farben in <tt>colors.json</tt> in zwei Profilen gespeichert sind: „Light“ für helle Themen und „Dark“ für dunkle Themen.)<br>
+          Zum Farbformat: Double Commander speichert Farbwerte im Format <code>$BBGGRR</code> als Dezimalzahl. Wenn Sie zum Beispiel die Indigofarbe <code>#4B0082</code> (<code>$RRGGBB</code>) verwenden möchten, stellen Sie die Bytes um, Sie erhalten <code>82004B</code>, und diese Hexadezimalzahl müssen Sie nun ins Dezimalsystem umrechnen. Oder Sie fügen vorübergehend eine Farbe für einen Dateityp hinzu (siehe unten), suchen sie in <tt>colors.json</tt> nach Name oder Maske, kopieren den Wert und löschen den Eintrag wieder.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColorFiles">2.5.2. Farben&nbsp;&gt; Dateitypen</a></span></p>
+        <p>Hier können Sie Dateitypen angeben, die eine andere Farbe erhalten sollen. Der Parameter <a href="#ConfigColorPanels">Überfärben erlauben</a> muss aktiviert sein (standardmäßig aktiviert).</p>
+        <p class="figure"><img class="largeimage" title="Dateitypen nach Farbe" alt="Dateitypen nach Farbe" src="../en/images/imgDC/pic31.png" width="578" height="353"></p>
+        <p>In der Zeile <span class="italic">Kategoriename</span> können Sie eine Beschreibung der Datei eintragen, was sie tut oder welches Programm sie öffnet.</p>
+        <p>In der Zeile <span class="italic">Kategoriemaske</span> tragen Sie eine Platzhaltermaske ein, die zu den Dateitypen passt (das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen, das Zeichen „?“ für genau ein Zeichen). Sie können hier mehrere Dateitypen mit einem Semikolon „;“ ohne Leerzeichen dazwischen eintragen. Außerdem können Sie Suchvorlagen verwenden (<img title="Vorlage..." alt="Vorlage..." src="../en/images/imgDC/btemplate.png" width="16" height="16">), einschließlich der Suche mit Inhalts-Plugins.</p>
+        <p>In der Zeile <span class="italic">Kategorieattribute</span> können Sie Dateiattribute eintragen, und DC passt auf alle Dateien, deren Attribute übereinstimmen (nicht verfügbar, wenn eine Suchvorlage verwendet wird). Dateiattribute werden durch folgende Vorlagen angegeben:</p>
+        <ul>
+          <li><p>Windows: [<code>d</code> oder <code>l</code>]<code>rahs</code>[<code>c</code> oder <code>e</code>]<code>tp</code></p></li>
+          <li><p>Unix/Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code> oder <code>s</code>]<code>rwxrwxrwx</code></p></li>
+        </ul>
+        <p>das heißt, die Vorlage muss zur Attributzeichenkette in der Dateiliste passen. Beschreibung der Werte:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Attribute unter Windows</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Attributbuchstabe</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">a</div></td><td class="hintcell">Archiv</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">komprimiert (NTFS-Komprimierung)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">Verzeichnis</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">e</div></td><td class="hintcell">verschlüsselt (EFS-Verschlüsselung)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">versteckt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symbolische Verknüpfung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">p</div></td><td class="hintcell">sparse</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">r</div></td><td class="hintcell">schreibgeschützt</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">System</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">temporär</td></tr>
+        </table>
+        <br>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Attribute unter Unix/Linux (Dateitypen)</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Buchstaben der Dateitypen</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">b</div></td><td class="hintcell">Blockgerät</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">Zeichengerät</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">Verzeichnis</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">benannte Pipe (FIFO)</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">l</div></td><td class="hintcell">symbolische Verknüpfung</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">Socket</td></tr>
+        </table>
+        <br>
+        <p>Der zweite Teil der Unix/Linux-Vorlage zeigt die Rechte: lesen (r), schreiben (w), ausführen (x). Die Werte sind in Dreiergruppen in dieser Reihenfolge zusammengefasst: Benutzer (Eigentümer), Gruppe des Benutzers, alle anderen.</p>
+        <p>Soll ein Attribut nicht gesetzt sein, muss es durch das Zeichen „-“ ersetzt werden, unnötige Attribute sollen ausgeblendet werden: Das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen, das Zeichen „?“ für genau ein Zeichen. Zum Beispiel findet <code>?r*</code> (Windows) oder <code>?r-*</code> (Linux) alle schreibgeschützten Dateien und Ordner.</p>
+        <p>Sie können eine Farbe aus der Liste verwenden oder über die Schaltfläche „..“ eine eigene angeben.</p>
+        <p>Double Commander prüft die Liste von oben nach unten bis zur ersten Übereinstimmung: Eine weiter oben stehende Regel überdeckt jede Regel darunter.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigKeys">2.6. Tasten</a></span></p>
+        <p class="figure"><img class="largeimage" title="Tasten" alt="Tasten" src="../en/images/imgDC/pic60.png" width="578" height="168"></p>
+        <p>Hier können Sie die Aktion beim Drücken einiger Tasten im aktiven Dateipanel festlegen: <span class="italic">Buchstaben</span>, <span class="italic">Alt+Buchstaben</span>, <span class="italic">Ctrl+Alt+Buchstaben</span>. Sie können eine der folgenden Aktionen wählen: nichts tun, den Fokus auf die Befehlszeile setzen und den Befehl eingeben, <p><a href="help.html#cm_QuickSearch">Schnellsuche oder Schnellfilter</a> starten.</p>
+        <p><span class="italic">Pfeiltasten links und rechts wechseln das Verzeichnis (Bewegung wie bei Lynx)</span>&nbsp;&ndash; <kbd>right arrow</kbd> öffnet das Verzeichnis oder startet das Programm unter dem Cursor, <kbd>left arrow</kbd> öffnet das übergeordnete Verzeichnis (nur im <a href="help.html#iface_files">vollen Modus</a>).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigHotKeys">2.6.1. Tasten&nbsp;&gt; Tastenkürzel</a></span></p>
+        <p>In diesem Abschnitt können Sie Tasten zum Starten von Befehlen festlegen und außerdem Parameter für diese Befehle angeben.</p>
+        <p class="figure"><img class="largeimage" title="Tastenkürzel" alt="Tastenkürzel" src="../en/images/imgDC/pic32.png" width="612" height="440"></p>
+        <p><span class="italic">Tastenkürzeldateien</span>&nbsp;&ndash; Ein Aufklappmenü mit einer Liste von Dateien mit einem Satz von Tastenkürzeln. Sie liegen im Verzeichnis mit den Programmeinstellungsdateien.</p>
+        <p>Rechts liegt die Schaltfläche des dateibezogenen Menüs:</p>
+        <ul>
+          <li><p>Aktionen mit der aktuellen Datei: <span class="italic">Jetzt speichern</span>, <span class="italic">Umbenennen</span>, <span class="italic">Kopieren</span> und <span class="italic">Löschen</span>.</p></li>
+          <li><p><span class="italic">DC-Standard wiederherstellen</span>.</p></li>
+          <li><p>Befehle zum Wechsel zur vorherigen und nächsten Kategorie.</p></li>
+          <li><p>Befehle zum Umschalten der Sortierreihenfolge der Befehlstabelle (siehe unten).</p></li>
+        </ul>
+        <p><span class="italic">Kategorien</span>&nbsp;&ndash; zeigt die Kategorie der Tastenkürzel:
+          <span class="italic">Haupt</span>,
+          <span class="italic">Dialog Kopieren/Verschieben</span>,
+          <span class="italic">Vergleich</span>,
+          <span class="italic">Dialog Kommentar bearbeiten</span>,
+          <span class="italic">Editor</span>,
+          <span class="italic">Dateien suchen</span>,
+          <span class="italic">Mehrfach-Umbenennen</span>,
+          <span class="italic">Verzeichnisse synchronisieren</span>,
+          <span class="italic">Dateibetrachter</span>.
+        </p>
+        <p><span class="italic">Filter</span>&nbsp;&ndash; ermöglicht es, die internen Befehle schneller zu suchen.</p>
+        <p><span class="italic">Sortierreihenfolge</span>&nbsp;&ndash; schaltet die Sortierreihenfolge der Befehlstabelle um:</p>
+        <ul>
+          <li><p><span class="italic">Nach Befehlsname</span>.</p></li>
+          <li><p><span class="italic">Nach Tastenkürzel (gruppiert)</span>&nbsp;&ndash; Sind mehrere Tastenkürzel zugewiesen, werden sie durch ein Semikolon „;“ getrennt aufgeführt.</p></li>
+          <li><p><span class="italic">Nach Tastenkürzel (eines pro Zeile)</span>.</p></li>
+        </ul>
+        <p><span class="italic">Befehle</span>&nbsp;&ndash; Liste der verfügbaren <a href="cmds.html">internen Befehle</a> in Double Commander. Die Liste wird als Tabelle mit drei Spalten angezeigt:</p>
+        <ul>
+          <li><p>Befehl (Name des internen Befehls).</p></li>
+          <li><p>Tastenkürzel (zugewiesene Kürzel).</p></li>
+          <li><p>Beschreibung (eine kurze Beschreibung).</p></li>
+        </ul>
+        <p>Die Tabelle unten im Fenster zeigt die zugewiesenen Tastenkürzel, Parameter und Oberflächenelemente (siehe unten) für den gewählten Befehl.</p>
+        <p><span class="italic">Tastenkürzel hinzufügen</span>&nbsp;&ndash; öffnet ein Fenster zum Hinzufügen von Tastenkürzeln.</p>
+        <p><span class="italic">Tastenkürzel bearbeiten</span>&nbsp;&ndash; öffnet dasselbe Fenster, aber mit bereits gesetztem Tastenkürzel und den übrigen Optionen.</p>
+        <p><span class="italic">Tastenkürzel löschen</span>&nbsp;&ndash; löscht das in der Liste gewählte Tastenkürzel.</p>
+        <p>Ein Fenster zum Hinzufügen von Tastenkürzeln:</p>
+        <p class="figure"><img class="largeimage" title="Neues Tastenkürzel hinzufügen" alt="Neues Tastenkürzel hinzufügen" src="../en/images/imgDC/pic33.png" width="418" height="440"></p>
+        <p><span class="italic">Tastenkürzel</span>&nbsp;&ndash; das neue Tastenkürzel wird hier angezeigt. Klicken Sie in das Feld und drücken Sie die Kombination auf der Tastatur, um das neue Tastenkürzel einzugeben. Wird die neue Kombination bereits für einen anderen Befehl verwendet, zeigt Double Commander eine Warnung.</p>
+        <p><span class="italic">Parameter (jeder in einer eigenen Zeile):</span>&nbsp;&ndash; erlaubt es, einige Parameter für den Befehl festzulegen. Die meisten Parameter müssen als <span class="italic">Parameter=Wert</span> hinzugefügt werden (sofern nichts anderes angegeben ist), jeder in einer eigenen Zeile, ohne Anführungszeichen und ohne andere Arten, Sonderzeichen und Leerzeichen zu schützen. Die Schaltfläche darunter öffnet eine Beschreibung des Befehls in der <a href="cmds.html">zugehörigen Hilfedatei</a> von Double Commander.</p>
+        <p><span class="italic">Nur für diese Steuerelemente</span>&nbsp;&ndash; Das Tastenkürzel wirkt nur, wenn das gewählte Oberflächenelement den Fokus hat: Befehlszeile, Dateien oder Schnellsuchpanel.</p>
+        <p>Rechts im Fenster liegen folgende Schaltflächen:</p>
+        <ul>
+          <li><p>Die Schaltfläche <span class="italic">F1</span> zeigt ein Menü mit einer Liste freier verfügbarer Tastenkürzel, gruppiert nach Alphabet und Zusatztasten.</p></li>
+          <li><p>Die Schaltfläche „+“ fügt ein weiteres Feld für das Tastenkürzel hinzu (bis zu fünf).</p></li>
+          <li><p>Die Schaltfläche „-“ löscht das letzte Tastenkürzel aus der Liste.</p></li>
+        </ul>
+        <p>Sie können einem internen Befehl auf zwei Wegen mehrere Tastenkürzel zuweisen: die Schaltfläche <span class="italic">Tastenkürzel hinzufügen</span> und danach mehrmals die Schaltfläche „+“ verwenden oder die Schaltfläche <span class="italic">Tastenkürzel hinzufügen</span> mehrmals. Der zweite Weg erlaubt es, den gewählten Befehl mit unterschiedlichen Parametern zu verwenden.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMouse">2.7. Maus</a></span></p>
+        <p class="figure"><img class="largeimage" title="Maus" alt="Maus" src="../en/images/imgDC/pic61.png" width="578" height="379"></p>
+        <p>Die erste Parametergruppe ist <span class="italic">Auswahl</span>:</p>
+        <ul>
+          <li><p><span class="italic">Auswahl mit der Maus</span>&nbsp;&ndash; schaltet die Möglichkeit ein, Dateien und Ordner mit der Maus auszuwählen und die Auswahl aufzuheben.</p></li>
+          <li><p><span class="italic">Durch Klick auf das Symbol</span>&nbsp;&ndash; erlaubt es, Dateien mit einem Mausklick auf ihre Symbole auszuwählen. Die Auswahl durch Klick auf das Symbol in der Miniaturansicht wirkt, wenn Sie auf den linken Teil (1/4 oder 25&nbsp;%) des Bildes klicken.</p></li>
+          <li><p><span class="italic">Modus</span>&nbsp;&ndash; legt die linke oder rechte Maustaste fest.</p></li>
+        </ul>
+        <p>Einzelheiten stehen im Unterabschnitt <a href="help.html#select_files">Dateien auswählen</a>.</p>
+        <p><span class="italic">Blättern</span>&nbsp;&ndash; die Möglichkeit, mit dem Mausrad durch die Dateiliste in den Panels zu blättern:</p>
+        <ul>
+          <li><p><span class="italic">Zeile für Zeile mit Cursorbewegung</span>&nbsp;&ndash; der Cursor bewegt sich im Panel nach oben oder unten, bevor geblättert wird.</p></li>
+          <li><p><span class="italic">Zeile für Zeile</span>&nbsp;&ndash; der Cursor bleibt auf der Datei und das Blättern beginnt sofort. Sie können außerdem die Anzahl der Zeilen angeben.</p></li>
+          <li><p><span class="italic">Seite für Seite</span>&nbsp;&ndash; wie zuvor, aber es wird seitenweise statt zeilenweise geblättert (deutlich schnelleres Blättern).</p></li>
+        </ul>
+        <p><span class="italic">Zoom</span>&nbsp;&ndash; Double Commander erlaubt es, mit <kbd>Ctrl</kbd> und dem Mausrad die Schriftgrößen zu ändern. Das gilt für folgende Oberflächenelemente oder Programmteile:</p>
+        <ul>
+          <li><p>Dateiliste im linken und rechten Panel;</p></li>
+          <li><p>Leiste des aktuellen Verzeichnisses (Adressleiste);</p></li>
+          <li><p>Leiste der Funktionstastenschaltflächen;</p></li>
+          <li><p>Baumansichtsmenü;</p></li>
+          <li><p>Suchergebnisse im Dialog Dateien suchen;</p></li>
+          <li><p>interner Dateibetrachter (wenn der Dateibetrachter Text zeigt);</p></li>
+          <li><p>interner Editor.</p></li>
+        </ul>
+        <p><span class="italic">Zoom mit Ctrl + Mausrad</span>&nbsp;&ndash; schaltet diese Funktion ein oder aus.</p>
+        <p><span class="italic">Öffnen mit</span>&nbsp;&ndash; legt fest, was die Aktion auslöst, wenn Sie die Maustaste auf einem Element der angezeigten Dateiliste in einem Panel verwenden:</p>
+        <ul>
+          <li><p>Ein Doppelklick ist nötig, um die Aktion auszulösen (Standard).</p></li>
+          <li><p>Ein einfacher Klick öffnet Dateien und Ordner.</p></li>
+          <li><p>Ein einfacher Klick öffnet nur Ordner. Für Dateien ist ein Doppelklick nötig.</p></li>
+        </ul>
+        <p><span class="italic">Der Textcursor folgt dem Mauszeiger nicht mehr</span>&nbsp;&ndash; gilt für die letzten beiden Werte. Ist der einfache Klick aktiviert, folgt der Textcursor standardmäßig dem Mauszeiger: Das hilft, Dateien oder Ordner nicht versehentlich zu öffnen. Sie können es abschalten, wenn Sie es nicht brauchen (oder nicht mögen).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMouseDD">2.7.1. Maus&nbsp;&gt; Ziehen und Ablegen</a></span></p>
+        <p>Dieser Abschnitt enthält Einstellungen zum <a href="help.html#draganddrop">Ziehen und Ablegen</a>.</p>
+        <p class="figure"><img class="largeimage" title="Maus&nbsp;&gt; Ziehen und Ablegen" alt="Maus&nbsp;&gt; Ziehen und Ablegen" src="../en/images/imgDC/pic62.png" width="578" height="284"></p>
+        <p><span class="italic">Bestätigungsdialog nach dem Ablegen anzeigen</span>&nbsp;&ndash; hilft, versehentliche Fehler zu vermeiden, wenn Dateien innerhalb des aktiven Dateipanels oder zwischen Panels gezogen und abgelegt werden: Double Commander zeigt einen Bestätigungsdialog wie beim normalen Kopieren oder Verschieben von Dateien.</p>
+        <p>Die nächste Funktion gibt es nur unter Windows: Sie können in einem Webbrowser oder einer Textverarbeitung (zum Beispiel LibreOffice Writer oder Microsoft Word) ausgewählten Text auf das Panel ziehen und speichern. Hier können Sie das Dateiformat (RTF, HTML oder einfache Textdatei), die Kodierung wählen und die automatische Namenserzeugung einschalten.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigView">2.8. Dateiansichten</a></span></p>
+        <p>In diesem Abschnitt können Sie verschiedene Optionen zur Dateisortierung sowie Formate für Datum/Uhrzeit und Größe festlegen.</p>
+        <p class="figure"><img class="largeimage" title="Dateiansichten: Sortierung und Formatierung" alt="Dateiansichten: Sortierung und Formatierung" src="../en/images/imgDC/pic34.png" width="710" height="426"></p>
+
+        <p><span class="italic">Sortiermethode</span>&nbsp;&ndash; legt die Sortiermethode in den Dateipanels fest:</p>
+        <ul>
+          <li><p><span class="italic">Alphabetisch, unter Berücksichtigung von Akzenten</span>&nbsp;&ndash; Diese Methode sortiert alphabetisch und berücksichtigt die Besonderheiten der Systemsprache und der regionalen Einstellungen: Auch zusätzliche Zeichen werden berücksichtigt (zum Beispiel Umlaut und andere diakritische Zeichen in germanischen Sprachen oder der Buchstabe „ё“ im Russischen).</p></li>
+          <li><p><span class="italic">Alphabetisch mit Sortierung von Sonderzeichen</span>&nbsp;&ndash; Wie die vorherige Methode, zusätzlich wird die Liste nach Sonderzeichen und Satzzeichen vor den Buchstaben sortiert.</p></li>
+          <li><p><span class="italic">Natürliche Sortierung: alphabetisch und Zahlen</span>&nbsp;&ndash; Diese Methode sortiert Ziffern als Zahlen: Zum Beispiel wird „3“ vor „20“ angezeigt, weil 20 größer als 3 ist.</p></li>
+          <li><p><span class="italic">Natürlich mit Sortierung von Sonderzeichen</span>&nbsp;&ndash; Wie die vorherige Methode, aber zusätzlich mit Sortierung nach Sonderzeichen und Satzzeichen.</p></li>
+        </ul>
+        <p><span class="italic">Groß-/Kleinschreibung</span>&nbsp;&ndash; ergänzt die gewählte Methode:</p>
+        <ul>
+          <li><p>ohne Berücksichtigung der Groß-/Kleinschreibung;</p></li>
+          <li><p>gemäß den Locale-Einstellungen (aAbBcC);</p></li>
+          <li><p>zuerst Groß-, dann Kleinbuchstaben (ABCabc).</p></li>
+        </ul>
+        <p><span class="italic">Verzeichnisse sortieren</span>&nbsp;&ndash; legt die Position der Verzeichnisse in der Dateiliste fest:</p>
+        <ul>
+          <li><p>nach Name sortieren und zuerst anzeigen;</p></li>
+          <li><p>wie Dateien sortieren und zuerst anzeigen;</p></li>
+          <li><p>wie Dateien sortieren.</p></li>
+        </ul>
+        <p><span class="italic">Neue Dateien einfügen</span>&nbsp;&ndash; legt die Position der neuen Datei in der Liste fest:</p>
+        <ul>
+          <li><p>am Anfang der Dateiliste;</p></li>
+          <li><p>nach den Verzeichnissen (wenn Verzeichnisse vor Dateien sortiert werden);</p></li>
+          <li><p>an der sortierten Position;</p></li>
+          <li><p>am Ende der Dateiliste.</p></li>
+        </ul>
+        <p><span class="italic">Aktualisierte Dateien verschieben</span>&nbsp;&ndash; legt die Position fest, wenn die derzeit zum Sortieren verwendete Dateieigenschaft geändert wurde (Änderungsdatum, Größe usw.):</p>
+        <ul>
+          <li><p>Position nicht ändern;</p></li>
+          <li><p>dieselbe Einstellung wie für neue Dateien verwenden;</p></li>
+          <li><p>an die sortierte Position.</p></li>
+        </ul>
+
+        <p>Der erste Parameter in der Gruppe <span class="italic">Formatierung</span> ist <span class="italic"><a name="dt_format">Datums- und Uhrzeitformat</a></span>. Sie können eine der vorhandenen Vorlagen aus der Aufklappliste wählen oder eine eigene mit Formatzeichen für Datum und Uhrzeit festlegen.</p>
+        <p>Die Formatzeichen sind unten aufgeführt (nach der <a title="Free Pascal: Datums- und Uhrzeitformat" href="https://www.freepascal.org/docs-html/rtl/sysutils/formatchars.html" target="_blank">Dokumentation von Free Pascal</a>). Einige Werte hängen von den regionalen Einstellungen des Betriebssystems ab!</p>
+        <p>Als Beispiel verwenden wir 2021.01.24 09:06:02 (also <code>yyyy.mm.dd hh:mm:ss</code>) und die Region USA.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">Mögliche Zeichen</th></tr>
+          <tr class="rowsubtitle"><th class="smallname">Zeichen</th><th class="categorydesccolumn">Beschreibung</th><th class="categorynamecolumn">Beispiel</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">c</div></td><td class="hintcell">kurzes Datumsformat und langes Uhrzeitformat, wenn die Uhrzeit nicht null ist</td><td class="hintcell">1/24/2021 9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">f</div></td><td class="hintcell">wie <tt>c</tt>, fügt die Uhrzeit aber auch hinzu, wenn sie null ist</td><td class="hintcell">1/24/2021 9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">d</div></td><td class="hintcell">Tag des Monats</td><td class="hintcell">24</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dd</div></td><td class="hintcell">Tag des Monats (führende Null)</td><td class="hintcell">24</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ddd</div></td><td class="hintcell">Wochentag (Abkürzung)</td><td class="hintcell">Sun</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dddd</div></td><td class="hintcell">Wochentag (ausgeschrieben)</td><td class="hintcell">Sunday</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ddddd</div></td><td class="hintcell">kurzes Datumsformat</td><td class="hintcell">1/24/2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">dddddd</div></td><td class="hintcell">langes Datumsformat</td><td class="hintcell">Sunday, January 24, 2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">m</div></td><td class="hintcell">Monat oder Minuten, wenn ein Bezeichner <tt>h</tt> oder <tt>hh</tt> vorausgeht</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mm</div></td><td class="hintcell">Monat oder Minuten, wenn ein Bezeichner <tt>h</tt> oder <tt>hh</tt> vorausgeht, mit führender Null</td><td class="hintcell">01</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mmm</div></td><td class="hintcell">Monat (Abkürzung)</td><td class="hintcell">Jun</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">mmmm</div></td><td class="hintcell">Monat (ausgeschrieben)</td><td class="hintcell">January</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">yy</div></td><td class="hintcell">Jahr (zwei Stellen)</td><td class="hintcell">21</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">yyyy</div></td><td class="hintcell">Jahr (mit Jahrhundert)</td><td class="hintcell">2021</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">h</div></td><td class="hintcell">Stunde</td><td class="hintcell">9</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">hh</div></td><td class="hintcell">Stunde (führende Null)</td><td class="hintcell">09</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">n</div></td><td class="hintcell">Minute</td><td class="hintcell">6</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">nn</div></td><td class="hintcell">Minute (führende Null)</td><td class="hintcell">06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">Sekunde</td><td class="hintcell">2</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">ss</div></td><td class="hintcell">Sekunde (führende Null)</td><td class="hintcell">02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">Millisekunden</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">Millisekunden (führende Null)</td><td class="hintcell">001</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">kurzes Uhrzeitformat</td><td class="hintcell">9:06</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">tt</div></td><td class="hintcell">langes Uhrzeitformat</td><td class="hintcell">9:06:02</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">am/pm</div></td><td class="hintcell">12-Stunden-Uhr verwenden und am und pm entsprechend anzeigen (auch <tt>AM/PM</tt>, <tt>a/m</tt> oder <tt>A/M</tt>); zum Beispiel <code>t&nbsp;AM/PM</code></td><td class="hintcell">9:06 am</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">Datumstrennzeichen einfügen</td><td class="hintcell">/</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">Uhrzeittrennzeichen einfügen</td><td class="hintcell">:</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">"text"</div></td><td class="hintcell">fester Text; zum Beispiel <code>yyyy "AD"</code></td><td class="hintcell">2021 AD</td></tr>
+        </table>
+
+        <p>Die nächsten Parameter legen das Format der Dateigröße fest:</p>
+        <ul>
+          <li><p><span class="italic">Format der Dateigröße</span>&nbsp;&ndash; wird in den Dateipanels verwendet.</p></li>
+          <li><p><span class="italic">Format der Kopfzeile</span>&nbsp;&ndash; wird in der Laufwerksliste und in der Anzeige des freien Speicherplatzes verwendet.</p></li>
+          <li><p><span class="italic">Format der Fußzeile</span>&nbsp;&ndash; wird in der Statusleiste der Dateipanels verwendet.</p></li>
+          <li><p><span class="italic">Format der Operationsgröße</span>&nbsp;&ndash; wird in den Dialogen der Dateioperationen verwendet: Kopieren, Verschieben, Prüfsummen berechnen und so weiter.</p></li>
+        </ul>
+        <p>Rechts können Sie außerdem die Anzahl der Stellen nach dem Dezimaltrennzeichen festlegen (also dem Trennzeichen zwischen ganzzahligem und gebrochenem Teil einer Zahl): 0, 1, 2 oder 3.</p>
+        <p>Einheiten der Dateigröße: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte oder Gleitkomma (Double Commander wählt die Einheit automatisch anhand der Größe).</p>
+        <p>„Personalisiert“ im Namen bedeutet, dass Double Commander die <span class="italic">Personalisierten Abkürzungen</span> aus der Liste unten verwendet. Die Schaltfläche <span class="italic">Standard</span> setzt sie auf die Standardwerte der gewählten Sprache zurück (angegeben in der entsprechenden Sprachdatei).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewEx">2.8.1. Dateiansichten&nbsp;&gt; Dateiansichten extra</a></span></p>
+        <p class="figure"><img class="largeimage" title="Dateiansichten extra" alt="Dateiansichten extra" src="../en/images/imgDC/pic63.png" width="628" height="383"></p>
+        <p>Einträge markieren/Markierung aufheben:</p>
+        <ul>
+          <li><p><span class="italic">Filter im Windows-Stil beim Markieren von Dateien („*.*“ wählt auch Dateien ohne Erweiterung usw.)</span>&nbsp;&ndash; Standardmäßig passt die Maske „*.*“ auf den Namen jeder Datei, die eine Erweiterung hat; für beliebige Dateinamen verwenden Sie die Maske „*“. Wenn aktiviert, passt die Maske „*.*“ auf jede Datei.</p></li>
+          <li><p><span class="italic">Standardwert der Attributmaske</span>&nbsp;&ndash; wird für folgende Befehle verwendet:
+            <span class="italic">Alles auswählen</span> (<tt>cm_MarkMarkAll</tt>),
+            <span class="italic">Auswahl aufheben</span> (<tt>cm_MarkUnmarkAll</tt>),
+            <span class="italic">Auswahl umkehren</span> (<tt>cm_MarkInvert</tt>),
+            <span class="italic">Gruppe auswählen</span> (<tt>cm_MarkPlus</tt>)
+            und <span class="italic">Gruppe abwählen</span> (<tt>cm_MarkMinus</tt>).
+            Wenn diese Befehle zum Beispiel nur mit Dateien arbeiten sollen, geben Sie <code>d-</code> an.
+            Die Schaltfläche <span class="italic">Hinzufügen</span> öffnet das Fenster zur Auswahl der Dateiattribute, Sie können es verwenden oder die Attribute von Hand eingeben. Weitere Informationen zu Dateiattributen und ihrer Verwendung finden Sie <a href="findfiles.html#attributes">hier</a>.</p></li>
+          <li><p><span class="italic">Jedes Mal einen unabhängigen Attributfilter im Maskeneingabedialog verwenden</span>&nbsp;&ndash; Wenn aktiviert, wird der Attributfilter den Dialogen der Befehle <span class="italic">Gruppe auswählen</span> (<tt>cm_MarkPlus</tt>) und <span class="italic">Gruppe abwählen</span> (<tt>cm_MarkMinus</tt>) hinzugefügt.</p></li>
+        </ul>
+        <p><span class="italic">Beim Auswählen von Dateien mit &lt;LEERTASTE&gt; zur nächsten Datei nach unten gehen (wie mit &lt;EINFG&gt;)</span>&nbsp;&ndash; bewegt den Cursor beim Auswählen mit der Taste <kbd>Space</kbd> nach unten. Die Standardtasten sind <kbd>Shift+Down</kbd> oder <kbd>Shift+Up</kbd>.</p>
+        <p><span class="italic">Eckige Klammern um Verzeichnisse anzeigen</span>&nbsp;&ndash; hilft, Verzeichnisse optisch von Dateien zu unterscheiden, wenn Symbole ausgeschaltet sind. Sie können stattdessen beliebige Zeichen verwenden, die Beschreibung der Parameter <code>&lt;FolderPrefix&gt;</code> und <code>&lt;FolderPostfix&gt;</code> finden Sie <a href="configxml.html">hier</a>.</p>
+        <p><span class="italic"><a name="show_hidden">System- und versteckte Dateien anzeigen</a></span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander Dateien und Ordner, die das Attribut „versteckt“ oder „System“ haben (Windows) oder deren Name mit einem Punkt beginnt (Linux und andere Unix-ähnliche Systeme). Das lässt sich auch über das <a href="help.html#cm_ShowSysFiles">Hauptmenü</a> ändern.</p>
+        <p>Die Parameter <span class="italic">Dateiliste in einem eigenen Thread laden</span> und <span class="italic">Symbole nach der Dateiliste laden</span> sollen die Anzeige der Dateiliste im Panel beschleunigen, das heißt, das Anwendungsfenster hängt beim Öffnen großer Verzeichnisse weniger.</p>
+        <p><span class="italic">Dateiliste erst laden, wenn eine Registerkarte aktiviert wird</span>&nbsp;&ndash; Beim Start lädt Double Commander die Dateiliste inaktiver Registerkarten nicht, die in der vorherigen Sitzung geöffnet waren.</p>
+        <p><span class="italic">Neue und aktualisierte Dateien hervorheben</span>&nbsp;&ndash; Wenn aktiviert, blinken die Namen von Dateien, die gerade erzeugt oder geändert werden.</p>
+        <p><span class="italic">Umbenennen an Ort und Stelle aktivieren, wenn zweimal auf einen Namen geklickt wird</span>&nbsp;&ndash; ist eine zusätzliche Möglichkeit, die Datei mit der linken Maustaste umzubenennen (unabhängig von der für die Auswahl mit der Maus gewählten Taste), wie im Windows-Explorer. Nach dem Klick muss der Mauszeiger mindestens eine Sekunde still stehen. Im Abschnitt <a href="#ConfigMouse">Mauseinstellungen</a> soll der Doppelklick für Dateien und Ordner oder nur für Dateien gewählt sein.</p>
+        <p><span class="italic">Wechsel in den übergeordneten Ordner aktivieren, wenn auf einen leeren Teil der Dateiansicht doppelgeklickt wird</span>&nbsp;&ndash; ist eine zusätzliche Funktion, um die Navigation in Verzeichnissen zu vereinfachen. Sie gilt aber nicht, wenn Sie einen Spaltensatz verwenden und die Dateiliste im aktuellen Verzeichnis nicht ins Panel passt (das heißt, Sie sehen eine senkrechte Bildlaufleiste).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewBrief">2.8.2. Dateiansichten&nbsp;&gt; Kurz</a></span></p>
+        <p>Hier gibt es nur zwei Parameter.</p>
+        <p class="figure"><img class="largeimage" title="Dateiansichten&nbsp;&gt; Kurz" alt="Dateiansichten&nbsp;&gt; Kurz" src="../en/images/imgDC/pic64.png" width="578" height="184"></p>
+        <p><span class="italic">Dateierweiterungen anzeigen</span>: <span class="italic">direkt nach dem Dateinamen</span> oder <span class="italic">ausgerichtet (mit Tabulator)</span>. Im zweiten Fall werden Dateierweiterungen getrennt angezeigt, am rechten Rand der Spalten ausgerichtet.</p>
+        <p><span class="italic">Spaltengröße</span>: Double Commander setzt die Größe automatisch (die Größe hängt von der Länge der Dateinamen ab), oder Sie können die Breite der Spalten (in Pixeln) oder ihre Anzahl festlegen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigViewFull">2.8.3. Dateiansichten&nbsp;&gt; Spalten</a></span></p>
+        <p class="figure"><img class="largeimage" title="Dateiansichten&nbsp;&gt; Spalten" alt="Dateiansichten&nbsp;&gt; Spalten" src="../en/images/imgDC/pic65.png" width="578" height="306"></p>
+        <p>Die erste Gruppe ist <span class="italic">Gitter anzeigen</span>:</p>
+        <ul>
+          <li><p><span class="italic">Senkrechte Linien</span>&nbsp;&ndash; schaltet senkrechte Gitterlinien in den Panels ein.</p></li>
+          <li><p><span class="italic">Waagerechte Linien</span>&nbsp;&ndash; schaltet waagerechte Gitterlinien in den Panels ein.</p></li>
+        </ul>
+        <p>Die Bildschirmfotos unten zeigen diesen dezenten Gittereffekt. Das Bildschirmfoto links hat die senkrechten und waagerechten Linien eingeschaltet, das rechte nicht.</p>
+        <p class="figure"><img class="largeimage" title="mit und ohne Linien" alt="mit und ohne Linien" src="../en/images/imgDC/pic35.png" width="690" height="128"></p>
+        <p>Die Farbe der Linien lässt sich ändern, weitere Einzelheiten <a href="#ConfigColorPanels">hier</a>.</p>
+        <p><span class="italic">Spalten automatisch füllen</span>&nbsp;&ndash; Wenn aktiviert, ändert Double Commander beim Ändern der Fenstergröße (oder wenn freier Platz vorhanden ist) die Größe der Spalte, die in der nächsten Option <span class="italic">Spalte automatisch anpassen:</span> gewählt ist (erste oder letzte). Die waagerechte Bildlaufleiste steht dann nicht zur Verfügung.</p>
+        <p><span class="italic">Spaltenüberschriften wie die Werte ausrichten</span>&nbsp;&ndash; Wenn aktiviert, richtet Double Commander die Spaltenüberschrift genauso aus wie den Inhalt (statt linksbündig).</p>
+        <p>Wenn der Inhalt der Spalte größer als ihre Breite ist:</p>
+        <ul>
+          <li><p><span class="italic">Text auf die Spaltenbreite kürzen</span>&nbsp;&ndash; Manchmal kann Spaltentext in andere Spalten hineinragen. Diese Option schneidet überschüssigen Text an der Spaltengrenze ab.</p></li>
+          <li><p><span class="italic">Zellenbreite erweitern, wenn der Text nicht in die Spalte passt</span>&nbsp;&ndash; Passt der Text nicht und ist die benachbarte Zelle leer, belegt der Text auch die benachbarte Zelle.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigColumns">2.8.3.1. Dateiansichten&nbsp;&gt; Spalten&nbsp;&gt; Benutzerdefinierte Spalten</a></span></p>
+        <p>In diesem Abschnitt können Sie das Aussehen des Panels, die Spalten, Farben, Schriften usw. anpassen. Double Commander lässt sich auf diese Weise sehr weitgehend einstellen.</p>
+        <p class="figure"><img class="largeimage" title="Benutzerdefinierte Spalten" alt="Benutzerdefinierte Spalten" src="../en/images/imgDC/pic36.png" width="884" height="464"></p>
+        <p>Unten im Fenster gibt es einen Vorschaubereich, sodass Sie alle Änderungen auf einmal sehen. Sie können den Cursor bewegen und Dateien auswählen, um sofort ein tatsächliches Bild der verschiedenen Einstellungen zu erhalten.</p>
+        <p><span class="italic">Dateisystem</span>&nbsp;&ndash; erlaubt es, zu den Spalteneinstellungen für WFX-Plugins zu wechseln (wenn installierte Plugins das unterstützen).</p>
+        <p><span class="italic">Spaltenansicht</span>&nbsp;&ndash; eine Liste vorhandener Spaltenstile. Es gibt einen Standardstil <span class="italic">Standard</span>.</p>
+        <p><span class="italic">Speichern</span>&nbsp;&ndash; speichert Änderungen im gewählten Spaltensatz.</p>
+        <p><span class="italic">Speichern unter</span>&nbsp;&ndash; erlaubt es, den gewählten Spaltensatz (unverändert oder mit Änderungen) unter einem neuen Namen zu speichern.</p>
+        <p><span class="italic">Neu</span>&nbsp;&ndash; erzeugt einen neuen Spaltensatz auf Grundlage des gewählten. Mit demselben Namen plus aktuellem Datum und Uhrzeit.</p>
+        <p><span class="italic">Umbenennen</span>&nbsp;&ndash; fordert zur Eingabe eines neuen Namens auf.</p>
+        <p><span class="italic">Löschen</span>&nbsp;&ndash; löscht den gewählten Spaltensatz.</p>
+        <p>Darunter steht eine Tabelle mit den Spalten des gewählten Satzes. Hier können Sie Anzahl, Name, Inhalt, Ort und Größe der Spalten festlegen. Die Anzahl der Zeilen in der Tabelle entspricht der Anzahl der Spalten im Satz. Eine neue Spalte hinzufügen: die Taste <kbd>down arrow</kbd> verwenden oder mit der rechten Maustaste in den leeren Bereich neben der Tabelle klicken und <span class="italic">Spalte hinzufügen</span> wählen.</p>
+        <p>Das sind die Parameter, die die Tabelle für die Spalte bestimmen (zum Bearbeiten in die Felder klicken):</p>
+        <p class="figure"><img class="largeimage" title="Spalten" alt="Spalten" src="../en/images/imgDC/pic37.png" width="612" height="46"></p>
+        <p><span class="italic">Spalte</span>&nbsp;&ndash; zeigt die Kennung der gewählten Spalte.</p>
+        <p><span class="italic">Beschriftung</span>&nbsp;&ndash; gibt den Namen der Spalte an, der in der <a href="help.html#iface_columns">Spaltenüberschriftenleiste</a> angezeigt wird. Sie können jeden beliebigen Namen festlegen.</p>
+        <p><span class="italic">Breite</span>&nbsp;&ndash; Spaltenbreite (in Pixeln), die beim Programmstart gesetzt wird. Hinweis: Die Breite hängt vom Spalteninhalt ab, zum Beispiel hat die Spalte der Dateierweiterung eine geringe Breite.</p>
+        <p><span class="italic">Ausrichtung</span>&nbsp;&ndash; legt die Ausrichtung des Spalteninhalts fest. Varianten:</p>
+        <ul>
+          <li><p><tt>"&lt;-"</tt>&nbsp;&ndash; linksbündig;</p></li>
+          <li><p><tt>"-&gt;"</tt>&nbsp;&ndash; rechtsbündig;</p></li>
+          <li><p><tt>"="</tt>&nbsp;&ndash; mittig.</p></li>
+        </ul>
+        <p><span class="italic">Feldinhalt</span>&nbsp;&ndash; legt den grundlegenden Inhalt der Spalte fest. Ist eine Zelle gewählt, erscheint rechts die Schaltfläche „+“, Sie können interne Felder von Double Commander (Untermenü „DC“) oder Felder installierter WDX-Plugins (Untermenü „Plugins“) wählen. Liste der internen Felder:</p>
+        <ul>
+          <li><p><tt>GETFILENAME</tt>&nbsp;&ndash; Dateiname und Erweiterung (<tt>text.txt</tt>).</p></li>
+          <li><p><tt>GETFILENAMENOEXT</tt>&nbsp;&ndash; Dateiname ohne Erweiterung (<tt>text</tt>).</p></li>
+          <li><p><tt>GETFILEEXT</tt>&nbsp;&ndash; Dateierweiterung (vom Punkt bis zum Ende, zum Beispiel <tt>txt</tt>).</p></li>
+          <li><p><tt>GETFILESIZE</tt>&nbsp;&ndash; Größe der Datei oder des Verzeichnisses. Standardmäßig hängt die Darstellung von der im Abschnitt <a href="#ConfigView">Dateiansichten</a> gewählten Option ab, aber alle möglichen Größenformate sind ebenfalls verfügbar.</p></li>
+          <li><p><tt>GETFILETIME</tt>&nbsp;&ndash; Änderungsdatum der Datei oder des Verzeichnisses.</p></li>
+          <li><p><tt>GETFILECREATIONTIME</tt>&nbsp;&ndash; Erstellungsdatum der Datei oder des Verzeichnisses.</p></li>
+          <li><p><tt>GETFILELASTACCESSTIME</tt>&nbsp;&ndash; Datum des letzten Zugriffs auf die Datei oder das Verzeichnis.</p></li>
+          <li><p><tt>GETFILECHANGETIME</tt>&nbsp;&ndash; Datum der Statusänderung der Datei oder des Verzeichnisses.</p></li>
+          <li><p><tt>GETFILEATTR</tt>&nbsp;&ndash; Attribute der Datei oder des Verzeichnisses. Sie können einen Zeichenketten- oder einen numerischen (oktalen) Wert wählen. Unter Windows kann ein oktaler Wert verwendet werden, wenn Unix-Attribute im Dateipanel angezeigt werden (zum Beispiel mit dem FTP-Plugin). Eine ausführliche Beschreibung des Zeichenkettenwerts finden Sie <a href="#ConfigColorFiles">hier</a>.</p></li>
+          <li><p><tt>GETFILEPATH</tt>&nbsp;&ndash; Pfad zum aktuellen Eintrag. Verwendung: meist für Suchergebnisse.</p></li>
+          <li><p><tt>GETFILEGROUP</tt>&nbsp;&ndash; zeigt die Gruppe des Dateieigentümers.</p></li>
+          <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; zeigt den Eigentümer der Datei.</p></li>
+          <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; zeigt Pfad und Datei, also das Ziel dieser symbolischen Verknüpfung.</p></li>
+          <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; Dateityp (wie im Windows-Explorer oder MIME-Typ).</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; Beschreibung (Kommentar) der Datei oder des Verzeichnisses aus <tt>descript.ion</tt> (Einzelheiten <a href="help.html#cm_EditComment">hier</a>). Dieses Feld kann auch innerhalb von Archiven verwendet werden (wenn das Archivformat das Speichern von Dateibeschreibungen unterstützt und das entsprechende <a href="multiarc.html#archivers">externe Packprogramm</a> so eingerichtet ist, dass es sie entgegennimmt).</p></li>
+          <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&ndash; komprimierte Dateigröße (tatsächliche Größe bei NTFS-Komprimierung).</p></li>
+        </ul>
+        <p>Standardmäßig verwenden Felder mit Zeitstempeln das Datums- und Uhrzeitformat, das im Einstellungsabschnitt <a href="#ConfigView">Dateiansichten</a> gewählt wurde. Sie können Ihr bevorzugtes Format auch direkt in der Spalte in geschweiften Klammern angeben, mit denselben <a href="#dt_format">Formatzeichen für Datum und Uhrzeit</a>.</p>
+        <p><span class="italic">Verschieben</span>&nbsp;&ndash; erlaubt es, Zeilen zu verschieben (was dem Umordnen der Spalten entspricht). Klicken Sie zweimal in das Feld Verschieben, dann erscheint eine Art Drehfeld; ein Klick auf den oberen Teil verschiebt die Zeile nach oben (die Spalte wandert nach links).</p>
+        <p><span class="italic">Löschen</span>&nbsp;&ndash; erlaubt es, eine beliebige Zeile zu entfernen. Zum Löschen: in das Feld Löschen der Zeile klicken. Dann noch einmal klicken, diesmal erscheint ein Löschsymbol. Ein dritter Klick löscht die Zeile aus der Tabelle.</p>
+        <p>Als Nächstes können Sie das Aussehen der Dateipanels ändern.</p>
+        <p><span class="italic">Zum Festlegen des Standards</span>&nbsp;&ndash; öffnet den Abschnitt <a href="#ConfigColorPanels">Farben&nbsp;&gt; Dateipanels</a>.</p>
+        <p><span class="italic">Eigene Schrift und Farbe für diese Ansicht verwenden</span>&nbsp;&ndash; erlaubt es, das Aussehen der Dateipanels nur für diesen Spaltensatz zu ändern (und bei Bedarf getrennt für jede Spalte). Sie können die Schrift der Dateipanels und die globalen Einstellungen aus <a href="#ConfigColorPanels">Farben&nbsp;&gt; Dateipanels</a> überschreiben:</p>
+        <p class="figure"><img class="largeimage" title="Eigene Schrift und Farbe" alt="Eigene Schrift und Farbe" src="../en/images/imgDC/pic38.png" width="884" height="300"></p>
+        <p>Hinweis: <span class="italic">Cursorrand</span> und <span class="italic">Rahmenzeiger verwenden</span> lassen sich nur für den gesamten Satz anwenden.</p>
+        <p><span class="italic">Vorherige</span>, <span class="italic">Nächste</span>&nbsp;&ndash; wechselt die Spalten.</p>
+        <p><span class="italic">Spalte anpassen</span>&nbsp;&ndash; zeigt den Namen der eigenen Spalte.</p>
+        <p><span class="italic">&gt;&gt;</span>&nbsp;&ndash; Schaltfläche, um eine beliebige Farbe aus der Palette zu wählen.</p>
+        <p><span class="italic">R</span>&nbsp;&ndash; stellt den Standardwert wieder her.</p>
+        <p><span class="italic">Alle</span>&nbsp;&ndash; wendet die Änderung auf alle anderen Spalten an.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigPlugins">2.9. Plugins</a></span></p>
+        <p>Plugins sind Erweiterungen, die den Funktionsumfang von Double Commander vergrößern.</p>
+        <p>Zuerst einige allgemeine Einstellungen.</p>
+        <p class="figure"><img class="largeimage" title="Plugins" alt="Plugins" src="../en/images/imgDC/pic66.png" width="578" height="204"></p>
+        <p><span class="italic">Beim Hinzufügen eines neuen Plugins automatisch das Anpassungsfenster öffnen</span>&nbsp;&ndash; Siehe die Beschreibung der Schaltfläche <span class="italic">Anpassen</span> unten.</p>
+        <p><span class="italic">Stil des Plugin-Dateinamens beim Hinzufügen eines neuen Plugins</span>&nbsp;&ndash; Hier können Sie wählen, wie der Pfad beim Hinzufügen von Plugins gesetzt wird:</p>
+        <ul>
+          <li><p>Mit vollständigem absolutem Pfad.</p></li>
+          <li><p>Pfad relativ zu <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
+          <li><p>Relativ zum angegebenen Pfad.</p></li>
+        </ul>
+        <p>Sie können die gewählte Art auch auf die bereits hinzugefügten Plugins anwenden.</p>
+        <p><span class="italic"><a name="luapathtolibrary">Zu verwendende Lua-Bibliotheksdatei</a></span>&nbsp;&ndash; der vollständige Name der Lua-Bibliothek oder nur der Dateiname, wenn die Datei im Programmverzeichnis oder in den Systemverzeichnissen für Bibliotheken liegt. Dieser Pfad kann relativ zur Programmdatei von Double Commander sein. (Lua-Skripte können zur Automatisierung und als Inhalts-Plugins verwendet werden, weitere Einzelheiten <a href="lua.html">hier</a>.)</p>
+        <p>Es gibt mehrere Arten von Plugins:</p>
+        <p><span class="italic">1. Packer-Plugins (WCX)</span></p>
+        <p>Packer-Plugins dienen dazu, bestimmte Dateitypen zu entpacken, meist Archivformate. Manche Plugins unterstützen außerdem das Erzeugen neuer Archive und das Ändern vorhandener Archive.<br>
+          Es gibt Plugins, die es erlauben, eine Liste ausgewählter Dateien zu speichern oder Stapelverarbeitung zu verwenden: Verknüpfungen erzeugen, Dateien umwandeln, Kopieren unter bestimmten Bedingungen usw.<br>
+          Die Reihenfolge ist wichtig: Beim Wählen eines passenden Plugins prüft Double Commander die Erweiterung von oben nach unten. Mit der Schaltfläche <span class="italic">Nach Erweiterung/Nach Plugin</span> wechseln Sie die Listenansicht und das Ziehen und Ablegen.</p>
+        <p><span class="italic">2. Inhalts-Plugins (WDX)</span></p>
+        <p>Inhalts-Plugins dienen dazu, Eigenschaften einer Datei oder Informationen über ihren Inhalt zu erhalten (zum Beispiel EXIF- oder ID3-Tags). Diese Daten können Sie in der Dateisuche oder im Mehrfach-Umbenennen, im Spaltensatz und in Kurzinfos verwenden.<br>
+          Double Commander unterstützt außerdem Inhalts-Plugins, die in der Sprache Lua geschrieben sind (Skripte werden genauso hinzugefügt wie gewöhnliche Plugins). Beispiele finden Sie im Programmordner (<tt>plugins/wdx/scripts</tt>).</p>
+        <p><span class="italic">3. Dateisystem-Plugins (WFX)</span></p>
+        <p>Dateisystem-Plugins verwenden eigene Dateisysteme oder bieten Zugriff auf andere Dateisysteme und Geräte (lokal oder entfernt). Zum Beispiel FTP-Server, Netzwerkverzeichnisse, mobile Geräte. Es können auch Dateilisten, laufende Prozesse und Dienste oder die Windows-Registrierung sein.</p>
+        <p><span class="italic">4. Betrachter-Plugins (WLX)</span></p>
+        <p>Der eingebaute Dateibetrachter zeigt einfache Textdateien, einige Bildformate und die Ausgabe von Konsolenbefehlen; Plugins erweitern diese Liste: elektronische Dokumente und Datenbanken, Audio- und Videodateien, Schriftdateien, Inhalt von Archiven, ausführliche Informationen zu manchen Dateien, Quelltextdateien mit Syntaxhervorhebung.<br>
+          Die Reihenfolge ist wichtig: Beim Wählen eines passenden Plugins prüft Double Commander von oben nach unten.</p>
+        <p><span class="italic">5. Such-Plugin (DSX)</span></p>
+        <p>Such-Plugins sind der eigene Plugintyp von Double Commander. Diese Plugins verwenden Konsolenprogramme, um Dateien zu finden (zum Beispiel Locate, Everything oder Recoll). Die Schnittstelle der DSX-Plugins erlaubt es, ihnen <a href="findfiles.html">Werte der Suchparameter</a> aus den Registerkarten „Standard“ und „Erweitert“ zu senden. </p>
+        <p>Schaltflächen:</p>
+        <ul>
+          <li><p><span class="italic">Hinzufügen</span>&nbsp;&ndash; öffnet den Dateiauswahldialog. Alternativ können Sie den internen Befehl <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a> verwenden (Plugins können auch automatisch installiert werden).</p></li>
+          <li><p><span class="italic">Deaktivieren</span>&nbsp;&ndash; erlaubt es, das gewählte Plugin vorübergehend zu deaktivieren.</p></li>
+          <li><p><span class="italic">Entfernen</span>&nbsp;&ndash; entfernt das gewählte Plugin aus der Liste (aber nicht die Plugin-Datei!).</p></li>
+          <li><p><span class="italic">Anpassen</span>&nbsp;&ndash; die Aktion hängt vom Plugintyp ab:</p>
+            <ul>
+              <li><p>WCX: Plugin-Pfad ändern, Dateierweiterungen und unterstützte Funktionen festlegen;</p></li>
+              <li><p>WDX und WLX: Plugin-Pfad, Anzeigenamen oder Erkennungszeichenkette ändern;</p></li>
+              <li><p>WFX: Plugin-Pfad oder Anzeigenamen ändern.</p></li>
+            </ul>
+          </li>
+          <li><p><span class="italic">Konfigurieren</span>&nbsp;&ndash; öffnet das eigene Einstellungsfenster des Plugins (wenn das gewählte Plugin diese Funktion unterstützt).</p></li>
+        </ul>
+        <p><a name="main_password">Double Commander unterstützt die Verwendung eines Hauptpassworts</a>, um Passwörter in WCX- und WFX-Plugins zu schützen (wenn der Plugin-Entwickler die Verwendung dieser Funktion vorgesehen hat). Das ist praktisch, weil Ihre Passwörter durch Verschlüsselung geschützt sind und Sie sich nur ein Passwort merken müssen. Passwörter werden zweimal verschlüsselt, zuerst mit Blowfish (448 Bit) und dann mit AES (256 Bit); die Funktion <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a> wird verwendet, um aus dem Hauptpasswort einen Schlüssel abzuleiten.</p>
+        <p>Double Commander unterstützt zwei Versionen des Algorithmus Argon2 (Argon2d und Argon2id) und erlaubt es, drei Parameter anzugeben: Anzahl der Iterationen, benötigter Speicher, Grad der Parallelität. <a href="https://www.rfc-editor.org/rfc/rfc9106">RFC 9106</a> empfiehlt Argon2id, wenn Sie den Unterschied zwischen den Versionen nicht kennen oder wenn Seitenkanal-Angriffe als echte Bedrohung gelten. Eine höhere Anzahl von Iterationen und/oder eine größere Speichermenge verlängert die Ausführungszeit der Funktion und erschwert das Knacken des Passworts; ein höherer Grad der Parallelität (aber ohne die Anzahl der logischen Kerne Ihres Prozessors zu überschreiten) erlaubt der Funktion, schneller zu arbeiten. Es wird außerdem empfohlen, die Parameter so zu wählen, dass die Funktion etwa 0,5–1 Sekunde braucht (mehr ist besser, aber bei zu großen Werten kann die Verwendung des Hauptpassworts unpraktisch werden).</p>
+        <p>Hinweis: Wenn Sie die portable Version von Double Commander auf einem USB-Stick auf mehreren Computern aktiv verwenden oder eine zentrale Installation der Anwendung mit Konfigurationsdateien nutzen, kann es praktisch sein, die Einstellungen für den Computer mit der geringsten Leistung zu wählen.</p>
+        <p>Hinweis: Derzeit unterstützt Double Commander das Ändern des Hauptpassworts nicht: Bei Bedarf müssen Sie die Verwendung des Hauptpassworts in den Plugin-Einstellungen abschalten, das Programm schließen, das <a href="#ConfigDC">Verzeichnis mit den Konfigurationsdateien</a> öffnen, die Datei <tt>pwd.ini</tt> löschen, das Programm erneut starten und das Hauptpasswort in den Plugin-Einstellungen wieder einschalten. Um veraltete oder unnötige gespeicherte Passwörter zu löschen, müssen Sie das Programm schließen und die Datei <tt>pwd.ini</tt> von Hand bearbeiten.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLayout">2.10. Layout</a></span></p>
+        <p class="figure"><img class="largeimage" title="Layout" alt="Layout" src="../en/images/imgDC/pic39.png" width="438" height="462"></p>
+        <p>Hier können Sie das Layout des Hauptfensters ändern. Ich nehme an, alle verfügbaren Optionen sind auf dem Bildschirmfoto oben (Layout) erklärt. Das Bildschirmfoto unten zeigt, wie DC aussieht, wenn alle Layout-Optionen abgewählt sind.</p>
+        <p class="figure"><img class="largeimage" title="Layout von DC" alt="Layout von DC" src="../en/images/imgDC/pic40.png" width="707" height="382"></p>
+        <p>Es gibt außerdem <a href="configxml.html">mehrere Parameter</a>, die sich nur von Hand in der Konfigurationsdatei <tt>doublecmd.xml</tt> ändern lassen.</p>
+        <p>Ab macOS 11 hat Double Commander standardmäßig eine Werkzeugleiste in der Fenstertitelleiste, zusätzlich zur Hauptwerkzeugleiste. Dieses Oberflächenelement können Sie von Hand abschalten: Double Commander schließen, in das Verzeichnis der Konfigurationsdateien gehen (Einzelheiten <a href="#ConfigDC">hier</a>), die Datei <tt>doublecmd.cfg</tt> öffnen, den Parameter <code>ModernUI</code> suchen, seinen Wert von <code>True</code> auf <code>False</code> ändern und die Anwendung erneut starten.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDrivesList">2.10.1. Layout&nbsp;&gt; Schaltfläche der Laufwerksliste</a></span></p>
+        <p class="figure"><img class="largeimage" title="Schaltfläche der Laufwerksliste" alt="Schaltfläche der Laufwerksliste" src="../en/images/imgDC/pic67.png" width="578" height="126"></p>
+        <p>In diesem Abschnitt können Sie wählen, welche zusätzlichen Informationen Double Commander im <a href="help.html#iface_drive_btn">Menü der Laufwerksliste</a> anzeigt: Laufwerksbezeichnung, Dateisystem und freier Speicherplatz.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTreeMenu">2.10.2. Layout&nbsp;&gt; Baumansichtsmenü</a></span></p>
+        <p>In diesem Abschnitt können Sie das Baumansichtsmenü einschalten und wählen, wo es verwendet wird.</p>
+        <p class="figure"><img class="largeimage" title="Einstellungen des Baumansichtsmenüs" alt="Einstellungen des Baumansichtsmenüs" src="../en/images/imgDC/pic68.png" width="578" height="433"></p>
+        <p>Das Baumansichtsmenü ist eine Art, einige Menüs von Double Commander als Baum in einem eigenen Fenster anzuzeigen: Verzeichnis-Favoriten, Favoriten-Registerkarten, Verzeichnis- und Befehlszeilenverlauf. Diese Darstellung und ein Filter helfen Ihnen, den gewünschten Menüeintrag schnell zu wählen.</p>
+        <p class="figure"><img class="largeimage" title="Baumansichtsmenü" alt="Baumansichtsmenü" src="../en/images/imgDC/pic41.png" width="412" height="384"></p>
+        <p>Über die Parameter der entsprechenden internen Befehle können Sie die Position des Baumansichtsmenüs festlegen:</p>
+        <ul>
+          <li><p>das Menü wird von der linken oberen Ecke des aktiven Panels aus angezeigt;</p></li>
+          <li><p>das Menü wird an der aktuellen Position des Mauszeigers angezeigt.</p></li>
+        </ul>
+        <p>Parameter können in den <a href="#ConfigHotKeys">Einstellungen der Tastenkürzel</a> angegeben oder als Schaltfläche auf der <a href="toolbar.html">Werkzeugleiste</a> hinzugefügt werden.</p>
+        <p>Double Commander kann außerdem das Hauptmenü und die Werkzeugleiste als Baum anzeigen (immer in der Mitte seines Fensters), siehe die Beschreibung der Befehle <a href="cmds.html#cm_ShowMainMenu">cm_ShowMainMenu</a> und <a href="cmds.html#cm_ShowButtonMenu">cm_ShowButtonMenu</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTreeMenuColor">2.10.3. Layout&nbsp;&gt; Farben des Baumansichtsmenüs</a></span></p>
+        <p>Hier können Sie das Aussehen des Menüs nach Ihren Wünschen anpassen, eine Vorschau zeigt alle Änderungen vor dem Speichern.</p>
+        <p class="figure"><img class="largeimage" title="Farben des Baumansichtsmenüs" alt="Farben des Baumansichtsmenüs" src="../en/images/imgDC/pic69.png" width="688" height="457"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolbar">2.11. Werkzeugleiste</a></span> und <span class="bold">Werkzeugleiste&nbsp;&gt; Mittlere Werkzeugleiste</span></p>
+        <p>Auf der eigenen Hilfeseite <a href="toolbar.html">Werkzeugleiste</a> steht, wie Sie sie verwenden und einrichten.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigToolbarEx">2.11.2. Werkzeugleiste&nbsp;&gt; Werkzeugleiste extra</a></span></p>
+        <p class="figure"><img class="largeimage" title="Werkzeugleiste extra" alt="Werkzeugleiste extra" src="../en/images/imgDC/pic70.png" width="578" height="165"></p>
+        <p>In diesem Abschnitt können Sie wählen, wie der Pfad beim Hinzufügen von Symbolen, Befehlen und Startpfaden gesetzt wird:</p>
+        <ul>
+          <li><p>Mit vollständigem absolutem Pfad.</p></li>
+          <li><p>Pfad relativ zu <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
+          <li><p>Relativ zum angegebenen Pfad.</p></li>
+        </ul>
+        <p>Sie können die gewählte Art auch auf die bereits hinzugefügten Pfade anwenden.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigOperations">2.12. Dateioperationen</a></span></p>
+        <p>Dieser Abschnitt enthält Einstellungen zur Dateibearbeitung.</p>
+        <p class="figure"><img class="largeimage" title="Dateioperationen" alt="Dateioperationen" src="../en/images/imgDC/pic71.png" width="578" height="526"></p>
+        <p><span class="italic">Fortschritt der Operationen anfangs anzeigen in</span>&nbsp;&ndash; legt die anfängliche Anzeigeart und Position des Fortschritts der Dateioperationen fest:</p>
+        <ul>
+          <li><p>eigenes Fenster;</p></li>
+          <li><p>minimiertes eigenes Fenster;</p></li>
+          <li><p>Operationspanel: das besondere Panel über der Leiste der Funktionstastenschaltflächen wird verwendet<br>
+            <img class="largeimage" title="Operationspanel" alt="Operationspanel" src="../en/images/imgDC/pic42.png" width="320" height="100"><br>
+            (Sie können zur Fortschrittsanzeige in einem eigenen Fenster wechseln, indem Sie mit der Maus darauf klicken).</p></li>
+        </ul>
+        <p><span class="italic">Schreibschutzkennung entfernen</span>&nbsp;&ndash; Wenn aktiviert, entfernt Double Commander diese Kennung unter Windows und fügt unter Linux das Attribut „w“ hinzu. Das ist praktisch, wenn Dateien von CD/DVD-Medien kopiert werden, bei denen die Dateien standardmäßig das Attribut schreibgeschützt behalten würden.</p>
+        <p><span class="italic">Beim Umbenennen den Dateinamen ohne Erweiterung auswählen</span>&nbsp;&ndash; Wenn aktiviert, wählt das Umbenennen mit der Taste <kbd>F2</kbd> alle Zeichen im Dateinamen bis zum letzten Punkt aus, andernfalls wird der gesamte Dateiname ausgewählt.</p>
+        <p><span class="italic">Registerkarten-Auswahlpanel im Kopieren-/Verschieben-Dialog anzeigen</span>&nbsp;&ndash; Hat das Zielpanel mehr als eine Registerkarte, können Sie beim Kopieren/Verschieben die Zielregisterkarte wählen:</p>
+        <p class="figure"><img class="largeimage" title="Registerkarten im Kopieren-/Verschieben-Dialog" alt="Registerkarten im Kopieren-/Verschieben-Dialog" src="../en/images/imgDC/pic43.png" width="534" height="298"></p>
+        <p><span class="italic">In den Papierkorb löschen (die Umschalttaste kehrt diese Einstellung um)</span>&nbsp;&ndash; Wenn aktiviert, löscht Double Commander die ausgewählten Dateien oder die Datei unter dem Cursor in den Papierkorb, wenn Sie <kbd>F8</kbd> oder <kbd>Del</kbd> drücken, und löscht dauerhaft, wenn Sie <kbd>Shift+F8</kbd> oder <kbd>Shift+Del</kbd> verwenden. Ist das Kontrollkästchen nicht gesetzt, ist das Verhalten dieser Tasten umgekehrt.</p>
+        <p><span class="italic">Bestätigungsfenster anzeigen für</span>&nbsp;&ndash; erlaubt es, die Dateioperationen zu wählen, für die Double Commander Bestätigungsdialoge anzeigt. Standardmäßig ist das sicherste Verhalten gewählt. Bedenken Sie, dass diese Parametergruppe nicht berücksichtigt wird, wenn Sie <a href="help.html#draganddrop">Ziehen und Ablegen</a> verwenden: In diesem Fall verwendet Double Commander einen unabhängigen Parameter im Einstellungsabschnitt <a href="ConfigMouseDD">Maus&nbsp;&gt; Ziehen und Ablegen</a>.</p>
+        <p>Die folgenden Parameter beziehen sich unmittelbar auf die Ausführung von Operationen.</p>
+        <p>Die Parameter <span class="italic">Puffergröße für Dateioperationen (in KB)</span> und <span class="italic">Puffergröße für die Hash-Berechnung (in KB)</span> legen die Größe des zugewiesenen Speichers für Operationen wie Kopieren, Verschieben, Teilen oder Zusammenfügen von Dateien, Suchen von Dateien nach Inhalt und Berechnen von Prüfsummen fest. Es gibt keinen universellen Wert, aber Sie können versuchen, eine passendere Größe zu finden.<br>
+          Hinweis: Der erste Parameter wird in der Kopierfunktion unter Windows nicht verwendet, weil zum Kopieren die Systemfunktion verwendet wird.</p>
+        <p><span class="italic">Anzahl der Durchgänge beim sicheren Löschen</span>&nbsp;&ndash; Hier können Sie die Anzahl der Überschreibungen angeben, um <a href="help.html#cm_Wipe">Dateien sicher zu löschen</a>.</p>
+        <p><span class="italic">Kommentare zusammen mit Dateien/Ordnern verarbeiten</span>&nbsp;&ndash; Wenn aktiviert und eine Datei/ein Ordner einen <a href="help.html#cm_EditComment">Kommentar</a> hat und Sie sie/ihn in einen anderen Ordner kopieren oder verschieben, wird der Kommentar zusammen mit der Datei/dem Ordner zum Ziel kopiert oder verschoben. Wenn Sie eine Datei löschen oder sicher löschen, wird auch ihr Kommentar gelöscht. Wenn Sie eine Datei umbenennen, wird ihr Name auch in der Datei <tt>descript.ion</tt> geändert.<br>
+          Andernfalls wird die Datei <tt>descript.ion</tt> wie eine gewöhnliche Datei verarbeitet.</p>
+        <p><span class="italic">Fehler bei Dateioperationen überspringen und ins Protokollfenster schreiben</span>&nbsp;&ndash; Tritt ein Fehler bei einer Dateioperation auf, erscheint die Fehlermeldung im Protokollfenster unter den Panels statt in einem Aufklappdialog. Das kann nützlich sein, weil das Fehlerfenster die Operation anhält. Im Einstellungsabschnitt <a href="#ConfigLog">Protokoll</a> können Sie die Gesamtzahl der Meldungen begrenzen und nur Meldungen mit dem Status „Fehler“ zulassen.<br>
+          Der Parameter wird bei den meisten Dateioperationen berücksichtigt: Kopieren, Verschieben, Löschen, sicheres Löschen, Zusammenfügen und Teilen von Dateien, Festlegen von Dateieigenschaften (Zeitstempel, Eigentümer, Attribute), Berechnen der Prüfsumme sowie Dateioperationen bei der Arbeit mit Archiven, WFX-Plugins und GVfs.</p>
+        <p><span class="italic">Stil der automatischen Umbenennung bei doppeltem Namen</span>&nbsp;&ndash; legt die Vorlage für die automatische Umbenennung fest, wenn im Zielverzeichnis bereits eine Datei mit demselben Namen existiert (also wenn Sie im Kopieren-/Verschieben-Dialog <span class="italic">Quelldateien automatisch umbenennen</span> oder <span class="italic">Zieldateien automatisch umbenennen</span> wählen): „Kopie&nbsp;(x)&nbsp;dateiname.ext“, „dateiname&nbsp;(x).ext“ oder „dateiname(x).ext“, wobei „x“ ein Zähler ist (2, 3, 4 und so weiter).</p>
+        <p>Es gibt außerdem <a href="configxml.html">mehrere Parameter</a>, die sich nur von Hand in der Konfigurationsdatei <tt>doublecmd.xml</tt> ändern lassen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigSearch">2.12.1. Dateioperationen&nbsp;&gt; Dateisuche</a></span></p>
+        <p>Die Beschreibung steht auf der Hilfeseite <a href="findfiles.html#configuration">Dateien suchen</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigRename">2.12.2. Dateioperationen&nbsp;&gt; Mehrfach-Umbenennen</a></span></p>
+        <p>Die Beschreibung steht auf der Hilfeseite <a href="multirename.html#configuration">Mehrfach-Umbenennen</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTabs">2.13. Ordner-Registerkarten</a></span></p>
+        <p class="figure"><img class="largeimage" title="Ordner-Registerkarten" alt="Ordner-Registerkarten" src="../en/images/imgDC/pic72.png" width="578" height="440"></p>
+        <p><span class="italic">Registerkartenkopf auch anzeigen, wenn es nur eine Registerkarte gibt</span>&nbsp;&ndash; Ist diese Option deaktiviert und gibt es nur eine Registerkarte im Panel, erscheint kein Registerkartenkopf (meist ist das optisch ansprechender).</p>
+        <p><span class="italic">Registerkarten in mehreren Zeilen</span> (nur Windows)&nbsp;&ndash; Passen die Ordner-Registerkarten nicht in eine Zeile, werden sie in mehreren Zeilen angeordnet. Andernfalls werden rechts Schaltflächen zum Blättern angezeigt (GTK2: rechts und links).</p>
+        <p><span class="italic">Länge des Registerkartentitels begrenzen auf</span>&nbsp;&ndash; Registerkarten mit langen Namen werden auf diese Länge begrenzt, und der angezeigte Name wird abgeschnitten, wenn er länger als dieser Wert ist.</p>
+        <p><span class="italic">Schließen gesperrter Registerkarten bestätigen</span>&nbsp;&ndash; Wenn aktiviert, wird um Bestätigung gebeten, dass Sie die gesperrte Registerkarte schließen möchten. Andernfalls wird eine solche Registerkarte wie eine gewöhnliche Registerkarte geschlossen.</p>
+        <p><span class="italic"><a name="5_1_11_0_vopros">Schließen aller Registerkarten bestätigen</a></span>&nbsp;&ndash; Ist dies gewählt und wird ein Befehl <a href="help.html#cm_CloseAllTabs">Alle Registerkarten schließen</a> ausgeführt, bittet diese Option um Bestätigung, dass Sie alle inaktiven Registerkarten entfernen möchten.</p>
+        <p><span class="italic">Doppelte Registerkarten beim Schließen der Anwendung schließen</span>&nbsp;&ndash; Wenn aktiviert, prüft Double Commander die Liste der geöffneten Registerkarten und schließt doppelte Registerkarten (getrennt für jedes Panel!), nur die erste von ihnen wird gespeichert (von links gezählt).</p>
+        <p><span class="italic"><a name="5_1_11_2_vopros">Ctrl+Nach-oben öffnet eine neue Registerkarte im Vordergrund</a></span>&nbsp;&ndash; diese Option ändert das Verhalten des Befehls <a href="help.html#cm_OpenDirInNewTab">Ordner in neuer Registerkarte öffnen</a> (<tt>cm_OpenDirInNewTab</tt>): Wenn aktiviert, öffnet Double Commander eine neue Registerkarte für das Verzeichnis unter dem Cursor und wechselt zu dieser Registerkarte.</p>
+        <p><span class="italic">Neue Registerkarten neben der aktuellen Registerkarte öffnen</span>&nbsp;&ndash; Wenn aktiviert, wird die neue Registerkarte rechts neben der derzeit aktiven Registerkarte erzeugt. Andernfalls werden neue Registerkarten rechts nach der letzten Registerkarte hinzugefügt.</p>
+        <p><span class="italic">Vorhandene Registerkarte wiederverwenden, wenn möglich</span>&nbsp;&ndash; Für eine gesperrte Registerkarte mit Verzeichniswechsel in einer neuen Registerkarte: Ist der gewählte Ordner bereits auf einer Registerkarte geöffnet, wird diese Registerkarte aktiviert, statt eine neue zu erzeugen.</p>
+        <p><span class="italic"><a name="5_1_11_3_vopros">Schließen-Schaltfläche der Registerkarte anzeigen</a></span> (nur Unix-ähnliche Systeme)&nbsp;&ndash; Wenn gewählt, erscheint auf den Registerkarten eine kleine Schaltfläche „x“, mit der sie durch einen Klick geschlossen werden können.</p>
+        <p><span class="italic"><a name="5_1_12_1_zvezda">Gesperrte Registerkarten mit einem Sternchen * anzeigen</a></span>&nbsp;&ndash; um gesperrte und nicht gesperrte Registerkarten zu unterscheiden. Gesperrte Registerkarten werden mit „*“ gekennzeichnet. Die Registerkarte <tt>Downloads</tt> ist gesperrt:</p>
+        <p class="figure"><img class="largeimage" title="Registerkarten" alt="Registerkarten" src="../en/images/imgDC/pic6.png" width="228" height="28"></p>
+        <p><span class="italic">Umbenannten Namen beim Entsperren einer Registerkarte behalten</span>&nbsp;&ndash; Wenn Sie den Zustand einer Registerkarte von „gesperrte Registerkarte“ auf „normale Registerkarte“ ändern, stellt Double Commander den üblichen Registerkartennamen wieder her (Name des aktuellen Ordners): Diese Option erlaubt es, den geänderten Namen zu behalten.</p>
+        <p><span class="italic">Zielpanel aktivieren, wenn auf eine seiner Registerkarten geklickt wird</span>&nbsp;&ndash; Wenn aktiviert, wird der Fokus automatisch auf das andere Panel übertragen (es wird das aktive Panel), wenn Sie mit der Maus auf eine Registerkarte des anderen Panels klicken. Außerdem bleibt die Cursorposition erhalten, wenn auf diese Weise zwischen den Panels gewechselt wird.</p>
+        <p><span class="italic">Laufwerksbuchstaben immer im Registerkartentitel anzeigen</span> (nur Windows)&nbsp;&ndash; Laufwerksbuchstaben und einen Doppelpunkt vor dem Ordnernamen anzeigen, zum Beispiel „c:plugins“.</p>
+        <p><span class="italic">Position der Registerkarten</span>&nbsp;&ndash; Ordner-Registerkarten oben oder unten an den Dateipanels platzieren.</p>
+        <p><span class="italic">Aktion bei Doppelklick auf eine Registerkarte:</span>&nbsp;&ndash; Sie können eine der folgenden Aktionen wählen:</p>
+        <ul>
+          <li><p>nichts tun;</p></li>
+          <li><p>diese Registerkarte schließen;</p></li>
+          <li><p>Favoriten-Registerkarten aufrufen (aktuelle Registerkarten speichern, gespeicherten Satz laden oder einrichten);</p></li>
+          <li><p>das Aufklappmenü der Registerkarten mit denselben Einträgen wie im Menü <a href="help.html#mnu_tabs">„Registerkarten“</a> anzeigen.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigFavoriteTabs">2.13.1. Ordner-Registerkarten&nbsp;&gt; Favoriten-Registerkarten</a></span></p>
+        <p>Die Liste der gespeicherten Registerkartensätze ist im Menü <a href="help.html#mnu_fav">„Favoriten“</a> und im Aufklappmenü verfügbar, das der Befehl <a href="cmds.html#cm_LoadFavoriteTabs">cm_LoadFavoriteTabs</a> aufruft.</p>
+        <p>In diesem Abschnitt können Sie sie verwalten: Reihenfolge und Namen ändern, Unnötiges löschen, sortieren oder in einem Untermenü gruppieren.</p>
+        <p class="figure"><img class="largeimage" title="Favoriten-Registerkarten" alt="Favoriten-Registerkarten" src="../en/images/imgDC/pic73.png" width="578" height="440"></p>
+        <p>Sie können Einträge außerdem in das gewählte Verzeichnis exportieren und importieren. Jeder Eintrag wird in einer eigenen .tab-Datei gespeichert (bei Bedarf können Registerkarten aus einer solchen Datei mit dem Befehl <a href="cmds.html#cm_LoadTabs">cm_LoadTabs</a> geladen werden).</p>
+        <p>Einige typische Aktionen sind im Kontextmenü der Einträge hinzugefügt.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTabsEx">2.13.2. Ordner-Registerkarten&nbsp;&gt; Ordner-Registerkarten extra</a></span></p>
+        <p>Dieser Abschnitt enthält zusätzliche Einstellungen für Favoriten-Registerkarten.</p>
+        <p class="figure"><img class="largeimage" title="Ordner-Registerkarten extra" alt="Ordner-Registerkarten extra" src="../en/images/imgDC/pic74.png" width="578" height="377"></p>
+        <p><span class="italic">Zusätzliche Optionen der Favoriten-Registerkarten aktivieren (Zielseite beim Wiederherstellen wählen usw.)</span>&nbsp;&ndash; Standardmäßig werden gespeicherte Registerkarten im selben Panel wiederhergestellt und ersetzen alle geöffneten Registerkarten. Sie können das ändern mit:</p>
+        <ul>
+          <li><p><span class="italic">Links gespeicherte Registerkarten werden wiederhergestellt in:</span></p></li>
+          <li><p><span class="italic">Rechts gespeicherte Registerkarten werden wiederhergestellt in:</span></p></li>
+          <li><p><span class="italic">Beim Wiederherstellen der Registerkarte vorhandene Registerkarten behalten:</span>&nbsp;&ndash; das heißt, die Favoriten-Registerkarten werden zu den bereits geöffneten Registerkarten hinzugefügt.</p></li>
+        </ul>
+        <p>Für jeden Parameter sind folgende Werte verfügbar: <span class="italic">Links</span>, <span class="italic">Rechts</span>, <span class="italic">Aktiv</span>, <span class="italic">Inaktiv</span>, <span class="italic">Beide</span> oder <span class="italic">Keine</span>.</p>
+        <p><span class="italic">Verzeichnisverlauf zusammen mit Favoriten-Registerkarten weiter speichern</span>&nbsp;&ndash; schaltet das Speichern des Verlaufs der besuchten Verzeichnisse für jede Registerkarte ein oder aus.</p>
+      <p>Sie können diese Parameter auch getrennt für jeden Registerkartensatz anwenden.</p>
+        <p><span class="italic">Standardposition im Menü beim Speichern neuer Favoriten-Registerkarten</span>&nbsp;&ndash; bestimmt die Reihenfolge, in der ein neuer Satz hinzugefügt wird:</p>
+        <ul>
+          <li><p>Am Anfang hinzufügen</p></li>
+          <li><p>Am Ende hinzufügen.</p></li>
+          <li><p>Alphabetische Reihenfolge.</p></li>
+        </ul>
+        <p>Sie können außerdem wählen, den Einstellungsabschnitt <a href="#ConfigFavoriteTabs">Favoriten-Registerkarten</a> nach dem Speichern eines neuen oder dem erneuten Speichern des aktuellen Satzes automatisch zu öffnen:</p>
+        <ul>
+          <li><p><span class="italic">Nach dem Speichern eines neuen Satzes zur Konfiguration der Favoriten-Registerkarten gehen</span>.</p></li>
+          <li><p><span class="italic">Nach dem erneuten Speichern zur Konfiguration der Favoriten-Registerkarten gehen</span>.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigLog">2.14. Protokoll</a></span></p>
+        <p>Hier können Sie den Dateinamen wählen, in den die Operationen von Double Commander protokolliert werden (Kopieren oder Verschieben von Dateien, Erzeugen von Verzeichnissen, Starten externer Anwendungen und so weiter). Sie können außerdem wählen, welche Operationen protokolliert werden.</p>
+        <p class="figure"><img class="largeimage" title="Protokoll" alt="Protokoll" src="../en/images/imgDC/pic44.png" width="578" height="407"></p>
+        <p>Ist <span class="italic">Datum in den Protokolldateinamen aufnehmen</span> aktiviert, erzeugt Double Commander für jeden Tag eine eigene Datei. In diesem Fall können Sie die Anzahl der Protokolldateien festlegen: Ältere Dateien werden automatisch gelöscht.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDC">2.15. Konfiguration</a></span></p>
+        <p class="figure"><img class="largeimage" title="Konfiguration" alt="Konfiguration" src="../en/images/imgDC/pic75.png" width="712" height="562"></p>
+        <p><span class="italic">Speicherort der Konfigurationsdateien</span>&nbsp;&ndash; Hier können Sie wählen, wo alle Konfigurationsdateien gespeichert werden (außerdem sehen Sie hier den vollständigen Pfad):</p>
+        <ul>
+          <li><p>Der Ordner „settings“ im Programmverzeichnis (portable Version).</p></li>
+          <li><p>Benutzerverzeichnis.</p></li>
+        </ul>
+        <p>Als Kennzeichen verwendet Double Commander eine leere Datei <tt>doublecmd.inf</tt> im Ordner „settings“ im Programmverzeichnis:
+          Existiert die Datei, lädt Double Commander die Konfigurationsdateien aus dem Ordner „settings“ und speichert sie dort, andernfalls verwendet Double Commander den Ordner des aktuellen Benutzers.
+          Sie können die Datei <tt>doublecmd.inf</tt> von Hand hinzufügen und eine portable Version erhalten oder sie löschen, indem Sie die Speichermethode auf den Benutzerordner umstellen.</p>
+        <p>Wenn Sie Double Commander mit dem Parameter <a href="commandline.html">--config-dir</a> starten, schreibt DC nur <span class="italic">Auf der Befehlszeile gesetzt</span> und zeigt den vollständigen Pfad zu den Konfigurationsdateien.</p>
+        <p>Um schnell zum Verzeichnis mit den Konfigurationsdateien zu wechseln, können Sie das Untermenü <span class="italic">Spezielle Verzeichnisse</span> im Menü <a href="directoryhotlist.html">Verzeichnis-Favoriten</a> verwenden oder die Variable <a href="variables.html#envvariables">%DC_CONFIG_PATH%</a>.</p>
+        <p>Die Schaltflächen <span class="italic">Bearbeiten</span> und <span class="italic">Übernehmen</span>&nbsp;&ndash; erlauben es, die Konfigurationsdatei <tt>doublecmd.xml</tt> zu öffnen und die Einstellungen von Hand zu ändern. Bedenken Sie, dass manche Einstellungen einen Neustart von Double Commander brauchen, um zu wirken.</p>
+        <p>Hinweis (oder ein kleiner Trick): Auf diesem Weg lassen sich Einstellungen sofort anwenden, ohne DC neu zu starten (aber nicht alle!): Zum Beispiel können Sie die Größe der Symbole in den Dateipanels ändern und sofort übernehmen, die Programmsprache können Sie aber nicht ohne Neustart ändern.</p>
+        <p><span class="italic">Beim Beenden speichern</span>&nbsp;&ndash; Hier können Sie wählen, was Double Commander beim Beenden speichert. Das Kontrollkästchen <span class="italic">Konfiguration speichern</span> schaltet das Speichern ein oder aus:</p>
+        <ul>
+          <li><p><span class="italic">Zustand des Hauptfensters</span>&nbsp;&ndash; Größe und Position des Anwendungsfensters.</p></li>
+          <li><p><span class="italic">Ordner-Registerkarten</span>&nbsp;&ndash; Liste der Registerkarten, die im linken und rechten Panel geöffnet sind.</p></li>
+          <li><p><span class="italic">Verlauf Suchen/Ersetzen</span>&nbsp;&ndash; Verlauf der <a href="findfiles.html">Dateisuche</a> (außer Dateinamensmasken, siehe unten), Verlauf der Masken im <a href="multirename.html">Mehrfach-Umbenennen</a> und Verlauf des Suchens und Ersetzens von Text: Suche nach Dateiinhalt, Dateibetrachter, eingebauter Editor und eingebauter Vergleich, Suchen und Ersetzen in den Verzeichnis-Favoriten und in den Einstellungen der Werkzeugleiste. Der Zustand der Optionen der Textsuche (<span class="italic">Groß-/Kleinschreibung beachten</span>, <span class="italic">Reguläre Ausdrücke</span> und <span class="italic">Hexadezimal</span>) wird für jeden Eintrag ebenfalls gespeichert.</p></li>
+          <li><p><span class="italic">Verzeichnisverlauf</span>&nbsp;&ndash; Liste aller besuchten Verzeichnisse (siehe Hinweis unten).</p></li>
+          <li><p><span class="italic">Befehlszeilenverlauf</span>&nbsp;&ndash; Befehle, die in der <a href="help.html#iface_path">Befehlszeile</a> verwendet wurden.</p></li>
+          <li><p><span class="italic">Verlauf der Dateimasken</span>&nbsp;&ndash; Double Commander speichert einen gemeinsamen Verlauf verwendeter Dateimasken für mehrere Werkzeuge: Dateien suchen, Filter bei der <a href="syncdirs.html">Verzeichnissynchronisierung</a> und beim <a href="help.html#cm_ExtractFiles">Entpacken von Archiven</a>, Befehle zum <a href="help.html#cm_MarkPlus">Auswählen und Abwählen einer Dateigruppe</a>.</p></li>
+        </ul>
+        <p>Die maximale Anzahl der Einträge im Verlauf ist standardmäßig auf 50 begrenzt (siehe das Attribut <code>MaxStringItems</code> im Tag <a href="configxml.html">&lt;History&gt;</a>).</p>
+        <p>Hinweis zum Verlauf der besuchten Verzeichnisse: Während der Sitzung speichert Double Commander bis zu 255 besuchte Verzeichnisse im Speicher, beim Schließen des Programms wird die Anzahl der gespeicherten Einträge jedoch auf den Wert <code>MaxStringItems</code> begrenzt. Sie können die Anzahl der Verlaufeinträge im Aufklappmenü ändern, wenn der Befehl <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> aufgerufen wird (Standardwert ist 30, siehe das Attribut <code>Count</code> im Tag <a href="configxml.html">&lt;DirHistory&gt;</a>), bei Verwendung des <a href="#ConfigTreeMenu">Baumansichtsmenüs</a> wird jedoch der gesamte verfügbare Verlauf angezeigt.</p>
+        <p>Hinweis: Suchvorlagen gehören nicht zum Verlauf und werden getrennt gespeichert (in der Konfigurationsdatei <tt>doublecmd.xml</tt>). Um die Liste der Vorlagen zu verwalten, können Sie das Werkzeug <a href="findfiles.html#templates">Dateisuche</a> verwenden.</p>
+        <p>Sie können wählen, wie die Liste der Einstellungsabschnitte aussieht:</p>
+        <ul>
+          <li><p><span class="italic">Sortierreihenfolge der Konfiguration im linken Baum</span>&nbsp;&ndash; Sie können klassisch (wie im Quelltext von Double Commander und in der Hilfe) oder alphabetisch wählen. In beiden Fällen ist der Abschnitt <span class="bold">Sprache</span> der erste.</p></li>
+          <li><p><span class="italic">Zustand des Baums beim Öffnen der Konfigurationsseite</span>&nbsp;&ndash; den gesamten Baum aufklappen oder einklappen.</p></li>
+        </ul>
+        <p><span class="italic">Verzeichnisse</span>&nbsp;&ndash; Hier sehen Sie eine Liste von Verzeichnissen, die Double Commander zum Speichern des Miniatur-Zwischenspeichers, der Symbolthemen und der Syntaxhervorhebungsdateien für den internen Editor verwenden kann. Sie können sie nicht ändern, es ist nur eine Information.<br>
+          Wird der portable Modus verwendet, verwendet Double Commander nur die entsprechenden Ordner („cache“, „pixmaps“ und „highlighters“) im Programmverzeichnis. In diesem Modus wird außerdem der Ordner „plugins“ im Programmverzeichnis für die automatische Installation von Plugins verwendet (Einzelheiten <a href="cmds.html#cm_AddPlugin">hier</a>).</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigQuick">2.16. Schnellsuche/Filter</a></span></p>
+        <p>Dieser Abschnitt enthält die Einstellungen des Werkzeugs <a href="help.html#cm_QuickSearch">Schnellsuche/Filter</a>. Die Schnellsuche dient dazu, Dateinamen im Panel zu suchen, der Schnellfilter blendet alle Dateinamen aus, die den Bedingungen nicht entsprechen.</p>
+        <p class="figure"><img class="largeimage" title="Schnellsuche/Filter" alt="Schnellsuche/Filter" src="../en/images/imgDC/pic45.png" width="578" height="351"></p>
+        <p>Genaue Namensübereinstimmung:</p>
+        <ul>
+          <li><p><span class="italic">Anfang (der Name muss mit dem ersten eingegebenen Zeichen beginnen)</span>&nbsp;&ndash; bedeutet, dass der eingegebene Text zur Maske „text*“ passt, wobei „*“ eine beliebige Anzahl beliebiger Zeichen ist.</p></li>
+          <li><p><span class="italic">Ende (das letzte Zeichen vor einem eingegebenen Punkt . muss passen)</span>&nbsp;&ndash; Steht unter den eingegebenen Zeichen ein Punkt, muss der Name mit diesen Zeichen enden. Wenn Sie zum Beispiel „dx.l“ eingegeben haben, lautet die Dateimaske „*dx.l*“.</p></li>
+        </ul>
+        <p>Ist nichts angekreuzt, können die eingegebenen Zeichen an einer beliebigen Stelle des Dateinamens stehen.</p>
+        <p>Ich habe gern <span class="italic">Anfang (der Name muss mit dem ersten eingegebenen Zeichen beginnen)</span> gewählt und kann dann einfach das erste Zeichen des gesuchten Dateinamens eingeben und danach das zweite Zeichen usw. So wird die Datei schnell gefunden.</p>
+        <p>Darunter können Sie die Berücksichtigung der Groß-/Kleinschreibung festlegen und wählen, wonach Sie suchen möchten: nur Dateien oder Verzeichnisse oder beides.</p>
+        <p>Diese Optionen lassen sich direkt in der Leiste der Schnellsuche/des Filters im laufenden Betrieb ändern. Sie können außerdem zwischen Suche und Filter umschalten.</p>
+        <p>Optionen:</p>
+        <ul>
+          <li><p><span class="italic">Diakritika und Ligaturen ignorieren</span>&nbsp;&ndash; vereinfacht die Verwendung der Schnellsuche/des Filters: Bei der Suche ersetzt Double Commander Buchstaben mit Diakritika und Ligaturen durch Buchstaben des lateinischen Alphabets (die Tabelle der üblichen Zeichen steht im Quelltext des Programms).</p></li>
+          <li><p><span class="italic">Filterpanel ausblenden, wenn es nicht den Fokus hat</span>&nbsp;&ndash; Das Panel der Schnellsuche/des Filters blendet sich automatisch aus, sobald Sie den Fokus auf das Dateipanel setzen. In der <a href="help.html#iface_files">Kurzansicht</a> funktioniert das Ausblenden des Panels nicht richtig, deshalb wird die Option ignoriert, bis eine geeignete Lösung gefunden ist.</p></li>
+          <li><p><span class="italic">Änderungen der Einstellungen für die nächste Sitzung weiter speichern</span>&nbsp;&ndash; Standardmäßig bleiben alle Parameter, die im Schnellsuchpanel geändert wurden, nur bis zum Schließen des Programms im Speicher; die Option erlaubt es, dieses Verhalten zu ändern.</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigMisc">2.17. Verschiedenes</a></span></p>
+        <p>Dieser Abschnitt enthält Parameter, für die in anderen Abschnitten der Einstellungen kein passender Platz war:</p>
+        <p class="figure"><img class="largeimage" title="Verschiedenes" alt="Verschiedenes" src="../en/images/imgDC/pic46.png" width="578" height="514"></p>
+        <p><span class="italic">Startbildschirm anzeigen</span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander vor dem Hauptfenster einen Startbildschirm mit Programmsymbol und Version, Kompilierungsdatum sowie der Version von Lazarus, FPC und Betriebssystem.</p>
+        <p><span class="italic">Warnmeldungen anzeigen (nur Schaltfläche „OK“)</span>&nbsp;&ndash; zeigt Warnmeldungen, wenn aktiviert. (Zum Beispiel, wenn Double Commander wegen Einschränkungen des Dateisystems im Zielverzeichnis eine Eigenschaft oder ein Attribut einer Datei nicht setzen kann.)</p>
+        <p><span class="italic">Beim Laufwerkswechsel immer ins Stammverzeichnis eines Laufwerks wechseln</span>&nbsp;&ndash; Ist das Kontrollkästchen nicht gesetzt, wechselt Double Commander in das zuletzt geöffnete Verzeichnis auf diesem Laufwerk (in diesem Fall können Sie durch zweimaliges Drücken seiner Schaltfläche ins Stammverzeichnis des Laufwerks wechseln).</p>
+        <p><span class="italic">Aktuelles Verzeichnis in der Titelleiste des Hauptfensters anzeigen</span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander den Namen des aktuellen Ordners und den Pfad des aktiven Panels in der Titelleiste des Hauptfensters.</p>
+        <p><span class="italic">Standardkodierung für Ein-Byte-Text:</span>&nbsp;&ndash; Standardmäßig (NONE) verwenden der eingebaute Dateibetrachter und der eingebaute Editor die automatische Erkennung der Kodierung, aber Sie können eine der unterstützten Ein-Byte-Kodierungen als Standardwert angeben. Dieser Parameter beeinflusst die automatische Erkennung von Mehr-Byte-Kodierungen (UTF-8, UTF-16 und andere) nicht. Es gibt außerdem besondere Werte:</p>
+        <ul>
+          <li><p><span class="italic">ANSI</span>&nbsp;&ndash; Standard-ANSI-Kodierung des Systems (hängt von der Systemlocale ab).</p></li>
+          <li><p><span class="italic">OEM</span>&nbsp;&ndash; Standard-OEM-Kodierung (DOS) des Systems (hängt von der Systemlocale ab).</p></li>
+        </ul>
+        <p><span class="italic">Miniaturansichten</span>&nbsp;&ndash; Hier können Sie die Miniaturgröße der Bilder festlegen und das Speichern des Miniatur-Zwischenspeichers einschalten (andernfalls bleibt der Miniatur-Zwischenspeicher nur bis zum Schließen des Programms im Speicher). Die Parameterwerte werden im entsprechenden <a href="help.html#iface_files">Ansichtsmodus der Dateiliste</a> und im eingebauten <a href="viewer.html#preview">Dateibetrachter</a> verwendet. Das Verzeichnis des Miniatur-Zwischenspeichers finden Sie im Abschnitt <a href="#ConfigDC">Konfiguration</a>. Double Commander verwendet die Formate PNG oder JPEG (nur für .bmp, .jpg und .jpeg). Der Miniaturname ist die MD5-Summe des vollständigen Namens der Quelldatei. Der vollständige Name der Quelldatei, ihre Größe und ihr Änderungsdatum werden der Datei hinzugefügt.</p>
+        <p>Die Schaltfläche <span class="italic">Miniaturansichten für nicht mehr vorhandene Dateien entfernen</span> hilft, veraltete Miniaturansichten zu entfernen.</p>
+        <p><span class="italic">Dateikommentare (descript.ion)</span>&nbsp;&ndash; Hier können Sie die Standardkodierung für vorhandene <a href="help.html#cm_EditComment">Dateikommentare</a> (OEM, ANSI oder UTF-8) und die Kodierung für neue Dateien (UTF-8 BOM, UTF-16 LE oder UTF-16 BE) festlegen.</p>
+        <p>Die nächste Parametergruppe dient dem Import aus Total Commander und dem Export der <a href="directoryhotlist.html#exportimporttc">Verzeichnis-Favoriten</a> und der <a href="toolbar.html">Werkzeugleiste</a>: Pfad und Name der Programmdatei von Total Commander und der Hauptkonfigurationsdatei sowie das Verzeichnis, in dem die Dateien der Werkzeugleiste liegen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigRefresh">2.18. Automatische Aktualisierung</a></span></p>
+        <p>Erlaubt Double Commander, die Panels automatisch zu aktualisieren, so wie es der manuelle Aktualisierungsbefehl <kbd>Ctrl+R</kbd> tut.</p>
+        <p class="figure"><img class="largeimage" title="Automatische Aktualisierung" alt="Automatische Aktualisierung" src="../en/images/imgDC/pic76.png" width="578" height="217"></p>
+        <p><span class="italic">Dateiliste aktualisieren</span>&nbsp;&ndash; legt fest, auf welche Ereignisse Double Commander reagieren und die Dateiliste sowie die Statusleiste aktualisieren soll:</p>
+        <ul>
+          <li><p>Wenn Dateien erzeugt, gelöscht oder umbenannt werden.</p></li>
+          <li><p>Wenn sich Größe, Datum oder Attribute ändern.</p></li>
+        </ul>
+        <p>Wenn es möglich ist, nimmt Double Commander die passende Änderung an der Dateiliste vor, andernfalls liest es die Dateiliste vollständig neu ein. Bei einer großen Zahl von Änderungen (wenn mehr als ein Viertel der Dateien betroffen ist oder die Gesamtzahl der Änderungen 100 übersteigt) wird die Dateiliste vollständig neu eingelesen.</p>
+        <p>Hinweis: Diese Funktion funktioniert möglicherweise nicht innerhalb eingehängter Netzwerkverzeichnisse.</p>
+        <p>Sind beide Optionen deaktiviert, beobachtet Double Commander keine Änderungen durch fremde Anwendungen, und nach Änderungen, die das Programm im Dateisystem vorgenommen hat, liest es die gesamte Dateiliste neu ein.</p>
+        <p>In virtuellen Dateisystemen (WFX-Plugins, GVfs) liest Double Commander die gesamte Dateiliste neu ein, wenn Sie eine Datei erzeugen, löschen oder umbenennen.</p>
+        <p>Hinweis: Das Endergebnis kann vom Wert der Parameter <span class="italic">Neue Dateien einfügen</span> und <span class="italic">Aktualisierte Dateien verschieben</span> im Einstellungsabschnitt <a href="#ConfigView">Dateiansichten</a> abhängen.</p>
+        <p>Sie können die automatische Aktualisierung außerdem abschalten:</p>
+        <ul>
+          <li><p>Wenn das Fenster von Double Commander im Hintergrund liegt oder minimiert ist.</p></li>
+          <li><p>Für die angegebenen Pfade und ihre Unterverzeichnisse, einfach durch Semikolons „;“ ohne Leerzeichen getrennt auflisten (zum Beispiel <code>/home;/media/cdrom</code>).</p></li>
+        </ul>
+        <br>
+
+        <p><span class="bold"><a name="ConfigiCloud">2.19. iCloud</a></span></p>
+        <p>Nur macOS. Dieser Abschnitt der Einstellungen listet installierte Anwendungen auf, die automatisch Ordner in iCloud Drive erzeugen: Sie können die Anwendungsordner wählen, die im <a href="help.html#cm_OpenVirtualFileSystemList">virtuellen iCloud-Ordner</a> verfügbar sein sollen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIcons">2.20. Symbole</a></span></p>
+        <p class="figure"><img class="largeimage" title="Symbole" alt="Symbole" src="../en/images/imgDC/pic77.png" width="578" height="558"></p>
+        <p>Die erste Option schaltet die Anzeige der Dateitypsymbole links neben dem Namen ein:</p>
+        <ul>
+          <li><p><span class="italic">Alle zugeordneten + EXE/LNK (langsam)</span>&nbsp;&ndash; Wie <span class="italic">Alle</span>, aber zusätzlich: Symbole aus .exe, .ico, .cur, .ani und Verknüpfungen (Windows), Anwendungssymbole aus Anwendungskatalogen (also .app, macOS), .desktop und .directory (Linux und andere Unix-ähnliche Systeme). Außerdem zeigt DC das Ordnersymbol, das in den Dateien <tt>desktop.ini</tt> (Windows) und <tt>.directory</tt> (Linux) angegeben ist.</p></li>
+          <li><p><span class="italic">Alle</span>&nbsp;&ndash; Symbole für alle Dateitypen, die einem Programm zugeordnet sind, werden angezeigt (aus den Systemeinstellungen und den <a href="#ConfigAssociations">Dateizuordnungen</a> von Double Commander).</p></li>
+          <li><p><span class="italic">Nur Standardsymbole</span>&nbsp;&ndash; Es werden nur die in der Datei <tt>pixmaps.txt</tt> aufgeführten Symbole und die Symbole aus den Einstellungen der Dateizuordnung angezeigt. In diesem Fall können Sie Symbole nur aus dem Symbolthema von Double Commander verwenden (siehe die Verzeichnisse <tt>pixmaps/dctheme/XxX/mimetypes</tt> im Programmordner) oder den vollständigen Dateinamen (mit Pfad) angeben. Das Erzeugen eines Symbolthemas ist in den <a href="faq.html#theme">häufig gestellten Fragen</a> beschrieben.</p></li>
+          <li><p><span class="italic">Keine Symbole</span>.</p></li>
+        </ul>
+        <p><span class="italic">Überlagerungssymbole anzeigen, zum Beispiel für Verknüpfungen</span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander Überlagerungssymbole wie Pfeile für .lnk-Dateien und andere Überlagerungsembleme und Kennzeichen:</p>
+        <ul>
+          <li><p>Windows: Embleme aus den Einstellungen des Betriebssystems und von Drittanwendungen (zum Beispiel Versionsverwaltungssysteme oder Verzeichnisse lokaler Cloud-Speicher).</p></li>
+          <li><p>Linux und andere Unix-ähnliche Systeme (außer macOS und Haiku): Embleme von RabbitVCS (falls verfügbar) und Embleme aus dem Metadaten-Teilsystem GIO/GVfs (wie in Nautilus, Caja, Thunar, PCManFM und anderen, die es unterstützen).</p></li>
+        </ul>
+        <p>Das Emblem der symbolischen Verknüpfung und das zusätzliche Emblem einer defekten/hängenden Verknüpfung werden in jedem Fall angezeigt.</p>
+        <p><span class="italic">Versteckte Dateien abgedunkelt (langsamer)</span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander Symbole versteckter Dateien mit 50&nbsp;% Transparenz.</p>
+        <p><span class="italic">Besondere Symbole deaktivieren</span>&nbsp;&ndash; Sie können das Laden besonderer Symbole (Überlagerungssymbole, Symbole aus .exe/.lnk-Dateien) für die angegebenen Verzeichnisse und ihre Unterverzeichnisse deaktivieren, einfach durch Semikolons „;“ ohne Leerzeichen getrennt auflisten.</p>
+        <p><span class="italic">Symbolgröße</span>&nbsp;&ndash; Sie können aus folgenden Größen wählen:</p>
+        <ul>
+          <li><p><span class="italic">Dateipanel</span>&nbsp;&ndash; 16x16, 24x24, 32x32 oder 48x48.</p></li>
+          <li><p><span class="italic">Laufwerkspanel</span>&nbsp;&ndash; 16x16, 24x24 oder 32x32.</p></li>
+          <li><p><span class="italic">Hauptmenü</span>&nbsp;&ndash; 16x16, 24x24 oder 32x32.</p></li>
+        </ul>
+        <p><span class="italic">Symbole auf Schaltflächen anzeigen</span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander Symbole auf den Schaltflächen der Dialogfenster (<span class="italic">OK</span>, <span class="italic">Abbrechen</span>, <span class="italic">Start</span>, <span class="italic">Zur Warteschlange hinzufügen</span> und so weiter).</p>
+        <p><span class="italic">Symbole für Aktionen in Menüs anzeigen</span>&nbsp;&ndash; Wenn aktiviert, zeigt Double Commander Symbole im Hauptmenü des Anwendungsfensters und im Mehrfach-Umbenennen. Diese Option schaltet außerdem die Anzeige eines Untermenüsymbols in den Menüs der Verzeichnis-Favoriten und der Favoriten-Registerkarten ein.</p>
+        <p>Im letzten Parameter, <span class="italic">Symbolthema</span>, können Sie einen Symbolsatz aus dem Aufklappmenü wählen. Double Commander wird mit einem Symbolthema <span class="italic">DCTheme</span> ausgeliefert, aber Sie können ein eigenes erzeugen und hinzufügen, Einzelheiten stehen in den <a href="faq.html#theme">häufig gestellten Fragen</a>.</p>
+        <p>Hinweis: Unter Unix-ähnlichen Systemen verwendet Double Commander vorrangig das System-Symbolthema; fehlen manche Symbole, verwendet es seine eigenen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIgnore">2.21. Ignorierliste</a></span></p>
+        <p>Bestimmte Dateien und Ordner ignorieren (eine pro Zeile): Sie werden in den Panels nicht angezeigt.</p>
+        <p class="figure"><img class="largeimage" title="Ignorierliste" alt="Ignorierliste" src="../en/images/imgDC/pic78.png" width="578" height="370"></p>
+        <ul>
+          <li><p>Sie können den vollständigen Pfad zur Datei oder den Dateinamen verwenden.</p></li>
+          <li><p>Unterstützt die Platzhalter „*“ und „?“ (das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen, das Zeichen „?“ für genau ein Zeichen).</p></li>
+          <li><p>Endet eine Maske mit einem Verzeichnistrennzeichen, passt sie nur auf Verzeichnisse.</p></li>
+        </ul>
+        <p><span class="italic">Speichern in:</span>&nbsp;&ndash; der Speicherort der Ignorierliste (standardmäßig ist es <tt>ignorelist.txt</tt> neben <tt>doublecmd.xml</tt>).</p>
+        <p><span class="italic">Ausgewählte Namen mit vollständigem Pfad hinzufügen</span>&nbsp;&ndash; fügt alle Dateien/Ordner hinzu, die im aktiven Panel ausgewählt sind (falls vorhanden), oder die Datei unter dem Cursor, mit vollständigem Pfad.</p>
+        <p><span class="italic">Ausgewählte Namen hinzufügen</span>&nbsp;&ndash; fügt die Namen aller Dateien/Ordner hinzu, die im aktiven Panel ausgewählt sind (falls vorhanden), oder der Datei unter dem Cursor. Das bedeutet, dass sie überall ausgeblendet werden.</p>
+        <p>Hinweis: Diese beiden Schaltflächen fügen am Ende der Ordnernamen kein Verzeichnistrennzeichen hinzu.</p>
+        <p>Sie können den internen Befehl <a href="cmds.html#cm_SwitchIgnoreList">cm_SwitchIgnoreList</a> verwenden, um diese Option ein- und auszuschalten, eine Schaltfläche auf der Werkzeugleiste oder ein Tastenkürzel hinzuzufügen.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigArchivers">2.22. Packprogramme</a></span></p>
+        <p>Auf der eigenen Hilfeseite <a href="multiarc.html">Umgang mit Archiven</a> steht, wie Sie sie verwenden und einrichten.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigTooltips">2.23. Kurzinfos</a></span></p>
+        <p>Dieser Abschnitt enthält die Einstellungen für Kurzinfos, wenn der Mauszeiger über einer Datei steht.</p>
+        <p class="figure"><img class="largeimage" title="Kurzinfos" alt="Kurzinfos" src="../en/images/imgDC/pic47.png" width="724" height="416"></p>
+        <p><span class="italic">Kurzinfo für Dateien im Dateipanel anzeigen</span>&nbsp;&ndash; schaltet die Möglichkeit ein, Kurzinfos zu verwenden.</p>
+        <p><span class="italic">Dateitypen</span>&nbsp;&ndash; enthält eine Liste von Dateigruppen. Double Commander prüft die Liste von oben nach unten bis zur ersten Übereinstimmung: Eine weiter oben stehende Dateigruppe überdeckt jede Dateigruppe darunter.</p>
+        <p>Schaltflächen:</p>
+        <ul>
+          <li><p><span class="italic">Übernehmen</span>&nbsp;&ndash; speichert die Einstellungen für den gewählten Dateityp.</p></li>
+          <li><p><span class="italic">Hinzufügen</span>&nbsp;&ndash; fügt einen neuen Dateityp hinzu und fragt nach einem Namen; Sie können eine Beschreibung der Datei eintragen, was sie tut oder welches Programm sie öffnet.</p></li>
+          <li><p><span class="italic">Kopieren</span>&nbsp;&ndash; kopiert den gewählten Dateityp unter einem neuen Namen.</p></li>
+          <li><p><span class="italic">Umbenennen</span>&nbsp;&ndash; fordert zur Eingabe eines neuen Namens für den gewählten Dateityp auf.</p></li>
+          <li><p><span class="italic">Löschen</span>&nbsp;&ndash; löscht den gewählten Dateityp.</p></li>
+        </ul>
+        <p>Die Schaltfläche <span class="italic">Andere...</span> ist ein Menü:</p>
+        <ul>
+          <li><p><span class="italic">Änderungen verwerfen</span>&nbsp;&ndash; setzt alle ungespeicherten Änderungen im gewählten Dateityp zurück.</p></li>
+          <li><p><span class="italic">Kurzinfo-Dateitypen sortieren</span>&nbsp;&ndash; sortiert die Dateitypen alphabetisch (zuerst Groß-, dann Kleinbuchstaben).</p></li>
+          <li><p><span class="italic">Exportieren...</span> und <span class="italic">Importieren...</span>&nbsp;&ndash; erlauben es, Kurzinfos in eine DC-Kurzinfo-Datei zu exportieren und aus solchen Dateien zu importieren (vollständig oder in Teilen).</p></li>
+        </ul>
+        <p>Darunter können Sie den Inhalt der Kurzinfo für den gewählten Dateityp einrichten.</p>
+        <p>In der Zeile <span class="italic">Kategoriemaske</span> tragen Sie eine Platzhaltermaske ein, die zu den Dateitypen passt (das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen, das Zeichen „?“ für genau ein Zeichen). Sie können hier mehrere Dateitypen mit einem Semikolon „;“ ohne Leerzeichen eintragen. Außerdem können Sie Suchvorlagen verwenden (<img title="Vorlage..." alt="Vorlage..." src="../en/images/imgDC/btemplate.png" width="16" height="16">), einschließlich der Suche mit Inhalts-Plugins.</p>
+        <p>Im Feld <span class="italic">Kategoriehinweis</span> können Sie beliebigen Text eingeben und die Felder der WDX-Plugins verwenden, um Informationen zu erhalten (die Schaltfläche „&gt;&gt;“).</p>
+        <p>Die übrigen Parameter sind allgemeine Parameter der Kurzinfo.</p>
+        <p><span class="italic">Anzeigemodus der Kurzinfo</span>&nbsp;&ndash; bestimmt, welche Art von Kurzinfos Double Commander anzeigt und wie sie kombiniert werden, wenn beide Arten:</p>
+        <ul>
+          <li><p>DC- und System-Kurzinfo kombinieren, DC zuerst (bisheriges Verhalten).</p></li>
+          <li><p>DC- und System-Kurzinfo kombinieren, System zuerst.</p></li>
+          <li><p>DC-Kurzinfo anzeigen, wenn möglich, und sonst die System-Kurzinfo.</p></li>
+          <li><p>Nur die DC-Kurzinfo anzeigen.</p></li>
+          <li><p>Nur die System-Kurzinfo anzeigen.</p></li>
+        </ul>
+        <p>Der Inhalt der System-Kurzinfo hängt vom Betriebssystem ab:</p>
+        <ul>
+          <li><p>Windows: Dateiname und dasselbe wie im Windows-Explorer. Konnten keine Informationen ermittelt werden, zeigt Double Commander dasselbe wie unter Linux und anderen Unix-ähnlichen Systemen.</p></li>
+          <li><p>Linux und andere Unix-ähnliche Systeme: Dateiname, Änderungsdatum und Größe.</p></li>
+        </ul>
+        <p>Die erste Zeile der Kurzinfo enthält immer den Dateinamen, und wenn Sie im Feld <span class="italic">Kategoriehinweis</span> nichts angegeben haben, enthält die DC-Kurzinfo nur den Dateinamen.</p>
+        <p><span class="italic">Verzögerung beim Ausblenden der Kurzinfo</span>&nbsp;&ndash; legt die Anzeigedauer der Kurzinfo fest: Systemstandard, 1 Sek., 2 Sek., 3 Sek., 5 Sek., 10 Sek., 30 Sek., 1 Min. und nie ausblenden (die Kurzinfo wird ausgeblendet, wenn Sie den Mauszeiger auf eine andere Datei oder außerhalb des Dateipanels bewegen).</p>
+        <p>Auf dem Bildschirmfoto am Anfang der Abschnittsbeschreibung sehen Sie ein Beispiel einer Kurzinfo mit dem Plugin <tt>textline.wdx</tt>, das den Inhalt der gewählten Zeilen einer Textdatei zeigt (in diesem Fall die erste, zweite und dritte Zeile); der Modus <span class="italic">DC- und System-Kurzinfo kombinieren, System zuerst</span> ist gewählt.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigAssociations">2.24. Dateizuordnungen</a></span></p>
+        <p>Dieser Eintrag öffnet die Konfiguration der Dateizuordnungen. Alle Zuordnungssätze sind in der Datei <tt>extassoc.xml</tt> enthalten.</p>
+        <p>Hier können Sie Dateizuordnungen anpassen und Befehle oder Skripte für gewählte Dateitypen festlegen. Befehle werden dem <a href="help.html#cm_ContextMenu">Kontextmenü</a> der Dateien hinzugefügt. Double Commander erlaubt es außerdem, einfach Symbole für Dateitypen zu setzen (oder zu ersetzen), ohne Aktionen hinzuzufügen.</p>
+        <p class="figure"><img class="largeimage" title="Dateizuordnungen" alt="Dateizuordnungen" src="../en/images/imgDC/pic48.png" width="578" height="538"></p>
+        <p><span class="italic">Dateitypen</span>&nbsp;&ndash; enthält eine Liste von Erweiterungen. Jede Gruppe kann viele Dateierweiterungen enthalten, und eine solche Gruppe kann verschiedenen Programmen zugeordnet werden.</p>
+        <p><span class="italic">Hinzufügen</span>&nbsp;&ndash; fügt eine neue Gruppe hinzu. Sie sollten einen Gruppennamen eingeben.</p>
+        <p><span class="italic">Entfernen</span>&nbsp;&ndash; löscht eine Gruppe.</p>
+        <p><span class="italic">Umbenennen</span>&nbsp;&ndash; erlaubt es, einen neuen Namen für die Gruppe festzulegen.</p>
+        <p><span class="italic">Symbol</span>&nbsp;&ndash; Sie können den Pfad zu einem Symbol für diese Gruppe festlegen. Double Commander unterstützt häufig verwendete Bildformate, zusätzlich können Sie unter Windows Symbole aus binären Programmdateien verwenden (.exe oder .dll; in diesem Fall wählt DC automatisch die passende Symbolgröße aus den verfügbaren). Sie können auch nur den Namen des Symbols ohne Erweiterung angeben (meist werden MIME-Typ-Symbole verwendet), in diesem Fall:</p>
+        <ul>
+          <li><p>Windows: Double Commander verwendet das Symbol aus seinem eigenen aktuellen Symbolthema.</p></li>
+          <li><p>Linux und andere Unix-ähnliche Systeme: Double Commander verwendet das Symbol aus dem System-Symbolthema, weil das Vorrang hat. Gibt es keine Symboldatei, verwendet das Programm das Symbol aus seinem eigenen aktuellen Symbolthema.</p></li>
+        </ul>
+        <p>Das ist ein bequemer Weg, weil Double Commander automatisch die passende Symbolgröße aus den verfügbaren wählt und den Wechsel des Symbolthemas berücksichtigt.</p>
+        <p><span class="italic">Erweiterungen</span>&nbsp;&ndash; hier können Sie die Erweiterungen (ohne Punkt) für die gewählte Gruppe festlegen. Sie können mehrere Erweiterungen mit einem senkrechten Strich „|“ hinzufügen (ohne Leerzeichen dazwischen). Besondere Werte:</p>
+        <ul>
+          <li><p><tt>file</tt>&nbsp;&ndash; jede Datei;</p></li>
+          <li><p><tt>folder</tt>&nbsp;&ndash; jedes Verzeichnis;</p></li>
+          <li><p><tt>default</tt>&nbsp;&ndash; wird verwendet, wenn keine erweiterungsspezifische interne Zuordnung existiert (nur für die Aktionen „Öffnen“, „Betrachten“ und „Bearbeiten“, siehe unten).</p></li>
+        </ul>
+        <p><span class="italic">Einfügen</span>&nbsp;&ndash; fügt eine neue Erweiterung an der aktuellen Position in der Liste hinzu.</p>
+        <p><span class="italic">Hinzufügen</span>&nbsp;&ndash; fügt eine neue Erweiterung am Ende der Liste hinzu.</p>
+        <p><span class="italic">Entfernen</span>&nbsp;&ndash; löscht eine Erweiterung aus der Gruppe.</p>
+        <p><span class="italic">Aktionen</span>&nbsp;&ndash; hier können Sie Befehle für die Gruppe festlegen.</p>
+        <p><span class="italic">Einfügen</span>&nbsp;&ndash; fügt eine neue Aktion an der aktuellen Position in der Liste hinzu.</p>
+        <p><span class="italic">Hinzufügen</span>&nbsp;&ndash; fügt eine neue Aktion am Ende der Liste hinzu.</p>
+        <p><span class="italic">Entfernen</span>&nbsp;&ndash; löscht eine Aktion aus der Liste.</p>
+        <p><span class="italic">Nach oben</span>, <span class="italic">Nach unten</span>&nbsp;&ndash; verschiebt die Aktion. Die Aktionen (wenn es mehr als eine gibt) können umgeordnet werden.</p>
+        <p><span class="italic">Aktionsname:</span>&nbsp;&ndash; legt die Art der Aktion fest. Varianten:</p>
+        <ul>
+          <li><p>Aus dem Aufklappmenü</p>
+            <ul>
+              <li><p>Öffnen&nbsp;&ndash; die Aktion wird nach dem Drücken von <kbd>Enter</kbd> oder einem Doppelklick ausgeführt.</p></li>
+              <li><p>Betrachten&nbsp;&ndash; die Aktion wird nach dem Drücken von <kbd>F3</kbd> ausgeführt.</p></li>
+              <li><p>Bearbeiten&nbsp;&ndash; die Aktion wird nach dem Drücken von <kbd>F4</kbd> ausgeführt.</p></li>
+            </ul>
+          </li>
+          <li><p>Andere Aktionen, die im Dateikontextmenü angezeigt werden (Untermenü „Aktionen“).</p></li>
+        </ul>
+        <p><span class="italic">Befehl</span>&nbsp;&ndash; ein beliebiger Befehl der Arbeitsumgebung. Außerdem sind mehrere Makros verfügbar (die Namen unterscheiden Groß- und Kleinschreibung!):</p>
+        <ul>
+          <li><p><tt>{!DC-EDITOR}</tt>&nbsp;&ndash; internen Editor aufrufen;</p></li>
+          <li><p><tt>{!DC-VIEWER}</tt>&nbsp;&ndash; internen Dateibetrachter aufrufen;</p></li>
+          <li><p><tt>{!EDITOR}</tt>&nbsp;&ndash; Editor aufrufen (intern oder extern, abhängig von der Konfiguration);</p></li>
+          <li><p><tt>{!VIEWER}</tt>&nbsp;&ndash; Dateibetrachter aufrufen (intern oder extern, abhängig von der Konfiguration);</p></li>
+          <li><p><tt>{!SHELL}</tt>&nbsp;&ndash; im Terminal ausführen und am Ende offen lassen.</p></li>
+          <li><p><tt>{!TERMSTAYOPEN}</tt>&nbsp;&ndash; im Terminal ausführen und am Ende offen lassen;</p></li>
+          <li><p><tt>{!TERMANDCLOSE}</tt>&nbsp;&ndash; im Terminal ausführen und am Ende das Schließen anfordern.</p></li>
+        </ul>
+        <p>Aktionen „Betrachten“ mit dem Makro <tt>{!DC-VIEWER}</tt> werden für die <a href="viewer.html#quick">Schnellansicht</a> berücksichtigt, andere Makros und Befehle werden ignoriert.</p>
+        <p><tt>{!TERMSTAYOPEN}</tt> und <tt>{!TERMANDCLOSE}</tt> wurden zur Vereinheitlichung und für die Möglichkeit hinzugefügt, die Variablen <a href="variables.html#executeterm">%t0 und %t1</a> zu verwenden; <tt>{!SHELL}</tt> wurde aus Gründen der Abwärtskompatibilität beibehalten.</p>
+        <p>Als Befehl können Sie die <a href="cmds.html">internen Befehle</a> von Double Commander verwenden. Die Parameter der internen Befehle werden einer pro Zeile angegeben, deshalb können Sie hier nur einen angeben. Mit dem internen Befehl <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> können Sie außerdem <a href="lua.html">Lua-Skripte</a> ausführen; in diesem Fall können Sie die Namen der ausgewählten Dateien über interne Befehle (<a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> oder <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>) oder die Funktion <a href="lua.html#dc_expandvar">DC.ExpandVar</a> erhalten.</p>
+        <p><span class="italic">Parameter</span>&nbsp;&ndash; Befehlsparameter einschließlich Variablen:</p>
+        <ul>
+          <li><p>jede Variable aus den <a href="variables.html">„Prozent“-Variablen</a>.</p></li>
+          <li><p><tt>&lt;?command?&gt;</tt>&nbsp;&ndash; führt „command“ in der System-Shell aus und übergibt die Ausgabe an den Befehl darüber.</p></li>
+        </ul>
+        <p>Mindestens müssen Sie einen Dateinamen angeben, meist <code>%p</code> oder <code>%p0</code> für die Datei unter dem Cursor.</p>
+        <p><span class="italic">Startpfad</span>&nbsp;&ndash; Startverzeichnis des Befehls. Dieses Verzeichnis wird das Arbeitsverzeichnis des gestarteten Programms, und wenn Sie es nicht ausdrücklich angeben müssen, lassen Sie dieses Feld einfach leer: In diesem Fall ist das Arbeitsverzeichnis das aktuelle Verzeichnis des aktiven Dateipanels (gewöhnliche Dateien) oder das Systemverzeichnis für temporäre Dateien (Dateien aus Archiven und WFX-Plugins). Hier können Sie die Variable <a href="variables.html#pathpanel">%D</a>, <a href="variables.html#basicvar">%d</a> oder <a href="variables.html#envvariables">Umgebungsvariablen</a> verwenden.</p>
+        <p>Alle verfügbaren Aktionen werden im Untermenü „Aktionen“ im Kontextmenü angezeigt:</p>
+        <p class="figure"><img class="largeimage" title="Kontextmenü" alt="Kontextmenü" src="../en/images/imgDC/pic49.png" width="460" height="288"></p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigAssocEx">2.24.1. Dateizuordnungen&nbsp;&gt; Dateizuordnungen extra</a></span></p>
+        <p class="figure"><img class="largeimage" title="Dateizuordnungen extra" alt="Dateizuordnungen extra" src="../en/images/imgDC/pic79.png" width="578" height="366"></p>
+        <p><span class="italic">Anbieten, die Auswahl zur Dateizuordnung hinzuzufügen, wenn sie noch nicht enthalten ist</span>&nbsp;&ndash; Beim Zugriff auf die Dateizuordnung anbieten, die aktuell ausgewählte Datei hinzuzufügen, wenn sie noch nicht in einem eingerichteten Dateityp enthalten ist. Das ist ein schneller Weg, eine Aktion „Öffnen mit“ hinzuzufügen: Double Commander fordert Sie auf, einen Typnamen und eine Programmdatei anzugeben, alles andere geschieht automatisch.</p>
+        <p><span class="italic">Erweitertes Kontextmenü</span>&nbsp;&ndash; erlaubt es, einige Einträge zum Untermenü „Aktionen“ hinzuzufügen:</p>
+        <ul>
+          <li><p><span class="italic">Standard-Kontextaktionen (Betrachten/Bearbeiten)</span>&nbsp;&ndash; Befehle zum Öffnen einer Datei im Dateibetrachter und im Editor. Es werden eingebaute Werkzeuge oder externe Anwendungen verwendet (abhängig von den Einstellungen), interne Dateizuordnungen werden ignoriert.</p></li>
+          <li><p>Ausführen mit den Makros <tt>{!SHELL}</tt>, <tt>{!TERMANDCLOSE}</tt> und <tt>{!TERMSTAYOPEN}</tt> (Einzelheiten <a href="#ConfigAssociations">hier</a>):</p>
+            <ul>
+              <li><p><span class="italic">Über die Shell ausführen</span></p></li>
+              <li><p><span class="italic">Über das Terminal ausführen und schließen</span></p></li>
+              <li><p><span class="italic">Über das Terminal ausführen und offen lassen</span></p></li>
+            </ul>
+          </li>
+          <li><p><span class="italic">Konfiguration der Dateizuordnung</span>&nbsp;&ndash; öffnet den Einstellungsabschnitt <a href="#ConfigAssociations">Dateizuordnungen</a>.</p></li>
+        </ul>
+        <p>Darunter können Sie wählen, wie der Pfad beim Hinzufügen von Symbolen, Befehlen und Startpfaden gesetzt wird:</p>
+        <ul>
+          <li><p>Mit vollständigem absolutem Pfad.</p></li>
+          <li><p>Pfad relativ zu <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
+          <li><p>Relativ zum angegebenen Pfad.</p></li>
+        </ul>
+        <p>Sie können die gewählte Art auch auf die bereits hinzugefügten Pfade anwenden.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDirHotlist">2.25. Verzeichnis-Favoriten</a></span></p>
+        <p>Auf der eigenen Hilfeseite <a href="directoryhotlist.html">Verzeichnis-Favoriten</a> steht, wie Sie sie verwenden und einrichten.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigDirHotlistEx">2.25.1. Verzeichnis-Favoriten&nbsp;&gt; Verzeichnis-Favoriten extra</a></span></p>
+        <p class="figure"><img class="largeimage" title="Verzeichnis-Favoriten extra" alt="Verzeichnis-Favoriten extra" src="../en/images/imgDC/pic80.png" width="578" height="165"></p>
+        <p>In diesem Abschnitt können Sie wählen, wie der Pfad und der Zielpfad gesetzt werden:</p>
+        <ul>
+          <li><p>Mit vollständigem absolutem Pfad.</p></li>
+          <li><p>Pfad relativ zu <a href="variables.html#envvariables">%COMMANDER_PATH%</a>.</p></li>
+          <li><p>Relativ zum angegebenen Pfad.</p></li>
+        </ul>
+        <p>Sie können die gewählte Art auch auf die bereits hinzugefügten Pfade anwenden.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <br>
+        <p><small>Erstellt von Rustem (dok_rust@bk.ru)</small></p>
+        <p><small>Englische Fassung von Rod J (rodmac_shiels@hotmail.com)</small></p>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="help.html">Zurück</a> | <a title="Nächste Seite" href="shortcuts.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>
+

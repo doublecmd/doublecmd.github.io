@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Vorinstallierte Plugins</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="configxml.html">Zurück</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.18. Vorinstallierte Plugins</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. Packer-Plugins (WCX)</dt>
+          <dd>
+            <dl>
+              <dt>1.1. <a href="#base64.wcx">Base64</a></dt>
+              <dt>1.2. <a href="#cpio.wcx">CPIO</a></dt>
+              <dt>1.3. <a href="#deb.wcx">DEB</a></dt>
+              <dt>1.4. <a href="#rpm.wcx">RPM</a></dt>
+              <dt>1.5. <a href="#sevenzip.wcx">SevenZip</a></dt>
+              <dt>1.6. <a href="#unrar.wcx">UnRAR</a></dt>
+              <dt>1.7. <a href="#zip.wcx">Zip</a></dt>
+            </dl>
+          </dd>
+          <dt>2. Inhalts-Plugins (WDX)</dt>
+          <dd>
+            <dl>
+              <dt>2.1. <a href="#bexif">Eingebautes Exif-Plugin</a></dt>
+              <dt>2.2. <a href="#audioinfo.wdx">AudioInfo</a></dt>
+              <dt>2.3. <a href="#deb_wdx.wdx">DEB</a></dt>
+              <dt>2.4. <a href="#rpm_wdx.wdx">RPM</a></dt>
+              <dt>2.5. <a href="#lscripts">Lua-Skripte</a></dt>
+            </dl>
+          </dd>
+          <dt>3. Dateisystem-Plugins (WFX)</dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#ftp.wfx">FTP</a></dt>
+              <dt>3.2. <a href="#maccloud.wfx">MacCloud</a></dt>
+            </dl>
+          </dd>
+          <dt>4. Lister-Plugins (WLX)</dt>
+          <dd>
+            <dl>
+              <dt>4.1. <a href="#macpreview.wlx">MacPreview</a></dt>
+              <dt>4.2. <a href="#preview.wlx">Explorer Preview</a></dt>
+              <dt>4.3. <a href="#richview.wlx">Rich Text Format</a></dt>
+              <dt>4.4. <a href="#wlxmplayer.wlx">WlxMplayer</a></dt>
+              <dt>4.5. <a href="#wmp.wlx">Windows Media Player</a></dt>
+            </dl>
+          </dd>
+          <dt>5. Such-Plugin (DSX)</dt>
+          <dd>
+            <dl>
+              <dt>5.1. <a href="#dsxlocate.dsx">DSXLocate</a></dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="wcx">1. Packer-Plugins (WCX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="base64.wcx">Base64</a></span></p>
+        <p>Das Base64-Plugin ermöglicht das Kodieren und Dekodieren von Dateien nach dem Verfahren Base64. Das ist einer der Standards, um Binärdaten mit druckbaren ASCII-Zeichen zu kodieren.</p>
+        <br>
+
+        <p><span class="bold"><a name="cpio.wcx">CPIO</a></span></p>
+        <p>Packer-Plugin zum Entpacken von CPIO-Archiven.</p>
+        <br>
+
+        <p><span class="bold"><a name="deb.wcx">DEB</a></span></p>
+        <p>Packer-Plugin zum Entpacken der Paketdateien des Paketverwaltungssystems dpkg (Debian und darauf aufbauende Distributionen).</p>
+        <p>Linux und andere Unix-ähnliche Betriebssysteme (unter Windows verwendet Double Commander für dieses Format das Plugin <a href="#sevenzip.wcx">SevenZip</a>).</p>
+        <br>
+
+        <p><span class="bold"><a name="rpm.wcx">RPM</a></span></p>
+        <p>Packer-Plugin zum Entpacken der Paketdateien des Paketverwaltungssystems von Red Hat (Red Hat Linux, SUSE Linux und weitere).</p>
+        <br>
+
+        <p><span class="bold"><a name="sevenzip.wcx">SevenZip</a></span></p>
+        <p>Packer-Plugin für die Arbeit mit Dateien der Typen .7z, .arj, .cab, .cpio, .cramfs, .deb, .dmg, .fat, .hfs, .iso, .lha, .lzh, .ntfs, .squashfs, .taz, .vhd, .wim, .xar und .z. Wir können auch weitere Dateitypen hinzufügen, die von 7-Zip unterstützt werden.</p>
+        <p>Hinweis: Einige Formate sind schreibgeschützt, das heißt, es stehen nur das Anzeigen des Inhalts, das Entpacken und das Prüfen zur Verfügung.</p>
+        <p>Nur Windows und Linux.</p>
+        <br>
+
+        <p><span class="bold"><a name="unrar.wcx">UnRAR</a></span></p>
+        <p>Packer-Plugin zum Entpacken von RAR-Archiven.</p>
+        <p>Für die Verwendung dieses Plugins benötigen wir die Bibliothek <a href="https://www.rarlab.com/" target="_blank">UnRAR</a>. Das Plugin verwendet <tt>unrar.dll</tt> (Windows), <tt>libunrar.dylib</tt> (macOS), <tt>libunrar.so</tt> oder <tt>libunrar.so.5</tt> (Linux und andere Unix-ähnliche Betriebssysteme).</p>
+        <p>Die Distributionen von Double Commander für Windows und die portablen Versionen für Linux enthalten die nötige Bibliothek. In anderen Fällen können wir die üblichen Wege nutzen, um Bibliotheken im Betriebssystem zu beziehen (zum Beispiel das Paket <tt>libunrar5</tt> in Debian/Ubuntu oder <tt>libunrar</tt> in Arch Linux). Andernfalls können wir versuchen, auf <a href="https://www.rarlab.com/rar_add.htm" target="_blank">dieser</a> Seite eine passende Variante zu finden (die Datei muss in das Systemverzeichnis oder in das Verzeichnis kopiert werden, in dem die Programmdatei von Double Commander liegt).</p>
+        <p>Das Plugin unterstützt außerdem das Packen von Dateien in ein RAR-Archiv. Dafür müssen wir in den Plugin-Einstellungen den Pfad zu <tt>WinRAR.exe</tt> (nur Windows) oder zum Kommandozeilenprogramm <tt>rar</tt> angeben.</p>
+        <br>
+
+        <p><span class="bold"><a name="zip.wcx">Zip</a></span></p>
+        <p>Packer-Plugin für die Arbeit mit Archiven der Typen .bz2, .gz, .jar, .lzma, .tar, .tbz, .tgz, .tlz, .txz, .tzst, .xz, .zip, .zipx und .zst. Dieses Plugin kann außerdem Dateien öffnen, die auf ZIP beruhen (EPUB, Office Open XML, OpenDocument-Format, CRX, XPI und weitere).</p>
+        <p>Benötigt zusätzliche Kompressor-Bibliotheken:</p>
+        <ul>
+          <li><p>Brotli (nur Dekomprimieren): <tt>libbrotlidec.dll</tt> (Windows), <tt>libbrotlidec.dylib</tt> (macOS), <tt>libbrotlidec.so.1</tt> (Linux und andere Unix-ähnliche Betriebssysteme).</p></li>
+          <li><p>bzip2: <tt>bz2.dll</tt> (Windows), <tt>libbz2.dylib</tt> (macOS), <tt>libbz2.so.1</tt> (Linux und andere Unix-ähnliche Betriebssysteme).</p></li>
+          <li><p>XZ: <tt>liblzma.dll</tt> (Windows), <tt>liblzma.dylib</tt> (macOS), <tt>liblzma.so.5</tt> (Linux und andere Unix-ähnliche Betriebssysteme).</p></li>
+          <li><p>Zstandard: <tt>libzstd.dll</tt> (Windows), <tt>libzstd.dylib</tt> (macOS), <tt>libzstd.so.1</tt> (Linux und andere Unix-ähnliche Betriebssysteme).</p></li>
+        </ul>
+        <p>Die Distributionen von Double Commander für Windows enthalten alle nötigen Bibliotheken, und unter Linux sind diese Bibliotheken auf Desktop-Systemen und Arbeitsplatzrechnern üblicherweise standardmäßig installiert.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wdx">2. Inhalts-Plugins (WDX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="bexif">Eingebautes Exif-Plugin</a></span></p>
+        <p>Das Programm enthält ein eingebautes Exif-Inhalts-Plugin, um einige Daten zu lesen, die in den Metadaten von JPEG-Dateien gespeichert sein können: Datum, Abmessungen in Pixeln, Bildausrichtung und Kamerainformationen.</p>
+        <p>Nur JPEG-Bilder.</p>
+        <br>
+
+        <p><span class="bold"><a name="audioinfo.wdx">AudioInfo</a></span></p>
+        <p>Dieses Inhalts-Plugin zeigt Informationen zu Audiodateien, technische Angaben (Dauer, Bitrate, Anzahl der Kanäle und so weiter) und Metadaten (Titel, Interpret und weitere).</p>
+        <p>Die folgenden Arten von Metadaten werden unterstützt: ID3v1 (1.0, 1.1), ID3v2 (2.2, 2.3, 2.4), APE (1.0, 2.0), Vorbis-Kommentar.</p>
+        <br>
+
+        <p><span class="bold"><a name="deb_wdx.wdx">DEB</a></span></p>
+        <p>Dieses Inhalts-Plugin zeigt Informationen zu den Paketdateien des Paketverwaltungssystems dpkg (Debian und darauf aufbauende Distributionen): Paketname, Version, Beschreibung, Abhängigkeiten und weitere.</p>
+        <br>
+
+        <p><span class="bold"><a name="rpm_wdx.wdx">RPM</a></span></p>
+        <p>Dieses Inhalts-Plugin zeigt Informationen zu den Paketdateien des Paketverwaltungssystems von Red Hat (Red Hat Linux, SUSE Linux und weitere): Paketname, Version, Beschreibung und weitere.</p>
+        <br>
+
+        <p><span class="bold"><a name="lscripts">Lua-Skripte</a></span></p>
+        <p>Das Verzeichnis <tt>plugins/wdx/scripts</tt> enthält mehrere Beispiele für Inhalts-Plugins, die in Lua geschrieben sind (Einzelheiten stehen auf der Hilfeseite <a href="lua.html">Lua-Skripte</a>).</p>
+        <p>Diese Plugins sind den Programmeinstellungen nicht hinzugefügt.</p>
+        <ul>
+          <li><p><tt>descriptionwdx.lua</tt>&nbsp;&ndash; liest Dateibeschreibungen aus <tt>descript.ion</tt>.</p></li>
+          <li><p><tt>fulltextodtwdx.lua</tt>&nbsp;&ndash; sucht Text in OpenDocument-Text-Dateien (ODT). Benötigt <tt>odt2txt</tt>.</p></li>
+          <li><p><tt>simplewdx.lua</tt>&nbsp;&ndash; einfaches Beispiel mit mehreren Feldern.</p></li>
+          <li><p><tt>textlinewdx.lua</tt>&nbsp;&ndash; gibt die ersten Zeilen von reinen Textdateien (.txt, .ini) nacheinander zurück, von der ersten bis zur fünften.</p></li>
+        </ul>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wfx">3. Dateisystem-Plugins (WFX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="ftp.wfx">FTP</a></span></p>
+        <p>Dies ist ein Dateisystem-Plugin für die Arbeit mit den folgenden Netzwerkprotokollen: FTP, FTPS, FTPES, SFTP und SSH+SCP. Das Plugin unterstützt außerdem die Arbeit mit Proxy-Servern (HTTP, SOCKS 4 oder SOCKS 5).</p>
+        <p>Benötigt zusätzliche Bibliotheken:</p>
+        <p>1) Protokolle SSL und TLS</p>
+        <p>Die kryptografische Bibliothek <a href="https://www.openssl.org/" target="_blank">OpenSSL</a> (3.1, 3.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1):</p>
+        <ul>
+          <li>Windows: Das Plugin enthält eine Liste gebräuchlicher Namen, und die benötigten Dateien werden automatisch gefunden.</li>
+          <li>macOS: <tt>libssl.N.dylib</tt> und <tt>libcrypto.N.dylib</tt> (wobei „N“ eine Versionsnummer ist) oder <tt>libssl.dylib</tt> und <tt>libcrypto.dylib</tt>.</li>
+          <li>Linux und andere Unix-ähnliche Betriebssysteme: <tt>libssl.so.N</tt> und <tt>libcrypto.so.N</tt>, wobei „N“ eine Versionsnummer ist.</li>
+        </ul>
+        <p>Übersetzte OpenSSL-Binärdateien für Windows sind <a href="https://wiki.openssl.org/index.php/Binaries" target="_blank">hier</a> zu finden. In anderen Fällen können wir die Paketverwaltung des Betriebssystems verwenden (zum Beispiel das Paket <tt>libssl3</tt> oder <tt>libssl1.1</tt> in Debian/Ubuntu, <tt>openssl</tt> in Arch Linux, <tt>openssl</tt> unter macOS (Homebrew)).</p>
+        <p>Hinweis: Unter Windows müssen die Bibliotheken neben der Programmdatei von Double Commander oder im Windows-Systemverzeichnis liegen.</p>
+        <p>Alternativ kann das Plugin unter Linux die Bibliothek <a href="https://www.gnutls.org/" target="_blank">GnuTLS</a> verwenden (<tt>libgnutls.so.N</tt>, wobei „N“ eine Versionsnummer ist).</p>
+        <p>2) Protokoll SSH</p>
+        <p>Die Bibliothek <a href="https://libssh2.org/" target="_blank">libssh</a>: Das FTP-Plugin verwendet <tt>libssh2.dll</tt> (Windows), <tt>libssh2.dylib</tt> (macOS) oder <tt>libssh2.so.1</tt> (Linux und andere Unix-ähnliche Betriebssysteme).</p>
+        <p>Die Distributionen von Double Commander für Windows enthalten diese Bibliothek. In anderen Fällen können wir die üblichen Wege nutzen, um Bibliotheken im Betriebssystem zu beziehen (zum Beispiel das Paket <tt>libssh2-1</tt> in Debian/Ubuntu, <tt>libssh2</tt> in Arch Linux, <tt>libssh2</tt> unter macOS (Homebrew)).</p>
+        <p>Das Plugin ermöglicht die Verwendung eines SSH-Authentifizierungsagenten (zum Beispiel ssh-agent aus der Programmsammlung OpenSSH, Pageant von PuTTY).</p>
+        <br>
+
+        <p><span class="bold"><a name="maccloud.wfx">MacCloud</a></span></p>
+        <p>Offizielles Cloud-Plugin für macOS, es unterstützt:</p>
+        <ul>
+          <li>DropBox</li>
+          <li>Yandex</li>
+          <li>One Drive</li>
+          <li>Box</li>
+          <li>Amazon S3</li>
+          <li>BackBlaze B2</li>
+          <li>Alibaba Cloud OSS</li>
+          <li>Tencent Cloud COS</li>
+          <li>Huawei Cloud OBS</li>
+          <li>Qiniu KODO</li>
+          <li>Upyun USS</li>
+          <li>S3 Compatible</li>
+        </ul>
+        <p>Nur macOS.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="wlx">4. Lister-Plugins (WLX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="macpreview.wlx">MacPreview</a></span></p>
+        <p>Universelles Plugin (Office-Dokumentformate, Bilder, Video- und Audiodateien und mehr) auf Basis von <a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>, wie im Finder.</p>
+        <p>Nur macOS.</p>
+        <br>
+
+        <p><span class="bold"><a name="preview.wlx">Explorer Preview</a></span></p>
+        <p>Plugin für die Anzeige einer umfangreichen Vorschau. Die Schnittstelle IPreviewHandler unterstützt viele Formate (abhängig von der Version des Betriebssystems und den installierten Anwendungen). Standardmäßig sind nur HTML-Dateien zur Erkennungszeichenkette hinzugefügt.</p>
+        <p>Hinweis: Vorschau-Handler zeigen möglicherweise nicht alle in der Datei enthaltenen Informationen an.</p>
+        <p>Nur Windows.</p>
+        <br>
+
+        <p><span class="bold"><a name="richview.wlx">Rich Text Format</a></span></p>
+        <p>Plugin zum Anzeigen von RTF-Dateien.</p>
+        <p>Nur Windows.</p>
+        <br>
+
+        <p><span class="bold"><a name="wlxmplayer.wlx">WlxMplayer</a></span></p>
+        <p>Plugin zum Anzeigen von Videodateien. Benötigt <tt>mplayer</tt>.</p>
+        <p>Nur Linux.</p>
+        <br>
+
+        <p><span class="bold"><a name="wmp.wlx">Windows Media Player</a></span></p>
+        <p>Plugin zum Wiedergeben von Audio- und Videodateien. Dieses Plugin verwendet die Schnittstelle IWMPPlayer4 (ActiveX) und benötigt Windows Media Player 9 oder neuer.</p>
+        <p>Nur Windows.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dsx">5. Such-Plugin (DSX)</a></h2>
+        <br>
+
+        <p><span class="bold"><a name="dsxlocate.dsx">DSXLocate</a></span></p>
+        <p>Dieses Plugin verwendet <tt>locate</tt> und dessen Dateidatenbank für die Suche. Wir können nach dem Dateinamen, einem Teil davon oder nach einer Maske suchen (das Zeichen „*“ steht für eine beliebige Anzahl von Zeichen).</p>
+        <p>Linux und andere Unix-ähnliche Betriebssysteme.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="configxml.html">Zurück</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,1525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="de">
+  <head>
+    <title>DC - Lua-Skripte</title>
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
+    <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+    <a name="topofpage"></a>
+    <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
+      <div id="global-nav" class="nav"><a title="Double Commander Startseite" href="https://doublecmd.sourceforge.io/" target="_blank">Startseite</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="regexp.html">Zurück</a> | <a title="Nächste Seite" href="commandline.html">Weiter</a></div></div>
+
+    <div class="dchelpage">
+      <div>
+        <h1>2.15. Lua-Skripte</h1>
+      </div>
+
+      <div>
+        <h2>Inhalt</h2>
+        <dl>
+          <dt>1. <a href="#preface">Einführung</a></dt>
+          <dt>2. <a href="#dllrequired">Erforderliche DLL</a></dt>
+          <dt>3. <a href="#libraries">Funktionsbibliotheken von Double Commander</a></dt>
+          <dd>
+            <dl>
+              <dt>3.1. <a href="#libdc">DC-Bibliothek</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.1.1. <a href="#exampleex">Beispiel mit DC.ExecuteCommand</a></dt>
+                </dl>
+              </dd>
+              <dt>3.2. <a href="#librarysystem">Systembibliothek</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.2.1. <a href="#detailattr">Einzelheiten zum Rückgabewert von SysUtils.FileGetAttr</a></dt>
+                  <dt>3.2.2. <a href="#exampleattr">Beispiel mit SysUtils.FileGetAttr</a></dt>
+                  <dt>3.2.3. <a href="#examplefind">Beispiel mit FindFirst, FindNext und FindClose</a></dt>
+                </dl>
+              </dd>
+              <dt>3.3. <a href="#libraryclip">Zwischenablage-Bibliothek</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.3.1. <a href="#exampleclip">Beispiel für die Verwendung der Zwischenablage-Bibliothek</a></dt>
+                </dl>
+              </dd>
+              <dt>3.4. <a href="#librarydialogs">Dialogbibliothek</a></dt>
+              <dd>
+                <dl>
+                  <dt>3.4.1. <a href="#dlgbuts">Angezeigte Schaltflächen in Dialogs.MessageBox</a></dt>
+                  <dt>3.4.2. <a href="#dlgstyle">Stil des Fensters von Dialogs.MessageBox</a></dt>
+                  <dt>3.4.3. <a href="#dlgdefbut">Standardmäßig aktive Schaltfläche von Dialogs.MessageBox</a></dt>
+                  <dt>3.4.4. <a href="#msgreturn">Rückgabewert von Dialogs.MessageBox</a></dt>
+                  <dt>3.4.5. <a href="#mesgboxsample">Beispiel für die Verwendung von Dialogs.MessageBox</a></dt>
+                  <dt>3.4.6. <a href="#querysample">Beispiel für die Verwendung von Dialogs.InputQuery</a></dt>
+                </dl>
+              </dd>
+              <dt>3.5. <a href="#libraryutf8">UTF-8-Bibliothek</a></dt>
+              <dt>3.6. <a href="#librarychar">Zeichenbibliothek</a></dt>
+              <dt>3.7. <a href="#libraryos">Betriebssystembibliothek</a></dt>
+            </dl>
+          </dd>
+          <dt>4. <a href="#index">Index</a></dt>
+        </dl>
+      </div>
+
+      <div>
+        <h2><a name="preface">1. Einführung</a></h2>
+        <p>Ausführliche Informationen über die Skriptsprache Lua stehen auf der <a href="https://www.lua.org/" target="_blank">Lua-Website</a>.</p>
+        <p>Double Commander kann Lua-Skripte über den Befehl <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> ausführen.<br>
+          Skriptparameter müssen unverändert übergeben werden, ohne Maskierung (ohne Anführungszeichen oder „\“). Dafür müssen wir die Variable <a href="variables.html#quotation">%"0</a> verwenden: zum Beispiel <code>%"0%p0</code> für die Datei unter dem Cursor statt <code>%p0</code> oder <code>%"0%D</code> für das aktuelle Verzeichnis statt <code>%D</code>. Andernfalls werden Anführungszeichen, die Double Commander automatisch hinzufügt, als Teil des Parameters übergeben, und Sie müssen sie berücksichtigen.<br>
+          Um eine Liste aller ausgewählten Dateien zu erhalten, können wir <a href="variables.html#listoffiles">Variablen</a> (<code>%LU</code>, <code>%FU</code> oder <code>%RU</code>) oder interne Befehle (<a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>, <a href="cmds.html#cm_SaveFileDetailsToFile">cm_SaveFileDetailsToFile</a>, <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> oder <a href="cmds.html#cm_CopyFileDetailsToClip">cm_CopyFileDetailsToClip</a>) verwenden.
+          Wir können zum Beispiel <code>%p</code> verwenden: In diesem Fall übergibt Double Commander die Namen aller ausgewählten Dateien in einer Zeile und trennt die Namen mit einem Leerzeichen.</p>
+        <p>Außerdem lassen sich Inhalts-Plugins mit einem Lua-Skript schreiben. Beispiele liegen im Programmordner (<tt>plugins/wdx/scripts</tt>).
+          Im Wiki gibt es eine <a href="https://github.com/doublecmd/doublecmd/wiki/Plugins-development" target="_blank">Seite</a> zum Schreiben von Plugins.
+          Einschränkungen: Es werden nur die folgenden Datentypen unterstützt</p>
+        <ul>
+          <li><i>ft_numeric_32</i> (1)&nbsp;&ndash; eine 32-Bit-Ganzzahl mit Vorzeichen;</li>
+          <li><i>ft_numeric_64</i> (2)&nbsp;&ndash; eine 64-Bit-Ganzzahl mit Vorzeichen;</li>
+          <li><i>ft_numeric_floating</i> (3)&nbsp;&ndash; eine Gleitkommazahl;</li>
+          <li><i>ft_boolean</i> (6)&nbsp;&ndash; boolescher Typ: <i>true</i> oder <i>false</i>;</li>
+          <li><i>ft_multiplechoice</i> (7)&nbsp;&ndash; ein Wert mit einer begrenzten Anzahl von Auswahlmöglichkeiten;</li>
+          <li><i>ft_string</i> (8)&nbsp;&ndash; eine Textzeichenkette;</li>
+          <li><i>ft_fulltext</i> (9)&nbsp;&ndash; ein Volltext (mehrere Textzeichenketten), nur für die Suche mit Plugins verwendet;</li>
+          <li><i>ft_datetime</i> (10)&nbsp;&ndash; für Datum/Uhrzeit: Ein zurückgegebenes Datum wird in eine formatierte Datums- und Uhrzeitzeichenkette umgewandelt (der Wert hängt von Ihren regionalen Einstellungen ab).<br>
+            Das Datum muss im Windows-Format vorliegen, Lua und die Funktionen, die Double Commander für die Dateisuche bereitstellt, verwenden jedoch das Unix-Zeitformat. Zum Umrechnen können wir die Formel verwenden:<br>
+            =&nbsp;UnixTime&nbsp;*&nbsp;10000000&nbsp;+&nbsp;116444736000000000<br>
+            Das ist eine große Zahl, daher benötigen Sie eine 64-Bit-Version von Double Commander oder Lua 5.3+.</li>
+        </ul>
+        <p>Die Liste oben enthält die Namen aus den Header-Dateien. In Lua-Skripten müssen wir die in Klammern angegebenen numerischen Werte verwenden.</p>
+        <br>
+
+        <p><span class="bold">Zur Textkodierung</span></p>
+        <p>Alle unten beschriebenen zusätzlichen Funktionen nehmen Zeichenkettenparameter in der Kodierung UTF-8 entgegen und geben Zeichenketten in dieser Kodierung zurück (außer der Funktion <a href="#libraryutf8">LazUtf8.ConvertEncoding</a>).</p>
+        <p>Einige Funktionen aus den Standardbibliotheken von Lua wurden durch Funktionen von Double Commander oder Free Pascal/Lazarus ersetzt (oder es wurden neue geschrieben). Das stellt die Unterstützung von UTF-8 bereit.</p>
+        <p>Beim Schreiben von Plugins sollten wir für Textdaten ebenfalls UTF-8 verwenden (<i>ft_multiplechoice</i>, <i>ft_string</i> und <i>ft_fulltext</i>).</p>
+        <p>Speichern Sie Skripte in der Kodierung UTF-8 ohne BOM.</p>
+        <br>
+
+        <p><span class="bold">Hinweise</span></p>
+        <p>Die Automatisierung mit Lua bietet große Möglichkeiten, doch es gibt Feinheiten, die in manchen Fällen zu beachten sind. Versuchen wir, sie in diesem Unterabschnitt zu sammeln.</p>
+        <p>1. Wenn <a href="configuration.html#ConfigRefresh">automatisches Aktualisieren</a> und die Option <a href="configuration.html#ConfigViewEx">Dateiliste in einem eigenen Thread laden</a> aktiviert sind, arbeitet die Aktualisierungsfunktion asynchron. Gleichzeitig werden Skripte im Haupt-Thread von Double Commander ausgeführt, und das kann sich daher in manchen Fällen auf die Arbeit Ihres Skripts auswirken. Zum Beispiel funktioniert manchmal die aufeinanderfolgende Ausführung von <a href="cmds.html#catnavigation">Befehlen zur Navigation</a> nicht (zum Beispiel große Verzeichnisse, langsame Festplatte). Deaktivieren Sie in diesem Fall <i>Dateiliste in einem eigenen Thread laden</i> oder suchen Sie nach einer anderen Lösung.</p>
+        <p>Wenn Ihr Skript im aktuellen Panel neue Dateien erstellt oder vorhandene Dateien umbenennt, danach aber nicht endet und weitere Aktionen ausführt (zum Beispiel Dateien auswählen oder den Cursor bewegen), bleiben diese Aktionen in manchen Fällen ohne Wirkung: Noch nicht alle Dateien sind im Panel, und Sie müssen zuerst den Befehl <a href="cmds.html#cm_Refresh">cm_Refresh</a> aufrufen. Unter den beschriebenen Bedingungen wird <tt>cm_Refresh</tt> ebenfalls asynchron ausgeführt, und Double Commander hat möglicherweise keine Zeit, die Dateiliste nach Ihren Änderungen vollständig zu aktualisieren.</p>
+        <p>Automatisches Aktualisieren und das Laden der Dateiliste in einem eigenen Thread sind für einen Dateimanager praktische Funktionen. Experimentell wurde daher ein stabiles Verfahren gefunden, die Steuerung vorübergehend an das Programm zurückzugeben und die Dateiliste vollständig aktualisieren zu lassen:</p>
+        <pre>
+DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Refresh"</span><span class="luasbl">)</span>
+i <span class="luasbl">=</span> <span class="luanum">10</span>
+<span class="luakyw">while</span> i <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">do</span>
+  SysUtils.Sleep<span class="luasbl">(</span><span class="luanum">10</span><span class="luasbl">)</span>
+  DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">""</span><span class="luasbl">)</span>
+  i <span class="luasbl">=</span> i <span class="luasbl">-</span> <span class="luanum">1</span>
+<span class="luakyw">end</span></pre>
+        <p>2. Die Lua-Funktion <code>io.open</code> verwendet die Standard-C-Funktion <code>fopen</code>: Im Textmodus kann diese Funktion die Art der Zeilenenden (CRLF, LF oder CR) beim Lesen und Schreiben umwandeln, und das kann zu unerwarteten Ergebnissen führen. Wenn Sie auf Dateien mit unterschiedlichen Arten von Zeilenenden stoßen oder wenn Sie ein plattformübergreifendes Skript schreiben, muss das berücksichtigt werden, oder es kann praktischer sein, den Binärmodus vorzuziehen.</p>
+        <p>3. Für den Dialog <a href="help.html#cm_FileProperties">Dateieigenschaften</a> unter Linux und anderen Unix-ähnlichen Betriebssystemen wird die Funktion <code>ContentGetValue</code> mit dem Flag <code>CONTENT_DELAYIFSLOW</code> aufgerufen (der vierte Parameter, der Wert ist 1). Das vermeidet die Verzögerung beim Öffnen des Fensters: Wenn das Abrufen der Daten langsam ist, können wir diese Daten ausschließen, indem wir einfach eine Prüfung des Flag-Werts hinzufügen und für solche Felder oder das Plugin <code>nil</code> zurückgeben.</p>
+        <p>4. Wenn das Plugin eine leere Zeichenkette zurückgeben soll, ist es schneller, <code>nil</code> statt <code>""</code> zu übergeben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dllrequired">2. Erforderliche DLL</a></h2>
+        <p>Um eine Lua-Skriptdatei zu interpretieren, benötigen wir eine Lua-DLL-Datei. Double Commander unterstützt die Versionen 5.1 - 5.5.</p>
+        <p>Wir können die DLL-Datei aus dem <a href="https://luajit.org/" target="_blank">LuaJIT-Projekt</a> verwenden. LuaJIT verbindet einen schnellen, in Assembler geschriebenen Interpreter mit einem modernen JIT-Compiler. Außerdem erhalten wir die FFI-Bibliothek, die den Aufruf externer C-Funktionen und die Verwendung von C-Datenstrukturen aus reinem Lua-Code erlaubt.</p>
+        <p>Die DC-Distributionen für Windows enthalten standardmäßig eine Lua-DLL (in DC 0.9.7 und neuer aus dem LuaJIT-Projekt). In anderen Fällen können wir sie über unseren Paketmanager finden und installieren oder selbst übersetzen. Wenn wir eine 64-Bit-Version von DC verwenden, muss die DLL ebenfalls die 64-Bit-Version sein.</p>
+        <p>Standardmäßig sucht DC nach einer Datei mit dem Namen <tt>lua5.1.dll</tt> (Windows), <tt>liblua5.1.so.0</tt> (Unix oder GNU/Linux) oder <tt>liblua5.1.dylib</tt> (macOS) in seinem Verzeichnis und im Systemverzeichnis. Wir können den Dateinamen (und den Pfad) im Parameter <a href="configuration.html#luapathtolibrary">Zu verwendende Lua-Bibliotheksdatei</a> ändern.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libraries">3. Funktionsbibliotheken von Double Commander</a></h2>
+        <p>Double Commander bietet einige Funktionsbibliotheken für unsere Lua-Skripte.</p>
+        <p>Das ist die Liste.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="3">Liste der Bibliotheken</th></tr>
+          <tr class="rowsubtitle"><th class="namecolumn">Bibliotheksname</th><th class="namecolumn">Skriptname</th><th class="categorydesccolumn">Kurzbeschreibung</th></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libdc">Bibliothek von Double Commander</a></div></td><td class="hintcell">DC</td><td class="hintcell">Spezielle Funktionen von Double Commander</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarysystem">Systembibliothek</a></div></td><td class="hintcell">SysUtils</td><td class="hintcell">Verschiedene Systemfunktionen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryclip">Zwischenablage-Bibliothek</a></div></td><td class="hintcell">Clipbrd</td><td class="hintcell">Stellt externe Funktionen der Zwischenablage bereit</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarydialogs">Dialogbibliothek</a></div></td><td class="hintcell">Dialogs</td><td class="hintcell">Interaktion mit dem Benutzer</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryutf8">UTF-8-Bibliothek</a></div></td><td class="hintcell">LazUtf8</td><td class="hintcell">UTF-8-Zeichenkettenfunktionen</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#librarychar">Zeichenbibliothek</a></div></td><td class="hintcell">Char</td><td class="hintcell">Informationen über Zeichen ermitteln</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft"><a href="#libraryos">Betriebssystembibliothek</a></div></td><td class="hintcell">os</td><td class="hintcell">Funktionen im Zusammenhang mit dem Betriebssystem</td></tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libdc">3.1. DC-Bibliothek</a></h2>
+        <p>Diese Bibliothek enthält die speziellen Funktionen von Double Commander.</p>
+        <p>Sie stellt alle ihre Funktionen in der Tabelle <code>DC</code> bereit.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">DC-Bibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_logwrite">DC.LogWrite</a></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.LogWrite(sMessage, iMsgType, bForce, bLogFile)</p>
+              <p>Eine Nachricht in das Protokollfenster schreiben:</p>
+              <ul>
+                <li><var>sMessage</var> : Der Nachrichtentext.</li>
+                <li><var>iMsgType</var> : Der Nachrichtentyp: 0 - Information (standardmäßig), 1 - Erfolg, 2 - Fehler.</li>
+                <li><var>bForce</var> : Ein boolescher Wert. Wenn true, wird das Protokollfenster angezeigt, falls es unsichtbar ist. <code>true</code> standardmäßig</li>
+                <li><var>bLogFile</var> : Ein boolescher Wert. Wenn true, wird die Nachricht auch in die Protokolldatei geschrieben. <code>false</code> standardmäßig</li>
+              </ul>
+              <p>Die interne Funktion von Double Commander zum Schreiben in das Protokoll arbeitet asynchron (siehe Hinweise in der <a href="#preface">Einführung</a>). Nachrichten von <code>DC.LogWrite</code> werden daher nicht sofort in das Protokoll geschrieben, sondern erst nach Abschluss des Skripts. Wenn der Text sofort geschrieben werden muss, können wir versuchen, den Aufruf <code>DC.ExecuteCommand("")</code> nach <code>DC.LogWrite</code> hinzuzufügen.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_currentpanel">DC.CurrentPanel</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iPanel = DC.CurrentPanel()</p>
+              <p>Aktives Panel ermitteln: gibt 0 zurück, wenn das linke Panel aktiv ist, oder 1, wenn das rechte aktiv ist.</p>
+              <p class="definition">DC.CurrentPanel(iPanel)</p>
+              <p>Aktives Panel setzen: linkes Panel, wenn <var>iPanel</var> gleich 0 ist, oder rechtes, wenn 1.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_executecommand">DC.ExecuteCommand</a></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.ExecuteCommand(sCommand, Param1, Param2,...,ParamX)</p>
+              <p>Damit kann das Skript <a href="cmds.html">interne Befehle</a> von Double Commander aufrufen.</p>
+              <p><var>sCommand</var> enthält den eigentlichen Namen des internen Befehls.</p>
+              <p>Wir können so viele <var>Param...</var> angeben, wie der Befehl unterstützt.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_gotofile">DC.GoToFile</a></div></td>
+            <td class="hintcell">
+              <p class="definition">DC.GoToFile(sFileName, bActive)</p>
+              <p>Öffnet das Verzeichnis, in dem <var>sFileName</var> liegt, und setzt den Cursor auf <var>sFileName</var>. Um ein Verzeichnis zu öffnen, <a href="cmds.html#cm_ChangeDir">cm_ChangeDir</a> verwenden oder versuchen, das Verzeichnistrennzeichen und „..“ (ohne Anführungszeichen) an <var>sFileName</var> anzuhängen.</p>
+              <p><var>bActive</var> ist ein optionaler Parameter: Die Funktion kann im aktiven Dateipanel (<code>true</code>) oder im inaktiven (<code>false</code>) arbeiten. Standardmäßig <code>true</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_getpluginfield">DC.GetPluginField</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = DC.GetPluginField(sFileName, sPlugin, iField, iUnit)</p>
+              <p>Ermöglicht, Daten über das installierte Inhalts-Plugin (WDX) abzurufen:</p>
+              <ul>
+                <li><var>sFileName</var> : Der vollständige (absolute) Dateiname.</li>
+                <li><var>sPlugin</var> : Der Plugin-Name, wie er im zugehörigen <a href="configuration.html#ConfigPlugins">Einstellungsabschnitt</a> gespeichert ist.</li>
+                <li><var>iField</var> : Der Index des Plugin-Feldes (Zählung ab 0).</li>
+                <li><var>iUnit</var> : Der Einheitenindex (Zählung ab 0); 0 angeben, wenn er nicht vorhanden ist.</li>
+                <li><var>Result</var> : Der Rückgabewert: Ganzzahl mit Vorzeichen (einschließlich der Zeit im Unix-Format), Gleitkommazahl, boolescher Wert, Textzeichenkette oder <code>nil</code>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dc_expandvar">DC.ExpandVar</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = DC.ExpandVar(String)</p>
+              <p>Gibt eine Zeichenkette zurück, in der alle <a href="variables.html">Variablen</a> durch ihre Werte ersetzt sind (außer Umgebungsvariablen; dafür <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a> verwenden).</p>
+            </td>
+          </tr>
+        </table>
+        <p>Zusätzlich zu den internen Befehlen können wir in Skripten den besonderen Befehl <tt>cm_ExecuteToolBarItem</tt> verwenden. Dieser Befehl ermöglicht, Schaltflächen der Werkzeugleiste über ihren Bezeichner aufzurufen (im Programm stellt diese Funktion die Verwendung von Tastenkürzeln für Schaltflächen der Werkzeugleiste bereit). Der Befehl wird wie gewöhnliche interne Befehle verwendet (siehe die Beispiele unten) und hat die folgenden Parameter:</p>
+        <table class="innercmddesc">
+          <tr class="rowinnerdesc">
+            <th class="innerdescheader">Parameter</th>
+            <th class="innerdescheader">Wert</th>
+            <th class="innerdescheader">Beschreibung</th>
+          </tr>
+          <tr>
+            <td class="innerdescparamcell" rowspan="3">ToolBarID</td>
+            <td class="innerdescvaluecell">TfrmOptionsToolbar</td>
+            <td class="innerdescdesccell">die Schaltfläche der Hauptwerkzeugleiste</td>
+          </tr>
+          <tr>
+            <td class="innerdescvaluecell">TfrmOptionsToolbarMiddle</td>
+            <td class="innerdescdesccell">die Schaltfläche der mittleren Werkzeugleiste</td>
+          </tr>
+          <tr>
+            <td class="innerdescvaluecell"><i>(nicht vorhanden)</i></td>
+            <td class="innerdescdesccell">die Schaltfläche der Hauptwerkzeugleiste</td>
+          </tr>
+          <tr>
+            <td class="innerdescparamcell">ToolItemID</td>
+            <td class="innerdescvaluecell"><i>Bezeichner</i></td>
+            <td class="innerdescdesccell">der eindeutige Bezeichner der Schaltfläche</td>
+          </tr>
+        </table>
+        <p>Der eindeutige Bezeichner ist im Tag <code>ID</code> gespeichert, und wir haben mehrere Möglichkeiten, ihn zu erhalten: Wir können die Schaltfläche in der Datei <tt>doublecmd.xml</tt> finden, in der Sicherungsdatei der Werkzeugleiste, oder die Schaltfläche einfach in die Zwischenablage kopieren und ihren Code in einen Texteditor einfügen.</p>
+        <p>Hinweis: Bezeichner werden automatisch erzeugt und müssen nicht mit den Bezeichnern ähnlicher Schaltflächen in einer anderen Kopie des Programms übereinstimmen. Bei Bedarf können wir jedoch manuell einen eigenen Wert setzen.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exampleex">3.1.1. Beispiel mit DC.ExecuteCommand</a></h2>
+        <p>In diesem Beispiel haben wir ein einfaches Skript geschrieben, das Folgendes tut:</p>
+        <ol>
+          <li>Fokus auf das rechte Panel setzen</li>
+          <li>alle geöffneten Registerkarten schließen</li>
+          <li>zu einem bestimmten Ordner wechseln</li>
+          <li>Fokus auf das linke Panel setzen</li>
+          <li>alle geöffneten Registerkarten schließen</li>
+          <li>zu einem bestimmten Ordner wechseln</li>
+          <li>eine neue Registerkarte öffnen</li>
+          <li>zu einem bestimmten Ordner wechseln</li>
+        </ol>
+
+        <pre>
+<span class="luacmt">-- 1. Fokus auf das rechte Panel.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span><span class="luasbl">,</span> <span class="luastr">"side=right"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 2. Alle Registerkarten schließen.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 3. Zu einem bestimmten Verzeichnis wechseln.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> <span class="luastr">"E:\\FakeKey\\Documents\\Music"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 4. Fokus auf das linke Panel.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span><span class="luasbl">,</span> <span class="luastr">"side=left"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 5. Alle Registerkarten schließen.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 6. Zu einem bestimmten Verzeichnis wechseln.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> <span class="luastr">"C:\\Users\\Public\\Music"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 7. Eine neue Registerkarte öffnen.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
+
+<span class="luacmt">-- 8. Zu einem bestimmten Verzeichnis wechseln.</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> <span class="luastr">"E:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
+
+        <p>Mit dem internen Befehl <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> können wir eine Schaltfläche der Werkzeugleiste einrichten, die unser Skript ausführt.</p>
+        <p>Angenommen, diese Skriptdatei ist <code>E:\scripts\lua\music.lua</code>, dann könnten wir die Schaltfläche so konfigurieren:</p>
+        <p class="figure"><img class="largeimage" title="Aufruf eines Lua-Skripts aus der Werkzeugleiste" alt="Aufruf eines Lua-Skripts aus der Werkzeugleiste" src="../en/images/imgDC/luaimg1.png" width="610" height="289"></p>
+
+        <p>Außerdem können wir den eingebauten Editor von Double Commander verwenden, um unsere Skripte zu bearbeiten. Wenn der Dateiname die Erweiterung <code>.lua</code> hat, erkennt der eingebaute Editor sie und stellt uns eine Syntaxhervorhebung bereit, die speziell für die Sprache Lua ist:</p>
+        <p class="figure"><img class="largeimage" title="Lua-Syntaxhervorhebung im eingebauten Editor" alt="Lua-Syntaxhervorhebung im eingebauten Editor" src="../en/images/imgDC/luaimg2.png" width="660" height="480"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+      <div>
+        <h2><a name="librarysystem">3.2. Systembibliothek</a></h2>
+        <p>Diese Bibliothek enthält verschiedene Systemfunktionen.</p>
+        <p>Sie stellt alle ihre Funktionen in der Tabelle <code>SysUtils</code> bereit.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Systembibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_sleep">SysUtils.Sleep</a></div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.Sleep(iMilliseconds)</p>
+              <p>Hält die Ausführung des Skripts für die angegebene Anzahl von <var>iMilliseconds</var> an.<br>Nach Ablauf der angegebenen Zeit wird die Skriptausführung fortgesetzt.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_gettickcount">SysUtils.GetTickCount</a></div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.GetTickCount()</p>
+              <p>Gibt einen ansteigenden Zähler von Uhr-Ticks zurück. Er ist für Zeitmessungen nützlich, über den Abstand zwischen den Ticks sollten jedoch keine Annahmen getroffen werden.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_fileexists">SysUtils.FileExists</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bExists = SysUtils.FileExists(sFileName)</p>
+              <p>Prüft, ob eine bestimmte Datei im Dateisystem vorhanden ist.</p>
+              <p>Gibt in <var>bExists</var> den Wert <code>true</code> zurück, wenn eine Datei mit dem Namen <var>sFileName</var> auf dem Datenträger vorhanden ist, andernfalls <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_directoryexists">SysUtils.DirectoryExists</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bExists = SysUtils.DirectoryExists(sDirectory)</p>
+              <p>Prüft, ob <var>sDirectory</var> im Dateisystem vorhanden ist und tatsächlich ein Verzeichnis ist.</p>
+              <p>Wenn das zutrifft, gibt die Funktion in <var>bExists</var> den Wert <code>true</code> zurück, andernfalls wird <code>false</code> zurückgegeben.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_filegetattr">SysUtils.FileGetAttr</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iAttr = SysUtils.FileGetAttr(sFileName)</p>
+              <p>Gibt in <var>iAttr</var> die Attributeinstellungen der Datei <var>sFileName</var> zurück.</p>
+              <p>Die ausführliche Erklärung des Rückgabewerts steht <a href="#detailattr">hier</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_findfirst">SysUtils.FindFirst</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Handle, FindData = SysUtils.FindFirst(sPath)</p>
+              <p>Sucht nach Dateien, die zu <var>sPath</var> passen, im Allgemeinen mit Platzhaltern.</p>
+              <p>Wenn keine Datei gefunden wird, ist <var>Handle</var> <code>nil</code>.</p>
+              <p>Wenn mindestens ein Eintrag gefunden wird, kann das zurückgegebene <var>Handle</var> in nachfolgenden <code>SysUtils.FindNext</code> verwendet werden, um weitere Vorkommen desselben Musters zu finden.</p>
+              <p>Die Tabelle <var>FindData</var> enthält Informationen über die gefundene Datei oder das gefundene Verzeichnis.</p>
+              <p>Die Felder der Tabelle <var>FindData</var> sind:</p>
+              <ul>
+                <li><var>Name</var> : Der Dateiname (ohne Pfad).</li>
+                <li><var>Attr</var> : Die Dateiattribute der Datei (Einzelheiten <a href="#detailattr">hier</a>).</li>
+                <li><var>Size</var> : Die Größe der Datei in Bytes.</li>
+                <li><var>Time</var> : Der Zeitstempel der Datei (Sekunden seit dem 1. Januar 1970)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_findnext">SysUtils.FindNext</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result, FindData = SysUtils.FindNext(Handle)</p>
+              <p>Findet das nächste Vorkommen einer mit <code >FindFirst</code> begonnenen Suchfolge, indem das zuvor zurückgegebene <var>Handle</var> wiederverwendet wird.</p>
+              <p>Das zurückgegebene <var>Result</var> ist ungleich <code>nil</code>, wenn eine Datei oder ein Verzeichnis gefunden wird, andernfalls <code>nil</code>.</p>
+              <p>Dieselben Hinweise wie bei <code>SysUtils.FindFirst</code> gelten hier.</p>
+              <p><b><span class="uline">Bemerkung:</span> Auf den letzten Aufruf von <code>SysUtils.FindNext</code> muss immer ein Aufruf von <code>SysUtils.FindClose</code> mit demselben <var>Handle</var> folgen. Andernfalls entstehen Speicherlecks.</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_findclose">SysUtils.FindClose</a></div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.FindClose(Handle)</p>
+              <p>Beendet eine Folge von Aufrufen von <code>SysUtils.FindFirst</code>/<code>SysUtils.FindNext</code>.</p>
+              <p>Gibt den von diesen Aufrufen belegten Speicher frei.</p>
+              <p>Dieser Aufruf ist <em>unbedingt</em> erforderlich, sonst kann Speicher verloren gehen.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_createdirectory">SysUtils.CreateDirectory</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateDirectory(sDirectory)</p>
+              <p>Erstellt eine Kette von Verzeichnissen, <var>sDirectory</var> ist der vollständige Pfad zum Verzeichnis.</p>
+              <p>Gibt <code>true</code> zurück, wenn <var>sDirectory</var> bereits vorhanden ist oder erfolgreich erstellt wurde. Wenn ein Teil nicht erstellt werden konnte, wird <code>false</code> zurückgegeben.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_removedirectory">SysUtils.RemoveDirectory</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.RemoveDirectory(sDirectory)</p>
+              <p>Löscht das Verzeichnis mit dem Namen <var>sDirectory</var>. Gibt <code>true</code> zurück, wenn es gelingt, andernfalls <code>false</code>.</p>
+              <p>Anders als <a href="#os_remove">os.remove</a> gibt diese Funktion im Fehlerfall keine Beschreibung zurück, sie kann jedoch nicht leere Verzeichnisse löschen.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_createhardlink">SysUtils.CreateHardLink</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateHardLink(sFileName, sLinkName)</p>
+              <p>Erstellt den harten Link <var>sLinkName</var> auf die Datei <var>sFileName</var>.</p>
+              <p>Gibt <code>true</code> zurück, wenn es gelingt, andernfalls <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_createsymboliclink">SysUtils.CreateSymbolicLink</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.CreateSymbolicLink(sFileName, sLinkName)</p>
+              <p>Erstellt den symbolischen Link <var>sLinkName</var> auf die Datei oder das Verzeichnis <var>sFileName</var>.</p>
+              <p>Gibt <code>true</code> zurück, wenn es gelingt, andernfalls <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_readsymboliclink">SysUtils.ReadSymbolicLink</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sTarget = SysUtils.ReadSymbolicLink(sLinkName, bRecursive)</p>
+              <p>Liest das Ziel des symbolischen Links <var>sLinkName</var>.</p>
+              <p>Wenn <var>bRecursive</var> <code>true</code> ist und der Link auf einen Link zeigt, wird er rekursiv aufgelöst, bis ein gültiger Dateiname gefunden wird, der kein Link ist.</p>
+              <p>Gibt den Pfad zurück, auf den der symbolische Link <var>sLinkName</var> zeigt, oder eine leere Zeichenkette, wenn der Link ungültig ist oder die Datei, auf die er zeigt, nicht vorhanden ist und <var>bRecursive</var> <code>true</code> ist.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_extractfilename">SysUtils.ExtractFileName</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.ExtractFileName(sFileName)</p>
+              <p>Extrahiert den Dateinamenteil aus einem vollständigen Pfad.</p>
+              <p>Der Dateiname besteht aus allen Zeichen nach dem letzten Verzeichnistrennzeichen („/“ oder „\“) oder dem Laufwerksbuchstaben.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_extractfileext">SysUtils.ExtractFileExt</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sExt = SysUtils.ExtractFileExt(sFileName)</p>
+              <p>Gibt die Erweiterung eines Dateinamens zurück (alle Zeichen nach dem letzten „.“ (Punkt), einschließlich des Zeichens „.“).</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_extractfilepath">SysUtils.ExtractFilePath</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sPath = SysUtils.ExtractFilePath(sFileName)</p>
+              <p>Extrahiert den Pfad aus einem Dateinamen (einschließlich des Laufwerksbuchstabens).</p>
+              <p>Der Pfad besteht aus allen Zeichen vor dem letzten Verzeichnistrennzeichen („/“ oder „\“), einschließlich des Verzeichnistrennzeichens selbst.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_extractfiledir">SysUtils.ExtractFileDir</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sDir = SysUtils.ExtractFileDir(sFileName)</p>
+              <p>Extrahiert nur den Verzeichnisanteil von <var>sFileName</var>, einschließlich eines Laufwerksbuchstabens.</p>
+              <p>Der Verzeichnisname hat KEIN abschließendes Verzeichnistrennzeichen, im Unterschied zu <code>SysUtils.ExtractFilePath</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_extractfiledrive">SysUtils.ExtractFileDrive</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sDrive = SysUtils.ExtractFileDrive(sFileName)</p>
+              <p>Extrahiert den Laufwerksanteil aus einem Dateinamen.</p>
+              <p>Hinweis: Einige Betriebssysteme unterstützen keine Laufwerksbuchstaben.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_getabsolutepath">SysUtils.GetAbsolutePath</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.GetAbsolutePath(sFileName, sBaseDirectory)</p>
+              <p>Gibt den absoluten (vollständigen) Pfad zur Datei zurück:</p>
+              <ul>
+                <li><var>sFileName</var> : Der Dateiname mit einem relativen Pfad.</li>
+                <li><var>sBaseDirectory</var> : Das Verzeichnis, das als Basisverzeichnis für <var>sFileName</var> verwendet wurde.</li>
+              </ul>
+              <p>Wenn der absolute Pfad nicht ermittelt werden konnte, gibt die Funktion den Wert von <var>sFileName</var> zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_getrelativepath">SysUtils.GetRelativePath</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sName = SysUtils.GetRelativePath(sFileName, sBaseDirectory)</p>
+              <p>Gibt den Dateinamen relativ zum angegebenen Verzeichnis zurück:</p>
+               <ul>
+                <li><var>sFileName</var> : Der vollständige (absolute) Dateiname.</li>
+                <li><var>sBaseDirectory</var> : Das Verzeichnis, das als Basisverzeichnis für <var>sFileName</var> verwendet wird.</li>
+              </ul>
+              <p>Wenn <var>sFileName</var> und <var>sBaseDirectory</var> denselben Wert enthalten, gibt die Funktion eine leere Zeichenkette ("") zurück. Wenn es nicht möglich war, den Dateinamen mit einem relativen Pfad zu erhalten, gibt die Funktion den Wert von <var>sFileName</var> zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_matchesmask">SysUtils.MatchesMask</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.MatchesMask(sFileName, sMask, iMaskOptions)</p>
+              <p>Gibt <code>true</code> zurück, wenn <var>sFileName</var> zur übergebenen Maske <var>sMask</var> passt.</p>
+              <p><var>iMaskOptions</var> (optionaler Parameter, standardmäßig 0) ist die Summe der folgenden Werte:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Wert</th>
+                  <th class="innerdescheader">Beschreibung</th>
+                </tr>
+                <tr>
+                  <td class="varcell"><div class="firstcolumnaleft">1</div></td>
+                  <td class="hintcell">Groß-/Kleinschreibung wird beachtet</td>
+                </tr>
+                <tr>
+                  <td class="varcell"><div class="firstcolumnaleft">2</div></td>
+                  <td class="hintcell">Akzente und Ligaturen ignorieren</td>
+                </tr>
+                <tr>
+                  <td class="varcell"><div class="firstcolumnaleft">4</div></td>
+                  <td class="hintcell">Windows-Filter: „*.*“ passt auch auf Dateien ohne Erweiterung usw.</td>
+                </tr>
+                <tr>
+                  <td class="varcell"><div class="firstcolumnaleft">8</div></td>
+                  <td class="hintcell">Pinyin-Unterstützung aktivieren (die Datei <tt>pinyin.tbl</tt> wird verwendet)</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_matchesmasklist">SysUtils.MatchesMaskList</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.MatchesMaskList(sFileName, sMaskList, sSeparator, iMaskOptions)</p>
+              <p>Gibt <code>true</code> zurück, wenn <var>sFileName</var> zu mindestens einer der übergebenen Masken <var>sMaskList</var> passt, die durch <var>sSeparator</var> getrennt sind (standardmäßig „;“).</p>
+              <p><var>sSeparator</var> und <var>iMaskOptions</var> (siehe oben) sind optionale Parameter.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_execute">SysUtils.Execute</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.Execute(sCommand)</p>
+              <p>Führt <var>sCommand</var> so aus, als würde es in der Befehlszeile eingegeben, und gibt <code>true</code> zurück, wenn es gelingt, andernfalls <code>false</code> (die Funktion wartet nicht auf den Abschluss des ausgeführten Befehls).</p>
+              <p>Hinweis: Unter Windows öffnet die Funktion <a href="#os_execute">os.execute</a> jedes Mal ein Terminalfenster, die Funktion <code>SysUtils.Execute</code> hat diesen Nachteil nicht.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_expandenv">SysUtils.ExpandEnv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = SysUtils.ExpandEnv(String, bSpecial)</p>
+              <p>Gibt eine Zeichenkette zurück, in der alle Umgebungsvariablen durch ihre Werte für den aktuellen Benutzer ersetzt sind.</p>
+              <p><var>bSpecial</var> ist ein optionaler Parameter: Wenn <code>true</code>, werden auch Pseudo-Umgebungsvariablen expandiert (Einzelheiten <a href="variables.html#envvariables">hier</a>). Standardmäßig <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_gettempname">SysUtils.GetTempName</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sTempFileName = SysUtils.GetTempName()</p>
+              <p>Gibt einen Dateinamen zurück, der als temporärer Dateiname verwendet werden kann (im Systemverzeichnis für die temporären Dateien), ähnlich der Funktion <a href="#libraryos">os.tmpname</a>, die Datei wird jedoch im Unterverzeichnis <tt>_dc~~~</tt> erstellt, das beim Schließen von Double Commander automatisch gelöscht wird.<br>Wenn die Funktion keinen eindeutigen Namen erstellen konnte, gibt sie eine leere Zeichenkette zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_getfileproperty">SysUtils.GetFileProperty</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Result = SysUtils.GetFileProperty(sFileName, iValue)</p>
+              <p>Gibt die Dateieigenschaft zurück, die <var>iValue</var> entspricht:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">Wert</th><th class="innerdescheader">Beschreibung</th>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">Dateigröße in Bytes</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">Attributzeichenkette wie im Dateipanel (eine ausführliche Beschreibung des Zeichenkettenwerts steht <a href="configuration.html#ConfigColorFiles">hier</a>)</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">Gruppe des Dateibesitzers</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">Besitzer der Datei</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">Änderungsdatum</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">Erstellungsdatum</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">Datum des letzten Zugriffs</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">Datum der Statusänderung</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">Dateityp (wie im Windows-Explorer oder MIME-Typ)</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">Beschreibung (Kommentar) aus <tt>descript.ion</tt> (Einzelheiten <a href="help.html#cm_EditComment">hier</a>)</td></tr>
+              </table>
+              <p>Gibt eine Zahl (Dateigröße, Zeitstempel) oder eine Zeichenkette (in den anderen Fällen) zurück. Im Fehlerfall gibt die Funktion <code>nil</code> zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_filesettime">SysUtils.FileSetTime</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = SysUtils.FileSetTime(sFileName, iModification, iCreation, iLastAccess)</p>
+              <p>Ermöglicht, Zeitstempel (Unix-Zeitformat) für <var>sFileName</var> zu setzen: Änderungsdatum, Erstellungsdatum und Datum des letzten Zugriffs. Für Zeitstempel, die ignoriert werden sollen, null angeben.</p>
+              <p>Gibt <code>true</code> zurück, wenn es gelingt, andernfalls <code>false</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="sysutils_pathdelim">SysUtils.PathDelim</a></div></td>
+            <td class="hintcell">
+              <p class="definition">SysUtils.PathDelim</p>
+              <p>Das Zeichen, das das aktuelle Betriebssystem verwendet, um Verzeichnisnamen im vollständigen Dateinamen zu trennen.</p>
+              <p>Unter Unix/Linux ist das Verzeichnistrennzeichen „/“ und unter Windows „\“.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+      <div>
+        <h2><a name="detailattr">3.2.1. Einzelheiten zum Rückgabewert von SysUtils.FileGetAttr</a></h2>
+        <p><code>FileGetAttr</code> gibt die Attributeinstellungen der Datei <var>sFileName</var> zurück.</p>
+        <p>Das Attribut ist eine mit <var>ODER</var> verknüpfte Kombination der folgenden Konstanten:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Im Rückgabewert von SysUtils.FileGetAttr verwendete Konstanten</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Wert</th><th class="categorydesccolumn">Bedeutung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
+            <td class="hintcell">Die Datei ist schreibgeschützt.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000002<br><small class="firstcolumnaleft">faHidden</small></div></td>
+            <td class="hintcell">Die Datei ist versteckt.<br>Unter Unix/Linux bedeutet das, dass der Dateiname mit einem Punkt beginnt.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
+            <td class="hintcell">Die Datei ist eine Systemdatei.<br>Unter Unix/Linux bedeutet das, dass die Datei ein Zeichen- oder Blockgerät oder eine benannte Pipe (FIFO) ist.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
+            <td class="hintcell">Datenträgerbezeichnung.<br>Nur für DOS/Windows auf einem einfachen FAT-Dateisystem (nicht VFAT oder FAT32).</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
+            <td class="hintcell">Die Datei ist ein Verzeichnis.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000020<br><small class="firstcolumnaleft">faArchive</small></div></td>
+            <td class="hintcell">Die Datei ist archiviert.<br>Unter Unix/Linux nicht möglich.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">0x00000400<br><small class="firstcolumnaleft">faSymLink</small></div></td>
+            <td class="hintcell">Die Datei ist ein symbolischer Link.</td>
+          </tr>
+          <tr>
+            <td colspan="2"><b>Hinweis: Im Fehlerfall wird -1 zurückgegeben.</b>
+          </tr>
+        </table>
+        <p>Ein Beispiel steht im <a href="#exampleattr">nächsten Abschnitt</a>.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exampleattr">3.2.2. Beispiel mit SysUtils.FileGetAttr</a></h2>
+        <p>Das folgende Skript ist ein Anwendungsbeispiel für <code>SysUtils.FileGetAttr</code>.</p>
+        <p>Wenn der Parameter als Verzeichnis erkannt wird, öffnet es eine neue Registerkarte im aktiven Panel und wechselt dorthin.</p>
+        <pre>
+<span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
+<span class="luakyw">local</span> iAttr
+
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- Haben wir mindestens einen Parameter erhalten?</span>
+  iAttr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
+  <span class="luakyw">if</span> iAttr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Haben wir ein gültiges Attribut erhalten?</span>
+    <span class="luakyw">if</span> math.floor<span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luastr">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+      <span class="luacmt">-- Ist Bit 4 gesetzt? Dann ist es ein Verzeichnis.</span>
+      DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
+      DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span><span class="luasbl">,</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
+    <span class="luakyw">end</span>
+  <span class="luakyw">end</span>
+<span class="luakyw">end</span></pre>
+
+        <p>Im obigen Beispiel ist <var>params[1]</var> der erste an das Skript übergebene Parameter.</p>
+        <p>Bei Verwendung des internen Befehls <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> ist es der erste Parameter, der nach dem Skriptdateinamen übergeben wird.</p>
+        <p>In unserem Beispiel können wir daher eine Beispielschaltfläche der Werkzeugleiste wie folgt einrichten:</p>
+        <p class="figure"><img class="largeimage" title="Parameter mit cm_ExecuteScript" alt="Parameter mit cm_ExecuteScript" src="../en/images/imgDC/luaimg3.png" width="610" height="289"></p>
+        <p>In diesem Beispiel wird der Parameter <code>%"0%p</code> an das Skript übergeben. Das ist, ohne Anführungszeichen, der Dateiname des Eintrags, der im aktiven Panel ausgewählt ist, in dem Moment, in dem wir die Schaltfläche der Werkzeugleiste drücken.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="examplefind">3.2.3. Beispiel mit FindFirst, FindNext und FindClose</a></h2>
+        <p>Im folgenden Skriptbeispiel durchsuchen wir den Inhalt des Verzeichnisses, das wir als Parameter erhalten haben, und speichern die Ergebnisdaten in einer Textdatei, deren Dateiname als zweiter Parameter übergeben wird.</p>
+        <p>Das gibt uns eine gute Vorstellung von der Verwendung von <code>FindFirst</code>, <code>FindNext</code> und <code>FindClose</code>.</p>
+
+        <pre>
+<span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
+
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">2</span> <span class="luakyw">then</span> <span class="luacmt">-- Haben wir unsere 2 Parameter erhalten?</span>
+  <span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
+  <span class="luacmt">local</span> hOutputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+
+  hOutputFile <span class="luasbl">=</span> io.output(params<span class="luasbl">[</span><span class="luanum">2</span><span class="luasbl">])</span>
+
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindFirst</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
+    <span class="luakyw">repeat</span>
+      io.write<span class="luasbl">(</span>FindData.Name <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
+      io.write<span class="luasbl">(</span>FindData.Size <span class="luasbl">..</span> <span class="luastr">"\r"</span><span class="luasbl">)</span>
+      io.write<span class="luasbl">(</span><span class="luastr">"---------------\r"</span><span class="luasbl">)</span>
+
+      Result<span class="luasbl">,</span> FindData <span class="luasbl">=</span> <span class="mark">SysUtils.FindNext</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
+
+    <span class="mark">SysUtils.FindClose</span><span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    io.close<span class="luasbl">(</span>hOutputFile<span class="luasbl">)</span>
+  <span class="luakyw">end</span>
+<span class="luakyw">end</span></pre>
+        <p>Im obigen Beispiel müssen wir unserem Skript zwei Parameter übergeben:</p>
+        <ol>
+          <li><var>params[1]</var> - das Verzeichnis, dessen Inhalt wir wollen</li>
+          <li><var>params[2]</var> - der Ausgabedateiname zum Speichern des Ergebnisses</li>
+        </ol>
+        <p>So lässt sich leicht eine Schaltfläche der Werkzeugleiste mit dem internen Befehl <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> einrichten und der Parameter übergeben, um all das zu erledigen.</p>
+        <p class="figure"><img class="largeimage" title="Parameter mit cm_ExecuteScript" alt="Parameter mit cm_ExecuteScript" src="../en/images/imgDC/luaimg4.png" width="610" height="289"></p>
+        <p>In diesem Beispiel wird der Parameter <code>%"0%Ds</code> als erster Parameter an das Skript übergeben. Das ist, ohne Anführungszeichen, das vom aktiven Panel angezeigte Verzeichnis.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libraryclip">3.3. Zwischenablage-Bibliothek</a></h2>
+        <p>Double Commander kann unseren Lua-Skripten externe Funktionen der Zwischenablage bereitstellen.</p>
+        <p>Die folgende Tabelle nennt uns die zugehörigen Funktionen:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Zwischenablage-Bibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="clipbrd_clear">Clipbrd.Clear</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Clipbrd.Clear()</p>
+              <p>Löscht den Inhalt der Zwischenablage.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="clipbrd_getastext">Clipbrd.GetAsText</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sVar = Clipbrd.GetAsText()</p>
+              <p>Holt den aktuellen Textinhalt der Zwischenablage und weist ihn <var>sVar</var> zu. Wenn die Zwischenablage keinen Text enthält, gibt die Funktion eine leere Zeichenkette zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="clipbrd_setastext">Clipbrd.SetAsText</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Clipbrd.SetAsText(sVar)</p>
+              <p>Speichert den Textinhalt von <var>sVar</var> in der Zwischenablage.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="clipbrd_setashtml">Clipbrd.SetAsHtml</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Clipbrd.SetAsHtml(sHtml)</p>
+              <p>Fügt der Zwischenablage den HTML-formatierten Text <var>sHtml</var> hinzu (Zwischenablageformat <code>CF_HTML</code>).</p>
+              <p>Dieser Inhalt wird in Anwendungen eingefügt, die dieses Zwischenablageformat unterstützen, zum Beispiel MS Word, LO Writer usw.</p>
+              <p>Es ist korrekt, Daten sowohl mit <code>Clipbrd.SetAsText</code> als auch mit <code>Clipbrd.SetAsHtml</code> zu speichern. Wenn wir einfügen, verwendet die Anwendung die beste Variante, die sie unterstützt.</p>
+              <p>Zum Beispiel können wir Folgendes haben:</p>
+              <ul>
+                <li><code>Clipbrd.SetAsText("Welcome to Double Commander!")</code></li>
+                <li><code>Clipbrd.SetAsHtml("Welcome to &lt;b&gt;Double Commander&lt;/b&gt;!")</code></li>
+              </ul>
+              <p>Wenn wir zu Notepad wechseln und etwas einfügen wollen, fügt es als einfachen Text die Nachricht ein, die wir mit <code>Clipbrd.SetAsText</code> kopiert haben. Wenn wir jedoch zu Microsoft Word wechseln und etwas einfügen, fügt es die zweite Variante ein, die mit <b>Double Commander</b> in Fettschrift, weil Microsoft Word diesen Inhaltstyp der Zwischenablage erkennt und unterstützt.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="exampleclip">3.3.1. Beispiel für die Verwendung der Zwischenablage-Bibliothek</a></h2>
+        <p>Das folgende Beispiel verwendet drei Funktionen im Zusammenhang mit der Zwischenablage: <code>Clear</code>, <code>GetAsText</code> und <code>SetAsText</code>.</p>
+        <p>Es ist ein recht langes Skript, aber es eignet sich gut, um einige Funktionen zusammenzuführen, die wir oben gesehen haben.</p>
+        <p>Es setzt voraus, dass sich unser aktives Panel derzeit in einem Verzeichnis mit vielen Quelltextdateien befindet.</p>
+        <p>Außerdem setzt es voraus, dass wir derzeit ein einzelnes Wort in der Zwischenablage haben und dass es als einzigen Parameter den aktuellen aktiven Ordner erhält.</p>
+        <p>Das Skript durchsucht die Dateien in dieser Verzeichnisebene und liest ihren Inhalt nacheinander, um eine Textzeile zu finden, die das Wort aus der Zwischenablage enthält.</p>
+        <p>Danach werden die Dateinamen der Dateien, die mindestens eine Zeile mit diesem Wort enthalten, in die Zwischenablage gelegt.</p>
+        <p>Danach verwendet das Skript den internen Befehl <a href="cmds.html#cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a>, und die Dateien, die das Wort enthalten, werden ausgewählt.</p>
+        <p>Außerdem legen wir am Ende das ursprüngliche Wort, nach dem gesucht werden musste, wieder in unsere Zwischenablage.</p>
+        <pre>
+<span class="luakyw">local</span> params <span class="luasbl">=</span> <span class="luasbl">{...}</span>
+<span class="luakyw">local</span> Result <span class="luasbl">=</span> <span class="luakyw">nil</span>
+<span class="luakyw">local</span> iAttr
+<span class="luakyw">local</span> bFound <span class="luasbl">=</span> <span class="luakyw">false</span>
+<span class="luakyw">local</span> sCompleteFilename <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> hInputFile <span class="luasbl">=</span> <span class="luakyw">nil</span>
+<span class="luakyw">local</span> sLine <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> iPosS
+<span class="luakyw">local</span> iPosE
+<span class="luakyw">local</span> sFileToSelect <span class="luasbl">=</span> <span class="luastr">""</span>
+<span class="luakyw">local</span> sSearchString <span class="luasbl">=</span> <span class="luastr">""</span>
+
+<span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- Haben wir unseren Parameter erhalten?</span>
+  sSearchString <span class="luasbl">=</span> <span class="mark">Clipbrd.GetAsText</span><span class="luasbl">()</span> <span class="luacmt">-- Den zu suchenden Ausdruck holen.</span>
+  <span class="mark">Clipbrd.Clear</span><span class="luasbl">()</span> <span class="luacmt">-- Sicherstellen, dass die Zwischenablage leer ist.</span>
+  DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_MarkUnmarkAll"</span><span class="luasbl">)</span> <span class="luacmt">-- Sicherstellen, dass nichts ausgewählt ist.</span>
+
+  <span class="luacmt">-- Durchsuchen wir nacheinander alle Dateien unseres Verzeichnisses.</span>
+  <span class="luakyw">local</span> Handle<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindFirst<span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\*"</span><span class="luasbl">)</span>
+  <span class="luakyw">if</span> Handle <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span>
+    <span class="luakyw">repeat</span>
+      sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData.Name
+      iAttr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
+      <span class="luakyw">if</span> iAttr &gt; <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- Haben wir ein gültiges Attribut erhalten?</span>
+        <span class="luacmt">-- Wir brauchen eine Datei, kein Verzeichnis!</span>
+        <span class="luakyw">if</span> math.floor<span class="luasbl">(</span>iAttr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
+
+          <span class="luacmt">-- Die Datei jetzt zeilenweise lesen, bis zum Ende ODER bis etwas gefunden wurde.</span>
+          hInputFile <span class="luasbl">=</span> io.open<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">,</span> <span class="luastr">"r"</span><span class="luasbl">)</span>
+          bFound <span class="luasbl">=</span> <span class="luakyw">false</span>
+
+          <span class="luakyw">while</span> bFound <span class="luasbl">==</span> <span class="luakyw">false</span> <span class="luakyw">do</span>
+            sLine <span class="luasbl">=</span> hInputFile:read<span class="luasbl">()</span>
+            <span class="luakyw">if</span> sLine <span class="luasbl">==</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> <span class="luakyw">break</span> <span class="luakyw">end</span>
+            iPosS<span class="luasbl">,</span> iPosE <span class="luasbl">=</span> string.find<span class="luasbl">(</span>sLine<span class="luasbl">,</span> sSearchString<span class="luasbl">)</span>
+            <span class="luakyw">if</span> iPosS <span class="luasbl">~=</span> <span class="luakyw">nil</span> <span class="luakyw">then</span> bFound <span class="luasbl">=</span> <span class="luakyw">true</span> <span class="luakyw">end</span>
+          <span class="luakyw">end</span>
+
+          <span class="luakyw">if</span> bFound <span class="luasbl">==</span> <span class="luakyw">true</span> <span class="luakyw">then</span>
+            sFileToSelect <span class="luasbl">=</span> sFileToSelect <span class="luasbl">..</span> FindData.Name <span class="luasbl">..</span> <span class="luastr">"\n"</span>
+          <span class="luakyw">end</span>
+
+          io.close<span class="luasbl">(</span>hInputFile<span class="luasbl">)</span>
+        <span class="luakyw">end</span>
+      <span class="luakyw">end</span>
+      Result<span class="luasbl">,</span> FindData <span class="luasbl">=</span> SysUtils.FindNext<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+    <span class="luakyw">until</span> Result <span class="luasbl">==</span> <span class="luakyw">nil</span>
+
+    SysUtils.FindClose<span class="luasbl">(</span>Handle<span class="luasbl">)</span>
+  <span class="luakyw">end</span>
+
+  <span class="luacmt">-- Wenn wir etwas gefunden haben, auswählen!</span>
+  <span class="luakyw">if</span> sFileToSelect <span class="luasbl">~=</span> <span class="luastr">""</span> <span class="luakyw">then</span>
+    <span class="mark">Clipbrd.SetAsText</span><span class="luasbl">(</span>sFileToSelect<span class="luasbl">)</span>
+    DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_LoadSelectionFromClip"</span><span class="luasbl">)</span>
+  <span class="luakyw">end</span>
+
+  <span class="mark">Clipbrd.SetAsText</span><span class="luasbl">(</span>sSearchString<span class="luasbl">)</span> <span class="luacmt">-- Wiederherstellen, was in der Zwischenablage war.</span>
+<span class="luakyw">end</span></pre>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+      <div>
+        <h2><a name="librarydialogs">3.4. Dialogbibliothek</a></h2>
+        <p>Diese Bibliothek ermöglicht unseren Skripten die Interaktion mit dem Benutzer, um eine Nachricht anzuzeigen, nach Antworten zu fragen und so weiter.</p>
+        <p>Die folgende Tabelle nennt uns die zugehörigen Funktionen:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Dialogbibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dialogs_messagebox">Dialogs.MessageBox</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iButton = Dialogs.MessageBox(sMessage, sTitle, iFlags)</p>
+              <p>Zeigt ein Meldungsfenster an, das den Benutzer auffordert, eine Schaltfläche anzuklicken, die von der Funktion zurückgegeben wird:</p>
+              <ul>
+                <li><var>sMessage</var> : Die Nachricht im Fenster.</li>
+                <li><var>sTitle</var> : Der als Titel des Fensters angezeigte Text.</li>
+                <li><var>iFlags</var> : Mit ODER verknüpfter Wert von Konstanten, der die angezeigten Schaltflächen, den Fensterstil und die für die Antwort vorausgewählte Standardschaltfläche bestimmt. Siehe in der folgenden Tabelle die <a href="#dlgbuts">angezeigten Schaltflächen</a>, den <a href="#dlgstyle">Fensterstil</a> oder die <a href="#dlgdefbut">Standardschaltfläche</a>.</li>
+                <li><var>iButton</var> : Rückgabewert, der die vom Benutzer gedrückte Schaltfläche angibt (siehe <a href="#msgreturn">diese Tabelle</a>).</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dialogs_inputquery">Dialogs.InputQuery</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult, sAnswer = Dialogs.InputQuery(sTitle, sMessage, bMask, sDefault)</p>
+              <p>Zeigt ein Abfragefenster an, in dem der Benutzer einen Zeichenkettenwert eingeben kann:</p>
+              <ul>
+                <li><var>sTitle</var> : Der als Titel des Fensters angezeigte Text.</li>
+                <li><var>sMessage</var> : Die Nachricht im Fenster.</li>
+                <li><var>bMask</var> : Ein boolescher Wert. Wenn true, werden „Sterne“ angezeigt, um die Zeichen zu verbergen.</li>
+                <li><var>sDefault</var> : Der vorgeschlagene Standardtext, den der Benutzer bei Bedarf überschreiben kann.</li>
+                <li><var>bResult</var> : Zurückgegebener boolescher Wert, der angibt, ob der Benutzer tatsächlich etwas eingegeben hat oder nicht.</li>
+                <li><var>sAnswer</var> : Zurückgegebene Zeichenkette, wenn der Benutzer etwas eingegeben und dann auf OK geklickt hat.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="dialogs_inputlistbox">Dialogs.InputListBox</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sItem, iItem = Dialogs.InputListBox(sTitle, sMessage, aItems, sDefault)</p>
+              <p>Zeigt ein Dialogfenster an, damit der Benutzer aus einer Liste von Einträgen wählen kann:</p>
+              <ul>
+                <li><var>sTitle</var> : Der als Titel des Dialogs angezeigte Text.</li>
+                <li><var>sMessage</var> : Die Nachricht im Dialog.</li>
+                <li><var>aItems</var> : Eine Lua-Tabelle, jedes Element der Tabelle muss eine Zeichenkette sein.</li>
+                <li><var>sDefault</var> : Der standardmäßig ausgewählte Eintrag in der Liste.</li>
+                <li><var>sItem</var> : Gibt den ausgewählten Eintrag als Zeichenkette zurück oder <code>nil</code>, wenn der Dialog abgebrochen wird.</li>
+                <li><var>iItem</var> : Index des ausgewählten Eintrags (Zählung ab eins, wie es bei Lua-Tabellen üblich ist).</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dlgbuts">3.4.1. Angezeigte Schaltflächen in Dialogs.MessageBox</a></h2>
+        <p>Die im Fenster der Funktion <code>Dialogs.MessageBox</code> angezeigten Schaltflächen werden durch einen mit ODER verknüpften Wert mit einem der folgenden Werte gesteuert:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">ButFlags-Konstante für die angezeigten Schaltflächen von Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Konstantenwert</th><th class="categorydesccolumn">Angezeigte Schaltflächen, von links nach rechts</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<br><small class="firstcolumnaleft">MB_OK</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Schaltfläche OK" alt="Schaltfläche OK" src="../en/images/imgDC/luaimg11.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<br><small class="firstcolumnaleft">MB_OKCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Schaltfläche OK" alt="Schaltfläche OK" src="../en/images/imgDC/luaimg11.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche ABBRECHEN" alt="Schaltfläche ABBRECHEN" src="../en/images/imgDC/luaimg12.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<br><small class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Schaltfläche ABBRUCH" alt="Schaltfläche ABBRUCH" src="../en/images/imgDC/luaimg15.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche WIEDERHOLEN" alt="Schaltfläche WIEDERHOLEN" src="../en/images/imgDC/luaimg14.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche IGNORIEREN" alt="Schaltfläche IGNORIEREN" src="../en/images/imgDC/luaimg13.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<br><small class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Schaltfläche JA" alt="Schaltfläche JA" src="../en/images/imgDC/luaimg16.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche NEIN" alt="Schaltfläche NEIN" src="../en/images/imgDC/luaimg17.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche ABBRECHEN" alt="Schaltfläche ABBRECHEN" src="../en/images/imgDC/luaimg12.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<br><small class="firstcolumnaleft">MB_YESNO</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Schaltfläche JA" alt="Schaltfläche JA" src="../en/images/imgDC/luaimg16.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche NEIN" alt="Schaltfläche NEIN" src="../en/images/imgDC/luaimg17.png" width="66" height="21">
+            </td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<br><small class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td>
+            <td class="hintcell">
+              <img class="largeimage" title="Schaltfläche WIEDERHOLEN" alt="Schaltfläche WIEDERHOLEN" src="../en/images/imgDC/luaimg14.png" width="66" height="21">
+              <img class="largeimage" title="Schaltfläche ABBRECHEN" alt="Schaltfläche ABBRECHEN" src="../en/images/imgDC/luaimg12.png" width="66" height="21">
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dlgstyle">3.4.2. Stil des Fensters von Dialogs.MessageBox</a></h2>
+        <p>Der Stil des von der Funktion <code>Dialogs.MessageBox</code> angezeigten Fensters wird durch einen mit ODER verknüpften Wert mit einem der folgenden Werte gesteuert:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">ButFlags-Konstante für Symbol und Stil von Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Konstantenwert</th><th class="categorydesccolumn">Fensterstil</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0040<br><small class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Symbol INFORMATION" alt="Symbol INFORMATION" src="../en/images/imgDC/luaimg8.png" width="32" height="32"> Hinweisfenster</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0030<br><small class="firstcolumnaleft">MB_ICONWARNING</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Symbol WARNUNG" alt="Symbol WARNUNG" src="../en/images/imgDC/luaimg9.png" width="32" height="32"> Warnfenster</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0020<br><small class="firstcolumnaleft">MB_ICONQUESTION</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Symbol FRAGE" alt="Symbol FRAGE" src="../en/images/imgDC/luaimg7.png" width="32" height="32"> Bestätigungsfenster</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0010<br><small class="firstcolumnaleft">MB_ICONERROR</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Symbol FEHLER" alt="Symbol FEHLER" src="../en/images/imgDC/luaimg10.png" width="32" height="32"> Fehlerfenster</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="dlgdefbut">3.4.3. Standardmäßig aktive Schaltfläche von Dialogs.MessageBox</a></h2>
+        <p>Die standardmäßig aktive Schaltfläche des von der Funktion <code>Dialogs.MessageBox</code> angezeigten Fensters wird durch einen mit ODER verknüpften Wert mit einem der folgenden Werte gesteuert:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">ButFlags-Konstante für die Standardschaltfläche von Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Konstantenwert</th><th class="categorydesccolumn">Standardschaltfläche</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<br><small class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td>
+            <td class="hintcell">Standard ist die erste von links</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0100<br><small class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td>
+            <td class="hintcell">Standard ist die zweite von links</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0200<br><small class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td>
+            <td class="hintcell">Standard ist die dritte von links</td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="msgreturn">3.4.4. Rückgabewert von Dialogs.MessageBox</a></h2>
+        <p>Die von der Funktion <code>Dialogs.MessageBox</code> zurückgegebene Zahl steht für die vom Benutzer gedrückte Schaltfläche, und zwar so:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Zurückgegebener ButPressed-Wert anhand der gedrückten Schaltfläche von Dialogs.MessageBox</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Konstantenwert</th><th class="categorydesccolumn">Gedrückte Schaltfläche</th></tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<br><small class="firstcolumnaleft">mrNone</small></div></td>
+            <td class="hintcell">Keine Schaltfläche gedrückt</td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<br><small class="firstcolumnaleft">mrOK</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis OK" alt="Ergebnis OK" src="../en/images/imgDC/luaimg11.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<br><small class="firstcolumnaleft">mrCancel</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis ABBRECHEN" alt="Ergebnis ABBRECHEN" src="../en/images/imgDC/luaimg12.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<br><small class="firstcolumnaleft">mrAbort</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis ABBRUCH" alt="Ergebnis ABBRUCH" src="../en/images/imgDC/luaimg15.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<br><small class="firstcolumnaleft">mrRetry</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis WIEDERHOLEN" alt="Ergebnis WIEDERHOLEN" src="../en/images/imgDC/luaimg14.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<br><small class="firstcolumnaleft">mrIgnore</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis IGNORIEREN" alt="Ergebnis IGNORIEREN" src="../en/images/imgDC/luaimg13.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0006<br><small class="firstcolumnaleft">mrYes</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis JA" alt="Ergebnis JA" src="../en/images/imgDC/luaimg16.png" width="66" height="21"></td>
+          </tr>
+          <tr>
+            <td class="varcell"><div class="firstcolumnaleft">0x0007<br><small class="firstcolumnaleft">mrNo</small></div></td>
+            <td class="hintcell"><img class="largeimage" title="Ergebnis NEIN" alt="Ergebnis NEIN" src="../en/images/imgDC/luaimg17.png" width="66" height="21"></td>
+          </tr>
+        </table>
+        <p>Hinweis: Wenn wir das „x“ oben rechts drücken oder <kbd>Esc</kbd> drücken, um das Fenster zu schließen, wird der Wert der Schaltfläche „Abbrechen“ zurückgegeben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="mesgboxsample">3.4.5. Beispiel für die Verwendung von Dialogs.MessageBox</a></h2>
+        <p>Hier ist ein kleines Skript, das <code>Dialogs.MessageBox</code> verwendet, und das Fenster, das daraufhin angezeigt wird:</p>
+        <pre>
+<span class="luacmt">-- Angezeigte Schaltflächen</span>
+MB_OK <span class="luasbl">=</span> <span class="luanum">0x0000</span>
+MB_OKCANCEL <span class="luasbl">=</span> <span class="luanum">0x0001</span>
+MB_ABORTRETRYIGNORE <span class="luasbl">=</span> <span class="luanum">0x0002</span>
+MB_YESNOCANCEL <span class="luasbl">=</span> <span class="luanum">0x0003</span>
+MB_YESNO <span class="luasbl">=</span> <span class="luanum">0x0004</span>
+MB_RETRYCANCEL <span class="luasbl">=</span> <span class="luanum">0x0005</span>
+
+<span class="luacmt">-- Fensterstil</span>
+MB_ICONINFORMATION <span class="luasbl">=</span> <span class="luanum">0x0040</span>
+MB_ICONWARNING <span class="luasbl">=</span> <span class="luanum">0x0030</span>
+MB_ICONQUESTION <span class="luasbl">=</span> <span class="luanum">0x0020</span>
+MB_ICONERROR <span class="luasbl">=</span> <span class="luanum">0x0010</span>
+
+<span class="luacmt">-- Standardschaltfläche</span>
+MB_DEFBUTTON1 <span class="luasbl">=</span> <span class="luanum">0x0000</span>
+MB_DEFBUTTON2 <span class="luasbl">=</span> <span class="luanum">0x0100</span>
+MB_DEFBUTTON3 <span class="luasbl">=</span> <span class="luanum">0x0200</span>
+
+<span class="luacmt">-- Zurückgegebene gedrückte Schaltfläche</span>
+mrNone <span class="luasbl">=</span> <span class="luanum">0x0000</span>
+mrOK <span class="luasbl">=</span> <span class="luanum">0x0001</span>
+mrCancel <span class="luasbl">=</span> <span class="luanum">0x0002</span>
+mrAbort <span class="luasbl">=</span> <span class="luanum">0x0003</span>
+mrRetry <span class="luasbl">=</span> <span class="luanum">0x0004</span>
+mrIgnore <span class="luasbl">=</span> <span class="luanum">0x0005</span>
+mrYes <span class="luasbl">=</span> <span class="luanum">0x0006</span>
+mrNo <span class="luasbl">=</span> <span class="luanum">0x0007</span>
+
+iFlags <span class="luasbl">=</span> MB_YESNO <span class="luasbl">+</span> MB_ICONQUESTION <span class="luasbl">+</span> MB_DEFBUTTON2
+iButton <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</span><span class="luasbl">(</span><span class="luastr">"Do you want to quit?"</span><span class="luasbl">,</span> <span class="luastr">"Question"</span><span class="luasbl">,</span> iFlags<span class="luasbl">)</span>
+
+<span class="luakyw">if</span> iButton <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
+  DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
+<span class="luakyw">end</span></pre>
+        <p class="figure"><img class="largeimage" title="Beispiel für die Verwendung von Dialogs.MessageBox" alt="Beispiel für die Verwendung von Dialogs.MessageBox" src="../en/images/imgDC/luaimg6.png" width="362" height="120"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="querysample">3.4.6. Beispiel für die Verwendung von Dialogs.InputQuery</a></h2>
+        <p>Hier ist ein kleines Skript, das <code>Dialogs.InputQuery</code> verwendet, und das Fenster, das daraufhin angezeigt wird:</p>
+        <pre>
+bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Identification"</span><span class="luasbl">,</span> <span class="luastr">"Enter your name:"</span><span class="luasbl">,</span> <span class="luakyw">false</span><span class="luasbl">,</span> <span class="luastr">"John"</span><span class="luasbl">)</span>
+
+<span class="luakyw">if</span> bResult <span class="luasbl">==</span> <span class="luakyw">true</span> <span class="luakyw">then</span>
+  Dialogs.MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer <span class="luasbl">..</span> <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
+<span class="luakyw">end</span></pre>
+        <p class="figure"><img class="largeimage" title="Beispiel für die Verwendung von Dialogs.InputQuery" alt="Beispiel für die Verwendung von Dialogs.InputQuery" src="../en/images/imgDC/luaimg5.png" width="364" height="112"></p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+      <div>
+        <h2><a name="libraryutf8">3.5. UTF-8-Bibliothek</a></h2>
+        <p>Diese Bibliothek bietet grundlegende Unterstützung für die Kodierung UTF-8.</p>
+        <p>Sie stellt alle ihre Funktionen in der Tabelle <code>LazUtf8</code> bereit.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">UTF-8-Bibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_pos">LazUtf8.Pos</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iResult = LazUtf8.Pos(SearchText, SourceText, Offset)</p>
+              <p>Sucht eine Teilzeichenkette in einer Zeichenkette, beginnend an einer bestimmten Position. Die Suche beachtet die Groß-/Kleinschreibung.</p>
+              <p>Gibt die Position des ersten Vorkommens der Teilzeichenkette <var>SearchText</var> in der Zeichenkette <var>SourceText</var> zurück, wobei die Suche an der Position <var>Offset</var> beginnt (standardmäßig 1).</p>
+              <p>Wenn <var>SearchText</var> in <var>SourceText</var> nach dem angegebenen <var>Offset</var> nicht vorkommt, wird null zurückgegeben.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_next">LazUtf8.Next</a></div></td>
+            <td class="hintcell">
+              <p class="definition">LazUtf8.Next(String)</p>
+              <p>Eine Iteratorfunktion, die bei jedem Aufruf das nächste Zeichen in <var>String</var> und die Position des Anfangs dieses Zeichens (in Bytes) zurückgibt.</p>
+              <p>Beispiel:</p>
+              <pre>
+<span class="luacmt">-- Wertepaare in der Form „Position : Zeichen“ ausgeben</span>
+<span class="luakyw">for</span> iPos<span class="luasbl">,</span> sChar <span class="luakyw">in</span> <span class="mark">LazUtf8.Next</span><span class="luasbl">(</span>String<span class="luasbl">)</span> <span class="luakyw">do</span>
+  DC.LogWrite<span class="luasbl">(</span>iPos <span class="luasbl">..</span> <span class="luastr">" : "</span> <span class="luasbl">..</span> sChar<span class="luasbl">)</span>
+<span class="luakyw">end</span></pre>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_copy">LazUtf8.Copy</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = LazUtf8.Copy(String, iIndex, iCount)</p>
+              <p>Kopiert einen Teil einer Zeichenkette.</p>
+              <p>Gibt eine Zeichenkette zurück, die eine Kopie der <var>iCount</var> Zeichen in <var>String</var> ist, beginnend an der Position <var>iIndex</var>.</p>
+              <p>Wenn <var>iCount</var> größer ist als die Länge der Zeichenkette <var>String</var>, wird das Ergebnis abgeschnitten. Wenn <var>iIndex</var> größer ist als die Länge der Zeichenkette <var>String</var>, wird eine leere Zeichenkette zurückgegeben.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_length">LazUtf8.Length</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iResult = LazUtf8.Length(String)</p>
+              <p>Gibt die Anzahl der UTF-8-Zeichen in der Zeichenkette zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_uppercase">LazUtf8.UpperCase</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = LazUtf8.UpperCase(String)</p>
+              <p>Nimmt eine Zeichenkette entgegen und gibt eine Kopie dieser Zeichenkette zurück, in der alle Kleinbuchstaben in Großbuchstaben geändert sind.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_lowercase">LazUtf8.LowerCase</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = LazUtf8.LowerCase(String)</p>
+              <p>Nimmt eine Zeichenkette entgegen und gibt eine Kopie dieser Zeichenkette zurück, in der alle Großbuchstaben in Kleinbuchstaben geändert sind.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_convertencoding">LazUtf8.ConvertEncoding</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sResult = LazUtf8.ConvertEncoding(String, FromEnc, ToEnc)</p>
+              <p>Wandelt die Kodierung von <var>String</var> von <var>FromEnc</var> nach <var>ToEnc</var> um.</p>
+              <p>Liste der unterstützten Kodierungswerte:</p>
+              <ul>
+                <li>Standard-Systemkodierung (hängt vom Gebietsschema des Systems ab): „default“.</li>
+                <li>Standard-ANSI-Kodierung (Windows, hängt vom Gebietsschema des Systems ab): „ansi“.</li>
+                <li>Standard-OEM-Kodierung (DOS, hängt vom Gebietsschema des Systems ab): „oem“.</li>
+                <li>Unicode: „utf8“, „utf8bom“, „ucs2le“, „ucs2be“.</li>
+                <li>ANSI (Windows): „cp1250“, „cp1251“, „cp1252“, „cp1253“, „cp1254“, „cp1255“, „cp1256“, „cp1257“, „cp1258“.</li>
+                <li>OEM (DOS): „cp437“, „cp850“, „cp852“, „cp865“, „cp866“, „cp874“, „cp932“, „cp936“, „cp949“, „cp950“.</li>
+                <li>ISO 8859: „iso88591“, „iso88592“, „iso88593“, „iso88594“, „iso88595“, „iso88597“, „iso88599“, „iso885910“, „iso885913“, „iso885914“, „iso885915“, „iso885916“.</li>
+                <li>Weitere: „macintosh“, „koi8r“, „koi8u“,  „koi8ru“.</li>
+              </ul>
+              Die Bedeutung der speziellen Kodierungen (Beispiele).
+              <br><br>
+              Unter Windows (Englisch oder Russisch):
+              <ul>
+              <li>„default“ - cp1252 oder cp1251</li>
+              <li>„ansi“ - cp1252 oder cp1251</li>
+              <li>„oem“ - cp850 oder cp866</li>
+              </ul>
+              Unter Linux (Englisch oder Russisch):
+              <ul>
+              <li>„default“ - utf8</li>
+              <li>„ansi“ - cp1252 oder cp1251</li>
+              <li>„oem“ - cp850 oder cp866</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="lazutf8_detectencoding">LazUtf8.DetectEncoding</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sEnc = LazUtf8.DetectEncoding(String)</p>
+              <p>Gibt den Kodierungswert des übergebenen Textes zurück.<br>Die Liste der unterstützten Kodierungen entspricht derjenigen der Funktion <code>LazUtf8.ConvertEncoding</code>.</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="librarychar">3.6. Zeichenbibliothek</a></h2>
+        <p>Diese Bibliothek enthält Funktionen, um zu prüfen, ob ein Zeichen zu einer bestimmten Unicode-Kategorie gehört, sowie um die Kategorie eines Zeichens zu ermitteln.</p>
+        <p>Liste der in dieser Bibliothek verfügbaren Funktionen:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Zeichenbibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="char_getunicodecategory">Char.GetUnicodeCategory</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iResult = Char.GetUnicodeCategory(Character)</p>
+              <p>Gibt die Unicode-Kategorie eines Zeichens <code>Character</code> zurück, einen der folgenden Werte:</p>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc"><th class="innerdescheader">Wert</th><th class="innerdescheader">Beschreibung</th>
+                <tr><td colspan="2">&nbsp;&nbsp;Buchstabe:</td></tr>
+                <tr><td class="innerdescvaluecell">0</td><td class="innerdescdesccell">Großbuchstabe (Lu)</td></tr>
+                <tr><td class="innerdescvaluecell">1</td><td class="innerdescdesccell">Kleinbuchstabe (Ll)</td></tr>
+                <tr><td class="innerdescvaluecell">2</td><td class="innerdescdesccell">Titelschrift-Buchstabe (Lt)</td></tr>
+                <tr><td class="innerdescvaluecell">3</td><td class="innerdescdesccell">Modifikatorbuchstabe (Lm)</td></tr>
+                <tr><td class="innerdescvaluecell">4</td><td class="innerdescdesccell">Sonstiger Buchstabe (Lo)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Markierung:</td></tr>
+                <tr><td class="innerdescvaluecell">5</td><td class="innerdescdesccell">Nichtabstandsmarkierung (Mn)</td></tr>
+                <tr><td class="innerdescvaluecell">6</td><td class="innerdescdesccell">Abstandskombinierende Markierung (Mc)</td></tr>
+                <tr><td class="innerdescvaluecell">7</td><td class="innerdescdesccell">Umschließende Markierung (Me)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Zahl:</td></tr>
+                <tr><td class="innerdescvaluecell">8</td><td class="innerdescdesccell">Dezimalziffer (Nd)</td></tr>
+                <tr><td class="innerdescvaluecell">9</td><td class="innerdescdesccell">Buchstabenzahl (Nl)</td></tr>
+                <tr><td class="innerdescvaluecell">10</td><td class="innerdescdesccell">Sonstige Zahl (No)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Interpunktion:</td></tr>
+                <tr><td class="innerdescvaluecell">11</td><td class="innerdescdesccell">Verbindungszeichen (Pc)</td></tr>
+                <tr><td class="innerdescvaluecell">12</td><td class="innerdescdesccell">Gedankenstrich (Pd)</td></tr>
+                <tr><td class="innerdescvaluecell">13</td><td class="innerdescdesccell">Öffnende Interpunktion (Ps)</td></tr>
+                <tr><td class="innerdescvaluecell">14</td><td class="innerdescdesccell">Schließende Interpunktion (Pe)</td></tr>
+                <tr><td class="innerdescvaluecell">15</td><td class="innerdescdesccell">Einleitende Interpunktion (Pi)</td></tr>
+                <tr><td class="innerdescvaluecell">16</td><td class="innerdescdesccell">Abschließende Interpunktion (Pf)</td></tr>
+                <tr><td class="innerdescvaluecell">17</td><td class="innerdescdesccell">Sonstige Interpunktion (Po)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Symbol:</td></tr>
+                <tr><td class="innerdescvaluecell">18</td><td class="innerdescdesccell">Mathematisches Symbol (Sm)</td></tr>
+                <tr><td class="innerdescvaluecell">19</td><td class="innerdescdesccell">Währungssymbol (Sc)</td></tr>
+                <tr><td class="innerdescvaluecell">20</td><td class="innerdescdesccell">Modifikatorsymbol (Sk)</td></tr>
+                <tr><td class="innerdescvaluecell">21</td><td class="innerdescdesccell">Sonstiges Symbol (So)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Trennzeichen:</td></tr>
+                <tr><td class="innerdescvaluecell">22</td><td class="innerdescdesccell">Leerzeichen (Zs)</td></tr>
+                <tr><td class="innerdescvaluecell">23</td><td class="innerdescdesccell">Zeilentrenner (Zl)</td></tr>
+                <tr><td class="innerdescvaluecell">24</td><td class="innerdescdesccell">Absatztrenner (Zp)</td></tr>
+                <tr><td colspan="2">&nbsp;&nbsp;Sonstiges:</td></tr>
+                <tr><td class="innerdescvaluecell">25</td><td class="innerdescdesccell">Steuerzeichen (Cc)</td></tr>
+                <tr><td class="innerdescvaluecell">26</td><td class="innerdescdesccell">Formatzeichen (Cf)</td></tr>
+                <tr><td class="innerdescvaluecell">27</td><td class="innerdescdesccell">Surrogat (Cs)</td></tr>
+                <tr><td class="innerdescvaluecell">28</td><td class="innerdescdesccell">Private Verwendung (Co)</td></tr>
+                <tr><td class="innerdescvaluecell">29</td><td class="innerdescdesccell">Nicht zugewiesen (Cn)</td></tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="char_isdigit">Char.IsDigit</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsDigit(Character)</p>
+              <p>Gibt <code>true</code> zurück, wenn das Zeichen <var>Character</var> zur Kategorie <i>Nd</i> gehört.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="char_isletter">Char.IsLetter</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLetter(Character)</p>
+              <p>Gibt <code>true</code> zurück, wenn das Zeichen <var>Character</var> zur Kategorie <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i> oder <i>Lo</i> gehört.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="char_isletterordigit">Char.IsLetterOrDigit</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLetterOrDigit(Character)</p>
+              <p>Gibt <code>true</code> zurück, wenn das Zeichen <var>Character</var> zur Kategorie <i>Lu</i>, <i>Ll</i>, <i>Lt</i>, <i>Lm</i>, <i>Lo</i>, <i>Nd</i> oder <i>Nl</i> gehört.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="char_islower">Char.IsLower</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsLower(Character)</p>
+              <p>Gibt <code>true</code> zurück, wenn das Zeichen <var>Character</var> zur Kategorie <i>Ll</i> gehört.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="char_isupper">Char.IsUpper</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult = Char.IsUpper(Character)</p>
+              <p>Gibt <code>true</code> zurück, wenn das Zeichen <var>Character</var> zur Kategorie <i>Lu</i> gehört.</p>
+            </td>
+          </tr>
+        </table>
+        <p>Außerdem unterstützen diese Funktionen die Arbeit mit zwei Parametern: Statt eines einzelnen Zeichens können wir eine Zeichenkette und die Position des Zeichens in dieser Zeichenkette angeben.</p>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libraryos">3.7. Betriebssystembibliothek</a></h2>
+        <p>Diese Bibliothek enthält Funktionen im Zusammenhang mit dem Betriebssystem, auf dem Double Commander läuft.</p>
+        <p>Das ist die Liste der in dieser Bibliothek verfügbaren Funktionen:</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Betriebssystembibliothek</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Funktionsname</th><th class="categorydesccolumn">Beschreibung</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_execute">os.execute</a></div></td>
+            <td class="hintcell">
+              <p class="definition">iResultCode = os.execute(sCommand)</p>
+              <p>Führt <var>sCommand</var> so aus, als würde es in der Befehlszeile eingegeben, und gibt den Ergebniscode der Operation zurück.</p>
+              <p><var>sCommand</var> kann eines der Folgenden sein:</p>
+              <ul>
+                <li>Ein Terminalbefehl wie <code>os.execute("dir &gt; all.txt")</code></li>
+                <li>Eine ausführbare Datei wie <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
+                <li>Eine ausführbare Datei mit Parametern:<br><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin &gt; md5.txt")</code></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_tmpname">os.tmpname</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sTempFileName = os.tmpname()</p>
+              <p>Gibt einen Dateinamen zurück, der als temporärer Dateiname verwendet werden kann (im Systemverzeichnis für die temporären Dateien).<br>Wenn die Funktion keinen eindeutigen Namen erstellen konnte, gibt sie eine leere Zeichenkette zurück.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_remove">os.remove</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult, sError, iError = os.remove(sFileName)</p>
+              <p>Löscht die Datei oder das Verzeichnis mit dem Namen <var>sFileName</var>.</p>
+              <p>Wenn es gelingt, gibt die Funktion <code>true</code> zurück.</p>
+              <p>Wenn es fehlschlägt, gibt die Funktion drei Dinge zurück:</p>
+              <ol>
+                <li><code>nil</code>, um das Fehlschlagen anzuzeigen</li>
+                <li><var>sError</var> für die Beschreibung der Fehlermeldung</li>
+                <li><var>iError</var> für die Nummer des Fehlercodes</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_rename">os.rename</a></div></td>
+            <td class="hintcell">
+              <p class="definition">bResult, sError, iError = os.rename(sOldName, sNewName)</p>
+              <p>Benennt die Datei <var>sOldName</var> in den neuen Namen <var>sNewName</var> um.</p>
+              <p><b><span class="uline">Hinweis:</span> Wenn bereits eine Datei mit dem Namen <var>sNewName</var> vorhanden ist, wird sie ersetzt!</b></p>
+              <p>Wenn es gelingt, gibt die Funktion <code>true</code> zurück.</p>
+              <p>Wenn es fehlschlägt, gibt die Funktion drei Dinge zurück:</p>
+              <ol>
+                <li><code>nil</code>, um das Fehlschlagen anzuzeigen</li>
+                <li><var>sError</var> für die Beschreibung der Fehlermeldung</li>
+                <li><var>iError</var> für die Nummer des Fehlercodes</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_getenv">os.getenv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Value = os.getenv(VariableName)</p>
+              <p>Gibt den <var>Value</var> der als Parameter übergebenen Variablen <var>VariableName</var> zurück.<br>Wenn keine Variable dieses Namens vorhanden ist, wird <code>nil</code> zurückgegeben.</p></td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_setenv">os.setenv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">os.setenv(VariableName, Value)</p>
+              <p>Fügt die Umgebungsvariable <var>VariableName</var> hinzu oder ändert sie. Im Fehlerfall gibt die Funktion -1 zurück.</p></td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="os_unsetenv">os.unsetenv</a></div></td>
+            <td class="hintcell">
+              <p class="definition">os.unsetenv(VariableName)</p>
+              <p>Entfernt die Umgebungsvariable <var>VariableName</var>. Im Fehlerfall gibt die Funktion -1 zurück.</p></td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="index">4. Index</a></h2>
+        <table class="index">
+          <tr>
+            <td class="indexcell">
+              <p><span class="bold"><a href="#libdc">DC-Bibliothek</a></span></p>
+              <p>
+                <a href="#dc_currentpanel">DC.CurrentPanel</a><br>
+                <a href="#dc_executecommand">DC.ExecuteCommand</a><br>
+                <a href="#dc_expandvar">DC.ExpandVar</a><br>
+                <a href="#dc_getpluginfield">DC.GetPluginField</a><br>
+                <a href="#dc_gotofile">DC.GoToFile</a><br>
+                <a href="#dc_logwrite">DC.LogWrite</a>
+              </p>
+              <br>
+              <p><span class="bold"><a href="#librarysystem">Systembibliothek</a></span></p>
+              <p>
+                <a href="#sysutils_createdirectory">SysUtils.CreateDirectory</a><br>
+                <a href="#sysutils_createhardlink">SysUtils.CreateHardLink</a><br>
+                <a href="#sysutils_createsymboliclink">SysUtils.CreateSymbolicLink</a><br>
+                <a href="#sysutils_directoryexists">SysUtils.DirectoryExists</a><br>
+                <a href="#sysutils_execute">SysUtils.Execute</a><br>
+                <a href="#sysutils_expandenv">SysUtils.ExpandEnv</a><br>
+                <a href="#sysutils_extractfiledir">SysUtils.ExtractFileDir</a><br>
+                <a href="#sysutils_extractfiledrive">SysUtils.ExtractFileDrive</a><br>
+                <a href="#sysutils_extractfileext">SysUtils.ExtractFileExt</a><br>
+                <a href="#sysutils_extractfilename">SysUtils.ExtractFileName</a><br>
+                <a href="#sysutils_extractfilepath">SysUtils.ExtractFilePath</a><br>
+                <a href="#sysutils_fileexists">SysUtils.FileExists</a><br>
+                <a href="#sysutils_filegetattr">SysUtils.FileGetAttr</a><br>
+                <a href="#sysutils_filesettime">SysUtils.FileSetTime</a><br>
+                <a href="#sysutils_findclose">SysUtils.FindClose</a><br>
+                <a href="#sysutils_findfirst">SysUtils.FindFirst</a><br>
+                <a href="#sysutils_findnext">SysUtils.FindNext</a><br>
+                <a href="#sysutils_getabsolutepath">SysUtils.GetAbsolutePath</a><br>
+                <a href="#sysutils_getfileproperty">SysUtils.GetFileProperty</a><br>
+                <a href="#sysutils_getrelativepath">SysUtils.GetRelativePath</a><br>
+                <a href="#sysutils_gettempname">SysUtils.GetTempName</a><br>
+                <a href="#sysutils_gettickcount">SysUtils.GetTickCount</a><br>
+                <a href="#sysutils_matchesmask">SysUtils.MatchesMask</a><br>
+                <a href="#sysutils_matchesmasklist">SysUtils.MatchesMaskList</a><br>
+                <a href="#sysutils_pathdelim">SysUtils.PathDelim</a><br>
+                <a href="#sysutils_readsymboliclink">SysUtils.ReadSymbolicLink</a><br>
+                <a href="#sysutils_removedirectory">SysUtils.RemoveDirectory</a><br>
+                <a href="#sysutils_sleep">SysUtils.Sleep</a>
+              </p>
+              <br>
+            </td>
+            <td class="indexcell">
+              <p><span class="bold"><a href="#libraryclip">Zwischenablage-Bibliothek</a></span></p>
+              <p>
+                <a href="#clipbrd_clear">Clipbrd.Clear</a><br>
+                <a href="#clipbrd_getastext">Clipbrd.GetAsText</a><br>
+                <a href="#clipbrd_setashtml">Clipbrd.SetAsHtml</a><br>
+                <a href="#clipbrd_setastext">Clipbrd.SetAsText</a>
+              </p>
+              <br>
+              <p><span class="bold"><a href="#librarydialogs">Dialogbibliothek</a></span></p>
+              <p>
+                <a href="#dialogs_inputlistbox">Dialogs.InputListBox</a><br>
+                <a href="#dialogs_inputquery">Dialogs.InputQuery</a><br>
+                <a href="#dialogs_messagebox">Dialogs.MessageBox</a>
+              </p>
+              <br>
+              <p><span class="bold"><a href="#libraryutf8">UTF-8-Bibliothek</a></span></p>
+              <p>
+                <a href="#lazutf8_convertencoding">LazUtf8.ConvertEncoding</a><br>
+                <a href="#lazutf8_copy">LazUtf8.Copy</a><br>
+                <a href="#lazutf8_detectencoding">LazUtf8.DetectEncoding</a><br>
+                <a href="#lazutf8_length">LazUtf8.Length</a><br>
+                <a href="#lazutf8_lowercase">LazUtf8.LowerCase</a><br>
+                <a href="#lazutf8_next">LazUtf8.Next</a><br>
+                <a href="#lazutf8_pos">LazUtf8.Pos</a><br>
+                <a href="#lazutf8_uppercase">LazUtf8.UpperCase</a>
+              </p>
+              <br>
+              <p><span class="bold"><a href="#librarychar">Zeichenbibliothek</a></span></p>
+              <p>
+                <a href="#char_getunicodecategory">Char.GetUnicodeCategory</a><br>
+                <a href="#char_isdigit">Char.IsDigit</a><br>
+                <a href="#char_isletter">Char.IsLetter</a><br>
+                <a href="#char_isletterordigit">Char.IsLetterOrDigit</a><br>
+                <a href="#char_islower">Char.IsLower</a><br>
+                <a href="#char_isupper">Char.IsUpper</a>
+              </p>
+              <br>
+            </td>
+            <td class="indexcell">
+              <p><span class="bold"><a href="#libraryos">Betriebssystembibliothek</a></span></p>
+              <p>
+                <a href="#os_execute">os.execute</a><br>
+                <a href="#os_getenv">os.getenv</a><br>
+                <a href="#os_remove">os.remove</a><br>
+                <a href="#os_rename">os.rename</a><br>
+                <a href="#os_setenv">os.setenv</a><br>
+                <a href="#os_tmpname">os.tmpname</a><br>
+                <a href="#os_unsetenv">os.unsetenv</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(nach oben)</a></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Vorherige Seite" href="regexp.html">Zurück</a> | <a title="Nächste Seite" href="commandline.html">Weiter</a></div></div>
+    <div class="checker">
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Gültiges HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS gültig!"></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>
+
